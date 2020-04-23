@@ -13,6 +13,24 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+## What is software testing?
+
+### Why is testing important?
+
+### Types of automated tests
+
+
+## Create unit tests to verify correct behaviour
+
+
+## Parameterise tests to run over many test cases
+
+
+## Automate running our tests using continuous integration
+
+
+## Limits to testing
+
 
 {% include links.md %}

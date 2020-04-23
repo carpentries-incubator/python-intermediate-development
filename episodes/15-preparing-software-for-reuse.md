@@ -12,6 +12,16 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+## Verifying code style using linters
+
+
+## Documenting code for reuse
+
+### Minimum documentation to aim for
+
+### Creating a README
+
+
 
 {% include links.md %}
