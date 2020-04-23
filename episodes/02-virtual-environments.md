@@ -16,7 +16,6 @@ keypoints:
 - "Use `pip freeze` to take snapshot of your project's dependencies."
 - "Use `pip -r requirements.txt` to replicate the virtual environment."
 ---
-# Virtual Environments For Software Development
 ## Managing Python Packages Using Pip
 ## Virtual Environments
 ## Creating a Python Virtual Environment
