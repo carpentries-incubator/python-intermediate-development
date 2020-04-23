@@ -1,5 +1,5 @@
 ---
-title: "Introduction - Day 1"
+title: "Lunch - Day 2"
 teaching: 0
 exercises: 0
 questions:
