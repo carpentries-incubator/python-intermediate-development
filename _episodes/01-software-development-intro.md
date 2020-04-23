@@ -17,7 +17,6 @@ keypoints:
 - "MVC is a software design architecture commonly used for developing software projects which divides the application into three interconnected modules: Model (data), View (user interface), and Controller (input/output and data manipulation)."
 - "Template repository to be used throughout this workshop is an example of an MVC application that manipulates patients’ inflammation data and performs basic statistical analysis using Python."
 ---
-# Introduction to Software Design and Development
 ## Programming Modules and Interfaces
 ## Model-View-Controller (MVC) Design Architecture
 ## Our Software Project's Template
