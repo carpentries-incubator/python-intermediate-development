@@ -30,6 +30,24 @@ keypoints:
 - Embedded
 
 
+## Multi-layer Architectures
+
+### MVC Revisted
+
+- Emphasise following the spirit, not the letter
+- Many similar alternatives, what we have have here is actually closer to MVVM
+
+### The Persistence Layer
+
+- Databases
+- ORM
+
+
+## Software Systems
+
+- How should software interact with users?
+- How should software interact with other software?
+   - Piping in and out
 
 
 {% include links.md %}
