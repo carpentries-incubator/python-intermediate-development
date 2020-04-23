@@ -12,6 +12,20 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+## Common faults in software
+
+
+## Finding issues using a debugger
+
+
+## Catching program faults using error handling
+
+
+## Defensive programming to avoid potential errors
+
+
+## Using code coverage for better unit testing
+
 
 {% include links.md %}
