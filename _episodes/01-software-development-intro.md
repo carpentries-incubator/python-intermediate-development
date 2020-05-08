@@ -102,18 +102,17 @@ To obtain the template repository:
 {: .challenge}       
 
 Let’s inspect the template repository containing the project in more detail. In the shell from the project directory do `$ls -l`. You should see something similar to the following.
-```
-    $ pwd
-    /Users/alex/work/swc-intermediate-template
-    $ls -l
-    total 24
-    -rw-r--r--   1 alex  staff   253 20 Apr 15:41 Makefile
-    -rw-r--r--   1 alex  staff  1055 20 Apr 15:41 README.md
-    drwxr-xr-x  18 alex  staff   576 20 Apr 15:41 data
-    drwxr-xr-x   5 alex  staff   160 20 Apr 15:41 inflammation
-    -rw-r--r--   1 alex  staff  1122 20 Apr 15:41 patientdb.py
-    drwxr-xr-x   4 alex  staff   128 20 Apr 15:41 tests
-```
+~~~
+$ls -la
+total 24
+-rw-r--r--   1 user  staff   253 20 Apr 15:41 Makefile
+-rw-r--r--   1 user  staff  1055 20 Apr 15:41 README.md
+drwxr-xr-x  18 user  staff   576 20 Apr 15:41 data
+drwxr-xr-x   5 user  staff   160 20 Apr 15:41 inflammation
+-rw-r--r--   1 user  staff  1122 20 Apr 15:41 patientdb.py
+drwxr-xr-x   4 user  staff   128 20 Apr 15:41 tests
+~~~
+{: .language-bash}
 
 As already mentioned, the template software project has the MVC architecture. Directory inflammation contains the View 
 and Model modules in files `view.py` and `model.py`, respectively. Data underlying the Model is contained within 
