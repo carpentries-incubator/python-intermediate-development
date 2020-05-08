@@ -13,7 +13,8 @@ objectives:
 - "Use git to obtain a working copy of our template software project"
 
 keypoints:
-- "Programming interfaces define how individual modules within a software application interact among themselves (as well as how the application itself interacts with its users as it is simply one big module containing smaller sub-modules)."
+- "Programming interfaces define how individual modules within a software application interact among themselves 
+(this is also how the application itself interacts with its users as the application is simply one big module composed of smaller sub-modules)."
 - "MVC is a software design architecture commonly used for developing software projects which divides the application into three interconnected modules: Model (data), View (user interface), and Controller (input/output and data manipulation)."
 - "Template repository to be used throughout this workshop is an example of an MVC application that manipulates patients’ inflammation data and performs basic statistical analysis using Python."
 ---
@@ -75,11 +76,11 @@ The three parts of MVC architecture are interconnected as shown in diagram below
 >
 {: .callout}
 ## Our Software Project's Template
-For the purposes of this lesson and the rest of the workshop, we will be using the following template repository (https://github.com/softwaresaved/swc-intermediate-template) located in GitHub. It contains an unfinished software project in Python that is designed using the MVC principles. The project studies inflammation in patients who have been given a new treatment for arthritis and reuses the inflammation dataset from the novice Software Carpentry Python lesson (https://swcarpentry.github.io/python-novice-inflammation/index.html). We will be building on top of this project during this workshop.
+For the purposes of this lesson and the rest of the workshop, we will be using the following [template repository](https://github.com/softwaresaved/swc-intermediate-template) located in GitHub. It contains an unfinished software project in Python that is designed using the MVC principles. The project studies inflammation in patients who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). We will be building on top of this project during this workshop.
 
 To obtain the template repository:
 
-1. Log into your GitHub account and go to the template repository URL (https://github.com/softwaresaved/swc-intermediate-template).
+1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/swc-intermediate-template).
 2. Click ‘Use this template’ button towards the top right of the template repository's GitHub page.
 3. This will create a copy (not the fork!) of the repository under your GitHub account.
 4. Locate the copied repository under your GitHub account.
