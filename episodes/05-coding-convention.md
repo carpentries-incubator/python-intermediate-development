@@ -16,7 +16,8 @@ keypoints:
 - "Linters are tools used to ensure code conforms to coding conventions and styles and are often parts of IDEs."
 ---
 ## Best Practices and Guidelines For Python Software Development
-
+Now that we have an IDE, have our virtual development environment set and know how to manage packages, we are all set to start
+writing some code. Before we dive into it, it is worth spending some time learning some `Python` coding conventions. 
 
 {% include links.md %}
 
