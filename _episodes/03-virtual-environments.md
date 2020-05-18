@@ -111,7 +111,7 @@ While there are pros and cons for using each of the above, they all will do the 
 virtual environments for you and it may be a matter of personal preference which one you go for. 
 For the purposes of this workshop, we will continue to use `conda` to manage our virtual environment. 
 
-> ## Anaconda and Conda
+> ## Anaconda vs. Conda
 Anaconda is a Python distribution commonly used for scientific programming - it conveniently installs Python and a 
 number of commonly used scientific computing packages. `conda` (that comes with Anaconda distribution) is a tool with 
 dual functionality - (1) it serves as an open source package management system that helps you find Python packages from a 
@@ -128,7 +128,7 @@ where `myenv` is the name of the environment you are creating.
 
 To create an environment with a specific version of Python:
 ~~~
-$conda create -n myenv python=3.6
+$conda create -n myenv python=3.7
 ~~~
 {: .language-bash}
 

@@ -118,13 +118,14 @@ various Python distributions and versions installed on your system so you have t
 want to use. To do this:
 
 - Select either `PyCharm` > `Preferences` (MacOS) or `File` > `Settings` (Linux)
-- Then, in the preferences window that appears, select `Project: code` > `Project Interpreter` from the left. You'll 
+- Then, in the preferences window that appears, select `Project: swc-intermediate-template` > 
+`Project Interpreter` from the left. You'll 
 see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is 
 being used. This is likely the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7` 
-or `Python 3.6 /usr/bin/python3.6`, which we don't want to use.
+or `Python 3.7 /usr/bin/python3.7`, which we don't want to use.
 - Select the cog-like button in the top right, then `Add ...`. An `Add Python Interpreter` window will appear.
 - Select `Conda Environment` from the list on the left so it will use Anaconda, and ensure that `New environment` is 
-selected. Enter `/home/sabs-r3/anaconda/envs/code` in the `Location` field, then select 
+selected. Enter `/Users/swc/anaconda/envs/patient` in the `Location` field, then select 
 `Make available to all projects` so we can use it with other projects later.
 - Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should see 
 `Python 3.7 (code)` or similar in the `Project Interpreter` window.
@@ -139,7 +140,7 @@ Now we've told PyCharm about the new interpreter, we can configure it for our pr
 - Select `+` from the top left to add a configuration, selecting `Python` from the drop down list. You should see 
 `Python 3.7 (code)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder 
 button and find and select `patientdb.py`. This tells PyCharm which script to run. 
-You can even give this configuration a name if you like - let's name is `patient`.
+You can even give this configuration a name if you like - let's name it `patient`.
 - Select `OK` to confirm these settings.
 
 > ## Virtual Environments
@@ -156,7 +157,7 @@ Right-click the `patientdb.py` file in the PyCharm project/file navigator on the
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
-/usr/bin/python /Users/user/swc-intermediate-template/patientdb.py
+/usr/bin/python /Users/swc/swc-intermediate-template/patientdb.py
 usage: patientdb.py [-h] infiles [infiles ...]
 patientdb.py: error: too few arguments
 
@@ -165,8 +166,8 @@ Process finished with exit code 2
 {: .output}
 
 Here, we can see that a new shell has been created that uses the Anaconda interpreter 
-`/Users/user/.conda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our 
-script located at `/Users/user/swc-intermediate-template/patientdb.py`. The script is currently throwing an error - 
+`/Users/swc/.conda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our 
+script located at `/Users/swc/swc-intermediate-template/patientdb.py`. The script is currently throwing an error - 
 `patientdb.py: error: too few arguments`. Do not worry about it for now, we will learn how to fix the errors and write test 
 to detect errors over the course of the workshop.
 
