@@ -119,7 +119,7 @@ While there are pros and cons for using each of the above, they all will do the 
 virtual environments for you and it may be a matter of personal preference which one you go for. 
 For the purposes of this workshop, we will continue to use `conda` to manage our virtual environment for now. 
 
-> ## Anaconda and Conda
+> ## Anaconda and `conda`
 Anaconda is a Python distribution commonly used for scientific programming - it conveniently installs Python and a 
 number of commonly used scientific computing packages. `conda` (that comes with Anaconda distribution) is a tool with 
 dual functionality - (1) it serves as an open source package management system that helps you find Python packages from a 
@@ -316,9 +316,9 @@ $pip install -r requirements.txt
 ~~~        
 {: .language-bash}    
 
-> ## Conda and Pip
+> ## `conda` and `pip`
 A vast majority of people are using standard Python distribution and use `pip`, `venv` and `requirements.txt` to manage 
-and share their project's dependencies, respectively. Advantages of using Anaconda and `conda` are that you get all the 
+and share their project's dependencies. Advantages of using Anaconda and `conda` are that you get all the 
 packages needed for scientific code development included with the distribution. If you are only collaborating with 
 others who are also using Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be 
 aware of all these tools, and use them appropriately. We will revisit this topic once again before the end of the 
