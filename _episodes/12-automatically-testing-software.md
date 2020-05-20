@@ -147,16 +147,22 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. FIXME: yapf comment?
+Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions.
 
-FIXME: explain yapf directives, 
+> ## What about the comments that refer to Yapf?
+>
+> You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked into coding style in the last lesson, and Yapf is a command-line tool that reformats your code according to a given coding style. These *directives* inform Yapf that we don't wish to have this line reformatted, just to maintain clarity. We'll be looking into using Yapf later.
+>
+{: .callout}
 
-We can run these tests using `pytest` (FIXME: intro to PyTest):
+Each of these test functions are called *test cases*. We can run these test cases using a Python package called `pytest`. FIXME: add intro to PyTest
 
 ~~~
 $ python -m pytest tests/test_stats.py
 ~~~
 {: .language-bash}
+
+Here, we use the `-m` argument to Python to tell it to run a Python module, in this case `pytest`, on the specified `test_stats.py` file.
 
 ~~~
 ============================= test session starts ==============================
@@ -170,22 +176,115 @@ tests/test_stats.py ..                                                   [100%]
 ~~~
 {: .output}
 
+PyTest looks for functions whose names also start with the letters 'test_' and runs each one. Notice the `..` after our test script:
+
+- If the function completes without an assertion being triggered, we count the test as a success (indicated as `.`).
+- If an assertion fails, or we encounter an error, we count the test as a failure (indicated as `F`). The error is included in the output so we can see what went wrong.
+
+So if we have many tests, we essentially get a report indicating which tests succeeded or failed.
+
+### Preparing to write tests
+
+Let's write some of our own tests. A common term we use to refer to sets of tests is a `test suite`.
+
+Before we do, however, let's create a new feature branch called `test-suite` that we'll use for our initial test writing work:
+
+~~~
+$ git branch test-suite
+$ git checkout test-suite
+~~~
+{: .language-bash}
+
+Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
+
+Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `dev`.
+
 > ## Write some unit tests
+>
+> We already have a couple of test cases in our script that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions. Try to choose cases that are suitably different.
 >
 > > ## Solution
 > > 
+> > ~~~
+> > function test_daily_max_()
 > {: .solution}   
 >
 {: .challenge}    
 
+The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn’t break any existing functionality.
+
+FIXME: add testing exceptions
 
 ## Parameterise tests to run over many test cases
 
+We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can *parameterize* the tests:
+
+~~~
+
+
+~~~
+{: .language-python}
+
+FIXME: introduce fixtures and marking expected failures (@pytest.mark.xfail(msg)) if space allows?
+FIXME: add custom attributes to group tests (@pytest.mark.slow), e.g. into slow
+
+Let's commit our new test cases to our `test-suite` branch:
+
+~~~
+$ git add tests/test_stats.py
+$ git commit -m "Add initial test cases for daily_max() and daily_min()" tests/test_stats.py
+~~~
+{: .language-bash}
+
+## Using code coverage to understand how much of our code is tested
+
+Pytest can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there’s probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it’s hard to think of a bug that would show up in one case but not in the other.
+
+Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*.
+
+A simple way to check the code coverage for a set of tests is to use nose to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by PyTest and using that, we can find this out:
+
+~~~
+$ pip install pytest-cov
+$ python -m pytest --cov=inflammation.models tests/test_stats.py inflammation
+~~~
+{: .language-bash}
+
+So here, we specify as arguments:
+
+- `--cov=inflammation.models` - the code to analyse for test coverage
+- `tests/test_stats.py` - the script with the tests we wish to run, as before
+- `inflammation` - the 
+
+~~~
+================================== test session starts ==================================
+platform darwin -- Python 3.7.7, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+plugins: cov-2.8.1
+collected 2 items                                                                       
+
+tests/test_stats.py ..                                                            [100%]
+
+---------- coverage: platform darwin, python 3.7.7-final-0 -----------
+Name                     Stmts   Miss  Cover
+--------------------------------------------
+inflammation/models.py       9      3    67%
+
+
+=================================== 2 passed in 0.11s ===================================
+~~~
+{: .output}
+
+FIXME: discuss output meaning
 
 ## Automate running our tests using continuous integration
 
 
+
 ## Limits to testing
 
+Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn’t need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does.
+
+FIXME: more on limitations/cons: concerns about diverting effort away from new features, and the need to supplement automated testing with manual testing. Pros: potential economic savings as code becomes more complex to understand. Increased confidence in results, for yourselves and others.
 
 {% include links.md %}
