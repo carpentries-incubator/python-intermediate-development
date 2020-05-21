@@ -16,6 +16,8 @@ keypoints:
 
 FIXME: add lead-in from collaborative software development
 
+FIXME: add setup.py to template, change to using pytest on command line - might be needed for Travis?
+
 In this episode we'll look into techniques of developing robust code and testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
@@ -48,7 +50,7 @@ Test results must also be reliable. If a testing tool says that code is working 
 There are three main types of automated tests:
 
 - *Unit tests* are tests for fairly small and specific units of functionality, e.g. determining that a particular function returns output as expected given specific inputs.
-- *Functional or integration tests* work at a higher level, and test entire functional paths through your code, e.g. given a specific set of initial parameters and input data, the software as a whole produces the correct results. These are particularly useful for exposing faults in how functional units interact.
+- *Functional or integration tests* work at a higher level, and test functional paths through your code, e.g. given some specific inputs a set of interconnected functions across a number of modules produce the expected result. These are particularly useful for exposing faults in how functional units interact.
 - *Regression tests* make sure that your program's output hasn't changed, for example after making changes your code to add new functionality or fix a bug.
 
 For the purposes of this course, we'll focus on unit tests. But the principles and practices we'll talk about can be built on and applied to the other types of tests too.
@@ -162,7 +164,7 @@ $ python -m pytest tests/test_stats.py
 ~~~
 {: .language-bash}
 
-Here, we use the `-m` argument to Python to tell it to run a Python module, in this case `pytest`, on the specified `test_stats.py` file.
+Here, we can use the `-m` argument to Python to tell it to run a Python module, in this case `pytest`, on the specified `test_stats.py` file.
 
 ~~~
 ============================= test session starts ==============================
@@ -217,18 +219,23 @@ FIXME: add testing exceptions
 
 ## Parameterise tests to run over many test cases
 
-We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can *parameterize* the tests:
+We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can *parameterize* the tests with multiple test inputs. For example, we could rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
+@pytest.mark.parameterize(
+    "test, expected", 
+    [[[0, 0], [0, 0], [0, 0]], [0, 0]],
+    [[1, 2], [3, 4], [5, 6]], [3, 4]]])
 
 
 ~~~
 {: .language-python}
 
 FIXME: introduce fixtures and marking expected failures (@pytest.mark.xfail(msg)) if space allows?
+
 FIXME: add custom attributes to group tests (@pytest.mark.slow), e.g. into slow
 
-Let's commit our new test cases to our `test-suite` branch:
+Let's commit our new test cases to our `test-suite` branch (but don't push it yet!):
 
 ~~~
 $ git add tests/test_stats.py
@@ -254,7 +261,7 @@ So here, we specify as arguments:
 
 - `--cov=inflammation.models` - the code to analyse for test coverage
 - `tests/test_stats.py` - the script with the tests we wish to run, as before
-- `inflammation` - the 
+- `inflammation` - the location of the Python files being tested
 
 ~~~
 ================================== test session starts ==================================
@@ -279,7 +286,64 @@ FIXME: discuss output meaning
 
 ## Automate running our tests using continuous integration
 
+So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected.
 
+However, this is only taking into account the state of the repository we have on our own machines. In a software project involving multiple developers working and pushing changes on a repository, it would be great to know holistically how all these changes are affecting our codebase without everyone having to pull down all the changes and test them. If we also take into account the testing required on different target user plaforms for our software and the changes being made to many repository branches, the effort required to conduct testing at this scale can quickly become intractable for a research project to sustain.
+
+Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes the process more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
+
+### Configuring our repository for continuous integration
+
+We'll be using Travis-CI, a free continuous integration service. The first thing we need to do is let Travis install its GitHub App to GitHub:
+
+1. Log into [https://travis-ci.com/]() with your GitHub account
+2. Select your profile picture in the top right and select 'Activate & Migrate' under 'GitHub Apps Integration'
+3. From the permissions window, select 'Only select repositories', and add the `swc-intermediate-template` repository
+4. Select `Approve and install` to install the Travis application to GitHub
+
+FIXME: add screenshot of permissions dialogue
+
+Once we've done this, all we need to do now is add a `.travis.yml` file to the root of the repository, commit, and push it. For example:
+
+~~~
+language: python
+
+python:
+    - "3.7"
+
+script:
+    - python -m pytest tests/test_stats.py
+~~~
+{: .language-bash}
+
+Here, we are informing Travis that the software assumes a Python 3.7 environment (which will be built and provided for the CI run), and the script to execute. We already have our software dependencies in our `requirements.txt` file, and Travis will automatically use this to install these dependencies prior to running the script command.
+
+### Triggering a build on Travis
+
+Since we know that once a change is committed Travis will attempt to run a build, if we commit this file that will trigger a CI run:
+
+~~~
+$ git add .travis.yml
+$ git commit -m "Add Travis CI configuration" .travis.yml
+$ git push
+~~~
+{: .language-bash}
+
+Since we are only committing the Travis configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used by Travis. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches.
+
+### Checking build progress and reports
+
+Handily, we can see the progress of the Travis build be selecting `branches` from our repository on GitHub.
+
+FIXME: add screenshot of branches page with build in progress
+
+You'll see (under `Overview`) a list of information about the repo branches, and likely see an orange marker next to the `test-suite` branch (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress.
+
+Hopefully, the marker wil turn green, and selecting it gives you even more information about the build. Selecting `The build` link takes you to Travis CI which will show you a complete log of the build and its output. The logs are actually truncated; selecting the grey arrows next to line numbers will expand them with more detail (such as output from running commands).
+
+FIXME: add screenshot of Travis build log
+
+FIXME: add something about limitations to free use of Travis
 
 ## Limits to testing
 
