@@ -55,7 +55,7 @@ Here, we are informing Travis that the software assumes a Python 3.7 environment
 
 ### Triggering a build on Travis
 
-Since we know that once a commit is pushed Travis will attempt to run a build, if we commit this file and push all our recent commits that will trigger a CI run:
+Since we know that once a commit is pushed Travis will attempt to run a build, so if we commit and push this change a CI run will be triggered:
 
 ~~~
 $ git add .travis.yml
