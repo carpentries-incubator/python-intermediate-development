@@ -327,11 +327,7 @@ $ pytest --cov=inflammation.models tests/test_stats.py
 ~~~
 {: .language-bash}
 
-So here, we specify as arguments:
-
-- `--cov=inflammation.models` - the code to analyse for test coverage
-- `tests/test_stats.py` - the script with the tests we wish to run, as before
-- `inflammation` - the location of the Python files being tested
+So here, we specify the additional named argument `--cov` to PyTest specifying the code to analyse for test coverage.
 
 ~~~
 ============================= test session starts ==============================
@@ -365,6 +361,7 @@ We should also update our `requirements.txt` file with our latest package enviro
 $ pip freeze > requirements.txt
 $ git add requirements.txt
 $ git commit -m "Update with py-cov" requirements.txt
+$ git push
 ~~~
 {: .language-bash}
 
