@@ -14,11 +14,9 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
-FIXME: add lead-in from collaborative software development
+FIXME: add setup.py directly to repo?
 
-FIXME: add setup.py to template, change to using pytest on command line - might be needed for Travis?
-
-In this episode we'll look into techniques of developing robust code and testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
+So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
 
@@ -34,19 +32,6 @@ For the sake of argument, if each line we write has a 99% chance of being right,
 
 We can test manually (FIXME: add something on manual testing, and its limitations: prone to error, time consuming, etc. Add something about test plans?). Another style of testing is automated testing. We can write code as `unit tests` that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this.
 
-### How do we want from testing?
-
-Most people don’t enjoy writing tests, so if we want them to actually do it, it must be easy to:
-
-- Add or change tests,
-- Understand the tests that have already been written,
-- Run those tests, and
-- Understand those tests’ results
-
-Test results must also be reliable. If a testing tool says that code is working when it’s not, or reports problems when there actually aren’t any, people will lose faith in it and stop using it.
-
-### Types of automated tests
-
 There are three main types of automated tests:
 
 - *Unit tests* are tests for fairly small and specific units of functionality, e.g. determining that a particular function returns output as expected given specific inputs.
@@ -59,7 +44,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 FIXME: introduce these here?
 
-## Create unit tests to verify correct behaviour
+## Writing tests to verify correct behaviour
 
 As an example, we'll start by testing our code directly using `assert`. Here, we call the function three times with different arguments, checking that a certain value is returned each time:
 
@@ -110,9 +95,18 @@ assert np.array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
 ~~~
 {: .language-python}
 
-Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure our tests also are correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
+Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure our tests are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
 
-Here's a different approach. Look at `tests/test_stats.py`:
+Most people don’t enjoy writing tests, so if we want them to actually do it, it must be easy to:
+
+- Add or change tests,
+- Understand the tests that have already been written,
+- Run those tests, and
+- Understand those tests’ results
+
+Test results must also be reliable. If a testing tool says that code is working when it’s not, or reports problems when there actually aren’t any, people will lose faith in it and stop using it.
+
+Keeping these things in mind, here's a different approach. Look at `tests/test_stats.py`:
 
 ~~~
 """Tests for statistics functions within the Model layer."""
@@ -149,7 +143,7 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions.
+Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. So, reasonably easy to understand, and it appears easy to add new ones.
 
 > ## What about the comments that refer to Yapf?
 >
@@ -157,10 +151,14 @@ Here, we have specified our zero and positive integer tests as separate function
 >
 {: .callout}
 
-Each of these test functions are called *test cases*. We can run these test cases using a Python package called `pytest`. FIXME: add intro to PyTest
+Each of these test functions are called *test cases*.
+
+Going back to our list of requirements, how easy is it to run them? We can do this using a Python package called `pytest`.
+
+FIXME: add intro to PyTest
 
 ~~~
-$ python -m pytest tests/test_stats.py
+$ pytest tests/test_stats.py
 ~~~
 {: .language-bash}
 
@@ -183,9 +181,9 @@ PyTest looks for functions whose names also start with the letters 'test_' and r
 - If the function completes without an assertion being triggered, we count the test as a success (indicated as `.`).
 - If an assertion fails, or we encounter an error, we count the test as a failure (indicated as `F`). The error is included in the output so we can see what went wrong.
 
-So if we have many tests, we essentially get a report indicating which tests succeeded or failed.
+So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, are these results easy to understand?
 
-### Preparing to write tests
+### Preparing to write unit tests
 
 Let's write some of our own tests. A common term we use to refer to sets of tests is a `test suite`.
 
@@ -208,7 +206,28 @@ Once we've finished writing these tests and are convinced they work properly, we
 > > ## Solution
 > > 
 > > ~~~
-> > function test_daily_max_()
+> > function test_daily_max():
+> >     """Test that max function works for an array of positive integers."""
+> >     from inflammation.models import daily_mean
+> > 
+> >     test_array = np.array([[4, 2, 5],
+> >                            [1, 6, 2],
+> >                            [4, 1, 9]])  # yapf: disable
+> > 
+> >     # Need to use Numpy testing functions to compare arrays
+> >     npt.assert_array_equal(np.array([4, 6, 9]), daily_max(test_array))
+> > 
+> > function test_daily_min():
+> >     """Test that min function works for an array of positive and negative integers."""
+> >     from inflammation.models import daily_mean
+> > 
+> >     test_array = np.array([[ 4, -2, 5],
+> >                            [ 1, -6, 2],
+> >                            [-4, -1, 9]])  # yapf: disable
+> > 
+> >     # Need to use Numpy testing functions to compare arrays
+> >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
+> > ~~~
 > {: .solution}   
 >
 {: .challenge}    
@@ -226,14 +245,51 @@ We're starting to build up a number of tests that test the same function, but ju
     "test, expected", 
     [[[0, 0], [0, 0], [0, 0]], [0, 0]],
     [[1, 2], [3, 4], [5, 6]], [3, 4]]])
-
-
+def test_daily_mean(test, expected):
+    """Test mean function works for array of zeroes and positive integers."""
+    from inflammation.models import daily_mean
+    npt.assert_array_equal(np.array(expected), daily_mean(np.array(test)))
 ~~~
 {: .language-python}
 
+> ## Write parameterised unit tests
+>
+> Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in some more test cases.
+>
+> > ## Solution
+> > @pytest.mark.parametrize(
+> >     "test, expected",
+> >     [
+> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
+> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [4, 6, 9]),
+> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [4, -1, 9]),
+> >     ])
+> > def test_daily_max(test, expected):
+> >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
+> >     from inflammation.models import daily_max
+> >     npt.assert_array_equal(np.array(expected), daily_max(np.array(test)))
+> > 
+> > @pytest.mark.parametrize(
+> >     "test, expected",
+> >     [
+> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
+> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [1, 1, 2]),
+> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [-4, -6, 2]),
+> >     ])
+> > def test_daily_min(test, expected):
+> >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
+> >     from inflammation.models import daily_min
+> >     npt.assert_array_equal(np.array(expected), daily_min(np.array(test)))
+> > ~~~
+> > function test_daily_max()
+> {: .solution}   
+>
+{: .challenge}    
+
+
 FIXME: introduce fixtures and marking expected failures (@pytest.mark.xfail(msg)) if space allows?
 
-FIXME: add custom attributes to group tests (@pytest.mark.slow), e.g. into slow
+FIXME: add custom attributes to group tests (@pytest.mark.slow, e.g. into slow)
 
 Let's commit our new test cases to our `test-suite` branch (but don't push it yet!):
 
@@ -253,7 +309,7 @@ A simple way to check the code coverage for a set of tests is to use nose to tel
 
 ~~~
 $ pip install pytest-cov
-$ python -m pytest --cov=inflammation.models tests/test_stats.py inflammation
+$ pytest --cov=inflammation.models tests/test_stats.py
 ~~~
 {: .language-bash}
 
@@ -264,25 +320,39 @@ So here, we specify as arguments:
 - `inflammation` - the location of the Python files being tested
 
 ~~~
-================================== test session starts ==================================
-platform darwin -- Python 3.7.7, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
-plugins: cov-2.8.1
-collected 2 items                                                                       
+============================= test session starts ==============================
+platform darwin -- Python 3.8.3, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-test2
+plugins: cov-2.9.0
+collected 8 items                                                              
 
-tests/test_stats.py ..                                                            [100%]
+tests/test_stats.py ........                                             [100%]
 
----------- coverage: platform darwin, python 3.7.7-final-0 -----------
+---------- coverage: platform darwin, python 3.8.3-final-0 -----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
-inflammation/models.py       9      3    67%
+inflammation/models.py       9      1    89%
 
 
-=================================== 2 passed in 0.11s ===================================
+============================== 8 passed in 0.17s ===============================
+
 ~~~
 {: .output}
 
-FIXME: discuss output meaning
+Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But there's still one not being tested in `load_csv()`. So, here we should consider whether or not to write a test for this function, and indeed any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered, it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
+
+~~~
+~~~
+{: .language-python}
+
+We should also update our `requirements.txt` file with our latest package environment, which now includes `pytest-cov`, and commit it:
+
+~~~
+$ pip freeze > requirements.txt
+$ git add requirements.txt
+$ git commit -m "Update with py-cov" requirements.txt
+~~~
+{: .language-bash}
 
 ## Automate running our tests using continuous integration
 
@@ -311,8 +381,12 @@ language: python
 python:
     - "3.7"
 
+install:
+    - pip install -r requirements.txt
+    - pip install -e .
+
 script:
-    - python -m pytest tests/test_stats.py
+    - pytest --cov=inflammation.models tests/test_stats.py
 ~~~
 {: .language-bash}
 
@@ -320,7 +394,7 @@ Here, we are informing Travis that the software assumes a Python 3.7 environment
 
 ### Triggering a build on Travis
 
-Since we know that once a change is committed Travis will attempt to run a build, if we commit this file that will trigger a CI run:
+Since we know that once a commit is pushed Travis will attempt to run a build, if we commit this file and push all our recent commits that will trigger a CI run:
 
 ~~~
 $ git add .travis.yml
@@ -333,17 +407,18 @@ Since we are only committing the Travis configuration file to the `test-suite` b
 
 ### Checking build progress and reports
 
-Handily, we can see the progress of the Travis build be selecting `branches` from our repository on GitHub.
+Handily, we can see the progress of the Travis build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
 
 FIXME: add screenshot of branches page with build in progress
 
-You'll see (under `Overview`) a list of information about the repo branches, and likely see an orange marker next to the `test-suite` branch (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress.
+You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful Travis build or not.
 
-Hopefully, the marker wil turn green, and selecting it gives you even more information about the build. Selecting `The build` link takes you to Travis CI which will show you a complete log of the build and its output. The logs are actually truncated; selecting the grey arrows next to line numbers will expand them with more detail (such as output from running commands).
+Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `The build` link takes you to Travis CI which will show you a complete log of the build and its output. The logs are actually truncated; selecting the grey arrows next to line numbers will expand them with more detail (such as output from running commands).
 
 FIXME: add screenshot of Travis build log
 
-FIXME: add something about limitations to free use of Travis
+Note that travis-ci.com offers continuous integration as a free service with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time.
+
 
 ## Limits to testing
 
