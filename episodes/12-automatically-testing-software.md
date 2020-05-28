@@ -3,7 +3,9 @@ title: "Automatically Testing your Software"
 teaching: 30
 exercises: 10
 questions:
-- "Key question (FIXME)"
+- "Does the code we develop work the way it should do?"
+- "Can we (and others) verify these assertions for themselves?"
+- "To what extent are we confident of the accuracy of results that appear in publications?"
 objectives:
 - "Explain the reasons why testing is important"
 - "Describe the three main types of tests and what each are used for"
@@ -11,10 +13,15 @@ objectives:
 - "Use parameterisation to automatically run tests over a set of inputs"
 - "Use code coverage to understand how much of our code is being tested using unit tests"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "The three main types of automated tests are *unit tests*, *functional tests*, and *regression tests*."
+- "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
+- "It should be easy to add or change tests, understand and run them, and understand their results."
+- "We can use a unit testing framework like PyTest to structure and simplify the writing of tests."
+- "We should test for expected errors in our code."
+- "Testing program behaviour against both valid and invalid inputs is important and is known as *data validation*."
+- "We can assign multiple inputs to tests using parametrization."
+- "It's important to understand the *coverage* of our tests across our code."
 ---
-
-FIXME: add setup.py directly to repo?
 
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
@@ -31,12 +38,12 @@ If we are unable to demonstrate that our software fulfils these criteria, why wo
 
 For the sake of argument, if each line we write has a 99% chance of being right, then a 70-line program will be wrong more than half the time. We need to do better than that, which means we need to test our software to catch these mistakes.
 
-We can test manually (FIXME: add something on manual testing, and its limitations: prone to error, time consuming, etc. Add something about test plans?). Another style of testing is automated testing. We can write code as `unit tests` that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this.
+We can and should extensively test our software manually, and manual testing is well suited to testing aspects such as graphical user interfaces and reconciling visual outputs against inputs. However, even with a good test plan, manual testing is very time consuming and prone to error. Another style of testing is automated testing. We can write code as `unit tests` that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this wherever possible.
 
 There are three main types of automated tests:
 
 - *Unit tests* are tests for fairly small and specific units of functionality, e.g. determining that a particular function returns output as expected given specific inputs.
-- *Functional or integration tests* work at a higher level, and test functional paths through your code, e.g. given some specific inputs a set of interconnected functions across a number of modules produce the expected result. These are particularly useful for exposing faults in how functional units interact.
+- *Functional or integration tests* work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result. These are particularly useful for exposing faults in how functional units interact.
 - *Regression tests* make sure that your program's output hasn't changed, for example after making changes your code to add new functionality or fix a bug.
 
 For the purposes of this course, we'll focus on unit tests. But the principles and practices we'll talk about can be built on and applied to the other types of tests too.
@@ -44,11 +51,21 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 ## An example dataset and application
 
-FIXME: introduce these here?
+We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
+Let's take a quick look now:
+
+~~~
+import numpy
+data = numpy.loadtxt(fname='../data/inflammation-01.csv', delimiter=',')
+~~~
+{: .language-python}
+
+The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient. So this shows the results of measuring the inflammation of 60 patients over a 40 day period. Let's look into how we can test our application's statistical functions (held in `inflammation/models.py`) against this data.
 
 ## Writing tests to verify correct behaviour
 
+### How about using Python assertions?
 As an example, we'll start by testing our code directly using `assert`. Here, we call the function three times with different arguments, checking that a certain value is returned each time:
 
 ~~~
@@ -100,6 +117,8 @@ assert np.array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
 
 Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure our tests are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
 
+### Using a testing framework
+
 Most people don’t enjoy writing tests, so if we want them to actually do it, it must be easy to:
 
 - Add or change tests,
@@ -146,7 +165,9 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. So, reasonably easy to understand, and it appears easy to add new ones.
+Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. Note that for clarity, only within the scope of each test function do we import the necessary function we want to test. So, reasonably easy to understand, and it appears easy to add new ones.
+
+Each of these test functions, in a general sense, are called *test cases* - these are a specification of inputs, execution conditions, testing procedure and expected outputs. And here, we're defining these things for a test case we can run independently that requires no manual intervention.
 
 > ## What about the comments that refer to Yapf?
 >
@@ -154,13 +175,29 @@ Here, we have specified our zero and positive integer tests as separate function
 >
 {: .callout}
 
-Each of these test functions are called *test cases*.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. PyTest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using PyTest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
-Going back to our list of requirements, how easy is it to run them? We can do this using a Python package called `pytest`.
+> ## What about unit testing in other languages?
+>
+> Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. FRUIT for Fortran, JUnit for Java (the original unit testing framework), Catch for C++, etc.
+>
+{: .callout}
 
-FIXME: add intro to PyTest
+### Preparing to write unit tests
 
-FIXME: write a basic setup.py
+Before we do, however, let's create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
+
+~~~
+$ git branch test-suite
+$ git checkout test-suite
+~~~
+{: .language-bash}
+
+Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
+
+Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `dev`.
+
+Another thing we need to do is define a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages:
 
 ~~~
 from setuptools import setup, find_packages
@@ -168,6 +205,29 @@ from setuptools import setup, find_packages
 setup(name="swc-intermediate-test", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
+
+This is a typical short `setup.py` that will enable PyTest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
+
+~~~
+$ pip install -e .
+$ pip list
+~~~
+{: .language-bash}
+
+We should see included with the other installed packages:
+
+~~~
+...
+swc-intermediate-template 1.0    /Users/user/swc-intermediate-template
+...
+~~~
+{: .output}
+
+This will install our code, as a package, within our virtual environment. The `-e` flag indicates that it's an *editable* package, i.e. its contents may change. So as we develop our code we don't need to install it each time.
+
+### Running the tests
+
+Now we can run these tests using PyTest:
 
 ~~~
 $ pytest tests/test_stats.py
@@ -179,7 +239,7 @@ Here, we can use the `-m` argument to Python to tell it to run a Python module, 
 ~~~
 ============================= test session starts ==============================
 platform darwin -- Python 3.7.7, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+rootdir: /Users/user/swc-intermediate-template
 collected 2 items                                                              
 
 tests/test_stats.py ..                                                   [100%]
@@ -194,22 +254,6 @@ PyTest looks for functions whose names also start with the letters 'test_' and r
 - If an assertion fails, or we encounter an error, we count the test as a failure (indicated as `F`). The error is included in the output so we can see what went wrong.
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, are these results easy to understand?
-
-### Preparing to write unit tests
-
-Let's write some of our own tests. A common term we use to refer to sets of tests is a `test suite`.
-
-Before we do, however, let's create a new feature branch called `test-suite` that we'll use for our initial test writing work:
-
-~~~
-$ git branch test-suite
-$ git checkout test-suite
-~~~
-{: .language-bash}
-
-Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
-
-Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `dev`.
 
 > ## Write some unit tests
 >
@@ -246,8 +290,25 @@ Once we've finished writing these tests and are convinced they work properly, we
 
 The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn’t break any existing functionality.
 
-FIXME: add testing exceptions
+### What about testing for errors?
 
+There are some cases where seeing an error is the correct behaviour, and we can test for Python exceptions using, e.g.:
+
+~~~
+def test_daily_min_string():
+    """Test for TypeError when passing strings"""
+    from inflammation.models import daily_min
+
+    with pytest.raises(TypeError):
+        error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
+~~~
+{: .language-python}
+
+> ## Why should we test invalid input data?
+>
+> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
+>
+{: .callout}
 
 ## Parameterise tests to run over many test cases
 
@@ -299,11 +360,6 @@ def test_daily_mean(test, expected):
 >
 {: .challenge}    
 
-
-FIXME: introduce fixtures and marking expected failures (@pytest.mark.xfail(msg)) if space allows?
-
-FIXME: add custom attributes to group tests (@pytest.mark.slow, e.g. into slow)
-
 Let's commit our new test cases to our `test-suite` branch (but don't push it yet!):
 
 ~~~
@@ -332,11 +388,11 @@ So here, we specify the additional named argument `--cov` to PyTest specifying t
 ~~~
 ============================= test session starts ==============================
 platform darwin -- Python 3.8.3, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-test2
+rootdir: /Users/user/swc-intermediate-template
 plugins: cov-2.9.0
-collected 8 items                                                              
+collected 9 items                                                              
 
-tests/test_stats.py ........                                             [100%]
+tests/test_stats.py .........                                            [100%]
 
 ---------- coverage: platform darwin, python 3.8.3-final-0 -----------
 Name                     Stmts   Miss  Cover
@@ -344,7 +400,7 @@ Name                     Stmts   Miss  Cover
 inflammation/models.py       9      1    89%
 
 
-============================== 8 passed in 0.17s ===============================
+============================== 9 passed in 0.20s ===============================
 
 ~~~
 {: .output}
@@ -359,6 +415,13 @@ We should also update our `requirements.txt` file with our latest package enviro
 
 ~~~
 $ pip freeze > requirements.txt
+$ cat requirements.txt
+~~~
+{: .language-bash}
+
+Now if you look at `requirement.txt` you'll see `pytest-cov`, you'll notice it has a line indicating our `swc-intermediate-template` package is installed in edit mode, along with a GitHub repository URL to locate it. Before committing it to GitHub, we should remove this line, since we only need it for development. Do that now, and once done:
+
+~~~
 $ git add requirements.txt
 $ git commit -m "Update with py-cov" requirements.txt
 $ git push
@@ -368,8 +431,10 @@ $ git push
 
 ## Limits to testing
 
-Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn’t need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does.
+Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn’t need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
 
-FIXME: more on limitations/cons: concerns about diverting effort away from new features, and the need to supplement automated testing with manual testing. Pros: potential economic savings as code becomes more complex to understand. Increased confidence in results, for yourselves and others.
+It's also important to remember that unit testing cannot catch every bug in an application, no matter how many tests you write. To mitigate this manual testing is also important. Also remember to test using as much input data as you can, since very often code is developed and tested against the same small sets of data. Increasing the amount of data you test against - from numerous sources - gives you greater confidence that the results are correct.
+
+Our software will inevitably increases in complexity as it develops. Using automated testing where appropriate can save us considerable time, especially in the long term, and allows others to verify against correct behaviour.
 
 {% include links.md %}
