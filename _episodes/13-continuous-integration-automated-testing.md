@@ -80,11 +80,4 @@ FIXME: add screenshot of Travis build log
 
 Note that travis-ci.com offers continuous integration as a free service with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time.
 
-
-## Limits to testing
-
-Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn’t need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does.
-
-FIXME: more on limitations/cons: concerns about diverting effort away from new features, and the need to supplement automated testing with manual testing. Pros: potential economic savings as code becomes more complex to understand. Increased confidence in results, for yourselves and others.
-
 {% include links.md %}
