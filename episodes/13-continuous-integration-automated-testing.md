@@ -22,10 +22,87 @@ The automated testing we've done so far only taking into account the state of th
 
 Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes predictable processes more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
 
+## Continuous Integration with GitHub Actions
 
-## Configuring our repository for continuous integration
+With a GitHub repository there's a really easy way we can set up CI to run our tests when we make a change, simply by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
+ 
+~~~
+$ mkdir -p .github/workflows
+~~~
+{: .language-bash}
 
-We'll be using Travis-CI, a free continuous integration service. The first thing we need to do is let Travis install its GitHub App to GitHub:
+This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions. Next, add a file called `main.yml` within that directory:
+
+~~~
+name: CI
+
+# We can specify which GitHub events will trigger a CI build
+on: [push, pull_request]
+
+# Next we define a single job 'build', but we could add more
+jobs:
+
+  build:
+
+    # We can also specify which operating systems we want to test on
+    runs-on: ubuntu-latest
+
+    # A job is made up of a sequence of steps
+    steps:
+
+    # Next we need to checkout out repository, and set up Python
+    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    # We can use 'run' to execute commands
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -e .
+
+    - name: Test with PyTest
+      run: |
+        pytest tests/test_stats.py
+~~~
+{: .language-bash}
+
+### Triggering a build on GitHub Actions
+
+Now if we commit and push this change a CI run will be triggered:
+
+~~~
+$ git add .github
+$ git commit -m "Add Travis CI configuration" .github
+$ git push
+~~~
+{: .language-bash}
+
+Since we are only committing the GitHub Actions configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used for CI. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which will then allow the process to run automatically on these other branches. This again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches, and in the case of CI, we're starting to see its scaling benefits across a larger scale development team working across potentially many branches.
+
+### Checking build progress and reports
+
+Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
+
+FIXME: add screenshot of branches page with build in progress
+
+You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful build or not.
+
+Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output. The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
+
+GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
+
+
+## Continuous Integration with an external CI service
+
+Now let's take a look at Travis-CI, another free continuous integration service provided by a third-party. You'll notice many similarities between how Travis does it with GitHub Actions, but it should be pointed out that Travis did it first!
+
+The first thing we need to do is let Travis install its GitHub App to GitHub:
 
 1. Log into [https://travis-ci.com/]() with your GitHub account
 2. Select your profile picture in the top right and select 'Activate & Migrate' under 'GitHub Apps Integration'
@@ -34,7 +111,7 @@ We'll be using Travis-CI, a free continuous integration service. The first thing
 
 FIXME: add screenshot of permissions dialogue
 
-Once we've done this, all we need to do now is add a `.travis.yml` file to the root of the repository, commit, and push it. For example:
+Once we've done this, all we need to do now - whilst still on the `test-suite` branch - is add a `.travis.yml` file to the root of the repository, commit, and push it. For example:
 
 ~~~
 language: python
@@ -55,7 +132,7 @@ Here, we are informing Travis that the software assumes a Python 3.7 environment
 
 ### Triggering a build on Travis
 
-Since we know that once a commit is pushed Travis will attempt to run a build, so if we commit and push this change a CI run will be triggered:
+As with GitHub Actions, we know that once a commit is pushed Travis will attempt to run a build, so if we commit and push this change a CI run will be triggered:
 
 ~~~
 $ git add .travis.yml
@@ -64,20 +141,14 @@ $ git push
 ~~~
 {: .language-bash}
 
-Since we are only committing the Travis configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used by Travis. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches.
+Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches.
 
 ### Checking build progress and reports
 
-Handily, we can see the progress of the Travis build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
-
-FIXME: add screenshot of branches page with build in progress
-
-You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful Travis build or not.
-
-Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `The build` link takes you to Travis CI which will show you a complete log of the build and its output. The logs are actually truncated; selecting the grey arrows next to line numbers will expand them with more detail (such as output from running commands).
+The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub. By going to our repository on GitHub and selecting the `test-suite` branch and then selecting `commits`. Notice that there are now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously.
 
 FIXME: add screenshot of Travis build log
 
-Note that travis-ci.com offers continuous integration as a free service with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time.
+Note that travis-ci.com also offers continuous integration as a free service, but with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time. Again, paid options are available.
 
 {% include links.md %}
