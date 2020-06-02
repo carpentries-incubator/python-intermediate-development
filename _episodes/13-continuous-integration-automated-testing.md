@@ -28,6 +28,7 @@ Continuous Integration (CI) aims to reduce this burden by further automation, an
 
 FIXME: reasoning behind showing them two CIs
 
+
 ## Continuous Integration with GitHub Actions
 
 With a GitHub repository there's a really easy way we can set up CI to run our tests when we make a change, simply by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
@@ -158,6 +159,52 @@ The process of checking build progress is again similar to GitHub Actions, with 
 FIXME: add screenshot of Travis build log
 
 Note that travis-ci.com also offers continuous integration as a free service, but with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time. Again, paid options are available.
+
+
+## Scaling up testing using build matrices
+
+Now we have our CI configured and building, we can use a feature called *build matrices* which really shows the value of using CI to test at scale. 
+
+Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.7 or 3.8 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
+
+Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
+
+Let's see how this is done using GitHub Actions (similar support for build matrices exists in Travis). To support this, change `.github/workflow/main.yml` to the following:
+
+~~~
+...
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: [3.7, 3.8]
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+...
+~~~
+{: .language-bash}
+
+Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configurations.
+
+Let's commit and push this change and see what happens:
+
+~~~
+$ git add .github/workflows/main.yml
+$ git commit -m "Add GA build matrix for os and Python version" .
+$ git push
+~~~
+{: .language-bash}
+
+If we go to our GitHub build now, we can see that a new job has been created for each permutation.
+
+This approach allows us to massively scale our automated testing across platforms we wish to test.
 
 
 {% include links.md %}
