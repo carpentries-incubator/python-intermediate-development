@@ -3,14 +3,18 @@ title: "Continuous Integration for Automated Testing (FIXME)"
 teaching: 15
 exercises: 5
 questions:
-- "Key question (FIXME)"
+- "How can I apply automated repository testing to scale with development activity?"
 objectives:
-- "Describe the benefits of using Continuous Integration for further automation"
+- "Describe the benefits of using Continuous Integration for further automation of testing"
+- "Enable GitHub Actions Continuous Integration for public open source repositories"
 - "Enable Travis Continuous Integration for public open source repositories"
-- "Use Travis to automatically run unit tests when changes are committed to a version control repository"
-- "Use continuous integration to automatically run unit tests when changes are committed to a version control repository"
+- "Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Continuous Integration can run tests automatically to verify changes as code develops in our repository."
+- "CI builds are typically triggered by commits pushed to a repository."
+- "We need to write a configuration file to inform a CI service what to do for a build."
+- "Builds can be enabled and configured separately for each branch."
+- "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
 
 So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using Continuous Integration.
@@ -21,6 +25,8 @@ So far we've been manually running our tests as we require. So once we've made a
 The automated testing we've done so far only taking into account the state of the repository we have on our own machines. In a software project involving multiple developers working and pushing changes on a repository, it would be great to know holistically how all these changes are affecting our codebase without everyone having to pull down all the changes and test them. If we also take into account the testing required on different target user plaforms for our software and the changes being made to many repository branches, the effort required to conduct testing at this scale can quickly become intractable for a research project to sustain.
 
 Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes predictable processes more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
+
+FIXME: reasoning behind showing them two CIs
 
 ## Continuous Integration with GitHub Actions
 
@@ -68,7 +74,7 @@ jobs:
 
     - name: Test with PyTest
       run: |
-        pytest tests/test_stats.py
+        pytest --cov=inflammation.models tests/test_stats.py
 ~~~
 {: .language-bash}
 
@@ -84,6 +90,8 @@ $ git push
 {: .language-bash}
 
 Since we are only committing the GitHub Actions configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used for CI. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which will then allow the process to run automatically on these other branches. This again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches, and in the case of CI, we're starting to see its scaling benefits across a larger scale development team working across potentially many branches.
+
+FIXME: more you can do with GitHub Actions
 
 ### Checking build progress and reports
 
@@ -141,14 +149,15 @@ $ git push
 ~~~
 {: .language-bash}
 
-Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches.
+Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches. This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code is automatically tested *together*.
 
 ### Checking build progress and reports
 
-The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub. By going to our repository on GitHub and selecting the `test-suite` branch and then selecting `commits`. Notice that there are now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously.
+The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. Notice that there are now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously. Selecting one of these gives us more details about the build, and shows it alongside details of the GitHub Actions build.
 
 FIXME: add screenshot of Travis build log
 
 Note that travis-ci.com also offers continuous integration as a free service, but with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time. Again, paid options are available.
+
 
 {% include links.md %}
