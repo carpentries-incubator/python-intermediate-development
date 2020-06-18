@@ -284,6 +284,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
 > > ~~~
+> > {: .language-python}
 > {: .solution}   
 >
 {: .challenge}    
@@ -331,6 +332,7 @@ def test_daily_mean(test, expected):
 > Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in some more test cases.
 >
 > > ## Solution
+> > ~~~
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
@@ -355,10 +357,11 @@ def test_daily_mean(test, expected):
 > >     from inflammation.models import daily_min
 > >     npt.assert_array_equal(np.array(expected), daily_min(np.array(test)))
 > > ~~~
+> > {: .language-python}
 > > function test_daily_max()
 > {: .solution}   
 >
-{: .challenge}    
+{: .challenge}
 
 Let's commit our new test cases to our `test-suite` branch (but don't push it yet!):
 
