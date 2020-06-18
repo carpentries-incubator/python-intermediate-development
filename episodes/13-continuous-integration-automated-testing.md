@@ -150,7 +150,7 @@ $ git push
 ~~~
 {: .language-bash}
 
-Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches. This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code is automatically tested *together*.
+Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches.
 
 ### Checking build progress and reports
 
@@ -205,6 +205,14 @@ $ git push
 If we go to our GitHub build now, we can see that a new job has been created for each permutation.
 
 This approach allows us to massively scale our automated testing across platforms we wish to test.
+
+
+## Merging back to dev
+
+FIXME: now initial test suite is ready, merge back to dev.
+
+This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code changes are automatically tested *together* with existing code - which may have changed in the meantime.
+
 
 
 {% include links.md %}
