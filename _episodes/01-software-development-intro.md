@@ -58,10 +58,10 @@ The three parts of MVC architecture are interconnected as shown in diagram below
 [comment]: <> (1957 Hudson Hornet dashboard photo, CC0 1.0 Universal Public Domain Dedication : https://www.flickr.com/photos/95319912@N03/14839114077/in/photolist-oBhkCr-TrSHTE-55pDDE-tGCbCe-zcC4YS-6FJQFF-HonnVv-214bJ13-4KsQKx-e11jvq-276523m-252ukyr-SN3gS9-22LWSKZ-RzpuEX-8kzbNY-Hqrk9y-YnKk4h-2efuKCZ-BYkAyQ-7BiGkK-7kRexQ-Y2VcyA-M2Qq2-211o3dp-HonreK-8cSUsa-YkiNKG-fBSkyZ-8cWdkh-jNfVW-oVkiU9-FfmjuS-2crUDPH-s28jPU-Mt2211-8XETQb-553L7Q-6Gw3eX-2eiBHJ2-21E8CDN-Gy6ywY-7BztVi-XJUZ2x-9AjS3t-9aha7R-8rPuQy-K88SEr-24UVQMz-27yqHQc)
  [comment]: <> (American Ironhorse photo, CC BY-NC 2.0: https://www.flickr.com/photos/roome/199979254/in/photolist-iEWSb-8RDr8-2Ti66-wWb4X6-qaUFk-gdRm78-axDkBF-9zMU1q-3c4WiV-JpaJRw-hgLRF2-duVjRu-i9p9g-9ep7XY-4BNHXp-8e6BJL-gQTzg-dgR6sq-rcUhFh-jYF82-jxRjAA-7b83ac-nvx4gm-dVFiXb-nvjFfc-85Woju-a6aRRb-HQwZXH-PXjEEy-5sGKFp-ac9rhB-vdQw9U-nw6Gjy-6TNLb-Haam12-afEcuF-K8wsb-4ByJNa-wR7pRF-Brhxug-riqtsR-7aJ4xU-2qCqgn-7b83cv-sy4JFZ-HTHNxQ-cxmsP3-GJv9WG-Hvxrhb-7x1i4B)
  [comment]: <> (Car fuel photo, Free for commercial use, DMCA, https://www.pxfuel.com/en/free-photo-xdzbc)
-  > > Car driving mechanism is another example of the MVC architecture. The View is the interface used by a driver to 
-  > > operate a car - steering wheel, gear lever, brake, dashboard, etc. The engine mechanism is the Controller. The 
-  > > Model/Data is the fuel, stored in a fuel tank, which gets converted into energy that powers the car by the 
-  > > Controller.
+ > > Car driving mechanism is another example of the MVC architecture. The View is the interface used by a driver to 
+ > > operate a car - steering wheel, gear lever, brake, dashboard, etc. The engine mechanism is the Controller. The 
+ > > Model/Data is the fuel, stored in a fuel tank, which gets converted into energy that powers the car by the 
+ > > Controller.
  > > ![mvc-car](../fig/mvc-car.png)
  > {: .solution}  
 >
