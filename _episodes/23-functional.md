@@ -55,10 +55,71 @@ Examples include: printing text, modifying the value of an argument, or changing
 >
 {: .challenge}
 
+
+### Why Does it Matter?
+
+There's a few benefits we get when working with a pure function:
+
+- Testability
+- Composability
+- Parallelisability
+
+The first benefit is **Testability**.
+It's much easier to test a function if we can be certain that a certain input will always produce the same output.
+This has been the case with the examples we've seen so far.
+If a function we're testing is non-pure, we need to come up with a new way to test it - how we do this will depend on how the function deviates from being pure.
+
+**Composability** refers to the ability to combine multiple functions by piping the output of one function as the input to the next function.
+
+Finally, **Parallelisability**.
+If we know that a function is pure, we can split up the data and distribute the work across multiple processors.
+The output of the function depends only on its input, so we'll get the right result regardless of where the code runs.
+
+> ## Everything in Moderation
+>
+> > Turns out, every time a user does something, it could be different. Users are surprisingly non-mathematical, so they're gonna have to go.
+> >
+> > -- Douglas Crockford - The Post JavaScript Apocalypse
+>
+> Despite the benefits that pure functions have, we shouldn't be trying to use them everywhere.
+> Any software we write needs to interact with the rest of the world somehow, which requires side effects.
+>
+{: .callout}
+
+
+> ## Testing Impure Functions
+>
+> Try writing some unit tests for Python's `random.normalvariate` or NumPy's `numpy.random.normal` function.
+> These functions both generate random numbers drawn from a normal distribution.
+>
+> What is the correct behaviour for these functions?
+> How can we test that?
+> How reliable are the tests you've created?
+>
+> ~~~
+> # TODO write reference code and solution
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> >
+> > ~~~
+> > ~~~
+> > {: .language-python}
+> >
+> {: .solution}
+{: .challenge}
+
+
 ### Pythonic MapReduce - Comprehensions
 
 Often, when working with data you'll find that you need to apply a transformation to each datapoint, and/or filter the data, before performing some aggregation across the whole dataset.
-This process is often referred to as MapReduce, particularly when working within the context of **Big Data** using tools such as Spark or Hadoop.
+This process is often referred to as **MapReduce**, particularly when working within the context of **Big Data** using tools such as Spark or Hadoop.
+The MapReduce style of data processing relies heavily on the composability and parallelisability that we get when using functional programming.
 
 In Python, we have the built-in functions `map`, `filter`, and `reduce`, but we'll skip over those and go straight to the recommended approach.
 If you're interested in this form of data processing, it might be worth looking up the documentation for these older versions.
