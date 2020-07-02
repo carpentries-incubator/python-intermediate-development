@@ -1,6 +1,6 @@
 ---
 title: "Automatically Testing your Software"
-teaching: 30
+teaching: 35
 exercises: 10
 questions:
 - "Does the code we develop work the way it should do?"

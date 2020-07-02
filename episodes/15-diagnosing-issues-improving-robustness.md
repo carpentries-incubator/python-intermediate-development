@@ -1,7 +1,7 @@
 ---
 title: "Diagnosing Issues and Improving Robustness"
-teaching: 45
-exercises: 15
+teaching: 25
+exercises: 10
 questions:
 - "Key question (FIXME)"
 objectives:
