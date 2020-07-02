@@ -33,7 +33,7 @@ in practice many programming languages have a single style guide which is
 adopted almost universally by the communities around the world. In Python, although we do have a choice of style guides 
 available for Python, the [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used. 
 PEP here stands for Python Enhancement Proposals; PEPs are design documents for the Python community, typically 
-specifications or conventions for how to do something in Python, a description of a new feature in Python, etc. . 
+specifications or conventions for how to do something in Python, a description of a new feature in Python, etc. 
 
 >## Style consistency
 One of the 
@@ -87,7 +87,7 @@ using Python's implied line continuation inside delimeters such as parentheses (
 (`{}`), or a hanging indent. 
 
  ~~~ 
-# Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest
+# Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest of the code that follows
 def long_function_name(
         var_one, var_two, var_three,
         var_four):
@@ -104,10 +104,19 @@ foo = long_function_name(
     var_one, var_two,
     var_three, var_four)   
        
-# Using hanging indent again
-long_list = [
-    ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]])
-    ])
+# Using hanging indent again, but closing bracket aligned with the first non-blank character of the previous line
+a_long_list = [
+    [[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]]
+    ] 
+
+# Using hanging indent again, but closing bracket aligned with the start of the multiline contruct
+a_long_list2 = [
+    1,
+    2,
+    3,
+    # ... 
+    79
+]
  ~~~
 {: .language-python} 
 
@@ -295,6 +304,46 @@ The kind of things that need to be commented are:
 There are some restrictions. Comments that simply restate what the code does are redundant, and comments must be
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
+> ## Improved code style for our software project
+Look at `patientdb.py` file in PyCharm and identify where the above guidelines have not been followed. Fix 
+the discovered inconsistencies. 
+> > ## Solution
+> > There are a few things to fix in the 3 files that contain source code, for example:
+> > 1. Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and 
+> > hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of 
+> > list or the first character of the line that starts the multiline construct or simply moved to the end of the previous line. 
+> >
+> > ~~~
+> > view_data = {
+> >     'average': models.daily_mean(inflammation_data), 
+> >     'max': models.daily_max(inflammation_data), 
+> >     'min': models.daily_min(inflammation_data)
+> >     }
+> > ~~~
+> > {: .language-python}  
+> >
+> > ~~~
+> > view_data = {
+> >     'average': models.daily_mean(inflammation_data), 
+> >     'max': models.daily_max(inflammation_data), 
+> >     'min': models.daily_min(inflammation_data)
+> > }
+> > ~~~
+> > {: .language-python}  
+> >
+> > ~~~
+> > view_data = {
+> >     'average': models.daily_mean(inflammation_data), 
+> >     'max': models.daily_max(inflammation_data), 
+> >     'min': models.daily_min(inflammation_data)}
+> > ~~~
+> > {: .language-python}  
+> >
+> > 2. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in 
+> > `patientdb.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
+> {: .solution}
+{: .challenge}
+
 ### Documentation Strings aka Docstrings
 If the first thing in a function is a string that is not assigned to a variable, that string is attached to the 
 function as its documentation. Consider the following code implementing function for calculating the nth 
@@ -307,7 +356,7 @@ def fibonacci(n):
 
     :param n: integer
     :raises ValueError: raised if n is less than zero
-    :returns: fibonacci number
+    :returns: Fibonacci number
     """
     if n < 0:
         raise ValueError('Fibonacci is not defined for N < 0')
@@ -320,22 +369,6 @@ def fibonacci(n):
 ~~~
 {: .language-python} 
 
- ---------   --------- --------- ---------
-TODO: An even better example would be from our own code but it should have the params, returns and raises options.
- to Let's have a look into the `daily_mean` function in `models.py` file:
-~~~
-def daily_mean(data):
-    """Calculate the daily mean of a 2D inflammation data array.
-    
-    :param data: A 2D data array containing inflammation data 
-    :returns: the mean value of all values from the data array 
-    """
-    return np.mean(data, axis=0)
-~~~
-{: .language-python}
- ---------   --------- --------- ---------
-
-
 Note here we are explicitly documenting our input variables, what is returned by the function, and also when the 
 `ValueError` exception is raised. Along with a helpful description of what the function does, this information can 
 act as a *contract* for readers to understand what to expect in terms of behaviour when using the function, 
@@ -343,7 +376,7 @@ as well as how to use it.
 
 A comment string like this is called a *docstring*. We do not need to use triple quotes when we write one, but 
 if we do, we can break the string across multiple lines. This also applies to Python modules, which are essentially 
-files of Python functions, and methods within classes.
+files of Python functions, or methods within classes. 
 
 > ## Python PEP 257 - recommendations for docstrings
 > PEP 257 is another one of Python Enhancement Proposals and this one deals with docstring conventions to 
@@ -373,18 +406,52 @@ Functions:
 ~~~
 {: .language-python}
 
-> ## Improved code style for our software project
-Look at the source code of our project in PyCharm, identify where the above guidelines have not been followed and fix 
-the discovered inconsistencies. 
-> > ## Solution
-  > > There are a few things to fix in the 3 files that contain source code:
-  > > 1. Line 15 in file xxx is too long
-  > > 2. Missing docstring for function xxx on line yyy in file zzz (could convert the comment to docstring)
-  > > 3. Incorrect docstring for function xxx - missing parameter, needs updating.
-  > > 4. Only one blank line before function xxx definition on line yyy in file zzz (note how PyCharm is warning us).
-  > {: .solution}
-{: .challenge}
+Docstrings for a function or a module is returned when 
+invoking `help` function and passing its name - for example from interactive `ipython` shell or from Jupyter Lab/Notebook 
+or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.7/library/index.html)).
 
+~~~
+help(fibonacci)
+ ~~~
+ {: .language-python}
+
+> ## Fix the docstrings
+> Look into `models.py` file and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`.
+> > ## Solution 
+> > For example, the improved docstrings for the above functions would contain explanations for parameters and 
+> > return values.
+> > ~~~
+> > def daily_mean(data):
+> >        """Calculate the daily mean of a 2D inflammation data array for each day.
+> >    
+> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day). 
+> >        :returns: An array of mean values of measurements for each day. 
+> >        """
+> >        return np.mean(data, axis=0)
+> >    ~~~
+> > {: .language-python}  
+> > ~~~
+> > def daily_min(data):
+> >        """Calculate the daily mean of a 2D inflammation data array for each day.
+> >    
+> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day). 
+> >        :returns: An array of min values of measurements for each day. 
+> >        """
+> >        return np.mean(data, axis=0)
+> >    ~~~
+> > {: .language-python}
+> > ~~~
+> > def daily_max(data):
+> >        """Calculate the daily mean of a 2D inflammation data array for each day.
+> >    
+> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day). 
+> >        :returns: An array of max values of measurements for each day. 
+> >        """
+> >        return np.mean(data, axis=0)
+> >    ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
 
