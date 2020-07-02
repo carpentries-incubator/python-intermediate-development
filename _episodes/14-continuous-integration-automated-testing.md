@@ -1,7 +1,7 @@
 ---
-title: "Continuous Integration for Automated Testing (FIXME)"
-teaching: 15
-exercises: 5
+title: "Continuous Integration for Automated Testing"
+teaching: 40
+exercises: 10
 questions:
 - "How can I apply automated repository testing to scale with development activity?"
 objectives:
