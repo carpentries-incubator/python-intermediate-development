@@ -308,7 +308,7 @@ There are some restrictions. Comments that simply restate what the code does are
 Look at `patientdb.py` file in PyCharm and identify where the above guidelines have not been followed. Fix 
 the discovered inconsistencies. 
 > > ## Solution
-> > There are a few things to fix in the 3 files that contain source code, for example:
+> > There are a few things to fix here:
 > > 1. Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and 
 > > hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of 
 > > list or the first character of the line that starts the multiline construct or simply moved to the end of the previous line. 
@@ -338,8 +338,10 @@ the discovered inconsistencies.
 > >     'min': models.daily_min(inflammation_data)}
 > > ~~~
 > > {: .language-python}  
-> >
-> > 2. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in 
+> > 2. There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the 
+> > middle of the code unless you want to separate logical units - in which case only one blank like is used. 
+> > Note how PyCharm is warning us by underlying the whole line. 
+> > 3. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in 
 > > `patientdb.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
 > {: .solution}
 {: .challenge}
