@@ -3,13 +3,19 @@ title: "Functional Programming"
 teaching: 30
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What is a function really?"
+- "How can we be sure our code does the same thing every time?"
+- "What is the difference between data and code?"
+- "What do we need to do differently when working with Big Data?"
 objectives:
 - "Describe the core concepts that define the Functional Paradigm"
 - "Decompose the flow of data within a program info a sequence of operations"
 - "Decompose a problem into a set of similar sub-problems using recursion"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Pure Functions are functions with deterministic behaviour and no side effects."
+- "By working towards pure functions, we can make our code more testable and composable."
+- "There is very little difference between data and code in many languages - we can pass functions in and out of other functions without any extra work."
+- "Comprehensions and generators are Python features for efficiently processing a collection of data."
 ---
 
 ## What is a Function?
@@ -81,7 +87,7 @@ The output of the function depends only on its input, so we'll get the right res
 > >
 > > -- Douglas Crockford - The Post JavaScript Apocalypse
 >
-> Despite the benefits that pure functions have, we shouldn't be trying to use them everywhere.
+> Despite the benefits that pure functions can bring, we shouldn't be trying to use them everywhere.
 > Any software we write needs to interact with the rest of the world somehow, which requires side effects.
 >
 {: .callout}
