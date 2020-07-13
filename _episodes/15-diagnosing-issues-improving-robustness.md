@@ -95,9 +95,9 @@ FIXME: 0's fail due to nan's (division by zero). How do we deal with this?
 > > 
 > > This one has forced me to think about whether this is behaviour I want to allow or not.
 > > {: .language-python}
-> {: .solution}   
+> {: .solution}
 >
-{: .challenge}    
+{: .challenge}
 
 FIXME: show debugger with more complex example, stepping through code. Step over, step into. Resume program
 

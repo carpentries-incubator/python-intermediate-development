@@ -27,9 +27,9 @@ FIXME: describe sprints, introduce MoSCoW
 > 3. Once an issue has been resolved or an impasse has been reached, provide feedback on the repository issue
 >
 > > ## Solution
-> {: .solution}   
+> {: .solution}
 >
-{: .challenge}    
+{: .challenge}
 
 
 FIXME: describe milestones, add those issues outstanding or not worked on to a new milestone
