@@ -15,9 +15,14 @@ keypoints:
 - "The reuse battle is won before it is fought. Use good practices consistently throughout development and not just at the end."
 ---
 
+If previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
+
+
 ## The levels of software reusability - good practice revisited
 
-Whilst we want to ensure our software is reusable by others, as well as ourselves, we should be clear what we mean by 'reusable'. There are a number of definitions out there, but a helpful one written by [Benureau and Rougler in 2017](https://dx.doi.org/10.3389/fninf.2017.00069) offers the following levels by which software can be characterised:
+Let's begin by taking a closer look at software reusability and what we want from it.
+
+Firstly, whilst we want to ensure our software is reusable by others, as well as ourselves, we should be clear what we mean by 'reusable'. There are a number of definitions out there, but a helpful one written by [Benureau and Rougler in 2017](https://dx.doi.org/10.3389/fninf.2017.00069) offers the following levels by which software can be characterised:
 
 1. Re-runnable: the code is simply executable and can be run again (but there are no guarantees beyond that)
 2. Repeatable: the software will produce the same result more than once
@@ -39,6 +44,29 @@ FIXME: add section that highlights practices already covered in the course in th
 
 ## Verifying code style using linters
 
+We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in an advisory way, too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a couple of these, `pycodestyle` and `pylint`. These are just Python packages so we can install them in our virtual environment using:
+
+~~~
+$ pip install pycodestyle pylint
+~~~
+{: .language-bash}
+
+We should also update our `requirements.txt` with these two new additions:
+
+~~~
+$ pip freeze > requirements.txt
+$ git add requirements.txt
+$ git commit -m "Update with linting tools" requirements.txt
+$ git push
+~~~
+{: .language-bash}
+
+### Pycodestyle
+
+`pycodestyle`
+
+
+### Pylint
 
 
 ## Documenting code for reuse
@@ -50,5 +78,14 @@ FIXME: add section that highlights practices already covered in the course in th
 ## Choosing an open source licence
 
 ## Conforming to data policy and regulation
+
+> ## Preparing for release
+>
+> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. Taking into account what you have learnt in this episode, and any remaining problems you are aware of in your codebase, as a team prioritise the work to be done so the software can be released on time.
+>
+> > ## Solution
+> {: .solution}   
+>
+{: .challenge}    
 
 {% include links.md %}
