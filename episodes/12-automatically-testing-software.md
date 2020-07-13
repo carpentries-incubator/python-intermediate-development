@@ -285,9 +285,9 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
 > > ~~~
 > > {: .language-python}
-> {: .solution}   
+> {: .solution}
 >
-{: .challenge}    
+{: .challenge}
 
 The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn’t break any existing functionality.
 

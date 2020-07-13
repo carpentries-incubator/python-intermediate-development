@@ -34,9 +34,9 @@ You should adopt a critical mindset when selecting third-party software you wish
 > 2. Conduct the assessment and register any issues you find on the other team's software repository - be meticulous!
 >
 > > ## Solution
-> {: .solution}   
+> {: .solution}
 >
-{: .challenge}    
+{: .challenge}
 
 
 ## Supporting your software - how and how much?

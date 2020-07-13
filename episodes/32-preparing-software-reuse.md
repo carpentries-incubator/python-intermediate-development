@@ -5,12 +5,14 @@ exercises: 20
 questions:
 - "Key question (FIXME)"
 objectives:
+- "Describe the different levels of software reusability"
 - "Use code linting tools to verify a program's adherence to a Python coding style"
 - "Describe minimum components of software documentation to aid reuse"
 - "Understand other documentation components and where they are useful"
 - "Create a repository README file to guide others to successfully reuse a program"
 - "Describe the basic types of open source software licence"
 - "Explain the importance of conforming to data policy and regulation"
+- "Prioritise and work on improvements for release as a team"
 keypoints:
 - "The reuse battle is won before it is fought. Use good practices consistently throughout development and not just at the end."
 ---
@@ -84,8 +86,8 @@ $ git push
 > In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. Taking into account what you have learnt in this episode, and any remaining problems you are aware of in your codebase, as a team prioritise the work to be done so the software can be released on time.
 >
 > > ## Solution
-> {: .solution}   
+> {: .solution}
 >
-{: .challenge}    
+{: .challenge}
 
 {% include links.md %}
