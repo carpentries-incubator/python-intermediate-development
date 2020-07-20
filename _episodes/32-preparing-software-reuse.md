@@ -46,30 +46,106 @@ FIXME: add section that highlights practices already covered in the course in th
 
 ## Verifying code style using linters
 
-We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in an advisory way, too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a couple of these, `pycodestyle` and `pylint`. These are just Python packages so we can install them in our virtual environment using:
+We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in a report-style too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
 
 ~~~
-$ pip install pycodestyle pylint
+$ pip install pylint
 ~~~
 {: .language-bash}
 
-We should also update our `requirements.txt` with these two new additions:
+We should also update our `requirements.txt` with this new addition:
 
 ~~~
 $ pip freeze > requirements.txt
 $ git add requirements.txt
-$ git commit -m "Update with linting tools" requirements.txt
+$ git commit -m "Update with linting tool" requirements.txt
 $ git push
 ~~~
 {: .language-bash}
 
-### Pycodestyle
+Pylint is a command-line tool that can help our code in many ways:
 
-`pycodestyle`
+- *Check PEP8 compliance:* whilst in-IDE context-sensitive highlighting such as that provided via PyCharm helps us stay consistent with PEP8 as we write code, this tool provides a full report
+- *Perform basic error detection:* Pylint can look for certain Python type errors
+- *Check variable naming conventions*: pylint often goes beyond PEP8 to include other common conventions, such as naming variables outside of functions in upper case
+- *Customisation*: you can specify which errors and conventions you wish to check for, and those you wish to ignore
 
+Pylint can also identify *code smells*.
 
-### Pylint
+> ## How does code smell?
+>
+> There are many ways that code can exhibit bad design whilst not breaking any rules and working correctly. A *code smell* is a characteristic that indicates that there is an underlying problem with source code, e.g. large classes or methods, methods with too many parameters, duplicated statements in both if and else blocks of conditionals, etc. They aren't functional errors in the code, but rather are certain structures that violate principles of good design and impact design quality. They can also indicate that code is in need of maintenance.
+>
+> The phrase has it’s origins in Chapter 3 Bad smells in code by Kent Beck and Martin Fowler in Fowler, Martin (1999). Refactoring. Improving the Design of Existing Code. Addison-Wesley. ISBN 0-201-48567-2.
+>
+{: .callout}
 
+Pylint recommendations are given as warnings or errors, and also scores the code with an overall mark. We can look at a specific file, or a module. Let's look at our `inflammation` module:
+
+~~~
+$ pylint inflammation
+~~~
+{: .language-bash}
+
+FIXME: update pylint output when template repo complete and all exercises have been done
+
+~~~
+************* Module inflammation.models
+inflammation/models.py:37:4: W0622: Redefining built-in 'max' (redefined-builtin)
+************* Module inflammation.views
+inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+
+-----------------------------------
+Your code has been rated at 7.60/10
+~~~
+{: .output}
+
+We can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml`:
+
+~~~
+    - name: Check style with Pylint
+      run: |
+        pylint --fail-under=0 inflammation tests/test_*.py
+~~~
+{: .language-bash}
+
+Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic.
+
+Then we can just add this to our repo and trigger a build:
+
+~~~
+$ git add .github/workflows/main.yml
+$ git commit -m "Add Pylint run to build" .github/workflows/main.yml
+$ git push
+~~~
+{: .language-bash}
+:
+
+Then we should see under 'Check style with Pylint', something like:
+
+FIXME: update pylint output when template repo complete and all exercises have been done
+
+~~~
+Run pylint --fail-under=0 inflammation tests/test_*.py
+************* Module tests/test_*.py
+tests/test_*.py:1:0: F0001: No module named tests/test_*.py (fatal)
+************* Module inflammation.models
+inflammation\models.py:32:2: W0511: TODO(lesson-design) Add Patient class (fixme)
+inflammation\models.py:33:2: W0511: TODO(lesson-design) Implement data persistence (fixme)
+inflammation\models.py:34:2: W0511: TODO(lesson-design) Add Doctor class (fixme)
+************* Module inflammation.views
+inflammation\views.py:12:2: W0511: TODO(lesson-design) Extend to allow saving figure to file (fixme)
+inflammation\views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+
+-----------------------------------
+
+Your code has been rated at 7.50/10
+~~~
+{: .output}
+
+So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
+
+FIXME: add reference to enabling/disabling rules in .pylintrc
 
 ## Documenting code for reuse
 
