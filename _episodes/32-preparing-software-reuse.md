@@ -177,11 +177,51 @@ FIXME: [1] https://software.ac.uk/blog/2019-06-21-what-are-best-practices-resear
 
 A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial - hence it should contain brief explanations and be focused on instructional steps.
 
+Let's create one for our repository now. In the root of your repository create a new file `README.md`. The `.md` indicates this is a *markdown* file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures.
 
+FIXME: add GitHub markdown link to references - https://guides.github.com/features/mastering-markdown/
+
+Let's start writing it.
+
+~~~
+# Inflam
+~~~
+{: .language-bash}
+
+So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on.
+
+FIXME: add https://software.ac.uk/resources/guides/choosing-project-and-product-names to references
+
+We should also add a short description.
+
+~~~
+FIXME: add description
+~~~
+{: .language-bash}
+
+~~~
+## Prerequisites
+
+FIXME: add prereqs
+~~~
+{: .language-bash}
+
+That's got us started, but there are other aspects we should cover:
+
+- Installation/deployment
+- Basic usage
+- Contributing
+- Contact information
+- Credits
+- License
+
+We'll finish these later.
+
+FIXME: adding links to build runs
 
 ### Other documentation
 
-
+FIXME: CITATION, technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?)
 
 ## Choosing an open source licence
 
