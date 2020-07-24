@@ -7,9 +7,10 @@ questions:
 objectives:
 - "Describe the different levels of software reusability"
 - "Use code linting tools to verify a program's adherence to a Python coding style"
-- "Describe minimum components of software documentation to aid reuse"
-- "Understand other documentation components and where they are useful"
+- "Explain why documentation is important"
+- "Describe the minimum components of software documentation to aid reuse"
 - "Create a repository README file to guide others to successfully reuse a program"
+- "Understand other documentation components and where they are useful"
 - "Describe the basic types of open source software licence"
 - "Explain the importance of conforming to data policy and regulation"
 - "Prioritise and work on improvements for release as a team"
@@ -44,50 +45,203 @@ FIXME: use this narrative throughout section, e.g. where a practice helps us ach
 
 FIXME: add section that highlights practices already covered in the course in the context of these, as a framework?
 
+
 ## Verifying code style using linters
 
-We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in an advisory way, too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a couple of these, `pycodestyle` and `pylint`. These are just Python packages so we can install them in our virtual environment using:
+We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in a report-style too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
 
 ~~~
-$ pip install pycodestyle pylint
+$ pip install pylint
 ~~~
 {: .language-bash}
 
-We should also update our `requirements.txt` with these two new additions:
+We should also update our `requirements.txt` with this new addition:
 
 ~~~
 $ pip freeze > requirements.txt
 $ git add requirements.txt
-$ git commit -m "Update with linting tools" requirements.txt
+$ git commit -m "Update with linting tool" requirements.txt
 $ git push
 ~~~
 {: .language-bash}
 
-### Pycodestyle
+Pylint is a command-line tool that can help our code in many ways:
 
-`pycodestyle`
+- *Check PEP8 compliance:* whilst in-IDE context-sensitive highlighting such as that provided via PyCharm helps us stay consistent with PEP8 as we write code, this tool provides a full report
+- *Perform basic error detection:* Pylint can look for certain Python type errors
+- *Check variable naming conventions*: pylint often goes beyond PEP8 to include other common conventions, such as naming variables outside of functions in upper case
+- *Customisation*: you can specify which errors and conventions you wish to check for, and those you wish to ignore
 
+Pylint can also identify *code smells*.
 
-### Pylint
+> ## How does code smell?
+>
+> There are many ways that code can exhibit bad design whilst not breaking any rules and working correctly. A *code smell* is a characteristic that indicates that there is an underlying problem with source code, e.g. large classes or methods, methods with too many parameters, duplicated statements in both if and else blocks of conditionals, etc. They aren't functional errors in the code, but rather are certain structures that violate principles of good design and impact design quality. They can also indicate that code is in need of maintenance.
+>
+> The phrase has it’s origins in Chapter 3 Bad smells in code by Kent Beck and Martin Fowler in Fowler, Martin (1999). Refactoring. Improving the Design of Existing Code. Addison-Wesley. ISBN 0-201-48567-2.
+>
+{: .callout}
+
+Pylint recommendations are given as warnings or errors, and also scores the code with an overall mark. We can look at a specific file, or a module. Let's look at our `inflammation` module:
+
+~~~
+$ pylint inflammation
+~~~
+{: .language-bash}
+
+FIXME: update pylint output when template repo complete and all exercises have been done
+
+~~~
+************* Module inflammation.models
+inflammation/models.py:37:4: W0622: Redefining built-in 'max' (redefined-builtin)
+************* Module inflammation.views
+inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+
+-----------------------------------
+Your code has been rated at 7.60/10
+~~~
+{: .output}
+
+We can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml`:
+
+~~~
+    - name: Check style with Pylint
+      run: |
+        pylint --fail-under=0 inflammation tests/test_*.py
+~~~
+{: .language-bash}
+
+Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic.
+
+Then we can just add this to our repo and trigger a build:
+
+~~~
+$ git add .github/workflows/main.yml
+$ git commit -m "Add Pylint run to build" .github/workflows/main.yml
+$ git push
+~~~
+{: .language-bash}
+
+Then we should see under 'Check style with Pylint', something like:
+
+FIXME: update pylint output when template repo complete and all exercises have been done
+
+~~~
+Run pylint --fail-under=0 inflammation tests/test_*.py
+************* Module tests/test_*.py
+tests/test_*.py:1:0: F0001: No module named tests/test_*.py (fatal)
+************* Module inflammation.models
+inflammation\models.py:32:2: W0511: TODO(lesson-design) Add Patient class (fixme)
+inflammation\models.py:33:2: W0511: TODO(lesson-design) Implement data persistence (fixme)
+inflammation\models.py:34:2: W0511: TODO(lesson-design) Add Doctor class (fixme)
+************* Module inflammation.views
+inflammation\views.py:12:2: W0511: TODO(lesson-design) Extend to allow saving figure to file (fixme)
+inflammation\views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+
+-----------------------------------
+
+Your code has been rated at 7.50/10
+~~~
+{: .output}
+
+So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
+
+FIXME: add reference to enabling/disabling rules in .pylintrc
 
 
 ## Documenting code for reuse
 
-### Minimum documentation to aim for
+Reproducibility is a cornerstone of science, and scientists who work in many disciplines are expected to document the processes by which they've conducted their research so it can be reproduced by others. In medicinal, pharmacological, and similar research fields for example, researchers use logbooks which are then used to write up protocols and methods for publication.
 
-### Creating a README
+Many things we've covered so far contribute directly to making our software reproducible - and indeed reusable - by others. A key part of this we'll cover now is software documentation, which is ironically very often given short shrift in academia. This is often the case even in fields where the documentation and publication of research method is otherwise taken very seriously.
+
+A few reasons for this are that writing documentation is often considered:
+ 
+- A low priority compared to actual research (if it's even considered at all)
+- Expensive in terms of effort, with little reward
+- Boring!
+
+Whilst it's certainly arguable that writing documentation isn't as exciting as writing code, it doesn't have to be expensive and brings many benefits. In addition to enabling general reproducibility by others, documentation...
+
+- Helps bring new staff researchers and developers up to speed quickly with using the software
+- Functions as a great aid to research collaborations involving software where those from other teams need to use it
+- When well written, can act as a basis for detailing algorithms and other mechanisms in research papers
+- Provides a descriptive link back to the science that underlies it. As a reference, it makes it far easier to know how to update the software as the scientific theory changes (and potentially vice versa)
+
+In the next section we'll see that writing a sensible minimum set of documentation in a single document doesn't have to be expensive, and can greatly aid reproducibility.
+
+FIXME: a key takeaway in [1] is that documentation should be decided early on - mention in first lesson? Perhaps also choosing a license. We make clear that in the normal run of things these things are considered early, but for the purposes of training, we cover them later - we can't cover everything you'd do at the outset at once
+FIXME: [1] https://software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation
+
+### Writing a README
+
+A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial - hence it should contain brief explanations and be focused on instructional steps.
+
+Let's create one for our repository now. In the root of your repository create a new file `README.md`. The `.md` indicates this is a *markdown* file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures.
+
+FIXME: add GitHub markdown link to references - https://guides.github.com/features/mastering-markdown/
+
+Let's start writing it.
+
+~~~
+# Inflam
+~~~
+{: .language-bash}
+
+So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on.
+
+FIXME: add https://software.ac.uk/resources/guides/choosing-project-and-product-names to references
+
+We should also add a short description.
+
+~~~
+FIXME: add description
+~~~
+{: .language-bash}
+
+~~~
+## Prerequisites
+
+FIXME: add prereqs
+~~~
+{: .language-bash}
+
+That's got us started, but there are other aspects we should cover:
+
+- Installation/deployment
+- Basic usage
+- Contributing
+- Contact information
+- Credits
+- License
+
+We'll finish these later.
+
+FIXME: adding links to build runs
+
+### Other documentation
+
+FIXME: CITATION, technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?)
 
 ## Choosing an open source licence
 
-## Conforming to data policy and regulation
+FIXME: licence compatibility of third party dependencies
+
+## Tagging a release in GitHub
 
 > ## Preparing for release
 >
-> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. Taking into account what you have learnt in this episode, and any remaining problems you are aware of in your codebase, as a team prioritise the work to be done so the software can be released on time.
+> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a license, fixing any remaining problems you are aware of in your codebase, and when the repository is ready, tagging a release in GitHub. As a team prioritise and accomplish the work to be done so the software can be released on time.
 >
 > > ## Solution
 > {: .solution}
 >
 {: .challenge}
+
+
+## Conforming to data policy and regulation
+
+FIXME: a couple of paragraphs centered around levels of policy and regulation - institutional, funding agency, and national regulation (?). Basically, find out what these are and follow them. Also applies to licensing
+
 
 {% include links.md %}
