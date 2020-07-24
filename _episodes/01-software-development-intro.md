@@ -82,7 +82,7 @@ but is not finished and we will be building on top of this project during the wo
 To create your own copy of the software project repository from GitHub:
 
 1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/swc-intermediate-template).
-2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a *copy* of 
+2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of 
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also, 
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub). 
 3. Make sure to select your personal account and set the name to the project `swc-intermediate-template` (you can call it 
