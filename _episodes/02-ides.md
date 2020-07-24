@@ -160,7 +160,7 @@ The script will run in a terminal window at the bottom of the IDE window and dis
 to Configuration and install it. The the same happened for `matplotlib`. 
 This will probably be the case with participants too. I wonder why numpy in not installed by default?)
 ~~~
-/Users/alex/anaconda/envs/patient/bin/python /Users/alex/work/SSI/Carpentries/swc-intermediate-template/patientdb.py
+/Users/alex/anaconda/envs/patient/bin/python /Users/alex/swc-intermediate-template/patientdb.py
 usage: patientdb.py [-h] infiles [infiles ...]
 patientdb.py: error: the following arguments are required: infiles
 
@@ -170,7 +170,7 @@ Process finished with exit code 2
 
 Here, we can see that a new shell has been created that uses the Anaconda interpreter 
 `/Users/alex/anaconda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our 
-script located at `/Users/swc/swc-intermediate-template/patientdb.py`. The script is currently throwing an error - 
+script located at `/Users/alex/swc-intermediate-template/patientdb.py`. The script is currently throwing an error - 
 `patientdb.py: error: the following arguments are required: infiles`. 
 Do not worry about it for now, we will learn how to fix the errors and write test 
 to detect errors over the course of the workshop.
