@@ -26,21 +26,33 @@ file that can be easily shared with your collaborators."
 
 ## Running Scripts From Command Line
 If you attended a Python workshop in the past, you may recall that we can also run Python scripts directly from the 
-command line. Let's run our `patientdb.py` script using Python from the command line.
+command line. Let's run our `patientdb.py` script using Python from the command line and use the 
+Python Anaconda environment `patient` we created from PyCharm. 
 
-First, we can make use of the Python Anaconda environment `patient` we created from PyCharm for our project. 
-Open up a new terminal and type the following to list all the environments Anaconda is aware of:
+Let's open up a new terminal and type the following to list all the environments Anaconda is aware of:
 
 ~~~
 $conda env list
 ~~~
 {: .language-bash}
 
+~~~                
+# conda environments:
+#
+                         /Users/alex/anaconda/envs/patient
+base                  *  /Users/alex/opt/anaconda3
+~~~
+{: .output}
+
+TODO: I actually do noa have a Conda environment called `patient` as expected and after creating it from PyCharm, 
+so check what has gone wrong here. It looks like it expects the full path as it did not create a named conda environment!
+
 We can see the environment we created from PyCharm (called `patient`) in this list, so let's use that. Note that in 
-order to use a `conda` environment, you have to activate it as follows:
+order to use a `conda` environment, you have to activate it as follows (make sure you use the full environment path 
+unless it is a names environment):
 
 ~~~
-$conda activate patient
+$conda activate /Users/alex/anaconda/envs/patient
 ~~~
 {: .language-bash}
 
@@ -58,7 +70,7 @@ $python patientdb.py
 
 ~~~
 usage: patientdb.py [-h] infiles [infiles ...]
-patientdb.py: error: too few arguments
+patientdb.py: error: the following arguments are required: infiles
 ~~~
 {: .output}
 
@@ -82,8 +94,8 @@ of a specific version of
 Python together with specific versions of a number of installed packages which allows you to work on a particular 
 project without worry of affecting other projects. In other words, it enables multiple side-by-side installations of 
 Python and different versions of the same third party package to coexist on your machine and only one to be selected 
-for each of your projects. As more dependencies are added to your Python 
-software project over time, you can add them to this specific virtual environment and avoid a great deal of confusion 
+for each of your projects. As more dependencies are added to your Python project over time, you can add them to 
+this specific virtual environment and avoid a great deal of confusion 
 by having 
 separate virtual environments for each project.
 
@@ -99,7 +111,7 @@ introduced by the new version of the dependency without affecting the working ve
 
 You do not have to worry too much about specific versions of packages that your project depends on most of the time. 
 Virtual environments enable you to always use the latest available version without specifying it explicitly. 
-They also enable you to use a specific older version of a package to be used by your project, if need be.
+They also enable you to use a specific older version of a package for your project, should you need to.
 
 > ## A specific Python or package version is only ever installed once
 > Note that you will not have a separate Python or package installations for each of your projects - they will only 
@@ -110,14 +122,14 @@ ever be installed once on your system but will be referenced to from different v
 ## Creating a Python Virtual Environment
 
 There are several commonly used tools for creating Python virtual environments:
-- `conda` virtual environments, which we have already used from PyCharm
-- `venv` is available by default from `Python 3.3+`
-- `virtualenv` needs to be installed separately, but supports `Python 2.7+` and `Python 3.3+`
-- `pipenv` was created due to some shortcomings of `virtualenv`
+- `conda` which comes with Anaconda distribution and which we have already used from PyCharm
+- `venv`, available by default from the standard `Python` distribution (version 3.3 and above)
+- `virtualenv`, which needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
+- `pipenv`, created to fix certain shortcomings of `virtualenv`
 
 While there are pros and cons for using each of the above, they all will do the job of managing Python 
 virtual environments for you and it may be a matter of personal preference which one you go for. 
-For the purposes of this workshop, we will continue to use `conda` to manage our virtual environment for now. 
+For the purposes of this workshop, we will continue to use `conda` to manage our virtual environments. 
 
 > ## Anaconda and `conda`
 Anaconda is a Python distribution commonly used for scientific programming - it conveniently installs Python and a 
@@ -127,7 +139,7 @@ package repository and install them on your system, and (2) it is also a virtual
 >
 {: .callout}
 
-The following commands will show you how to create virtual environments with `conda` but we will not execute them 
+The following commands help you manage virtual environments with `conda` but we will not execute them 
 in our shell since we already have our environment `patient` set up.
 
 To create a virtual environment with `conda` from command line within a software project directory, you can do:
@@ -170,8 +182,8 @@ $conda deactivate myenv
 
 ## Managing Python Virtual Environments
 You may want to share your environment with someone else so they can re-create a software 
-project that you have developed with all of its dependencies and their 
-versions. `conda` has a handy way of exporting, saving and sharing an environment via an `environment.yml` file. 
+project that you have developed with all of its dependencies. `conda` has a handy way of exporting, 
+saving and sharing an environment via an `environment.yml` file. 
 
 ### Exporting an Environment 
 To export your active environment to a new file:
@@ -194,8 +206,8 @@ file, assuming that the `environment.yml` file is in the root directory of the p
 ### Updating an Environment
 You may need to update your environment for a variety of reasons. For example, one of your project's dependencies has 
 just released a new version (dependency version number update), you need an additional package for data analysis 
-(adding a new dependency) or you have found a better package and no longer need the older package (adding new and 
-removing old dependency).
+(adding a new dependency) or you have found a better package and no longer need the older package (adding a new and 
+removing an old dependency).
    
 All you need to do is update the contents of your `environment.yml` file accordingly and then run the following command
 to propagate to your environment:
@@ -208,7 +220,7 @@ to propagate to your environment:
 Let's recap - Anaconda is a Python distribution commonly used for scientific programming and `conda` 
 (that comes with Anaconda distribution) is an open source package management tool that helps you find `Python` 
 packages from a package repository and install them on your 
-system, As we have seen above, `conda` is also a virtual environment management tool. Another commonly used Python 
+system. As we have seen above, `conda` is also a virtual environment management tool. Another commonly used Python 
 package management system is called `pip`. If you are using Anaconda Python distribution, it makes sense 
 (and reduces confusion) 
 to use `conda` for all these tasks. But it is equally possibly to mix the use of both `conda` and `pip` to manage 
@@ -267,7 +279,7 @@ or to list all `conda` packages:
 
 ### Package Management With `pip`
 If you install any `Python` distribution other than Anaconda, you will find yourself using `pip` for package management. 
-As of `Python 3.???`, it comes together with `pip` and no separate installation of `pip` is needed. 
+As of `Python 3.3`, it comes together with `pip` (and `venv`) and no separate installation is needed. 
 
 To install a Python package with `pip` do:
  ~~~
