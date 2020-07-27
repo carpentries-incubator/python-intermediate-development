@@ -100,7 +100,7 @@ why having different branches is so useful.
 While it is technically OK to commit our changes directly to `master` branch, and you may often find yourself doing so
 for some minor changes, the best practice is to use a new branch for each separate and self-contained 
 unit/piece of work you want to 
-add to the software. This unit of work is also often called a *feature* and the branch where you develop it is called a 
+add to the project. This unit of work is also often called a *feature* and the branch where you develop it is called a 
 *feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix", 
 "python3.8"). If we keep making changes 
 and pushing them directly to `master` branch on GitHub, then anyone who downloads our software from there will get all of our 
@@ -201,7 +201,7 @@ and the state of our branch
 
 We can now `add` and `commit` the changes in the usual way.
 ~~~
-$ git add filename
+$ git add inflammation/models.py
 $ git commit -m "Spelling fix"
 ~~~
 {: .language-bash} 
