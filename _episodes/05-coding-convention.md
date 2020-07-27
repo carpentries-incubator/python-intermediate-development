@@ -4,18 +4,18 @@ start: false
 teaching: 20
 exercises: 10
 questions:
-- "Why should I follow software coding and style guidelines?"
-- "Who is setting coding conventions and styles?"
+- "Why should I follow software coding conventions?"
+- "Who is setting coding conventions?"
 - "What coding conventions exist for Python?"
 objectives:
-- "Understand the benefits of following community coding conventions and styles"
+- "Understand the benefits of following community coding conventions"
 
 keypoints:
 - "Always assume that someone else will read your code at a later date, including yourself."
-- "Community conventions and guidelines help you create more readable software projects that are easier to contribute 
+- "Community coding conventions help you create more readable software projects that are easier to contribute 
 to."
 - "Python Enhancement Proposals (or PEPs) describe a recommended convention or specification for how to do something in Python."
-- "Style checking to ensure code conforms to coding conventions is often parts of IDEs."
+- "Style checking to ensure code conforms to coding conventions is often part of IDEs."
 - "Consistency with the style guide is important - whichever style you choose."
 ---
 Now that we have an IDE, our virtual development environment set, and know how to manage packages, we are all set 
@@ -23,7 +23,8 @@ to start writing some code. Before we dive into it, it is worth spending some ti
 coding style conventions. 
 
 ## Python Coding Style Guide
-One of the most important things we can do to make sure our code is accessible and readable to others (and ourselves a 
+One of the most important things we can do to make sure our code is readable by others 
+(and ourselves a 
 few months down the line) is to make sure that it is descriptive, cleanly and consistently formatted and uses sensible, 
 descriptive names for variable, function and module names. In order to help us format our code, we generally follow 
 guidelines known as a style guide. A style guide is a set of conventions that we agree upon with our colleagues or 
@@ -123,7 +124,6 @@ a_long_list2 = [
 More details on good and bad practices for continuation lines can be found in 
 [PEP8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
 
-
 ### Maximum Line length
 All lines should be up to 80 characters long. For lines containing comments or docstrings (to be covered later), the 
 line length limit should be 73. Some teams strongly prefer a longer line length, and seemed to have settled on the
@@ -147,8 +147,7 @@ income = (gross_wages
       
 ### Blank Lines
 Top-level function and class definitions should be surrounded with two blank lines. Method definitions inside a class 
-should be surrounded by a single blank line. Extra blank lines may be used occasionally to separate groups of 
-related functions. You can use blank lines in functions, sparingly, to indicate logical sections.
+should be surrounded by a single blank line. You can use blank lines in functions, sparingly, to indicate logical sections.
 
 ### Whitespace in Expressions and Statements
 Avoid extraneous whitespace in the following situations:
@@ -212,7 +211,7 @@ backslash (`\`) for continuation lines and have a space after it, the continuati
 interpreted correctly.
 - Surround these binary operators with a single space on either side: assignment (=), 
 augmented assignment (+=, -= etc.), comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), 
-Booleans (and, or, not).
+booleans (and, or, not).
 - Don't use spaces around the = sign when used to indicate a keyword argument assignment or to indicate a 
 default value for an unannotated function parameter
      ~~~
@@ -291,17 +290,15 @@ def fahr_to_cels(fahr):
 {: .language-python}
 
 Python doesn't have any multi-line comments, like you may have seen in other languages like C++ or Java. However, there
- are ways to do it using *docstrings*, which are recommended in certain cases, as we'll see in a moment. 
+ are ways to do it using *docstrings* as we'll see in a moment. 
 
-The reader should be able to understand a single function or method from its code and its comments, and should not have to look elsewhere in the code for clarification. It can be easy to get lost in code, and others will not have the same knowledge of our project or code as we do.
-
-The kind of things that need to be commented are:
+The reader should be able to understand a single function or method from its code and its comments, and should not have to look elsewhere in the code for clarification. The kind of things that need to be commented are:
 
 - Why certain design or implementation decisions were adopted, especially in cases where the decision may seem counter-intuitive
 - The names of any algorithms or design patterns that have been implemented
 - The expected format of input files or database schemas
 
-There are some restrictions. Comments that simply restate what the code does are redundant, and comments must be
+However, there are some restrictions. Comments that simply restate what the code does are redundant, and comments must be
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
 > ## Improved code style for our software project
@@ -309,9 +306,11 @@ Look at `patientdb.py` file in PyCharm and identify where the above guidelines h
 the discovered inconsistencies. 
 > > ## Solution
 > > There are a few things to fix here:
-> > 1. Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and 
+> >
+> > 1.Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and 
 > > hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of 
-> > list or the first character of the line that starts the multiline construct or simply moved to the end of the previous line. 
+> > list or the first character of the line that starts the multiline construct or simply moved to the end of the 
+> > previous line. All three acceptable modifications are shown below. 
 > >
 > > ~~~
 > > view_data = {
@@ -338,10 +337,12 @@ the discovered inconsistencies.
 > >     'min': models.daily_min(inflammation_data)}
 > > ~~~
 > > {: .language-python}  
-> > 2. There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the 
+> >
+> > 2.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the 
 > > middle of the code unless you want to separate logical units - in which case only one blank like is used. 
-> > Note how PyCharm is warning us by underlying the whole line. 
-> > 3. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in 
+> > Note how PyCharm is warning us by underlying the whole line.  
+> >
+> > 3.Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in 
 > > `patientdb.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
 > {: .solution}
 {: .challenge}
@@ -378,7 +379,7 @@ as well as how to use it.
 
 A comment string like this is called a *docstring*. We do not need to use triple quotes when we write one, but 
 if we do, we can break the string across multiple lines. This also applies to Python modules, which are essentially 
-files of Python functions, or methods within classes. 
+files of Python functions, or methods within classes and docstrings are used to list them all. 
 
 > ## Python PEP 257 - recommendations for docstrings
 > PEP 257 is another one of Python Enhancement Proposals and this one deals with docstring conventions to 
@@ -393,7 +394,7 @@ files of Python functions, or methods within classes.
 > ~~~
 {: .callout}
 
-So at the beginning of a module file we can just add a docstring explaining the nature of a module. For example, if 
+So, at the beginning of a module file we can just add a docstring explaining the nature of a module. For example, if 
 `fibonacci()` was included in a module with other functions, our module could have at the start of it:
 
 ~~~
