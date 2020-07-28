@@ -48,7 +48,7 @@ FIXME: add section that highlights practices already covered in the course in th
 
 ## Verifying code style using linters
 
-We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in a report-style too, using code *linters*. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
+We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
 
 ~~~
 $ pip install pylint
@@ -72,7 +72,7 @@ Pylint is a command-line tool that can help our code in many ways:
 - *Check variable naming conventions*: pylint often goes beyond PEP8 to include other common conventions, such as naming variables outside of functions in upper case
 - *Customisation*: you can specify which errors and conventions you wish to check for, and those you wish to ignore
 
-Pylint can also identify *code smells*.
+Pylint can also identify **code smells**.
 
 > ## How does code smell?
 >
@@ -177,7 +177,7 @@ FIXME: [1] https://software.ac.uk/blog/2019-06-21-what-are-best-practices-resear
 
 A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial - hence it should contain brief explanations and be focused on instructional steps.
 
-Let's create one for our repository now. In the root of your repository create a new file `README.md`. The `.md` indicates this is a *markdown* file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures.
+Let's create one for our repository now. In the root of your repository create a new file `README.md`. The `.md` indicates this is a **markdown** file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures.
 
 FIXME: add GitHub markdown link to references - https://guides.github.com/features/mastering-markdown/
 

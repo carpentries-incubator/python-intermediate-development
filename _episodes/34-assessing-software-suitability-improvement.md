@@ -12,16 +12,10 @@ keypoints:
 - ""
 ---
 
-
-## The right mindset
-
-You should adopt a critical mindset when selecting third-party software you wish to use.
+What we've been looking at so enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
 
 ## Assessing software for suitability
-
-
-## Providing feedback by registering issues
 
 
 > ## Conduct assessment on third-party software
@@ -31,7 +25,8 @@ You should adopt a critical mindset when selecting third-party software you wish
 > Within your team:
 >
 > 1. Decide as a team how you will conduct the assessment
-> 2. Conduct the assessment and register any issues you find on the other team's software repository - be meticulous!
+> 2. Conduct the assessment and register any issues you find on the other team's software repository
+> 3. Be meticulous in your assessment and register as many issues as you can!
 >
 > > ## Solution
 > {: .solution}

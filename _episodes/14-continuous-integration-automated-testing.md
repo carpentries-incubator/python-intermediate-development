@@ -163,7 +163,7 @@ Note that travis-ci.com also offers continuous integration as a free service, bu
 
 ## Scaling up testing using build matrices
 
-Now we have our CI configured and building, we can use a feature called *build matrices* which really shows the value of using CI to test at scale. 
+Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale. 
 
 Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.7 or 3.8 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
 

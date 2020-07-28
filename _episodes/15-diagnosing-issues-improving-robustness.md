@@ -17,7 +17,7 @@ keypoints:
 
 Unit testing can tell us something's wrong, but it doesn't tell us where the error is or how it came about. We can do things like output program state at various points, perhaps using print statements to output the contents of variables, maybe even use a logging capability to output the state of everything as the program progresses, or look at intermediately generated files to give us an idea of what went wrong.
 
-But such approaches only go so far and often these are time consuming and aren't enough. In complex programs like simulation codes, sometimes we need to get inside the code as it's running and explore. This is where using a *debugger* can be useful.
+But such approaches only go so far and often these are time consuming and aren't enough. In complex programs like simulation codes, sometimes we need to get inside the code as it's running and explore. This is where using a **debugger** can be useful.
 
 
 ## Adding in all our tests
@@ -56,7 +56,7 @@ def test_patient_normalise(test, expected):
 
 Note the assumption here that a test accuracy of two decimal places is sufficient!
 
-Let's use a debugger to see what's going on and why the function failed.
+Let's use a debugger to see what's going on and why the function failed. Think of it like performing exploratory surgery - on code! Debuggers allow us to peer at the internal workings of a program, such as variables and other state, as it performs its functions.
 
 FIXME: tour of debugger: show/explain inserting a breakpoint at return line, debugger interface and variables. Show max. Show PyCharm giving us values in-situ within the code editor. Show stack frames panel on left (quick intro to stack frames). Explore a bit.
 
