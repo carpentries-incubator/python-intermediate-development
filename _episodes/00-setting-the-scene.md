@@ -20,11 +20,11 @@ keypoints:
 ## Prerequisite Knowledge
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
 on the topics covered. 
-Please refer to the index page for more details on these requirements. 
+Please refer to the [index](/index.html) page for more details on these requirements. 
 
 
 
 ## Required Software
-Please make sure that you have all the necessary software installed as described in the Setup section.
+Please make sure that you have all the necessary software installed as described in the [Setup](/setup.html) section.
 
 {% include links.md %}

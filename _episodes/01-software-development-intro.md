@@ -1,6 +1,5 @@
 ---
 title: "Introduction to Software Design and Development"
-start: true
 teaching: 20
 exercises: 10
 questions:
