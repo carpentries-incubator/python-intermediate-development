@@ -3,6 +3,9 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
+TODO: Add a short paragraph on the rationale of this course. This will also be expanded on in the Welcome episode where
+we set the scene in more detail.
+
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
