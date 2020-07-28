@@ -6,14 +6,15 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
-- You are comfortable with:
+- You want to learn:
+    - more intermediate software engineering techniques and tools
+    - how to collaborate with others to develop software
+    - how to prepare software for others to use
+- You are currently comfortable with:
     - basic Python programming (though this may not be the main language you use)
     - basic version control using Git
     - command line interface (shell)
-- You want to learn how to:
-    - collaborate with others to develop software
-    - prepare software for others to use
- 
+     
  This course is not for you if:
  - You have not yet started writing software
  - You are well familiar with learning objectives of episodes 
