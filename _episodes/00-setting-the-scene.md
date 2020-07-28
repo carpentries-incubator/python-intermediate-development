@@ -4,9 +4,7 @@ start: true
 teaching: 30
 exercises: 0
 questions:
-- "Have you filled in pre-workshop survey?"
 - "What are we going to teach in this workshop?"
-- "What are prerequisites for attending this workshop?"
 - "Have you got all the necessary software installed?"
 objectives:
 - "Setting the scene and expectations"
@@ -17,10 +15,16 @@ keypoints:
 - ""
 - ""
 ---
-## Setting the scene
+## Setting the Scene
 
 ## Prerequisite Knowledge
+This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
+on the topics covered. 
+Please refer to the index page for more details on these requirements. 
+
+
 
 ## Required Software
+Please make sure that you have all the necessary software installed as described in the Setup section.
 
 {% include links.md %}
