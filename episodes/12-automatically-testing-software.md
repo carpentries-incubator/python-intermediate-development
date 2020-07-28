@@ -13,14 +13,14 @@ objectives:
 - "Use parameterisation to automatically run tests over a set of inputs"
 - "Use code coverage to understand how much of our code is being tested using unit tests"
 keypoints:
-- "The three main types of automated tests are *unit tests*, *functional tests*, and *regression tests*."
+- "The three main types of automated tests are **unit tests**, **functional tests**, and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
 - "It should be easy to add or change tests, understand and run them, and understand their results."
 - "We can use a unit testing framework like PyTest to structure and simplify the writing of tests."
 - "We should test for expected errors in our code."
-- "Testing program behaviour against both valid and invalid inputs is important and is known as *data validation*."
+- "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 - "We can assign multiple inputs to tests using parametrization."
-- "It's important to understand the *coverage* of our tests across our code."
+- "It's important to understand the **coverage** of our tests across our code."
 ---
 
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
@@ -38,7 +38,7 @@ If we are unable to demonstrate that our software fulfils these criteria, why wo
 
 For the sake of argument, if each line we write has a 99% chance of being right, then a 70-line program will be wrong more than half the time. We need to do better than that, which means we need to test our software to catch these mistakes.
 
-We can and should extensively test our software manually, and manual testing is well suited to testing aspects such as graphical user interfaces and reconciling visual outputs against inputs. However, even with a good test plan, manual testing is very time consuming and prone to error. Another style of testing is automated testing. We can write code as `unit tests` that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this wherever possible.
+We can and should extensively test our software manually, and manual testing is well suited to testing aspects such as graphical user interfaces and reconciling visual outputs against inputs. However, even with a good test plan, manual testing is very time consuming and prone to error. Another style of testing is automated testing. We can write code as **unit tests** that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this wherever possible.
 
 There are three main types of automated tests:
 
@@ -106,7 +106,7 @@ AssertionError
 ~~~
 {: .output}
 
-We could put these in a separate script to automate the running of these tests. But Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our test suite includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
+We could put these in a separate script to automate the running of these tests. But Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
 
 So what has failed? As it turns out, the first test we just ran was incorrect, and should have read:
 
@@ -167,7 +167,7 @@ def test_daily_mean_integers():
 
 Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. Note that for clarity, only within the scope of each test function do we import the necessary function we want to test. So, reasonably easy to understand, and it appears easy to add new ones.
 
-Each of these test functions, in a general sense, are called *test cases* - these are a specification of inputs, execution conditions, testing procedure and expected outputs. And here, we're defining these things for a test case we can run independently that requires no manual intervention.
+Each of these test functions, in a general sense, are called **test cases** - these are a specification of inputs, execution conditions, testing procedure and expected outputs. And here, we're defining these things for a test case we can run independently that requires no manual intervention.
 
 > ## What about the comments that refer to Yapf?
 >
@@ -313,7 +313,7 @@ def test_daily_min_string():
 
 ## Parameterise tests to run over many test cases
 
-We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can *parameterize* the tests with multiple test inputs. For example, we could rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
+We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, we could rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
 @pytest.mark.parameterize(
@@ -376,7 +376,7 @@ $ git commit -m "Add initial test cases for daily_max() and daily_min()" tests/t
 
 Pytest can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there’s probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it’s hard to think of a bug that would show up in one case but not in the other.
 
-Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*.
+Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
 
 A simple way to check the code coverage for a set of tests is to use nose to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by PyTest and using that, we can find this out:
 
