@@ -11,9 +11,10 @@ objectives:
 - "Making sure everyone has all the necessary software is installed"
 
 keypoints:
-- ""
-- ""
-- ""
+- "This lesson is focused on core, intermediate, software development skills that will be of most use to anyone 
+working collaboratively on code"
+- "The lesson follows on from the novice Software Carpentry lesson, but it not a prerequisite for attending as long as
+you have some basic Python, shell and git skills."
 ---
 ## Setting the Scene
 
@@ -21,7 +22,6 @@ keypoints:
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
 on the topics covered. 
 Please refer to the [index](/index.html) page for more details on these requirements. 
-
 
 
 ## Required Software
