@@ -3,9 +3,12 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-TODO: Add a short paragraph on the rationale of this course. This will also be expanded on in the Welcome episode where
-we set the scene in more detail.
+This lesson teaches intermediate-level software development skills in a way that mimics a typical software 
+development process in a team. It is suitable for those who have either been taught the novice 
+[Software Carpentry](https://software-carpentry.org/) course (shell, Python, git) or match a very strict set of 
+skill prerequisites (described below).
 
+## Target Audience
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
@@ -23,9 +26,13 @@ This course is for you if:
  - You are well familiar with learning objectives of episodes 
  - The software you write is fully documented and well architected
   
-<!-- this is an html comment -->
+## Learning Objectives
+After following this lesson, learners will be able to:
 
-{% comment %} This is a comment in Liquid {% endcomment %}
+- develop software collaboratively
+- write robust software
+- learn intermediate Python skills
+- learn to publish and release their software
 
 > ## Prerequisites
 > To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
