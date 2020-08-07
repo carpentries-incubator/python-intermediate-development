@@ -60,14 +60,14 @@ Now we have our estimates we can decide how important each requirement is to the
 
 To prioritise these requirements we can use a method called **MoSCoW**, a way to reach a common understanding with stakeholders on the importance of successfully delivering each requirement for a timebox. MoSCoW is an acronym that stands for **Must have**, **Should have**, **Could have**, and **Won't have**. Each requirement is discussed by the stakeholder group and falls into one of these categories:
 
-- *Must Have* (MH) - these requirements are critical to the current timebox for it to succeed. Even the inability to deliver just one of these would cause the project to be considered a failure.
-- *Should Have* (SH) - these are important requirements but not *necessary* for delivery in the timebox. They may be as *important* as Must Haves, but there may be other ways to achieve them or perhaps they can be held back for a future development timebox.
-- *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved.
-- *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development.
+- *Must Have* (MH) - these requirements are critical to the current timebox for it to succeed. Even the inability to deliver just one of these would cause the project to be considered a failure
+- *Should Have* (SH) - these are important requirements but not *necessary* for delivery in the timebox. They may be as *important* as Must Haves, but there may be other ways to achieve them or perhaps they can be held back for a future development timebox
+- *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved
+- *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development
 
-In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20%. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves. This effectively forces a tradeoff between
+In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20%. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
 
-This gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. The idea is that even if you are only able to deliver the Must Haves, whilst it may not have everything initially requested you have delivered a *successful* project.
+Why is this important? Because it gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves, you have delivered a *successful* project.
 
 FIXME: bit on how to assign issues to a new milestone
 
@@ -86,7 +86,7 @@ FIXME: add small bit on sprints and how to assign repository issues to people
 
 > ## Conduct a mini-sprint
 >
-> For the remaining time in this lesson, assign repository issues to team members and work on resolving them. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue.
+> For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue.
 >
 > > ## Solution
 > {: .solution}
