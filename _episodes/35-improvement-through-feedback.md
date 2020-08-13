@@ -26,7 +26,12 @@ For simplicity, we'll refer to our issues as *requirements*, since that's essent
 
 But before we can prioritise our requirements, there are some things we need to find out.
 
-Firstly, we need estimates for how long each requirement will take to resolve, since we cannot meaningfully prioritise requirements without knowing what the effort tradeoffs will be. Even if we know how important each requirement is, how would we even know if completing the project is possible? Or if we don't know how long it will take to deliver those requirements s we deem to be critical to the success of a project, how can we know if we can include other less important ones?
+Firstly, we need to know:
+
+- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadline requiring their completion. This is known as a **timebox**
+- *How much overall effort we have available* - i.e. who will be involved and how much of their time we will have during this period
+
+We also need estimates for how long each requirement will take to resolve, since we cannot meaningfully prioritise requirements without knowing what the effort tradeoffs will be. Even if we know how important each requirement is, how would we even know if completing the project is possible? Or if we don't know how long it will take to deliver those requirements we deem to be critical to the success of a project, how can we know if we can include other less important ones?
 
 It is often not the reality, but estimation should ideally be done by the people likely to do the actual work (i.e. the Research Software Engineers, researchers, or developers). It shouldn't be done by project managers or PIs simply because they are not best placed to estimate, and those doing the work are the ones who are effectively committing to these figures.
 
@@ -48,11 +53,6 @@ An effective way of helping to make your estimates more accurate is to do it as 
 >
 {: .challenge}
 
-In general, we'd also need to know:
-
-- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadline requiring their completion. This is known as a **timebox**
-- *How much overall effort we have available* - i.e. who will be involved and how much of their time we will have during this period
-
 
 # Using MoSCoW to prioritise work
 
@@ -69,7 +69,7 @@ In typical use, the ratio to aim for of requirements to the MH/SH/CH categories 
 
 Why is this important? Because it gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves, you have delivered a *successful* project.
 
-FIXME: bit on how to assign issues to a new milestone
+Once we've decided on those we'll work on (i.e. not Won't Haves), we can optionally assign them to a GitHub issue **milestone** to organise them. A milestone is a collection of issues to be worked on in a given period (or timebox). We can create a new one by selecting `Issues` on our repository, then `milestones` to display any existing milestones, then `New milestone`. We add in a title, a completion date (i.e. the end of this timebox), and any description for the milestone. Once created, we can view our issues and assign them to our milestone from the `Issues` page.
 
 > ## Prioritise!
 >

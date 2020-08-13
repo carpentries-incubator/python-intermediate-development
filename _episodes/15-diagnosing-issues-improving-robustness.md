@@ -3,12 +3,12 @@ title: "Diagnosing Issues and Improving Robustness"
 teaching: 25
 exercises: 10
 questions:
-- "Key question (FIXME)"
+- "Once we know our program has errors, how can we identify where they are?"
+- "How can we make our programs more resilient to failure?"
 objectives:
 - "Use a debugger to explore behaviour of a running program"
 - "Describe and identify edge and corner test cases and explain why they are important"
 - "Apply error handling and defensive programming techniques to improve robustness of a program"
-- "Use code coverage to determine how much of a program is being tested by unit tests"
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
@@ -110,9 +110,6 @@ FIXME: add something about debugging on command line?
 FIXME: preconditions (protect your functions from bad data. This adheres to fail fast), postconditions (does out output make sense), invariants (these things should never happen, or should always be true). Don't take it too far and try to code for every conceivable eventuality. State the assumptions and limitations of your code for others. Where possible codify your assumptions
 
 FIXME: add precondition of no values below zero (as per assumption), add assert postconditions of no values below 0 or above 1
-
-
-## Using code coverage for better unit testing [move to here?]
 
 
 ## What about the other failed test?

@@ -410,10 +410,6 @@ inflammation/models.py       9      1    89%
 
 Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But there's still one not being tested in `load_csv()`. So, here we should consider whether or not to write a test for this function, and indeed any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered, it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
-~~~
-~~~
-{: .language-python}
-
 We should also update our `requirements.txt` file with our latest package environment, which now includes `pytest-cov`, and commit it:
 
 ~~~
