@@ -146,7 +146,29 @@ Your code has been rated at 7.50/10
 
 So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
 
-FIXME: add reference to enabling/disabling rules in .pylintrc
+We can specify overrides to Pylint's rules in a file called `.pylintrc` which Pylint can helpfully generate for us. In our repository root directory:
+
+~~~
+$ pylint --generate-rcfile > .pylintrc
+~~~
+{: .language-bash}
+
+Looking at this file, you'll see it's already populated. No behaviour is currently changed from the default by generating this file, but we can amend it to suit our team's coding style. For example, a typical rule to customise - favoured by many projects - is the one involving line length. You'll see it's set to 100, so let's set that to a more reasonable 120. While we're at it, let's also set our `file-under` in this file:
+
+~~~
+...
+# Specify a score threshold to be exceeded before program exits with error.
+fail-under=0
+...
+# Maximum number of characters on a single line.
+max-line-length=120
+...
+~~~
+{: .language-bash}
+
+Don't forget to remove the `--fail-under` argument to Pytest in our GitHub Actions configuration file too, since we don't need it anymore.
+
+Now when we run Pylint we won't be penalised for having a reasonable line length. For some further hints and tips on how to approach using Pylint for a project, see ![this article](https://pythonspeed.com/articles/pylint/).
 
 
 ## Documenting code for reuse
@@ -170,8 +192,6 @@ Whilst it's certainly arguable that writing documentation isn't as exciting as w
 
 In the next section we'll see that writing a sensible minimum set of documentation in a single document doesn't have to be expensive, and can greatly aid reproducibility.
 
-FIXME: a key takeaway in [1] is that documentation should be decided early on - mention in first lesson? Perhaps also choosing a license. We make clear that in the normal run of things these things are considered early, but for the purposes of training, we cover them later - we can't cover everything you'd do at the outset at once
-FIXME: [1] https://software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation
 
 ### Writing a README
 
@@ -218,6 +238,11 @@ That's got us started, but there are other aspects we should cover:
 We'll finish these later.
 
 FIXME: adding links to build runs
+
+
+
+![build](https://github.com/steve-crouch/swc-intermediate-template/workflows/CI/badge.svg?branch=master)
+
 
 ### Other documentation
 

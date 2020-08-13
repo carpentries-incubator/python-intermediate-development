@@ -201,17 +201,29 @@ $ git push
 ~~~
 {: .language-bash}
 
-If we go to our GitHub build now, we can see that a new job has been created for each permutation.
-
-This approach allows us to massively scale our automated testing across platforms we wish to test.
+If we go to our GitHub build now, we can see that a new job has been created for each permutation. Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 
 
 ## Merging back to dev
 
-FIXME: now initial test suite is ready, merge back to dev.
+Now we're happy with our test suite, we can merge this work (which currently only exist on our `test-suite` branch) with our parent `develop` branch. Again, this reflects us working with impunity on a logical unit of work, involving multiple commits, on a separate feature branch until it's ready to be escalated to the develop branch:
 
-This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code changes are automatically tested *together* with existing code - which may have changed in the meantime.
+~~~
+$ git checkout develop
+$ git merge test-suite
+~~~
+{: .language-bash}
 
+Then, assuming no conflicts we can push these changes back to the remote repository as we've done before:
+
+~~~
+$ git push origin develop
+~~~
+{: .language-bash}
+
+Now these changes have migrated to our parent `develop` branch, `develop` will also inherit the configuration to run CI builds, so these will run automatically on this branch as well.
+
+This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
 
 
 {% include links.md %}
