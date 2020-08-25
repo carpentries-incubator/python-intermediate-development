@@ -3,7 +3,8 @@ title: "Preparing Software for Reuse"
 teaching: 40
 exercises: 20
 questions:
-- "Key question (FIXME)"
+- "What can we do to make our programs reusable by others?"
+- "How should we document and license our code?"
 objectives:
 - "Describe the different levels of software reusability"
 - "Use code linting tools to verify a program's adherence to a Python coding style"
@@ -191,6 +192,8 @@ Whilst it's certainly arguable that writing documentation isn't as exciting as w
 - Provides a descriptive link back to the science that underlies it. As a reference, it makes it far easier to know how to update the software as the scientific theory changes (and potentially vice versa)
 
 In the next section we'll see that writing a sensible minimum set of documentation in a single document doesn't have to be expensive, and can greatly aid reproducibility.
+
+FIXME: mention code comments are a form of documentation
 
 
 ### Writing a README
