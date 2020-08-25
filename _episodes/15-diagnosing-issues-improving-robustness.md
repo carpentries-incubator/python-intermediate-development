@@ -10,7 +10,11 @@ objectives:
 - "Describe and identify edge and corner test cases and explain why they are important"
 - "Apply error handling and defensive programming techniques to improve robustness of a program"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Unit testing is good to show us what doesn't work, but does not help us locate problems."
+- "We can use a **debugger** to help us locate problems in our program."
+- "A debugger allows us to pause a program and examine it's state by adding **breakpoints** to lines in code."
+- "We can use **preconditions**, **postconditions* and **invariants** to ensure correct behaviour in our programs."
+- "We must ensure our unit tests cater for **edge** and **corner cases** sufficiently."
 ---
 
 ## Finding faults in software
