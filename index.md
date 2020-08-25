@@ -5,7 +5,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 This lesson teaches intermediate-level software development skills in a way that mimics a typical software 
 development process in a team. It is suitable for those who have either been taught the novice 
-[Software Carpentry](https://software-carpentry.org/) course (shell, Python, git) or match a very strict set of 
+[Software Carpentry](https://software-carpentry.org/) course (shell, Python, `git`) or match a very strict set of 
 skill prerequisites (described below).
 
 ## Target Audience
@@ -18,7 +18,7 @@ This course is for you if:
     - how to prepare software for others to use
 - You are currently comfortable with:
     - basic Python programming (though this may not be the main language you use)
-    - basic version control using Git
+    - basic version control using `git`
     - command line interface (shell)
      
  This course is not for you if:
@@ -27,12 +27,12 @@ This course is for you if:
  - The software you write is fully documented and well architected
   
 ## Learning Objectives
-After following this lesson, learners will be able to:
+After following this lesson, you will:
 
-- develop software collaboratively
-- write robust software
-- learn intermediate Python skills
-- learn to publish and release their software
+- have intermediate Python skills
+- be able to write robust software
+- know how to develop software collaboratively
+- know how to publish and release your software
 
 > ## Prerequisites
 > To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
