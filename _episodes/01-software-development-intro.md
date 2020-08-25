@@ -105,7 +105,12 @@ we are not forking the directory but creating a copy (remember - you can fork on
 3. Make sure to select your personal account and set the name to the project `swc-intermediate-template` (you can call it 
 anything you like, but it may be easier if everyone uses the same name).
 ![github-copy-template](../fig/github-copy-template.png)
-4. Locate the copied repository under your own GitHub account.
+4. At this point GitHub may ask you to authenticate. If this happens and 
+you do not have 2-Factor-Authentication (2FA) enabled in your 
+GitHub account, you can just enter your password to proceed. If you are using 2FA, you may get a message: 
+"Your old project requires credentials for read-only access. We will only temporarily store them for importing." and 
+should use a pre-generated personal access token as your password here.
+5. Locate the copied repository under your own GitHub account.
 ![github-template-repository](../fig/github-template-repository.png)
 
 > ## Obtain the software project repository locally
