@@ -38,18 +38,16 @@ Later levels imply the earlier ones. So what should we aim for? As researchers w
 
 > ## Reproducibility and non-determinism
 >
-> FIXME: a note on how software that is intrinsically non-deterministic still fits within the bounds of repeatability and reproducibilty, and the importance of defining acceptable bounds for that.
+> 
 >
 {: .callout}
-
-FIXME: use this narrative throughout section, e.g. where a practice helps us achieve one of these levels
-
-FIXME: add section that highlights practices already covered in the course in the context of these, as a framework?
 
 
 ## Verifying code style using linters
 
-We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
+We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
+
+We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
 
 ~~~
 $ pip install pylint
@@ -172,7 +170,7 @@ Don't forget to remove the `--fail-under` argument to Pytest in our GitHub Actio
 Now when we run Pylint we won't be penalised for having a reasonable line length. For some further hints and tips on how to approach using Pylint for a project, see ![this article](https://pythonspeed.com/articles/pylint/).
 
 
-## Documenting code for reuse
+## Documenting code to improve reusability
 
 Reproducibility is a cornerstone of science, and scientists who work in many disciplines are expected to document the processes by which they've conducted their research so it can be reproduced by others. In medicinal, pharmacological, and similar research fields for example, researchers use logbooks which are then used to write up protocols and methods for publication.
 
@@ -187,9 +185,10 @@ A few reasons for this are that writing documentation is often considered:
 Whilst it's certainly arguable that writing documentation isn't as exciting as writing code, it doesn't have to be expensive and brings many benefits. In addition to enabling general reproducibility by others, documentation...
 
 - Helps bring new staff researchers and developers up to speed quickly with using the software
-- Functions as a great aid to research collaborations involving software where those from other teams need to use it
-- When well written, can act as a basis for detailing algorithms and other mechanisms in research papers
+- Functions as a great aid to research collaborations involving software, where those from other teams need to use it
+- When well written, can act as a basis for detailing algorithms and other mechanisms in research papers, such that the software's functionality can be *replicated* and re-implemented elsewhere
 - Provides a descriptive link back to the science that underlies it. As a reference, it makes it far easier to know how to update the software as the scientific theory changes (and potentially vice versa)
+- Importantly, it can enable others to understand the software sufficiently to *modify and reuse* it to do different things
 
 In the next section we'll see that writing a sensible minimum set of documentation in a single document doesn't have to be expensive, and can greatly aid reproducibility.
 
@@ -249,22 +248,77 @@ FIXME: adding links to build runs
 
 ### Other documentation
 
-FIXME: CITATION, technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?)
+FIXME: CITATION
+FIXME: technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?), all aid reusability
 
 ## Choosing an open source licence
 
 FIXME: licence compatibility of third party dependencies
 
-## Tagging a release in GitHub
-
 > ## Preparing for release
 >
-> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a license, fixing any remaining problems you are aware of in your codebase, and when the repository is ready, tagging a release in GitHub. As a team prioritise and accomplish the work to be done so the software can be released on time.
+> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a license, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
 >
 > > ## Solution
 > {: .solution}
 >
 {: .challenge}
+
+
+## Tagging a release in GitHub
+
+There are many ways in which Git and GitHub can help us make a software release from our code. One of these is via **tagging**, where we attach a human-readable label to a specific commit. Let's see what tags we currently have in our repository:
+
+~~~
+$ git tag
+~~~
+{: .language-bash}
+
+Since we haven't tagged any commits yet, there's unsurprisingly no output. We can create a new tag on the last commit we did by doing:
+
+~~~
+$ git tag -a v1.0.0 -m "Version 1.0.0"
+~~~
+{: .language-bash}
+
+So we can now do:
+
+~~~
+$ git tag
+~~~
+{: .language-bash}
+
+~~~
+v.1.0.0
+~~~
+{: .output}
+
+And also, for more information:
+
+~~~
+$ git show v1.0.0
+~~~
+{: .language-bash}
+
+~~~
+FIXME: add output from git show
+~~~
+{: .output}
+
+> ## What is a version number anyway?
+>
+> Software version numbers are everywhere, and there are many different ways to do it. A popular one to consider is [**Semantic Versioning**](https://semver.org/), where a given version number uses the format MAJOR.MINOR.PATCH. You increment the:
+> 
+> - MAJOR version when you make incompatible API changes
+> - MINOR version when you add functionality in a backwards compatible manner
+> - PATCH version when you make backwards compatible bug fixes
+> 
+> You can also add a hyphen followed by characters to denote a pre-release version, e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (first beta release)
+{: .callout}
+
+We can now use the more memorable tag to refer to this specific commit. Plus, once we've pushed this back up to GitHub, it appears as a specific release within our code repository which can be downloaded in compressed `.zip` or `.tar.gz` formats. Note that these downloads just contain the state of the repository at that commit, and not its entire history.
+
+Using features like tagging allow us to highlight commits that are particularly important, which is very useful for *reproducibility* purposes. We can (and should) refer to specific commits for software in academic papers that make use of results from software, but tagging with a specific version number makes that just a little bit easier for humans.
 
 
 ## Conforming to data policy and regulation
