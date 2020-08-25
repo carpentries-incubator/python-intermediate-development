@@ -38,13 +38,15 @@ modules each with a subset of functionality. Typical examples of modules in prog
 Although modules are self-contained and independent elements to a large extent (they can depend on other modules), there are connections between them and well-defined ways of how they interact with one another. The rules of interaction between software modules are called programming interfaces - they define how other modules (clients) can use a particular module. Typically, an interface to a module includes rules on how a module can take input from and how it gives output back to its clients. A client can be a human, in which case we also call these user interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a function/method’s definition (also known as a **signature**) states what parameters it can take as input and what it returns as an output.
 
 ## Model-View-Controller (MVC) Design Architecture
-Model–View–Controller (MVC) is a software design architecture which divides the related program logic into three interconnected modules:
+Model–View–Controller (MVC) is a software design architecture which divides the related program logic into three 
+interconnected modules:
 
 - **Model** (data)
 - **View** (client interface),  and 
 - **Controller** (processes that handle input/output and manipulate the data).
 
-**Model** represents the data used by a program. This may be a database, a file, or an object - for example a table representing patients data. 
+**Model** represents the data used by a program and also contains operations that act to change the data in the model. 
+This may be a database, a file, or an object - for example a table representing patients data. 
 
 **View** is the means of displaying data to users/clients within an application. For example, displaying a window with input fields and buttons (Graphical User Interface, GUI) or text within a command line shell (Command Line Interface, CLI) are examples of Views. They include anything that the user can see from the application. While building GUIs is not the topic of this workshop, we will cover building CLIs in Python in later episodes. 
 
