@@ -12,12 +12,28 @@ objectives:
 - "Use git to obtain a working copy of our template software project"
 
 keypoints:
-- "Programming interfaces define how individual modules within a software application interact among themselves or how the application itself interacts with its users."
-- "MVC is a software design architecture which divides the application into three interconnected modules: Model (data), View (user interface), and Controller (input/output and data manipulation)."
-- "Software project template to be used throughout this workshop is an example of an MVC application that manipulates patients’ inflammation data and performs basic statistical analysis using Python."
+- "Programming interfaces define how individual modules within a software application interact among themselves or 
+how the application itself interacts with its users."
+- "MVC is a software design architecture which divides the application into three interconnected modules: Model (data), 
+View (user interface), and Controller (input/output and data manipulation)."
+- "Software project template to be used throughout this workshop is an example of an MVC application that manipulates 
+patients’ inflammation data and performs basic statistical analysis using Python."
 ---
+## Introduction
+We will be covering a lot of material in this workshop but we obviously cannot teach everything you would usually 
+do at the beginning of a software project at the outset in the first lesson. For example, 
+[choosing a license](https://www.software.ac.uk/resources/guides/adopting-open-source-licence) for your 
+project or 
+[writing documentation](https://software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation) 
+should be considered early in the normal run of things but for the purposes of this workshop we cover them later. 
+TODO Add links to actual sections that cover these topics in the material rather than to guides on the SSI's website 
+(although linking to our website could be useful for several reasons). So, we start by looking into the design 
+architecture of a software project.
+        
 ## Programming Modules and Interfaces
-In software design and development, large systems or programs are often decomposed into a set of smaller modules each with a subset of functionality. Typical examples of modules in programming are software libraries (such as `numpy` and `matplotlib`) or classes in object-oriented programming languages. 
+In software design and development, large systems or programs are often decomposed into a set of smaller 
+modules each with a subset of functionality. Typical examples of modules in programming are software libraries 
+(such as `numpy` and `matplotlib`) or classes in object-oriented programming languages. 
 
 Although modules are self-contained and independent elements to a large extent (they can depend on other modules), there are connections between them and well-defined ways of how they interact with one another. The rules of interaction between software modules are called programming interfaces - they define how other modules (clients) can use a particular module. Typically, an interface to a module includes rules on how a module can take input from and how it gives output back to its clients. A client can be a human, in which case we also call these user interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a function/method’s definition (also known as a **signature**) states what parameters it can take as input and what it returns as an output.
 
