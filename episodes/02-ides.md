@@ -23,16 +23,11 @@ integration for web app development, source code inspection for dependencies and
 following is a list of most commonly seen IDE features:
 
 - Syntax highlighting - to show the language constructs, keywords and the syntax errors with visually distinct colors 
-and font effects,
-- Code completion - to speed up programming by offering a set of possible code options,
-- Code refactoring - for automated rewriting of the code to help clarity or to conform to coding styles/conventions,
-- Version control - to interact with source code repositories,
-- Debugging - for setting breakpoints in the code editor, step-by-step execution of code and inspection of variables,
-- Code search - finding package, class, function and variable declarations, their usages and referencing,
-- Visual programming - to create new applications by moving programming, building blocks, or code nodes to create 
-flowcharts or structure diagrams that are then compiled or interpreted,
-- Language and file format support - support for multiple programming languages and file formats - for example HTML, 
-Markdown, XML, JSON, CSV, images, etc.
+and font effects
+- Code completion - to speed up programming by offering a set of possible (syntactically correct) code options
+- Code search - finding package, class, function and variable declarations, their usages and referencing
+- Version control support - to interact with source code repositories
+- Debugging - for setting breakpoints in the code editor, step-by-step execution of code and inspection of variables
 
 IDEs are extremely useful and modern software development would be very hard without them. There is a number of IDEs 
 available for Python development, a good overview is available from the 
@@ -60,16 +55,14 @@ PyCharm will show you a 'Tip of the Day' window which you can safely ignore by s
 You will notice the IDE shows you a project/file navigator window on the left hand side, to traverse and select the files 
 (and any subdirectories) within the working directory, and an editor window on the right.
 
-### Useful PyCharm Features 
-
-#### Syntax highlighting
+### Syntax highlighting
 Syntax highlighting is a feature that displays source code terms in different colors and fonts according to the syntax 
 category the highlighted term belongs to. It also makes syntax errors visually distinct. Highlighting does not affect 
 the meaning of the code itself - is intended only for human readers and makes reading code and finding errors easier.
 
 ![ide-syntax](../fig/ide-syntax.png)
 
-#### Code completion
+### Code completion
 As you start typing code, PyCharm will offer to complete some of the code for you in a form of an auto completion popup. 
 This is a context-aware code completion feature that speeds up the process of coding (e.g. reducing typos and other 
 common mistakes) by offering available variable 
@@ -77,7 +70,7 @@ names, functions from available packages, parameters of functions, hints related
 
 ![ide-code-completion](../fig/ide-code-completion.png)
 
-#### Code search 
+### Code search 
 You can search for a text string within a project, use different scopes to narrow your search process, exclude certain 
 items from your search, find usages and occurrences. To find the search string in a project:
 
@@ -94,7 +87,7 @@ or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again to s
 corner. Use this window and its options to group the results, preview them, and work with them further.
 ![ide-find-panel](../fig/ide-find-panel.png) 
 
-#### Version control
+### Version control
 PyCharm supports a directory-based versioning model, which means that each project directory can be 
 associated with a different version control system. Our project was already under `git` version control and PyCharm 
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm. 
