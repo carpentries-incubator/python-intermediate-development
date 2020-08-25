@@ -192,7 +192,7 @@ To export your active environment to a new file:
  ~~~
  {: .language-bash}   
  
-You can now share the exported `environment.yml` file with your colleagues. Typically, you will save the 
+You can now share the exported `environment.yml` file with your collaborators. Typically, you will save the 
 `environment.yml` file in the root directory of your project and add it to your version control system.
 
 ### Importing an Environment
