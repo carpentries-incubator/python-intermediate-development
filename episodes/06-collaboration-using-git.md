@@ -273,10 +273,18 @@ git push origin master
 {: .language-bash} 
 
 > ## All branches are equal
-> In git, all branches are equal - there is nothing special or different about the `master` branch. It is called 
+> In `git`, all branches are equal - there is nothing special or different about the `master` branch. It is called 
 > like that by convention and is created by default, but it can also be called something else. A good example is 
-> `gh-pages` branch which is the main branch for website projects hosted on GitHub. 
+> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `master` which can 
+> be safely deleted for such projects). 
 {: .callout} 
+
+## Summary
+Good software development practice is to keep the `master` branch stable while you and the team develop and test 
+new functionalities on feature branches (which can be done in parallel and independently). The next step is to merge 
+features branches onto the `develop` branch, where more testing can occur to verify that the new features work 
+well with the rest of the code (and not just in isolation). We talk more about different types of code testing in the 
+next episode.
 
 {% include links.md %}
 
