@@ -38,8 +38,11 @@ architecture in our software project.
 > ## Programming modules and interfaces
 >
 > In software design and development, large systems or programs are often decomposed into a set of smaller 
-> modules each with a subset of functionality. Typical examples of modules in programming are software libraries 
-> (such as `numpy` and `matplotlib`) or classes in object-oriented programming languages. 
+> modules each with a subset of functionality. Typical examples of modules in programming are software libraries; 
+> some software libraries, such as `numpy` and `matplotlib` in Python, are bigger modules that contain several 
+> smaller sub-modules. 
+> Another examples of modules are 
+> classes in object-oriented programming languages. 
 >
 > Although modules are self-contained and independent elements to a large extent (they can depend on other modules), 
 > there are connections between them and well-defined ways of how they interact with one another. The rules of 
