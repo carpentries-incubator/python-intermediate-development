@@ -39,24 +39,30 @@ After following this lesson, you will:
  or meet the following criteria.
 >     
 > #### Git
-> - You are familiar with the concept of version control (MUST HAVE)
-> - You have experience configuring `git` for the first time and creating a local repository (MUST HAVE)
-> - You have experience using `git` to create and clone a repository and add/commit changes to it (MUST HAVE) and to 
-> push to or pull from a remote repository (SHOULD HAVE)
-> - You have experience comparing various versions of tracked files or ignoring specific files (COULD HAVE)
+> - **You are familiar with the concept of version control**
+> - **You have experience configuring `git` for the first time and creating a local repository**
+> - **You have experience using `git` to create and clone a repository and add/commit changes to it** 
+> - Optionally, you have experience using `git` to push to or pull from a remote repository
+> - Optionally, you have experience comparing various versions of tracked files or ignoring specific files
 >
 > #### Python
-> - You have basic knowledge and experience of programming in Python (e.g. using variables, lists, conditional 
-> statements, functions and importing and using external libraries)(MUST HAVE)
-> - You have previously written at least a basic Python script or an iPython/Jupyter notebook to accomplish a task (MUST HAVE)
+> - **You have basic knowledge and experience of programming in Python, for example using:**  
+>   - **variables**, 
+>   - **lists**, 
+>   - **conditional statements**, 
+>   - **functions and** 
+>   - **importing and using external libraries**  
+> - **You have previously written at least a basic Python script or an iPython/Jupyter notebook to accomplish a 
+> task**
 >
 > #### Shell
-> - You have experience using a command line interface (or shell), such as Bash, under a UNIX-style operating system like 
+> - **You have experience using a command line interface (shell), such as Bash, under a UNIX-style operating system like 
 > Linux (also supported from Windows 10), or Git Bash under Windows to navigate a UNIX-style file system and run 
-> commands with arguments (MUST HAVE)
-> - You have experience redirecting inputs and outputs from a command (COULD HAVE) 
-> - You have experience constructing command pipelines with two or more stages (COULD HAVE)
-> - You have experience write a loop that applies one or more commands separately to each file in a set of files (COULD HAVE)
+> commands with arguments**
+> - Optionally, you have experience redirecting inputs and outputs from a command 
+> - Optionally, you have experience constructing command pipelines with two or more stages
+> - Optionally, you have experience write a loop that applies one or more commands separately to each file in a set of 
+> files
 {: .prereq}
 
 {% include links.md %}
