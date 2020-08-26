@@ -22,22 +22,36 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Introduction
 We will be covering a lot of material in this workshop but we obviously cannot teach everything you would usually 
 do at the beginning of a software project at the outset in the first lesson. For example, 
-[choosing a license](https://www.software.ac.uk/resources/guides/adopting-open-source-licence) for your 
+[choosing a license](/32-preparing-software-reuse/index.html#choosing-an-open-source-licence) for your 
 project or 
-[writing documentation](https://software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation) 
+[writing documentation](/32-preparing-software-reuse/index.html#documenting-code-to-improve-reusability) 
 should be considered early in the normal run of things but for the purposes of this workshop we cover them later. 
-TODO Add links to actual sections that cover these topics in the material rather than to guides on the SSI's website 
-(although linking to our website could be useful for several reasons). So, we start by looking into the design 
-architecture of a software project.
+We start by looking into the design architecture of a software project.
         
-## Programming Modules and Interfaces
-In software design and development, large systems or programs are often decomposed into a set of smaller 
-modules each with a subset of functionality. Typical examples of modules in programming are software libraries 
-(such as `numpy` and `matplotlib`) or classes in object-oriented programming languages. 
-
-Although modules are self-contained and independent elements to a large extent (they can depend on other modules), there are connections between them and well-defined ways of how they interact with one another. The rules of interaction between software modules are called programming interfaces - they define how other modules (clients) can use a particular module. Typically, an interface to a module includes rules on how a module can take input from and how it gives output back to its clients. A client can be a human, in which case we also call these user interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a function/method’s definition (also known as a **signature**) states what parameters it can take as input and what it returns as an output.
-
 ## Model-View-Controller (MVC) Design Architecture
+Software architecture is the fundamental structure of a software system that is decided at the beginning of 
+software project development and cannot be changed that easily once implemented. It refers to a "bigger picture" of
+a software system that describes high-level components (modules) of the system and how they interact between 
+themselves. There are various software architectures around - we are going to utilise the Model–View–Controller 
+architecture in our software project.
+
+> ## Programming modules and interfaces
+>
+> In software design and development, large systems or programs are often decomposed into a set of smaller 
+> modules each with a subset of functionality. Typical examples of modules in programming are software libraries 
+> (such as `numpy` and `matplotlib`) or classes in object-oriented programming languages. 
+>
+> Although modules are self-contained and independent elements to a large extent (they can depend on other modules), 
+> there are connections between them and well-defined ways of how they interact with one another. The rules of 
+> interaction between software modules are called programming interfaces - they define how other modules (clients) 
+> can use a particular module. Typically, an interface to a module includes rules on how a module can take input from 
+> and how it gives output back to its clients. A client can be a human, in which case we also call these user 
+> interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a 
+> function/method’s definition (also known as a *signature*) states what parameters it can take as input and what 
+> it returns as an output. 
+> 
+{: .callout}  
+
 Model–View–Controller (MVC) is a software design architecture which divides the related program logic into three 
 interconnected modules:
 
@@ -52,39 +66,49 @@ This may be a database, a file, or an object - for example a table representing 
 
 **Controller** manipulates both the Model and the View. It accepts input from the View and performs the corresponding action on the Model and then updates the View accordingly. For example, on user request, Controller updates a picture on a user's GitHub profile and then modifies the View by displaying the updated profile back to the user.
       
-MVC architecture is commonly used for developing modern web applications. Let's have a look at some other MVC examples. 
+Let's have a look at some MVC examples. 
        
 > ## MVC application examples
-> What other MVC application examples do you know, either computational or in real life? This exercise can be done as a group discussion.
-> > ## Solution 
- > > #### Ordering food in a restaurant 
+> What MVC application examples do you know, either computational or in real life? This exercise can be done as 
+>a group discussion.
+> > ## Solution
+> > #### Modern web and mobile applications
+> > MVC architecture has become popular for designing web and mobile applications. Users interact with a web/mobile application by sending requests to it via web forms. Requests are processed by the 
+> > Controller, which interacts with the Model to retrieve or update the underlying data. For example, the user may 
+> > request to view its profile/account information or to update their personal details or password. 
+> > Another typical example is adding a 
+> > products into the shopping basket and then proceeding to the checkout to finalise the order. 
+> > Forms to collect users inputs/requests together with 
+> > the info returned and displayed to the user as a result represent the View.    
+> > #### Ordering food in a restaurant 
 [comment]: <> (People Couple Waiter photo, Public Domain, https://publicdomainvectors.org/en/free-clipart/Restaurant-order-vector-image/9341.html)  
 [comment]: <> (Chef food preparation photo, Free for commercial use, DMCA, https://www.pxfuel.com/en/free-photo-emwgt)
- > > When you go to a restaurant, the waiter comes to you to take your food order. The waiter doesn't know who you are 
- > > and what you want, they just write down the detail of your order. Then, the waiter moves to the kitchen where 
- > > the cook prepares your food based on the order passed to them by the waiter. 
- > > The cook needs ingredients, which they source from the refrigerator (storage). When the food is ready, the cook 
- > > hands it over to
- > > the waiter, who brings the food to you. You do not know the details of how the food has been prepared. In this 
- > > scenario, you provide the View, the waiter is the Controller, and the cook is the Model who manipulates the Data 
- > > (food).
- > > ![mvc-restaurant](../fig/mvc-restaurant.png)
- > >
- > > #### Driving a car    
+> > When you go to a restaurant, the waiter comes to you to take your food order. The waiter doesn't know who you are 
+> > and what you want, they just write down the detail of your order. Then, the waiter moves to the kitchen where 
+> > the cook prepares your food based on the order passed to them by the waiter. 
+> > The cook needs ingredients, which they source from the refrigerator (storage). When the food is ready, the cook 
+> > hands it over to
+> > the waiter, who brings the food to you. You do not know the details of how the food has been prepared. In this 
+> > scenario, you provide the View, the waiter is the Controller, and the cook is the Model who manipulates the Data 
+> > (food).  
+> > ![mvc-restaurant](../fig/mvc-restaurant.png)
+> >
+> > #### Driving a car    
 [comment]: <> (1957 Hudson Hornet dashboard photo, CC0 1.0 Universal Public Domain Dedication : https://www.flickr.com/photos/95319912@N03/14839114077/in/photolist-oBhkCr-TrSHTE-55pDDE-tGCbCe-zcC4YS-6FJQFF-HonnVv-214bJ13-4KsQKx-e11jvq-276523m-252ukyr-SN3gS9-22LWSKZ-RzpuEX-8kzbNY-Hqrk9y-YnKk4h-2efuKCZ-BYkAyQ-7BiGkK-7kRexQ-Y2VcyA-M2Qq2-211o3dp-HonreK-8cSUsa-YkiNKG-fBSkyZ-8cWdkh-jNfVW-oVkiU9-FfmjuS-2crUDPH-s28jPU-Mt2211-8XETQb-553L7Q-6Gw3eX-2eiBHJ2-21E8CDN-Gy6ywY-7BztVi-XJUZ2x-9AjS3t-9aha7R-8rPuQy-K88SEr-24UVQMz-27yqHQc)
  [comment]: <> (American Ironhorse photo, CC BY-NC 2.0: https://www.flickr.com/photos/roome/199979254/in/photolist-iEWSb-8RDr8-2Ti66-wWb4X6-qaUFk-gdRm78-axDkBF-9zMU1q-3c4WiV-JpaJRw-hgLRF2-duVjRu-i9p9g-9ep7XY-4BNHXp-8e6BJL-gQTzg-dgR6sq-rcUhFh-jYF82-jxRjAA-7b83ac-nvx4gm-dVFiXb-nvjFfc-85Woju-a6aRRb-HQwZXH-PXjEEy-5sGKFp-ac9rhB-vdQw9U-nw6Gjy-6TNLb-Haam12-afEcuF-K8wsb-4ByJNa-wR7pRF-Brhxug-riqtsR-7aJ4xU-2qCqgn-7b83cv-sy4JFZ-HTHNxQ-cxmsP3-GJv9WG-Hvxrhb-7x1i4B)
  [comment]: <> (Car fuel photo, Free for commercial use, DMCA, https://www.pxfuel.com/en/free-photo-xdzbc)
- > > Car driving mechanism is another example of the MVC architecture. The View is the interface used by a driver to 
- > > operate a car - steering wheel, gear lever, brake, dashboard, etc. The engine mechanism is the Controller. The 
- > > Model/Data is the fuel, stored in a fuel tank, which gets converted into energy that powers the car by the 
- > > Controller.
- > > ![mvc-car](../fig/mvc-car.png)
- > {: .solution}  
+> > Car driving mechanism is another example of the MVC architecture. The View is the interface used by a driver to 
+> > operate a car - steering wheel, gear lever, brake, dashboard, etc. The engine mechanism is the Controller. The 
+> > Model/Data is the fuel, stored in a fuel tank, which gets converted into energy that powers the car by the 
+> > Controller.
+> > ![mvc-car](../fig/mvc-car.png)
+> {: .solution}  
 >
 {: .challenge}       
        
 > ## Separation of concerns
-> Separation of concerns is important when designing software and there are different ways to achieve it.
+> Separation of concerns is important when designing software architectures in order to reduce its complexity 
+> and there are different ways to achieve it.
 > MVC architecture is one way, but other examples include Service-Oriented Architecture (SOA), 
 > Client-Server architecture, N-tier architecture, etc. 
 > However, there are limits to everything, and MVC architecture is no exception. Controller
