@@ -3,12 +3,42 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-This lesson teaches intermediate-level software development skills in a way that mimics a typical software 
-development process in a team. It is suitable for those who have either been taught the novice 
+This lesson teaches intermediate-level software development skills in a way that mimics a 
+typical software development process in a team. It will help people to maintain functional software efficiently 
+while supporting collaborations with others.
+
+A typical learner for this course may be someone who finished an 
+undergraduate degree and, moving into academic 
+research and needing to write some code, gained basic software development skills by self-learning or attending 
+, e.g., a novice [Software Carpentry course](https://software-carpentry.org/) (shell, Python, `git`). 
+However, their software development-related projects 
+are now becoming more complex, larger, and involving more researchers and other stakeholders (e.g. users), for example:
+- Software is becoming more complex and more collaborative development effort is needed to keep the software running 
+- Software is going further that just the small group developing and/or using the code - there are more users and 
+the increasing need to add new features and support collaborations with others
+- Increased ['technical debt'](https://en.wikipedia.org/wiki/Technical_debt) and demands to add new functionality while ensuring previous development efforts 
+remain functional and 
+maintainable 
+
+This course is aimed at teaching a core set of established best practice 
+software development skills for working as part of a team in a 
+research environment (see detailed [learning objectives](/index.html#learning-objectives) below). The ‘core set’ of skills is not a comprehensive set of all-encompassing skills, 
+but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing 
+on your self-learning journey. 
+
+## Learning Objectives
+After following this lesson, you will:
+
+- have intermediate Python skills
+- be able to write robust software
+- know how to develop software collaboratively
+- know how to publish and release your software
+
+## Target Audience
+It is suitable for those who have either been taught the novice 
 [Software Carpentry](https://software-carpentry.org/) course (shell, Python, `git`) or match a very strict set of 
 skill prerequisites (described below).
 
-## Target Audience
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
@@ -26,14 +56,6 @@ This course is for you if:
  - You are well familiar with learning objectives of episodes 
  - The software you write is fully documented and well architected
   
-## Learning Objectives
-After following this lesson, you will:
-
-- have intermediate Python skills
-- be able to write robust software
-- know how to develop software collaboratively
-- know how to publish and release your software
-
 > ## Prerequisites
 > To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
  or meet the following criteria.

@@ -22,7 +22,6 @@ interchangeably as you would in a real life rather than teaching each of them se
 After attending this workshop, you should be equipped with some intermediate Python development 
 skills, as well as general skills on writing robust software collaboratively and releasing it for re-use by 
 others.
-
            
 ## Prerequisite Knowledge
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
