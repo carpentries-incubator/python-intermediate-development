@@ -16,12 +16,14 @@ that will be of most use to anyone working collaboratively on code."
 you have some basic Python, shell and `git` skills."
 ---
 ## Setting the Scene
-This lesson teaches intermediate-level software development skills in a way that mimics a typical software development 
-process in a team - we teach you to use a number of different software development tools simultaneously and 
-interchangeably as you would in a real life rather than teaching each of them separately. 
-After attending this workshop, you should be equipped with some intermediate Python development 
-skills, as well as general skills on writing robust software collaboratively and releasing it for re-use by 
-others.
+This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
+software development. We will teach you to use a number of different software development tools and techniques 
+simultaneously and interchangeably as you would in a real life, rather than teaching them separately. 
+The workshop is configured to get you working as part 
+of a team (that you have perhaps just joined, inheriting some code). After attending this workshop, you will be 
+equipped with some intermediate Python development 
+skills, as well as general skills on writing robust software collaboratively making it easier to use, develop, 
+and sustain it in the future for yourself and others.
            
 ## Prerequisite Knowledge
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge

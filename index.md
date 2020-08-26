@@ -3,9 +3,12 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-This lesson teaches intermediate-level software development skills in a way that mimics a 
-typical software development process in a team. It will help people to maintain functional software efficiently 
-while supporting collaborations with others.
+This course is aimed at teaching a **core set** of established best practice 
+software development skills for working as part of a team in a 
+research environment (see detailed [learning objectives](/index.html#learning-objectives) below). The core set 
+of skills we teach is not a comprehensive set of all-encompassing skills, 
+but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing 
+on your learning journey. 
 
 A typical learner for this course may be someone who finished an 
 undergraduate degree and, moving into academic 
@@ -18,13 +21,7 @@ are now becoming more complex, larger, and involving more researchers and other 
 the increasing need to add new features and support collaborations with others
 - Increased ['technical debt'](https://en.wikipedia.org/wiki/Technical_debt) and demands to add new functionality while ensuring previous development efforts 
 remain functional and 
-maintainable 
-
-This course is aimed at teaching a core set of established best practice 
-software development skills for working as part of a team in a 
-research environment (see detailed [learning objectives](/index.html#learning-objectives) below). The ‘core set’ of skills is not a comprehensive set of all-encompassing skills, 
-but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing 
-on your self-learning journey. 
+maintainable
 
 ## Learning Objectives
 After following this lesson, you will:
