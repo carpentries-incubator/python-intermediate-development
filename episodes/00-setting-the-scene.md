@@ -29,7 +29,7 @@ This is an intermediate-level software development course so it is expected for 
 on the topics covered, as outlined at the [beginning of the lesson](/index.html).
 
 > ## Quiz 
-> Here is a little quiz that can be done in a shared document to test the participants' prior knowledge to 
+> Here is a little quiz that can be done in a shared document to test the participants' prior knowledge and 
 > determine where they fit on the must have/desirable skill spectrum.
 >
 > #### Git       
@@ -76,12 +76,12 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html)
 >> b. `{name: "apple", type: "fruit"}`  
 >> c. `["apple", "banana", "cherry"]`  
 >> d. `("apple", "banana", "cherry")`   
-> 2. What is the correct syntax for "if" statement in Python?
+> 2. What is the correct syntax for *if* statement in Python?
   >> a. `if (x > 3):`  
   >> b. `if (x > 3) then:`  
   >> c. `if (x > 3)`  
   >> d. `if (x > 3);`
-> 3. What is the result at the end of the following statements in Python?   
+> 3. What is the result at the end of the following 3 assignment statements in Python?   
 >> `n = 300`  
 >>    `m = n`  
 >>   `n = -100 `  
