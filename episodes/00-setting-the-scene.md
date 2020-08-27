@@ -13,14 +13,14 @@ keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle 
 that will be of most use to anyone working collaboratively on code."
 - "The lesson follows on from the novice Software Carpentry lesson, but it not a prerequisite for attending as long as
-you have some basic Python, shell and `git` skills."
+you have some basic Python, shell and Git skills."
 ---
 ## Setting the Scene
 This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
 software development. We will teach you to use a number of different software development tools and techniques 
 simultaneously and interchangeably as you would in a real life, rather than teaching them separately. 
 The workshop is configured to get you working as part 
-of a team (that you have perhaps just joined, inheriting some code). After attending this workshop, you will be 
+of a team. After attending this workshop, you will be 
 equipped with some intermediate Python development 
 skills, as well as general skills on writing robust software collaboratively making it easier to use, develop, 
 and sustain it in the future for yourself and others.
@@ -34,12 +34,12 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html)
 > determine where they fit on the must have/desirable skill spectrum.
 >
 > #### Git       
-> 1. Which command should you use to initialise a new `git` repository?
+> 1. Which command should you use to initialise a new Git repository?
 >> a. `git bash`  
 >> b. `git install`  
 >> c. `git init`  
 >> d. `git start`       
-> 2. After you initialize a new `git` repository and create a file named `LICENCE.md` in the root of the repository, 
+> 2. After you initialize a new Git repository and create a file named `LICENCE.md` in the root of the repository, 
 > which of the following commands will not work? 
 >> a. `git add LICENCE.md`  
 >> b. `git status`  

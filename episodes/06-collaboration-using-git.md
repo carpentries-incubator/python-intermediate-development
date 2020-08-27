@@ -75,7 +75,7 @@ git push origin master
 ~~~
 {: .language-bash} 
 
-Remember, systems like `git` allow us to synchronise work between any two copies of the same repository. In practice, 
+Remember, systems like Git allow us to synchronise work between any two copies of the same repository. In practice, 
 though, it is easiest to use one copy as a central hub where everyone pushes their changes to, 
 and to keep it on the Web rather than on someone’s laptop.
 
@@ -273,7 +273,7 @@ git push origin master
 {: .language-bash} 
 
 > ## All branches are equal
-> In `git`, all branches are equal - there is nothing special or different about the `master` branch. It is called 
+> In Git, all branches are equal - there is nothing special or different about the `master` branch. It is called 
 > like that by convention and is created by default, but it can also be called something else. A good example is 
 > `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `master` which can 
 > be safely deleted for such projects). 
