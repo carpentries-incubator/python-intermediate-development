@@ -12,8 +12,9 @@ on your learning journey.
 
 A typical learner for this course may be someone who finished an 
 undergraduate degree and, moving into academic 
-research and needing to write some code, gained basic software development skills by self-learning or attending 
-, e.g., a novice [Software Carpentry course](https://software-carpentry.org/) (shell, Python, `git`). 
+research and needing to write some code, gained basic software development skills either 
+by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/) 
+(shell, Python, Git). 
 However, their software development-related projects 
 are now becoming more complex, larger, and involving more researchers and other stakeholders (e.g. users), for example:
 - Software is becoming more complex and more collaborative development effort is needed to keep the software running 
@@ -33,7 +34,7 @@ After following this lesson, you will:
 
 ## Target Audience
 It is suitable for those who have either been taught the novice 
-[Software Carpentry](https://software-carpentry.org/) course (shell, Python, `git`) or match a very strict set of 
+[Software Carpentry](https://software-carpentry.org/) course (shell, Python, Git) or match a very strict set of 
 skill prerequisites (described below).
 
 This course is for you if:
@@ -45,7 +46,7 @@ This course is for you if:
     - how to prepare software for others to use
 - You are currently comfortable with:
     - basic Python programming (though this may not be the main language you use)
-    - basic version control using `git`
+    - basic version control using Git
     - command line interface (shell)
      
  This course is not for you if:
@@ -59,9 +60,9 @@ This course is for you if:
 >     
 > #### Git
 > - **You are familiar with the concept of version control**
-> - **You have experience configuring `git` for the first time and creating a local repository**
-> - **You have experience using `git` to create and clone a repository and add/commit changes to it** 
-> - Optionally, you have experience using `git` to push to or pull from a remote repository
+> - **You have experience configuring Git for the first time and creating a local repository**
+> - **You have experience using Git to create and clone a repository and add/commit changes to it** 
+> - Optionally, you have experience using Git to push to or pull from a remote repository
 > - Optionally, you have experience comparing various versions of tracked files or ignoring specific files
 >
 > #### Python

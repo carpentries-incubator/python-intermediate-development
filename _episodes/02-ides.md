@@ -89,12 +89,12 @@ corner. Use this window and its options to group the results, preview them, and 
 
 ### Version control
 PyCharm supports a directory-based versioning model, which means that each project directory can be 
-associated with a different version control system. Our project was already under `git` version control and PyCharm 
+associated with a different version control system. Our project was already under Git version control and PyCharm 
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm. 
 
 For the purposes of this workshop, we will do all our version control commands from the shell terminal but it is worth 
-noting that PyCharm offers a comprehensive **subset** of `git` commands (i.e. it is possible to perform a set of common 
-`git` commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing 
+noting that PyCharm offers a comprehensive **subset** of Git commands (i.e. it is possible to perform a set of common 
+Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing 
 changes you made locally with the same repository version, a different commit version or a version in a different 
 branch - this is something that cannot be done equally well from a text-based shell terminal. 
 
