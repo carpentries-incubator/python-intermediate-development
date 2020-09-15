@@ -53,13 +53,26 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look now:
+Let's take a quick look now. Start the Python interpreter on the command line, in the repository root `swc-intermediate-template` directory:
+
+~~~
+$ python
+~~~
+{: .language-bash}
+
+And then enter the following:
 
 ~~~
 import numpy
-data = numpy.loadtxt(fname='../data/inflammation-01.csv', delimiter=',')
+data = numpy.loadtxt(fname='data/inflammation-01.csv', delimiter=',')
+data.shape
 ~~~
 {: .language-python}
+
+~~~
+(60, 40)
+~~~
+{: .language-output}
 
 The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient. So this shows the results of measuring the inflammation of 60 patients over a 40 day period. Let's look into how we can test our application's statistical functions (held in `inflammation/models.py`) against this data.
 
@@ -98,6 +111,8 @@ assert np.array_equal(np.array([3, 4]), daily_mean(np.array([[1, 2], [3, 4], [5,
 assert np.array_equal(np.array([0, 0]), daily_mean(np.array([[0, 0], [0, 0]])))
 ~~~
 {: .language-python}
+
+If we were to enter these in this order, we'd now get the following after the first test:
 
 ~~~
 Traceback (most recent call last):
@@ -185,9 +200,36 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 ### Preparing to write unit tests
 
-Before we do, however, let's create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
+#### Install pytest
+
+One of the first things we need to do is install the pytest package in our virtual environment. Instead of using PyCharm to configure the Conda environment, let's use the `pip` command from the command line instead:
 
 ~~~
+$ pip install pytest
+~~~
+{: .language-bash}
+
+You should see something like:
+
+~~~
+Collecting pytest
+  Downloading pytest-6.0.2-py3-none-any.whl (270 kB)
+     |████████████████████████████████| 270 kB 1.0 MB/s 
+...
+
+Installing collected packages: pytest
+Successfully installed pytest-6.0.2
+~~~
+{: .output}
+
+So pytest gets installed along with any additional dependencies it requires.
+
+#### Set up a new feature branch for writing tests
+
+Since we're going to write some new tests, let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
+
+~~~
+$ git checkout develop
 $ git branch test-suite
 $ git checkout test-suite
 ~~~
@@ -195,18 +237,20 @@ $ git checkout test-suite
 
 Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
 
-Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `dev`.
+Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
-Another thing we need to do is define a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages:
+#### Write a metadata package description
+
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages:
 
 ~~~
 from setuptools import setup, find_packages
 
-setup(name="swc-intermediate-test", version='1.0', packages=find_packages())
+setup(name="patient-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-This is a typical short `setup.py` that will enable PyTest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
+This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
 
 ~~~
 $ pip install -e .
@@ -218,7 +262,7 @@ We should see included with the other installed packages:
 
 ~~~
 ...
-swc-intermediate-template 1.0    /Users/user/swc-intermediate-template
+patient-analysis 1.0    /Users/user/swc-intermediate-template
 ...
 ~~~
 {: .output}
@@ -227,19 +271,19 @@ This will install our code, as a package, within our virtual environment. The `-
 
 ### Running the tests
 
-Now we can run these tests using PyTest:
+Now we can run these tests using pytest:
 
 ~~~
 $ pytest tests/test_stats.py
 ~~~
 {: .language-bash}
 
-Here, we can use the `-m` argument to Python to tell it to run a Python module, in this case `pytest`, on the specified `test_stats.py` file.
+So here, we specify the `tests/test_stats.py` file to run the tests in that file specifically.
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.7.7, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/user/swc-intermediate-template
+platform darwin -- Python 3.7.9, pytest-6.0.2, py-1.9.0, pluggy-0.13.1
+rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
 collected 2 items                                                              
 
 tests/test_stats.py ..                                                   [100%]
@@ -248,12 +292,12 @@ tests/test_stats.py ..                                                   [100%]
 ~~~
 {: .output}
 
-PyTest looks for functions whose names also start with the letters 'test_' and runs each one. Notice the `..` after our test script:
+Pytest looks for functions whose names also start with the letters 'test_' and runs each one. Notice the `..` after our test script:
 
 - If the function completes without an assertion being triggered, we count the test as a success (indicated as `.`).
 - If an assertion fails, or we encounter an error, we count the test as a failure (indicated as `F`). The error is included in the output so we can see what went wrong.
 
-So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, are these results easy to understand?
+So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, do we think these results are easy to understand?
 
 > ## Write some unit tests
 >
@@ -262,9 +306,10 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > > ## Solution
 > > 
 > > ~~~
-> > function test_daily_max():
+> > ...
+> > def test_daily_max():
 > >     """Test that max function works for an array of positive integers."""
-> >     from inflammation.models import daily_mean
+> >     from inflammation.models import daily_max
 > > 
 > >     test_array = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
@@ -273,9 +318,10 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([4, 6, 9]), daily_max(test_array))
 > > 
-> > function test_daily_min():
+> > 
+> > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
-> >     from inflammation.models import daily_mean
+> >     from inflammation.models import daily_min
 > > 
 > >     test_array = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
@@ -283,6 +329,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > > 
 > >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
+> > ...
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -305,6 +352,8 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
+Although note that we need to import the pytest library at the top of our `test_stats.py` file with `import pytest` so that we can use pytest's `raises()` function.
+
 > ## Why should we test invalid input data?
 >
 > Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
@@ -316,10 +365,12 @@ def test_daily_min_string():
 We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, we could rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
-@pytest.mark.parameterize(
-    "test, expected", 
-    [[[0, 0], [0, 0], [0, 0]], [0, 0]],
-     [[1, 2], [3, 4], [5, 6]], [3, 4]]])
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+     ([[0, 0], [0, 0], [0, 0]], [0, 0]),
+     ([[1, 2], [3, 4], [5, 6]], [3, 4])
+    ])
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
     from inflammation.models import daily_mean
@@ -327,12 +378,17 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
+Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a **decorator**, and we'll be finding out more about these later in the course. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments.  We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
+ 
+The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
+
 > ## Write parameterised unit tests
 >
-> Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in some more test cases.
+> Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in new test cases for each of them.
 >
 > > ## Solution
 > > ~~~
+> > ...
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
@@ -345,6 +401,7 @@ def test_daily_mean(test, expected):
 > >     from inflammation.models import daily_max
 > >     npt.assert_array_equal(np.array(expected), daily_max(np.array(test)))
 > > 
+> > 
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
@@ -356,6 +413,7 @@ def test_daily_mean(test, expected):
 > >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
 > >     from inflammation.models import daily_min
 > >     npt.assert_array_equal(np.array(expected), daily_min(np.array(test)))
+> > ...
 > > ~~~
 > > {: .language-python}
 > > function test_daily_max()
@@ -363,11 +421,13 @@ def test_daily_mean(test, expected):
 >
 {: .challenge}
 
-Let's commit our new test cases to our `test-suite` branch (but don't push it yet!):
+Try them out!
+
+Let's commit our new `pytest.py` file and test cases to our `test-suite` branch (but don't push it yet!):
 
 ~~~
-$ git add tests/test_stats.py
-$ git commit -m "Add initial test cases for daily_max() and daily_min()" tests/test_stats.py
+$ git add setup.py tests/test_stats.py
+$ git commit -m "Add initial test cases for daily_max() and daily_min()"
 ~~~
 {: .language-bash}
 
@@ -378,7 +438,7 @@ Pytest can’t think of test cases for us. We still have to decide what to test 
 
 Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
 
-A simple way to check the code coverage for a set of tests is to use nose to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by PyTest and using that, we can find this out:
+A simple way to check the code coverage for a set of tests is to use nose to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
 
 ~~~
 $ pip install pytest-cov
@@ -390,20 +450,20 @@ So here, we specify the additional named argument `--cov` to PyTest specifying t
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.8.3, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
+platform darwin -- Python 3.7.9, pytest-6.0.2, py-1.9.0, pluggy-0.13.1
 rootdir: /Users/user/swc-intermediate-template
-plugins: cov-2.9.0
+plugins: cov-2.10.1
 collected 9 items                                                              
 
-tests/test_stats.py .........                                            [100%]
+tests/test_stats.py .....                                                [100%]
 
----------- coverage: platform darwin, python 3.8.3-final-0 -----------
+---------- coverage: platform darwin, python 3.7.9-final-0 -----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
 inflammation/models.py       9      1    89%
 
 
-============================== 9 passed in 0.20s ===============================
+============================== 5 passed in 0.17s ===============================
 
 ~~~
 {: .output}
@@ -422,8 +482,8 @@ Now if you look at `requirement.txt` you'll see `pytest-cov`, you'll notice it h
 
 ~~~
 $ git add requirements.txt
-$ git commit -m "Update with py-cov" requirements.txt
-$ git push
+$ git commit -m "Add coverage support" requirements.txt
+$ git push -u origin test-suite
 ~~~
 {: .language-bash}
 
