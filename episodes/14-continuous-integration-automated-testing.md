@@ -85,7 +85,7 @@ Now if we commit and push this change a CI run will be triggered:
 
 ~~~
 $ git add .github
-$ git commit -m "Add Travis CI configuration" .github
+$ git commit -m "Add GitHub Actions configuration" .github
 $ git push
 ~~~
 {: .language-bash}
