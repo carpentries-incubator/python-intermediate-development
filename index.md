@@ -66,23 +66,16 @@ This course is for you if:
 > - Optionally, you have experience comparing various versions of tracked files or ignoring specific files
 >
 > #### Python
-> - **You have basic knowledge and experience of programming in Python, for example using:**  
->   - **variables**, 
->   - **lists**, 
->   - **conditional statements**, 
->   - **functions and** 
->   - **importing and using external libraries**  
+> - **You have basic knowledge and experience of programming in Python, for example using: variables, lists, 
+> conditional statements, functions and importing and using external libraries.**  
 > - **You have previously written at least a basic Python script or an iPython/Jupyter notebook to accomplish a 
 > task**
 >
 > #### Shell
-> - **You have experience using a command line interface (shell), such as Bash, under a UNIX-style operating system like 
-> Linux (also supported from Windows 10), or Git Bash under Windows to navigate a UNIX-style file system and run 
-> commands with arguments**
-> - Optionally, you have experience redirecting inputs and outputs from a command 
-> - Optionally, you have experience constructing command pipelines with two or more stages
-> - Optionally, you have experience write a loop that applies one or more commands separately to each file in a set of 
-> files
+> - **You have experience using a command line interface (shell), such as Bash under Linux/Windows 10 or 
+>Git Bash under Windows to navigate a UNIX-style file system and run 
+> commands with arguments.**
+> - Optionally, you have experience redirecting inputs and outputs from a command.
 {: .prereq}
 
 {% include links.md %}
