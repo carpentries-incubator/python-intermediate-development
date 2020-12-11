@@ -51,12 +51,59 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 ## An example dataset and application
 
-We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
+We going to use an example dataset that was taken from the [Software Carpentry 
+materials](https://swcarpentry.github.io/python-novice-inflammation/). It's based on a 
+clinical trial of inflammation in patients who have been given a new treatment for 
+arthritis. 
 
-Let's take a quick look now. Start the Python interpreter on the command line, in the repository root `swc-intermediate-template` directory:
+First create your own copy of the software project repository from GitHub:
+
+1. Log into your GitHub account and go to the [template repository 
+   URL](https://github.com/SABS-R3/2020-software-engineering-day6-inflammation).
+2. Click `Use this template` button towards the top right of the template repository's 
+   GitHub page to create a **copy** of the repository under your GitHub account. Note 
+   that each participant is creating their own copy to work on. Also, we are not forking 
+   the directory but creating a copy (remember - you can fork only once but can have 
+   multiple copies in GitHub). 
+3. Make sure to select your personal account and set the name to the project 
+   `inflammation` (you can call it anything you like, but it may be easier if everyone 
+   uses the same name).
+4. Locate the copied repository under your own GitHub account, and click the green 
+   "Code" button to get the HTTPS or SSH url. Use this to clone the repository to your 
+   local computer, for example:
+
+```
+git clone https://github.com/<username>/inflammation.git
+cd inflammation
+```
+{: .language-bash}
+
+Now create a new virtual environment and install the requirements.
+
+```
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+```
+{: .language-bash}
+
+Then, since we will be editing the code to create some new tests, we will create and 
+checkout a new branch called `test-suite`:
+
+```bash
+git checkout -b test-suite
+```
+{: .language-bash}
+
+There are a number of these data sets in the `data` directory, and are each stored in 
+comma-separated values (CSV) format: each row holds information for a single patient, 
+and the columns represent successive days.
+
+Let's take a quick look now. Start the Python interpreter on the command line, in the 
+repository root `inflammation` directory:
 
 ~~~
-$ python
+python
 ~~~
 {: .language-bash}
 
@@ -100,7 +147,7 @@ AssertionError
 ~~~
 {: .output}
 
-This result is useful, in the sense that we know something’s wrong, but look closely at what happens if we run the tests in a different order:
+This result is useful, in the sense that we know something's wrong, but look closely at what happens if we run the tests in a different order:
 
 ~~~
 from inflammation.models import daily_mean
@@ -121,7 +168,14 @@ AssertionError
 ~~~
 {: .output}
 
-We could put these in a separate script to automate the running of these tests. But Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
+We could put these in a separate script to automate the running of these tests. But 
+Python halts at the first failed assertion, so the second and third tests are not run at 
+all. It would be more helpful if we could get data from all of our tests every time 
+they're run, since the more information we have, the faster we're likely to be able to 
+track down bugs. It would also be helpful to have some kind of summary report: if our 
+set of tests - known as a **test suite** - includes thirty or forty tests (as it well 
+might for a more complex function or library), we'd like to know how many passed or 
+failed.
 
 So what has failed? As it turns out, the first test we just ran was incorrect, and should have read:
 
@@ -134,16 +188,17 @@ Which highlights an important point: as well as making sure our code is returnin
 
 ### Using a testing framework
 
-Most people don’t enjoy writing tests, so if we want them to actually do it, it must be easy to:
+Most people don't enjoy writing tests, so if we want them to actually do it, it must be easy to:
 
 - Add or change tests,
 - Understand the tests that have already been written,
 - Run those tests, and
-- Understand those tests’ results
+- Understand those tests' results
 
-Test results must also be reliable. If a testing tool says that code is working when it’s not, or reports problems when there actually aren’t any, people will lose faith in it and stop using it.
+Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
 
-Keeping these things in mind, here's a different approach. Look at `tests/test_stats.py`:
+Keeping these things in mind, here's a different approach. Look at 
+`tests/test_models.py`:
 
 ~~~
 """Tests for statistics functions within the Model layer."""
@@ -186,7 +241,10 @@ Each of these test functions, in a general sense, are called **test cases** - th
 
 > ## What about the comments that refer to Yapf?
 >
-> You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked into coding style in the last lesson, and Yapf is a command-line tool that reformats your code according to a given coding style. These *directives* inform Yapf that we don't wish to have this line reformatted, just to maintain clarity. We'll be looking into using Yapf later.
+> You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked 
+> into coding style in a previous lesson, and Yapf is a command-line tool that reformats 
+> your code according to a given coding style. These *directives* inform Yapf that we 
+> don't wish to have this line reformatted, just to maintain clarity.
 >
 {: .callout}
 
@@ -202,7 +260,8 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 #### Install pytest
 
-One of the first things we need to do is install the pytest package in our virtual environment. Instead of using PyCharm to configure the Conda environment, let's use the `pip` command from the command line instead:
+One of the first things we need to do is install the pytest package in our virtual 
+environment using `pip`:
 
 ~~~
 $ pip install pytest
@@ -226,22 +285,26 @@ So pytest gets installed along with any additional dependencies it requires.
 
 #### Set up a new feature branch for writing tests
 
-Since we're going to write some new tests, let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
+Since we're going to write some new tests, let's ensure we're initially on our 
+`test-suite` branch we created earlier:
 
 ~~~
-$ git checkout develop
-$ git branch test-suite
-$ git checkout test-suite
+git checkout test-suite
 ~~~
 {: .language-bash}
 
 Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
 
-Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
+Once we've finished writing these tests and are convinced they work properly, we'll 
+merge our `test-suite` branch back into `master`.
 
 #### Write a metadata package description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages:
+Another thing we need to do is create a `setup.py` in the root of our project 
+repository. A `setup.py` file defines metadata about our software, such as its name and 
+current version, and is typically used when writing and distributing Python code as 
+packages. Create a new file `setup.py` in the root directory of the `inflammation` 
+repository, with the following content:
 
 ~~~
 from setuptools import setup, find_packages
@@ -253,8 +316,8 @@ setup(name="patient-analysis", version='1.0', packages=find_packages())
 This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
 
 ~~~
-$ pip install -e .
-$ pip list
+pip install -e .
+pip list
 ~~~
 {: .language-bash}
 
@@ -262,7 +325,7 @@ We should see included with the other installed packages:
 
 ~~~
 ...
-patient-analysis 1.0    /Users/user/swc-intermediate-template
+patient-analysis 1.0    /Users/user/inflammation
 ...
 ~~~
 {: .output}
@@ -274,11 +337,12 @@ This will install our code, as a package, within our virtual environment. The `-
 Now we can run these tests using pytest:
 
 ~~~
-$ pytest tests/test_stats.py
+pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we specify the `tests/test_stats.py` file to run the tests in that file specifically.
+So here, we specify the `tests/test_models.py` file to run the tests in that file 
+specifically.
 
 ~~~
 ============================= test session starts ==============================
@@ -286,7 +350,7 @@ platform darwin -- Python 3.7.9, pytest-6.0.2, py-1.9.0, pluggy-0.13.1
 rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
 collected 2 items                                                              
 
-tests/test_stats.py ..                                                   [100%]
+tests/test_models.py ..                                                   [100%]
 
 ============================== 2 passed in 0.08s ===============================
 ~~~
@@ -336,7 +400,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 >
 {: .challenge}
 
-The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn’t break any existing functionality.
+The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn't break any existing functionality.
 
 ### What about testing for errors?
 
@@ -352,7 +416,9 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
-Although note that we need to import the pytest library at the top of our `test_stats.py` file with `import pytest` so that we can use pytest's `raises()` function.
+Although note that we need to import the pytest library at the top of our 
+`test_models.py` file with `import pytest` so that we can use pytest's `raises()` 
+function.
 
 > ## Why should we test invalid input data?
 >
@@ -368,8 +434,8 @@ We're starting to build up a number of tests that test the same function, but ju
 @pytest.mark.parametrize(
     "test, expected",
     [
-     ([[0, 0], [0, 0], [0, 0]], [0, 0]),
-     ([[1, 2], [3, 4], [5, 6]], [3, 4])
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
+        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
     ])
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
@@ -378,7 +444,13 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a **decorator**, and we'll be finding out more about these later in the course. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments.  We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
+Here, we use pytest's **mark** capability to add metadata to this specific test - in 
+this case, marking that it's a parameterised test. `parameterize()` is actually a Python 
+**decorator**. The arguments we pass to `parameterize()` indicate that we wish to pass 
+additional arguments to the function as it is executed a number of times, and what we'll 
+call these arguments.  We also pass the arguments we want to test with the expected 
+result, which are picked up by the function. In this case, we are passing in two tests 
+which will be run sequentially.
  
 The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
@@ -416,33 +488,33 @@ The big pluses here are that we don't need to write separate functions for each 
 > > ...
 > > ~~~
 > > {: .language-python}
-> > function test_daily_max()
 > {: .solution}   
 >
 {: .challenge}
 
 Try them out!
 
-Let's commit our new `pytest.py` file and test cases to our `test-suite` branch (but don't push it yet!):
+Let's commit our new `test_models.py` file and test cases to our `test-suite` branch 
+(but don't push it yet!):
 
 ~~~
-$ git add setup.py tests/test_stats.py
-$ git commit -m "Add initial test cases for daily_max() and daily_min()"
+git add setup.py tests/test_models.py
+git commit -m "Add initial test cases for daily_max() and daily_min()"
 ~~~
 {: .language-bash}
 
 
 ## Using code coverage to understand how much of our code is tested
 
-Pytest can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there’s probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it’s hard to think of a bug that would show up in one case but not in the other.
+Pytest can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
-Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
+Now, we should try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
 
-A simple way to check the code coverage for a set of tests is to use nose to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
+A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
 
 ~~~
-$ pip install pytest-cov
-$ pytest --cov=inflammation.models tests/test_stats.py
+pip install pytest-cov
+pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -455,7 +527,7 @@ rootdir: /Users/user/swc-intermediate-template
 plugins: cov-2.10.1
 collected 9 items                                                              
 
-tests/test_stats.py .....                                                [100%]
+tests/test_models.py .....                                                [100%]
 
 ---------- coverage: platform darwin, python 3.7.9-final-0 -----------
 Name                     Stmts   Miss  Cover
@@ -473,27 +545,30 @@ Here we can see that our tests are doing very well - 89% of statements in `infla
 We should also update our `requirements.txt` file with our latest package environment, which now includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip freeze > requirements.txt
-$ cat requirements.txt
+pip freeze > requirements.txt
+cat requirements.txt
 ~~~
 {: .language-bash}
 
-Now if you look at `requirement.txt` you'll see `pytest-cov`, you'll notice it has a line indicating our `swc-intermediate-template` package is installed in edit mode, along with a GitHub repository URL to locate it. Before committing it to GitHub, we should remove this line, since we only need it for development. Do that now, and once done:
+Now if you look at `requirement.txt` you'll see `pytest-cov`, you'll notice it has a 
+line indicating our `inflammation` package is installed in edit mode, along with a 
+GitHub repository URL to locate it. Before committing it to GitHub, we should remove 
+this line, since we only need it for development. Do that now, and once done:
 
 ~~~
-$ git add requirements.txt
-$ git commit -m "Add coverage support" requirements.txt
-$ git push -u origin test-suite
+git add requirements.txt
+git commit -m "Add coverage support"
+git push -u origin test-suite
 ~~~
 {: .language-bash}
 
 
 ## Limits to testing
 
-Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn’t need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
+Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn't need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
 
 It's also important to remember that unit testing cannot catch every bug in an application, no matter how many tests you write. To mitigate this manual testing is also important. Also remember to test using as much input data as you can, since very often code is developed and tested against the same small sets of data. Increasing the amount of data you test against - from numerous sources - gives you greater confidence that the results are correct.
 
-Our software will inevitably increases in complexity as it develops. Using automated testing where appropriate can save us considerable time, especially in the long term, and allows others to verify against correct behaviour.
+Our software will inevitably increase in complexity as it develops. Using automated testing where appropriate can save us considerable time, especially in the long term, and allows others to verify against correct behaviour.
 
 {% include links.md %}
