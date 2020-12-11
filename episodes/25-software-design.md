@@ -104,14 +104,42 @@ Some of the most important questions you should ask when beginning a new softwar
 {: .challenge}
 
 
-## Multi-layer Architectures
+## Software Architecture
+
+At the beginning of this episode we defined **Software Architecture** with the question, "what components will the software have and how will they cooperate?"
+Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques can be quite similar.
+
+One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
+This term is often attributed to the book 'A Pattern Language' by Christopher Alexander *et al* published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
+
+Design patterns are relatively small-scale templates which we can use to solve problems which affect a small part of our software.
+For example, the Adapter pattern may be useful if part of our software needs to consume data from a number of different external data sources.
+Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
+
+Architecture patterns are large-scale templates which operate at the level of whole programs, or collections or programs.
+Model-View-Controller is one of the most common architecture patterns.
 
 ### MVC Revisted
 
-- Emphasise following the spirit, not the letter
-- Many similar alternatives, what we have have here is actually closer to MVVM
+**Model-View-Controller** (MVC) is just one of the common architectural patterns
+We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
+
+In fact, we've not strictly been sticking to a formal MVC pattern and have ended up with something actually a bit more like **Model-View-Presenter** (MVP).
+The difference between these is mostly in the amount of work the Controller/Presenter does.
+Since our 'Controller' is responsible for some of the data processing, it's really more like a Presenter.
+
+In many cases, the distinction between some of these patterns isn't particularly important.
+What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
+We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
 ### The Persistence Layer
+
+Our patient management system so far can read in some data, process it, and display it to the user.
+What's missing?
+
+Perhaps the most obvious missing feature is the ability to modify and save the data.
+We might not want users to have to manage their patients by making changes to the data by hand, but rather provide some the ability to do this through the software.
+That way we can perform any necessary validation or transformation before the data gets accepted.
 
 - Databases
 - ORM
