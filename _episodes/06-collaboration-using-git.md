@@ -19,7 +19,7 @@ changes to our code and now we want to check those changes in and share them wit
 Let's remind 
 ourselves how to work with git from the command line.
 
-## Git refresher
+## Git Refresher
 ![git-lifecycle](../fig/git-lifecycle.png) 
 <p style="text-align: center;">Diagram: Git lifecycle, https://www.pngwing.com/en/free-png-sazxf</p>
 
@@ -82,7 +82,7 @@ and to keep it on the Web rather than on someone’s laptop.
 ![git-distributed](../fig/git-distributed.png) 
 <p style="text-align: center;">Diagram: Git - distributed version control system, https://www.w3docs.com/learn-git/git-repository.html</p>
 
-## Git branches 
+## Git Branches 
 When we do `git status` git also tells us that we are currently on the `master` branch of the project. 
 A branch is one version of your project (the files in your repository) that can contain its own set of commits. 
 We can create a new branch, make changes to the code that we then commit to the branch, and when we are are happy with 
@@ -96,7 +96,7 @@ At the moment, there's only one branch (`master`) and hence only one version of 
 git repository for the first time, by default you only get one version (i.e. branch) - `master`. Let's have a look at 
 why having different branches is so useful.
 
-## Feature branch software development workflow
+### Feature branch software development workflow
 While it is technically OK to commit our changes directly to `master` branch, and you may often find yourself doing so
 for some minor changes, the best practice is to use a new branch for each separate and self-contained 
 unit/piece of work you want to 
@@ -126,7 +126,7 @@ code. As we work on adding new features to the code, we can create new feature b
 working alone on a project), it may be enough to 
 merge a feature branch directly into `master` upon testing, skipping the `develop` branch step.
 
-## Creating branches
+### Creating Branches
 Let's create a `develop` branch to work on:
 ~~~
 $ git branch develop
@@ -157,7 +157,7 @@ Switched to branch 'develop'
 ~~~
  {: .output} 
 
-> ## Create and switch to branch shortcut
+> ## Create and Switch to Branch Shortcut
 > A shortcut to create a new branch and immediately switch to it:
 > ~~~
 > $ git checkout -b develop
@@ -166,7 +166,7 @@ Switched to branch 'develop'
 >
 {: .callout} 
 
-## Updating branches
+### Updating Branches
 If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
 of the code in `master`. We add and commit things to `develop` branch in the same way as to `master`.
 
@@ -206,13 +206,13 @@ $ git commit -m "Spelling fix"
 ~~~
 {: .language-bash} 
 
-> ## Currently active branch
+> ## Currently Active Branch
 > Remember, `add` and `commit` commands always act on the currently active branch. You have to be careful and aware which
 > branch you are working with at any given moment. `git status` can help with that, and you fill find yourself invoking
 > it very often.
 {: .callout} 
 
-## Pushing new branch remotely
+### Pushing New Branch Remotely
 We push the contents of the `develop` branch to GitHub in the same way as we pushed the `master`. However, as we have
 just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by 
 listing all branches.
@@ -239,7 +239,7 @@ $ git push origin develop
 ~~~
 {: .language-bash} 
 
-## Merging into master
+### Merging Into Master Branch
 Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `master` branch. 
 To do so, make sure you have all your changes committed and switch to `master`:
 ~~~
@@ -272,19 +272,20 @@ git push origin master
 ~~~
 {: .language-bash} 
 
-> ## All branches are equal
-> In Git, all branches are equal - there is nothing special or different about the `master` branch. It is called 
+> ## All Branches Are Equal
+> In Git, all branches are equal - there is nothing special about the `master` branch. It is called 
 > like that by convention and is created by default, but it can also be called something else. A good example is 
-> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `master` which can 
+> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `master`, which can 
 > be safely deleted for such projects). 
 {: .callout} 
 
-## Summary
+> ## Keeping Master Branch Stable
 Good software development practice is to keep the `master` branch stable while you and the team develop and test 
 new functionalities on feature branches (which can be done in parallel and independently). The next step is to merge 
 features branches onto the `develop` branch, where more testing can occur to verify that the new features work 
 well with the rest of the code (and not just in isolation). We talk more about different types of code testing in the 
 next episode.
+{: .testimonial}
 
 {% include links.md %}
 

@@ -44,7 +44,7 @@ base                  *  /Users/alex/opt/anaconda3
 ~~~
 {: .output}
 
-TODO: I actually do noa have a Conda environment called `patient` as expected and after creating it from PyCharm, 
+TODO: I actually do not have a Conda environment called `patient` as expected and after creating it from PyCharm, 
 so check what has gone wrong here. It looks like it expects the full path as it did not create a named conda environment!
 
 We can see the environment we created from PyCharm (called `patient`) in this list, so let's use that. Note that in 
@@ -86,11 +86,10 @@ So what exactly is a virtual environment, and why use them?
 
 Consider developing a number of different Python projects that each have their own package dependencies (and versions 
 of those dependencies) on the same machine. It could quickly become confusing as to which packages and package versions 
-are required by each project, making it difficult for others to run your scripts themselves (or yourself on another 
-machine!). Additionally, different scripts may need to use different versions of the same package.
+are required by each project, making it difficult for you and others to run your scripts on different 
+machines. 
 
-A Python virtual environment is an **isolated working copy** (you can think of is as of a self-contained directory tree) 
-of a specific version of 
+A Python virtual environment is an **isolated working copy** of a specific version of 
 Python together with specific versions of a number of installed packages which allows you to work on a particular 
 project without worry of affecting other projects. In other words, it enables multiple side-by-side installations of 
 Python and different versions of the same third party package to coexist on your machine and only one to be selected 
@@ -115,7 +114,7 @@ They also enable you to use a specific older version of a package for your proje
 
 > ## A specific Python or package version is only ever installed once
 > Note that you will not have a separate Python or package installations for each of your projects - they will only 
-ever be installed once on your system but will be referenced to from different virtual environments.  
+ever be installed once on your system but will be referenced from different virtual environments.  
 >
 {: .callout}
 
@@ -123,11 +122,11 @@ ever be installed once on your system but will be referenced to from different v
 
 There are several commonly used tools for creating Python virtual environments:
 - `conda` which comes with Anaconda distribution and which we have already used from PyCharm
-- `venv`, available by default from the standard `Python` distribution (version 3.3 and above)
+- `venv`, available by default from the standard `Python` distribution (`Python 3.3+`)
 - `virtualenv`, which needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
 
-While there are pros and cons for using each of the above, they all will do the job of managing Python 
+While there are pros and cons for using each of the above, all will do the job of managing Python 
 virtual environments for you and it may be a matter of personal preference which one you go for. 
 For the purposes of this workshop, we will continue to use `conda` to manage our virtual environments. 
 
@@ -140,7 +139,18 @@ package repository and install them on your system, and (2) it is also a virtual
 {: .callout}
 
 The following commands help you manage virtual environments with `conda` but we will not execute them 
-in our shell since we already have our environment `patient` set up.
+in our shell since we already have our environment `patient` set up (shell gives you a hint which environment is 
+currently active by pre-pending it to its prompt in round brackets: `(patient) alex@MacBook-Pro swc-intermediate-template %`. If 
+unsure, you can always issue the `conda list` command - the current environment will be denoted with an asterisk (`*`):
+
+~~~
+$conda env list
+# conda environments:
+#
+                      *  /Users/alex/anaconda/envs/patient
+base                     /Users/alex/opt/anaconda3
+~~~
+{: .language-bash}
 
 To create a virtual environment with `conda` from command line within a software project directory, you can do:
 ~~~
@@ -162,7 +172,7 @@ $conda create -n myenv scipy=0.15.0
 {: .language-bash}
 
 Switching or moving between environments is called activating the environment. 
-We have already seen previously how to active an environment:
+We have already seen previously how to activate an environment:
 ~~~
 $conda activate myenv
 ~~~

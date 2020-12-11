@@ -31,7 +31,7 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html)
 
 > ## Quiz 
 > Here is a little quiz that can be done in a shared document to test the participants' prior knowledge and 
-> determine where they fit on the must have/desirable skill spectrum.
+> determine where they fit on the skill spectrum.
 >
 > #### Git       
 > 1. Which command should you use to initialise a new Git repository?

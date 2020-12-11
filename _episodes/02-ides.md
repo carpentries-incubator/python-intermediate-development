@@ -14,7 +14,7 @@ keypoints:
 - "An IDE is an application that provides a comprehensive set of facilities for software development, for example  
 syntax highlighting, code search and completion, version control and debugging."
 ---
-## Introduction to Integrated Development Environments
+## Integrated Development Environments (IDEs)
 An integrated development environment (IDE) is a software application that provides comprehensive facilities for 
 software development. An IDE normally consists of at least a source code editor, build automation tools and a debugger. 
 The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as 
@@ -40,7 +40,7 @@ editor is usually smaller and quicker, but often less feature rich. You will hav
 you but for the purpose of this workshop we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/) - 
 a free, open source Python IDE.
 
-## Using PyCharm IDE For Python Software Development
+## Using PyCharm IDE
 
 ### Opening a software project in PyCharm
 If you have not PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through 
