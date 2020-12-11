@@ -1,8 +1,33 @@
-# FIXME Lesson title
+# Intermediate Software Carpentry
 
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
+A two day, intermediate-level course in software development for researchers.
 
-This repository generates the corresponding lesson website from [The Carpentries](https://carpentries.org/) repertoire of lessons. 
+## About the Lesson
+
+This lesson teaches intermediate-level software development skills in a way that mimics a typical software development process in a team,
+starting from an existing piece of software.
+It continues from the material covered in the novice-level [Software Carpentry lessons][swc-lessons] and follows the same principles,
+as described in [Best Practices for Scientific Computing][best-practices] and
+[Good enough practices in scientific computing][good-practices].
+
+The example used in this lesson also builds upon the example used in the [Programming with Python][programming-with-python] lesson,
+
+
+
+The rendered version of the lesson is available at:
+<https://softwaresaved.github.io/swc-intermediate-lesson/>.
+
+The software template repository for this lesson is available at:
+<https://github.com/softwaresaved/swc-intermediate-template/>.
+
+
+## Episodes
+
+| # |  Episode | Time | Question(s) |
+|--:|:---------|:----:|:------------|
+
+**TODO:** Populate table with links to each episode
+
 
 ## Contributing
 
@@ -13,28 +38,44 @@ We'd like to ask you to familiarize yourself with our [Contribution Guide](CONTR
 the [more detailed guidelines][lesson-example] on proper formatting, ways to render the lesson locally, and even
 how to write new episodes.
 
-Please see the current list of [issues][FIXME] for ideas for contributing to this
+Please see the current list of [issues][issues] for ideas for contributing to this
 repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
-Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.  
+Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.
 
 
 ## Maintainer(s)
 
-Current maintainers of this lesson are 
+Current maintainers of this lesson are:
 
-* FIXME
-* FIXME
-* FIXME
+* [Steve Crouch][steve-crouch]
+* [James Graham][james-graham]
+* [Aleksandra Nenadic][aleksandra-nenadic]
 
 
 ## Authors
 
 A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
+
+## License
+
+Instructional material from this lesson is made available under the
+[Creative Commons Attribution][cc-by-human] ([CC BY 4.0][cc-by-legal]) license. Except where
+otherwise noted, example programs and software included as part of this lesson are made available
+under the [MIT license][mit-license]. For more information, see [LICENSE.md](LICENSE.md).
+
 ## Citation
 
 To cite this lesson, please consult with [CITATION](CITATION)
 
+[swc-lessons]: https://software-carpentry.org/lessons/
+[best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
+[good-practices]: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
+[programming-with-python]: https://swcarpentry.github.io/python-novice-inflammation/
 [lesson-example]: https://carpentries.github.io/lesson-example
+[issues]: https://github.com/softwaresaved/swc-intermediate-lesson/issues
+[steve-crouch]: https://github.com/steve-crouch
+[james-graham]: https://github.com/jag1g13
+[aleksandra-nenadic]: https://github.com/anenadic
