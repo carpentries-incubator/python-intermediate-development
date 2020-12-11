@@ -75,7 +75,7 @@ jobs:
 
     - name: Test with PyTest
       run: |
-        pytest --cov=inflammation.models tests/test_stats.py
+        pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -132,7 +132,7 @@ install:
     - pip install -e .
 
 script:
-    - pytest --cov=inflammation.models tests/test_stats.py
+    - pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -144,7 +144,7 @@ As with GitHub Actions, we know that once a commit is pushed Travis will attempt
 
 ~~~
 $ git add .travis.yml
-$ git commit -m "Add Travis CI configuration" .travis.yml
+$ git commit -m "Add Travis CI configuration"
 $ git push
 ~~~
 {: .language-bash}
@@ -196,7 +196,7 @@ Let's commit and push this change and see what happens:
 
 ~~~
 $ git add .github/workflows/main.yml
-$ git commit -m "Add GA build matrix for os and Python version" .
+$ git commit -m "Add GA build matrix for os and Python version"
 $ git push
 ~~~
 {: .language-bash}
