@@ -21,32 +21,27 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 ## Introduction
 We will be covering a lot of material in this workshop but we obviously cannot teach everything you would usually 
-do at the beginning of a software project at the outset in the first lesson. For example, 
+do at the beginning of a software project in the first lesson. For example, 
 [choosing a license](/32-preparing-software-reuse/index.html#choosing-an-open-source-licence) for your 
 project or 
 [writing documentation](/32-preparing-software-reuse/index.html#documenting-code-to-improve-reusability) 
 should be considered early in the normal run of things but for the purposes of this workshop we cover them later. 
 We start by looking into the design architecture of a software project.
-        
-## Model-View-Controller (MVC) Design Architecture
+
+## Software Architecture
 Software architecture is the fundamental structure of a software system that is decided at the beginning of 
 software project development and cannot be changed that easily once implemented. It refers to a "bigger picture" of
-a software system that describes high-level components (modules) of the system and how they interact between 
-themselves. There are various software architectures around - we are going to utilise the Model–View–Controller 
-architecture in our software project.
+a software system that describes high-level components (modules) of the system and how they interact.
+
+In software design and development, large systems or programs are often decomposed into a set of smaller 
+modules each with a subset of functionality. Typical examples of modules in programming are software libraries; 
+some software libraries, such as `numpy` and `matplotlib` in Python, are bigger modules that contain several 
+smaller sub-modules. Another examples of modules are classes in object-oriented programming languages. 
 
 > ## Programming modules and interfaces
->
-> In software design and development, large systems or programs are often decomposed into a set of smaller 
-> modules each with a subset of functionality. Typical examples of modules in programming are software libraries; 
-> some software libraries, such as `numpy` and `matplotlib` in Python, are bigger modules that contain several 
-> smaller sub-modules. 
-> Another examples of modules are 
-> classes in object-oriented programming languages. 
->
 > Although modules are self-contained and independent elements to a large extent (they can depend on other modules), 
-> there are connections between them and well-defined ways of how they interact with one another. The rules of 
-> interaction between software modules are called programming interfaces - they define how other modules (clients) 
+> there are well-defined ways of how they interact with one another. These rules of 
+> interaction are called **programming interfaces** - they define how other modules (clients) 
 > can use a particular module. Typically, an interface to a module includes rules on how a module can take input from 
 > and how it gives output back to its clients. A client can be a human, in which case we also call these user 
 > interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a 
@@ -54,8 +49,10 @@ architecture in our software project.
 > it returns as an output. 
 > 
 {: .callout}  
-
-Model–View–Controller (MVC) is a software design architecture which divides the related program logic into three 
+        
+## Model-View-Controller (MVC) Architecture
+There are various software architectures around - we are going to utilise the Model–View–Controller (MVC) 
+architecture in our software project. MVC divides the related program logic into three 
 interconnected modules:
 
 - **Model** (data)
@@ -140,7 +137,7 @@ should use a pre-generated personal access token as your password here.
 5. Locate the copied repository under your own GitHub account.
 ![github-template-repository](../fig/github-template-repository.png)
 
-> ## Obtain the software project repository locally
+> ## Obtain the software project locally
 > Using a command line shell, clone the copied repository from your GitHub account  into your computer.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution

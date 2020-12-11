@@ -124,7 +124,7 @@ a_long_list2 = [
 More details on good and bad practices for continuation lines can be found in 
 [PEP8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
 
-### Maximum Line length
+### Maximum Line Length
 All lines should be up to 80 characters long. For lines containing comments or docstrings (to be covered later), the 
 line length limit should be 73. Some teams strongly prefer a longer line length, and seemed to have settled on the
 length of 100. Long lines of code can be broken over multiple lines by wrapping expressions in delimiters, as 
