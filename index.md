@@ -13,7 +13,7 @@ on your learning journey.
 A typical learner for this course may be someone who finished an 
 undergraduate degree and, moving into academic 
 research and needing to write some code, gained basic software development skills either 
-by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/) 
+by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/lessons) 
 (shell, Python, Git). 
 However, their software development-related projects 
 are now becoming more complex, larger, and involving more researchers and other stakeholders (e.g. users), for example:
@@ -38,7 +38,7 @@ This course is for you if:
     - command line interface (shell)
      
  This course is not for you if:
- - You have not yet started writing software
+ - You have not yet started writing software (in which case have a look at the [Software Carpentry course](https://software-carpentry.org/lessons) for novices first)
  - You are well familiar with learning objectives of episodes 
  - The software you write is fully documented and well architected
   
