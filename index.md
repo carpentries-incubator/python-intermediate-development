@@ -23,20 +23,8 @@ the increasing need to add new features and support collaborations with others
 - Increased ['technical debt'](https://en.wikipedia.org/wiki/Technical_debt) and demands to add new functionality while ensuring previous development efforts 
 remain functional and 
 maintainable
-
-## Learning Objectives
-After following this lesson, you will:
-
-- have intermediate Python skills
-- be able to write robust software
-- know how to develop software collaboratively
-- know how to publish and release your software
-
+  
 ## Target Audience
-It is suitable for those who have either been taught the novice 
-[Software Carpentry](https://software-carpentry.org/) course (shell, Python, Git) or match a very strict set of 
-skill prerequisites (described below).
-
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
@@ -56,7 +44,8 @@ This course is for you if:
   
 > ## Prerequisites
 > To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
- or meet the following criteria.
+> or meet the following criteria. You can also test your prerequisite knowledge by taking 
+> [this short quiz](./00-setting-the-scene#prerequisite-knowledge).
 >     
 > #### Git
 > - **You are familiar with the concept of version control**
@@ -77,5 +66,14 @@ This course is for you if:
 > commands with arguments.**
 > - Optionally, you have experience redirecting inputs and outputs from a command.
 {: .prereq}
+
+> ## Learning Objectives
+> After following this lesson, you will:
+>
+> - have intermediate Python software development skills
+> - be able to write robust software
+> - know how to develop software collaboratively
+> - know how to publish and release your software
+{: .objectives }
 
 {% include links.md %}
