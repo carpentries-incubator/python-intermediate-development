@@ -53,7 +53,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look now. Start the Python interpreter on the command line, in the 
+Let's take a quick look now. Start the Python interpreter on the command line, in the
 repository root `swc-intermediate-template` directory:
 
 ~~~
@@ -144,7 +144,7 @@ Most people don't enjoy writing tests, so if we want them to actually do it, it 
 
 Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
 
-Keeping these things in mind, here's a different approach. Look at 
+Keeping these things in mind, here's a different approach. Look at
 `tests/test_models.py`:
 
 ~~~
@@ -203,37 +203,67 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 #### Install pytest
 
-One of the first things we need to do is install the pytest package in our virtual environment. Instead of using PyCharm to configure the Conda environment, let's use the `pip` command from the command line instead:
+One of the first things we need to do is install the pytest package in our `patient` Conda virtual environment:
 
 ~~~
-$ pip install pytest
+$ conda install pytest
 ~~~
 {: .language-bash}
 
 You should see something like:
 
 ~~~
-Collecting pytest
-  Downloading pytest-6.0.2-py3-none-any.whl (270 kB)
-     |████████████████████████████████| 270 kB 1.0 MB/s 
-...
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
 
-Installing collected packages: pytest
-Successfully installed pytest-6.0.2
+## Package Plan ##
+
+  environment location: /Users/user/opt/anaconda3/envs/patient
+
+  added / updated specs:
+    - pytest
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    attrs-20.3.0               |     pyhd3eb1b0_0          43 KB
+    iniconfig-1.1.1            |     pyhd3eb1b0_0           8 KB
+    more-itertools-8.6.0       |     pyhd3eb1b0_0          40 KB
+    packaging-20.9             |     pyhd3eb1b0_0          37 KB
+    pluggy-0.13.1              |           py38_0          33 KB
+    py-1.10.0                  |     pyhd3eb1b0_0          76 KB
+    pytest-6.2.2               |   py38hecd8cb5_2         442 KB
+    ------------------------------------------------------------
+                                           Total:         678 KB
+
+The following NEW packages will be INSTALLED:
+
+  attrs              pkgs/main/noarch::attrs-20.3.0-pyhd3eb1b0_0
+  iniconfig          pkgs/main/noarch::iniconfig-1.1.1-pyhd3eb1b0_0
+  more-itertools     pkgs/main/noarch::more-itertools-8.6.0-pyhd3eb1b0_0
+  packaging          pkgs/main/noarch::packaging-20.9-pyhd3eb1b0_0
+  pluggy             pkgs/main/osx-64::pluggy-0.13.1-py38_0
+  py                 pkgs/main/noarch::py-1.10.0-pyhd3eb1b0_0
+  pytest             pkgs/main/osx-64::pytest-6.2.2-py38hecd8cb5_2
+  toml               pkgs/main/noarch::toml-0.10.1-py_0
+
+
+Proceed ([y]/n)?
 ~~~
 {: .output}
 
-So pytest gets installed along with any additional dependencies it requires.
+Select `y` and these packages which are required by pytest will be installed.
 
 #### Set up a new feature branch for writing tests
 
-Since we're going to write some new tests, let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:	Since we're going to write some new tests, let's ensure we're initially on our 
-`test-suite` branch we created earlier:
+Since we're going to write some new tests, let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
 
 ~~~
-$ git checkout develop	git checkout test-suite
-$ git branch test-suite	
-$ git checkout test-suite	
+$ git checkout develop
+$ git branch test-suite
+$ git checkout test-suite
 ~~~
 {: .language-bash}
 
@@ -255,21 +285,19 @@ setup(name="patient-analysis", version='1.0', packages=find_packages())
 This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
 
 ~~~
-$ pip install -e .
-$ pip list
+$ conda develop .
 ~~~
 {: .language-bash}
 
-We should see included with the other installed packages:
+We should see:
 
 ~~~
-...
-patient-analysis 1.0    /Users/user/swc-intermediate-template
-...
+added /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+completed operation for: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. The `-e` flag indicates that it's an *editable* package, i.e. its contents may change. So as we develop our code we don't need to install it each time.
+This will install our code, as a package, within our virtual environment. This also means as we develop and need to test our code we don't need to install it properly as a full package each time.
 
 ### Running the tests
 
@@ -280,18 +308,18 @@ $ pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we specify the `tests/test_models.py` file to run the tests in that file 
-specifically.
+So here, we specify the `tests/test_models.py` file to run the tests in that file
+explicitly.
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.7.9, pytest-6.0.2, py-1.9.0, pluggy-0.13.1
+platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
 rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
-collected 2 items                                                              
+collected 2 items
 
-tests/test_models.py ..                                                   [100%]
+tests/test_models.py ..                                                  [100%]
 
-============================== 2 passed in 0.08s ===============================
+============================== 2 passed in 0.12s ===============================
 ~~~
 {: .output}
 
@@ -304,32 +332,32 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 > ## Write some unit tests
 >
-> We already have a couple of test cases in our script that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions. Try to choose cases that are suitably different.
+> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions. Try to choose cases that are suitably different.
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > ...
 > > def test_daily_max():
 > >     """Test that max function works for an array of positive integers."""
 > >     from inflammation.models import daily_max
-> > 
+> >
 > >     test_array = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
 > >                            [4, 1, 9]])  # yapf: disable
-> > 
+> >
 > >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([4, 6, 9]), daily_max(test_array))
-> > 
-> > 
+> >
+> >
 > > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
 > >     from inflammation.models import daily_min
-> > 
+> >
 > >     test_array = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
 > >                            [-4, -1, 9]])  # yapf: disable
-> > 
+> >
 > >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
 > > ...
@@ -365,7 +393,7 @@ Although note that we need to import the pytest library at the top of our `test_
 
 ## Parameterise tests to run over many test cases
 
-We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, we could rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
+We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
 @pytest.mark.parametrize(
@@ -382,7 +410,7 @@ def test_daily_mean(test, expected):
 {: .language-python}
 
 Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments.  We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
- 
+
 The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
 > ## Write parameterised unit tests
@@ -403,8 +431,8 @@ The big pluses here are that we don't need to write separate functions for each 
 > >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
 > >     from inflammation.models import daily_max
 > >     npt.assert_array_equal(np.array(expected), daily_max(np.array(test)))
-> > 
-> > 
+> >
+> >
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
@@ -419,7 +447,7 @@ The big pluses here are that we don't need to write separate functions for each 
 > > ...
 > > ~~~
 > > {: .language-python}
-> {: .solution}   
+> {: .solution}
 >
 {: .challenge}
 
@@ -443,7 +471,7 @@ Now, we should try to choose tests that are as different from each other as poss
 A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
 
 ~~~
-$ pip install pytest-cov
+$ conda install pytest-cov
 $ pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
@@ -452,41 +480,39 @@ So here, we specify the additional named argument `--cov` to PyTest specifying t
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.7.9, pytest-6.0.2, py-1.9.0, pluggy-0.13.1
-rootdir: /Users/user/swc-intermediate-template
-plugins: cov-2.10.1
-collected 9 items                                                              
+platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+plugins: cov-2.11.1
+collected 9 items
 
-tests/test_models.py .....                                                [100%]
+tests/test_models.py .........                                           [100%]
 
----------- coverage: platform darwin, python 3.7.9-final-0 -----------
+---------- coverage: platform darwin, python 3.8.5-final-0 -----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
 inflammation/models.py       9      1    89%
+--------------------------------------------
+TOTAL                        9      1    89%
 
 
-============================== 5 passed in 0.17s ===============================
-
+============================== 9 passed in 0.26s ===============================
 ~~~
 {: .output}
 
 Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But there's still one not being tested in `load_csv()`. So, here we should consider whether or not to write a test for this function, and indeed any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered, it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
-We should also update our `requirements.txt` file with our latest package environment, which now includes `pytest-cov`, and commit it:
+We should also update our `environment.yml` file with our latest package environment, which now includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip freeze > requirements.txt
-$ cat requirements.txt
+$ conda env export > environment.yml
+$ cat environment.yml
 ~~~
 {: .language-bash}
 
-Now if you look at `requirement.txt` you'll see `pytest-cov`, you'll notice it has a 
-line indicating our `swc-intermediate-template` package is installed in edit mode, along with a 
-GitHub repository URL to locate it. Before committing it to GitHub, we should remove 
-this line, since we only need it for development. Do that now, and once done:
+You'll notice `pytest-cov` and `coverage` have been added. Let's commit this file and push our new branch to GitHub:
 
 ~~~
-$ git add requirements.txt
+$ git add environment.yml
 $ git commit -m "Add coverage support"
 $ git push -u origin test-suite
 ~~~
