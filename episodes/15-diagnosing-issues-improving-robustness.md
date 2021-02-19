@@ -3,7 +3,7 @@ title: "Diagnosing Issues and Improving Robustness"
 teaching: 30
 exercises: 15
 questions:
-- "Once we know our program has errors, how can we identify where they are?"
+- "Once we know our program has errors, how can we locate them in the code?"
 - "How can we make our programs more resilient to failure?"
 objectives:
 - "Use a debugger to explore behaviour of a running program"
@@ -11,25 +11,34 @@ objectives:
 - "Apply error handling and defensive programming techniques to improve robustness of a program"
 keypoints:
 - "Unit testing is good to show us what doesn't work, but does not help us locate problems."
-- "We can use a **debugger** to help us locate problems in our program."
-- "A debugger allows us to pause a program and examine it's state by adding **breakpoints** to lines in code."
-- "We can use **preconditions** to ensure correct behaviour in our programs."
-- "We must ensure our unit tests cater for **edge** and **corner cases** sufficiently."
+- "Use a **debugger** to help you locate problems in programs."
+- "A **debugger** allows us to pause a program and examine its state by adding **breakpoints** to lines in code."
+- "Use **preconditions** to ensure correct behaviour in programs."
+- "Ensure that the unit check for **edge** and **corner cases** too."
 ---
 
-## Finding faults in software
+## Finding Faults in Software
 
-Unit testing can tell us something's wrong and give a rough idea of where the error is by what test(s) are failing. But it doesn't tell us exactly where the problem is (i.e. what line), or how it came about. We can do things like output program state at various points, perhaps using print statements to output the contents of variables, maybe even use a logging capability to output the state of everything as the program progresses, or look at intermediately generated files to give us an idea of what went wrong.
+Unit testing can tell us something is wrong in our code and give a rough idea of where the error is by which 
+test(s) are failing. But it doesn't tell us exactly where the problem is (i.e. what line of code), or how it came about. 
+To give us an idea of what went wrong, we can:
+ - output program state at various points, e.g. by using print statements to output the contents of 
+variables, 
+- use a logging capability to output the state of everything as the program progresses, or
+- look at intermediately generated files. 
 
-But such approaches only go so far and often these are time consuming and aren't enough. In complex programs like simulation codes, sometimes we need to get inside the code as it's running and explore. This is where using a **debugger** can be useful.
+But such approaches are often time consuming and sometimes not enough to fully pinpoint the issue. 
+In complex programs, like simulation codes, we often need to get inside the code as it is running and explore. 
+This is where using a **debugger** can be useful.
 
-## Normalising patient data
+## Normalising Patient Data
 
-We wish to add a new function to our inflammation example, one that will normalise a 
-given inflammation data array so that all the entries lie between 0 and 1.
+Let us add a new function called `patient_normalise()` to our inflammation example to normalise a 
+given inflammation data array so that all the entries lie between 0 and 1. To normalise each patient's inflammation 
+data we need to divide it by the maximum inflammation experienced by that patient.  
 
-Add a new function to `inflammation/models.py` called `patient_normalise()`, and copy 
-the following code:
+To do so, we can add the following code 
+to `inflammation/models.py`:
 
 ~~~
 def patient_normalise(data):
@@ -39,7 +48,35 @@ def patient_normalise(data):
 ~~~
 {: .language-python}
 
-So here we're attempting to normalise each patient's inflammation data by the maximum inflammation experienced by that patient, so that the final values are between 0 and 1. We find the maximum value for a patient, and using NumPy's elementwise division, divide each value by that maximum. In order to prevent an unwanted feature of NumPy called broadcasting, we need to add a blank axis to our array of patient maximums. Note there is also an assumption in this calculation that the minimum value we want is always zero. This is a sensible assumption for this particular application, since the zero value is a special case indicating that a patient experiences no inflammation on that day.
+In the code above, we first go row by row and find the maximum inflammation value for each patient and 
+store these values in a NumPy array. Then we use 
+NumPy's elementwise division, to divide each value in every row (belonging to the same patient) by the maximum value for that
+patient. However, `data` is a 2D array (of shape `(n, m)`) and `max` is a 1D array (of shape `(n, )`) and so shape-wise 
+are not compatible. 
+
+![incompatible_shapes](../fig/incompatible_shapes.png)
+
+Hence, to mare sure we get the result we want, we need to convert `max` to be a 2D array by using the `newaxis` index operator to 
+insert a new axis into `max`, making it a 2D array of shape `(n, 1)`.
+
+![shapes_after_new_axis](../fig/shapes_after_new_axis.png)
+
+Now the division will give use the result that we want - even though the shapes are not identical, 
+NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the 2D `max` array is now "stretched" 
+("broadcast") to match that of `data`.
+
+![shapes_after_broadcasting](../fig/shapes_after_broadcasting.png)
+
+>## Broadcasting 
+>The term broadcasting describes how NumPy treats arrays with different shapes during arithmetic operations. 
+>Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have 
+>compatible shapes. 
+{: .callout}
+
+Note there is also an 
+assumption in this calculation that the minimum value we want is always zero. This is a sensible assumption for 
+this particular application, since the zero value is a special case indicating that a patient experiences no 
+inflammation on that day.
 
 Now add a new test in `tests/test_models.py`, to check that the normalisation function is correct for some test data.
 
@@ -59,7 +96,7 @@ def test_patient_normalise(test, expected):
 Note the assumption here that a test accuracy of two decimal places is sufficient!
 
 Run the tests again using `pytest tests/test_model.py` and you will note that the new 
-test is failing, with an error message that doesn't give many clues as to what is wrong
+test is failing, with an error message that doesn't give many clues as to what went wrong.
 
 ~~~
 E       AssertionError:
@@ -79,7 +116,7 @@ tests/test_models.py:53: AssertionError
 ~~~
 {: .output}
 
-## Pytest and debugging in VSCode
+## Pytest and Debugging in VSCode
 
 FIXME: convert to PyCharm
 
@@ -108,15 +145,17 @@ so the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the 
 
 ## Corner or Edge Cases
 
-The test case that we have currently written for `patient_normalise` is parameterised with a fairly standard `data` array. However, when writing your test cases, it is important to consider parametrising them by unusual or extrema values, in order to test all the edge or corner cases that your code could be exposed to in practice. Generally speaking, it is at these extrema cases that you will find your code failing, so it beneficial to test them beforehand.
+The test case that we have currently written for `patient_normalise` is parameterised with a fairly standard `data` array. However, when writing your test cases, it is important to consider parametrising them by unusual or extreme values, in order to test all the edge or corner cases that your code could be exposed to in practice. Generally speaking, it is at these extrema cases that you will find your code failing, so it beneficial to test them beforehand.
 
-What is considered an "edge case" for any given component depends on what that component is meant to do. In the case of `patient_normalise` the goal of the function is to normalise a numeric array of numbers. For numerical values the extrema cases could be zeros, very large or small values, not-a-number (NaN), or infinity values. Since we are specifically considering an *array* of values, an edge case could be that all the numbers of the array are equal.
+What is considered an "edge case" for any given component depends on what that component is meant to do. In the case of `patient_normalise` the goal of the function is to normalise a numeric array of numbers. For numerical values, extreme cases could be zeros, very large or small values, not-a-number (`NaN`), or infinity values. Since we are specifically considering an *array* of values, an edge case could be that all the numbers of the array are equal.
 
-For all the given edge cases you might come up with, you should also consider their likelihood of occurrence, it is often too much effort to exhaustively test a given function against every possible input, so you should prioritise edge cases that are likely to occur. For our `patient_normalise` function, some common edge cases might be the occurrence of zeros, and the case where all the values of the array are the same. 
+For all the given edge cases you might come up with, you should also consider their likelihood of occurrence. 
+It is often too much effort to exhaustively test a given function against every possible input, so you should prioritise edge cases that are likely to occur. For our `patient_normalise` function, some common edge cases might be the occurrence of zeros, 
+and the case where all the values of the array are the same. 
 
-When you are considering edge cases to test for, try also to think about what might break your code. For `patient_normalise` we can see that there is a division by the maximum inflammation value for each patient, so this will clearly break if we are dividing by zero here, resulting in NaN values in the normalised array. 
+When you are considering edge cases to test for, try also to think about what might break your code. For `patient_normalise` we can see that there is a division by the maximum inflammation value for each patient, so this will clearly break if we are dividing by zero here, resulting in `NaN` values in the normalised array. 
 
-With all this in mind, lets add a few edge cases to our parametrisation of `test_patient_normalise`. We will add two extra tests, corresponding to an input array of all 0, and an input array of all 1.
+With all this in mind, let's add a few edge cases to our parametrisation of `test_patient_normalise`. We will add two extra tests, corresponding to an input array of all 0, and an input array of all 1.
 
 ~~~
 @pytest.mark.parametrize(
@@ -147,7 +186,7 @@ env/lib/python3.6/site-packages/numpy/testing/_private/utils.py:740: AssertionEr
 ~~~
 {: .output}
 
-Helpfully, you will also notice that Numpy also provides a run-time warning for the divide by zero, reproduced below
+Helpfully, you will also notice that NumPy also provides a run-time warning for division by zero, reproduced below.
 
 ~~~
   RuntimeWarning: invalid value encountered in true_divide
@@ -155,10 +194,10 @@ Helpfully, you will also notice that Numpy also provides a run-time warning for 
 ~~~
 {: .output}
 
-How can we fix this? Luckily there is a Numpy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0. We can also silence the run-time warning using 
+How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0. We can also silence the run-time warning using 
 [`np.errstate`](https://numpy.org/doc/stable/reference/generated/numpy.errstate.html). 
 
-> ## Exploring tests for edge cases
+> ## Exploring Tests for Edge Cases
 >
 > Fix the failing `test_patient_normalise` test, and think of some more suitable edge cases to test our `patient_normalise()` function and add them to the parametrised tests. After you have finished remember to commit your changes.
 >
@@ -225,13 +264,25 @@ How can we fix this? Luckily there is a Numpy function that is useful here, [`np
 {: .challenge}
 
 
-## Defensive programming to avoid potential errors
+## Defensive Programming to Avoid Potential Errors
 
-In the previous section, we have made a few design choices for our `patient_normalise` function. The first was that we are implicitly converting any NaN and negative values to 0, the second is that normalising a constant 0 array of inflammation will result in an identical array of 0's. The third is that we don't want to warn the user in any of these situations. This could be handled differently, we might decide that we don't want to silently make these changes to the data, but instead to explicitly check that the input data satisfies a given set of assumptions (e.g. no negative values), and raise an error if this is not the case. Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
+In the previous section, we made a few design choices for our `patient_normalise` function. The first was that we were 
+implicitly converting any `NaN` and negative values to 0, the second was that normalising a constant 0 array of 
+inflammation will result in an identical array of 0s, the third was that we diddn't want to warn the user in any 
+of these situations. This could be handled differently, we might decide that we don't want to silently make 
+these changes to the data, but instead to explicitly check that the input data satisfies a given set of 
+assumptions (e.g. no negative values), and raise an error if this is not the case. 
+Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
 
-Checking valid input to a function via preconditions is one of the simplest forms of *defensive programming*. These preconditions are checked at the beginning of the function to make sure that all assumptions are satisfied. These assumptions are often based on the *value* of the arguments, like we have already discussed. However, in a dynamic language like Python one of the more common preconditions is to check that the arguments of a function are of the correct *type*. Currently there is nothing stopping someone from calling `patient_normalise` with a string, a dictionary, or another object that is not an `ndarray`.
+Checking valid input to a function via preconditions is one of the simplest forms of *defensive programming*. 
+These preconditions are checked at the beginning of the function to make sure that all assumptions are satisfied. 
+These assumptions are often based on the *value* of the arguments, like we have already discussed. 
+However, in a dynamic language like Python one of the more common preconditions is to check that the arguments of a 
+function are of the correct *type*. Currently there is nothing stopping someone from calling `patient_normalise` 
+with a string, a dictionary, or another object that is not an `ndarray`.
 
-As an example, let's change the behaviour of the `patient_normalise` function to raise an error on negative inflammation values. We can add a precondition check to the beginning of our function like so
+As an example, let's change the behaviour of the `patient_normalise` function to raise an error on negative 
+inflammation values. We can add a precondition check to the beginning of our function like so:
 
 ~~~
 ...
@@ -241,7 +292,7 @@ As an example, let's change the behaviour of the `patient_normalise` function to
 ~~~
 {: .language-python}
 
-We can then modify our test function to check that the function raises the correct exception, a `ValueError`. The [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) exception is part of the standard library and is used to indicate that the function received an argument of the right type, but an inappropriate value.
+We can then modify our test function to check that the function raises the correct exception, a `ValueError`. The [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) exception is part of the standard library and is used to indicate that the function received an argument of the right type, but of an inappropriate value.
 
 ~~~
 @pytest.mark.parametrize(
@@ -270,9 +321,11 @@ def test_patient_normalise(test, expected, raises):
 ~~~
 {: .language-python}
 
-> ## Add precondition checking correct type and shape of data
+> ## Add a Precondition to Check the Correct Type and Shape of Data
 >
-> We are not currently checking that the `data` argument to `test_patient_normalise` is of a valid type. Add one precondition to check that data is an `ndarray` object, and another to check that it is of the correct shape. Add corresponding tests to check that the function raises the correct exception. You will probably find the Pythonfunction [`isinstance`](https://docs.python.org/3/library/functions.html#isinstance) useful here, as well as the Python exception [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError). Once you are done, commit your new files, and push the new commits to your remote repository on GitHub
+> We are not currently checking that the `data` argument to `test_patient_normalise` is of a valid type. Add one precondition to check that data is an `ndarray` object, and another to check that it is of the correct shape. Add corresponding tests to check that the function raises the correct exception. 
+> You will probably find the Python function [`isinstance`](https://docs.python.org/3/library/functions.html#isinstance) useful here, as well as the Python exception [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError). Once you are done, commit your new files, and push 
+>the new commits to your remote repository on GitHub.
 >
 > > ## Solution
 > > ~~~
@@ -339,6 +392,6 @@ def test_patient_normalise(test, expected, raises):
 {: .challenge}
 
 
-Don't take it too far and try to code preconditions for every conceivable eventuality. You must always strike a balance between making sure you secure your function against incorrect use, and writing an overly complicated and expensive function that handles cases that could never possibly occur. For example, it would be sensible to validate the shape of your inflammation data array when it is actually read from the csv file (in `load_csv`), and therefore there is no reason to test this again in `patient_normalise`. You can always also neglect to add explicit preconditions in your code, but instead state the assumptions and limitations of your code for others in the docstring, trusting that they will use the function correctly. This approach is useful when explicitly checking the precondition would be too costly to execute.
+You should not take it too far by trying to code preconditions for every conceivable eventuality. You must always strike a balance between making sure you secure your function against incorrect use, and writing an overly complicated and expensive function that handles cases that could never possibly occur. For example, it would be sensible to validate the shape of your inflammation data array when it is actually read from the csv file (in `load_csv`), and therefore there is no reason to test this again in `patient_normalise`. You can always also neglect to add explicit preconditions in your code, but instead state the assumptions and limitations of your code for others in the docstring, trusting that they will use the function correctly. This approach is useful when explicitly checking the precondition would be too costly to execute.
 
 {% include links.md %}
