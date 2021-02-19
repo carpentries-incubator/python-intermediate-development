@@ -222,7 +222,13 @@ the same effect and we will continue to use `conda`.
 ![python-environment-hell](../fig/python-environment-hell.png) 
 <p style="text-align: center;">Credit: XKCD, https://xkcd.com/1987/</p>
  
-### Package Management With `conda`
+### Package Management With `conda` - an Overview
+
+Here we have a quick overview of most commonly used commands to manage packages with `conda` - we will use some of them
+in the following episodes. As always, refer to the 
+[official Conda guide](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) 
+for the full documentation on managing packages.
+
 To install a Python package with `conda` do:
  ~~~
  $conda install package-name
