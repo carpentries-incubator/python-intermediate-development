@@ -25,10 +25,10 @@ file that can be easily shared with your collaborators."
 
 ## Running Scripts From Command Line
 If you attended a Python workshop in the past, you may recall that we can also run Python scripts directly from the 
-command line. Let's run our `patientdb.py` script using Python from the command line and use the 
+command line. Let us run our `patientdb.py` script using Python from the command line and use the 
 Python Anaconda environment `patient` we created from PyCharm. 
 
-Let's open up a new terminal and type the following to list all the environments Anaconda is aware of:
+Let us open up a new shell/terminal window and type the following to list all the environments Anaconda is aware of:
 
 ~~~
 $conda env list
@@ -44,11 +44,12 @@ base                  *  /Users/alex/opt/anaconda3
 {: .output}
 
 TODO: I actually do not have a Conda environment called `patient` as expected and after creating it from PyCharm, 
-so check what has gone wrong here. It looks like it expects the full path as it did not create a named conda environment!
+so check what has gone wrong here. It looks like it expects the full path as it did not create a named 
+conda environment but rather an unnamed Conda environment that has to be accessed via its full path!
 
-We can see the environment we created from PyCharm (called `patient`) in this list, so let's use that. Note that in 
+We can see the environment we created from PyCharm (called `patient`) in this list, so let us use that. Note that in 
 order to use a `conda` environment, you have to activate it as follows (make sure you use the full environment path 
-unless it is a names environment):
+unless it is a "named" environment):
 
 ~~~
 $conda activate /Users/alex/anaconda/envs/patient
@@ -62,7 +63,7 @@ affect your shell.
 Now we can run our script in that environment, ensuring first we are in our software project directory:
 
 ~~~
-$cd swc-intermediate-template
+$cd python-intermediate-inflammation
 $python patientdb.py
 ~~~
 {: .language-bash}
@@ -73,7 +74,7 @@ patientdb.py: error: the following arguments are required: infiles
 ~~~
 {: .output}
 
-So here, we're doing a very similar thing to what PyCharm was doing when running our script. We tell the command line 
+So here, we are doing a very similar thing to what PyCharm was doing when running our script. We tell the command line 
 shell two things:
 
 1. the Python interpreter to use (which is the one configured in the virtual environment we created - 
@@ -117,9 +118,9 @@ ever be installed once on your system but will be referenced from different virt
 >
 {: .callout}
 
-## Python Virtual Environments
+## Managing Python Virtual Environments
 
-There are several commonly used tools for creating Python virtual environments:
+There are several commonly used tools for managing Python virtual environments:
 - `conda` which comes with Anaconda distribution and which we have already used from PyCharm
 - `venv`, available by default from the standard `Python` distribution (`Python 3.3+`)
 - `virtualenv`, which needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
@@ -137,10 +138,12 @@ package repository and install them on your system, and (2) it is also a virtual
 >
 {: .callout}
 
-Let's have a look at how we can create and manage `conda` virtual environments from command line. 
+Let us have a look at how we can create and manage `conda` virtual environments from command line. 
+
+### Creating a `conda` Environment
 Remember, we have already created our `conda` virtual environment called `patient` from PyCharm, so we do not have to
 do it again. Command line shell gives you a hint which environment is 
-currently active by pre-pending it to its prompt in round brackets: `(patient) alex@MacBook-Pro swc-intermediate-template %`. 
+currently active by pre-pending it to its prompt in round brackets: `(patient) alex@MacBook-Pro python-intermediate-inflammation %`. 
 If unsure, you can always issue the `conda list` command - the current environment will be denoted with an asterisk (`*`):
 
 ~~~
@@ -152,51 +155,25 @@ base                     /Users/alex/opt/anaconda3
 ~~~
 {: .language-bash}
 
-### Creating a `conda` Environment
-To create a virtual environment with `conda` from command line within a software project directory, you can do:
-~~~
-$conda create -n myenv
-~~~
-{: .language-bash}
-where `myenv` is the name of the environment you are creating.
 
-To create an environment with a specific version of Python:
-~~~
-$conda create -n myenv python=3.7
-~~~
-{: .language-bash}
+> ## Managing Conda Environments
+> Refer to the official [Conda guide](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) 
+for the documentation on managing environments.
+> 
+> A quick list of shell commands to create, activate and deactivate a virtual environment called `myenv` with `conda`:
+>~~~
+>$conda create -n myenv
+>$conda activate myenv
+>$conda deactivate myenv
+>~~~
+>{: .language-bash}
+{: .callout}
 
-To create an environment and add a specific version of a package to it:
-~~~
-$conda create -n myenv scipy=0.15.0
-~~~
-{: .language-bash}
-
-Switching or moving between environments is called activating the environment. 
-We have already seen previously how to activate an environment:
-~~~
-$conda activate myenv
-~~~
-{: .language-bash}
-
-and verify that the new environment was installed correctly:
-~~~
-$conda env list
-~~~
-{: .language-bash}           
-
-To deactivate an environment, do:
-~~~
-$conda deactivate myenv
-~~~
-{: .language-bash}
+### Exporting a `conda` Environment 
 
 You may want to share your environment with someone else so they can re-create a software 
 project that you have developed with all of its dependencies. `conda` has a handy way of exporting, 
-saving and sharing an environment via an `environment.yml` file. 
-
-### Exporting a `conda` Environment 
-To export your active environment to a new file:
+saving and sharing an environment via an `environment.yml` file. To export your active environment to a file:
  ~~~
  $conda env export > environment.yml
  ~~~
@@ -227,7 +204,7 @@ to propagate to your environment:
 {: .language-bash}    
 
 ## Managing Python Packages
-Let's recap - Anaconda is a Python distribution commonly used for scientific programming and `conda` 
+Let us recap - Anaconda is a Python distribution commonly used for scientific programming and `conda` 
 (that comes with Anaconda distribution) is an open source package management tool that helps you find `Python` 
 packages from a package repository and install them on your 
 system. As we have seen above, `conda` is also a virtual environment management tool. Another commonly used Python 
