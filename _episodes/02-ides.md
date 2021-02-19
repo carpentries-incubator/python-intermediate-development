@@ -110,31 +110,32 @@ In our case, this is the Python interpreter that is supplied within the Anaconda
 various Python distributions and versions installed on your system so you have to be careful here to select the one you
 want to use. To do this:
 
-- Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
-- Then, in the preferences window that appears, select `Project: swc-intermediate-template` > 
+1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
+2. Then, in the preferences window that appears, select `Project: python-intermediate-inflammation` > 
 `Project Interpreter` from the left. You'll 
 see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is 
 being used. This is likely the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7` 
-or `Python 3.7 /usr/bin/python3.7`, which we don't want to use.
-- Select the cog-like button in the top right, then `Add Local...`. An `Add Local Python Interpreter` window will appear.
-- Select `Conda Environment` from the list on the left so it will use Anaconda, and ensure that `New environment` is 
+or `Python 3.7 /usr/bin/python3.7`, which we do not want to use in this instance - we want to use Anaconda 
+distribution of Python.
+3. Select the cog-like button in the top right, then `Add Local...`. An `Add Local Python Interpreter` window will appear.
+4. Select `Conda Environment` from the list on the left so it will use Anaconda, and ensure that `New environment` is 
 selected. Enter `/Users/<USERNAME>/anaconda/envs/patient` (Mac) or TODO (Windows) or TODO (Linux) in the `Location` 
 field, then select `Make available to all projects` so we can use it with other projects later.
-- Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select 
-`Python 3.6 (patient)` or similar from the `Project Interpreter` dropdown list.
-- Select `OK` in the `Preferences` window.
+5. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select 
+`Python 3.7 (patient)` or similar from the `Project Interpreter` drop-down list.
+6. Select `OK` in the `Preferences` window.
 
-It may take a few minutes for PyCharm to read and familiarise itself with the Anaconda installation you've configured 
+It may take a few minutes for PyCharm to read and familiarise itself with the Anaconda installation you have configured 
 (you may see `n processes running` in the bar at the bottom of the PyCharm IDE while it does this).
 
-Now we've told PyCharm about the new interpreter, we can configure it for our project:
+Now we have told PyCharm about the new Python interpreter, we can configure it for our project:
 
-- To add a new configuration - select `Run` > `Edit Configurations...` (Mac) or TODO (Windows) or TODO (Linux) from the top menu.
-- Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see 
-`Python 3.6 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder 
+1. To add a new configuration - select `Run` > `Edit Configurations...` (Mac) or TODO (Windows) or TODO (Linux) from the top menu.
+2. Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see 
+`Python 3.7 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder 
 button and find and select `patientdb.py`. This tells PyCharm which script to run. 
 You can even give this configuration a name at the top of the window if you like - let's name it `patient`.
-- Select `OK` to confirm these settings.
+3. Select `OK` to confirm these settings.
 
 > ## Virtual Environments
 >
@@ -143,7 +144,7 @@ You can even give this configuration a name at the top of the window if you like
 > [next episode](../03-virtual-environments/index.html).
 {: .callout}
 
-Once done, you're ready to run your script!
+Once done, you are ready to run your script!
 
 ### Running Scripts From PyCharm
 Right-click the `patientdb.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`. 
@@ -153,7 +154,7 @@ The script will run in a terminal window at the bottom of the IDE window and dis
 to Configuration and install it. The the same happened for `matplotlib`. 
 This will probably be the case with participants too. I wonder why numpy in not installed by default?)
 ~~~
-/Users/alex/anaconda/envs/patient/bin/python /Users/alex/swc-intermediate-template/patientdb.py
+/Users/alex/anaconda/envs/patient/bin/python /Users/alex/python-intermediate-inflammation/patientdb.py
 usage: patientdb.py [-h] infiles [infiles ...]
 patientdb.py: error: the following arguments are required: infiles
 
@@ -163,10 +164,10 @@ Process finished with exit code 2
 
 Here, we can see that a new shell has been created that uses the Anaconda interpreter 
 `/Users/alex/anaconda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our 
-script located at `/Users/alex/swc-intermediate-template/patientdb.py`. The script is currently throwing an error - 
+script located at `/Users/alex/python-intermediate-inflammation/patientdb.py`. The script is currently throwing an error - 
 `patientdb.py: error: the following arguments are required: infiles`. 
 Do not worry about it for now, we will learn how to fix the errors and write test 
-to detect errors over the course of the workshop.
+to detect errors in the following episodes.
 
 {% include links.md %}
 
