@@ -54,7 +54,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
 Let's take a quick look now. Start the Python interpreter on the command line, in the
-repository root `swc-intermediate-template` directory:
+repository root `python-intermediate-inflammation` directory:
 
 ~~~
 $ python
@@ -273,7 +273,7 @@ Once we've finished writing these tests and are convinced they work properly, we
 
 #### Write a metadata package description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. Create a new file `setup.py` in the root directory of the `swc-intermediate-template` repository, with the following content:
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following content:
 
 ~~~
 from setuptools import setup, find_packages
@@ -292,8 +292,8 @@ $ conda develop .
 We should see:
 
 ~~~
-added /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
-completed operation for: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+added /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
+completed operation for: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
 ~~~
 {: .output}
 
@@ -314,7 +314,7 @@ explicitly.
 ~~~
 ============================= test session starts ==============================
 platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+rootdir: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
 collected 2 items
 
 tests/test_models.py ..                                                  [100%]
@@ -481,7 +481,7 @@ So here, we specify the additional named argument `--cov` to PyTest specifying t
 ~~~
 ============================= test session starts ==============================
 platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/swc-intermediate-template
+rootdir: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
 plugins: cov-2.11.1
 collected 9 items
 
