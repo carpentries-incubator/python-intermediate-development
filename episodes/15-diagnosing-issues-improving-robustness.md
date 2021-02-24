@@ -163,7 +163,7 @@ In the debug panel below, in the `Debugger` tab you will be able to see two sect
 
 ![Debugging in PyCharm](../fig/pytest-pycharm-debug.png)
 
-- The `Frames` section, which shows the *call stack*, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
+- The `Frames` section, which shows the **call stack**, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
 - The `Variables` section, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
 
 We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
@@ -175,7 +175,7 @@ Now, looking at the `max` variable, we can see that something looks wrong, as th
 ~~~
 {: .language-python}
 
-So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`. You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. So to fix the `patient_normalise` function we can change `axis=0` in the first line to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You shoule be rewarded with:
+So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`. You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. So to fix the `patient_normalise` function we can change `axis=0` in the first line to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
 
 ![All tests successful](../fig/pytest-pycharm-all-tests-pass.png)
 
