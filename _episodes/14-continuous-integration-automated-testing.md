@@ -128,7 +128,7 @@ The first thing we need to do is let Travis install its GitHub App to GitHub:
 1. Log into [https://travis-ci.com/]() with your GitHub account
 2. Select your profile picture in the top right and select `Settings`.
 3. Select the `Migrate` tab, then the `Activate all repositories using GitHub Apps` button. This will take you to GitHub.
-4. From the `Repository access` section, select 'Only select repositories', and add the `swc-intermediate-template` repository
+4. From the `Repository access` section, select 'Only select repositories', and add the `python-intermediate-inflammation` repository
 5. Select `Approve and install` to install the Travis application to GitHub.
 
 FIXME: add screenshot of permissions dialogue
