@@ -521,7 +521,6 @@ The line `super().__init__(name)` gets the parent class, then calls the `__init_
 > ## Composition vs Inheritance
 >
 > When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
-> More on this later in the week!
 >
 > ~~~
 > class Machine:
