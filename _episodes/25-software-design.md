@@ -51,11 +51,11 @@ Some of the most important questions you should ask when beginning a new softwar
 > Many design choices in a software project depend on the environment in which the software is expected to run.
 >
 > How many different software environments can you think of?
-> In small groups, discuss some of these environments and how aspects of each one might impact the design choices of the software running there.
+> In small groups, discuss some of these environments and how aspects of each one might impact the design or development choices of the software running there.
 >
 > Some examples might be:
 > - Mobile Apps
->   - Mush have graphical interface suitable for a touch display
+>   - Must have graphical interface suitable for a touch display
 >   - Usually distributed via controlled app store
 >   - Users will not (usually) modify / compile the software themselves
 >   - Should work on a range of hardware specifications with range of Operating System versions
@@ -64,11 +64,11 @@ Some of the most important questions you should ask when beginning a new softwar
 > - Embedded Software
 >   - May have no user interface - user interface may be physical buttons
 >   - Usually distributed pre-installed on physical device
->   - Often runs on low power device with limited memory and CPU performance
+>   - Often runs on low power device with limited memory and CPU performance - must take care to use these resources efficiently
 >   - Exact specification of hardware is known - often not necessary to support multiple devices
 >   - Documentation probably in technical manual with separate user manual
 >   - May need to run continuously for the lifetime of the device
->   - Typically written in lower-level language (e.g. C) for better control of resources
+>   - Typically written in a lower-level language (e.g. C) for better control of resources
 >
 > Again in small groups, discuss some software you are familiar with (could be software you have written yourself or by someone else).
 > Use the three questions to explain the environment in which the software is intended to be used.
@@ -86,17 +86,18 @@ Some of the most important questions you should ask when beginning a new softwar
 > > - Command-line Application - UNIX Tool
 > >   - User interface is text based, probably via command-line arguments
 > >   - Intended to be modified / compiled by users - though most will choose not to
-> >   - Documentation has expected formats - also accessible from command-line
+> >   - Documentation has standard formats - also accessible from command-line
+> >   - Should be usable as part of a pipeline
 > > - Command-line Application - High Performance Computing
 > >   - Similar to UNIX Tool
 > >   - Usually supports running across multiple networked machines simultaneously
 > >   - Usually operated via scheduler - interface should be scriptable
 > >   - May need to run on wide range of hardware (e.g. different CPU architectures)
 > >   - May need to process large amounts of data
-> >   - Often written in lower-level language for performance (e.g. C, C++, Fortran)
+> >   - Often entirely or partially written in a lower-level language for performance (e.g. C, C++, Fortran)
 > > - Web Application
 > >   - Usually has components which run on server and components which run on the user's device
-> >   - Graphical interface should support Desktop or Mobile devices
+> >   - Graphical interface should usually support both Desktop and Mobile devices
 > >   - Clientside component should run on range of browsers and Operating Systems
 > >   - Documentation probably part of the software itself
 > >   - Clientside component typically written in JavaScript
@@ -107,7 +108,7 @@ Some of the most important questions you should ask when beginning a new softwar
 ## Software Architecture
 
 At the beginning of this episode we defined **Software Architecture** with the question, "what components will the software have and how will they cooperate?"
-Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques can be quite similar.
+Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques have some similarities.
 
 One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
 This term is often attributed to the book 'A Pattern Language' by Christopher Alexander *et al* published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
@@ -117,7 +118,7 @@ For example, the Adapter pattern may be useful if part of our software needs to 
 Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
 
 Architecture patterns are large-scale templates which operate at the level of whole programs, or collections or programs.
-Model-View-Controller is one of the most common architecture patterns.
+Model-View-Controller is one of the best known architecture patterns.
 
 ### MVC Revisted
 
@@ -132,18 +133,47 @@ In many cases, the distinction between some of these patterns isn't particularly
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
+### Multilayer Architecture
+
+Another common architectural pattern is **Multilayer Architecture**.
+Software designed using a this architecture pattern is split into layers, each of which is responsible for a different part of the process of manipulating data.
+
+Often, the software is split into three layers:
+
+- **Presentation Layer**
+  - This layer is responsible for managing the interaction between our software and the people using it
+  - Similar to the **View** component in the MVC pattern
+- **Application Layer / Business Logic Layer**
+  - This layer performs most of the data processing required by the presentation layer
+  - Could be in any part of an MVC-style architecture, but most commonly the **Model**
+- **Persistence Layer / Data Access Layer**
+  - This layer handles data storage and provides data to the rest of the system
+  - Has some overlap with the MVC **Model**
+
 ### The Persistence Layer
 
-Our patient management system so far can read in some data, process it, and display it to the user.
+Our patient management system so far can read in some data, process it, and display it to people.
 What's missing?
 
-Perhaps the most obvious missing feature is the ability to modify and save the data.
-We might not want users to have to manage their patients by making changes to the data by hand, but rather provide some the ability to do this through the software.
+Well, at the moment, if we wanted to add a new patient or perform a new observation, we would have to edit the input CSV file by hand.
+We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide some the ability to do this through the software.
 That way we can perform any necessary validation or transformation before the data gets accepted.
 
-- Databases
-- ORM
+There's a few ways we could do this, but lets start with extending what we have already - the CSV file.
 
+If we want to bring in this data, modify it somehow, and save it back to a file, we'll need to:
+
+- Add the data import / export (**persistence**) code to our Model
+- Write some Views we can use to modify the data
+- Link it all together in the controller
+
+This new code we're adding to the Model is our **Persistence Layer**.
+By adding it to the Model, it's not really a new layer being added, but since we're keeping it separate from the View and Controller code we can still get away with using the name.
+
+
+### Databases
+
+Now for a real persistence layer
 
 ## Software Systems
 
