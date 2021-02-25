@@ -31,8 +31,8 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ## Continuous Integration with GitHub Actions
 
-With a GitHub repository there's a really easy way we can set up CI to run our tests when we make a change, simply by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
- 
+With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
+
 ~~~
 $ mkdir -p .github/workflows
 ~~~
@@ -79,13 +79,26 @@ jobs:
 ~~~
 {: .language-bash}
 
+You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .` instead, which is analogous to using `conda develop .`. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies:
+
+~~~
+numpy=1.19.2
+matplotlib=3.3.2
+pytest=6.2.2
+pytest-cov=2.11.1
+~~~
+{: .language-bash}
+
+So similar to `environment.yml` for Anaconda, this file contains the Python packages - and their versions - our software will need to run. Note that we have omitted the plethora of other sub-packages that are also installed as part of installing these for simplicity.
+
+
 ### Triggering a build on GitHub Actions
 
 Now if we commit and push this change a CI run will be triggered:
 
 ~~~
 $ git add .github
-$ git commit -m "Add GitHub Actions configuration" .github
+$ git commit -m "Add GitHub Actions configuration"
 $ git push
 ~~~
 {: .language-bash}
@@ -113,9 +126,10 @@ Now let's take a look at Travis-CI, another free continuous integration service 
 The first thing we need to do is let Travis install its GitHub App to GitHub:
 
 1. Log into [https://travis-ci.com/]() with your GitHub account
-2. Select your profile picture in the top right and select 'Activate & Migrate' under 'GitHub Apps Integration'
-3. From the permissions window, select 'Only select repositories', and add the `swc-intermediate-template` repository
-4. Select `Approve and install` to install the Travis application to GitHub
+2. Select your profile picture in the top right and select `Settings`.
+3. Select the `Migrate` tab, then the `Activate all repositories using GitHub Apps` button. This will take you to GitHub.
+4. From the `Repository access` section, select 'Only select repositories', and add the `python-intermediate-inflammation` repository
+5. Select `Approve and install` to install the Travis application to GitHub.
 
 FIXME: add screenshot of permissions dialogue
 
@@ -136,7 +150,7 @@ script:
 ~~~
 {: .language-bash}
 
-Here, we are informing Travis that the software assumes a Python 3.7 environment (which will be built and provided for the CI run), and the script to execute. We already have our software dependencies in our `requirements.txt` file, and Travis will automatically use this to install these dependencies prior to running the script command.
+Here, we are informing Travis that the software assumes a Python 3.7 environment (which will be built and provided for the CI run), and the script to execute. We already have our software dependencies in our `requirements.txt` file, and as with GitHub Actions, Travis will automatically use this to install these dependencies using `pip` prior to running the script command.
 
 ### Triggering a build on Travis
 
@@ -153,7 +167,7 @@ Again, since we're only committing this to the `test-suite` branch, it will only
 
 ### Checking build progress and reports
 
-The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. Notice that there are now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously. Selecting one of these gives us more details about the build, and shows it alongside details of the GitHub Actions build.
+The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. Notice that there is now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously. Selecting one of these gives us more details about the build, and shows it alongside details of the GitHub Actions build.
 
 FIXME: add screenshot of Travis build log
 
@@ -162,7 +176,7 @@ Note that travis-ci.com also offers continuous integration as a free service, bu
 
 ## Scaling up testing using build matrices
 
-Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale. 
+Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale.
 
 Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.7 or 3.8 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
 
