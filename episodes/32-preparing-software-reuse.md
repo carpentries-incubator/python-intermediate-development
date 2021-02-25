@@ -16,7 +16,7 @@ objectives:
 - "Explain the importance of conforming to data policy and regulation"
 - "Prioritise and work on improvements for release as a team"
 keypoints:
-- "The reuse battle is won before it is fought. Use good practices consistently throughout development and not just at the end."
+- "The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end."
 ---
 
 If previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
@@ -38,7 +38,7 @@ Later levels imply the earlier ones. So what should we aim for? As researchers w
 
 > ## Reproducibility and non-determinism
 >
-> 
+>
 >
 {: .callout}
 
@@ -167,7 +167,7 @@ max-line-length=120
 
 Don't forget to remove the `--fail-under` argument to Pytest in our GitHub Actions configuration file too, since we don't need it anymore.
 
-Now when we run Pylint we won't be penalised for having a reasonable line length. For some further hints and tips on how to approach using Pylint for a project, see ![this article](https://pythonspeed.com/articles/pylint/).
+Now when we run Pylint we won't be penalised for having a reasonable line length. For some further hints and tips on how to approach using Pylint for a project, see [this article](https://pythonspeed.com/articles/pylint/).
 
 
 ## Documenting code to improve reusability
@@ -177,7 +177,7 @@ Reproducibility is a cornerstone of science, and scientists who work in many dis
 Many things we've covered so far contribute directly to making our software reproducible - and indeed reusable - by others. A key part of this we'll cover now is software documentation, which is ironically very often given short shrift in academia. This is often the case even in fields where the documentation and publication of research method is otherwise taken very seriously.
 
 A few reasons for this are that writing documentation is often considered:
- 
+
 - A low priority compared to actual research (if it's even considered at all)
 - Expensive in terms of effort, with little reward
 - Boring!
@@ -197,9 +197,16 @@ In the next section we'll see that writing a sensible minimum set of documentati
 
 ### Writing a README
 
-A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial - hence it should contain brief explanations and be focused on instructional steps.
+A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial with links to further information - hence it should contain brief explanations and be focused on instructional steps.
 
-Let's create one for our repository now. In the root of your repository create a new file `README.md`. The `.md` indicates this is a **markdown** file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures. GitHub provides a very useful [guide to writing markdown][github-markdown] for its repositories.
+Our repository already has a README that describes the purpose of the repository for this workshop, but let's replace it with a new one that describes the software itself. First let's delete the old one:
+
+~~~
+$ rm README.md
+~~~
+{: .language-bash}
+
+In the root of your repository create a replacement `README.md` file. The `.md` indicates this is a **markdown** file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures, and are very quick to write. GitHub provides a very useful [guide to writing markdown][github-markdown] for its repositories.
 
 Let's start writing it.
 
@@ -208,43 +215,75 @@ Let's start writing it.
 ~~~
 {: .language-bash}
 
-So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on. The Software Sustainability Institute [guide on naming projects][ssi-choosing-name] and products provides some helpful pointers.
+So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. We would ideally rename the repository to reflect the new name, but let's leave that for now. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on. The Software Sustainability Institute [guide on naming projects][ssi-choosing-name] and products provides some helpful pointers.
 
 We should also add a short description.
 
 ~~~
-FIXME: add description
+Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 ~~~
 {: .language-bash}
+
+To give readers an idea of the software's capabilities, let's add some key features next:
+
+~~~
+## Main features
+
+Here are some key features of Inflam:
+
+- Provide basic statistical analyses over clinical trial data
+- Ability to work on trial data in Comma-Separated Value (CSV) format
+- Generate plots of trial data
+- Analytical functions and views can be easily extended based on its Model-View-Controller architecture
+~~~
+{: .language-bash}
+
+As well as knowing what the software aims to do and its key features, it's very important to specify what other software and related dependencies are needed to use the software (typically called `dependencies` or `prerequisites`):
 
 ~~~
 ## Prerequisites
 
-FIXME: add prereqs
+Inflam requires the following Python packages:
+
+- [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
+- [Matplotlib](https://matplotlib.org/stable/index.html) - uses Matplotlib to generate statistical plots
+
+The following optional packages are required to run Inflam's unit tests:
+
+- [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
+- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 ~~~
 {: .language-bash}
 
-That's got us started, but there are other aspects we should cover:
+Here we're making use of markdown links, with some text describing the link within `[]` followed by the link itself within `()`.
 
-- Installation/deployment
-- Basic usage
-- Contributing
-- Contact information
-- Credits
-- License
+One really neat feature - and a common practice - of using many CI infrastructures is that we can include the status of running recent tests within our README file. Just below the `# Inflam` title on our README.md file, add the following (replacing `<your_github_username>` with your own:
 
-We'll finish these later.
+~~~
+# Inflam
 
-FIXME: adding links to build runs
+![build](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=master)
+~~~
+{: .language-bash}
 
+This will embed a *badge* at the top of our page the reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `master` branch succeeded or failed.
 
+That's got us started, but there are other aspects we should also cover:
 
-![build](https://github.com/steve-crouch/swc-intermediate-template/workflows/CI/badge.svg?branch=master)
+- *Installation/deployment:* step-by-step instructions for setting up the software so it can be used
+- *Basic usage:* step-by-step instructions that cover using the software to accomplish basic tasks
+- *Contributing:* for those wishing to contribute to the software's development, this is an opportunity to detail what kinds of contribution are sought and how to get involved
+- *Contact information/getting help:* which may include things like key author email addresses, and links to mailing lists and other resources
+- *Credits/Acknowledgements:* where appropriate, be sure to credit those who have helped in the software's development or inspired it
+- *Citation:* particularly for academic software, it's a very good idea to specify a reference to an appropriate academic publication so other academics can cite use of the software in their own publications and media. You can do this within a separate [CITATION text file](https://github.com/citation-file-format/citation-file-format) within the repository's root directory and link to it from the markdown
+- *License:* a short description of and link to the software's license
 
+For more verbose sections, there are usually just highlights in the README with links to further information, which may be held within other markdown files within the repository or elsewhere.
+
+We'll finish these off later. See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
 ### Other documentation
 
-FIXME: CITATION
 FIXME: technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?), all aid reusability
 
 ## Choosing an open source licence
@@ -304,11 +343,11 @@ FIXME: add output from git show
 > ## What is a version number anyway?
 >
 > Software version numbers are everywhere, and there are many different ways to do it. A popular one to consider is [**Semantic Versioning**](https://semver.org/), where a given version number uses the format MAJOR.MINOR.PATCH. You increment the:
-> 
+>
 > - MAJOR version when you make incompatible API changes
 > - MINOR version when you add functionality in a backwards compatible manner
 > - PATCH version when you make backwards compatible bug fixes
-> 
+>
 > You can also add a hyphen followed by characters to denote a pre-release version, e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (first beta release)
 {: .callout}
 

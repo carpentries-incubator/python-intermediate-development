@@ -10,15 +10,13 @@ It continues from the material covered in the novice-level [Software Carpentry l
 as described in [Best Practices for Scientific Computing][best-practices] and
 [Good enough practices in scientific computing][good-practices].
 
-The example used in this lesson also builds upon the example used in the [Programming with Python][programming-with-python] lesson,
-
-
+The example used in this lesson also builds upon the example used in Software Carpentry's [Programming with Python][programming-with-python] lesson.
 
 The rendered version of the lesson is available at:
-<https://softwaresaved.github.io/swc-intermediate-lesson/>.
+<https://softwaresaved.github.io/python-intermediate-development/>.
 
 The software template repository for this lesson is available at:
-<https://github.com/softwaresaved/swc-intermediate-template/>.
+<https://github.com/softwaresaved/python-intermediate-inflammation>.
 
 
 ## Episodes
@@ -79,3 +77,6 @@ To cite this lesson, please consult with [CITATION](CITATION)
 [steve-crouch]: https://github.com/steve-crouch
 [james-graham]: https://github.com/jag1g13
 [aleksandra-nenadic]: https://github.com/anenadic
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[mit-license]: https://opensource.org/licenses/MIT

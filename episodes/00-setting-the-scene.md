@@ -27,7 +27,7 @@ and sustain it in the future for yourself and others.
            
 ## Prerequisite Knowledge
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
-on the topics covered, as outlined at the [beginning of the lesson](/index.html).
+on the topics covered, as outlined at the [beginning of the lesson](/index.html#prerequisites).
 
 > ## Quiz 
 > Here is a little quiz that can be done in a shared document to test the participants' prior knowledge and 

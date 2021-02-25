@@ -13,7 +13,7 @@ on your learning journey.
 A typical learner for this course may be someone who finished an 
 undergraduate degree and, moving into academic 
 research and needing to write some code, gained basic software development skills either 
-by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/) 
+by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/lessons) 
 (shell, Python, Git). 
 However, their software development-related projects 
 are now becoming more complex, larger, and involving more researchers and other stakeholders (e.g. users), for example:
@@ -23,20 +23,8 @@ the increasing need to add new features and support collaborations with others
 - Increased ['technical debt'](https://en.wikipedia.org/wiki/Technical_debt) and demands to add new functionality while ensuring previous development efforts 
 remain functional and 
 maintainable
-
-## Learning Objectives
-After following this lesson, you will:
-
-- have intermediate Python skills
-- be able to write robust software
-- know how to develop software collaboratively
-- know how to publish and release your software
-
+  
 ## Target Audience
-It is suitable for those who have either been taught the novice 
-[Software Carpentry](https://software-carpentry.org/) course (shell, Python, Git) or match a very strict set of 
-skill prerequisites (described below).
-
 This course is for you if:
 - You write software, which may be used by people other than yourself
 - The software you write currently is undocumented or unstructured
@@ -50,13 +38,14 @@ This course is for you if:
     - command line interface (shell)
      
  This course is not for you if:
- - You have not yet started writing software
+ - You have not yet started writing software (in which case have a look at the [Software Carpentry course](https://software-carpentry.org/lessons) for novices first)
  - You are well familiar with learning objectives of episodes 
  - The software you write is fully documented and well architected
   
 > ## Prerequisites
 > To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
- or meet the following criteria.
+> or meet the following criteria. You can also test your prerequisite knowledge by taking 
+> [this short quiz](./00-setting-the-scene#prerequisite-knowledge).
 >     
 > #### Git
 > - **You are familiar with the concept of version control**
@@ -77,5 +66,14 @@ This course is for you if:
 > commands with arguments.**
 > - Optionally, you have experience redirecting inputs and outputs from a command.
 {: .prereq}
+
+> ## Learning Objectives
+> After following this lesson, you will:
+>
+> - have intermediate Python software development skills
+> - be able to write robust software
+> - know how to develop software collaboratively
+> - know how to publish and release your software
+{: .objectives }
 
 {% include links.md %}
