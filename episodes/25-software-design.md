@@ -281,6 +281,72 @@ def test_sqlalchemy_patient_search():
 ~~~
 {: .language-python}
 
+Now lets add our inflammation observations to the database:
+
+~~~
+from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+
+...
+
+class Observation(Base):
+    __tablename__ = 'observations'
+
+    id = Column(Integer, primary_key=True)
+    day = Column(Integer)
+    value = Column(Integer)
+    patient_id = Column(Integer, ForeignKey('patients.id'))
+
+    patient = relationship('Patient', back_populates='observations')
+
+
+class Patient(Base):
+    __tablename__ = 'patients'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+    observations = relationship('Observation',
+                                order_by=Observation.day,
+                                back_populates='patient')
+
+~~~
+{: .language-python}
+
+~~~
+# file: tests/test_models.py
+
+...
+
+def test_sqlalchemy_observations():
+    """Test that we can save and retrieve inflammation observations from a database."""
+    from inflammation.models import Base, Observation, Patient
+
+    # Setup a database connection - we're using a database stored in memory here
+    engine = create_engine('sqlite:///:memory:', echo=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    Base.metadata.create_all(engine)
+
+    # Save a patient to the database
+    test_patient = Patient(name='Alice')
+    session.add(test_patient)
+
+    test_observation = Observation(patient=test_patient, day=0, value=1)
+    session.add(test_observation)
+
+    queried_patient = session.query(Patient).filter_by(name='Alice').first()
+    first_observation = queried_patient.observations[0]
+    assert first_observation.patient == queried_patient
+    assert first_observation.day == 0
+    assert first_observation.value == 1
+
+    # Wipe our temporary database
+    Base.metadata.drop_all(engine)
+~~~
+{: .language-python}
+
 ## Software Systems
 
 - How should software interact with users?
