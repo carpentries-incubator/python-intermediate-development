@@ -175,6 +175,112 @@ By adding it to the Model, it's not really a new layer being added, but since we
 
 Now for a real persistence layer
 
+A **database** is an organised collection of data, usually organised in some way to mimic the structure of the entities it represents, and the software which supports
+There are several major families of database model, but the dominant model form is the **relational database**.
+
+Relational databases focus on describing the relationships between entities in the data, similar to the object oriented paradigm.
+The key concepts in a relational database are:
+
+Tables
+: Within a database we can have multiple tables - each table usually represents all entities of a single type.
+: e.g. We might have a `patients` table to represent all of our patients.
+
+Columns / Fields
+: Each table has columns - each column has a name and holds data of a specific type
+: e.g. We might have a `name` column in our `patients` table which holds text data representing the names of our patients.
+
+Rows
+: Each table has rows - each row represents a single entity and has a value for each field.
+: e.g. Each row in our `patients` table represents a single patient - the value of the `name` field in this row is our patient's name.
+
+Primary Keys
+: Each row has a primary key - this is a unique ID that can be used to select this from from the data.
+: e.g. Each patient might have a `patient_id` which can be used to distinguish two patients with the same name.
+
+Foreign Keys
+: A relationship between two entities is described using a foreign key - this is a field which points to the primary key of another row / table.
+: e.g. Each patient might have a foreign key field called `doctor` pointing to a row in a `doctors` table representing the doctor responsible for them - i.e. this doctor *has a* patient.
+
+> ## SQLAlchemy
+>
+> For more information, see SQLAlchemy's [ORM tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html).
+>
+{: .callout}
+
+Our first step is to create a **mapping**.
+A mapping is the core component of an ORM - it's this that describes how to convert between our Python classes and the contents of our database tables.
+Typically, we can take our existing classes and convert the into mappings, so we don't have to start from scratch.
+
+~~~
+# file: inflammation/models.py
+from sqlalchemy import Column, create_engine, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+...
+
+class Patient(Base):
+    __tablename__ = 'patients'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.observations = []
+~~~
+{: .language-python}
+
+Now that we've defined how to translate between our Python class and a database table, we need to hook our code up to an actual database.
+
+The library we're using, SQLAlchemy, does everything through a database **engine**.
+This is essentially a wrapper around the real database, so we don't have to worry about which particular database software we're using - we just need to write code for a generic relational database.
+
+For these lessions we're going to use the SQLite engine as this requires almost no configuration and no external software.
+Most relational database software runs as a separate service which we can connect to from our code.
+This means that in a large scale environment, we could have the database and our software running on different computers - we could even have the database spread across several servers if we have particularly high demands for performance or reliability.
+Some examples of databases which are used like this are PostgreSQL, MySQL and MSSQL.
+
+On the other hand, SQLite runs entirely within our software and uses only a single file to hold its data.
+It won't give us the extremely high performance or reliability of a properly configured PostgreSQL database, but it's good enough in many cases and much less work to get running.
+
+Lets write some test code to setup and connect to an SQLite database:
+
+~~~
+# file: tests/test_models.py
+
+...
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+...
+
+def test_sqlalchemy_patient_search():
+    """Test that we can save and retrieve patient data from a database."""
+    from inflammation.models import Base, Patient
+
+    # Setup a database connection - we're using a database stored in memory here
+    engine = create_engine('sqlite:///:memory:', echo=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    Base.metadata.create_all(engine)
+
+    # Save a patient to the database
+    test_patient = Patient(name='Alice')
+    session.add(test_patient)
+
+    # Search for a patient by name
+    queried_patient = session.query(Patient).filter_by(name='Alice').first()
+    assert queried_patient.name == 'Alice'
+    assert queried_patient.id == 1
+
+    # Wipe our temporary database
+    Base.metadata.drop_all(engine)
+~~~
+{: .language-python}
+
 ## Software Systems
 
 - How should software interact with users?
