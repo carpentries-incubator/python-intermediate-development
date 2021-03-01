@@ -281,7 +281,12 @@ def test_sqlalchemy_patient_search():
 ~~~
 {: .language-python}
 
-Now lets add our inflammation observations to the database:
+Relational databases don't typically have an 'array of numbers' column type, so how are we going to represent our observations of our patients' inflammation?
+Well, our first step is to create a table of observations.
+We can then use a **foreign key** to point from the observation to a patient, so we know which patient the data belongs to.
+The table also needs a column for the actual measurement - we'll call this `value` - and a column for the day the measurement was taken on.
+
+We can also use the ORM's `relationship` helper function to allow us to go between the observations and patients without having to do any of the complicated table joins manually.
 
 ~~~
 from sqlalchemy import Column, ForeignKey, Integer, String
@@ -314,6 +319,30 @@ class Patient(Base):
 ~~~
 {: .language-python}
 
+> ## Time is Hard
+>
+> We're using an integer field to store the day on which a measurement was taken.
+> This keeps us consistent with what we had previously as it's essentialy the position of the measurement in the numpy array.
+> It also avoids us having to worry about managing actual date / times.
+>
+> Working with dates / times is hard!
+> There's a whole range of questions we need to answer, some of which have commonly accepted conventions, some don't.
+> For example:
+>
+> - What format are we going to use to store our dates / times?
+> - What format to display them?
+> - What timezone is our code running in?
+> - What timezone are the people using our code in? (particularly relevant for web services)
+>
+> Python does have a module which we can use to help us here, but it doesn't solve all of these issues fully.
+> See the [datetime module documentation](https://docs.python.org/3/library/datetime.html) for more information.
+>
+{: .callout}
+
+Our test code for this is going to look very similar to our previous test code, so we can copy-paste it and make a few changes.
+This time, after setting up the database, we need to add a patient and an observation.
+We then test that we can get the observations from a patient we've searched for.
+
 ~~~
 # file: tests/test_models.py
 
@@ -341,6 +370,69 @@ def test_sqlalchemy_observations():
     assert first_observation.patient == queried_patient
     assert first_observation.day == 0
     assert first_observation.value == 1
+
+    # Wipe our temporary database
+    Base.metadata.drop_all(engine)
+~~~
+{: .language-python}
+
+Finally, let's put in a way to convert all of our observations into a numpy array, so we can use our previous analysis code.
+We'll use the `property` decorator here again, to create a method that we can use as if it was a normal data attribute.
+
+~~~
+# file: inflammation/models.py
+
+...
+
+class Patient(Base):
+    __tablename__ = 'patients'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+    observations = relationship('Observation',
+                                order_by=Observation.day,
+                                back_populates='patient')
+
+    @property
+    def values(self):
+        """Convert inflammation data into numpy array."""
+        last_day = self.observations[-1].day
+        values = np.zeros(last_day + 1)
+
+        for observation in self.observations:
+            values[observation.day] = observation.value
+
+        return values
+~~~
+{: .language-python}
+
+Once again we'll copy-paste the test code and make some changes.
+This time we want to create a few observations for our patient and test that we can turn them into a numpy array.
+
+~~~
+# file: tests/test_models.py
+
+def test_sqlalchemy_observations_to_array():
+    """Test that we can save and retrieve inflammation observations from a database."""
+    from inflammation.models import Base, Observation, Patient
+
+    # Setup a database connection - we're using a database stored in memory here
+    engine = create_engine('sqlite:///:memory:')
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    Base.metadata.create_all(engine)
+
+    # Save a patient to the database
+    test_patient = Patient(name='Alice')
+    session.add(test_patient)
+
+    for i in range(5):
+        test_observation = Observation(patient=test_patient, day=i, value=i)
+        session.add(test_observation)
+
+    queried_patient = session.query(Patient).filter_by(name='Alice').first()
+    npt.assert_array_equal([0, 1, 2, 3, 4], queried_patient.values)
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
