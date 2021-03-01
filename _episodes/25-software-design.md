@@ -439,6 +439,33 @@ def test_sqlalchemy_observations_to_array():
 ~~~
 {: .language-python}
 
+> ## Further Array Testing
+>
+> There's an important feature of the behaviour of our `Patient.values` property that's not currently being tested.
+> What is this feature?
+> Write one or more extra tests to cover this feature.
+>
+{: .challenge}
+
+> ## Refactoring for Reduced Redundancy
+>
+> You've probably noticed that there's a lot of replicated code in our database tests.
+> It's fine if some code is replicated a bit, but if you keep needing to copy the same code, that's a sign it should be refactored.
+>
+> Refactoring is the process of changing the structure of our code, without changing its behaviour, and one of the main benefits of good test coverage is that it makes refactoring easier.
+> If we've got a good set of tests, it's much more likely that we'll detect any changes to behaviour - even when these changes might be in the tests themselves.
+>
+> Try refactoring the database tests to see if you can reduce the amount of replicated code by moving it into one or more functions at the top of the test file.
+>
+{: .challenge}
+
+> ## Advanced Challenge: Storing Dates
+>
+> Try converting our existing models to use actual dates instead of just a day number.
+> The Python [datetime module documentation](https://docs.python.org/3/library/datetime.html) and SQLAlchemy [Column and Data Types page](https://docs.sqlalchemy.org/en/13/core/type_basics.html) will be useful to you here.
+>
+{: .challenge}
+
 ## Software Systems
 
 - How should software interact with users?
