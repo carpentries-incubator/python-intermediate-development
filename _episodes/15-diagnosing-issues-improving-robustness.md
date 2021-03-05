@@ -119,8 +119,6 @@ Let us use a debugger at this point to see what is going on and why the function
 
 ## Debugging in PyCharm
 
-FIXME: convert to PyCharm
-
 Think of debugging like performing exploratory surgery - on code! Debuggers allow us to peer at the internal workings
 of a program, such as variables and other state, as it performs its functions.
 
