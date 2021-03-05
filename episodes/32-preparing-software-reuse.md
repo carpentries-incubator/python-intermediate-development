@@ -36,12 +36,6 @@ Firstly, whilst we want to ensure our software is reusable by others, as well as
 
 Later levels imply the earlier ones. So what should we aim for? As researchers who develop software - or developers who write research software - we should be aiming for at least the fourth one: reusability. Reproducibility is required if we are to successfully claim that what we are doing when we write software fits within acceptable scientific practice, but it is also crucial that we can write software that can be *understood* by others. If others are unable to verify that a piece of software follows published algorithms and ideally *modified*. Where 'others', of course, can include a future version of ourselves.
 
-> ## Reproducibility and non-determinism
->
->
->
-{: .callout}
-
 
 ## Verifying code style using linters
 
@@ -180,7 +174,7 @@ A few reasons for this are that writing documentation is often considered:
 
 - A low priority compared to actual research (if it's even considered at all)
 - Expensive in terms of effort, with little reward
-- Boring!
+- Writing documentation is boring!
 
 A very useful form of documentation for understanding our code is code commenting, and are most effective when used to explain complex interfaces or behaviour, or the reasoning behind why something is coded a certain way. But code comments only go so far.
 
@@ -288,7 +282,29 @@ FIXME: technical documentation - architecture, design, API documentation, format
 
 ## Choosing an open source licence
 
-FIXME: licence compatibility of third party dependencies
+Software licensing can be a whole topic in itself, so we’ll just summarise here. Your institution’s Intellectual Property (IP) team will be able to offer specific guidance that fits the way your institution thinks about software.
+
+In IP law, software is considered a creative work of literature, so any code you write automatically has copyright protection applied. This copyright will usually belong to the institution that employs you, but this may be different for PhD students. If you need to check, this should be included in your employment / studentship contract or talk to your university’s IP team.
+
+Since software is automatically under copyright, without a license no one may:
+
+- Copy it
+- Distribute it
+- Modify it
+- Extend it
+- Use it (actually unclear at present - this has not been properly tested in court yet)
+
+Fundamentally there are two kinds of license, **Open Source licenses** and **Proprietary licenses**, which serve slightly different purposes:
+
+- *Proprietary licenses* are designed to pass on limited rights to end users, and are most suitable if you want to commercialise your software. They tend to be customised to suit the requirements of the software and the institution to which it belongs - again your institutions IP team will be able to help here.
+- *Open Source licenses* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The website Choose A License provides recommendations and a simple summary of some of the most common open source licenses.
+
+Within the open source licenses, there are two categories, **copyleft** and **permissive**:
+
+- The permissive licenses such as MIT and the multiple variants of the BSD license are designed to give maximum freedom to the end users of software. These licenses allow the end user to do almost anything with the source code.
+- The copyleft licences in the GPL still give a lot of freedom to the end users, but any code that they write based on GPLed code must also be licensed under the same license. This gives the developer assurance that anyone building on their code is also contributing back to the community. It’s actually a little more complicated than this, and the variants all have slightly different conditions and applicability, but this is the core of the license.
+
+Which of these types of license you prefer is up to you and those you develop code with.
 
 > ## Preparing for release
 >
