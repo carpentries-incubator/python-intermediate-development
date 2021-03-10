@@ -17,8 +17,6 @@ keypoints:
 - "Ensure that unit tests check for **edge** and **corner cases** too."
 ---
 
-## Finding Faults in Software
-
 Unit testing can tell us something is wrong in our code and give a rough idea of where the error is by which
 test(s) are failing. But it does not tell us exactly where the problem is (i.e. what line of code), or how it came about.
 To give us a better idea of what is going on, we can:
@@ -31,12 +29,13 @@ But such approaches are often time consuming and sometimes not enough to fully p
 In complex programs, like simulation codes, we often need to get inside the code while it is running and explore.
 This is where using a **debugger** can be useful.
 
+## Setting the Scene
+
 Let us add a new function called `patient_normalise()` to our inflammation example to normalise a
 given inflammation data array so that all entries fall between 0 and 1. To normalise each patient's inflammation
 data we need to divide it by the maximum inflammation experienced by that patient.
 
-To do so, we can add the following code
-to `inflammation/models.py`:
+To do so, we can add the following code to `inflammation/models.py`:
 
 ~~~
 def patient_normalise(data):
@@ -66,10 +65,11 @@ NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the 
 
 ![shapes_after_broadcasting](../fig/shapes_after_broadcasting.png)
 
->## Broadcasting
->The term broadcasting describes how NumPy treats arrays with different shapes during arithmetic operations.
->Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have
->compatible shapes. Be careful, though, to understand how the arrays get stretched to avoid getting unexpected results.
+> ## Broadcasting
+>
+> The term broadcasting describes how NumPy treats arrays with different shapes during arithmetic operations.
+> Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have
+> compatible shapes. Be careful, though, to understand how the arrays get stretched to avoid getting unexpected results.
 {: .callout}
 
 Note there is an
@@ -86,13 +86,14 @@ Let us now add a new test in `tests/test_models.py` to check that the normalisat
         ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]])
     ])
 def test_patient_normalise(test, expected):
-    """Test normalisation works for arrays of one and positive integers."""
+    """Test normalisation works for arrays of one and positive integers.
+       Assumption that test accuracy of two decimal places is sufficient."""
     from inflammation.models import patient_normalise
     npt.assert_almost_equal(np.array(expected), patient_normalise(np.array(test)), decimal=2)
 ~~~
 {: .language-python}
 
-Note another assumption made here that a test accuracy of two decimal places is sufficient!
+Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly.
 
 Run the tests again using `pytest tests/test_model.py` and you will note that the new
 test is failing, with an error message that does not give many clues as to what went wrong.
@@ -153,27 +154,31 @@ Click on the "run" button next to `test_patient_normalise`, and you will be able
 
 Now we want to use the debugger to investigate what is happening inside the `patient_normalise` function. To do this we will add a *breakpoint* in the code. A breakpoint will pause execution at that point allowing us to explore the state of the program.
 
-To set a breakpoint, navigate to the `models.py` file and move your mouse to the return statement of the `patient_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
+To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `patient_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
 
-Now if you select the green arrow next to the `test_patient_normalise` function and select `Debug 'pytest in test_model...'` instead, you will notice that execution will be paused at the return statement of `patient_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
+Now if you select the green arrow next to the `test_patient_normalise` function and instead select `Debug 'pytest in test_model...'`, you will notice that execution will be paused at the `return` statement of `patient_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
 
 In the debug panel below, in the `Debugger` tab you will be able to see two sections that looks something like the following:
 
 ![Debugging in PyCharm](../fig/pytest-pycharm-debug.png)
 
-- The `Frames` section, which shows the **call stack**, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
-- The `Variables` section, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
+- The `Frames` section on the left, which shows the **call stack**, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
+- The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
 
 We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
 
 Now, looking at the `max` variable, we can see that something looks wrong, as the maximum values for each patient do not correspond to the `data` array. Recall that the input `data` array we are using for the function is
 
 ~~~
-  [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  [[1, 2, 3],
+   [4, 5, 6],
+   [7, 8, 9]]
 ~~~
 {: .language-python}
 
-So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`. You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. So to fix the `patient_normalise` function we can change `axis=0` in the first line to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
+So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`. You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. Now we have our answer, stop the debugging process by selecting the red square at the top right of the main PyCharm window.
+
+So to fix the `patient_normalise` function in `models.py`, change `axis=0` in the first line of the function to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
 
 ![All tests successful](../fig/pytest-pycharm-all-tests-pass.png)
 
@@ -230,7 +235,7 @@ env/lib/python3.6/site-packages/numpy/testing/_private/utils.py:740: AssertionEr
 ~~~
 {: .output}
 
-Helpfully, you will also notice that NumPy also provides a run-time warning for division by zero, reproduced below.
+Helpfully, you will also notice that NumPy also provides a run-time warning for division by zero which you can find near the bottom of the log:
 
 ~~~
   RuntimeWarning: invalid value encountered in true_divide
@@ -239,33 +244,34 @@ Helpfully, you will also notice that NumPy also provides a run-time warning for 
 {: .output}
 
 How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0. We can also silence the run-time warning using
-[`np.errstate`](https://numpy.org/doc/stable/reference/generated/numpy.errstate.html).
+[`np.errstate`](https://numpy.org/doc/stable/reference/generated/numpy.errstate.html):
+
+~~~
+...
+def patient_normalise(data):
+    """
+    Normalise patient data from a 2D inflammation data array.
+
+    NaN values are ignored, and normalised to 0.
+
+    Negative values are rounded to 0.
+    """
+    max = np.nanmax(data, axis=1)
+    with np.errstate(invalid='ignore', divide='ignore'):
+        normalised = data / max[:, np.newaxis]
+    normalised[np.isnan(normalised)] = 0
+    normalised[normalised < 0] = 0
+    return normalised
+...
+~~~
+{: .language-python}
 
 > ## Exploring Tests for Edge Cases
 >
-> Fix the failing `test_patient_normalise` test, and think of some more suitable edge cases to test our `patient_normalise()` function and add them to the parametrised tests. After you have finished remember to commit your changes.
+> Think of some more suitable edge cases to test our `patient_normalise()` function and add them to the parametrised tests. After you have finished remember to commit your changes.
 >
 > > ## Possible Solution
 > > ~~~
-> > ...
-> >
-> > def patient_normalise(data):
-> >     """
-> >     Normalise patient data from a 2D inflammation data array.
-> >
-> >     NaN values are ignored, and normalised to 0.
-> >
-> >     Negative values are rounded to 0.
-> >     """
-> >     max = np.nanmax(data, axis=1)
-> >     with np.errstate(invalid='ignore', divide='ignore'):
-> >         normalised = data / max[:, np.newaxis]
-> >     normalised[np.isnan(normalised)] = 0
-> >     normalised[normalised < 0] = 0
-> >     return normalised
-> >
-> > ...
-> >
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
