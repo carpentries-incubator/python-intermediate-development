@@ -307,7 +307,7 @@ Within the open source licenses, there are two categories, **copyleft** and **pe
 - The permissive licenses such as MIT and the multiple variants of the BSD license are designed to give maximum freedom to the end users of software. These licenses allow the end user to do almost anything with the source code.
 - The copyleft licences in the GPL still give a lot of freedom to the end users, but any code that they write based on GPLed code must also be licensed under the same license. This gives the developer assurance that anyone building on their code is also contributing back to the community. It’s actually a little more complicated than this, and the variants all have slightly different conditions and applicability, but this is the core of the license.
 
-Which of these types of license you prefer is up to you and those you develop code with.
+Which of these types of license you prefer is up to you and those you develop code with. If you want more information, or help choosing a license, the [Choose An Open-Source License](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
 > ## Preparing for release
 >
