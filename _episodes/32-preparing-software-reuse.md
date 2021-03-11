@@ -41,22 +41,43 @@ Later levels imply the earlier ones. So what should we aim for? As researchers w
 
 We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
 
-We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
+We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`.
+
+First, let's ensure we are on the `develop` branch.
 
 ~~~
-$ pip install pylint
+$ git branch
 ~~~
 {: .language-bash}
 
-We should also update our `requirements.txt` with this new addition:
+You should see something like:
 
 ~~~
-$ pip freeze > requirements.txt
-$ git add requirements.txt
-$ git commit -m "Update with linting tool" requirements.txt
-$ git push
+* develop
+  master
+...
+~~~
+{: .output}
+
+If you see you are on a different branch, add, commit and push any changes (if there are any) and switch to the `develop` branch with `git checkout develop`.
+
+Pylint is just a Python packages so we can install it in our virtual environment using:
+
+~~~
+$ conda install pylint
+$ pylint --version
 ~~~
 {: .language-bash}
+
+We should see the version of Pylint, something like:
+
+~~~
+pylint 2.7.2
+...
+~~~
+{: .output}
+
+We should also update our `requirements.txt` with this new addition. Add the line `pylint==2.7.2` (or whatever the version is for your installation) to it and save it.
 
 Pylint is a command-line tool that can help our code in many ways:
 
@@ -82,60 +103,82 @@ $ pylint inflammation
 ~~~
 {: .language-bash}
 
-FIXME: update pylint output when template repo complete and all exercises have been done
+And you should see something like...
 
 ~~~
 ************* Module inflammation.models
-inflammation/models.py:37:4: W0622: Redefining built-in 'max' (redefined-builtin)
-************* Module inflammation.views
-inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+inflammation/models.py:20:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:29:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:38:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
 
------------------------------------
-Your code has been rated at 7.60/10
+------------------------------------------------------------------
+Your code has been rated at 8.71/10 (previous run: 8.44/10, +0.27)
 ~~~
 {: .output}
 
-We can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml`:
+Your own output will vary depending on how you have implemented previous exercises, and the coding style you have used. In the above example, we can see that we have redefined a built-in Python function called `max` in a previous exercise (within the `patient_normalise` function) which probably isn't a good idea and may have some undesired effects. It's important to note that while such tools are great at giving you a starting point to consider how to improve your code, they won't find everything wrong with it.
+
+The five digit code e.g. `C0301` is a unique identifier for that type of warning, with the first character indicating the type of warning. There are five different types of warning that Pylint looks for, and you can get a summary of them by doing:
 
 ~~~
-    - name: Check style with Pylint
-      run: |
-        pylint --fail-under=0 inflammation tests/test_*.py
+$ pylint --long-help
 ~~~
 {: .language-bash}
 
-Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic.
+Near the end you'll see:
+
+~~~
+  Output:
+    Using the default text output, the message format is :
+    MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE
+    There are 5 kind of message types :
+    * (C) convention, for programming standard violation
+    * (R) refactor, for bad code smell
+    * (W) warning, for python specific problems
+    * (E) error, for probable bugs in the code
+    * (F) fatal, if an error occurred which prevented pylint from doing
+    further processing.
+~~~
+{: .output}
+
+So for an example of a Pylint Python-specific `warning`, see our accidental redefinition of `max` above.
+
+> ## How does Pylint calculate the score?
+>
+> The Python formula used is (with the variables representing numbers of each type of infraction and `statement` indicating the total number of statements):
+>
+> ~~~
+> 10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+> ~~~
+> {: .language-bash}
+>
+> For example, with a total of 31 statements of models.py and views.py, with a count of the errors shown above, we get 8.71 rounded up. Note whilst there is a maximum score of 10, given the formula, there is no minimum score - it's quite possible to get a negative score!
+{: .callout}
+
+Now we can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml` at the end:
+
+~~~
+...
+    - name: Check style with Pylint
+      run: |
+        pylint --fail-under=0 --reports=y inflammation
+...
+~~~
+{: .language-bash}
+
+Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic. We've also added `--reports=y` which will give us a more detailed report of the code analysis.
 
 Then we can just add this to our repo and trigger a build:
 
 ~~~
-$ git add .github/workflows/main.yml
-$ git commit -m "Add Pylint run to build" .github/workflows/main.yml
+$ git add .github/workflows/main.yml requirements.txt
+$ git commit -m "Add Pylint run to build"
 $ git push
 ~~~
 {: .language-bash}
 
-Then we should see under 'Check style with Pylint', something like:
-
-FIXME: update pylint output when template repo complete and all exercises have been done
-
-~~~
-Run pylint --fail-under=0 inflammation tests/test_*.py
-************* Module tests/test_*.py
-tests/test_*.py:1:0: F0001: No module named tests/test_*.py (fatal)
-************* Module inflammation.models
-inflammation\models.py:32:2: W0511: TODO(lesson-design) Add Patient class (fixme)
-inflammation\models.py:33:2: W0511: TODO(lesson-design) Implement data persistence (fixme)
-inflammation\models.py:34:2: W0511: TODO(lesson-design) Add Doctor class (fixme)
-************* Module inflammation.views
-inflammation\views.py:12:2: W0511: TODO(lesson-design) Extend to allow saving figure to file (fixme)
-inflammation\views.py:4:0: W0611: Unused numpy imported as np (unused-import)
-
------------------------------------
-
-Your code has been rated at 7.50/10
-~~~
-{: .output}
+Then once complete, under the build(s) reports you should see the output from Pylint as before, but with an extended breakdown of the infractions by category as well as other metrics for the code, such as the number and line percentages of code, docstrings, comments, and empty lines.
 
 So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
 
