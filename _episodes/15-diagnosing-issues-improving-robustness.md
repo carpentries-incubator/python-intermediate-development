@@ -449,6 +449,7 @@ def test_patient_normalise(test, expected, raises):
 >
 {: .challenge}
 
+Once done with the exercise, be sure to commit your changes and push them to GitHub.
 
 You should not take it too far by trying to code preconditions for every conceivable eventuality.
 You should aim to strike a balance between making sure you secure your function against incorrect use,
