@@ -49,11 +49,11 @@ GitHub provides a framework (as does GitLab!) for managing bug reports, feature 
 
 Go back to the home page for your `python-intermediate-inflammation` repository, and click on the Issues tab. You should see a page listing the open issues on your repository, currently none.
 
-FIXME: add screenshot of Issues selected on repo
+![assi-issue-list](../fig/assi-issue-list.png)
 
 Let's go through the process of creating a new issue. Start by selecting `New issue`.
 
-FIXME: add screenshot of new repo issue
+![assi-issue-new](../fig/assi-issue-new.png)
 
 When you create an issue, you can provide a range of details added to them. They can be *assigned to a specific developer* for example - this can be a helpful way to know who, if anyone, is currently working to fix an issue (or a way to assign responsibility to someone to deal with it!).
 
