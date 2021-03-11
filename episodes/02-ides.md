@@ -47,7 +47,7 @@ If you have not PyCharm running yet, start it up now. You can skip the initial c
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do, 
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 
-Select `Open` and find the software project repository you cloned earlier, and select the `swc-intermediate-template` 
+Select `Open` and find the software project repository you cloned earlier, and select the `python-intermediate-inflammation` 
 directory. This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm, 
 this is the directory they will run from.
 

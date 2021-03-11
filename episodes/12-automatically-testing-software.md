@@ -51,7 +51,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 ## An example dataset and application
 
-We going to use an example dataset that was actually used in the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
+We're going to use an example dataset with our Patient code that was used as part of the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
 Let's take a quick look now. Start the Python interpreter on the command line, in the
 repository root `python-intermediate-inflammation` directory:
@@ -122,7 +122,7 @@ AssertionError
 ~~~
 {: .output}
 
-We could put these in a separate script to automate the running of these tests. But Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
+We could put these in a separate script to automate the running of these tests. But a Python script halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
 
 So what has failed? As it turns out, the first test we just ran was incorrect, and should have read:
 
@@ -144,8 +144,7 @@ Most people don't enjoy writing tests, so if we want them to actually do it, it 
 
 Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
 
-Keeping these things in mind, here's a different approach. Look at
-`tests/test_models.py`:
+Keeping these things in mind, here's a different approach. Look at `tests/test_models.py`:
 
 ~~~
 """Tests for statistics functions within the Model layer."""
@@ -332,7 +331,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 > ## Write some unit tests
 >
-> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions. Try to choose cases that are suitably different.
+> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Try to choose cases that are suitably different. Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
 >
 > > ## Solution
 > >
@@ -371,7 +370,7 @@ The big advantage is that as our code develops, we can update our test cases and
 
 ### What about testing for errors?
 
-There are some cases where seeing an error is the correct behaviour, and we can test for Python exceptions using, e.g.:
+There are some cases where seeing an error is the correct behaviour, and we can also test for Python exceptions. Add this test in `tests/test_models.py`:
 
 ~~~
 def test_daily_min_string():
@@ -383,7 +382,9 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
-Although note that we need to import the pytest library at the top of our `test_models.py` file with `import pytest` so that we can use pytest's `raises()` function.
+Although note that wyou need to import the pytest library at the top of our `test_models.py` file with `import pytest` so that we can use pytest's `raises()` function.
+
+Run all your tests as before.
 
 > ## Why should we test invalid input data?
 >
@@ -409,7 +410,7 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments.  We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
+Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments. We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
 
 The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
@@ -457,7 +458,7 @@ Let's commit our new `test_models.py` file and test cases to our `test-suite` br
 
 ~~~
 $ git add setup.py tests/test_models.py
-$ git commit -m "Add initial test cases for daily_max() and daily_min()"
+$ git commit -m "Add initial test cases for daily_max() and daily_min(), add parameterisation"
 ~~~
 {: .language-bash}
 

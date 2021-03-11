@@ -10,7 +10,13 @@ objectives:
 - "Respond to submitted issue reports and provide feedback"
 - "Explain the importance of software support and choosing a suitable level of support"
 keypoints:
-- ""
+- "Prioritisation is a key tool in academia where research goals can change and software development is often given short shrift."
+- "In order to prioritise things to do we must first estimate the effort required to do them."
+- "For accurate effort estimation, it should be done by the people who will *actually do the work*."
+- "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
+- "Ask other team members - or do estimation as a team - to help make accurate estimates."
+- "MoSCoW is a useful tool for prioritising work to help ensure projects deliver successfully."
+- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
 ---
 
 When a software project has been around for even just a short amount of time, you'll likely discover many aspects that can be improved. These can come from issues that have been registered via collaborators or users, but also those you're aware of internally, which should also be registered as issues. When starting a new software project, you'll also have to determine how you'll handle all the requirements. But which ones should you work on first, which are the most important and why, and how should you organise all this work?
@@ -28,7 +34,7 @@ But before we can prioritise our requirements, there are some things we need to 
 
 Firstly, we need to know:
 
-- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadline requiring their completion. This is known as a **timebox**
+- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadline requiring their completion. This is known as a **timebox**. This might be a week or two, but for agile, this should not be longer than a month. Longer deadlines with more complex requirements may be split into a number of timeboxes.
 - *How much overall effort we have available* - i.e. who will be involved and how much of their time we will have during this period
 
 We also need estimates for how long each requirement will take to resolve, since we cannot meaningfully prioritise requirements without knowing what the effort tradeoffs will be. Even if we know how important each requirement is, how would we even know if completing the project is possible? Or if we don't know how long it will take to deliver those requirements we deem to be critical to the success of a project, how can we know if we can include other less important ones?
@@ -47,10 +53,6 @@ An effective way of helping to make your estimates more accurate is to do it as 
 > ## Estimate!
 >
 > As a team go through the issues that your partner team has registered with your software repository, and estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then discuss your rationale and decide on a final estimate. Make sure you are able to complete your estimates in the allotted time!
->
-> > ## Solution
-> {: .solution}
->
 {: .challenge}
 
 
@@ -82,9 +84,9 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can optiona
 
 ## Using sprints to organise and work on requirements
 
-FIXME: add small bit on sprints and how to assign repository issues to people
+A sprint is an activity applied to a timebox, where development is undertaken on the agreed prioritised work for the period. In a typical sprint, there are daily meetings called **scrum meetings** which check on how work is progressing,  and serves to highlight any blockers and challenges to meeting the sprint goal.
 
-> ## Conduct a mini-sprint
+> ## Conduct a mini-mini-sprint
 >
 > For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue.
 >
@@ -93,7 +95,6 @@ FIXME: add small bit on sprints and how to assign repository issues to people
 >
 {: .challenge}
 
-
-FIXME: describe milestones, add those issues outstanding or not worked on to a new milestone
+Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which - particularly in academia - may change over time.
 
 {% include links.md %}
