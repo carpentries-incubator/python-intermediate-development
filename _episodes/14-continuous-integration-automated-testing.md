@@ -79,7 +79,7 @@ jobs:
 ~~~
 {: .language-bash}
 
-You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .`, an analogous Pip alternative to using `conda develop .`, to install our package in within the environment. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies:
+You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .`, an analogous Pip alternative to using `conda develop .`, to install our package in within the environment. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies, e.g.:
 
 ~~~
 numpy==1.19.2
@@ -88,6 +88,8 @@ pytest==6.2.2
 pytest-cov==2.11.1
 ~~~
 {: .language-bash}
+
+Note that similar to a Conda `requirements.yml` file we're specifying precise version numbers for each of these packages to ensure others that reuse our code can replicate our Python development environment exactly.
 
 So similar to `environment.yml` for Anaconda, this file contains the Python packages - and their versions - our software will need to run. Note that we have omitted the plethora of other sub-packages that are also installed as part of installing these for simplicity.
 
