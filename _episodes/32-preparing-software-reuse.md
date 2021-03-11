@@ -36,33 +36,48 @@ Firstly, whilst we want to ensure our software is reusable by others, as well as
 
 Later levels imply the earlier ones. So what should we aim for? As researchers who develop software - or developers who write research software - we should be aiming for at least the fourth one: reusability. Reproducibility is required if we are to successfully claim that what we are doing when we write software fits within acceptable scientific practice, but it is also crucial that we can write software that can be *understood* by others. If others are unable to verify that a piece of software follows published algorithms and ideally *modified*. Where 'others', of course, can include a future version of ourselves.
 
-> ## Reproducibility and non-determinism
->
->
->
-{: .callout}
-
 
 ## Verifying code style using linters
 
 We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
 
-We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`. It's just a Python packages so we can install it in our virtual environment using:
+We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`.
+
+First, let's ensure we are on the `develop` branch.
 
 ~~~
-$ pip install pylint
+$ git branch
 ~~~
 {: .language-bash}
 
-We should also update our `requirements.txt` with this new addition:
+You should see something like:
 
 ~~~
-$ pip freeze > requirements.txt
-$ git add requirements.txt
-$ git commit -m "Update with linting tool" requirements.txt
-$ git push
+* develop
+  master
+...
+~~~
+{: .output}
+
+If you see you are on a different branch, add, commit and push any changes (if there are any) and switch to the `develop` branch with `git checkout develop`.
+
+Pylint is just a Python packages so we can install it in our virtual environment using:
+
+~~~
+$ conda install pylint
+$ pylint --version
 ~~~
 {: .language-bash}
+
+We should see the version of Pylint, something like:
+
+~~~
+pylint 2.7.2
+...
+~~~
+{: .output}
+
+We should also update our `requirements.txt` with this new addition. Add the line `pylint==2.7.2` (or whatever the version is for your installation) to it and save it.
 
 Pylint is a command-line tool that can help our code in many ways:
 
@@ -88,60 +103,82 @@ $ pylint inflammation
 ~~~
 {: .language-bash}
 
-FIXME: update pylint output when template repo complete and all exercises have been done
+And you should see something like...
 
 ~~~
 ************* Module inflammation.models
-inflammation/models.py:37:4: W0622: Redefining built-in 'max' (redefined-builtin)
-************* Module inflammation.views
-inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+inflammation/models.py:20:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:29:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:38:0: C0301: Line too long (111/100) (line-too-long)
+inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
 
------------------------------------
-Your code has been rated at 7.60/10
+------------------------------------------------------------------
+Your code has been rated at 8.71/10 (previous run: 8.44/10, +0.27)
 ~~~
 {: .output}
 
-We can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml`:
+Your own output will vary depending on how you have implemented previous exercises, and the coding style you have used. In the above example, we can see that we have redefined a built-in Python function called `max` in a previous exercise (within the `patient_normalise` function) which probably isn't a good idea and may have some undesired effects. It's important to note that while such tools are great at giving you a starting point to consider how to improve your code, they won't find everything wrong with it.
+
+The five digit code e.g. `C0301` is a unique identifier for that type of warning, with the first character indicating the type of warning. There are five different types of warning that Pylint looks for, and you can get a summary of them by doing:
 
 ~~~
-    - name: Check style with Pylint
-      run: |
-        pylint --fail-under=0 inflammation tests/test_*.py
+$ pylint --long-help
 ~~~
 {: .language-bash}
 
-Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic.
+Near the end you'll see:
+
+~~~
+  Output:
+    Using the default text output, the message format is :
+    MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE
+    There are 5 kind of message types :
+    * (C) convention, for programming standard violation
+    * (R) refactor, for bad code smell
+    * (W) warning, for python specific problems
+    * (E) error, for probable bugs in the code
+    * (F) fatal, if an error occurred which prevented pylint from doing
+    further processing.
+~~~
+{: .output}
+
+So for an example of a Pylint Python-specific `warning`, see our accidental redefinition of `max` above.
+
+> ## How does Pylint calculate the score?
+>
+> The Python formula used is (with the variables representing numbers of each type of infraction and `statement` indicating the total number of statements):
+>
+> ~~~
+> 10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+> ~~~
+> {: .language-bash}
+>
+> For example, with a total of 31 statements of models.py and views.py, with a count of the errors shown above, we get 8.71 rounded up. Note whilst there is a maximum score of 10, given the formula, there is no minimum score - it's quite possible to get a negative score!
+{: .callout}
+
+Now we can also add this Pylint execution to our continuous integration builds. For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml` at the end:
+
+~~~
+...
+    - name: Check style with Pylint
+      run: |
+        pylint --fail-under=0 --reports=y inflammation
+...
+~~~
+{: .language-bash}
+
+Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! This seems unlikely, so let's be more pessimistic. We've also added `--reports=y` which will give us a more detailed report of the code analysis.
 
 Then we can just add this to our repo and trigger a build:
 
 ~~~
-$ git add .github/workflows/main.yml
-$ git commit -m "Add Pylint run to build" .github/workflows/main.yml
+$ git add .github/workflows/main.yml requirements.txt
+$ git commit -m "Add Pylint run to build"
 $ git push
 ~~~
 {: .language-bash}
 
-Then we should see under 'Check style with Pylint', something like:
-
-FIXME: update pylint output when template repo complete and all exercises have been done
-
-~~~
-Run pylint --fail-under=0 inflammation tests/test_*.py
-************* Module tests/test_*.py
-tests/test_*.py:1:0: F0001: No module named tests/test_*.py (fatal)
-************* Module inflammation.models
-inflammation\models.py:32:2: W0511: TODO(lesson-design) Add Patient class (fixme)
-inflammation\models.py:33:2: W0511: TODO(lesson-design) Implement data persistence (fixme)
-inflammation\models.py:34:2: W0511: TODO(lesson-design) Add Doctor class (fixme)
-************* Module inflammation.views
-inflammation\views.py:12:2: W0511: TODO(lesson-design) Extend to allow saving figure to file (fixme)
-inflammation\views.py:4:0: W0611: Unused numpy imported as np (unused-import)
-
------------------------------------
-
-Your code has been rated at 7.50/10
-~~~
-{: .output}
+Then once complete, under the build(s) reports you should see the output from Pylint as before, but with an extended breakdown of the infractions by category as well as other metrics for the code, such as the number and line percentages of code, docstrings, comments, and empty lines.
 
 So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
 
@@ -180,7 +217,7 @@ A few reasons for this are that writing documentation is often considered:
 
 - A low priority compared to actual research (if it's even considered at all)
 - Expensive in terms of effort, with little reward
-- Boring!
+- Writing documentation is boring!
 
 A very useful form of documentation for understanding our code is code commenting, and are most effective when used to explain complex interfaces or behaviour, or the reasoning behind why something is coded a certain way. But code comments only go so far.
 
@@ -284,11 +321,36 @@ We'll finish these off later. See [Matias Singer's curated list of awesome READM
 
 ### Other documentation
 
-FIXME: technical documentation - architecture, design, API documentation, format/medium (within GitHub? Wiki?), all aid reusability
+There are many different types of other documentation you should also consider writing and making available that's beyond the scope of this course. The key is to consider which audiences you need to write for, e.g. end users, developers, maintainers, etc., and what they need from the documentation. There's a Software Sustainability Institute [blog post on best practices for research software documentation](https://www.software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation) that helpfully covers the kinds of documentation to consider and other effective ways to convey the same information.
+
+One that you should always consider is **technical documentation**. This typically aims to help other developers understand your code sufficiently well to make their own changes to it, which could include other members in your team (and as we said before, also a future version of yourself). This may include documentation that covers the software's architecture, including the different components and how they fit together, API (Application Programmer Interface) documentation that describes the interface points designed into your software for other developers to use, e.g. for a software library, or technical tutorials/'how tos' to accomplish developer-oriented tasks.
+
 
 ## Choosing an open source licence
 
-FIXME: licence compatibility of third party dependencies
+Software licensing can be a whole topic in itself, so we’ll just summarise here. Your institution’s Intellectual Property (IP) team will be able to offer specific guidance that fits the way your institution thinks about software.
+
+In IP law, software is considered a creative work of literature, so any code you write automatically has copyright protection applied. This copyright will usually belong to the institution that employs you, but this may be different for PhD students. If you need to check, this should be included in your employment / studentship contract or talk to your university’s IP team.
+
+Since software is automatically under copyright, without a license no one may:
+
+- Copy it
+- Distribute it
+- Modify it
+- Extend it
+- Use it (actually unclear at present - this has not been properly tested in court yet)
+
+Fundamentally there are two kinds of license, **Open Source licenses** and **Proprietary licenses**, which serve slightly different purposes:
+
+- *Proprietary licenses* are designed to pass on limited rights to end users, and are most suitable if you want to commercialise your software. They tend to be customised to suit the requirements of the software and the institution to which it belongs - again your institutions IP team will be able to help here.
+- *Open Source licenses* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The website Choose A License provides recommendations and a simple summary of some of the most common open source licenses.
+
+Within the open source licenses, there are two categories, **copyleft** and **permissive**:
+
+- The permissive licenses such as MIT and the multiple variants of the BSD license are designed to give maximum freedom to the end users of software. These licenses allow the end user to do almost anything with the source code.
+- The copyleft licences in the GPL still give a lot of freedom to the end users, but any code that they write based on GPLed code must also be licensed under the same license. This gives the developer assurance that anyone building on their code is also contributing back to the community. It’s actually a little more complicated than this, and the variants all have slightly different conditions and applicability, but this is the core of the license.
+
+Which of these types of license you prefer is up to you and those you develop code with. If you want more information, or help choosing a license, the [Choose An Open-Source License](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
 > ## Preparing for release
 >

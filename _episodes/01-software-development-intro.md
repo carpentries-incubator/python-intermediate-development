@@ -116,17 +116,17 @@ Let's have a look at some MVC examples.
 >
 {: .callout}
 ## Our Software Project
-For the purpose of this workshop, we will be using the following [software project in Python](https://github.com/softwaresaved/swc-intermediate-template). 
+For the purpose of this workshop, we will be using the following [software project in Python](https://github.com/softwaresaved/python-intermediate-inflammation). 
 It studies inflammation in patients who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). It is designed using the MVC principles 
 but is not finished and we will be building on top of this project during the workshop.
 
 To create your own copy of the software project repository from GitHub:
 
-1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/swc-intermediate-template).
+1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of 
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also, 
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub). 
-3. Make sure to select your personal account and set the name to the project `swc-intermediate-template` (you can call it 
+3. Make sure to select your personal account and set the name to the project `python-intermediate-inflammation` (you can call it 
 anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to 
 'Public' - so it can be seen other attendees and by third-party Continuous Integration (CI) services (later on in the lesson).
 ![github-copy-template](../fig/github-copy-template.png)
@@ -145,9 +145,9 @@ should use a pre-generated personal access token as your password here.
 > > 1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the 
 >original template repository but rather your own copy, as you should be able to push commits to it later on.
 > > 2. Do:    
-> > `$git clone https://github.com/<YOUR_GITHUB_USERNAME>/swc-intermediate-template` 
+> > `$git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation` 
 > > 3. Navigate into the cloned repository in your command line shell:    
-> > `$cd swc-intermediate-template`
+> > `$cd python-intermediate-inflammation`
 > > 4. List the contents of the directory:  
 > > `$ls -l`  
 > > Remember the `-l` flag of the `ls` command and also how to get help for commands in shell: `$man ls`.

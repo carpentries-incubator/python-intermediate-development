@@ -79,15 +79,17 @@ jobs:
 ~~~
 {: .language-bash}
 
-You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .` instead, which is analogous to using `conda develop .`. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies:
+You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .`, an analogous Pip alternative to using `conda develop .`, to install our package in within the environment. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies, e.g.:
 
 ~~~
-numpy=1.19.2
-matplotlib=3.3.2
-pytest=6.2.2
-pytest-cov=2.11.1
+numpy==1.19.2
+matplotlib==3.3.2
+pytest==6.2.2
+pytest-cov==2.11.1
 ~~~
 {: .language-bash}
+
+Note that similar to a Conda `requirements.yml` file we're specifying precise version numbers for each of these packages to ensure others that reuse our code can replicate our Python development environment exactly.
 
 So similar to `environment.yml` for Anaconda, this file contains the Python packages - and their versions - our software will need to run. Note that we have omitted the plethora of other sub-packages that are also installed as part of installing these for simplicity.
 
@@ -97,7 +99,7 @@ So similar to `environment.yml` for Anaconda, this file contains the Python pack
 Now if we commit and push this change a CI run will be triggered:
 
 ~~~
-$ git add .github
+$ git add .github requirements.txt
 $ git commit -m "Add GitHub Actions configuration"
 $ git push
 ~~~
@@ -110,11 +112,17 @@ Since we are only committing the GitHub Actions configuration file to the `test-
 
 Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
 
-FIXME: add screenshot of branches page with build in progress
+![ci-initial-ga-build](../fig/ci-initial-ga-build.png)
 
 You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful build or not.
 
-Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output. The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
+Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output.
+
+![ci-initial-ga-build-log](../fig/ci-initial-ga-build-log.png)
+
+The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
+
+![ci-initial-ga-build-details](../fig/ci-initial-ga-build-details.png)
 
 GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
 
@@ -131,7 +139,7 @@ The first thing we need to do is let Travis install its GitHub App to GitHub:
 4. From the `Repository access` section, select 'Only select repositories', and add the `python-intermediate-inflammation` repository
 5. Select `Approve and install` to install the Travis application to GitHub.
 
-FIXME: add screenshot of permissions dialogue
+![ci-travis-permissions](../fig/ci-travis-permissions.png)
 
 Once we've done this, all we need to do now - whilst still on the `test-suite` branch - is add a `.travis.yml` file to the root of the repository, commit, and push it. For example:
 
@@ -167,9 +175,13 @@ Again, since we're only committing this to the `test-suite` branch, it will only
 
 ### Checking build progress and reports
 
-The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. Notice that there is now *two* build indicators when you select one of the build icons, one each for GitHub Actions and Travis, that are running simultaneously. Selecting one of these gives us more details about the build, and shows it alongside details of the GitHub Actions build.
+The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. When you click on the orange build icon, notice that there is now *two* build indicators: one each for GitHub Actions and Travis, that are running simultaneously due to the change we just committed.
 
-FIXME: add screenshot of Travis build log
+![ci-initial-build-travis](../fig/ci-initial-build-travis.png)
+
+Selecting `Details` for the one associated with Travis gives us a summary of the build, and selecting `The build` link gives us a full progress report on the build, similar to GitHub Actions, and shows it alongside details of the GitHub Actions build.
+
+![ci-initial-travis-build-log](../fig/ci-initial-travis-build-log.png)
 
 Note that travis-ci.com also offers continuous integration as a free service, but with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time. Again, paid options are available.
 
@@ -215,7 +227,11 @@ $ git push
 ~~~
 {: .language-bash}
 
-If we go to our GitHub build now, we can see that a new job has been created for each permutation. Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
+If we go to our GitHub build now, we can see that a new job has been created for each permutation.
+
+![ci-ga-build-matrix](../fig/ci-ga-build-matrix.png)
+
+Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 
 
 ## Merging back to dev
