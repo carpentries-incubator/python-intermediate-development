@@ -1,12 +1,12 @@
 ---
 title: "Introduction - Day 2"
 start: true
-teaching: 0
-exercises: 0
+teaching: 5
+exercises: 10
 questions:
-- "Key question (FIXME)"
+- "How does the structure of a problem affect the structure of our code?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Briefly describe the major paradigms we can use to classify programming languages"
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
@@ -16,45 +16,51 @@ keypoints:
 There are hundreds (probably thousands) of different programming languages, each with different expectations of how a programmer will use them to solve a problem.
 To help us to choose the language we will use and to help us describe how we want to use them, we can group the languages into **paradigms**.
 
-> ## Paradigms
->
-> > In science and philosophy, a paradigm ... is a distinct set of concepts or thought patterns ...
-> >
-> > -- Wikipedia - Paradigm
-{: .callout}
+Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain strengths and weaknesses when used to solve particular types of problems.
+Once your software begins to get more complex it's common to use aspects of different paradigms to handle different subtasks.
+Because of this, it's useful to know about the major paradigms, so you can recognise where it might be useful to switch.
 
-## The Imperative Family
+> In science and philosophy, a paradigm ... is a distinct set of concepts or thought patterns ...
+>
+> -- Wikipedia - Paradigm
+
+### The Imperative Family
 
 Code describes *how* data processing should happen.
 
-### Structured Programming
+Structured Programming
+: Code is grouped into *logical blocks*.
+: Early example: Algol (1958)
+: You're unlikely to encounter this paradigm other than as a subset of the Procedural Paradigm
 
-Code should be grouped into *logical blocks*.
-Early example: Algol (1958)
+Procedural Programming
+: Code is grouped into *procedures performing a single task*. (Does this sound familiar?)
+: Early examples: FORTRAN II (1958), COBOL (1959)
+: Common examples: C, Fortran
 
-### Procedural Programming
+Object Oriented Programming
+: Data is structured. Code *belongs with the data* it manipulates.
+: Early examples: Simula (1967), Smalltalk (1972)
+: Common examples: Python, C++, Java, C#
 
-Code should be grouped into *procedures performing a single task*.
-(Does this sound familiar?)
-Early examples: FORTRAN II (1958), COBOL (1959)
-
-### Object Oriented Programming
-
-Data should be structured.
-*Code belongs with data*.
-Early examples: Simula (1967), Smalltalk (1972)
-
-## The Declarative Family
+### The Declarative Family
 
 Code describes *what* data processing should happen.
 
-### Functional Programming
+Functional Programming
+: Functions are mathematical operations. *Code is data*.
+: Early example: Lisp (1958)
+: Common examples: R, JavaScript, Hadoop, Spark
 
-Functions are mathematical operations.
-*Code is data*.
-Early example: Lisp (1958)
+Logic Programming
+: Code is a *set of facts and rules*. Programs are executed by making a query.
+: Early and common example: Prolog (1972)
+: You're unlikely to encounter this paradigm unless you're a computer scientist or mathematician working in the field of logic reasoning - it's included here for balance
 
-## 1, 2, Fizz, 4, Buzz
+For each of the paradigms above, we've listed a couple of programming languages / tools commonly used in research for which this is the major paradigm.
+Many of these languages (and many languages in general) can actually be used with a range of paradigms - so don't take this as a strict list.
+
+## 1, 2, Fizz, 4, Buzz ... FizzBuzz
 
 FizzBuzz is a common example of a simple program used to compare different languages.
 The idea is to generate the sequence of integers, but replace multiples of three with "Fizz", multiples of five with "Buzz", and multiples of both with "FizzBuzz".
@@ -101,13 +107,54 @@ console.log(outputs.join('\n'))
 ~~~
 {: .source}
 
-
 Note how in the functional JavaScript example, every variable is declared as `const` - meaning that the value cannot be changed (perhaps 'variable' isn't the best word here, but it's still used).
 You may also notice that two of the variables (`fizzBuzz` and `range1`) are actually functions.
 Both of these are common in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
 
-Many of the most popular languages allow you to use multiple paradigms, so you can choose the one that best fits the problem you're trying to solve.
-Python is no exception here, and it's quite common to see a Python program containing elements of the Procedural, Object Oriented, and Functional Paradigms.
+It's quite difficult to come up with a sensible implementation of FizzBuzz which demonstrates the Object Oriented Paradigm.
+This is because the problem doesn't really involve structured data.
+Just because you *can* use a particular paradigm to solve a problem doesn't mean you *should*.
+
+The Object Oriented implementation of FizzBuzz below has similarities with both the procedural and functional implementations above, but is worse than both.
+
+~~~
+class FizzBuzzFactory:
+    def __init__(self, factor_mapping):
+        self.factor_mapping = factor_mapping
+
+    def generate(self, count):
+        return [FizzBuzzer(i, self.factor_mapping) for i in range(1, count + 1)]
+
+
+class FizzBuzzer:
+    def __init__(self, value, factor_mapping=None):
+        self.value = value
+        self.factor_mapping = factor_mapping
+
+    def __mod__(self, div):
+        return self.value % div
+
+    def __str__(self):
+        result = ''
+        for factor, text in self.factor_mapping.items():
+            if not self % factor:
+                result += text
+
+        if not result:
+            result += str(self.value)
+
+        return result
+
+
+fizzbuzz_factors = {
+    3: 'Fizz',
+    5: 'Buzz',
+}
+
+factory = FizzBuzzFactory(fizzbuzz_factors)
+print(', '.join(map(str, factory.generate(100))))
+~~~
+{: .language-python}
 
 > ## FizzBuzz in Python
 >
