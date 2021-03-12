@@ -86,7 +86,7 @@ int main (void)
     return 0;
 }
 ~~~
-{: .language-c}
+{: .source}
 
 In contrast, this implementation of FizzBuzz in Javascript is characteristic of the functional paradigm.
 The code is structured as a sequence of transformations which are applied to data to obtain the desired result.
@@ -99,7 +99,7 @@ const outputs = range1(100).map(fizzBuzz)
 
 console.log(outputs.join('\n'))
 ~~~
-{: .language-javascript}
+{: .source}
 
 
 Note how in the functional JavaScript example, every variable is declared as `const` - meaning that the value cannot be changed (perhaps 'variable' isn't the best word here, but it's still used).
