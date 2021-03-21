@@ -6,9 +6,11 @@ exercises: 10
 questions:
 - "How does the structure of a problem affect the structure of our code?"
 objectives:
-- "Briefly describe the major paradigms we can use to classify programming languages"
+- "Briefly describe the major paradigms we can use to classify programming languages."
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "A Paradigm describes a way of structuring reasoning about code."
+- "Different programming languages are suited to different paradigms."
+- "Different paradigms are suited to solving different classes of problems."
 ---
 
 ## A Brief History of Paradigms
