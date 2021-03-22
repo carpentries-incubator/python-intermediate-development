@@ -126,7 +126,7 @@ To create your own copy of the software project repository from GitHub:
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of 
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also, 
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub). 
-3. Make sure to select your personal account and set the name to the project `python-intermediate-inflammation` (you can call it 
+3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it 
 anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to 
 'Public' - so it can be seen other attendees and by third-party Continuous Integration (CI) services (later on in the lesson).
 ![github-copy-template](../fig/github-copy-template.png)
