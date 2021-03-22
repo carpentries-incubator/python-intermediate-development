@@ -209,7 +209,7 @@ In our `Academic` initialiser method, we set their name to a value provided, and
 >
 > You may also see this process called **Red, Green, Refactor**: 'Red' for the failing tests, 'Green' for the code that makes them pass, then 'Refactor' (tidy up) the result.
 >
-> We'll probably want to be using Test Driven Development for most of the work from here.
+> For the challenges from here on, try to first convert the specification into a unit test, then try writing the code to pass the test.
 >
 {: .callout}
 
@@ -275,6 +275,9 @@ This is occasionally useful if we want to pass the method itself as an argument 
 Note also how we used `date=None` in the parameter list of the `write_paper` method, then initialise it if the value is indeed `None`.
 This is one of the common ways to handle an optional argument in Python, so we'll see this pattern quite a lot in real projects.
 
+And finally, we're using Python's built in `datetime` module to handle the publication dates for us.
+Properly managing dates and especially times is hard, so we should hand off this responsibility to existing libraries whenever possible.
+For more information, see the `datetime` [module documentation](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime).
 
 ### Dunder Methods
 
@@ -375,7 +378,7 @@ If we were to use this class in a real program, it would be better not to implem
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
 > > ~~~
-> > {: .output}
+> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
@@ -426,22 +429,24 @@ In this case the `@property` decorator converts `last_paper` from a normal metho
 
 ## Relationships Between Classes
 
-
 We now have a language construct for grouping data and behaviour related to a single conceptual object.
-The next step is talking about the relationships between objects.
+The next step we need to take is to describe the relationships between the concepts in our code.
 
 There are two fundamental types of relationship between objects which we need to be able to describe:
-1. Ownership - x **has a** y - **composition**
-2. Identity - x **is a** y - **inheritance**
+1. Ownership - x **has a** y - this is **composition**
+2. Identity - x **is a** y - this is **inheritance**
 
 ### Composition
 
-Doctor *has* Patients
+You should hopefully have come across the term 'composition' already - in the novice Software Carpentry, we use composition of functions to reduce code duplication.
+That time, we used a function which converted temperatures in Celsius to Kelvin as a **component** of another function which converted temperatures in Fahrenheit to Kelvin.
 
-Composition is about ownership of an object or resource - x **has a** y.
+In the same way, in object oriented programming, we can make things components of other things.
 
-In the case of our academics example, we can say that academics have papers.
-We already have an implementation of this using a dictionary to represent a paper, but maybe we should make a `Paper` class as well.
+We often use composition where we can say 'x *has a* y' - for example in our inflammation database, we might want to say that a doctor *has* patients.
+
+In the case of our academics example, we're already saying that academics have papers, so we're already using composition here.
+We're currently implementing a paper as a dictionary with a known set of keys though, so maybe we should make a `Paper` class as well.
 
 ~~~
 from datetime import datetime
@@ -480,14 +485,20 @@ A new paper
 ~~~
 {: .output}
 
+Now we're using a composition of two custom classes to describe the relationship between two types of entity in the system that we're modelling.
+
 ### Inheritance
 
-Inheritance is about data and behaviour shared by classes, because they have some shared identity.
+The other type of relationship used in object oriented programming is **inheritance**.
+Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
+If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
 
 If we want to extend the previous example to also manage people who aren't academics we can add another class `Person`.
 But `Person` will share some data and behaviour with `Academic` - in this case both have a name and show that name when you print them.
-
 Since we expect all academics to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Academic`.
+
+To write a class in Python, we use the `class` keyword, the name of the class, and then a block of the functions and sometimes attributes that belong to it.
+If the class **inherits** from another class, we include the parent class name in brackets.
 
 ~~~
 from datetime import datetime
@@ -545,7 +556,7 @@ AttributeError: 'Person' object has no attribute 'write_paper'
 
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class, so we need to do this manually within the `__init__` method of the subclass.
+There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a custom `__init__` for our subclass, so we'll need to call it ourself.
 This makes sure that everything that needs to be initialised on the parent class has been, before we need to use it.
 
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
