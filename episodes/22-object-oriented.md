@@ -556,14 +556,19 @@ AttributeError: 'Person' object has no attribute 'write_paper'
 
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a custom `__init__` for our subclass, so we'll need to call it ourself.
+There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourself.
 This makes sure that everything that needs to be initialised on the parent class has been, before we need to use it.
+If we don't define a new `__init__` method for our subclass, Python will look for one on the parent class and use it automatically.
+This is true of all methods - if we call a method which doesn't exist directly on our class, Python will search for it among the parent classes.
+The order in which it does this search is known as the **method resolution order** - a little more on this in the Multiple Inheritance callout below.
 
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
+This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Person` must have a name, before we can properly initialise a `Patient` model with their inflammation data.
 
 > ## Composition vs Inheritance
 >
 > When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
+> For example, it's not obvious whether a photocopier *is a* printer and *is a* scanner, or *has a* printer and *has a* scanner.
 >
 > ~~~
 > class Machine:
@@ -598,17 +603,55 @@ The line `super().__init__(name)` gets the parent class, then calls the `__init_
 >         self.scanner = Scanner()
 > ~~~
 > {: .language-python}
+>
+> Both of these would be perfectly valid models and would work for most purposes.
+> However, unless there's something about how you need to use the model which would benefit from using a model based on inheritance, it's usually recommended to opt for **composition over inheritance**.
+> This is a common design principle in the object oriented paradigm and is worth remembering, as it's very common for people to overuse inheritance once they've been introduced to it.
+>
+> For much more detail on this (which will hopefully make more sense after we've covered software design a bit), see [this page](https://python-patterns.guide/gang-of-four/composition-over-inheritance/) from a Python Design Patterns guide.
 {: .callout}
 
 
 > ## Multiple Inheritance
 >
-> Exists in Python, doesn't in many other languages.
-> Useful, but dangerous.
-> "The Deadly Diamond of Death".
-> Notice the use of multiple inheritance in the `Copier` model.
+> **Multiple Inheritance** is when a class inherits from more than one direct parent class.
+> It exists in Python, but is often not present in other Object Oriented languages.
+> Although this might seem useful, like in our inheritance-based model of the photocopier above, it's best to avoid it unless you're sure it's the right thing to do.
+> Often using multiple inheritance is a sign you should instead be using composition - again like the photocopier model above.
 >
+> The difficulty with multiple inheritance comes when thinking about the method resolution order.
+> If we've only got one direct parent class, that's where we look next for a missing method.
+> If we still haven't found it, we keep going up to the next parent class until we either find the method, or fail.
+>
+> With multiple inheritance, it's much less obvious where we should look next - should we go through all our direct parent classes first, or go all the way up the inheritance tree for one of them first?
+> It turns out that Python does have a solution to this - [C3 Linearisation](https://en.wikipedia.org/wiki/C3_linearization).
+> This guarantees that the order will be sensible and will always be the same, but it's still much more complicated than trying to reason about than if each class only has one direct parent.
 {: .callout}
+
+> ## A Model Patient
+>
+> Use what we have learnt in this episode to extend the model layer our hospital record system.
+>
+> Our core requirements are:
+>
+> - There must be a `Patient` class to hold the data representing a single patient
+>   - Must have a `name` attribute
+>   - Must hold a series of inflammation measurements - use any representation you feel is appropriate as long as the tests pass
+> - There must be a `Doctor` class to hold the data representing a single doctor
+>   - Must have a `name` attribute
+>   - Must have a list of patients that this doctor is responsible for
+>
+> In addition to these, you may add anything else to these models that would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
+> Try using Test Driven Development for any features you add: write the tests first, then add the feature.
+> The tests have been started for you in `tests/test_patient.py`, but you might need to add some more.
+>
+> Once you've finished the initial implementation, do you have much duplicated code?
+> Is there anywhere you could make better use of composition or inheritance to improve your implementation?
+>
+> If you've added any extra features, explain them and how you implemented them to your neighbour.
+> Would they have implemented that feature in the same way?
+>
+{: .challenge}
 
 > ## Building a Library
 >
@@ -827,31 +870,6 @@ The line `super().__init__(name)` gets the parent class, then calls the `__init_
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .challenge}
-
-> ## A Model Patient
->
-> Use what we have learnt in this episode to extend the model layer our hospital record system.
->
-> The core requirements are described by the unit tests in the `test_patient.py` and `test_doctor.py` files.
-> These requirements are:
->
-> - There must be a `Patient` class to hold the data representing a single patient
->   - Must have a `name` attribute
->   - Must hold a series of inflammation measurements - use any representation you feel is appropriate as long as the tests pass
-> - There must be a `Doctor` class to hold the data representing a single doctor
->   - Must have a `name` attribute
->   - Must have a list of patients that this doctor is responsible for
->
-> In addition to these, you may add anything else to these models that would be useful for managing a hospital.
-> Try using Test Driven Development for any other features you add: write the tests first, then add the feature.
->
-> Once you've finished the initial implementation, do you have much duplicated code?
-> Is there anywhere you could make better use of composition / inheritance to improve your implementation?
->
-> If you've added any extra features, explain them and how you implemented them to your neighbour.
-> Would they have implemented that feature in the same way?
->
 {: .challenge}
 
 {% include links.md %}
