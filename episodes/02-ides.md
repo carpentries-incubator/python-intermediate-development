@@ -133,7 +133,7 @@ It may take a few minutes for PyCharm to read and familiarise itself with the An
 
 Now we have told PyCharm about the new Python interpreter, we can configure it for our project:
 
-1. To add a new configuration - select `Run` > `Edit Configurations...` (Mac) or TODO (Windows) or TODO (Linux) from the top menu.
+1. To add a new configuration - select `Run` > `Edit Configurations...` from the top menu.
 2. Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see
 `Python 3.7 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder
 button and find and select `patientdb.py`. This tells PyCharm which script to run.
