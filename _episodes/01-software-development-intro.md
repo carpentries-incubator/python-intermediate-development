@@ -128,7 +128,7 @@ the repository under your GitHub account. Note that each participant is creating
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub). 
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it 
 anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to 
-'Public' - so it can be seen other attendees and by third-party Continuous Integration (CI) services (later on in the lesson).
+'Public' - so it can be seen by other attendees  of the workshop and by third-party Continuous Integration (CI) services (to be covered later on in the lesson).
 ![github-copy-template](../fig/github-copy-template.png)
 4. At this point GitHub may ask you to authenticate. If this happens and 
 you do not have 2-Factor-Authentication (2FA) enabled in your 
