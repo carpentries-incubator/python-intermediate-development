@@ -56,6 +56,7 @@ patients = [
 > When used as below, it should produce the expected output.
 >
 > If you're not sure where to begin, think about ways you might be able to effectively loop over two collections at once.
+> Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a Numpy array - either is fine.
 >
 > ~~~
 > data = np.array([1., 2., 3.],
@@ -82,6 +83,8 @@ patients = [
 >
 > > ## Solution
 > >
+> > One possible solution, perhaps the most obvious, is to use the `range` function to index into both lists at the same location:
+> >
 > > ~~~
 > > def attach_names(data, names):
 > >     """Create datastructure containing patient records."""
@@ -95,27 +98,49 @@ patients = [
 > > ~~~
 > > {: .language-python}
 > >
+> > However, this solution has a potential problem that can occur sometimes, depending on the input.
 > > What might go wrong with this solution?  How could we fix it?
-> > A better solution would be to use the `zip` function.
 > >
-> > ~~~
-> > def attach_names(data, names):
-> >     """Create datastructure containing patient records."""
-> >     output = []
-> >
-> >     for data_row, name in zip(data, names):
-> >         output.append({'name': name,
-> >                        'data': data_row})
-> >
-> >     return output
-> > ~~~
-> > {: .language-python}
+> > > ## A Better Solution
+> > >
+> > > What would happen if the `data` and `names` inputs were different lengths?
+> > >
+> > > If `names` is longer, we'll loop through, until we run out of rows in the `data` input, at which point we'll stop processing the last few names.
+> > > If `data` is longer, we'll loop through, but at some point we'll run out of names - but this time we try to access part of the list that doesn't exist, so we raise an exception.
+> > >
+> > > A better solution would be to use the `zip` function, which limits us to whichever of `data` and `names` is shorter.
+> > > This way, we shouldn't raise an exception - but, if we really want to avoid errors, we might want to explicitly `assert` that the inputs should be the same length.
+> > > Checking that our inputs are valid in this way is known as a **precondition**.
+> > >
+> > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
+> > >
+> > > ~~~
+> > > def attach_names(data, names):
+> > >     """Create datastructure containing patient records."""
+> > >     assert len(data) == len(names)
+> > >     output = []
+> > >
+> > >     for data_row, name in zip(data, names):
+> > >         output.append({'name': name,
+> > >                        'data': data_row})
+> > >
+> > >     return output
+> > > ~~~
+> > > {: .language-python}
+> > {: .solution}
 > {: .solution}
 {: .challenge}
 
 ### Classes in Python
 
 Using nested dictionaries and lists should work for most cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
+For this reason, in the Object Oriented paradigm, we use **classes** to help with this data structure.
+A class is a **template** for a piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
+
+With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check the code ourselves.
+With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
+
+Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
 
 You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python.
 
@@ -137,9 +162,10 @@ print(type(my_set))
 ~~~
 {: .output}
 
-Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves.
-They each contain data, as we have seen before.
-They also provide a set of functions, or **methods** which describe the **behaviours** of the data.
+Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
+
+- They each contain data, as we have seen before.
+- They also provide a set of functions, or **methods** which describe the **behaviours** of the data.
 
 The behaviours we may have seen previously include:
 
@@ -164,6 +190,10 @@ print(alice.name)
 ~~~
 {: .language-python}
 
+Here we've defined a class with one method: `__init__`.
+This method is the **initialiser** method, which is responsible for setting up the initial values and structure of the data inside a new instance of the class - this is very similar to **constructors** in other languages, so the term is often used in Python too.
+
+In our `Academic` initialiser method, we set their name to a value provided, and create a list of papers they've published, which is currently empty.
 
 > ## Test Driven Development
 >
@@ -179,7 +209,7 @@ print(alice.name)
 >
 > You may also see this process called **Red, Green, Refactor**: 'Red' for the failing tests, 'Green' for the code that makes them pass, then 'Refactor' (tidy up) the result.
 >
-> We'll be using Test Driven Development for most of the work from here.
+> We'll probably want to be using Test Driven Development for most of the work from here.
 >
 {: .callout}
 
@@ -189,11 +219,12 @@ print(alice.name)
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
 To define the behaviour of a class we can add functions which operate on the data the class contains.
-We call these functions member functions or methods.
+We call these functions **member functions** or **methods**.
 
-These functions are the same as normal functions (alternatively known as free functions), but we have an extra first parameter `self`.
-The `self` parameter is a normal variable, but when we use a method of an object, the value of `self` is automatically set to the object.
-Using the name `self` is a VERY STRONG CONVENTION.
+These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`.
+Using the name `self` isn't strictly necessary, but is a VERY STRONG CONVENTION.
+When we call a method on an object, the value of `self` is automatically set to the object - hence the name.
+We don't need to explicitly provide a value for the `self` argument.
 
 ~~~
 from datetime import datetime
@@ -238,7 +269,8 @@ print(alice.papers)
 ~~~
 {: .output}
 
-The second use of the `write_paper` method in the example above proves that `self` behaves like a normal parameter, but there are very few cases where we should use it like this.
+The second use of the `write_paper` method in the example above proves that `self` behaves like a normal parameter, because we call the method from the class, not from an instance of the class.
+This is occasionally useful if we want to pass the method itself as an argument to another function, such as when combining the Object Oriented and Functional paradigms, but in general should be avoided.
 
 Note also how we used `date=None` in the parameter list of the `write_paper` method, then initialise it if the value is indeed `None`.
 This is one of the common ways to handle an optional argument in Python, so we'll see this pattern quite a lot in real projects.
@@ -247,7 +279,7 @@ This is one of the common ways to handle an optional argument in Python, so we'l
 ### Dunder Methods
 
 Why is the `__init__` method not called `init`?
-There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with two underscores, hence the name **dunder method**.
+There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a double-underscore, hence the name **dunder method**.
 
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes.
 
