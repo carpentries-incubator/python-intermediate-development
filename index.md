@@ -5,7 +5,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 This course is aimed at teaching a **core set** of established best practice 
 software development skills for working as part of a team in a 
-research environment (see detailed [learning objectives](/index.html#learning-objectives) below). The core set 
+research environment (see detailed [learning objectives](/index.html#learning-objectives) below) using Python as an example programming language. The core set 
 of skills we teach is not a comprehensive set of all-encompassing skills, 
 but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing 
 on your learning journey. 
