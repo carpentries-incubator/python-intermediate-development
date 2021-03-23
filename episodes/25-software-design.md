@@ -46,6 +46,9 @@ Some of the most important questions you should ask when beginning a new softwar
 - How do you interact with it?
 - Why do you use it?
 
+The answers to these questions will provide us with some **design constraints** which any software we write must satisfy.
+For example, a design constraint when writing a mobile app would be that it needs to work with a touch screen interface - we might have some software that works really well from the command line, but on a typical mobile phone there isn't a command line interface that people can access.
+
 > ## Types of Software
 >
 > Many design choices in a software project depend on the environment in which the software is expected to run.
@@ -58,8 +61,9 @@ Some of the most important questions you should ask when beginning a new softwar
 >   - Must have graphical interface suitable for a touch display
 >   - Usually distributed via controlled app store
 >   - Users will not (usually) modify / compile the software themselves
->   - Should work on a range of hardware specifications with range of Operating System versions
->   - Documentation probably in software itself or on web page
+>   - Should work on a range of hardware specifications with range of Operating System (OS) versions
+>     - But OS is unlikely to be anything other than Android or iOS
+>   - Documentation probably in the software itself or on web page
 >   - Typically written in one of the platform prefered languages (e.g. Java, Swift)
 > - Embedded Software
 >   - May have no user interface - user interface may be physical buttons
@@ -117,7 +121,7 @@ Design patterns are relatively small-scale templates which we can use to solve p
 For example, the Adapter pattern may be useful if part of our software needs to consume data from a number of different external data sources.
 Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
 
-Architecture patterns are large-scale templates which operate at the level of whole programs, or collections or programs.
+Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
 Model-View-Controller is one of the best known architecture patterns.
 
 ### MVC Revisted
@@ -125,13 +129,139 @@ Model-View-Controller is one of the best known architecture patterns.
 **Model-View-Controller** (MVC) is just one of the common architectural patterns
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
 
-In fact, we've not strictly been sticking to a formal MVC pattern and have ended up with something actually a bit more like **Model-View-Presenter** (MVP).
+In fact, we've not strictly been sticking to a formal MVC pattern and have ended up with something maybe a bit more like **Model-View-Presenter** (MVP).
 The difference between these is mostly in the amount of work the Controller/Presenter does.
 Since our 'Controller' is responsible for some of the data processing, it's really more like a Presenter.
 
 In many cases, the distinction between some of these patterns isn't particularly important.
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
+
+Lets start with adding a view that allows us to get the data for a single patient.
+First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data:
+
+~~~
+# file: inflammation/views.py
+
+...
+
+def display_patient(patient):
+    """Display data for a single patient."""
+    print(patient.name)
+    print(patient.observations)
+~~~
+{: .language-python}
+
+~~~
+# file: inflammation/models.py
+
+...
+
+class Patient:
+    def __init__(self, name, observations=None):
+        self.name = name
+
+        if observations is None:
+            self.observations = []
+
+        else:
+            self.observations = observations
+
+    def add_observation(self, obs):
+        self.observations.append(obs)
+~~~
+{: .language-python}
+
+Now we need to make sure people can call this view - that means connecting it to the controller and ensuring that there's a way to request this view when running the program.
+The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
+
+~~~
+# file: patientdb.py
+
+#!/usr/bin/env python3
+"""Software for managing patient data in our imaginary hospital."""
+
+import argparse
+
+from inflammation import models, views
+
+
+def main(args):
+    """The MVC Controller of the patient data system.
+
+    The Controller is responsible for:
+    - selecting the necessary models and views for the current task
+    - passing data between models and views
+    """
+    infiles = args.infiles
+    if not isinstance(infiles, list):
+        infiles = [args.infiles]
+
+    for filename in infiles:
+        inflammation_data = models.load_csv(filename)
+
+        if args.view == 'visualize':
+            view_data = {
+                'average': models.daily_mean(inflammation_data),
+                'max': models.daily_max(inflammation_data),
+                'min': models.daily_min(inflammation_data),
+            }
+
+            views.visualize(view_data)
+
+        elif args.view == 'record':
+            patient = models.Patient('UNKNOWN', inflammation_data[0])
+            views.display_patient_record(patient)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='A basic patient data management system')
+
+    parser.add_argument(
+        'infiles',
+        nargs='+',
+        help='Input CSV(s) containing inflammation series for each patient')
+
+    parser.add_argument(
+        '--view',
+        default='visualize',
+        choices=['visualize', 'record'],
+        help='Which view should be used?')
+
+    parser.add_argument(
+        '--patient',
+        type=int,
+        default=-1,
+        help='Which patient should be displayed?')
+
+    args = parser.parse_args()
+
+    main(args)
+~~~
+{: .language-python}
+
+We've added two options to our command line interface here: one to request a specific view and one for the patient id that we want to lookup.
+For the full range of features that we have access to with `argparse` see the [Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
+Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
+You can find more information in [Click's documentation](https://click.palletsprojects.com/en/7.x/).
+
+For now, we also don't know the names of any of our patients, so we've made it `'UNKNOWN'` until we get more data.
+
+We can now call our program with these extra arguments to see the record for a single patient:
+
+~~~
+python patientdb.py --view record --patient 1 data/inflammation-01.csv
+~~~
+{: .language-bash}
+
+~~~
+UNKNOWN
+[ 0.  0.  1.  3.  1.  2.  4.  7.  8.  3.  3.  3. 10.  5.  7.  4.  7.  7.
+ 12. 18.  6. 13. 11. 11.  7.  7.  4.  6.  8.  8.  4.  4.  5.  7.  3.  4.
+  2.  3.  0.  0.]
+~~~
+{: .output}
 
 ### Multilayer Architecture
 
@@ -152,31 +282,28 @@ Often, the software is split into three layers:
 
 ### The Persistence Layer
 
-Our patient management system so far can read in some data, process it, and display it to people.
+Our patient data system so far can read in some data, process it, and display it to people.
 What's missing?
 
 Well, at the moment, if we wanted to add a new patient or perform a new observation, we would have to edit the input CSV file by hand.
-We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide some the ability to do this through the software.
+We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide the ability to do this through the software.
 That way we can perform any necessary validation or transformation before the data gets accepted.
 
 There's a few ways we could do this, but lets start with extending what we have already - the CSV file.
 
-If we want to bring in this data, modify it somehow, and save it back to a file, we'll need to:
+If we want to bring in this data, modify it somehow, and save it back to a file, we'd need to:
 
 - Add the data import / export (**persistence**) code to our Model
-- Write some Views we can use to modify the data
+- Write some views we can use to modify the data
 - Link it all together in the controller
 
 This new code we're adding to the Model is our **Persistence Layer**.
 By adding it to the Model, it's not really a new layer being added, but since we're keeping it separate from the View and Controller code we can still get away with using the name.
 
-
 ### Databases
 
-Now for a real persistence layer
-
-A **database** is an organised collection of data, usually organised in some way to mimic the structure of the entities it represents, and the software which supports
-There are several major families of database model, but the dominant model form is the **relational database**.
+A **database** is an organised collection of data, usually organised in some way to mimic the structure of the entities it represents.
+There are several major families of database model, but the dominant form is the **relational database**.
 
 Relational databases focus on describing the relationships between entities in the data, similar to the object oriented paradigm.
 The key concepts in a relational database are:
@@ -207,9 +334,18 @@ Foreign Keys
 >
 {: .callout}
 
-Our first step is to create a **mapping**.
+While relational databases are typically accessed using **SQL queries**, we're going to use a library to help us translate between Python and the database.
+SQLAlchemy is a popular Python library which contains an **Object Relational Mapping** (ORM) framework.
+
+Our first step is to install SQLAlchemy, then we can create our first **mapping**.
+
+```
+conda install sqlalchemy
+```
+{: .language-bash}
+
 A mapping is the core component of an ORM - it's this that describes how to convert between our Python classes and the contents of our database tables.
-Typically, we can take our existing classes and convert the into mappings, so we don't have to start from scratch.
+Typically, we can take our existing classes and convert them into mappings with a little modification, so we don't have to start from scratch.
 
 ~~~
 # file: inflammation/models.py
@@ -228,14 +364,17 @@ class Patient(Base):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.observations = []
+        if 'observations' in kwargs:
+            self.observations = kwargs['observations']
 ~~~
 {: .language-python}
 
 Now that we've defined how to translate between our Python class and a database table, we need to hook our code up to an actual database.
 
 The library we're using, SQLAlchemy, does everything through a database **engine**.
-This is essentially a wrapper around the real database, so we don't have to worry about which particular database software we're using - we just need to write code for a generic relational database.
+This is essentially a wrapper around the real database, so we don't have to worry about which particular database software is being used - we just need to write code for a generic relational database.
 
 For these lessions we're going to use the SQLite engine as this requires almost no configuration and no external software.
 Most relational database software runs as a separate service which we can connect to from our code.
@@ -245,7 +384,22 @@ Some examples of databases which are used like this are PostgreSQL, MySQL and MS
 On the other hand, SQLite runs entirely within our software and uses only a single file to hold its data.
 It won't give us the extremely high performance or reliability of a properly configured PostgreSQL database, but it's good enough in many cases and much less work to get running.
 
-Lets write some test code to setup and connect to an SQLite database:
+Lets write some test code to setup and connect to an SQLite database.
+For now we'll store the database in memory rather than an actual file - it won't actually allow us to store data after the program finishes, but it allows us not to worry about **migrations**.
+
+> ## Migrations
+>
+> When we make changes to our mapping (e.g. adding / removing columns), we need to get the database to update its tables to make sure they match the new format.
+> This is what the `Base.metadata.create_all` method does - creates all of these tables from scratch because we're using an in-memory database which we know will be removed between runs.
+>
+> If we're actually storing data persistently, we need to make sure that when we change the mapping, we update the database tables without damaging any of the data they currently contain.
+> We could do this manually, by running SQL queries against the tables to get them into the right format, but this is error-prone and can be a lot of work.
+>
+> In practice, we generate a migration for each change.
+> Tools such as [Alembic](https://alembic.sqlalchemy.org/en/latest/) will compare our mappings to the known state of the database and generate a Python file which updates the database to the necessary state.
+>
+> Migrations can be quite complex, so we won't be using them here - but you may find it useful to read about them later.
+{: .callout}
 
 ~~~
 # file: tests/test_models.py
@@ -273,8 +427,8 @@ def test_sqlalchemy_patient_search():
 
     # Search for a patient by name
     queried_patient = session.query(Patient).filter_by(name='Alice').first()
-    assert queried_patient.name == 'Alice'
-    assert queried_patient.id == 1
+    self.assertEqual(queried_patient.name, 'Alice')
+    self.assertEqual(queried_patient.id, 1)
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
