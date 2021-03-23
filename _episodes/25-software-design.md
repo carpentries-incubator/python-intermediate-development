@@ -1,7 +1,7 @@
 ---
 title: "Software Design"
-teaching: 90
-exercises: 0
+teaching: 70
+exercises: 30
 questions:
 - "Where do we start when beginning a new software project?"
 - "How do people use software?"
