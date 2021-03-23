@@ -1,6 +1,6 @@
 ---
 title: "Object Oriented Programming"
-teaching: 30
+teaching: 40
 exercises: 20
 questions:
 - "How can we use code to describe the structure of data?"
