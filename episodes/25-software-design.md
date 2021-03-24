@@ -8,14 +8,14 @@ questions:
 - "How can we make sure the components of our software are reusable?"
 - "What should we do when our requirements change?"
 objectives:
-- "Describe some of the different categories of software and explain how the requirements of each category may differ"
+- "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Identify common components of multi-layer software projects"
 - "Store structured data using an Object Relational Mapping library"
-- "Consider issues which contribute to the usability of a piece of software"
 keypoints:
 - "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change."
+- "These components can be as small as a single function, or be a software package in their own right."
 - "When writing software used for research, requirements *always* change."
 ---
 
@@ -53,10 +53,16 @@ For example, a design constraint when writing a mobile app would be that it need
 >
 > Many design choices in a software project depend on the environment in which the software is expected to run.
 >
-> How many different software environments can you think of?
-> In small groups, discuss some of these environments and how aspects of each one might impact the design or development choices of the software running there.
+> In small groups, discuss some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
+> Here are some examples of questions you can use to get started:
 >
-> Some examples might be:
+> - What environment does the software run in?
+> - How do people interact with it?
+> - Why do people use it?
+> - What features of the software have been affected by these factors?
+> - If the software needed to be used in a different environment, what difficulties might there be?
+>
+> Some examples of design / development choices constrained by environment might be:
 > - Mobile Apps
 >   - Must have graphical interface suitable for a touch display
 >   - Usually distributed via controlled app store
@@ -64,7 +70,7 @@ For example, a design constraint when writing a mobile app would be that it need
 >   - Should work on a range of hardware specifications with range of Operating System (OS) versions
 >     - But OS is unlikely to be anything other than Android or iOS
 >   - Documentation probably in the software itself or on web page
->   - Typically written in one of the platform prefered languages (e.g. Java, Swift)
+>   - Typically written in one of the platform prefered languages (e.g. Java, Kotlin, Swift)
 > - Embedded Software
 >   - May have no user interface - user interface may be physical buttons
 >   - Usually distributed pre-installed on physical device
@@ -73,12 +79,6 @@ For example, a design constraint when writing a mobile app would be that it need
 >   - Documentation probably in technical manual with separate user manual
 >   - May need to run continuously for the lifetime of the device
 >   - Typically written in a lower-level language (e.g. C) for better control of resources
->
-> Again in small groups, discuss some software you are familiar with (could be software you have written yourself or by someone else).
-> Use the three questions to explain the environment in which the software is intended to be used.
->
-> What features of the software have been affected by these factors?
-> If the software needed to be used in a different environment, what difficulties might there be?
 >
 > > ## Some More Examples
 > > - Desktop Application
@@ -435,6 +435,13 @@ def test_sqlalchemy_patient_search():
 ~~~
 {: .language-python}
 
+For this test, we've imported our models inside the test function, rather than at the top of the file like we normally would.
+This is not recommended in normal code, as it means we're paying the performance cost of importing every time we run the function, but can be useful in test code.
+Since each test function only runs once per test session, this performance cost isn't as important as a function we were going to call many times.
+Additionally, if we try to import something which doesn't exist, it will fail - by imporing inside the test function, we limit this to that specific test failing, rather than the whole file failing to run.
+
+### Relationships
+
 Relational databases don't typically have an 'array of numbers' column type, so how are we going to represent our observations of our patients' inflammation?
 Well, our first step is to create a table of observations.
 We can then use a **foreign key** to point from the observation to a patient, so we know which patient the data belongs to.
@@ -479,18 +486,7 @@ class Patient(Base):
 > This keeps us consistent with what we had previously as it's essentialy the position of the measurement in the numpy array.
 > It also avoids us having to worry about managing actual date / times.
 >
-> Working with dates / times is hard!
-> There's a whole range of questions we need to answer, some of which have commonly accepted conventions, some don't.
-> For example:
->
-> - What format are we going to use to store our dates / times?
-> - What format to display them?
-> - What timezone is our code running in?
-> - What timezone are the people using our code in? (particularly relevant for web services)
->
-> Python does have a module which we can use to help us here, but it doesn't solve all of these issues fully.
-> See the [datetime module documentation](https://docs.python.org/3/library/datetime.html) for more information.
->
+> The Python `datetime` module we've used previously in the Academics example would be useful here, and most databases have support for 'date' and 'time' columns, but to reduce the complexity, we'll just use integers here.
 {: .callout}
 
 Our test code for this is going to look very similar to our previous test code, so we can copy-paste it and make a few changes.
@@ -521,9 +517,9 @@ def test_sqlalchemy_observations():
 
     queried_patient = session.query(Patient).filter_by(name='Alice').first()
     first_observation = queried_patient.observations[0]
-    assert first_observation.patient == queried_patient
-    assert first_observation.day == 0
-    assert first_observation.value == 1
+    self.assertEqual(first_observation.patient, queried_patient)
+    self.assertEqual(first_observation.day, 0)
+    self.assertEqual(first_observation.value, 1)
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
@@ -599,6 +595,15 @@ def test_sqlalchemy_observations_to_array():
 > What is this feature?
 > Write one or more extra tests to cover this feature.
 >
+> > ## Hint
+> >
+> > The `Patient.values` property creates an array of zeroes, then fills it with data from the table.
+> > If a measurement was not taken on a particular day, that day's value will be left as zero.
+> >
+> > If this is intended behaviour, it would be useful to write a test for it, to ensure that we don't break it in future.
+> > Using tests in this way is known as **regression testing**.
+> >
+> {: .solution}
 {: .challenge}
 
 > ## Refactoring for Reduced Redundancy
@@ -613,18 +618,23 @@ def test_sqlalchemy_observations_to_array():
 >
 {: .challenge}
 
-> ## Advanced Challenge: Storing Dates
+> ## Advanced Challenge: Connecting More Views
+>
+> We've added the ability to store patient records in the database, but not actually connected it to any useful views.
+> There's a common pattern in data management software which is often refered to as **CRUD** - Create, Read, Update, Delete.
+> These are the four fundamental views that we need to provide to allow people to manage their data effectively.
+>
+> Each of these applies at the level of a single record, so for both patients and observations we should have a view to: create a new record, show an existing record, update an existing record and delete an existing record.
+> It's also sometimes useful to provide a view which lists all existing records for each type - for example, a list of all patients would probably be useful, but a list of all observations might not be.
+>
+> Pick one (or several) of these views to implement - you may want to refer back to the section where we added our initial patient read view.
+{: .challenge}
+
+> ## Advanced Challenge: Managing Dates Properly
 >
 > Try converting our existing models to use actual dates instead of just a day number.
 > The Python [datetime module documentation](https://docs.python.org/3/library/datetime.html) and SQLAlchemy [Column and Data Types page](https://docs.sqlalchemy.org/en/13/core/type_basics.html) will be useful to you here.
 >
 {: .challenge}
-
-## Software Systems
-
-- How should software interact with users?
-- How should software interact with other software?
-   - Piping in and out
-
 
 {% include links.md %}
