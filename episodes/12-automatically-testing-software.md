@@ -1,6 +1,6 @@
 ---
 title: "Automatically Testing your Software"
-teaching: 35
+teaching: 20
 exercises: 10
 questions:
 - "Does the code we develop work the way it should do?"
@@ -10,8 +10,6 @@ objectives:
 - "Explain the reasons why testing is important"
 - "Describe the three main types of tests and what each are used for"
 - "Implement and run unit tests to verify the correct behaviour of program functions"
-- "Use parameterisation to automatically run tests over a set of inputs"
-- "Use code coverage to understand how much of our code is being tested using unit tests"
 keypoints:
 - "The three main types of automated tests are **unit tests**, **functional tests**, and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
@@ -19,8 +17,6 @@ keypoints:
 - "We can use a unit testing framework like PyTest to structure and simplify the writing of tests."
 - "We should test for expected errors in our code."
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
-- "We can assign multiple inputs to tests using parametrization."
-- "It's important to understand the **coverage** of our tests across our code."
 ---
 
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
@@ -73,65 +69,120 @@ data.shape
 ~~~
 (60, 40)
 ~~~
-{: .language-output}
+{: .output}
 
-The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient. So this shows the results of measuring the inflammation of 60 patients over a 40 day period. Let's look into how we can test our application's statistical functions (held in `inflammation/models.py`) against this data.
+The data in this case is two-dimensional - it has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient.
+
+Our Patient application has a number of statistical functions held in `inflammation/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
+
+~~~
+def daily_mean(data):
+    """Calculate the daily mean of a 2D inflammation data array for each day.
+
+    :param data: A 2D data array containing inflammation data (each row contains measurments for a single day.
+    :returns: An array of mean values of measurements for each day.
+    """
+    return np.mean(data, axis=0)
+~~~
+{: .language-python}
+
+Here, we use numpy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a numpy array of three rows like...
+
+~~~
+[[1, 2],
+ [3, 4],
+ [5, 6]]
+~~~
+{: .language-python}
+
+...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column.
+
+To show this working with our patient data, we can use the function like this, passing four patient rows to the function:
+
+~~~
+from inflammation.models import daily_mean
+daily_mean(data[0:4])
+~~~
+{: .language-python}
+
+Which will essentially return the mean inflammation for each day column across those patients:
+
+~~~
+array([ 0.  ,  0.5 ,  1.5 ,  1.75,  2.5 ,  1.75,  3.75,  3.  ,  5.25,
+        6.25,  7.  ,  7.  ,  7.  ,  8.  ,  5.75,  7.75,  8.5 , 11.  ,
+        9.75, 10.25, 15.  ,  8.75,  9.75, 10.  ,  8.  , 10.25,  8.  ,
+        5.5 ,  8.  ,  6.  ,  5.  ,  4.75,  4.75,  4.  ,  3.25,  4.  ,
+        1.75,  2.25,  0.75,  0.75])
+~~~
+{: .output}
+
+The other statistical functions are similar. Note that in real situations functions we write are often likely to be more complicated than these, but simplicity here allows us to reason about what's happening - and what we need to test - more easily.
+
+Let's now look into how we can test each of our application's statistical functions to ensure they are functioning correctly.
+
 
 ## Writing tests to verify correct behaviour
 
-### How about using Python assertions?
-As an example, we'll start by testing our code directly using `assert`. Here, we call the function three times with different arguments, checking that a certain value is returned each time:
+### One way to do it?
+
+One way to test our functions would be to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. So, referring back to our simple `daily_mean()` example above, we could use `[[1, 2], [3, 4], [5, 6]]` as an input to that function and check whether the result equals `[3, 4]`.  Numpy even has a way of doing this especially for testing - the `assert_array_equal()` function:
 
 ~~~
-from inflammation.models import daily_mean
-import numpy as np
+import numpy.testing as npt
 
-assert np.array_equal(np.array([0, 0]), daily_mean(np.array([[0, 0], [0, 0]])))
-assert np.array_equal(np.array([3, 4]), daily_mean(np.array([[1, 2], [3, 4], [5, 6]])))
-assert np.array_equal(np.array([2, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
+test_input = np.array([[1, 2], [3, 4], [5, 6]])
+test_result = np.array([3, 4])
+npt.assert_array_equal(test_result, daily_mean(test_input))
 ~~~
 {: .language-python}
 
-So here, our first test is testing that the average mean of a dataset that has values of zero for each day for two patients is, overall, zero for each day. Our second test is testing that some positive integer data for three patients returns some particular average values. Similarly, for the third test.
+So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result, which explicitly checks the array's shape and elements are the same. Note that we can't just use `==` or other Python equality methods, since these won't work properly with numpy arrays.
+
+We could then add to this with other tests that use and test against other values, and end up with something like:
 
 ~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AssertionError
+test_input = np.array([[2, 0], [4, 0]])
+test_result = np.array([2, 0])
+npt.assert_array_equal(test_result, daily_mean(test_input))
+
+test_input = np.array([[0, 0], [0, 0]])
+test_result = np.array([0, 0])
+npt.assert_array_equal(test_result, daily_mean(test_input))
+
+test_input = np.array([[1, 2], [3, 4], [5, 6]])
+test_result = np.array([3, 4])
+npt.assert_array_equal(test_result, daily_mean(test_input))
 ~~~
+{: .language-python}
+
+However, if we were to enter these in this order, we'd now get the following after the first test:
+
+~~~
+...
+AssertionError:
+Arrays are not equal
+
+Mismatched elements: 1 / 2 (50%)
+Max absolute difference: 1.
+Max relative difference: 0.33333333
+ x: array([2, 0])
+ y: array([3., 0.])
+ ~~~
 {: .output}
 
-This result is useful, in the sense that we know something's wrong, but look closely at what happens if we run the tests in a different order:
+This tells us that one element between our generated and expected arrays doesn't match, and shows us the different arrays.
+
+We could put these tests in a separate script to automate the running of these tests. But a Python script halts at the first failed assertion, so the second and third tests aren't run at all. It would be more helpful if we could get data from all of our tests every time they're run, since the more information we have, the faster we're likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that's widely used), we'd like to know how many passed or failed.
+
+Going back to our failed first test, what was the issue? As it turns out, the test itself was incorrect, and should have read:
 
 ~~~
-from inflammation.models import daily_mean
-import numpy as np
-
-assert np.array_equal(np.array([2, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
-assert np.array_equal(np.array([3, 4]), daily_mean(np.array([[1, 2], [3, 4], [5, 6]])))
-assert np.array_equal(np.array([0, 0]), daily_mean(np.array([[0, 0], [0, 0]])))
-~~~
-{: .language-python}
-
-If we were to enter these in this order, we'd now get the following after the first test:
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AssertionError
-~~~
-{: .output}
-
-We could put these in a separate script to automate the running of these tests. But a Python script halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of test - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.
-
-So what has failed? As it turns out, the first test we just ran was incorrect, and should have read:
-
-~~~
-assert np.array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
+npt.assert_array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
 ~~~
 {: .language-python}
 
-Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure our tests are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
+Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure the tests themselves are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
+
 
 ### Using a testing framework
 
@@ -144,7 +195,9 @@ Most people don't enjoy writing tests, so if we want them to actually do it, it 
 
 Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
 
-Keeping these things in mind, here's a different approach. Look at `tests/test_models.py`:
+Keeping these things in mind, here's a different approach that builds on these ideas but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
+
+Look at `tests/test_models.py`:
 
 ~~~
 """Tests for statistics functions within the Model layer."""
@@ -159,29 +212,31 @@ def test_daily_mean_zeros():
 
     # NB: the comment 'yapf: disable' disables automatic formatting using
     # a tool called 'yapf' which we have used when creating this project
-    test_array = np.array([[0, 0],
+    test_input = np.array([[0, 0],
                            [0, 0],
                            [0, 0]])  # yapf: disable
+    test_result = np.array([0, 0])
 
     # Need to use Numpy testing functions to compare arrays
-    npt.assert_array_equal(np.array([0, 0]), daily_mean(test_array))
+    npt.assert_array_equal(test_result, daily_mean(test_input))
 
 
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
     from inflammation.models import daily_mean
 
-    test_array = np.array([[1, 2],
+    test_input = np.array([[1, 2],
                            [3, 4],
                            [5, 6]])  # yapf: disable
+    test_result = np.array([3, 4])
 
     # Need to use Numpy testing functions to compare arrays
-    npt.assert_array_equal(np.array([3, 4]), daily_mean(test_array))
+    npt.assert_array_equal(test_result, daily_mean(test_input))
 ...
 ~~~
 {: .language-python}
 
-Here, we have specified our zero and positive integer tests as separate functions. Aside from some minor changes to clarify the creation of a Numpy array to test against, they run the same assertions. Note that for clarity, only within the scope of each test function do we import the necessary function we want to test. So, reasonably easy to understand, and it appears easy to add new ones.
+So here, although we have specified two of our tests as separate functions, they run the same assertions. Note that for clarity, only within the scope of each test function do we import the necessary library function we want to test. So, reasonably easy to understand, and it appears easy to add new ones.
 
 Each of these test functions, in a general sense, are called **test cases** - these are a specification of inputs, execution conditions, testing procedure and expected outputs. And here, we're defining these things for a test case we can run independently that requires no manual intervention.
 
@@ -190,7 +245,7 @@ Each of these test functions, in a general sense, are called **test cases** - th
 > You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked into coding style in the last lesson, and Yapf is a command-line tool that reformats your code according to a given coding style. These *directives* inform Yapf that we don't wish to have this line reformatted, just to maintain clarity. We'll be looking into using Yapf later.
 {: .callout}
 
-Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. PyTest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using PyTest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What about unit testing in other languages?
 >
@@ -345,7 +400,6 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >                            [1, 6, 2],
 > >                            [4, 1, 9]])  # yapf: disable
 > >
-> >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([4, 6, 9]), daily_max(test_array))
 > >
 > >
@@ -357,7 +411,6 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >                            [ 1, -6, 2],
 > >                            [-4, -1, 9]])  # yapf: disable
 > >
-> >     # Need to use Numpy testing functions to compare arrays
 > >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
 > > ...
 > > ~~~
@@ -382,7 +435,7 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
-Although note that wyou need to import the pytest library at the top of our `test_models.py` file with `import pytest` so that we can use pytest's `raises()` function.
+Although note that you need to import the pytest library at the top of our `test_models.py` file with `import pytest` so that we can use pytest's `raises()` function.
 
 Run all your tests as before.
 
