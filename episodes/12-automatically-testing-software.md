@@ -101,6 +101,7 @@ To show this working with our patient data, we can use the function like this, p
 
 ~~~
 from inflammation.models import daily_mean
+
 daily_mean(data[0:4])
 ~~~
 {: .language-python}
@@ -195,7 +196,7 @@ Most people don't enjoy writing tests, so if we want them to actually do it, it 
 
 Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
 
-Keeping these things in mind, here's a different approach that builds on these ideas but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
+Keeping these things in mind, here's a different approach that builds on the ideas we've seen so far but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
 
 Look at `tests/test_models.py`:
 
@@ -323,7 +324,7 @@ $ git checkout test-suite
 
 Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
 
-Once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
+Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
 #### Write a metadata package description
 
@@ -423,7 +424,7 @@ The big advantage is that as our code develops, we can update our test cases and
 
 ### What about testing for errors?
 
-There are some cases where seeing an error is the correct behaviour, and we can also test for Python exceptions. Add this test in `tests/test_models.py`:
+There are some cases where seeing an error is actually the correct behaviour, and Python allows us to test for exceptions. Add this test in `tests/test_models.py`:
 
 ~~~
 def test_daily_min_string():
@@ -439,146 +440,20 @@ Although note that you need to import the pytest library at the top of our `test
 
 Run all your tests as before.
 
-> ## Why should we test invalid input data?
->
-> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
->
-{: .callout}
-
-## Parameterise tests to run over many test cases
-
-We're starting to build up a number of tests that test the same function, but just with different parameters. Instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
-
-~~~
-@pytest.mark.parametrize(
-    "test, expected",
-    [
-        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
-        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
-    ])
-def test_daily_mean(test, expected):
-    """Test mean function works for array of zeroes and positive integers."""
-    from inflammation.models import daily_mean
-    npt.assert_array_equal(np.array(expected), daily_mean(np.array(test)))
-~~~
-{: .language-python}
-
-Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. The arguments we pass to `parameterize()` indicate that we wish to pass additional arguments to the function as it is executed a number of times, and what we'll call these arguments. We also pass the arguments we want to test with the expected result, which are picked up by the function. In this case, we are passing in two tests which will be run sequentially.
-
-The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
-
-> ## Write parameterised unit tests
->
-> Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in new test cases for each of them.
->
-> > ## Solution
-> > ~~~
-> > ...
-> > @pytest.mark.parametrize(
-> >     "test, expected",
-> >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [4, 6, 9]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [4, -1, 9]),
-> >     ])
-> > def test_daily_max(test, expected):
-> >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_max
-> >     npt.assert_array_equal(np.array(expected), daily_max(np.array(test)))
-> >
-> >
-> > @pytest.mark.parametrize(
-> >     "test, expected",
-> >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [1, 1, 2]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [-4, -6, 2]),
-> >     ])
-> > def test_daily_min(test, expected):
-> >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_min
-> >     npt.assert_array_equal(np.array(expected), daily_min(np.array(test)))
-> > ...
-> > ~~~
-> > {: .language-python}
-> {: .solution}
->
-{: .challenge}
-
-Try them out!
-
-Let's commit our new `test_models.py` file and test cases to our `test-suite` branch (but don't push it yet!):
+Finally, let's commit our new `test_models.py` file and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
 ~~~
 $ git add setup.py tests/test_models.py
 $ git commit -m "Add initial test cases for daily_max() and daily_min(), add parameterisation"
-~~~
-{: .language-bash}
-
-
-## Using code coverage to understand how much of our code is tested
-
-Pytest can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it's hard to think of a bug that would show up in one case but not in the other.
-
-Now, we should try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
-
-A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
-
-~~~
-$ conda install pytest-cov
-$ pytest --cov=inflammation.models tests/test_models.py
-~~~
-{: .language-bash}
-
-So here, we specify the additional named argument `--cov` to PyTest specifying the code to analyse for test coverage.
-
-~~~
-============================= test session starts ==============================
-platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
-plugins: cov-2.11.1
-collected 9 items
-
-tests/test_models.py .........                                           [100%]
-
----------- coverage: platform darwin, python 3.8.5-final-0 -----------
-Name                     Stmts   Miss  Cover
---------------------------------------------
-inflammation/models.py       9      1    89%
---------------------------------------------
-TOTAL                        9      1    89%
-
-
-============================== 9 passed in 0.26s ===============================
-~~~
-{: .output}
-
-Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But there's still one not being tested in `load_csv()`. So, here we should consider whether or not to write a test for this function, and indeed any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered, it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
-
-We should also update our `environment.yml` file with our latest package environment, which now includes `pytest-cov`, and commit it:
-
-~~~
-$ conda env export > environment.yml
-$ cat environment.yml
-~~~
-{: .language-bash}
-
-You'll notice `pytest-cov` and `coverage` have been added. Let's commit this file and push our new branch to GitHub:
-
-~~~
-$ git add environment.yml
-$ git commit -m "Add coverage support"
 $ git push -u origin test-suite
 ~~~
 {: .language-bash}
 
 
-## Limits to testing
-
-Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn't need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
-
-It's also important to remember that unit testing cannot catch every bug in an application, no matter how many tests you write. To mitigate this manual testing is also important. Also remember to test using as much input data as you can, since very often code is developed and tested against the same small sets of data. Increasing the amount of data you test against - from numerous sources - gives you greater confidence that the results are correct.
-
-Our software will inevitably increase in complexity as it develops. Using automated testing where appropriate can save us considerable time, especially in the long term, and allows others to verify against correct behaviour.
+> ## Why should we test invalid input data?
+>
+> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
+>
+{: .callout}
 
 {% include links.md %}
