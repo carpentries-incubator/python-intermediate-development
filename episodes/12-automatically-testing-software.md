@@ -49,10 +49,11 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 We're going to use an example dataset with our Patient code that was used as part of the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look now. Start the Python interpreter on the command line, in the
-repository root `python-intermediate-inflammation` directory:
+Let's take a quick look now. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have the `patient` Conda environment activated in your terminal (particularly if opening a new one), and then start the Python interpreter on the command line, e.g.:
 
 ~~~
+$ cd ~/python-intermediate-inflammation
+$ conda activate patient
 $ python
 ~~~
 {: .language-bash}
@@ -126,7 +127,7 @@ Let's now look into how we can test each of our application's statistical functi
 
 ### One way to do it?
 
-One way to test our functions would be to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. So, referring back to our simple `daily_mean()` example above, we could use `[[1, 2], [3, 4], [5, 6]]` as an input to that function and check whether the result equals `[3, 4]`.  Numpy even has a way of doing this especially for testing - the `assert_array_equal()` function:
+One way to test our functions would be to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. So, referring back to our simple `daily_mean()` example above, we could use `[[1, 2], [3, 4], [5, 6]]` as an input to that function and check whether the result equals `[3, 4]`:
 
 ~~~
 import numpy.testing as npt
@@ -137,7 +138,7 @@ npt.assert_array_equal(test_result, daily_mean(test_input))
 ~~~
 {: .language-python}
 
-So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result, which explicitly checks the array's shape and elements are the same. Note that we can't just use `==` or other Python equality methods, since these won't work properly with numpy arrays.
+So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with numpy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values, and end up with something like:
 
@@ -187,6 +188,8 @@ Which highlights an important point: as well as making sure our code is returnin
 
 ### Using a testing framework
 
+Keeping these things in mind, here's a different approach that builds on the ideas we've seen so far but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
+
 Most people don't enjoy writing tests, so if we want them to actually do it, it must be easy to:
 
 - Add or change tests,
@@ -195,8 +198,6 @@ Most people don't enjoy writing tests, so if we want them to actually do it, it 
 - Understand those tests' results
 
 Test results must also be reliable. If a testing tool says that code is working when it's not, or reports problems when there actually aren't any, people will lose faith in it and stop using it.
-
-Keeping these things in mind, here's a different approach that builds on the ideas we've seen so far but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
 
 Look at `tests/test_models.py`:
 
@@ -237,9 +238,14 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-So here, although we have specified two of our tests as separate functions, they run the same assertions. Note that for clarity, only within the scope of each test function do we import the necessary library function we want to test. So, reasonably easy to understand, and it appears easy to add new ones.
+So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
-Each of these test functions, in a general sense, are called **test cases** - these are a specification of inputs, execution conditions, testing procedure and expected outputs. And here, we're defining these things for a test case we can run independently that requires no manual intervention.
+- Inputs, e.g. the `test_input` Numpy array
+- Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
+- Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_array_equal()` to test its validity
+- Expected outputs, e.g. our `test_result` Numpy array that we test against
+
+And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
 > ## What about the comments that refer to Yapf?
 >
@@ -258,7 +264,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 #### Install pytest
 
-One of the first things we need to do is install the pytest package in our `patient` Conda virtual environment:
+One of the first things we need to do is install the pytest package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line:
 
 ~~~
 $ conda install pytest
@@ -310,6 +316,8 @@ Proceed ([y]/n)?
 {: .output}
 
 Select `y` and these packages which are required by pytest will be installed.
+
+Whether we do this via PyCharm or the command line, the results are exactly the same: our `patient` Conda virtual environment will now have the `pytest` package installed for use.
 
 #### Set up a new feature branch for writing tests
 
@@ -387,7 +395,9 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 > ## Write some unit tests
 >
-> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Try to choose cases that are suitably different. Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
+> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
+>
+> Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
 >
 > > ## Solution
 > >
@@ -420,7 +430,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 >
 {: .challenge}
 
-The big advantage is that as our code develops, we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn't break any existing functionality.
+The big advantage is that as our code develops we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn't break any existing functionality.
 
 ### What about testing for errors?
 
