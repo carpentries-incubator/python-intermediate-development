@@ -135,6 +135,7 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 {: .callout} 
 
 ## Required Software
-Please make sure that you have all the necessary software installed as described in the [Setup](/setup.html) section.
+Please make sure that you have all the necessary software installed as described in the [Setup](/setup.html) section. 
+This section also contains instructions on how to test your setup. 
 
 {% include links.md %}
