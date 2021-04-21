@@ -17,7 +17,7 @@ you have some basic Python, shell and Git skills."
 ---
 ## Setting the Scene
 This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
-software development. We will teach you to use a number of different software development tools and techniques 
+software development process. We will teach you to use a number of different software development tools and techniques 
 simultaneously and interchangeably as you would in a real life, rather than teaching them separately. 
 The workshop is configured to get you working as part 
 of a team. After attending this workshop, you will be 
