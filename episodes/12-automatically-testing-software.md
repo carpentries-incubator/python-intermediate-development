@@ -34,15 +34,30 @@ If we are unable to demonstrate that our software fulfils these criteria, why wo
 
 For the sake of argument, if each line we write has a 99% chance of being right, then a 70-line program will be wrong more than half the time. We need to do better than that, which means we need to test our software to catch these mistakes.
 
-We can and should extensively test our software manually, and manual testing is well suited to testing aspects such as graphical user interfaces and reconciling visual outputs against inputs. However, even with a good test plan, manual testing is very time consuming and prone to error. Another style of testing is automated testing. We can write code as **unit tests** that test the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this wherever possible.
+We can and should extensively test our software manually, and manual testing is well suited to testing aspects such as graphical user interfaces and reconciling visual outputs against inputs. However, even with a good test plan, manual testing is very time consuming and prone to error. Another style of testing is automated testing, where we write code that tests the functions of our software. Since computers are very good and efficient at automating repetitive tasks, we should take advantage of this wherever possible.
 
 There are three main types of automated tests:
 
-- *Unit tests* are tests for fairly small and specific units of functionality, e.g. determining that a particular function returns output as expected given specific inputs.
-- *Functional or integration tests* work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result. These are particularly useful for exposing faults in how functional units interact.
-- *Regression tests* make sure that your program's output hasn't changed, for example after making changes your code to add new functionality or fix a bug.
+- **Unit tests** are tests for fairly small and specific units of functionality, e.g. determining that a particular function returns output as expected given specific inputs.
+- **Functional or integration tests** work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result. These are particularly useful for exposing faults in how functional units interact.
+- **Regression tests** make sure that your program's output hasn't changed, for example after making changes your code to add new functionality or fix a bug.
 
 For the purposes of this course, we'll focus on unit tests. But the principles and practices we'll talk about can be built on and applied to the other types of tests too.
+
+## Set up a new feature branch for writing tests
+
+We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our test writing work:
+
+~~~
+$ git checkout develop
+$ git branch test-suite
+$ git checkout test-suite
+~~~
+{: .language-bash}
+
+Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
+
+Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
 
 ## An example dataset and application
@@ -257,12 +272,10 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 > ## What about unit testing in other languages?
 >
 > Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. FRUIT for Fortran, JUnit for Java (the original unit testing framework), Catch for C++, etc.
->
 {: .callout}
 
-### Preparing to write unit tests
 
-#### Install pytest
+### Install pytest
 
 One of the first things we need to do is install the pytest package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line:
 
@@ -319,22 +332,7 @@ Select `y` and these packages which are required by pytest will be installed.
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our `patient` Conda virtual environment will now have the `pytest` package installed for use.
 
-#### Set up a new feature branch for writing tests
-
-Since we're going to write some new tests, let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our initial test writing work:
-
-~~~
-$ git checkout develop
-$ git branch test-suite
-$ git checkout test-suite
-~~~
-{: .language-bash}
-
-Good practice is to write our tests around the same time we write our code on a feature branch. But since the code already exists, we're creating a feature branch for just these extra tests. Git branches are designed to be lightweight, and where necessary, transient, and use of branches for even small bits of work is encouraged.
-
-Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
-
-#### Write a metadata package description
+### Write a metadata package description
 
 Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following content:
 
@@ -395,7 +393,10 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 > ## Write some unit tests
 >
-> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
+> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Here are some hints:
+>
+> - You could choose to format your functions very similarly to `daily_mean()`, defining test input and expected result arrays followed by the equality assertion.
+> - Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
 >
 > Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
 >
@@ -407,11 +408,12 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     """Test that max function works for an array of positive integers."""
 > >     from inflammation.models import daily_max
 > >
-> >     test_array = np.array([[4, 2, 5],
+> >     test_input = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
 > >                            [4, 1, 9]])  # yapf: disable
+> >     test_result = np.array([4, 6, 9])
 > >
-> >     npt.assert_array_equal(np.array([4, 6, 9]), daily_max(test_array))
+> >     npt.assert_array_equal(test_result, daily_max(test_array))
 > >
 > >
 > > def test_daily_min():
@@ -421,8 +423,9 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     test_array = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
 > >                            [-4, -1, 9]])  # yapf: disable
+> >     test_result = np.array([-4, -6, 2])
 > >
-> >     npt.assert_array_equal(np.array([-4, -6, 2]), daily_min(test_array))
+> >     npt.assert_array_equal(test_result, daily_min(test_array))
 > > ...
 > > ~~~
 > > {: .language-python}
