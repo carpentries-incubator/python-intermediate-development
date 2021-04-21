@@ -121,7 +121,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
  ~~~
  {: .language-bash}
- Press CTRL-D on to exit the Python console.
+ Press `CONTROL-D` on to exit the Python console.
   
 ## PyCharm - Python Integrated Development Environment
   - PyCharm can be downloaded from [https://www.jetbrains.com/pycharm/download](https://www.jetbrains.com/pycharm/download)
