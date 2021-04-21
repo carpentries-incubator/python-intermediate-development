@@ -59,11 +59,11 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 >> b. `locate`  
 >> c. `map`  
 >> d. `pwd`  
-> 2. What command do you use to go to the parent directory?  
+> 2. What command do you use to go to the parent directory of the directory you are currently in?  
 >> a. `cd -`  
 >> b. `cd ~`  
 >> c. `cd /up`  
->> d. `cd..`  
+>> d. `cd ..`  
 > 3. How can you append the output of a command to a file?  
 >> a. `command > file`  
 >> b. `command >> file`  
