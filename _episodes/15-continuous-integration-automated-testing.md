@@ -30,6 +30,70 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ## Continuous Integration with GitHub Actions
 
+### YAML - a deeper dive
+
+We've seen these a few times before, with our `environment.yml` files which we'll be looking in more detail at shortly, but they're also used to write GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
+
+[YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
+
+So firstly, YAML files are essentially made up of **key-value** pairs, in the form `key: value`, for example:
+
+~~~
+name: Kilimanjaro
+height_metres: 5892
+first_scaled_by: Hans Meyer
+~~~
+{: .language-bash}
+
+In general you don't need quotes for strings, but you can use them when you want to explicitly distinguish between numbers and strings, e.g. `height_metres: "5892"` would be a string, but above it is an integer. It turns out Hans Meyer isn't the only first ascender of Kilimanjaro, so one way to add this person as another value to this key is by using YAML **arrays**, like this:
+
+~~~
+first_scaled_by:
+  - Hans Meyer
+  - Ludwig Purtscheller
+~~~
+{: .language-bash}
+
+An alternative to this format for arrays is the following, which would have the same meaning:
+
+~~~
+first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
+~~~
+{: .language-bash}
+
+If we wanted to express more information for one of these values we could use a feature known as **maps**, which allow us to define nested, hierarchical data structures, e.g.
+
+~~~
+...
+height:
+  value: 5892
+  unit: metres
+  measured:
+    year: 2008
+    by: Kilimanjaro 2008 Precise Height Measurement Expedition
+...
+~~~
+{: .language-bash}
+
+So here, `height` itself is made up of three keys `value`, `unit`, and `measured`, with the last of these being another nested key with the keys `year` and `by`. Note the convention of using two spaces for tabs, instead of Python's four.
+
+We can also combine maps and arrays to describe more complex data. Let's say we want to add more detail to our list of initial ascenders:
+
+~~~
+...
+first_scaled_by:
+  - name: Hans Meyer
+    date_of_birth: 22-03-1858
+    nationality: German
+  - name: Ludwig Purtscheller
+    date_of_birth: 22-03-1858
+    nationality: Austrian
+~~~
+{: .language-bash}
+
+So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
+
+
 ### Preparing a suitable environment.yml
 
 Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
@@ -55,10 +119,12 @@ dependencies:
   - pytest
   - pytest-cov
   - pylint
-  ~~~
+~~~
 {: .language-bash}
 
-Note that this doesn't give us specific version numbers for the packages, so
+Note that whilst it references a specific Python version, it doesn't give us specific version numbers for the packages. For the purposes of using continuous integration and testing our code, this is very useful - it means the latest packages will always be tested against.
+
+The `channels`
 
 ### Defining our workflow
 
@@ -69,70 +135,7 @@ $ mkdir -p .github/workflows
 ~~~
 {: .language-bash}
 
-This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions, which we write using YAML. We've seen these a few times before, with our `environment.yml` files.
-
-> ## What is YAML?
-> [YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language increasingly used for configuration files which is designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
->
-> So firstly, YAML files are essentially made up of **key-value** pairs, in the form `key: value`, for example:
->
-> ~~~
-> name: Kilimanjaro
-> height_metres: 5892
-> first_scaled_by: Hans Meyer
-> ~~~
-> {: .language-bash}
->
-> In general you don't need quotes for strings, but you can use them when you want to explicitly distinguish between numbers and strings, e.g. `height_metres: "5892"` would be a string, but above it is an integer. It turns out Hans Meyer isn't the only first ascender of Kilimanjaro, so one way to add this person as another value to this key is by using YAML **arrays**, like this:
->
-> ~~~
-> first_scaled_by:
->   - Hans Meyer
->   - Ludwig Purtscheller
-> ~~~
-> {: .language-bash}
->
-> An alternative to this format for arrays is the following, which would have the same meaning:
->
-> ~~~
-> first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
-> ~~~
-> {: .language-bash}
->
-> If we wanted to express more information for one of these values we could use a feature known as **maps**, which allow us to define nested, hierarchical data structures, e.g.
->
-> ~~~
-> ...
-> height:
->   value: 5892
->   unit: metres
->   measured:
->     year: 2008
->     by: Kilimanjaro 2008 Precise Height Measurement Expedition
-> ...
-> ~~~
-> {: .language-bash}
->
-> So here, `height` itself is made up of three keys `value`, `unit`, and `measured`, with the last of these being another nested key with the keys `year` and `by`. Note the convention of using two spaces for tabs, instead of Python's four.
->
-> We can also combine maps and arrays to describe more complex data. Let's say we want to add more detail to our list of initial ascenders:
->
-> ~~~
-> ...
-> first_scaled_by:
->   - name: Hans Meyer
->     date_of_birth: 22-03-1858
->     nationality: German
->   - name: Ludwig Purtscheller
->     date_of_birth: 22-03-1858
->     nationality: Austrian
-> ~~~
-> {: .language-bash}
->
-> So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows use all of these.
-{: .callout}
-
-Next, let's add a new GitHub Actions workflow YAML file called `main.yml` within the new `.github/workflows` directory:
+This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions, which is also written using YAML. So let's add a new YAML file called `main.yml` within the new `.github/workflows` directory:
 
 ~~~
 name: CI
