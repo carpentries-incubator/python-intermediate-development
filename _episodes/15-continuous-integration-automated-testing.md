@@ -124,7 +124,7 @@ dependencies:
 
 Note that whilst it references a specific Python version, it doesn't give us specific version numbers for the packages. For the purposes of using continuous integration and testing our code, this is very useful - it means the latest packages will always be tested against.
 
-The `channels`
+The `channels` entry refers to named sources where Conda will retrieve its packages, which in this case, is just the `default` Anaconda packages.
 
 ### Defining our workflow
 
