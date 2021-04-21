@@ -20,16 +20,17 @@ View (user interface), and Controller (input/output and data manipulation)."
 patients’ inflammation data and performs basic statistical analysis using Python."
 ---
 ## Introduction
-We will be covering a lot of material in this workshop but we obviously cannot teach everything you would usually 
-do at the beginning of a software project in the first lesson. For example, 
+One of the first things to consider in software development is the design architecture of a software project. 
+Hence, we start by looking into design architectures and, 
+more specifically, the Model-View-Control design architecture used by the example software project we will be developing 
+over the course of this workshop. There are other things to consider early on in software development - for example, 
 [choosing a license](/32-preparing-software-reuse/index.html#choosing-an-open-source-licence) for your 
-project or 
-[writing documentation](/32-preparing-software-reuse/index.html#documenting-code-to-improve-reusability) 
-should be considered early in the normal run of things but for the purposes of this workshop we cover them later. 
-We start by looking into the design architecture of a software project.
+project or [writing documentation](/32-preparing-software-reuse/index.html#documenting-code-to-improve-reusability). 
+For the purposes of this workshop we cover them later, but be aware that in the normal run of the things they should 
+addressed early.
 
-## Software Architecture
-Software architecture is the fundamental structure of a software system that is decided at the beginning of 
+## Software Architectures
+A software architecture is the fundamental structure of a software system that is decided at the beginning of 
 software project development and cannot be changed that easily once implemented. It refers to a "bigger picture" of
 a software system that describes high-level components (modules) of the system and how they interact.
 
@@ -51,8 +52,9 @@ smaller sub-modules. Another examples of modules are classes in object-oriented 
 {: .callout}  
         
 ## Model-View-Controller (MVC) Architecture
-There are various software architectures around - we are going to utilise the Model–View–Controller (MVC) 
-architecture in our software project. MVC divides the related program logic into three 
+There are various software architectures around. Model–View–Controller (MVC) architecture is one way to define 
+how the code is divided into smaller modules with well defined roles. Our example software project is utilising the MVC 
+architecture so we will have a closer look at it here. MVC architecture divides the related program logic into three 
 interconnected modules:
 
 - **Model** (data)
@@ -92,18 +94,7 @@ Let's have a look at some MVC examples.
 > > scenario, you provide the View, the waiter is the Controller, and the cook is the Model who manipulates the Data 
 > > (food).  
 > > ![mvc-restaurant](../fig/mvc-restaurant.png)
-> >
-> > #### Driving a car    
-[comment]: <> (1957 Hudson Hornet dashboard photo, CC0 1.0 Universal Public Domain Dedication : https://www.flickr.com/photos/95319912@N03/14839114077/in/photolist-oBhkCr-TrSHTE-55pDDE-tGCbCe-zcC4YS-6FJQFF-HonnVv-214bJ13-4KsQKx-e11jvq-276523m-252ukyr-SN3gS9-22LWSKZ-RzpuEX-8kzbNY-Hqrk9y-YnKk4h-2efuKCZ-BYkAyQ-7BiGkK-7kRexQ-Y2VcyA-M2Qq2-211o3dp-HonreK-8cSUsa-YkiNKG-fBSkyZ-8cWdkh-jNfVW-oVkiU9-FfmjuS-2crUDPH-s28jPU-Mt2211-8XETQb-553L7Q-6Gw3eX-2eiBHJ2-21E8CDN-Gy6ywY-7BztVi-XJUZ2x-9AjS3t-9aha7R-8rPuQy-K88SEr-24UVQMz-27yqHQc)
- [comment]: <> (American Ironhorse photo, CC BY-NC 2.0: https://www.flickr.com/photos/roome/199979254/in/photolist-iEWSb-8RDr8-2Ti66-wWb4X6-qaUFk-gdRm78-axDkBF-9zMU1q-3c4WiV-JpaJRw-hgLRF2-duVjRu-i9p9g-9ep7XY-4BNHXp-8e6BJL-gQTzg-dgR6sq-rcUhFh-jYF82-jxRjAA-7b83ac-nvx4gm-dVFiXb-nvjFfc-85Woju-a6aRRb-HQwZXH-PXjEEy-5sGKFp-ac9rhB-vdQw9U-nw6Gjy-6TNLb-Haam12-afEcuF-K8wsb-4ByJNa-wR7pRF-Brhxug-riqtsR-7aJ4xU-2qCqgn-7b83cv-sy4JFZ-HTHNxQ-cxmsP3-GJv9WG-Hvxrhb-7x1i4B)
- [comment]: <> (Car fuel photo, Free for commercial use, DMCA, https://www.pxfuel.com/en/free-photo-xdzbc)
-> > Car driving mechanism is another example of the MVC architecture. The View is the interface used by a driver to 
-> > operate a car - steering wheel, gear lever, brake, dashboard, etc. The engine mechanism is the Controller. The 
-> > Model/Data is the fuel, stored in a fuel tank, which gets converted into energy that powers the car by the 
-> > Controller.
-> > ![mvc-car](../fig/mvc-car.png)
 > {: .solution}  
->
 {: .challenge}       
        
 > ## Separation of concerns
@@ -123,20 +114,22 @@ but is not finished and we will be building on top of this project during the wo
 To create your own copy of the software project repository from GitHub:
 
 1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
+![template-repository](../fig/template-repository.png)
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of 
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also, 
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub). 
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it 
 anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to 
 'Public' - so it can be seen by other attendees  of the workshop and by third-party Continuous Integration (CI) services (to be covered later on in the lesson).
-![github-copy-template](../fig/github-copy-template.png)
-4. At this point GitHub may ask you to authenticate. If this happens and 
+![copy-template-repository](../fig/copy-template-repository.png)
+4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
+5. At this point GitHub may ask you to authenticate. If this happens and 
 you do not have 2-Factor-Authentication (2FA) enabled in your 
 GitHub account, you can just enter your password to proceed. If you are using 2FA, you may get a message: 
 "Your old project requires credentials for read-only access. We will only temporarily store them for importing." and 
 should use a pre-generated personal access token as your password here.
-5. Locate the copied repository under your own GitHub account.
-![github-template-repository](../fig/github-template-repository.png)
+6. Locate the copied repository under your own GitHub account.
+![github-template-repository](../fig/own-template-repository.png)
 
 > ## Obtain the software project locally
 > Using a command line shell, clone the copied repository from your GitHub account  into your computer.
@@ -155,9 +148,10 @@ should use a pre-generated personal access token as your password here.
 >
 {: .challenge}       
 
-Let’s inspect the software project. In the shell from the project root do `$ls -l`. You should see something similar to the following.
+Let’s inspect the software project. In your shell from the project root issue the command `$ls -l` to get the more detailed
+listing of the contents of your project directory. You should see something similar to the following.
 ~~~
-$ls -la
+$ls -l
 total 24
 -rw-r--r--   1 user  staff   253 20 Apr 15:41 Makefile
 -rw-r--r--   1 user  staff  1055 20 Apr 15:41 README.md
