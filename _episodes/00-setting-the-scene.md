@@ -54,12 +54,12 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 >
 > #### Shell  
 >
-> 1. With what command you can see what folder you are in?  
+> 1. In the command line shell, which command can you use to see the directory you are currently in?  
 >> a. `whereami`  
 >> b. `locate`  
 >> c. `map`  
 >> d. `pwd`  
-> 2. What command do you use to go to the parent directory of the directory you are currently in?  
+> 2. Which command do you use to go to the parent directory of the directory you are currently in?  
 >> a. `cd -`  
 >> b. `cd ~`  
 >> c. `cd /up`  
