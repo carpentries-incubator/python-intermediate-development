@@ -92,7 +92,6 @@ first_scaled_by:
 {: .language-bash}
 
 So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
-{: .callout}
 
 
 ### Preparing a suitable environment.yml
