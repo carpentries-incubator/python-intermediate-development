@@ -39,14 +39,14 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 >> b. `git install`  
 >> c. `git init`  
 >> d. `git start`       
-> 2. After you initialize a new Git repository and create a file named `LICENCE.md` in the root of the repository, 
+> 2. After you initialise a new Git repository and create a file named `LICENCE.md` in the root of the repository, 
 > which of the following commands will not work? 
 >> a. `git add LICENCE.md`  
 >> b. `git status`  
 >> c. `git add .`  
 >> d. `git commit -m "Licence file added"`  
-> 3. What's the opposite of `git clone` command that, instead of downloading your code from a remote repository, 
-> uploads your changes and code back to it?
+> 3. `git clone` command downloads and creates a local repository from a remote repository. 
+> Which command can then be used to upload your local changes back to the remote repository? 
 >> a. `git push`  
 >> b. `git add`  
 >> c. `git upload`  
@@ -59,11 +59,11 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 >> b. `locate`  
 >> c. `map`  
 >> d. `pwd`  
-> 2. What command do you use to go to the parent directory?  
+> 2. What command do you use to go to the parent directory of the directory you are currently in?  
 >> a. `cd -`  
 >> b. `cd ~`  
 >> c. `cd /up`  
->> d. `cd..`  
+>> d. `cd ..`  
 > 3. How can you append the output of a command to a file?  
 >> a. `command > file`  
 >> b. `command >> file`  
