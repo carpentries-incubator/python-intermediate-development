@@ -150,7 +150,7 @@ So there's still one statement not being tested at line 14, and it turns out it'
 We should also update our `environment.yml` file with our latest package environment, which now includes `pytest-cov`, and commit it:
 
 ~~~
-$ conda env export > environment.yml
+$ conda env export --from-history > environment.yml
 $ cat environment.yml
 ~~~
 {: .language-bash}

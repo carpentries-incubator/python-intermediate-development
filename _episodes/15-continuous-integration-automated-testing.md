@@ -7,7 +7,6 @@ questions:
 objectives:
 - "Describe the benefits of using Continuous Integration for further automation of testing"
 - "Enable GitHub Actions Continuous Integration for public open source repositories"
-- "Enable Travis Continuous Integration for public open source repositories"
 - "Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository"
 keypoints:
 - "Continuous Integration can run tests automatically to verify changes as code develops in our repository."
@@ -26,10 +25,42 @@ The automated testing we've done so far only taking into account the state of th
 
 Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes predictable processes more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
 
-There are many CI infrastructures and services, free and paid for, and subject to change as they evolve their features. We'll be looking at two free ones, GitHub Actions - which unsurprisingly is available as part of GitHub - and a third party one called Travis. Both of these make use of common features across many CI implementations, and looking at both will illustrate some of the commonalities and differences in how such features are typically provided.
+There are many CI infrastructures and services, free and paid for, and subject to change as they evolve their features. We'll be looking at GitHub Actions - which unsurprisingly is available as part of GitHub.
 
 
 ## Continuous Integration with GitHub Actions
+
+### Preparing a suitable environment.yml
+
+Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
+
+One problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause issues for others who with to use our software on different operating systems, so we use ` --from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble.
+
+~~~
+$ conda env export --from-history > environment.yml
+$ cat environment.yml
+~~~
+{: .language-bash}
+
+Which will give us the following environment configuration for `patient` - which you'll note is explicitly named in the file (we'll be referring to this later):
+
+~~~
+name: patient
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - matplotlib
+  - pytest
+  - pytest-cov
+  - pylint
+  ~~~
+{: .language-bash}
+
+Note that this doesn't give us specific version numbers for the packages, so
+
+### Defining our workflow
 
 With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
 
@@ -38,23 +69,86 @@ $ mkdir -p .github/workflows
 ~~~
 {: .language-bash}
 
-This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions. Next, add a file called `main.yml` within that directory:
+This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions, which we write using YAML. We've seen these a few times before, with our `environment.yml` files.
+
+> ## What is YAML?
+> [YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language increasingly used for configuration files which is designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
+>
+> So firstly, YAML files are essentially made up of **key-value** pairs, in the form `key: value`, for example:
+>
+> ~~~
+> name: Kilimanjaro
+> height_metres: 5892
+> first_scaled_by: Hans Meyer
+> ~~~
+> {: .language-bash}
+>
+> In general you don't need quotes for strings, but you can use them when you want to explicitly distinguish between numbers and strings, e.g. `height_metres: "5892"` would be a string, but above it is an integer. It turns out Hans Meyer isn't the only first ascender of Kilimanjaro, so one way to add this person as another value to this key is by using YAML **arrays**, like this:
+>
+> ~~~
+> first_scaled_by:
+>   - Hans Meyer
+>   - Ludwig Purtscheller
+> ~~~
+> {: .language-bash}
+>
+> An alternative to this format for arrays is the following, which would have the same meaning:
+>
+> ~~~
+> first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
+> ~~~
+> {: .language-bash}
+>
+> If we wanted to express more information for one of these values we could use a feature known as **maps**, which allow us to define nested, hierarchical data structures, e.g.
+>
+> ~~~
+> ...
+> height:
+>   value: 5892
+>   unit: metres
+>   measured:
+>     year: 2008
+>     by: Kilimanjaro 2008 Precise Height Measurement Expedition
+> ...
+> ~~~
+> {: .language-bash}
+>
+> So here, `height` itself is made up of three keys `value`, `unit`, and `measured`, with the last of these being another nested key with the keys `year` and `by`. Note the convention of using two spaces for tabs, instead of Python's four.
+>
+> We can also combine maps and arrays to describe more complex data. Let's say we want to add more detail to our list of initial ascenders:
+>
+> ~~~
+> ...
+> first_scaled_by:
+>   - name: Hans Meyer
+>     date_of_birth: 22-03-1858
+>     nationality: German
+>   - name: Ludwig Purtscheller
+>     date_of_birth: 22-03-1858
+>     nationality: Austrian
+> ~~~
+> {: .language-bash}
+>
+> So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows use all of these.
+{: .callout}
+
+Next, let's add a new GitHub Actions workflow YAML file called `main.yml` within the new `.github/workflows` directory:
 
 ~~~
 name: CI
 
-# We can specify which GitHub events will trigger a CI build
+# We can specify which Github events will trigger a CI build
 on: [push, pull_request]
 
-# Next we define a single job 'build', but we could add more
+# now define a single job 'build' (but could define more)
 jobs:
 
   build:
 
-    # We can also specify which operating systems we want to test on
+    # we can also specify the OS to run tests on
     runs-on: ubuntu-latest
 
-    # A job is made up of a sequence of steps
+    # a job is a seq of steps
     steps:
 
     # Next we need to checkout out repository, and set up Python
@@ -62,51 +156,39 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: 3.7
+        auto-update-conda: true
+        python-version: 3.8
+        activate-environment: patient
+        environment-file: environment.yml
 
-    # We can use 'run' to execute commands
-    - name: Install Python dependencies
+    - name: Install conda-build so we can install our inflammation package for testing
       run: |
-        pip install -r requirements.txt
-        pip install -e .
+        conda install -n base --yes conda-build
+        conda develop -n patient .
 
     - name: Test with PyTest
       run: |
-        pytest --cov=inflammation.models tests/test_models.py
+        conda run -n patient pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
-You'll notice that we are using the `pip` package manager here instead of `conda` to install our Python dependencies. This is because support within GitHub Actions and Travis CI for `pip` is much better and simpler to implement at present. We also use `pip install -e .`, an analogous Pip alternative to using `conda develop .`, to install our package in within the environment. But this does mean we need to create a separate `requirements.txt` file which `pip` can use to install Python package dependencies, e.g.:
-
-~~~
-numpy==1.19.2
-matplotlib==3.3.2
-pytest==6.2.2
-pytest-cov==2.11.1
-~~~
-{: .language-bash}
-
-Note that similar to a Conda `requirements.yml` file we're specifying precise version numbers for each of these packages to ensure others that reuse our code can replicate our Python development environment exactly.
-
-So similar to `environment.yml` for Anaconda, this file contains the Python packages - and their versions - our software will need to run. Note that we have omitted the plethora of other sub-packages that are also installed as part of installing these for simplicity.
-
+FIXME: add explanation of above
 
 ### Triggering a build on GitHub Actions
 
 Now if we commit and push this change a CI run will be triggered:
 
 ~~~
-$ git add .github requirements.txt
+$ git add .github environment.yml
 $ git commit -m "Add GitHub Actions configuration"
 $ git push
 ~~~
 {: .language-bash}
 
 Since we are only committing the GitHub Actions configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used for CI. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which will then allow the process to run automatically on these other branches. This again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches, and in the case of CI, we're starting to see its scaling benefits across a larger scale development team working across potentially many branches.
-
 
 ### Checking build progress and reports
 
@@ -127,65 +209,6 @@ The logs are actually truncated; selecting the arrows next to the entries - whic
 GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
 
 
-## Continuous Integration with an external CI service
-
-Now let's take a look at Travis-CI, another free continuous integration service provided by a third-party. You'll notice many similarities between how Travis does it with GitHub Actions, but it should be pointed out that Travis did it first!
-
-The first thing we need to do is let Travis install its GitHub App to GitHub:
-
-1. Log into [https://travis-ci.com/]() with your GitHub account
-2. Select your profile picture in the top right and select `Settings`.
-3. Select the `Migrate` tab, then the `Activate all repositories using GitHub Apps` button. This will take you to GitHub.
-4. From the `Repository access` section, select 'Only select repositories', and add the `python-intermediate-inflammation` repository
-5. Select `Approve and install` to install the Travis application to GitHub.
-
-![ci-travis-permissions](../fig/ci-travis-permissions.png)
-
-Once we've done this, all we need to do now - whilst still on the `test-suite` branch - is add a `.travis.yml` file to the root of the repository, commit, and push it. For example:
-
-~~~
-language: python
-
-python:
-    - "3.7"
-
-install:
-    - pip install -r requirements.txt
-    - pip install -e .
-
-script:
-    - pytest --cov=inflammation.models tests/test_models.py
-~~~
-{: .language-bash}
-
-Here, we are informing Travis that the software assumes a Python 3.7 environment (which will be built and provided for the CI run), and the script to execute. We already have our software dependencies in our `requirements.txt` file, and as with GitHub Actions, Travis will automatically use this to install these dependencies using `pip` prior to running the script command.
-
-### Triggering a build on Travis
-
-As with GitHub Actions, we know that once a commit is pushed Travis will attempt to run a build, so if we commit and push this change a CI run will be triggered:
-
-~~~
-$ git add .travis.yml
-$ git commit -m "Add Travis CI configuration"
-$ git push
-~~~
-{: .language-bash}
-
-Again, since we're only committing this to the `test-suite` branch, it will only build from that branch until we merge this file into upstream branches.
-
-### Checking build progress and reports
-
-The process of checking build progress is again similar to GitHub Actions, with Travis feeding back progress to GitHub - go to our repository on GitHub and select the `test-suite` branch and then `commits`. When you click on the orange build icon, notice that there is now *two* build indicators: one each for GitHub Actions and Travis, that are running simultaneously due to the change we just committed.
-
-![ci-initial-build-travis](../fig/ci-initial-build-travis.png)
-
-Selecting `Details` for the one associated with Travis gives us a summary of the build, and selecting `The build` link gives us a full progress report on the build, similar to GitHub Actions, and shows it alongside details of the GitHub Actions build.
-
-![ci-initial-travis-build-log](../fig/ci-initial-travis-build-log.png)
-
-Note that travis-ci.com also offers continuous integration as a free service, but with unlimited builds on as many open source (i.e. public) repositories that you have. But a key limitation is that only 5 concurrent build jobs may run at one time. Again, paid options are available.
-
-
 ## Scaling up testing using build matrices
 
 Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale.
@@ -194,7 +217,7 @@ Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows
 
 Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
 
-Let's see how this is done using GitHub Actions (similar support for build matrices exists in Travis). To support this, change `.github/workflow/main.yml` to the following:
+Let's see how this is done using GitHub Actions. To support this, change `.github/workflow/main.yml` to the following:
 
 ~~~
 ...
@@ -204,19 +227,26 @@ Let's see how this is done using GitHub Actions (similar support for build matri
         os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: [3.7, 3.8]
 
+    # a job is a seq of steps
     steps:
 
+    # Next we need to checkout out repository, and set up Python
+    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
+
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
+        auto-update-conda: true
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+        activate-environment: patient
+        environment-file: env.yml
 ...
 ~~~
 {: .language-bash}
 
-Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configurations.
+Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configurations. So every possible permutation of Python versions 3.7 and 3.8 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
 
 Let's commit and push this change and see what happens:
 
