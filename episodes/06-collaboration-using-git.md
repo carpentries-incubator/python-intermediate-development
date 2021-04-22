@@ -233,11 +233,13 @@ $ git push -u origin develop
 ~~~
 {: .language-bash}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too.
+Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your 
+repository in GitHub, click the branch dropdown menu (currently showing the default branch `master`). You should
+see your `develop` branch in the list too.
 
-![software-template-repo-develop-branch](../fig/software-template-repo-develop-branch.png)
+<img src="../fig/software-template-repo-develop-branch.png" alt="software project's develop branch" width="700" />
 
-Now the others can check out this branch too and continue to develop code on it.
+Now the others can check out the `develop` branch too and continue to develop code on it.
 
 After the initial push of the new
 branch, each next time we push to it in the usual manner (i.e. without the `-u` switch):
