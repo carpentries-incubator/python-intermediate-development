@@ -105,16 +105,22 @@ associated with a different version control system. Our project was already unde
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
 For the purposes of this workshop, we will do all our version control commands from the shell but it is worth
-noting that PyCharm offers a comprehensive **subset** of Git commands (i.e. it is possible to perform a set of common
+noting that PyCharm offers a *comprehensive subset** of Git commands (i.e. it is possible to perform a set of common
 Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing
 changes you made locally to a file with the same repository version, a different commit version or a version in a different
-branch - this is something that cannot be done equally well from a text-based shell terminal. You can only do 
-comparison of changes if you have actually modified your files locally.  
-
-![ide-version-control](../fig/ide-version-control.png)
+branch - this is something that cannot be done equally well from a text-based shell terminal. 
 
 You can get full
 [documentation on PyCharm build-in version control](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
+
+Note that you can only do 
+comparison of changes if you have actually modified your files locally. You can try this out now if you modify 
+any file - for example add a blank line anywhere in `patientdb.py` then navigate to the `Version Control` panel at the bottom 
+ of PyCharm. `patientdb.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click 
+ on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from 
+ the `Local Changes` tab.
+
+![ide-version-control](../fig/ide-version-control.png)
 
 ### Configuring PyCharm with Anaconda
 Our software project already contains some Python code (scripts). PyCharm (and IDEs in general) allow you to run the code
