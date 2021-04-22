@@ -141,7 +141,7 @@ This directory is used specifically for GitHub Actions, allowing us to specify a
 name: CI
 
 # We can specify which Github events will trigger a CI build
-on: [push, pull_request]
+on: push
 
 # now define a single job 'build' (but could define more)
 jobs:
@@ -167,7 +167,7 @@ jobs:
         activate-environment: patient
         environment-file: environment.yml
 
-    - name: Install conda-build so we can install our inflammation package for testing
+    - name: Install conda-build and our inflammation package
       run: |
         conda install -n base --yes conda-build
         conda develop -n patient .
@@ -178,7 +178,17 @@ jobs:
 ~~~
 {: .language-bash}
 
-FIXME: add explanation of above
+So as well as giving our workflow a name - CI - we indicate with `on` that we want this workflow to run when we `push` commits to our repository. The workflow itself is made of a single `job` named `build`, and we could define any number of jobs after this one if we wanted, and each one would run in parallel.
+
+Next, we define what our build job will do. With `runs-on` we first state which operating systems we want to use, in this case just Ubuntu for now. We'll be looking at ways we can scale this up to testing on more systems later.
+
+Lastly, we define the `step`s that our job will undertake in turn, to set up the job's environment and run our tests. You can think of the job's environment intially as a blank slate: much like a freshly installed machine (albeit virtual) with very little installed on it, we need to prepare it with what it needs to be able to run our tests. Each of these steps are:
+
+- **Checkout repository for the job:** `uses` indicates that want to use a GitHub Action called `checkout` that does this
+- **Set up Conda:** here we use the `setup-miniconda` Action, passing some parameters to govern its behaviour: that we want the latest version of Conda for Python version 3.8, and to define a new environment based on our `environment.yml` file which is called `patient`
+- **Install conda-build and our inflammation package:** In order to locally install our `inflammation` package we first need to install a package called `conda-build` in the default `base` Conda environment to do this. Once installed, we can use `conda develop` as before, except here we explicitly specify that we want the local `inflammation` package to be installed to the `patient` virtual environment. We use `run` here to run the conda commands
+- **Test with PyTest:** Lastly, we run pytest. In order to do this successfully, we use `conda run` to execute a given command explicitly within our `patient` environment, with the same arguments we used manually before
+
 
 ### Triggering a build on GitHub Actions
 
