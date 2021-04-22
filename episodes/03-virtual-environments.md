@@ -19,16 +19,21 @@ keypoints:
 - "Use `conda` to manage Python packages (but be aware of other tools, such as `pip`)."
 - "Instead of installing packages individually, `conda` allows you to declare all dependencies in a separate
 file that can be easily shared with your collaborators."
-- "Use `conda env export > environment.yml` to take snapshot of your project's dependencies."
+- "Use `conda env --from-history export > environment.yml` to take snapshot of your project's dependencies."
 - "Use `conda env create -f environment.yml` to replicate someone else's virtual environment on you machine."
 ---
 
-## Running Scripts From Command Line
-If you attended a Python workshop in the past, you may recall that we can also run Python scripts directly from the
-command line. Let us run our `patientdb.py` script using Python from the command line and use the
-Python Anaconda environment `patient` we created from PyCharm.
+## Introduction
+In the previous episode, we have configured PyCharm to run our code from within the IDE. We mentioned that 
+you can run also your code from a command line shell and this is what we will be going in this course as we will 
+also interact with Git from the shell. This 'forces' you
+to familiarise yourself and learn shell well - a bonus is that this knowledge is transferable to running code in other 
+programming languages from within shell too. 
 
-Let us open up a new shell/terminal window and type the following to list all the environments Anaconda is aware of:
+## Running Scripts From Command Line
+Let's run our `patientdb.py` script using Python from the command line and use the
+Python Anaconda environment `patient` we created from PyCharm. Open a new shell/terminal and type the 
+following command to list all the environments Anaconda is aware of:
 
 ~~~
 $ conda env list
@@ -43,8 +48,8 @@ base                  *  /Users/alex/opt/anaconda3
 ~~~
 {: .output}
 
-We can see the environment we created from PyCharm (which you may recall we called `patient` when we set it up) in this list, so let us use that. Note that in
-order to use a `conda` environment, you have to activate it as follows (make sure you use the full environment path
+We can see the environment we created from PyCharm (which you may recall we called `patient` when we set it up) in this list, so let's use it. Note that in
+order to use a `conda` environment from a shell, you have to activate it as follows (make sure you use the full environment path
 unless it is a "named" environment):
 
 ~~~
@@ -52,11 +57,14 @@ $ conda activate patient
 ~~~
 {: .language-bash}
 
+> ## Activating Conda Environment 
 Important thing to note here is that, although we created our `conda` environment called `patient` from PyCharm,
 in order to use it from command line you have to activate it - PyCharm only works within its own context and does not
 affect your shell.
+>
+{: .callout}
 
-Now we can run our script in that environment, ensuring first we are in our software project directory:
+Now we can run our script in that environment, ensuring first we are located in our software project directory:
 
 ~~~
 $ cd python-intermediate-inflammation
@@ -108,7 +116,7 @@ You do not have to worry too much about specific versions of packages that your 
 Virtual environments enable you to always use the latest available version without specifying it explicitly.
 They also enable you to use a specific older version of a package for your project, should you need to.
 
-> ## A specific Python or package version is only ever installed once
+> ## A Specific Python or Package Version is Only Ever Installed Once
 > Note that you will not have a separate Python or package installations for each of your projects - they will only
 ever be installed once on your system but will be referenced from different virtual environments.
 >
@@ -122,9 +130,11 @@ There are several commonly used tools for managing Python virtual environments:
 - `virtualenv`, which needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
 
-While there are pros and cons for using each of the above, all will do the job of managing Python
-virtual environments for you and it may be a matter of personal preference which one you go for.
-For the purposes of this workshop, we will continue to use `conda` to manage our virtual environments.
+While there are pros and cons for using each of the above (see [the comparison](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)), all will do the job of managing Python
+virtual environments for you and it may be a matter of personal preference which one you go for 
+(also see [this discussion](https://stackoverflow.com/questions/34398676/does-conda-replace-the-need-for-virtualenv) on Stackoverflow).
+For the purposes of this workshop, we will continue to use `conda` to manage our virtual environments to reduce the amount
+of different tools we have to introduce and learn and because it does the job.
 
 > ## Anaconda and `conda`
 Anaconda is a Python distribution commonly used for scientific programming - it conveniently installs Python and a
@@ -140,7 +150,7 @@ Let us have a look at how we can create and manage `conda` virtual environments 
 Remember, we have already created our `conda` virtual environment called `patient` from PyCharm, so we do not have to
 do it again. Command line shell gives you a hint which environment is
 currently active by pre-pending it to its prompt in round brackets: `(patient) alex@MacBook-Pro python-intermediate-inflammation %`.
-If unsure, you can always issue the `conda list` command - the current environment will be denoted with an asterisk (`*`):
+If unsure, you can always issue the `conda env list` command - the current environment will be denoted with an asterisk (`*`):
 
 ~~~
 $ conda env list
@@ -167,17 +177,28 @@ for the documentation on managing environments.
 
 ### Exporting a `conda` Environment
 
-You may want to share your environment with someone else so they can re-create a software
-project that you have developed with all of its dependencies. `conda` has a handy way of exporting,
+As your project grows, you will start installing new packages into your virtual environment 
+and adding these dependencies to your code (we have already seen how that can be done from PyCharm and will cover 
+package installation from command line next). Naturally, you will want to share your environment with your collaborators so 
+that that they can easily 'clone' your software project with all of its dependencies. `conda` has a handy way of exporting,
 saving and sharing an environment via an `environment.yml` file. To export your active environment to a file:
 
 ~~~
-$ conda env export > environment.yml
+$ conda env --from-history export > environment.yml
 ~~~
 {: .language-bash}
 
 You can now share the exported `environment.yml` file with your collaborators. Typically, you will save the
 `environment.yml` file in the root directory of your project and add it to your version control system.
+
+> ## Note on `conda export`
+> Note the use of `--from-history` parameter in the above `conda export` command. This is to make sure that the exported environment 
+>will only include packages that were explicitly added to our environment. Without it, `conda export` would add 
+>the platform-specific Python packages which reside in the 
+>environment by default too, which could be problematic when sharing your environment with collaborators working on different platforms and operating systems.
+>We will revisit this issue in one of the later episodes.  
+>
+{: .callout}
 
 ### Importing a `conda` Environment
 To create the environment from an `environment.yml`
@@ -206,17 +227,30 @@ $ conda env update --file environment.yml  --prune
 Let us recap - Anaconda is a Python distribution commonly used for scientific programming and `conda`
 (that comes with Anaconda distribution) is an open source package management tool that helps you find `Python`
 packages from a package repository and install them on your
-system. As we have seen above, `conda` is also a virtual environment management tool. Another commonly used Python
+system. As we have seen above, `conda` is also a virtual environment management tool. 
+
+Another well known and commonly used Python
 package management system is called `pip`. If you are using Anaconda Python distribution, it makes sense
 (and reduces confusion)
-to use `conda` for all these tasks. But it is equally possibly to mix the use of both `conda` and `pip` to manage
-Python third party packages, especially as sometimes packages that you need are not available via `conda`.
+to use `conda` for all these tasks. But sometimes packages that you need are not available via `conda`, 
+in which case you will have to mix the use of both `conda` and `pip` to manage your packages. Recent versions
+of `conda` have improved support for interoperability between `conda` and `pip` and, while `pip` only installs 
+Python packages from [PyPI package repository](https://pypi.org/), `conda` can now install packages from 
+[Anaconda Repository](https://repo.anaconda.com/) and [Anaconda Cloud](https://anaconda.org/) as well as PyPI by using `pip` in an active `conda` environment. 
+
+> ## Mixing `pip` and `conda`
+> The advice from the [Anaconda blog](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) is: 
+"... when combining `conda` and `pip`, it is best to use an isolated `conda` environment. 
+Only after `conda` has been used to install as many packages as possible should `pip` be used to install any remaining software. "
+>
+{: .callout}
 
 Things with installing and managing Python distributions, third party packages and virtual environments are, well,
-complex. There is abundance of tools for each task, each with its advantages and disadvantages. A generally accepted
-practice it to use `pip` for package installation and `venv` for virtual environment management - which is something
-we will practice a bit later in the workshop. For now, it suffices to know that there are different ways to achieve
-the same effect and we will continue to use `conda`.
+complex. There is abundance of tools for each task, each with its advantages and disadvantages and there are different 
+ways to achieve the same effect. Advantages of using Anaconda and `conda` are that you get all the packages needed for 
+scientific code development included with the distribution. If you are only collaborating with others who are also using 
+Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be aware of all these tools, 
+and use them appropriately - we will continue to use `conda` only for all the aforementioned tasks throughout this workshop.
 
 ![python-environment-hell](../fig/python-environment-hell.png)
 <p style="text-align: center;">Credit: XKCD, https://xkcd.com/1987/</p>
@@ -338,13 +372,4 @@ $ pip install -r requirements.txt
 
 {% endcomment %}
 
-> ## `conda` and `pip`
-A good number of people are using standard Python distribution with `pip`, `venv` and `requirements.txt`
-(`pip`'s equivalent of `conda`'s `environment.yml`)
-to manage and share their project's dependencies. Advantages of using Anaconda and `conda` are that you get all the
-packages needed for scientific code development included with the distribution. If you are only collaborating with
-others who are also using Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be
-aware of all these tools, and use them appropriately.
->
-{: .callout}
 {% include links.md %}
