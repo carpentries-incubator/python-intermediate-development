@@ -78,7 +78,7 @@ This is a context-aware code completion feature that speeds up the process of co
 common mistakes) by offering available variable
 names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
 
-<img src="../fig/ide-code-completion.png" alt="Code completion" width="800" />
+<img src="../fig/ide-code-completion.png" alt="Code completion" width="700" />
 
 ### Code Search
 You can search for a text string within a project, use different scopes to narrow your search process, use regular expressions 
