@@ -14,9 +14,16 @@ keypoints:
 - "An IDE is an application that provides a comprehensive set of facilities for software development, for example
 syntax highlighting, code search and completion, version control and debugging."
 ---
+
+## Introduction
+Initially, you may have only written a single script to solve your problem or analyse some data. As we have seen in the
+previous episode on software architectures - even a simple software project is typically split into smaller 
+ functional units and modules. As your code starts to grow and becomes more complex - involving many different files and linking various libraries - 
+you will need an application to help you manage all the complexities of, and provide you with some useful facilities for, 
+the software development process. Such applications are called Integrated Development Environments (IDEs). 
+
 ## Integrated Development Environments (IDEs)
-An integrated development environment (IDE) is a software application that provides comprehensive facilities for
-software development. An IDE normally consists of at least a source code editor, build automation tools and a debugger.
+An IDE normally consists of at least a source code editor, build automation tools and a debugger.
 The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as
 nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
 integration for web app development, source code inspection for dependencies and many other useful functionalities. The
@@ -42,7 +49,9 @@ a free, open source Python IDE.
 
 ## Using the PyCharm IDE
 
-### Opening a software project in PyCharm
+Let's open our project in PyCharm now and familiarise ourselves with some commonly used PyCharm features.
+ 
+### Opening a Software Project in PyCharm
 If you have not PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
@@ -53,26 +62,28 @@ this is the directory they will run from.
 
 PyCharm will show you a 'Tip of the Day' window which you can safely ignore by selecting `Close`.
 You will notice the IDE shows you a project/file navigator window on the left hand side, to traverse and select the files
-(and any subdirectories) within the working directory, and an editor window on the right.
+(and any subdirectories) within the working directory, and an editor window on the right. At the bottom, you would 
+typically have a panel for version control, terminal (command line shell within PyCharm) and a TODO list.
 
-### Syntax highlighting
+### Syntax Highlighting
 Syntax highlighting is a feature that displays source code terms in different colors and fonts according to the syntax
 category the highlighted term belongs to. It also makes syntax errors visually distinct. Highlighting does not affect
 the meaning of the code itself - is intended only for human readers and makes reading code and finding errors easier.
 
 ![ide-syntax](../fig/ide-syntax.png)
 
-### Code completion
+### Code Completion
 As you start typing code, PyCharm will offer to complete some of the code for you in a form of an auto completion popup.
 This is a context-aware code completion feature that speeds up the process of coding (e.g. reducing typos and other
 common mistakes) by offering available variable
 names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
 
-![ide-code-completion](../fig/ide-code-completion.png)
+<img src="../fig/ide-code-completion.png" alt="Code completion" width="700" />
 
-### Code search
-You can search for a text string within a project, use different scopes to narrow your search process, exclude certain
-items from your search, find usages and occurrences. To find the search string in a project:
+### Code Search
+You can search for a text string within a project, use different scopes to narrow your search process, use regular expressions 
+for complex searches, include/exclude certain files from your search, find usages and occurrences. To find a search string 
+in the whole project:
 
 1. From the main menu, select `Edit | Find | Find in Path ...` (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
 2. Type your search string in the search field of the popup. Alternatively, in the editor, highlight the string you
@@ -83,33 +94,50 @@ string into the search field of the popup.
      PyCharm will list the search strings and all the files that contain them.
 3. Check the results in the preview area of the dialog where you can replace the search string or select another string,
 or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again to start a new search.
-4. To see the list of occurrences in a separate tool window, click `Open in Find Window` button in the bottom right
+4. To see the list of occurrences in a separate tool window, click the `Open in Find Window` button in the bottom right
 corner. Use this window and its options to group the results, preview them, and work with them further.
-![ide-find-panel](../fig/ide-find-panel.png)
 
-### Version control
+<img src="../fig/ide-find-panel.png" alt="Find panel" width="800" />
+
+### Version Control in PyCharm
 PyCharm supports a directory-based versioning model, which means that each project directory can be
 associated with a different version control system. Our project was already under Git version control and PyCharm
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-For the purposes of this workshop, we will do all our version control commands from the shell terminal but it is worth
-noting that PyCharm offers a comprehensive **subset** of Git commands (i.e. it is possible to perform a set of common
+For the purposes of this workshop, we will do all our version control commands from the shell but it is worth
+noting that PyCharm offers a *comprehensive subset** of Git commands (i.e. it is possible to perform a set of common
 Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing
-changes you made locally with the same repository version, a different commit version or a version in a different
-branch - this is something that cannot be done equally well from a text-based shell terminal.
-
-![ide-version-control](../fig/ide-version-control.png)
+changes you made locally to a file with the same repository version, a different commit version or a version in a different
+branch - this is something that cannot be done equally well from a text-based shell terminal. 
 
 You can get full
 [documentation on PyCharm build-in version control](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
 
-### Configuring PyCharm with Anaconda
-Our software project already contains some Python code (scripts). However, before we can run it, we need to configure
-PyCharm so that it knows where the Python interpreter, which we want to use to run the code, is located.
-In our case, this is the Python interpreter that is supplied within the Anaconda distribution. However, you may have
-various Python distributions and versions installed on your system so you have to be careful here to select the one you
-want to use. To do this:
+Note that you can only do 
+comparison of changes if you have actually modified your files locally. You can try this out now if you modify 
+any file - for example add a blank line anywhere in `patientdb.py` then navigate to the `Version Control` panel at the bottom 
+ of PyCharm. `patientdb.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click 
+ on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from 
+ the `Local Changes` tab.
 
+![ide-version-control](../fig/ide-version-control.png)
+
+### Configuring PyCharm with Anaconda
+Our software project already contains some Python code (scripts). PyCharm (and IDEs in general) allow you to run the code
+from within the IDE. An alternative is to use the IDE for code development and then run the code from the command line shell.
+Either way of running code is fine - you just have to make sure that you have all the necessary dependencies (libraries/packages) installed
+in whichever environment you choose to run your code from (as these two methods are typically independent from one another). It is good however 
+to be familiar with both and choose the one that suits you and your particular situation - running code from a command line is 
+good as it forces you to get more familiar with running scripts from a shell which is then applicable to many other programming languages. 
+
+Before you can run the code from PyCharm, you need to configure
+it so that it knows where the Python interpreter, which we want to use to run the code, is located. The same goes for any
+dependencies your code may have - you need to tell PyCharm where to find them. In our case, we want to use the Python 
+interpreter and extra packages that are supplied with the Anaconda Python distribution. However, you may have
+various Python distributions and versions installed on your system so you have to be careful here to select the one you
+want to use.
+
+#### Adding a Python Interpreter in PyCharm
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. Then, in the preferences window that appears, select `Project: python-intermediate-inflammation` >
 `Project Interpreter` from the left. You'll
@@ -120,10 +148,12 @@ distribution of Python.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your version). An `Add Local Python Interpreter` window will appear.
 4. Select `Conda Environment` from the list on the left so we can configure an Anaconda environment, and ensure that `New environment` is
 selected. In the `Location` field, you'll see something like `/Users/<USERNAME>/anaconda/envs/python-intermediate-inflammation`, which will likely look a little different depending on your
-   system. Replace the `python-intermediate-inflammation` part of the field with `patient` - which is a name we'll use to refer to this environment later on
+   system. Replace the `python-intermediate-inflammation` part of the field with `patient` - which is a name we'll use to refer to this environment later on.
 5. Select `Make available to all projects` so we can also use this environment with other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select
 `Python 3.7 (patient)` or similar from the `Project Interpreter` drop-down list.
+
+#### Adding Additional Packages
 7. We also need to add the packages `numpy` and `matplotlib` to this environment, since our software uses them. In this window select the `+` icon at the bottom
    of the window. In the window that appears, type in `numpy`, and select the package from the list, then select `Install Package`. Do the same for `matplotlib`, then close the window.
 7. Select `OK` in the `Preferences` window.
@@ -131,9 +161,11 @@ selected. In the `Location` field, you'll see something like `/Users/<USERNAME>/
 It may take a few minutes for PyCharm to read and familiarise itself with the Anaconda installation you have configured
 (you may see `n processes running` in the bar at the bottom of the PyCharm IDE while it does this).
 
-Now we have told PyCharm about the new Python interpreter, we can configure it for our project:
+#### Configuring Interpreter & Environment for a Project
+Having told PyCharm about the new Python interpreter and having created a new environment (`patient`), 
+we can configure these for our project:
 
-1. To add a new configuration - select `Run` > `Edit Configurations...` from the top menu.
+1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
 2. Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see
 `Python 3.7 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder
 button and find and select `patientdb.py`. This tells PyCharm which script to run.
@@ -147,7 +179,7 @@ You can even give this configuration a name at the top of the window if you like
 > [next episode](../03-virtual-environments/index.html).
 {: .callout}
 
-Once done, you are ready to run your script!
+Once done, you are ready to run your script from PyCharm!
 
 ### Running Scripts From PyCharm
 Right-click the `patientdb.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`.

@@ -18,21 +18,24 @@ to."
 - "Style checking to ensure code conforms to coding conventions is often part of IDEs."
 - "Consistency with the style guide is important - whichever style you choose."
 ---
-Now that we have an IDE, our virtual development environment set, and know how to manage packages, we are all set
-to start writing some code. Before we dive into it, it is worth spending some time learning a bit about Python
-coding style conventions.
+
+## Introduction 
+
+Now that we have an IDE and our virtual development environment set up, and know how to manage packages, we are ready
+to start writing some code. But before you dive into it, it is worth spending some time learning a bit about Python
+coding style conventions to make sure that your code is nicely and consistently formatted and more readable.
 
 ## Python Coding Style Guide
 One of the most important things we can do to make sure our code is readable by others
 (and ourselves a
 few months down the line) is to make sure that it is descriptive, cleanly and consistently formatted and uses sensible,
 descriptive names for variable, function and module names. In order to help us format our code, we generally follow
-guidelines known as a style guide. A style guide is a set of conventions that we agree upon with our colleagues or
+guidelines known as a **style guide**. A style guide is a set of conventions that we agree upon with our colleagues or
 community, to ensure that everyone contributing to the same project is producing code which looks similar in style.
 While a group of developers may choose the write and agree upon a new style guide unique to each project,
 in practice many programming languages have a single style guide which is
 adopted almost universally by the communities around the world. In Python, although we do have a choice of style guides
-available for Python, the [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used.
+available, the [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used.
 PEP here stands for Python Enhancement Proposals; PEPs are design documents for the Python community, typically
 specifications or conventions for how to do something in Python, a description of a new feature in Python, etc.
 
@@ -48,14 +51,14 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 >
 {: .callout}
 
-As we have already covered in the [episode on IDEs](../02-ides/index.html), PyCharm highlights the language syntax and
-errors. PyCharm also gives us recommendations for formatting the code - these recommendations
+As we have already covered in the [episode on IDEs](../02-ides/index.html), PyCharm highlights the language constructs 
+(reserved words) and syntax errors. PyCharm also gives us recommendations for formatting the code - these recommendations
 are mostly taken from the PEP8 style guide.
 
 A full list of style guidelines is available from the [PEP8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
 
 ### Indentation
-Spaces are the preferred indentation method. The recommendation is to use 4 spaces per indentation level,
+Spaces are the preferred indentation method. The recommendation is to use 4 spaces per indentation level - 
 so 4 spaces on level one, 8 spaces on level 2 and so on.
 Many people prefer the use of tabs to spaces to indent the code for many reasons (e.g. additional typing, easy to
 introduce an error by missing a single space character, etc.) and do not follow this guideline. Whether you decide to
@@ -72,7 +75,7 @@ PyCharm has built-in support for converting tab indentation to spaces "under the
 conform to PEP8. So, you can type a tab character and PyCharm will automatically convert it to 4 spaces. You can control
 the amount of spaces that PyCharm uses to replace one tab character or you can decide to keep the tab character
 altogether and prevent automatic conversion. You can modify these settings in PyCharm's
-`Preferences`>`Editor`>`Code Style`>`Python`.
+`Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux) or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
 
 ![pycharm-indentation](../fig/pycharm-indentation.png)
 
@@ -81,10 +84,9 @@ being used by selecting `View`>`Active Editor`>`Show whitespace`.
 
 ![pycharm-whitespace](../fig/pycharm-whitespace.png)
 
-
 There are more complex rules on indenting single units of code that continue over several lines, e.g. function,
 list or dictionary definitions can all take more than one line. The preferred way of wrapping such long lines is by
-using Python's implied line continuation inside delimeters such as parentheses (`()`), brackets (`[]`) and braces
+using Python's implied line continuation inside delimiters such as parentheses (`()`), brackets (`[]`) and braces
 (`{}`), or a hanging indent.
 
  ~~~
@@ -125,11 +127,22 @@ More details on good and bad practices for continuation lines can be found in
 [PEP8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
 
 ### Maximum Line Length
-All lines should be up to 80 characters long. For lines containing comments or docstrings (to be covered later), the
-line length limit should be 73. Some teams strongly prefer a longer line length, and seemed to have settled on the
+All lines should be up to 80 characters long; for lines containing comments or docstrings (to be covered later) the
+line length limit should be 73 - see [this discussion](https://www.google.com/url?q=https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length&sa=D&source=editors&ust=1619088968027000&usg=AOvVaw3jn26Qt-kwog_tJnaMR48x) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
 length of 100. Long lines of code can be broken over multiple lines by wrapping expressions in delimiters, as
-mentioned above (the preferred method), or using a backslash (`\`) at the end of the line to indicate
-line continuation (the less preferred method).
+mentioned above (preferred method), or using a backslash (`\`) at the end of the line to indicate
+line continuation (slightly less preferred method).
+
+ ~~~ 
+# Using delimiters ( ) to wrap a multi-line expression
+if (a == True and 
+    b == False):
+
+# Using a backslash (/) for line continuation
+if a == True and /
+    b == False:
+ ~~~
+{: .language-python}
 
 ### Should a Line Break Before or After a Binary Operator?
 Lines should break before binary operators so that the operators do not get scattered across different columns
@@ -256,11 +269,22 @@ established if joining a project mid-way. Some things to be vary of when naming 
 as single character variable names. In some fonts, these characters are indistinguishable from the numerals
 one and zero. When tempted to use 'l', use 'L' instead.
 - Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
-- You should try to use English words for identifiers whenever possible
+- Try to use English words for identifiers and comments whenever possible. Remember that your audience may be 
+international so try to avoid abbreviations/local slang too (if you are a native English speaker). Also consider 
+sticking with either ‘American’ or 'British' English spellings but do not mix the two.
 
-A more detailed guide on
+> ## Function, Variable, Class, Module, Package Naming
+>
+> - Function and variable names should be lowercase, with words separated by underscores as necessary to improve readability
+> - Class names should normally use the CapitalizedWords (or CamelCase) convention
+> - Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability
+> - Packages should also have short, all-lowercase names, although the use of underscores is discouraged
+>  
+>A more detailed guide on
 [naming functions, modules, classes and variables](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)
 is available from PEP8.
+>
+{: .callout}
 
 ### Comments
 Comments allow us to provide the reader with additional information on what the code does - reading and understanding
@@ -301,11 +325,11 @@ The reader should be able to understand a single function or method from its cod
 However, there are some restrictions. Comments that simply restate what the code does are redundant, and comments must be
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
-> ## Improved code style for our software project
+> ## Improve Code Style of Our Project
 Look at `patientdb.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
 the discovered inconsistencies.
 > > ## Solution
-> > There are a few things to fix here:
+> > There are a few things to fix here, for example:
 > >
 > > 1.Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and
 > > hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of
@@ -338,11 +362,14 @@ the discovered inconsistencies.
 > > ~~~
 > > {: .language-python}
 > >
-> > 2.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the
+> > 2.Variable 'InFiles' in `patientdb.py` uses CamelCase naming convention which is not 
+>recommended for variable names.
+> >
+> > 3.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the
 > > middle of the code unless you want to separate logical units - in which case only one blank like is used.
 > > Note how PyCharm is warning us by underlying the whole line.
 > >
-> > 3.Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
+> > 4.Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
 > > `patientdb.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
 > {: .solution}
 {: .challenge}
@@ -381,7 +408,7 @@ A comment string like this is called a *docstring*. We do not need to use triple
 if we do, we can break the string across multiple lines. This also applies to Python modules, which are essentially
 files of Python functions, or methods within classes and docstrings are used to list them all.
 
-> ## Python PEP 257 - recommendations for docstrings
+> ## Python PEP 257 - Recommendations for Docstrings
 > PEP 257 is another one of Python Enhancement Proposals and this one deals with docstring conventions to
 >standardise how they are used. For example, on the subject of module-level docstrings, PEP 257 says:
 >
@@ -391,7 +418,9 @@ files of Python functions, or methods within classes and docstrings are used to 
 > summary line in the object's docstring.) The docstring for a package
 > (i.e., the docstring of the package's `__init__.py` module) should also list the modules and subpackages exported by
 > the package.
-> ~~~
+> ~~~ 
+> Note that `__init__.py` file used to be a required part of a package (pre Python 3.3) where a package was typically 
+>implemented as a directory containing an `__init__.py` file which got implicitly executed when a package was imported.
 {: .callout}
 
 So, at the beginning of a module file we can just add a docstring explaining the nature of a module. For example, if

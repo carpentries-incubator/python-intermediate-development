@@ -13,17 +13,21 @@ keypoints:
 - "A branch is one version of your project that can contain its own set of commits."
 - "Feature branches enable us to develop / explore / test new code features without affecting the stable `master` code."
 ---
+
+## Introduction
 So far we have checked out our software project from GitHub, learned how to configure and use PyCharm for Python
 code development, and some Python coding conventions for writing clean and clear code. We have also made some
-changes to our code and now we want to check those changes in and share them with others in our team using git.
-Let's remind
-ourselves how to work with git from the command line.
+changes to our code and now we want to check those changes in and share them with others in our team via GitHub by using 
+version control system Git. This is a typical software development workflow - you work locally on code, test it to make sure
+it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository. 
+
+Let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 ![git-lifecycle](../fig/git-lifecycle.png)
 <p style="text-align: center;">Diagram: Git lifecycle, https://www.pngwing.com/en/free-png-sazxf</p>
 
-The first thing to do is to check the current status of our local repository.
+The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
 
 ~~~
 $ git status
@@ -122,7 +126,8 @@ branch without affecting the rest of the code.
 
 Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
 
-![git-feature-branch](../fig/git-feature-branch.svg)
+<img src="../fig/git-feature-branch.svg" alt="Git feature branch" width="700" />
+
 
 In the software development workflow, we typically have a main (`master`) branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress
@@ -219,7 +224,7 @@ We push the contents of the `develop` branch to GitHub in the same way as we pus
 just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by
 listing all branches.
 
-![software-template-repo-master-branch](../fig/software-template-repo-master-branch.png)
+<img src="../fig/software-template-repo-master-branch.png" alt="software project's master branch" width="700" />
 
 To push a new local branch remotely for the first time, we have to use the `-u` switch and the name of the branch you
 are creating and pushing to:
@@ -229,11 +234,13 @@ $ git push -u origin develop
 ~~~
 {: .language-bash}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too.
+Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your 
+repository in GitHub, click the branch dropdown menu (currently showing the default branch `master`). You should
+see your `develop` branch in the list too.
 
-![software-template-repo-develop-branch](../fig/software-template-repo-develop-branch.png)
+<img src="../fig/software-template-repo-develop-branch.png" alt="software project's develop branch" width="700" />
 
-Now the others can check out this branch too and continue to develop code on it.
+Now the others can check out the `develop` branch too and continue to develop code on it.
 
 After the initial push of the new
 branch, each next time we push to it in the usual manner (i.e. without the `-u` switch):
@@ -271,8 +278,11 @@ Fast-forward
 ~~~
 {: .output}
 
-If there are no conflicts, git will merge the branches without complaining and replay all commits from
-`develop` on top of the last commit from `master`. And we can now push `master` to remote repository too:
+If there are no conflicts, Git will merge the branches without complaining and replay all commits from
+`develop` on top of the last commit from `master`. If there are merge conflicts (e.g. a team collaborator modified the same 
+portion of the same file you are working on and checked in their changes before you), the particular files with conflicts 
+will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again. 
+Since we have no conflicts, we can now push `master` to remote repository:
 
 ~~~
 git push origin master
