@@ -13,17 +13,21 @@ keypoints:
 - "A branch is one version of your project that can contain its own set of commits."
 - "Feature branches enable us to develop / explore / test new code features without affecting the stable `master` code."
 ---
+
+## Introduction
 So far we have checked out our software project from GitHub, learned how to configure and use PyCharm for Python
 code development, and some Python coding conventions for writing clean and clear code. We have also made some
-changes to our code and now we want to check those changes in and share them with others in our team using git.
-Let's remind
-ourselves how to work with git from the command line.
+changes to our code and now we want to check those changes in and share them with others in our team via GitHub by using 
+version control system Git. This is a typical software development workflow - you work locally on code, test it to make sure
+it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository. 
+
+Let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 ![git-lifecycle](../fig/git-lifecycle.png)
 <p style="text-align: center;">Diagram: Git lifecycle, https://www.pngwing.com/en/free-png-sazxf</p>
 
-The first thing to do is to check the current status of our local repository.
+The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
 
 ~~~
 $ git status
@@ -271,8 +275,11 @@ Fast-forward
 ~~~
 {: .output}
 
-If there are no conflicts, git will merge the branches without complaining and replay all commits from
-`develop` on top of the last commit from `master`. And we can now push `master` to remote repository too:
+If there are no conflicts, Git will merge the branches without complaining and replay all commits from
+`develop` on top of the last commit from `master`. If there are merge conflicts (e.g. a team collaborator modified the same 
+portion of the same file you are working on and checked in their changes before you), the particular files with conflicts 
+will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again. 
+Since we have no conflicts, we can now push `master` to remote repository:
 
 ~~~
 git push origin master
