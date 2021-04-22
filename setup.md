@@ -5,11 +5,11 @@ title: Setup
 You will need the following software installed and working correctly on your system to be able to follow the workshop.
 
 ## Shell/Terminal Program
-You can use a shell program such as  Bash. If you already have a shell other than Bash you can use that instead, that is fine as none of the content of this workshop is specific to Bash.
-  - On Windows the Bash shell will be installed as part of the Git (gitforwindows - see below) distribution
+You can use a shell program such as Bash. If you already have a shell other than Bash you can use that instead, that is fine as none of the content of this workshop is specific to Bash.
+  - On Windows the Bash shell will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
   - On MacOS and Linux you will already have a shell available
 
-To test the installation, start your shell/terminal program and type:
+To test the installation, start your shell/terminal/Git Bash program and type:
 ~~~
 $ date
 ~~~
@@ -25,12 +25,12 @@ Wed 21 Apr 2021 11:38:19 BST
 ## Git Version Control Tool
 Git is a program that can accessed via a shell/terminal.
 
-  - On Windows Git can be downloaded from [https://gitforwindows.org/](https://gitforwindows.org/) - this will 
-  install the shell program as well as Git 
+  - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
+  install the Bash shell as well as Git 
   - On MacOS Git should be included as part of xcode-tools and should be available from your shell/terminal
   - On Linux Git can be installed using your favourite package manager
 
-To test the installation, start your shell program and type:
+To test the installation, start your shell/terminal/Git Bash program and type:
 ~~~
 $ git help
 ~~~

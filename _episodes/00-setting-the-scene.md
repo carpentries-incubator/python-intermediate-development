@@ -15,7 +15,8 @@ that will be of most use to anyone working collaboratively on code."
 - "The lesson follows on from the novice Software Carpentry lesson, but it not a prerequisite for attending as long as
 you have some basic Python, shell and Git skills."
 ---
-## Setting the Scene
+
+## Introduction
 This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
 software development process. We will teach you to use a number of different software development tools and techniques 
 simultaneously and interchangeably as you would in a real life, rather than teaching them separately. 
