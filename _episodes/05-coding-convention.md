@@ -363,7 +363,7 @@ the discovered inconsistencies.
 > > {: .language-python}
 > >
 > > 2.Variable 'InFiles' in `patientdb.py` uses CamelCase naming convention which is not 
->recommended for variable names.
+>recommended for variable names. Rename it to, e.g. `infiles`.
 > >
 > > 3.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the
 > > middle of the code unless you want to separate logical units - in which case only one blank like is used.
