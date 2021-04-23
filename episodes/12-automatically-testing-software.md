@@ -358,7 +358,7 @@ completed operation for: /Users/user/Projects/SSI/intermediate-swc/python-interm
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. This also means as we develop and need to test our code we don't need to install it properly as a full package each time.
+This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it properly as a full package each time we make a change.
 
 ### Running the tests
 
