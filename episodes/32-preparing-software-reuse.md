@@ -77,7 +77,12 @@ pylint 2.7.2
 ~~~
 {: .output}
 
-We should also update our `requirements.txt` with this new addition. Add the line `pylint==2.7.2` (or whatever the version is for your installation) to it and save it.
+We should also update our `environment.yml` with this new addition:
+
+~~~
+$ conda env export --from-history > environment.yml
+~~~
+{: .language-bash}
 
 Pylint is a command-line tool that can help our code in many ways:
 
@@ -162,7 +167,7 @@ Now we can also add this Pylint execution to our continuous integration builds. 
 ...
     - name: Check style with Pylint
       run: |
-        pylint --fail-under=0 --reports=y inflammation
+        conda run -n patient pylint --fail-under=0 --reports=y inflammation
 ...
 ~~~
 {: .language-bash}
@@ -172,13 +177,13 @@ Note we need to add `--fail-under=0` otherwise the builds will fail if we don't 
 Then we can just add this to our repo and trigger a build:
 
 ~~~
-$ git add .github/workflows/main.yml requirements.txt
+$ git add .github/workflows/main.yml environment.yml
 $ git commit -m "Add Pylint run to build"
 $ git push
 ~~~
 {: .language-bash}
 
-Then once complete, under the build(s) reports you should see the output from Pylint as before, but with an extended breakdown of the infractions by category as well as other metrics for the code, such as the number and line percentages of code, docstrings, comments, and empty lines.
+Then once complete, under the build(s) reports you should see an entry with the output from Pylint as before, but with an extended breakdown of the infractions by category as well as other metrics for the code, such as the number and line percentages of code, docstrings, comments, and empty lines.
 
 So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
 
