@@ -16,7 +16,7 @@ keypoints:
 - "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
 
-So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using Continuous Integration.
+So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using **Continuous Integration**.
 
 
 ## What is Continuous Integration?
@@ -32,7 +32,7 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ### YAML - a deeper dive
 
-We've seen these a few times before, with our `environment.yml` files which we'll be looking in more detail at shortly, but they're also used to write GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
+We've seen YAML files before, with our `environment.yml` file which we'll be looking in more detail at shortly, but they're also used to write GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
 
 [YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
 
@@ -98,7 +98,7 @@ So here we have a YAML array of our two mountaineers, each with additional keys 
 
 Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
 
-One problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause issues for others who with to use our software on different operating systems, so we use ` --from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble.
+One problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause us issues for running on continuous integration infrastructures, as well as for others who wish to use our software on different operating systems, so we use `--from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble.
 
 ~~~
 $ conda env export --from-history > environment.yml
@@ -254,7 +254,7 @@ Let's see how this is done using GitHub Actions. To support this, change `.githu
         auto-update-conda: true
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
         activate-environment: patient
-        environment-file: env.yml
+        environment-file: environment.yml
 ...
 ~~~
 {: .language-bash}
