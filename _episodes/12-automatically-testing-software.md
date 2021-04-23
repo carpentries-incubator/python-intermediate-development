@@ -343,7 +343,7 @@ setup(name="patient-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. But first, we need to install our code as a local package:
+This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. We next need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
 $ conda develop .
