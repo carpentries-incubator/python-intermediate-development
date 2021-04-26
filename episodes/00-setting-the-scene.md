@@ -132,7 +132,7 @@ where you fit on the skills spectrum and if this course is for you.
 > 
 >   ~~~
 >   a. {"apple", "banana", "cherry"}  
->   b. {"name": "apple", type: "fruit"}  
+>   b. {"name": "apple", "type": "fruit"}  
 >   c. ["apple", "banana", "cherry"]  
 >   d. ("apple", "banana", "cherry")   
 >   ~~~
@@ -140,7 +140,7 @@ where you fit on the skills spectrum and if this course is for you.
 > 
 > > ## Solution 
  > > While all of the answers define a collection in Python, `["apple", "banana", "cherry"]` defines a list and 
-> is the correct answer. `{"apple", "banana", "cherry"}` defines a set; `{"name": "apple", type: "fruit"}` defines a dictionary 
+> is the correct answer. `{"apple", "banana", "cherry"}` defines a set; `{"name": "apple", "type": "fruit"}` defines a dictionary 
 > (a hash map),`("apple", "banana", "cherry")` defines a tuple (an ordered and unchangeable collection). 
  > {: .solution} 
 > 2.What is the correct syntax for *if* statement in Python?
