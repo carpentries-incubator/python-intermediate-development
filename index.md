@@ -69,7 +69,7 @@ This course is for you if:
 
 > ## Learning Objectives
 > - know how to set up and use a number of tools and own virtual environment to develop software collaboratively in a team
-> - know how to implement a test framework to verify the correct behaviour of code  
+> - know how to set up a test framework to verify the correct behaviour of code  
 > - be able to design and write robust software
 > - know how to publish and release your software
 {: .objectives }
