@@ -17,12 +17,24 @@ keypoints:
 - "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
 
+## Introduction
+
+With FizzBuzz, we saw an example of where Object Oriented Programming works badly, so where does it work well?
+
+This paradigm is useful when data is structured, often because it represents an entity which exists in the real world.
+This entity has **attributes** which can be measured, and **behaviours** which it can perform.
+An obvious example of an entity with attributes and behaviours is a person.
+
+People have names, heights, weights, etc., all of which might be useful for software to know about in some context.
+In the context of our clinical trial data system, we might be interested in all three of these, but also in their measurements of inflammation.
+
+Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
+
+
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
-So far, we've been processing data from a single source and with a simple tabular structure, but eventually we'll need to combine data from a range of different sources and with a more complex structure.
-
-For our patient record system, we'll need to have a way to hold the data for each patient and have code that helps us display and modify that data.
+So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to to combine data from a range of different sources and with more data than just an array of numbers.
 
 ~~~
 data = np.array([1., 2., 3.],
@@ -30,7 +42,7 @@ data = np.array([1., 2., 3.],
 ~~~
 {: .language-python}
 
-Has advantage of being able to use NumPy operations to process the data and Matplotlib to plot it, but often we need to have more structure in our data than this.
+Using this data structure has the advantage of being able to use NumPy operations to process the data and Matplotlib to plot it, but often we need to have more structure than this.
 For example, we may need to attach more information about the patients and store this alongside our measurements of inflammation.
 
 We can do this using the Python data structures we're already familiar with, dictionaries and lists.
@@ -136,11 +148,33 @@ patients = [
 Using nested dictionaries and lists should work for most cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
 For this reason, in the Object Oriented paradigm, we use **classes** to help with this data structure.
 A class is a **template** for a piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
+In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods** which describe the **behaviours** of the data.
 
 With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check the code ourselves.
 With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
 
 Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
+
+For an example of a class, let's create a model of an academic publishing papers.
+We'll add extra functionality to this model as we learn more about Object Oriented Programming in Python.
+
+~~~
+class Academic:
+    def __init__(self, name):
+        self.name = name
+        self.papers = []
+
+alice = Academic('Alice')
+print(alice.name)
+~~~
+{: .language-python}
+
+Here we've defined a class with one method: `__init__`.
+This method is the **initialiser** method, which is responsible for setting up the initial values and structure of the data inside a new instance of the class - this is very similar to **constructors** in other languages, so the term is often used in Python too.
+The `__init__` method is called every time we create a new instance of the class, as in `Academic('Alice')`.
+The argument `self` refers to the instance on which we are calling the method and does is filled in automatically by Python - we don't need to provide a value for this when we call the method.
+
+In our `Academic` initialiser method, we set their name to a value provided, and create a list of papers they've published, which is currently empty.
 
 You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python.
 
@@ -164,8 +198,8 @@ print(type(my_set))
 
 Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
 
-- They each contain data, as we have seen before.
-- They also provide a set of functions, or **methods** which describe the **behaviours** of the data.
+- They each contain data, as you will have seen before.
+- They also provide a set the set of methods describing the behaviours of the data.
 
 The behaviours we may have seen previously include:
 
@@ -176,24 +210,6 @@ The behaviours we may have seen previously include:
 - The value at a key can be looked up in a dictionary
 - The union of two sets can be found
 - The intersection of two sets can be found
-
-For our example of a class, let us create a model of an academic publishing papers.
-
-~~~
-class Academic:
-    def __init__(self, name):
-        self.name = name
-        self.papers = []
-
-alice = Academic('Alice')
-print(alice.name)
-~~~
-{: .language-python}
-
-Here we've defined a class with one method: `__init__`.
-This method is the **initialiser** method, which is responsible for setting up the initial values and structure of the data inside a new instance of the class - this is very similar to **constructors** in other languages, so the term is often used in Python too.
-
-In our `Academic` initialiser method, we set their name to a value provided, and create a list of papers they've published, which is currently empty.
 
 > ## Test Driven Development
 >
