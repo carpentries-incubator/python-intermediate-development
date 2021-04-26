@@ -235,12 +235,12 @@ The behaviours we may have seen previously include:
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
 To define the behaviour of a class we can add functions which operate on the data the class contains.
-We call these functions **member functions** or **methods**.
+These functions are the member functions or methods.
 
-These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`.
-Using the name `self` isn't strictly necessary, but is a VERY STRONG CONVENTION.
-When we call a method on an object, the value of `self` is automatically set to the object - hence the name.
-We don't need to explicitly provide a value for the `self` argument.
+Member functions are the same as normal functions (alternatively known as **free functions**), except that they live inside a class and have an extra first parameter `self`.
+Using the name `self` isn't strictly necessary, but is a very strong convention - it's extremely rare to see any other name chosen.
+When we call a method on an object, the value of `self` is automatically set to this object - hence the name.
+As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
 
 ~~~
 from datetime import datetime
@@ -632,16 +632,8 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 >
 > **Multiple Inheritance** is when a class inherits from more than one direct parent class.
 > It exists in Python, but is often not present in other Object Oriented languages.
-> Although this might seem useful, like in our inheritance-based model of the photocopier above, it's best to avoid it unless you're sure it's the right thing to do.
+> Although this might seem useful, like in our inheritance-based model of the photocopier above, it's best to avoid it unless you're sure it's the right thing to do, due to the complexity of the inheritance heirarchy.
 > Often using multiple inheritance is a sign you should instead be using composition - again like the photocopier model above.
->
-> The difficulty with multiple inheritance comes when thinking about the method resolution order.
-> If we've only got one direct parent class, that's where we look next for a missing method.
-> If we still haven't found it, we keep going up to the next parent class until we either find the method, or fail.
->
-> With multiple inheritance, it's much less obvious where we should look next - should we go through all our direct parent classes first, or go all the way up the inheritance tree for one of them first?
-> It turns out that Python does have a solution to this - [C3 Linearisation](https://en.wikipedia.org/wiki/C3_linearization).
-> This guarantees that the order will be sensible and will always be the same, but it's still much more complicated than trying to reason about than if each class only has one direct parent.
 {: .callout}
 
 > ## A Model Patient
