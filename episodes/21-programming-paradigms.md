@@ -1,8 +1,8 @@
 ---
-title: "Introduction - Day 2"
+title: "Programming Paradigms"
 start: true
-teaching: 5
-exercises: 10
+teaching: 10
+exercises: 5
 questions:
 - "How does the structure of a problem affect the structure of our code?"
 objectives:
@@ -13,7 +13,7 @@ keypoints:
 - "Different paradigms are suited to solving different classes of problems."
 ---
 
-## A Brief History of Paradigms
+## Introduction
 
 There are hundreds (probably thousands) of different programming languages, each with different expectations of how a programmer will use them to solve a problem.
 To help us to choose the language we will use and to help us describe how we want to use them, we can group the languages into **paradigms**.
@@ -58,6 +58,9 @@ By grouping code like this, we make it even easier to reason about the overall s
 These functions are also much easier to reuse code outside of functions, since we can call them from any part of our program.
 The ideas of Procedural Programming still apply here, since we can design our functions with exactly one entry and one exit point.
 
+Note that you may sometimes hear people refer to this as "Functional Programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
+Functional Programming (see below) places much stronger constraints on the behaviour of a function.
+
 
 #### Object Oriented Programming
 - Early examples: Simula (1967), Smalltalk (1972)
@@ -80,6 +83,8 @@ What we really care about here is the outcome - how this is achieved is less imp
 
 Functional Programming is built around a more strict definition of the term **function** borrowed from mathematics.
 A function in this context can be thought of as a mapping that transforms its input data into output data.
+Anything a function does other than produce an output is known as a **side effect** and should be avoided wherever possible.
+
 Being strict about this definition allows us to break down the distinction between **code** and **data**, for example by writing a function which accepts and transforms other functions - in Functional Programming *code is data*.
 
 #### Logic Programming
@@ -98,6 +103,16 @@ FizzBuzz is a common example of a simple program used to compare different langu
 The idea is to generate the sequence of integers, but replace multiples of three with "Fizz", multiples of five with "Buzz", and multiples of both with "FizzBuzz".
 
 > 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
+
+> ## FizzBuzz in Python
+>
+> Write your own implementation of FizzBuzz in Python.
+> Which paradigm(s) have you used?
+>
+> You will probably find the **modulo** operator `%` useful, which calculates the remainder after division.
+> It is used like `5 % 2` - which has the value `1`.
+>
+{: .challenge}
 
 The examples below are illustrative of some of the major paradigms - we don't expect you to fully understand what's happening in each example.
 
@@ -145,7 +160,7 @@ console.log(outputs.join('\n'))
 {: .source}
 
 In this example, the `const` keyword means that each variable is defined once and cannot have its value changed.
-Furthermore, the variables `fizzBuzz` and `range1` are actually functions, which are combined on the fourth line to produce the output.
+Furthermore, the variables `fizzBuzz` and `range1` are actually functions (`=>` is one way to define a function in JavaScript), which are combined on the fourth line to produce the output.
 Both of these are common in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
 
 It's quite difficult to come up with a sensible implementation of FizzBuzz which demonstrates the Object Oriented Paradigm.
@@ -153,6 +168,7 @@ This is because the problem doesn't really involve structured data.
 Just because you *can* use a particular paradigm to solve a problem doesn't mean you *should*.
 
 The Object Oriented implementation of FizzBuzz in Python below has similarities with both the procedural and functional implementations above, but is worse than both.
+Again, we do not expect you to fully understand this example yet, but it should make more sense after we've covered the necessary Python lessons.
 
 ~~~
 class FizzBuzzFactory:
@@ -189,22 +205,13 @@ fizzbuzz_factors = {
 }
 
 factory = FizzBuzzFactory(fizzbuzz_factors)
-print(', '.join(map(str, factory.generate(100))))
+for val in factory.generate(100):
+    print(val)
 ~~~
 {: .language-python}
 
 In this example we make a `FizzBuzzer` structure (a **class**) which holds a numeric value and a mapping from factors to phrases.
 It also implements a **behaviour** - we can find the modulo (remainder after division) of the object with respect to another value.
-
-> ## FizzBuzz in Python
->
-> Write your own implementation of FizzBuzz in Python.
-> Which paradigm(s) have you used?
->
-> You will probably need to use the **modulo** operator `%` which calculates the remainder after division.
-> It is used like `5 % 2` - which has the value `1`.
->
-{: .challenge}
 
 > ## Rosetta Code
 >
