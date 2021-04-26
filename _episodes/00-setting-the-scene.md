@@ -129,13 +129,13 @@ where you fit on the skills spectrum and if this course is for you.
 >>    `m = n`  
 >>   `n = -100 `  
 >>   
->> a. `n = 300 and m = 300`  
->> b. `n = -100 and m = 300`   
->> c. `n = -100 and m = -100`   
->> d. `n = 300 and m = -100`   
+>> a. `n = 300` and `m = 300`  
+>> b. `n = -100` and `m = 300`   
+>> c. `n = -100` and `m = -100`   
+>> d. `n = 300` and `m = -100`   
 >
 > > ## Solution 
- > > `n = -100 and m = 300` is the correct answer. 
+ > > `n = -100` and `m = 300` is the correct answer. 
  > {: .solution} 
 {: .callout} 
 
