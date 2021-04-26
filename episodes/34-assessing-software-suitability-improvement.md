@@ -17,9 +17,10 @@ keypoints:
 - "As a team agree on who and to what extent you will support software you make available to others."
 ---
 
+## Introduction
 What we've been looking at so far enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
-> ## What makes good software good?
+> ## What Makes Good Software Good?
 >
 > In pairs, discuss what makes good code actually good and note these characteristics down.
 >
@@ -41,7 +42,7 @@ What we've been looking at so far enables us to adopt a more proactive and dilig
 Overall, when adopting software to use it's important to consider not only whether it has the functionality you want, but a broader range of qualities that are important for your project.
 
 
-## Using issues to record problems with software
+## Using Issues to Record Problems With Software
 
 As a piece of software is used, bugs and other issues will inevitably come to light - nothing is perfect! If you work on your code with collaborators, or have non-developer users, it can be helpful to have a single shared record of all the problems people have found with the code, not only to keep track of them for you to work on later, but to avoid the annoyance of people emailing you to report a bug that you already know about!
 
@@ -80,7 +81,7 @@ The Enhancement label is a great way to communicate your future priorities to yo
 
 Having open, publicly-visible lists of the the limitations and problems with your code is incredibly helpful. Even if some issues end up languishing unfixed for years, letting users know about them can save them a huge amount of work attempting to fix what turns out to be an unfixable problem on their end. It can also help you see at a glance what state your code is in, making it easier to prioritise future work!
 
-> ## Our first issue!
+> ## Our First Issue!
 >
 > Thinking back to the previous exercise on what makes good code, with a critical eye think of an aspect of the code you have developed so far that needs improvement. It could be a bug, for example, or a documentation issue with your README, or an enhancement. Enter the details of the issue with a suitable label and select `Submit new issue`.
 {: .challenge}
@@ -102,9 +103,9 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 {: .callout}
 
 
-## Assessing software for suitability
+## Assessing Software for Suitability
 
-> ## Conduct assessment on third-party software
+> ## Conduct Assessment on Third-Party Software
 >
 > *The scenario:* It is envisaged that a piece of software developed by another team will be adopted and used for the long term in a number of future projects. You have been tasked with conducting a detailed assessment of this software to identify any issues that need resolving prior to working with it, and will provide feedback to the developing team to fix these issues.
 >
@@ -115,7 +116,7 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 {: .challenge}
 
 
-> ## Supporting your software - how and how much?
+> ## Supporting Your Software - How and How Much?
 >
 > Within your collaborations and projects, what should you do to support other users? Here are some key aspects to consider:
 >
