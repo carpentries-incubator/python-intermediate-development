@@ -26,41 +26,71 @@ Because of this, it's useful to know about the major paradigms, so you can recog
 >
 > -- Wikipedia - Paradigm
 
+There's two major families that we can group the common major paradigms into: **Imperative** and **Declarative**.
+For each of these families, some of the major paradigms are listed, with examples of the languges which introduced them and some languages you might encounter in your own work which predominantly use each paradigm.
+However, most of the languages listed can be used with multiple paradigms, and it's common to see multiple paradigms within a single program - so this isn't a strict list.
+
 ### The Imperative Family
 
-Code describes *how* data processing should happen.
+In the paradigms of the Imperative Family, code describes *how* data processing should happen.
 
-Structured Programming
-: Code is grouped into *logical blocks*.
-: Early example: Algol (1958)
-: You're unlikely to encounter this paradigm other than as a subset of the Procedural Paradigm
+#### Structured Programming
 
-Procedural Programming
-: Code is grouped into *procedures performing a single task*. (Does this sound familiar?)
-: Early examples: FORTRAN II (1958), COBOL (1959)
-: Common examples: C, Fortran
+- Early example: Algol (1958)
 
-Object Oriented Programming
-: Data is structured. Code *belongs with the data* it manipulates.
-: Early examples: Simula (1967), Smalltalk (1972)
-: Common examples: Python, C++, Java, C#
+The core of Structured Programming is the realisation that code should be grouped into *logical blocks*.
+This sounds obvious, but has implications further than just grouping code into blocks using constructs like `for` and `if`.
+If we can be sure that a block has exactly one **entry point** at the top, and exactly one **exit point** at the bottom, then when we reason about the overall flow of the program, we can treat that block as if it's a straight line, regardless of the structure inside it.
+
+This paradigm has largely been replaced now and only exists as a subset of the other paradigms.
+Nonetheless, we should remember this model of entry and exit points and use it to simplify the structure of our code within any of the other paradigms.
+
+
+#### Procedural Programming
+
+- Early examples: FORTRAN II (1958), COBOL (1959)
+- Common examples in research: C, Fortran
+
+Procedural Programming is probably the style you're most familiar with up to this point, where we group code into *procedures performing a single task*.
+In most modern languages we call these **functions**, instead of procedures - so if you're grouping your code into functions, this might be the paradigm you're using.
+
+By grouping code like this, we make it even easier to reason about the overall structure, since we should be able to tell roughly what a function does just by looking at its name.
+These functions are also much easier to reuse code outside of functions, since we can call them from any part of our program.
+The ideas of Procedural Programming still apply here, since we can design our functions with exactly one entry and one exit point.
+
+
+#### Object Oriented Programming
+- Early examples: Simula (1967), Smalltalk (1972)
+- Common examples in research: Python, C++, Java, C#
+
+In Object Oriented Programming, we first think about the structure of the data and the things that we're modelling.
+For example, if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
+Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want - in this case, for example, we often need to know the mass and electric charge of each atom.
+So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of it's properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
+This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
 
 ### The Declarative Family
 
-Code describes *what* data processing should happen.
+The Declarative Family is a distinct set of paradigms which have a different outlook on what a program is - here code describes *what* data processing should happen.
+What we really care about here is the outcome - how this is achieved is less important.
 
-Functional Programming
-: Functions are mathematical operations. *Code is data*.
-: Early example: Lisp (1958)
-: Common examples: R, JavaScript, Hadoop, Spark
+#### Functional Programming
+- Early example: Lisp (1958)
+- Common examples in research: R, JavaScript, Hadoop, Spark
 
-Logic Programming
-: Code is a *set of facts and rules*. Programs are executed by making a query.
-: Early and common example: Prolog (1972)
-: You're unlikely to encounter this paradigm unless you're a computer scientist or mathematician working in the field of logic reasoning - it's included here for balance
+Functional Programming is built around a more strict definition of the term **function** borrowed from mathematics.
+A function in this context can be thought of as a mapping that transforms its input data into output data.
+Being strict about this definition allows us to break down the distinction between **code** and **data**, for example by writing a function which accepts and transforms other functions - in Functional Programming *code is data*.
 
-For each of the paradigms above, we've listed a couple of programming languages / tools commonly used in research for which this is the major paradigm.
-Many of these languages (and many languages in general) can actually be used with a range of paradigms - so don't take this as a strict list.
+#### Logic Programming
+- Early and common example: Prolog (1972)
+
+Logic Programming is even closer to mathematics, being based on **formal logic**.
+In this paradigm, our program is written as a *set of facts and rules* which form a system of logic.
+We can then execute queries against this set, which the computer tries to prove.
+
+You're unlikely to encounter this paradigm unless you're working on problems around systems of reasoning, but it's included here for balance, to show that the Declarative Family isn't just Functional Programming.
+
 
 ## 1, 2, Fizz, 4, Buzz ... FizzBuzz
 
@@ -69,7 +99,9 @@ The idea is to generate the sequence of integers, but replace multiples of three
 
 > 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
 
-The FizzBuzz implementation below, written in C, is characteristic of the procedural paradigm.
+The examples below are illustrative of some of the major paradigms - we don't expect you to fully understand what's happening in each example.
+
+This FizzBuzz implementation, written in C, is characteristic of the procedural paradigm.
 The code shows a sequence of instructions which should be run to obtain the desired result.
 
 ~~~
@@ -96,8 +128,11 @@ int main (void)
 ~~~
 {: .source}
 
-In contrast, this implementation of FizzBuzz in Javascript is characteristic of the functional paradigm.
-The code is structured as a sequence of transformations which are applied to data to obtain the desired result.
+Although this is just an illustrative example and we don't expect most learners to be familiar with C, you may recognise similaries between this code and Python you've written in the past.
+The fundamental structure is a `for` loop, containing some `if` statements to make decisions - C uses similar keywords for these as Python, though the syntax around them is different.
+
+In contrast, this implementation of FizzBuzz in Javascript is characteristic of the functional paradigm and probably looks completely unfamiliar.
+Each line describes either a piece of data or a data transformation, which are combined to obtain the desired result.
 
 ~~~
 const factors = [[3, 'Fizz'], [5, 'Buzz']]
@@ -109,15 +144,15 @@ console.log(outputs.join('\n'))
 ~~~
 {: .source}
 
-Note how in the functional JavaScript example, every variable is declared as `const` - meaning that the value cannot be changed (perhaps 'variable' isn't the best word here, but it's still used).
-You may also notice that two of the variables (`fizzBuzz` and `range1`) are actually functions.
+In this example, the `const` keyword means that each variable is defined once and cannot have its value changed.
+Furthermore, the variables `fizzBuzz` and `range1` are actually functions, which are combined on the fourth line to produce the output.
 Both of these are common in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
 
 It's quite difficult to come up with a sensible implementation of FizzBuzz which demonstrates the Object Oriented Paradigm.
 This is because the problem doesn't really involve structured data.
 Just because you *can* use a particular paradigm to solve a problem doesn't mean you *should*.
 
-The Object Oriented implementation of FizzBuzz below has similarities with both the procedural and functional implementations above, but is worse than both.
+The Object Oriented implementation of FizzBuzz in Python below has similarities with both the procedural and functional implementations above, but is worse than both.
 
 ~~~
 class FizzBuzzFactory:
@@ -158,10 +193,16 @@ print(', '.join(map(str, factory.generate(100))))
 ~~~
 {: .language-python}
 
+In this example we make a `FizzBuzzer` structure (a **class**) which holds a numeric value and a mapping from factors to phrases.
+It also implements a **behaviour** - we can find the modulo (remainder after division) of the object with respect to another value.
+
 > ## FizzBuzz in Python
 >
 > Write your own implementation of FizzBuzz in Python.
 > Which paradigm(s) have you used?
+>
+> You will probably need to use the **modulo** operator `%` which calculates the remainder after division.
+> It is used like `5 % 2` - which has the value `1`.
 >
 {: .challenge}
 
