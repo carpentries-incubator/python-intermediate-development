@@ -25,7 +25,8 @@ Let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 <img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
-<p style="text-align: center;">Diagram: Software development lifecycle with Git, from <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
+<p style="text-align: center;">Software development lifecycle with Git<br>
+From <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
 
 The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
 
@@ -88,7 +89,8 @@ though, it is easiest to use one copy as a central hub where everyone pushes the
 and to keep it on the Web rather than on someone’s laptop.
 
 ![git-distributed](../fig/git-distributed.png)
-<p style="text-align: center;">Diagram: Git - distributed version control system, https://www.w3docs.com/learn-git/git-repository.html</p>
+<p style="text-align: center;">Git - distributed version control system<br>
+From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
 
 ## Git Branches
 When we do `git status` git also tells us that we are currently on the `master` branch of the project.
@@ -127,6 +129,8 @@ branch without affecting the rest of the code.
 Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
 
 <img src="../fig/git-feature-branch.svg" alt="Git feature branch" width="700" />
+<p style="text-align: center;">Git feature branches <br>
+From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main (`master`) branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress
