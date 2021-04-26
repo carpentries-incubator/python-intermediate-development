@@ -252,8 +252,9 @@ scientific code development included with the distribution. If you are only coll
 Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be aware of all these tools, 
 and use them appropriately - we will continue to use `conda` only for all the aforementioned tasks throughout this workshop.
 
-<img src="../fig/python-environment-hell.png" alt="Python Environment Hell XKCD comic"/>
-<p style="text-align: center;">Python Environment Hell, <a href="https://xkcd.com/1987/" target="_blank">XKCD comic</a> (Creative Commons Attribution-NonCommercial 2.5 License)</p>
+<img src="../fig/python-environment-hell.png" alt="Python environment hell XKCD comic"/>
+<p style="text-align: center;">Python Environment Hell<br>
+From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons Attribution-NonCommercial 2.5 License)</p>
 
 ### Package Management With `conda` - an Overview
 
