@@ -68,11 +68,9 @@ This course is for you if:
 {: .prereq}
 
 > ## Learning Objectives
-> After following this lesson, you will:
->
-> - have intermediate Python software development skills
-> - be able to write robust software
-> - know how to develop software collaboratively
+> - know how to set up and use a number of tools and own virtual environment to develop software collaboratively in a team
+> - know how to implement a test framework to verify the correct behaviour of code  
+> - be able to design and write robust software
 > - know how to publish and release your software
 {: .objectives }
 
