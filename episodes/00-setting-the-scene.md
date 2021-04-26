@@ -23,7 +23,7 @@ simultaneously and interchangeably as you would in a real life, rather than teac
 organised into 4 half-day blocks, with the following learning objectives:
 
 1. setting up an own virtual environment using a variety of tools to develop software collaboratively in a team
-2. implementing a test framework to verify the correct behaviour of code  
+2. implementing a test framework to verify the correct behaviour of code and automate testing
 3. software design paradigms and writing robust software
 4. publishing and releasing software for reuse by others
 
