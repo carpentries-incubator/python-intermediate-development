@@ -25,7 +25,7 @@ Let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 <img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
-<p style="text-align: center;">Diagram: Software development lifecycle with Git, from <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
+<p style="text-align: center;">Diagram: Software development lifecycle with Git, <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
 
 The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
 
