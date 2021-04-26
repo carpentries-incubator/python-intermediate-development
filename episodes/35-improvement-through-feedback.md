@@ -19,6 +19,7 @@ keypoints:
 - "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
 ---
 
+## Introduction
 When a software project has been around for even just a short amount of time, you'll likely discover many aspects that can be improved. These can come from issues that have been registered via collaborators or users, but also those you're aware of internally, which should also be registered as issues. When starting a new software project, you'll also have to determine how you'll handle all the requirements. But which ones should you work on first, which are the most important and why, and how should you organise all this work?
 
 Software has a fundamental role to play in doing science, but unfortunately software development is often given short shrift in academia when it comes to prioritising effort. There are also many other draws on our time in addition to the research, development, and writing of publications that we do, which makes it all the more important to prioritise our time for development effectively.
@@ -26,7 +27,7 @@ Software has a fundamental role to play in doing science, but unfortunately soft
 In this lesson we'll be looking at prioritising work we need to do and what we can use from the agile perspective of project management to help us do this in our software projects.
 
 
-## Estimation as a foundation for prioritisation
+## Estimation as a Foundation for Prioritisation
 
 For simplicity, we'll refer to our issues as *requirements*, since that's essentially what they are - new requirements for our software to fulfil.
 
@@ -41,7 +42,7 @@ We also need estimates for how long each requirement will take to resolve, since
 
 It is often not the reality, but estimation should ideally be done by the people likely to do the actual work (i.e. the Research Software Engineers, researchers, or developers). It shouldn't be done by project managers or PIs simply because they are not best placed to estimate, and those doing the work are the ones who are effectively committing to these figures.
 
-> ## Why is it so difficult to estimate?
+> ## Why Is It so Difficult to Estimate?
 >
 > Estimation is a very valuable skill to learn, and one that is often difficult. Lack of experience in estimation can play a part, but a number of psychological causes can also contribute. One of these is Dunning-Kruger, a type of cognitive bias in which people tend to overestimate their abilities, whilst in opposition to this is imposter syndrome, where due to a lack of confidence people underestimate their abilities. The key message here is to be honest about what you can do, and find out as much information that is reasonably appropriate before arriving at an estimate.
 >
@@ -56,7 +57,7 @@ An effective way of helping to make your estimates more accurate is to do it as 
 {: .challenge}
 
 
-# Using MoSCoW to prioritise work
+# Using MoSCoW to Prioritise Work
 
 Now we have our estimates we can decide how important each requirement is to the success of the project. This should be decided by the project stakeholders; those - or their representatives - who have a stake in the success of the project and are either directly affected or affected by the project, e.g. Principle Investigators, researchers, Research Software Engineers, collaborators, etc.
 
@@ -82,11 +83,11 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can optiona
 >
 {: .challenge}
 
-## Using sprints to organise and work on requirements
+## Using Sprints to Organise and Work on Requirements
 
 A sprint is an activity applied to a timebox, where development is undertaken on the agreed prioritised work for the period. In a typical sprint, there are daily meetings called **scrum meetings** which check on how work is progressing,  and serves to highlight any blockers and challenges to meeting the sprint goal.
 
-> ## Conduct a mini-mini-sprint
+> ## Conduct a Mini-Mini-Sprint
 >
 > For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue.
 >

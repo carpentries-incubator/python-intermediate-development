@@ -17,6 +17,7 @@ keypoints:
 - "Ensure that unit tests check for **edge** and **corner cases** too."
 ---
 
+## Introduction 
 Unit testing can tell us something is wrong in our code and give a rough idea of where the error is by which
 test(s) are failing. But it does not tell us exactly where the problem is (i.e. what line of code), or how it came about.
 To give us a better idea of what is going on, we can:
@@ -123,7 +124,7 @@ Let us use a debugger at this point to see what is going on and why the function
 Think of debugging like performing exploratory surgery - on code! Debuggers allow us to peer at the internal workings
 of a program, such as variables and other state, as it performs its functions.
 
-### Running tests within PyCharm
+### Running Tests Within PyCharm
 
 First to make this a little easier to track what's going on we can set up PyCharm to run and debug our tests, as instead of running them from the command line. If you have not done so already, you will first need to
 enable the PyTest framework in PyCharm. You can do this by:

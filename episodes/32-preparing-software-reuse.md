@@ -19,10 +19,11 @@ keypoints:
 - "The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end."
 ---
 
+## Introduction
 If previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
 
 
-## The levels of software reusability - good practice revisited
+## The Levels of Software Reusability - Good Practice Revisited
 
 Let's begin by taking a closer look at software reusability and what we want from it.
 
@@ -37,7 +38,7 @@ Firstly, whilst we want to ensure our software is reusable by others, as well as
 Later levels imply the earlier ones. So what should we aim for? As researchers who develop software - or developers who write research software - we should be aiming for at least the fourth one: reusability. Reproducibility is required if we are to successfully claim that what we are doing when we write software fits within acceptable scientific practice, but it is also crucial that we can write software that can be *understood* by others. If others are unable to verify that a piece of software follows published algorithms and ideally *modified*. Where 'others', of course, can include a future version of ourselves.
 
 
-## Verifying code style using linters
+## Verifying Code Style Using Linters
 
 We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
 
@@ -93,7 +94,7 @@ Pylint is a command-line tool that can help our code in many ways:
 
 Pylint can also identify **code smells**.
 
-> ## How does code smell?
+> ## How Does Code Smell?
 >
 > There are many ways that code can exhibit bad design whilst not breaking any rules and working correctly. A *code smell* is a characteristic that indicates that there is an underlying problem with source code, e.g. large classes or methods, methods with too many parameters, duplicated statements in both if and else blocks of conditionals, etc. They aren't functional errors in the code, but rather are certain structures that violate principles of good design and impact design quality. They can also indicate that code is in need of maintenance.
 >
@@ -149,7 +150,7 @@ Near the end you'll see:
 
 So for an example of a Pylint Python-specific `warning`, see our accidental redefinition of `max` above.
 
-> ## How does Pylint calculate the score?
+> ## How Does Pylint Calculate the Score?
 >
 > The Python formula used is (with the variables representing numbers of each type of infraction and `statement` indicating the total number of statements):
 >
@@ -212,7 +213,7 @@ Don't forget to remove the `--fail-under` argument to Pytest in our GitHub Actio
 Now when we run Pylint we won't be penalised for having a reasonable line length. For some further hints and tips on how to approach using Pylint for a project, see [this article](https://pythonspeed.com/articles/pylint/).
 
 
-## Documenting code to improve reusability
+## Documenting Code to Improve Reusability
 
 Reproducibility is a cornerstone of science, and scientists who work in many disciplines are expected to document the processes by which they've conducted their research so it can be reproduced by others. In medicinal, pharmacological, and similar research fields for example, researchers use logbooks which are then used to write up protocols and methods for publication.
 
@@ -324,14 +325,14 @@ For more verbose sections, there are usually just highlights in the README with 
 
 We'll finish these off later. See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
-### Other documentation
+### Other Documentation
 
 There are many different types of other documentation you should also consider writing and making available that's beyond the scope of this course. The key is to consider which audiences you need to write for, e.g. end users, developers, maintainers, etc., and what they need from the documentation. There's a Software Sustainability Institute [blog post on best practices for research software documentation](https://www.software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation) that helpfully covers the kinds of documentation to consider and other effective ways to convey the same information.
 
 One that you should always consider is **technical documentation**. This typically aims to help other developers understand your code sufficiently well to make their own changes to it, which could include other members in your team (and as we said before, also a future version of yourself). This may include documentation that covers the software's architecture, including the different components and how they fit together, API (Application Programmer Interface) documentation that describes the interface points designed into your software for other developers to use, e.g. for a software library, or technical tutorials/'how tos' to accomplish developer-oriented tasks.
 
 
-## Choosing an open source licence
+## Choosing an Open Source Licence
 
 Software licensing can be a whole topic in itself, so we’ll just summarise here. Your institution’s Intellectual Property (IP) team will be able to offer specific guidance that fits the way your institution thinks about software.
 
@@ -357,7 +358,7 @@ Within the open source licenses, there are two categories, **copyleft** and **pe
 
 Which of these types of license you prefer is up to you and those you develop code with. If you want more information, or help choosing a license, the [Choose An Open-Source License](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
-> ## Preparing for release
+> ## Preparing for Release
 >
 > In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a license, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
 >
@@ -367,7 +368,7 @@ Which of these types of license you prefer is up to you and those you develop co
 {: .challenge}
 
 
-## Tagging a release in GitHub
+## Tagging a Release in GitHub
 
 There are many ways in which Git and GitHub can help us make a software release from our code. One of these is via **tagging**, where we attach a human-readable label to a specific commit. Let's see what tags we currently have in our repository:
 
@@ -407,7 +408,7 @@ FIXME: add output from git show
 ~~~
 {: .output}
 
-> ## What is a version number anyway?
+> ## What is a Version Number Anyway?
 >
 > Software version numbers are everywhere, and there are many different ways to do it. A popular one to consider is [**Semantic Versioning**](https://semver.org/), where a given version number uses the format MAJOR.MINOR.PATCH. You increment the:
 >
@@ -423,7 +424,7 @@ We can now use the more memorable tag to refer to this specific commit. Plus, on
 Using features like tagging allow us to highlight commits that are particularly important, which is very useful for *reproducibility* purposes. We can (and should) refer to specific commits for software in academic papers that make use of results from software, but tagging with a specific version number makes that just a little bit easier for humans.
 
 
-## Conforming to data policy and regulation
+## Conforming to Data Policy and Regulation
 
 We may also wish to make data available to either be used with the software or as generated results. This may be via GitHub or some other means. An important aspect to remember with sharing data on such systems is that they may reside in other countries, and we must be careful depending on the nature of the data.
 
