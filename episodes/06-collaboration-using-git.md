@@ -5,7 +5,7 @@ teaching: 40
 exercises: 20
 questions:
 - "What are git branches and why are they useful?"
-- "What are best practices when developing software collaboratively using git and GitHub?"
+- "What are best practices when developing software collaboratively using Git?"
 objectives:
 - "Use feature branch workflow to effectively collaborate with a team on a software project"
 
@@ -24,8 +24,8 @@ it works correctly and as expected, then record your changes using version contr
 Let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
-![git-lifecycle](../fig/git-lifecycle.png)
-<p style="text-align: center;">Diagram: Git lifecycle, https://www.pngwing.com/en/free-png-sazxf</p>
+<img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
+<p style="text-align: center;">Diagram: Software development lifecycle with Git, from <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
 
 The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
 
@@ -127,7 +127,6 @@ branch without affecting the rest of the code.
 Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
 
 <img src="../fig/git-feature-branch.svg" alt="Git feature branch" width="700" />
-
 
 In the software development workflow, we typically have a main (`master`) branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress

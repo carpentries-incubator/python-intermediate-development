@@ -70,7 +70,7 @@ Syntax highlighting is a feature that displays source code terms in different co
 category the highlighted term belongs to. It also makes syntax errors visually distinct. Highlighting does not affect
 the meaning of the code itself - is intended only for human readers and makes reading code and finding errors easier.
 
-![ide-syntax](../fig/ide-syntax.png)
+<img src="../fig/ide-syntax.png" alt="Pycharm syntax highlighting" width="900" />
 
 ### Code Completion
 As you start typing code, PyCharm will offer to complete some of the code for you in a form of an auto completion popup.
@@ -78,7 +78,7 @@ This is a context-aware code completion feature that speeds up the process of co
 common mistakes) by offering available variable
 names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
 
-<img src="../fig/ide-code-completion.png" alt="Code completion" width="700" />
+<img src="../fig/ide-code-completion.png" alt="Pycharm code completion" width="600" />
 
 ### Code Search
 You can search for a text string within a project, use different scopes to narrow your search process, use regular expressions 
@@ -89,7 +89,8 @@ in the whole project:
 2. Type your search string in the search field of the popup. Alternatively, in the editor, highlight the string you
 want to find and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows). PyCharm places the highlighted
 string into the search field of the popup.
-    ![ide-code-search](../fig/ide-code-search.png)
+    <img src="../fig/ide-code-search.png" alt="Pycharm code search panel" width="900" />
+
      If you need, specify the additional options in the popup.
      PyCharm will list the search strings and all the files that contain them.
 3. Check the results in the preview area of the dialog where you can replace the search string or select another string,
@@ -97,7 +98,7 @@ or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again to s
 4. To see the list of occurrences in a separate tool window, click the `Open in Find Window` button in the bottom right
 corner. Use this window and its options to group the results, preview them, and work with them further.
 
-<img src="../fig/ide-find-panel.png" alt="Find panel" width="800" />
+<img src="../fig/ide-find-panel.png" alt="Pycharm find panel" width="700" />
 
 ### Version Control in PyCharm
 PyCharm supports a directory-based versioning model, which means that each project directory can be
@@ -120,7 +121,7 @@ any file - for example add a blank line anywhere in `patientdb.py` then navigate
  on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from 
  the `Local Changes` tab.
 
-![ide-version-control](../fig/ide-version-control.png)
+<img src="../fig/ide-version-control.png" alt="PyCharm version control panel"  width="900"/>
 
 ### Configuring PyCharm with Anaconda
 Our software project already contains some Python code (scripts). PyCharm (and IDEs in general) allow you to run the code

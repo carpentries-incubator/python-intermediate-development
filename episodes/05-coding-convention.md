@@ -21,9 +21,9 @@ to."
 
 ## Introduction 
 
-Now that we have an IDE and our virtual development environment set up, and know how to manage packages, we are ready
+Now that we have an IDE and our virtual development environment set up, we are ready
 to start writing some code. But before you dive into it, it is worth spending some time learning a bit about Python
-coding style conventions to make sure that your code is nicely and consistently formatted and more readable.
+coding style conventions to make sure that your code is consistently formatted and readable.
 
 ## Python Coding Style Guide
 One of the most important things we can do to make sure our code is readable by others
@@ -77,12 +77,12 @@ the amount of spaces that PyCharm uses to replace one tab character or you can d
 altogether and prevent automatic conversion. You can modify these settings in PyCharm's
 `Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux) or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
 
-![pycharm-indentation](../fig/pycharm-indentation.png)
+<img src="../fig/pycharm-indentation.png" alt="Python code indentation settings in PyCharm" width="800" />
 
 You can also tell the editor to show non-printable characters if you are ever unsure what character exactly is
 being used by selecting `View`>`Active Editor`>`Show whitespace`.
 
-![pycharm-whitespace](../fig/pycharm-whitespace.png)
+<img src="../fig/pycharm-whitespace.png" alt="Python code whitespace settings in PyCharm" width="500" />
 
 There are more complex rules on indenting single units of code that continue over several lines, e.g. function,
 list or dictionary definitions can all take more than one line. The preferred way of wrapping such long lines is by
