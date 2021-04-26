@@ -18,10 +18,16 @@ you have some basic Python, shell and Git skills."
 
 ## Introduction
 This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
-software development process. We will teach you to use a number of different software development tools and techniques 
-simultaneously and interchangeably as you would in a real life, rather than teaching them separately. 
-The workshop is configured to get you working as part 
-of a team. After attending this workshop, you will be 
+software development process. It will teach you to use a number of different software development tools and techniques 
+simultaneously and interchangeably as you would in a real life, rather than teaching them separately. The material is 
+organised into 4 half-day blocks, with the following learning objectives:
+
+1. setting up an own virtual environment using a variety of tools to develop software collaboratively in a team
+2. implementing a test framework to verify the correct behaviour of code  
+3. software design paradigms and writing robust software
+4. publishing and releasing software for reuse by others
+
+After attending this workshop, you will be 
 equipped with some intermediate Python development 
 skills, as well as general skills on writing robust software collaboratively making it easier to use, develop, 
 and sustain it in the future for yourself and others.
