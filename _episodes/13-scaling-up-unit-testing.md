@@ -1,5 +1,5 @@
 ---
-title: "Scaling up Unit Testing"
+title: "Scaling Up Unit Testing"
 teaching: 10
 exercises: 5
 questions:
@@ -14,10 +14,10 @@ keypoints:
 - "Writing unit tests takes time, so apply them where it makes the most sense."
 ---
 
+## Introduction 
 We're starting to build up a number of tests that test the same function, but just with different parameters. However, continuing to write a new function for every single test case isn't likely to scale well as our development progresses. How can we make our job of writing tests more efficient? And importantly, as the number of tests increases, how can we determine how much of our code base is actually being tested?
 
-
-## Parameterising our unit tests
+## Parameterising Our Unit Tests
 
 So far, we've been writing a single function for every new test we need. But instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
@@ -41,7 +41,7 @@ We specify these as arguments to the `parameterize()` decorator, firstly indicat
 
 The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
-> ## Write parameterised unit tests
+> ## Write Parameterised Unit Tests
 >
 > Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in new test cases for each of them.
 >
@@ -90,7 +90,7 @@ $ git commit -m "Add initial test cases for daily_max() and daily_min(), add par
 {: .language-bash}
 
 
-## Using code coverage to understand how much of our code is tested
+## Using Code Coverage to Understand How Much of Our Code is Tested
 
 Pytest can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
@@ -165,7 +165,7 @@ $ git push origin test-suite
 {: .language-bash}
 
 
-## Limits to testing
+## Limits to Testing
 
 Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn't need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
 

@@ -19,6 +19,7 @@ keypoints:
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
 
+## Introduction 
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
@@ -30,7 +31,7 @@ Being able to demonstrate that a process generates the right results is importan
 If we are unable to demonstrate that our software fulfils these criteria, why would anyone use it?
 
 
-## What is software testing?
+## What Is Software Testing?
 
 For the sake of argument, if each line we write has a 99% chance of being right, then a 70-line program will be wrong more than half the time. We need to do better than that, which means we need to test our software to catch these mistakes.
 
@@ -44,7 +45,7 @@ There are three main types of automated tests:
 
 For the purposes of this course, we'll focus on unit tests. But the principles and practices we'll talk about can be built on and applied to the other types of tests too.
 
-## Set up a new feature branch for writing tests
+## Set Up a New feature Branch for Writing Tests
 
 We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
@@ -60,11 +61,12 @@ Good practice is to write our tests around the same time we write our code on a 
 Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
 
-## An example dataset and application
+## An Example Dataset and Application
 
-We're going to use an example dataset with our Patient code that was used as part of the novice Software Carpentry materials. It's based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
+Let's go back to our Patient software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. 
+There are a number of data sets in the `data` directory recording inflammation information in patients, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look now. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have the `patient` Conda environment activated in your terminal (particularly if opening a new one), and then start the Python interpreter on the command line, e.g.:
+Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have the `patient` Conda environment activated in your terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
 ~~~
 $ cd ~/python-intermediate-inflammation
@@ -73,7 +75,8 @@ $ python
 ~~~
 {: .language-bash}
 
-And then enter the following:
+The last command will start the Python console within your shell, which enables us to execute Python commands 
+interactively. Inside the console enter the following:
 
 ~~~
 import numpy
@@ -138,9 +141,9 @@ The other statistical functions are similar. Note that in real situations functi
 Let's now look into how we can test each of our application's statistical functions to ensure they are functioning correctly.
 
 
-## Writing tests to verify correct behaviour
+## Writing Tests to Verify Correct Behaviour
 
-### One way to do it?
+### One Way to Do It?
 
 One way to test our functions would be to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. So, referring back to our simple `daily_mean()` example above, we could use `[[1, 2], [3, 4], [5, 6]]` as an input to that function and check whether the result equals `[3, 4]`:
 
@@ -201,7 +204,7 @@ npt.assert_array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
 Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure the tests themselves are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
 
 
-### Using a testing framework
+### Using a Testing Framework
 
 Keeping these things in mind, here's a different approach that builds on the ideas we've seen so far but uses a **unit testing framework**. In such a framework we define our tests we want to run as functions, and the framework automatically runs each of these functions in turn, summarising the outputs. And unlike our previous approach, it will run every test regardless of any encountered test failures.
 
@@ -262,22 +265,22 @@ So here, although we have specified two of our tests as separate functions, they
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
-> ## What about the comments that refer to Yapf?
+> ## What About the Comments That Refer to Yapf?
 >
 > You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked into coding style in the last lesson, and Yapf is a command-line tool that reformats your code according to a given coding style. These *directives* inform Yapf that we don't wish to have this line reformatted, just to maintain clarity. We'll be looking into using Yapf later.
 {: .callout}
 
 Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
-> ## What about unit testing in other languages?
+> ## What About Unit Testing in Other Languages?
 >
 > Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. FRUIT for Fortran, JUnit for Java (the original unit testing framework), Catch for C++, etc.
 {: .callout}
 
 
-### Install pytest
+### Install Pytest
 
-One of the first things we need to do is install the pytest package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line:
+One of the first things we need to do is install the `pytest` package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line:
 
 ~~~
 $ conda install pytest
@@ -332,7 +335,7 @@ Select `y` and these packages which are required by pytest will be installed.
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our `patient` Conda virtual environment will now have the `pytest` package installed for use.
 
-### Write a metadata package description
+### Write a Metadata Package Description
 
 Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following content:
 
@@ -360,7 +363,7 @@ completed operation for: /Users/user/Projects/SSI/intermediate-swc/python-interm
 
 This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it properly as a full package each time we make a change.
 
-### Running the tests
+### Running the Tests
 
 Now we can run these tests using pytest:
 
@@ -391,7 +394,7 @@ Pytest looks for functions whose names also start with the letters 'test_' and r
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, do we think these results are easy to understand?
 
-> ## Write some unit tests
+> ## Write Some Unit Tests
 >
 > We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Here are some hints:
 >
@@ -435,7 +438,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 The big advantage is that as our code develops we can update our test cases and commit them back, ensuring that ourselves (and others) always have a set of tests to verify our code at each step of development. This way, when we implement a new feature, we can check a) that the feature works using a test we write for it, and b) that the development of the new feature doesn't break any existing functionality.
 
-### What about testing for errors?
+### What About Testing for Errors?
 
 There are some cases where seeing an error is actually the correct behaviour, and Python allows us to test for exceptions. Add this test in `tests/test_models.py`:
 
@@ -463,7 +466,7 @@ $ git push -u origin test-suite
 {: .language-bash}
 
 
-> ## Why should we test invalid input data?
+> ## Why Should We Test Invalid Input Data?
 >
 > Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
 >

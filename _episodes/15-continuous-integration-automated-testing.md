@@ -16,6 +16,7 @@ keypoints:
 - "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
 
+## Introduction 
 So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using **Continuous Integration**.
 
 
@@ -30,7 +31,7 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ## Continuous Integration with GitHub Actions
 
-### YAML - a deeper dive
+### YAML - a Deeper Dive
 
 We've seen YAML files before, with our `environment.yml` file which we'll be looking in more detail at shortly, but they're also used to write GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
 
@@ -94,7 +95,7 @@ first_scaled_by:
 So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
 
 
-### Preparing a suitable environment.yml
+### Preparing a Suitable `environment.yml`
 
 Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
 
@@ -126,7 +127,7 @@ Note that whilst it references a specific Python version, it doesn't give us spe
 
 The `channels` entry refers to named sources where Conda will retrieve its packages, which in this case, is just the `default` Anaconda packages.
 
-### Defining our workflow
+### Defining Our Workflow
 
 With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
 
@@ -190,7 +191,7 @@ Lastly, we define the `step`s that our job will undertake in turn, to set up the
 - **Test with PyTest:** Lastly, we run pytest. In order to do this successfully, we use `conda run` to execute a given command explicitly within our `patient` environment, with the same arguments we used manually before
 
 
-### Triggering a build on GitHub Actions
+### Triggering a Build on GitHub Actions
 
 Now if we commit and push this change a CI run will be triggered:
 
@@ -203,7 +204,7 @@ $ git push
 
 Since we are only committing the GitHub Actions configuration file to the `test-suite` branch for the moment, only the contents of this branch will be used for CI. We can pass this file upstream into other branches (i.e. via merges) when we're happy it works, which will then allow the process to run automatically on these other branches. This again highlights the usefulness of the feature-branch model - we can work in isolation on a feature until it's ready to be passed upstream without disrupting development on other branches, and in the case of CI, we're starting to see its scaling benefits across a larger scale development team working across potentially many branches.
 
-### Checking build progress and reports
+### Checking Build Progress and Reports
 
 Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
 
@@ -222,7 +223,7 @@ The logs are actually truncated; selecting the arrows next to the entries - whic
 GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
 
 
-## Scaling up testing using build matrices
+## Scaling Up Testing Using Build Matrices
 
 Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale.
 
@@ -277,7 +278,7 @@ If we go to our GitHub build now, we can see that a new job has been created for
 Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 
 
-## Merging back to dev
+## Merging Back to `develop` Branch
 
 Now we're happy with our test suite, we can merge this work (which currently only exist on our `test-suite` branch) with our parent `develop` branch. Again, this reflects us working with impunity on a logical unit of work, involving multiple commits, on a separate feature branch until it's ready to be escalated to the develop branch:
 
