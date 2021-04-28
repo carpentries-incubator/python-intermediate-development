@@ -426,9 +426,9 @@ print(paper)
 ~~~
 {: .output}
 
-The `@` syntax means that a function called `property` is being used to modify the behavior of the method - this is called a **decorator**.
-In this case the `@property` decorator converts `last_paper` from a normal method into a property.
-
+You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
+In this case the `property` decorator is taking the `last_paper` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
+We won't be covering how to make our own decorators, but in the Functional Programming section next, we'll see some of the features which make them possible.
 
 > ## Class and Static Methods
 >
@@ -581,6 +581,31 @@ The order in which it does this search is known as the **method resolution order
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
 This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Person` must have a name, before we can properly initialise a `Patient` model with their inflammation data.
 
+> ## A Model Patient
+>
+> Use what we have learnt in this episode to extend the model layer our hospital record system.
+>
+> Our core requirements are:
+>
+> - There must be a `Patient` class to hold the data representing a single patient
+>   - Must have a `name` attribute
+>   - Must hold a series of inflammation measurements - use any representation you feel is appropriate as long as the tests pass
+> - There must be a `Doctor` class to hold the data representing a single doctor
+>   - Must have a `name` attribute
+>   - Must have a list of patients that this doctor is responsible for
+>
+> In addition to these, try to think of an extra feature you could add to these models that would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
+> Try using Test Driven Development for any features you add: write the tests first, then add the feature.
+> The tests have been started for you in `tests/test_patient.py`, but you will probably want to add some more.
+>
+> Once you've finished the initial implementation, do you have much duplicated code?
+> Is there anywhere you could make better use of composition or inheritance to improve your implementation?
+>
+> For any extra features you've added, explain them and how you implemented them to your neighbour.
+> Would they have implemented that feature in the same way?
+>
+{: .challenge}
+
 > ## Composition vs Inheritance
 >
 > When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
@@ -636,30 +661,6 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > Often using multiple inheritance is a sign you should instead be using composition - again like the photocopier model above.
 {: .callout}
 
-> ## A Model Patient
->
-> Use what we have learnt in this episode to extend the model layer our hospital record system.
->
-> Our core requirements are:
->
-> - There must be a `Patient` class to hold the data representing a single patient
->   - Must have a `name` attribute
->   - Must hold a series of inflammation measurements - use any representation you feel is appropriate as long as the tests pass
-> - There must be a `Doctor` class to hold the data representing a single doctor
->   - Must have a `name` attribute
->   - Must have a list of patients that this doctor is responsible for
->
-> In addition to these, you may add anything else to these models that would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
-> Try using Test Driven Development for any features you add: write the tests first, then add the feature.
-> The tests have been started for you in `tests/test_patient.py`, but you might need to add some more.
->
-> Once you've finished the initial implementation, do you have much duplicated code?
-> Is there anywhere you could make better use of composition or inheritance to improve your implementation?
->
-> If you've added any extra features, explain them and how you implemented them to your neighbour.
-> Would they have implemented that feature in the same way?
->
-{: .challenge}
 
 > ## Building a Library
 >
