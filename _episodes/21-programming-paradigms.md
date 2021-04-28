@@ -99,7 +99,7 @@ You're unlikely to encounter this paradigm unless you're working on problems aro
 
 ## 1, 2, Fizz, 4, Buzz ... FizzBuzz
 
-FizzBuzz is a common example of a simple program used to compare different languages.
+FizzBuzz is a common example of a simple program used to compare different languages or paradigms.
 The idea is to generate the sequence of integers, but replace multiples of three with "Fizz", multiples of five with "Buzz", and multiples of both with "FizzBuzz".
 
 > 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
@@ -116,52 +116,42 @@ The idea is to generate the sequence of integers, but replace multiples of three
 
 The examples below are illustrative of some of the major paradigms - we don't expect you to fully understand what's happening in each example.
 
-This FizzBuzz implementation, written in C, is characteristic of the procedural paradigm.
+This first FizzBuzz implementation is characteristic of the procedural paradigm.
 The code shows a sequence of instructions which should be run to obtain the desired result.
 
 ~~~
-#include<stdio.h>
-
-int main (void)
-{
-    int i;
-    for (i = 1; i <= 100; i++)
-    {
-        if (!(i % 15))
-            printf("FizzBuzz");
-        else if (!(i % 3))
-            printf("Fizz");
-        else if (!(i % 5))
-            printf("Buzz");
-        else
-            printf("%d", i);
-
-        printf("\n");
-    }
-    return 0;
-}
+for i in range(100):
+    if i % 15 == 0:
+        print('FizzBuzz')
+    elif i % 3 == 0:
+        print('Fizz')
+    elif i % 5 == 0:
+        print('Buzz')
+    else:
+        print(i)
 ~~~
-{: .source}
+{: .language-python}
 
-Although this is just an illustrative example and we don't expect most learners to be familiar with C, you may recognise similaries between this code and Python you've written in the past.
-The fundamental structure is a `for` loop, containing some `if` statements to make decisions - C uses similar keywords for these as Python, though the syntax around them is different.
+The fundamental structure is a `for` loop, containing some `if` statements to make decisions - this is probably a structure you're quite familiar with and is probably similar to the fizbuzz solution you wrote yourself.
 
-In contrast, this implementation of FizzBuzz in Javascript is characteristic of the functional paradigm and probably looks completely unfamiliar.
+In contrast, this second implementation of FizzBuzz is characteristic of the functional paradigm and may look much less familiar.
 Each line describes either a piece of data or a data transformation, which are combined to obtain the desired result.
 
 ~~~
-const factors = [[3, 'Fizz'], [5, 'Buzz']]
-const fizzBuzz = num => factors.map(([factor,text]) => (num % factor)?'':text).join('') || num
-const range1 = x => [...Array(x+1).keys()].slice(1)
-const outputs = range1(100).map(fizzBuzz)
-
-console.log(outputs.join('\n'))
+factors = [[3, 'Fizz'], [5, 'Buzz']]
+fizzbuzz = lambda val: ''.join(text for factor, text in factors if val % factor == 0) or str(val)
+outputs = map(fizzbuzz, range(100))
+print('\n'.join(outputs))
 ~~~
-{: .source}
+{: .language-python}
 
-In this example, the `const` keyword means that each variable is defined once and cannot have its value changed.
-Furthermore, the variables `fizzBuzz` and `range1` are actually functions (`=>` is one way to define a function in JavaScript), which are combined on the fourth line to produce the output.
-Both of these are common in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
+In this example, there's three main things to notice:
+
+- Once we've created a variable, we never change its value
+- One of the variables (`fizzbuzz`) is actually a function, which we then pass into another function (`map`)
+- To add an extra factor (e.g. 7 = 'Foo') we only need to update the factor mapping, none of the code which actually performs the work needs to be changed.
+
+There are all common features in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
 
 It's quite difficult to come up with a sensible implementation of FizzBuzz which demonstrates the Object Oriented Paradigm.
 This is because the problem doesn't really involve structured data.
@@ -190,7 +180,7 @@ class FizzBuzzer:
     def __str__(self):
         result = ''
         for factor, text in self.factor_mapping.items():
-            if not self % factor:
+            if self % factor == 0:
                 result += text
 
         if not result:
@@ -211,7 +201,7 @@ for val in factory.generate(100):
 {: .language-python}
 
 In this example we make a `FizzBuzzer` structure (a **class**) which holds a numeric value and a mapping from factors to phrases.
-It also implements a **behaviour** - we can find the modulo (remainder after division) of the object with respect to another value.
+It also implements some **behaviours** - we can find the modulo of the object with respect to a factor and we can convert it to a string.
 
 > ## Rosetta Code
 >
