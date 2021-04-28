@@ -97,9 +97,16 @@ This has been the case with the examples we've seen so far.
 If a function we're testing might have different results each time it runs, we need to come up with a new way to test it.
 Similarly, it can be more difficult to test a function with side effects as it's not always obvious what the side effects will be, or how to measure them.
 
-**Composability** refers to the ability to combine multiple functions by piping the output of one function as the input to the next function.
-If a function doesn't have side effects, then all of its behaviour is reflected in the value it returns.
-When we pass this value on to
+**Composability** refers to the ability to make a new function from a chain of other functions by piping the output of one as the input to the next.
+If a function doesn't have side effects or non-deterministic behaviour, then all of its behaviour is reflected in the value it returns.
+As a consequence of this, any chain of combined pure functions is itself pure, so we keep all these benefits when we're combining functions into a larger program.
+As an example of this, we could make a function called `add_two`, using the `add_one` function we already have.
+
+~~~
+def add_two(x):
+    return add_one(add_one(x))
+~~~
+{: .language-python}
 
 Finally, **Parallelisability** - the ability for operations to be performed at the same time independently.
 If we know that a function is fully pure and we've got a lot of data, we can often improve performance by distributing the computation across multiple processors.
@@ -113,7 +120,7 @@ The output of a pure function depends only on its input, so we'll get the right 
 >
 > Despite the benefits that pure functions can bring, we shouldn't be trying to use them everywhere.
 > Any software we write needs to interact with the rest of the world somehow, which requires side effects.
-> With pure functions you can't read any input, or write any output, so we can't usually write useful software using just pure functions.
+> With pure functions you can't read any input, write any output, or interact with the rest of the world in any way, so we can't usually write useful software using just pure functions.
 {: .callout}
 
 
@@ -126,6 +133,12 @@ The output of a pure function depends only on its input, so we'll get the right 
 > What is the correct behaviour for these functions?
 > How can we test that?
 > How reliable are the tests you've created?
+>
+> One possible approach you may have seen before when dealing with randomness is to set a known **seed** (a number which is used to kick off a random sequence) for the random number generator.
+> This effectively makes the random number generator non-random, which allows us to test it more easily.
+> By doing this we're almost turning it back into a pure function!
+> Instead of using this approach here, try to come up with a method which tests the statistical properties of the generator.
+> A seed-based approach will tell you if the generator is giving the correct result for that particular seed, but not whether it's behaving correctly in general terms.
 >
 > > ## Solution
 > >
@@ -224,18 +237,6 @@ print(double_int_dict)
 ~~~
 {: .output}
 
-> ## Why No Tuple Comprehensions
->
-> Raymond Hettinger, one of the Python core developers, said in 2013:
->
-> ~~~
-> Generally, lists are for looping; tuples for structs. Lists are homogeneous; tuples heterogeneous. Lists for variable length.
-> ~~~
->
-> What he means by this is that tuples are best used for managing structured data, much like class.
-> We can use tuples in situations where we want some structure, but are only holding this data for a short time so it doesn't feel worthwhile to write a custom class for it.
-{: .callout}
-
 These 'comprehensions' cover the map and filter components of MapReduce, but not the reduce component.
 For that we either need to rely on a built in reduction operator, or use the `reduce` function with a custom reduction operator.
 
@@ -259,7 +260,8 @@ Otherwise, we'll probably need to write the reduction operator ourselves - but w
 > ## Generator Expressions
 >
 > There's one 'comprehension' left that we've not discussed - **generator expressions**.
-> In Python, a **generator** is a type of 'iterable' which we can take values from and loop over, but doesn't actually compute any of the values until we need them.
+> In Python, a **generator** is a type of **iterable** which we can take values from and loop over, but doesn't actually compute any of the values until we need them.
+> NB: an iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
 >
 > The `range` function is an example of a generator - if we created a `range(1000000000)`, but didn't iterate over it, we'd find that it takes almost no time to do.
 > Creating a list containing a similar number of values would take much longer, and could be at risk of running out of memory and failing entirely.
@@ -333,7 +335,7 @@ print(result)
 In these examples above, we've used a list comprehension to effectively build the `map` function ourselves.
 In Python 2, this is exactly how `map` worked - in Python 3 it's a little different as the `map` and `filter` functions are now generators.
 
-For small functions which we only need in a single place, we can use a **lambda function** instead.
+For small functions which we only need in a single place, we can use a **lambda function** or **anonymous function** (so called because we don't give them names) instead.
 These functions use the `lambda` keyword, take a number of arguments and contain a single expression as their body.
 The value of this expression is then the return value of the lambda function.
 
