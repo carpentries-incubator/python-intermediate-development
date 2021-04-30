@@ -15,6 +15,11 @@ keypoints:
 
 ## Introduction
 
+This section is a bit of a tone change as we introduce some theoretical concepts and a bit of historical context - please bear with us, we'll be back to practical applications soon!
+As you become more experienced in software development, it becomes increasingly important to understand the wider landscape in which you operate - i.e. what software decisions have the people around you made and why?
+A good understanding of their landscape is one of the key things that makes someone an expert.
+By giving a small amount of background in theory and historical context here, we hope that this will help you to examine and understand your landscape.
+
 There are hundreds (probably thousands) of different programming languages, each with different expectations of how a programmer will use them to solve a problem.
 To help us to choose the language we will use and to help us describe how we want to use them, we can group the languages into **paradigms**.
 
@@ -87,6 +92,11 @@ Anything a function does other than produce an output is known as a **side effec
 
 Being strict about this definition allows us to break down the distinction between **code** and **data**, for example by writing a function which accepts and transforms other functions - in Functional Programming *code is data*.
 
+The most common application of Functional Programming in research is in data processing, especially when handling **Big Data**.
+One popular definition of Big Data is data which is too large to fit in the memory of a single computer, with a single dataset being multiple terabytes or larger.
+With datasets like this, we can't move the data around easily, so we often want to send our code to where the data is instead.
+By writing our code in a functional style, we also gain the ability to run many operations in parallel as it's guaranteed that each operation won't interact with any of the others - this is essential if we want to process this much data in a reasonable amount of time.
+
 #### Logic Programming
 - Early and common example: Prolog (1972)
 
@@ -94,6 +104,7 @@ Logic Programming is even closer to mathematics, being based on **formal logic**
 In this paradigm, our program is written as a *set of facts and rules* which form a system of logic.
 We can then execute queries against this set, which the computer tries to prove.
 
+This paradigm is most useful for handling relatively small datasets with very complex relationships between entities, particularly where we need to be able to prove the existence or non-existence of particular relationships.
 You're unlikely to encounter this paradigm unless you're working on problems around systems of reasoning, but it's included here for balance, to show that the Declarative Family isn't just Functional Programming.
 
 
