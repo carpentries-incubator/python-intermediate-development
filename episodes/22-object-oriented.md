@@ -71,8 +71,8 @@ patients = [
 > Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a Numpy array - either is fine.
 >
 > ~~~
-> data = np.array([1., 2., 3.],
->                 [4., 5., 6.])
+> data = np.array([[1., 2., 3.],
+>                  [4., 5., 6.]])
 >
 > output = attach_names(data, ['Alice', 'Bob'])
 > print(output)
