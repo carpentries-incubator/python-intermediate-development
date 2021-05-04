@@ -295,6 +295,18 @@ And finally, we're using Python's built in `datetime` module to handle the publi
 Properly managing dates and especially times is hard, so we should hand off this responsibility to existing libraries whenever possible.
 For more information, see the `datetime` [module documentation](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime).
 
+> ## Class and Static Methods
+>
+> Sometimes, the function we're writing doesn't need access to any data belonging to a particular object.
+> For these situations, we can instead use a **class method** or a **static method**.
+> Class methods have access to the class that they're a part of, and can access data on that class - but do not belong to a specific instance of that class, whereas static methods access to neither the class nor its instances.
+>
+> By convention, class methods use `cls` as their first argument instead of `self` - static methods have neither and have arguments which look like a typical free function.
+> This is the only common exception to using `self` for a method's first argument.
+>
+> Both of these method types are created using a **decorator**- for more information see the [classmethod](https://docs.python.org/3/library/functions.html#classmethod) and [staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) sections of the Python documentation.
+{: .callout}
+
 ### Dunder Methods
 
 Why is the `__init__` method not called `init`?
@@ -363,6 +375,8 @@ By implementing the `__getitem__` and `__len__` methods on `Academic` in the way
 
 If we were to use this class in a real program, it would be better not to implement these methods on the `Academic` class and make people use `len(alice.papers)` instead.
 
+For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
+
 > ## A Basic Class
 >
 > Implement a class to represent a book.
@@ -430,12 +444,6 @@ You may recognise the `@` syntax from our lesson on parameterising unit tests - 
 In this case the `property` decorator is taking the `last_paper` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 We won't be covering how to make our own decorators, but in the Functional Programming section next, we'll see some of the features which make them possible.
 
-> ## Class and Static Methods
->
-> Would quite like to have a `Patient.from_record` classmethod if time
->
-{: .callout}
-
 > ## Decorators
 >
 > Might come back to these later in Functional Programming - if time
@@ -483,7 +491,7 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(title, date=None):
+    def write_paper(self, title, date=None):
         new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
@@ -542,13 +550,13 @@ class Academic(Person):
         super().__init__(name)
         self.papers = []
 
-    def write_paper(title, date=None):
+    def write_paper(self, title, date=None):
         new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
         return new_paper
 
-alice = Acadmic('Alice')
+alice = Academic('Alice')
 print(alice)
 
 paper = alice.write_paper('A paper')
@@ -572,7 +580,7 @@ AttributeError: 'Person' object has no attribute 'write_paper'
 
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourself.
+There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourselves.
 This makes sure that everything that needs to be initialised on the parent class has been, before we need to use it.
 If we don't define a new `__init__` method for our subclass, Python will look for one on the parent class and use it automatically.
 This is true of all methods - if we call a method which doesn't exist directly on our class, Python will search for it among the parent classes.
