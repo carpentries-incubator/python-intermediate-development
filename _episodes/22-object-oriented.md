@@ -150,7 +150,7 @@ For this reason, in the Object Oriented paradigm, we use **classes** to help wit
 A class is a **template** for a piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
 In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods** which describe the **behaviours** of the data.
 
-With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check the code ourselves.
+With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check it manually.
 With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
 
 Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
@@ -176,7 +176,7 @@ The argument `self` refers to the instance on which we are calling the method an
 
 In our `Academic` initialiser method, we set their name to a value provided, and create a list of papers they've published, which is currently empty.
 
-You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python.
+You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
 
 ~~~
 my_list = [1, 2, 3]
@@ -384,7 +384,7 @@ For a more complete list of these special methods, see the [Special Method Names
 >
 > - Have a title
 > - Have an author
-> - When printed, show text in the format "title by author"
+> - When printed using `print(book)`, show text in the format "title by author"
 >
 > ~~~
 > book = Book('A Book', 'Me')

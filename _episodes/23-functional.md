@@ -82,9 +82,6 @@ Examples include: printing text, modifying the value of an argument, or changing
 >
 {: .challenge}
 
-
-### Why Does it Matter?
-
 There's a few benefits we get when working with a pure function:
 
 - Testability
@@ -261,7 +258,7 @@ Otherwise, we'll probably need to write the reduction operator ourselves - but w
 >
 > There's one 'comprehension' left that we've not discussed - **generator expressions**.
 > In Python, a **generator** is a type of **iterable** which we can take values from and loop over, but doesn't actually compute any of the values until we need them.
-> NB: an iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
+> Iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
 >
 > The `range` function is an example of a generator - if we created a `range(1000000000)`, but didn't iterate over it, we'd find that it takes almost no time to do.
 > Creating a list containing a similar number of values would take much longer, and could be at risk of running out of memory and failing entirely.
@@ -517,7 +514,10 @@ print(reduce((lambda a, b: a * b), l))
 > How much of a performance improvement do you get?
 > Is this as much as you would expect for the number of cores your CPU has?
 >
-> **Hint:** To time the execution of a Python script we can use the Linux program `time`:
+> **Hint:** To time the execution of a Python script we can use the shell command `time`:
+>
+> **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
+> One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >
 > ~~~
 > time python3 my_script.py
