@@ -19,7 +19,7 @@ keypoints:
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
 
-## Introduction 
+## Introduction
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
@@ -63,7 +63,7 @@ Later on, once we've finished writing these tests and are convinced they work pr
 
 ## An Example Dataset and Application
 
-Let's go back to our Patient software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. 
+Let's go back to our Patient software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
 There are a number of data sets in the `data` directory recording inflammation information in patients, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
 Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have the `patient` Conda environment activated in your terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
@@ -75,12 +75,12 @@ $ python
 ~~~
 {: .language-bash}
 
-The last command will start the Python console within your shell, which enables us to execute Python commands 
+The last command will start the Python console within your shell, which enables us to execute Python commands
 interactively. Inside the console enter the following:
 
 ~~~
-import numpy
-data = numpy.loadtxt(fname='data/inflammation-01.csv', delimiter=',')
+import numpy as np
+data = np.loadtxt(fname='data/inflammation-01.csv', delimiter=',')
 data.shape
 ~~~
 {: .language-python}
@@ -230,11 +230,9 @@ def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
     from inflammation.models import daily_mean
 
-    # NB: the comment 'yapf: disable' disables automatic formatting using
-    # a tool called 'yapf' which we have used when creating this project
     test_input = np.array([[0, 0],
                            [0, 0],
-                           [0, 0]])  # yapf: disable
+                           [0, 0]])
     test_result = np.array([0, 0])
 
     # Need to use Numpy testing functions to compare arrays
@@ -247,7 +245,7 @@ def test_daily_mean_integers():
 
     test_input = np.array([[1, 2],
                            [3, 4],
-                           [5, 6]])  # yapf: disable
+                           [5, 6]])
     test_result = np.array([3, 4])
 
     # Need to use Numpy testing functions to compare arrays
@@ -264,11 +262,6 @@ So here, although we have specified two of our tests as separate functions, they
 - Expected outputs, e.g. our `test_result` Numpy array that we test against
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
-
-> ## What About the Comments That Refer to Yapf?
->
-> You'll also notice the peculiar `# yapf: disable` comments. You may remember we looked into coding style in the last lesson, and Yapf is a command-line tool that reformats your code according to a given coding style. These *directives* inform Yapf that we don't wish to have this line reformatted, just to maintain clarity. We'll be looking into using Yapf later.
-{: .callout}
 
 Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
@@ -413,22 +406,22 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >
 > >     test_input = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
-> >                            [4, 1, 9]])  # yapf: disable
+> >                            [4, 1, 9]])
 > >     test_result = np.array([4, 6, 9])
 > >
-> >     npt.assert_array_equal(test_result, daily_max(test_array))
+> >     npt.assert_array_equal(test_result, daily_max(test_input))
 > >
 > >
 > > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
 > >     from inflammation.models import daily_min
 > >
-> >     test_array = np.array([[ 4, -2, 5],
+> >     test_input = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
-> >                            [-4, -1, 9]])  # yapf: disable
+> >                            [-4, -1, 9]])
 > >     test_result = np.array([-4, -6, 2])
 > >
-> >     npt.assert_array_equal(test_result, daily_min(test_array))
+> >     npt.assert_array_equal(test_result, daily_min(test_input))
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -460,7 +453,7 @@ Finally, let's commit our new `test_models.py` file and test cases to our `test-
 
 ~~~
 $ git add setup.py tests/test_models.py
-$ git commit -m "Add initial test cases for daily_max() and daily_min(), add parameterisation"
+$ git commit -m "Add initial test cases for daily_max() and daily_min()"
 $ git push -u origin test-suite
 ~~~
 {: .language-bash}
