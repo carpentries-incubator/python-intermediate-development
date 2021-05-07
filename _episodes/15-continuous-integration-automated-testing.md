@@ -16,7 +16,8 @@ keypoints:
 - "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
 
-## Introduction 
+## Introduction
+
 So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using **Continuous Integration**.
 
 
@@ -95,19 +96,18 @@ first_scaled_by:
 So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
 
 
-### Preparing a Suitable `environment.yml`
+### Preparing a Suitable `environment.yml` for CI
 
 Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
 
-One problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause us issues for running on continuous integration infrastructures, as well as for others who wish to use our software on different operating systems, so we use `--from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble.
+As was mentioned in the [Virtual Environments](../03-virtual-environments/index.html#exporting-a-conda-environment) episode, one problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause us issues for running on continuous integration infrastructures, as well as for others who wish to use our software on different operating systems, so we use `--from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble. However, in the case of CI we need to go one step further.
+
+Let's look at our `environment.yml`:
 
 ~~~
-$ conda env export --from-history > environment.yml
 $ cat environment.yml
 ~~~
 {: .language-bash}
-
-Which will give us the following environment configuration for `patient` - which you'll note is explicitly named in the file (we'll be referring to this later):
 
 ~~~
 name: patient
@@ -119,13 +119,17 @@ dependencies:
   - matplotlib
   - pytest
   - pytest-cov
-  - pylint
 ~~~
 {: .language-bash}
 
-Note that whilst it references a specific Python version, it doesn't give us specific version numbers for the packages. For the purposes of using continuous integration and testing our code, this is very useful - it means the latest packages will always be tested against.
+For the purposes of using continuous integration and testing our code, there are no version numbers for the Python packages, which is very useful - it means the latest packages will always be tested against. However, you'll notice that the version of Python itself is mentioned explicitly. One of the major benefits of CI that we'll explore is that it allows us to specify the type of plaform(s) we want to test against, which may include the version of Python. To avoid confusion with which version will be used, we should remove the Python version that is specified here. So edit your `environment.yml` file so that line looks like the following and save the file:
 
-The `channels` entry refers to named sources where Conda will retrieve its packages, which in this case, is just the `default` Anaconda packages.
+~~~
+...
+  - python
+...
+~~~
+{: .language-bash}
 
 ### Defining Our Workflow
 
