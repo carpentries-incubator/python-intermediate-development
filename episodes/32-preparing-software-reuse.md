@@ -40,9 +40,9 @@ Later levels imply the earlier ones. So what should we aim for? As researchers w
 
 ## Verifying Code Style Using Linters
 
-We've seen how we can use tools like `yapf` to automatically format our Python to enforce a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
+We've seen how we can use PyCharm to help us format our Python in a consistent style. This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand if it's consistent.
 
-We can do this in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`.
+We can also use tools to identify consistency issues in a report-style too, using code **linters**. Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well used one of these called `pylint`.
 
 First, let's ensure we are on the `develop` branch.
 
