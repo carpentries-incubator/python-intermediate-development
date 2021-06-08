@@ -166,7 +166,7 @@ $ git push origin test-suite
 
 > ## What about Testing Against Indeterminate Output?
 >
-> But what if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
+> But what if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
 >
 > One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. So you could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
 >
@@ -190,7 +190,7 @@ $ git push origin test-suite
 >
 > So since your program's randomness is essentially eliminated, your tests can be written to test against the known output. The trick of course, is to ensure that the output being testing against is definitively correct!
 >
-> The other thing you can do while keeping the random behaviour, is to test the output data against the expected *constraints* of that output. For example, if you know that all data should be within particular ranges, or within a particular distribution type (e.g. normal distribution over time), you can test against that, conducting multiple test runs that take advantage of the randomness to fill the known "space" of expected results. Not as precise or complete, but at least you have the ability to highlight known incorrect output. However, bear in mind this could mean you need to run *a lot* of tests which may take considerable time.
+> The other thing you can do while keeping the random behaviour, is to *test the output data against expected constraints* of that output. For example, if you know that all data should be within particular ranges, or within a particular statistical distribution type (e.g. normal distribution over time), you can test against that, conducting multiple test runs that take advantage of the randomness to fill the known "space" of expected results. Note that this isn't as precise or complete, and bear in mind this could mean you need to run *a lot* of tests which may take considerable time.
 {: .callout}
 
 ## Limits to Testing
