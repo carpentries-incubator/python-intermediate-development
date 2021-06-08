@@ -17,7 +17,7 @@ keypoints:
 - "Ensure that unit tests check for **edge** and **corner cases** too."
 ---
 
-## Introduction 
+## Introduction
 Unit testing can tell us something is wrong in our code and give a rough idea of where the error is by which
 test(s) are failing. But it does not tell us exactly where the problem is (i.e. what line of code), or how it came about.
 To give us a better idea of what is going on, we can:
@@ -84,7 +84,7 @@ Let us now add a new test in `tests/test_models.py` to check that the normalisat
 @pytest.mark.parametrize(
     "test, expected",
     [
-        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]])
+        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]])
     ])
 def test_patient_normalise(test, expected):
     """Test normalisation works for arrays of one and positive integers.
@@ -94,7 +94,7 @@ def test_patient_normalise(test, expected):
 ~~~
 {: .language-python}
 
-Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly.
+Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly.
 
 Run the tests again using `pytest tests/test_model.py` and you will note that the new
 test is failing, with an error message that does not give many clues as to what went wrong.
@@ -105,10 +105,10 @@ E       Arrays are not almost equal to 2 decimals
 E
 E       Mismatched elements: 6 / 9 (66.7%)
 E       Max absolute difference: 0.57142857
-E       Max relative difference: 1.33333333
-E        x: array([[0.33, 0.66, 1.  ],
-E              [0.66, 0.83, 1.  ],
-E              [0.77, 0.88, 1.  ]])
+E       Max relative difference: 1.345
+E        x: array([[0.33, 0.67, 1.  ],
+E              [0.67, 0.83, 1.  ],
+E              [0.78, 0.89, 1.  ]])
 E        y: array([[0.14, 0.29, 0.43],
 E              [0.5 , 0.62, 0.75],
 E              [0.78, 0.89, 1.  ]])
@@ -126,8 +126,7 @@ of a program, such as variables and other state, as it performs its functions.
 
 ### Running Tests Within PyCharm
 
-First to make this a little easier to track what's going on we can set up PyCharm to run and debug our tests, as instead of running them from the command line. If you have not done so already, you will first need to
-enable the PyTest framework in PyCharm. You can do this by:
+Firstly, to make it easier to track what's going on, we can set up PyCharm to run and debug our tests instead of running them from the command line. If you have not done so already, you will first need to enable the PyTest framework in PyCharm. You can do this by:
 
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. Then, in the preferences window that appears, select `Tools` -> `Python integrated tools` >
@@ -213,7 +212,7 @@ We will add two extra tests, corresponding to an input array of all 0, and an in
     [
         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0]]),
         ([[1, 1, 1], [1, 1, 1], [1, 1, 1]], [[1, 1, 1], [1, 1, 1], [1, 1, 1]]),
-        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]]),
+        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]]),
     ])
 ~~~
 {: .language-python}
@@ -290,15 +289,15 @@ def patient_normalise(data):
 > >         ),
 > >         (
 > >             [[1, 2, 3], [4, 5, float('nan')], [7, 8, 9]],
-> >             [[0.33, 0.66, 1], [0.8, 1, 0], [0.77, 0.88, 1]],
+> >             [[0.33, 0.67, 1], [0.8, 1, 0], [0.78, 0.89, 1]],
 > >         ),
 > >         (
 > >             [[-1, 2, 3], [4, 5, 6], [7, 8, 9]],
-> >             [[0, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]],
+> >             [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
 > >         ),
 > >         (
 > >             [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-> >             [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]],
+> >             [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
 > >         )
 > >     ])
 > > def test_patient_normalise(test, expected):
@@ -358,12 +357,12 @@ library and is used to indicate that the function received an argument of the ri
         ... # other test cases here, with None for raises
         (
             [[-1, 2, 3], [4, 5, 6], [7, 8, 9]],
-            [[0, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]],
+            [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
             ValueError,
         ),
         (
             [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-            [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]],
+            [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
             None,
         ),
     ])
@@ -429,7 +428,7 @@ def test_patient_normalise(test, expected, raises):
 > >         ),
 > >         (
 > >             [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-> >             [[0.33, 0.66, 1], [0.66, 0.83, 1], [0.77, 0.88, 1]],
+> >             [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
 > >             None,
 > >         )
 > >     ])
