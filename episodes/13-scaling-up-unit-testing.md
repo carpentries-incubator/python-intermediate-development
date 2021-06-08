@@ -14,7 +14,7 @@ keypoints:
 - "Writing unit tests takes time, so apply them where it makes the most sense."
 ---
 
-## Introduction 
+## Introduction
 We're starting to build up a number of tests that test the same function, but just with different parameters. However, continuing to write a new function for every single test case isn't likely to scale well as our development progresses. How can we make our job of writing tests more efficient? And importantly, as the number of tests increases, how can we determine how much of our code base is actually being tested?
 
 ## Parameterising Our Unit Tests
@@ -164,6 +164,34 @@ $ git push origin test-suite
 ~~~
 {: .language-bash}
 
+> ## What about Testing Against Indeterminate Output?
+>
+> But what if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
+>
+> One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. So you could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
+>
+> Another way is to *control the randomness* during testing to provide results that are deterministic - the same each time. Implementations of randomness in computing languages, including Python, are actually never truly random - they are **pseudorandom**: the sequence of 'random' numbers are typically generated using a mathematical algorithm. A **seed** value is used to initialise an implementation's random number generator, and from that point, the sequence of numbers is actually deterministic. Many implementations just use the system time as the default seed, but you can set your own. By doing so, the generated sequence of numbers is the same, e.g. using Python's `random` library to randomly select a sample of ten numbers from a sequence between 0-99:
+>
+> ~~~
+> random.seed(1)
+> print(random.sample(range(0, 100), 10))
+> random.seed(1)
+> print(random.sample(range(0, 100), 10))
+> ~~~
+> {: .language-python}
+>
+> Will produce:
+>
+> ~~~
+> [17, 72, 97, 8, 32, 15, 63, 57, 60, 83]
+> [17, 72, 97, 8, 32, 15, 63, 57, 60, 83]
+> ~~~
+> {: .output}
+>
+> So since your program's randomness is essentially eliminated, your tests can be written to test against the known output. The trick of course, is to ensure that the output being testing against is definitively correct!
+>
+> The other thing you can do while keeping the random behaviour, is to test the output data against the expected *constraints* of that output. For example, if you know that all data should be within particular ranges, or within a particular distribution type (e.g. normal distribution over time), you can test against that, conducting multiple test runs that take advantage of the randomness to fill the known "space" of expected results. Not as precise or complete, but at least you have the ability to highlight known incorrect output. However, bear in mind this could mean you need to run *a lot* of tests which may take considerable time.
+{: .callout}
 
 ## Limits to Testing
 
