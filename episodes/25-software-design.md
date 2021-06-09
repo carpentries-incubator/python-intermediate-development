@@ -1,7 +1,7 @@
 ---
 title: "Software Design"
-teaching: 70
-exercises: 30
+teaching: 30
+exercises: 20
 questions:
 - "Where do we start when beginning a new software project?"
 - "How do people use software?"
@@ -280,26 +280,5 @@ Often, the software is split into three layers:
 - **Persistence Layer / Data Access Layer**
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
-
-### The Persistence Layer
-
-Our patient data system so far can read in some data, process it, and display it to people.
-What's missing?
-
-Well, at the moment, if we wanted to add a new patient or perform a new observation, we would have to edit the input CSV file by hand.
-We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide the ability to do this through the software.
-That way we can perform any necessary validation or transformation before the data gets accepted.
-
-There's a few ways we could do this, but lets start with extending what we have already - the CSV file.
-
-If we want to bring in this data, modify it somehow, and save it back to a file, we'd need to:
-
-- Add the data import / export (**persistence**) code to our Model
-- Write some views we can use to modify the data
-- Link it all together in the controller
-
-This new code we're adding to the Model is our **Persistence Layer**.
-By adding it to the Model, it's not really a new layer being added, but since we're keeping it separate from the View and Controller code we can still get away with using the name.
-
 
 {% include links.md %}
