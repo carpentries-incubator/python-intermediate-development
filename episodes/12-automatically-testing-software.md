@@ -152,7 +152,7 @@ import numpy.testing as npt
 
 test_input = np.array([[1, 2], [3, 4], [5, 6]])
 test_result = np.array([3, 4])
-npt.assert_array_equal(test_result, daily_mean(test_input))
+npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
@@ -163,15 +163,15 @@ We could then add to this with other tests that use and test against other value
 ~~~
 test_input = np.array([[2, 0], [4, 0]])
 test_result = np.array([2, 0])
-npt.assert_array_equal(test_result, daily_mean(test_input))
+npt.assert_array_equal(daily_mean(test_input), test_result)
 
 test_input = np.array([[0, 0], [0, 0]])
 test_result = np.array([0, 0])
-npt.assert_array_equal(test_result, daily_mean(test_input))
+npt.assert_array_equal(daily_mean(test_input), test_result)
 
 test_input = np.array([[1, 2], [3, 4], [5, 6]])
 test_result = np.array([3, 4])
-npt.assert_array_equal(test_result, daily_mean(test_input))
+npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
@@ -197,7 +197,9 @@ We could put these tests in a separate script to automate the running of these t
 Going back to our failed first test, what was the issue? As it turns out, the test itself was incorrect, and should have read:
 
 ~~~
-npt.assert_array_equal(np.array([3, 0]), daily_mean(np.array([[2, 0], [4, 0]])))
+test_input = np.array([[2, 0], [3, 0]])
+test_result = np.array([2, 0])
+npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
@@ -236,7 +238,7 @@ def test_daily_mean_zeros():
     test_result = np.array([0, 0])
 
     # Need to use Numpy testing functions to compare arrays
-    npt.assert_array_equal(test_result, daily_mean(test_input))
+    npt.assert_array_equal(daily_mean(test_input), test_result)
 
 
 def test_daily_mean_integers():
@@ -249,7 +251,7 @@ def test_daily_mean_integers():
     test_result = np.array([3, 4])
 
     # Need to use Numpy testing functions to compare arrays
-    npt.assert_array_equal(test_result, daily_mean(test_input))
+    npt.assert_array_equal(daily_mean(test_input), test_result)
 ...
 ~~~
 {: .language-python}
@@ -409,7 +411,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >                            [4, 1, 9]])
 > >     test_result = np.array([4, 6, 9])
 > >
-> >     npt.assert_array_equal(test_result, daily_max(test_input))
+> >     npt.assert_array_equal(daily_max(test_input), test_result)
 > >
 > >
 > > def test_daily_min():
@@ -421,7 +423,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >                            [-4, -1, 9]])
 > >     test_result = np.array([-4, -6, 2])
 > >
-> >     npt.assert_array_equal(test_result, daily_min(test_input))
+> >     npt.assert_array_equal(daily_min(test_input), test_result)
 > > ...
 > > ~~~
 > > {: .language-python}

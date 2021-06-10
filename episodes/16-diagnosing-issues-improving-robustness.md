@@ -18,6 +18,7 @@ keypoints:
 ---
 
 ## Introduction
+
 Unit testing can tell us something is wrong in our code and give a rough idea of where the error is by which
 test(s) are failing. But it does not tell us exactly where the problem is (i.e. what line of code), or how it came about.
 To give us a better idea of what is going on, we can:
@@ -73,10 +74,7 @@ NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the 
 > compatible shapes. Be careful, though, to understand how the arrays get stretched to avoid getting unexpected results.
 {: .callout}
 
-Note there is an
-assumption in this calculation that the minimum value we want is always zero. This is a sensible assumption for
-this particular application, since the zero value is a special case indicating that a patient experienced no
-inflammation on a particular day.
+Note there is an assumption in this calculation that the minimum value we want is always zero. This is a sensible assumption for this particular application, since the zero value is a special case indicating that a patient experienced no inflammation on a particular day.
 
 Let us now add a new test in `tests/test_models.py` to check that the normalisation function is correct for some test data.
 
@@ -90,11 +88,11 @@ def test_patient_normalise(test, expected):
     """Test normalisation works for arrays of one and positive integers.
        Assumption that test accuracy of two decimal places is sufficient."""
     from inflammation.models import patient_normalise
-    npt.assert_almost_equal(np.array(expected), patient_normalise(np.array(test)), decimal=2)
+    npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
 ~~~
 {: .language-python}
 
-Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly.
+Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly. Also, we are using the `assert_almost_equal()` Numpy testing function instead of `assert_array_equal()`, since it allows us to test against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
 
 Run the tests again using `pytest tests/test_model.py` and you will note that the new
 test is failing, with an error message that does not give many clues as to what went wrong.
@@ -106,11 +104,11 @@ E
 E       Mismatched elements: 6 / 9 (66.7%)
 E       Max absolute difference: 0.57142857
 E       Max relative difference: 1.345
-E        x: array([[0.33, 0.67, 1.  ],
-E              [0.67, 0.83, 1.  ],
-E              [0.78, 0.89, 1.  ]])
-E        y: array([[0.14, 0.29, 0.43],
+E        x: array([[0.14, 0.29, 0.43],
 E              [0.5 , 0.62, 0.75],
+E              [0.78, 0.89, 1.  ]])
+E        y: array([[0.33, 0.67, 1.  ],
+E              [0.67, 0.83, 1.  ],
 E              [0.78, 0.89, 1.  ]])
 
 tests/test_models.py:53: AssertionError
@@ -224,12 +222,12 @@ E           AssertionError:
 E           Arrays are not almost equal to 2 decimals
 E
 E           x and y nan location mismatch:
-E            x: array([[0, 0, 0],
-E                  [0, 0, 0],
-E                  [0, 0, 0]])
-E            y: array([[nan, nan, nan],
+E            x: array([[nan, nan, nan],
 E                  [nan, nan, nan],
 E                  [nan, nan, nan]])
+E            y: array([[0, 0, 0],
+E                  [0, 0, 0],
+E                  [0, 0, 0]])
 
 env/lib/python3.6/site-packages/numpy/testing/_private/utils.py:740: AssertionError
 ~~~
@@ -303,7 +301,7 @@ def patient_normalise(data):
 > > def test_patient_normalise(test, expected):
 > >     """Test normalisation works for arrays of one and positive integers."""
 > >     from inflammation.models import patient_normalise
-> >     npt.assert_almost_equal(np.array(expected), patient_normalise(np.array(test)), decimal=2)
+> >     npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -371,13 +369,15 @@ def test_patient_normalise(test, expected, raises):
     from inflammation.models import patient_normalise
     if raises:
         with pytest.raises(raises):
-            npt.assert_almost_equal(np.array(expected), patient_normalise(np.array(test)), decimal=2)
+            npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
     else:
-        npt.assert_almost_equal(np.array(expected), patient_normalise(np.array(test)), decimal=2)
+        npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
 ~~~
 {: .language-python}
 
-> ## Add a Precondition to Check the Correct Type and Shape of Data
+Be sure to commit your changes so far and push them to GitHub.
+
+> ## Add a Precondition to Check the Correct Type and Shape of Data (Optional Advanced Challenge)
 >
 > Add preconditions to check that data is an `ndarray` object and that it is of the correct shape.
 > Add corresponding tests to check that the function raises the correct exception.
@@ -386,9 +386,11 @@ def test_patient_normalise(test, expected, raises):
 > Once you are done, commit your new files, and push the new commits to your remote repository on GitHub.
 >
 > > ## Solution
+> >
+> > In `inflammation/models.py`:
+> >
 > > ~~~
 > > ...
-> >
 > > def patient_normalise(data):
 > >     """
 > >     Normalise patient data between 0 and 1 of a 2D inflammation data array.
@@ -411,7 +413,12 @@ def test_patient_normalise(test, expected, raises):
 > >     normalised[np.isnan(normalised)] = 0
 > >     return normalised
 > > ...
+> > ~~~
 > >
+> > In `test/test_models.py`:
+> >
+> > ~~~
+> > ...
 > > @pytest.mark.parametrize(
 > >     "test, expected, raises",
 > >     [
@@ -439,17 +446,20 @@ def test_patient_normalise(test, expected, raises):
 > >         test = np.array(test)
 > >     if raises:
 > >         with pytest.raises(raises):
-> >             npt.assert_almost_equal(np.array(expected), patient_normalise(test), decimal=2)
+> >             npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
 > >     else:
-> >         npt.assert_almost_equal(np.array(expected), patient_normalise(test), decimal=2)
+> >         npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
 > > ...
 > > ~~~
+> >
+> > Note the conversion from `list` to `np.array` has been moved out of the call to `npt.assert_almost_equal()` within the test function, and is now only applied to list items (rather than all items). This allows for greater flexibility with our test inputs, since this wouldn't work in the test case that uses a string.
+> >
 > > {: .language-python}
 > {: .solution}
 >
 {: .challenge}
 
-Once done with the exercise, be sure to commit your changes and push them to GitHub.
+If you do the challenge, again, be sure to commit your changes and push them to GitHub.
 
 You should not take it too far by trying to code preconditions for every conceivable eventuality.
 You should aim to strike a balance between making sure you secure your function against incorrect use,
