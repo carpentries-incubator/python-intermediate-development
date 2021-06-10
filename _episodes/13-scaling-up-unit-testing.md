@@ -15,6 +15,7 @@ keypoints:
 ---
 
 ## Introduction
+
 We're starting to build up a number of tests that test the same function, but just with different parameters. However, continuing to write a new function for every single test case isn't likely to scale well as our development progresses. How can we make our job of writing tests more efficient? And importantly, as the number of tests increases, how can we determine how much of our code base is actually being tested?
 
 ## Parameterising Our Unit Tests
@@ -31,7 +32,7 @@ So far, we've been writing a single function for every new test we need. But ins
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
     from inflammation.models import daily_mean
-    npt.assert_array_equal(np.array(expected), daily_mean(np.array(test)))
+    npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
 ~~~
 {: .language-python}
 
@@ -58,7 +59,7 @@ The big pluses here are that we don't need to write separate functions for each 
 > > def test_daily_max(test, expected):
 > >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
 > >     from inflammation.models import daily_max
-> >     npt.assert_array_equal(np.array(expected), daily_max(np.array(test)))
+> >     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
 > >
 > >
 > > @pytest.mark.parametrize(
@@ -71,7 +72,7 @@ The big pluses here are that we don't need to write separate functions for each 
 > > def test_daily_min(test, expected):
 > >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
 > >     from inflammation.models import daily_min
-> >     npt.assert_array_equal(np.array(expected), daily_min(np.array(test)))
+> >     npt.assert_array_equal(daily_min(np.array(test)), np.array(expected))
 > > ...
 > > ~~~
 > > {: .language-python}
