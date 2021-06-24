@@ -91,11 +91,13 @@ GitHub is a free, online host for Git repositories that you will use during the 
 You can create an account at [https://github.com/](https://github.com/) if you don't already have one.
 
 ## Anaconda Python Distribution
-We will be using the Anaconda Python Distribution for the workshop. The material is not tested with other Python distributions and is specific to Anaconda.
+The material has been developed using the [Anaconda Python distribution](https://www.anaconda.com/) and is using the `conda` package manager 
+that comes with Anaconda. The material was not tested with other Python distributions and package managers but could 
+likely be adapted to work. The reason behind choosing Anaconda is the ease of installations for learners 
+on various platforms and operating systems and avoiding the issues with different individual Python setups.
   - Anaconda can be downloaded from [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-  - We will also be using the `conda` package manager that comes with the Anaconda Python distribution
   
-To test your Anaconda installation in your shell type:
+To test your Anaconda installation in your shell type (note the capital '-V'):
 ~~~
 $ conda -V
 ~~~
@@ -109,7 +111,7 @@ conda 4.9.2
 To make sure you are using the Anaconda distribution of Python and not some other distribution you may have on your system, 
  type the following in your shell:
  ~~~
- $ python -V
+ $ python
  ~~~
  {: .language-bash}
 This should enter you into a Python console and you should see something like:

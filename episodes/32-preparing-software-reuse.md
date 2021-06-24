@@ -319,7 +319,7 @@ That's got us started, but there are other aspects we should also cover:
 - *Contact information/getting help:* which may include things like key author email addresses, and links to mailing lists and other resources
 - *Credits/Acknowledgements:* where appropriate, be sure to credit those who have helped in the software's development or inspired it
 - *Citation:* particularly for academic software, it's a very good idea to specify a reference to an appropriate academic publication so other academics can cite use of the software in their own publications and media. You can do this within a separate [CITATION text file](https://github.com/citation-file-format/citation-file-format) within the repository's root directory and link to it from the markdown
-- *License:* a short description of and link to the software's license
+- *Licence:* a short description of and link to the software's licence
 
 For more verbose sections, there are usually just highlights in the README with links to further information, which may be held within other markdown files within the repository or elsewhere.
 
@@ -338,7 +338,7 @@ Software licensing can be a whole topic in itself, so we’ll just summarise her
 
 In IP law, software is considered a creative work of literature, so any code you write automatically has copyright protection applied. This copyright will usually belong to the institution that employs you, but this may be different for PhD students. If you need to check, this should be included in your employment / studentship contract or talk to your university’s IP team.
 
-Since software is automatically under copyright, without a license no one may:
+Since software is automatically under copyright, without a licence no one may:
 
 - Copy it
 - Distribute it
@@ -346,21 +346,21 @@ Since software is automatically under copyright, without a license no one may:
 - Extend it
 - Use it (actually unclear at present - this has not been properly tested in court yet)
 
-Fundamentally there are two kinds of license, **Open Source licenses** and **Proprietary licenses**, which serve slightly different purposes:
+Fundamentally there are two kinds of licence, **Open Source licences** and **Proprietary licences**, which serve slightly different purposes:
 
-- *Proprietary licenses* are designed to pass on limited rights to end users, and are most suitable if you want to commercialise your software. They tend to be customised to suit the requirements of the software and the institution to which it belongs - again your institutions IP team will be able to help here.
-- *Open Source licenses* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The website Choose A License provides recommendations and a simple summary of some of the most common open source licenses.
+- *Proprietary licences* are designed to pass on limited rights to end users, and are most suitable if you want to commercialise your software. They tend to be customised to suit the requirements of the software and the institution to which it belongs - again your institutions IP team will be able to help here.
+- *Open Source licences* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The website Choose A License provides recommendations and a simple summary of some of the most common open source licences.
 
-Within the open source licenses, there are two categories, **copyleft** and **permissive**:
+Within the open source licences, there are two categories, **copyleft** and **permissive**:
 
-- The permissive licenses such as MIT and the multiple variants of the BSD license are designed to give maximum freedom to the end users of software. These licenses allow the end user to do almost anything with the source code.
-- The copyleft licences in the GPL still give a lot of freedom to the end users, but any code that they write based on GPLed code must also be licensed under the same license. This gives the developer assurance that anyone building on their code is also contributing back to the community. It’s actually a little more complicated than this, and the variants all have slightly different conditions and applicability, but this is the core of the license.
+- The permissive licences such as MIT and the multiple variants of the BSD licence are designed to give maximum freedom to the end users of software. These licences allow the end user to do almost anything with the source code.
+- The copyleft licences in the GPL still give a lot of freedom to the end users, but any code that they write based on GPLed code must also be licensed under the same licence. This gives the developer assurance that anyone building on their code is also contributing back to the community. It’s actually a little more complicated than this, and the variants all have slightly different conditions and applicability, but this is the core of the licence.
 
-Which of these types of license you prefer is up to you and those you develop code with. If you want more information, or help choosing a license, the [Choose An Open-Source License](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
+Which of these types of licence you prefer is up to you and those you develop code with. If you want more information, or help choosing a licence, the [Choose An Open-Source Licence](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
 > ## Preparing for Release
 >
-> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a license, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
+> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a licence, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
 >
 > > ## Solution
 > {: .solution}
