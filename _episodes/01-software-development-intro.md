@@ -24,7 +24,7 @@ One of the first things to consider in software development is the design archit
 Hence, we start by looking into design architectures and, 
 more specifically, the Model-View-Control design architecture used by the example software project we will be developing 
 over the course of this workshop. There are other things to consider early on in software development - for example, 
-[choosing a license](/32-preparing-software-reuse/index.html#choosing-an-open-source-licence) for your 
+[choosing a licence](/32-preparing-software-reuse/index.html#choosing-an-open-source-licence) for your 
 project or [writing documentation](/32-preparing-software-reuse/index.html#documenting-code-to-improve-reusability). 
 For the purposes of this workshop we cover them later, but be aware that in the normal run of the things they should 
 addressed early.
