@@ -43,7 +43,8 @@ This course is for you if:
  - The software you write is fully documented and well architected
   
 > ## Prerequisites
-> To attend this course you should have either previously attended a Software Carpentry workshop within the last year, 
+> To attend this course you should have either previously attended a 
+> [Software Carpentry](https://software-carpentry.org/lessons/) workshop 
 > or meet the following criteria. You can also test your prerequisite knowledge by taking 
 > [this short quiz](./00-setting-the-scene#prerequisite-knowledge).
 >     
@@ -52,19 +53,22 @@ This course is for you if:
 > - **You have experience configuring Git for the first time and creating a local repository**
 > - **You have experience using Git to create and clone a repository and add/commit changes to it** 
 > - Optionally, you have experience using Git to push to or pull from a remote repository
-> - Optionally, you have experience comparing various versions of tracked files or ignoring specific files
+> - Optionally, you have experience comparing various versions of tracked files or ignoring specific files 
+> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's Git lesson](http://swcarpentry.github.io/git-novice/).
 >
 > #### Python
 > - **You have basic knowledge and experience of programming in Python, for example using: variables, lists, 
 > conditional statements, functions and importing and using external libraries.**  
 > - **You have previously written at least a basic Python script or an iPython/Jupyter notebook to accomplish a 
-> task**
+> task**   
+> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's Python lesson](https://swcarpentry.github.io/python-novice-inflammation/).
 >
 > #### Shell
 > - **You have experience using a command line interface (shell), such as Bash under Linux/Windows 10 or 
 >Git Bash under Windows to navigate a UNIX-style file system and run 
 > commands with arguments.**
-> - Optionally, you have experience redirecting inputs and outputs from a command.
+> - Optionally, you have experience redirecting inputs and outputs from a command. 
+> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's UNIX Shell lesson](http://swcarpentry.github.io/shell-novice/).
 {: .prereq}
 
 > ## Learning Objectives
