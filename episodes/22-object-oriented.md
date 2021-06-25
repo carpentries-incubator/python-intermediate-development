@@ -145,18 +145,19 @@ patients = [
 
 ### Classes in Python
 
-Using nested dictionaries and lists should work for most cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
+Using nested dictionaries and lists should work for some of the simpler cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
 For this reason, in the Object Oriented paradigm, we use **classes** to help with this data structure.
-A class is a **template** for a piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
-In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods** which describe the **behaviours** of the data.
+A class is a **template** for a structured piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
+In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data.
 
 With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check it manually.
 With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
 
 Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
 
-For an example of a class, let's create a model of an academic publishing papers.
-We'll add extra functionality to this model as we learn more about Object Oriented Programming in Python.
+For an example of a class, we're going to step away from the inflammation data for a while to another model.
+Let's create a model of academics publishing papers and we'll add extra functionality to this model as we learn more about Object Oriented Programming in Python.
+Note that this isn't part of our inflammation data example, so make sure you keep this code separate - for example in a different directory, or just make sure you don't commit it to your inflammation repository.
 
 ~~~
 class Academic:
@@ -220,15 +221,15 @@ The behaviours we may have seen previously include:
 > When doing Test Driven Development, we write our tests first and only write enough code to make the tests pass.
 > We tend to do this at the level of individual features - define the feature, write the tests, write the code.
 > The main advantages are:
->   - It forces us to think about how our code will be used before we write it
->   - It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
+>
+> - It forces us to think about how our code will be used before we write it
+> - It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
 >
 > You may also see this process called **Red, Green, Refactor**: 'Red' for the failing tests, 'Green' for the code that makes them pass, then 'Refactor' (tidy up) the result.
 >
 > For the challenges from here on, try to first convert the specification into a unit test, then try writing the code to pass the test.
 >
 {: .callout}
-
 
 ## Encapsulating Behaviour
 
@@ -299,12 +300,13 @@ For more information, see the `datetime` [module documentation](https://docs.pyt
 >
 > Sometimes, the function we're writing doesn't need access to any data belonging to a particular object.
 > For these situations, we can instead use a **class method** or a **static method**.
-> Class methods have access to the class that they're a part of, and can access data on that class - but do not belong to a specific instance of that class, whereas static methods access to neither the class nor its instances.
+> Class methods have access to the class that they're a part of, and can access data on that class - but do not belong to a specific instance of that class, whereas static methods have access to neither the class nor its instances.
 >
-> By convention, class methods use `cls` as their first argument instead of `self` - static methods have neither and have arguments which look like a typical free function.
-> This is the only common exception to using `self` for a method's first argument.
+> By convention, class methods use `cls` as their first argument instead of `self` - this is how we access the class and its data, just like `self` allows us to access the instance and its data.
+> Static methods have neither `self` nor `cls` so the arguments look like a typical free function.
+> These are the only common exceptions to using `self` for a method's first argument.
 >
-> Both of these method types are created using a **decorator**- for more information see the [classmethod](https://docs.python.org/3/library/functions.html#classmethod) and [staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) sections of the Python documentation.
+> Both of these method types are created using a **decorator** - for more information see the [classmethod](https://docs.python.org/3/library/functions.html#classmethod) and [staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) sections of the Python documentation.
 {: .callout}
 
 ### Dunder Methods
@@ -362,17 +364,17 @@ Alice
 ~~~
 {: .output}
 
+These dunder methods are not usually called directly, but rather provide the implementation of some functionality we can use.
 In the example above we can see:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
 - `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
-- `__len__` - gets the length of an object - usually the number of items it contains
+- `__len__` - gets the length of an object when we use `len(object)` - usually the number of items it contains
 
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
 
 Just because we *can* use these methods, doesn't necessarily mean we *should* though.
 By implementing the `__getitem__` and `__len__` methods on `Academic` in the way we did, we're suggesting that an academic *is* a collection of papers, which may not be quite what we intended to say.
-
 If we were to use this class in a real program, it would be better not to implement these methods on the `Academic` class and make people use `len(alice.papers)` instead.
 
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
