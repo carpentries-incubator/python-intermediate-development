@@ -44,6 +44,7 @@ In his introduction to functional programming in Advanced R, Hadley Wickham give
 ### Pure Functions and Side Effects
 
 We define a **pure function** as one which satisfies two criteria:
+
 1. The data returned must be the same each time the same arguments are provided
 2. Calling the function has no **side effects**
 
