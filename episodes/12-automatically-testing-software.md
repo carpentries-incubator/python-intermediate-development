@@ -28,7 +28,7 @@ Being able to demonstrate that a process generates the right results is importan
 - Can we (and others) verify these assertions for themselves?
 - And perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
 
-If we are unable to demonstrate that our software fulfils these criteria, why would anyone use it?
+If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it?
 
 
 ## What Is Software Testing?
