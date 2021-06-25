@@ -284,7 +284,7 @@ Note all jobs running in parallel (up to the limit allowed by our account) which
 
 ## Merging Back to `develop` Branch
 
-Now we're happy with our test suite, we can merge this work (which currently only exist on our `test-suite` branch) with our parent `develop` branch. Again, this reflects us working with impunity on a logical unit of work, involving multiple commits, on a separate feature branch until it's ready to be escalated to the develop branch:
+Now we're happy with our test suite, we can merge this work (which currently only exist on our `test-suite` branch) with our parent `develop` branch. Again, this reflects us working with impunity on a logical unit of work, involving multiple commits, on a separate feature branch until it's ready to be escalated to the `develop` branch:
 
 ~~~
 $ git checkout develop
@@ -301,7 +301,7 @@ $ git push origin develop
 
 Now these changes have migrated to our parent `develop` branch, `develop` will also inherit the configuration to run CI builds, so these will run automatically on this branch as well.
 
-This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `dev` and `master` this newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
+This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `develop` and `master` this newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
 
 
 {% include links.md %}
