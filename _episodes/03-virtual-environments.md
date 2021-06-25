@@ -19,7 +19,7 @@ keypoints:
 - "Use `conda` to manage Python packages (but be aware of other tools, such as `pip`)."
 - "Instead of installing packages individually, `conda` allows you to declare all dependencies in a separate
 file that can be easily shared with your collaborators."
-- "Use `conda env --from-history export > environment.yml` to take snapshot of your project's dependencies."
+- "Use `conda env export --from-history > environment.yml` to take snapshot of your project's dependencies."
 - "Use `conda env create -f environment.yml` to replicate someone else's virtual environment on you machine."
 ---
 
@@ -184,7 +184,7 @@ that that they can easily 'clone' your software project with all of its dependen
 saving and sharing an environment via an `environment.yml` file. To export your active environment to a file:
 
 ~~~
-$ conda env --from-history export > environment.yml
+$ conda env export --from-history > environment.yml
 ~~~
 {: .language-bash}
 
