@@ -21,9 +21,9 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 ## Introduction
 One of the big differences between novice and intermediate software development is planning the structure of your code. 
-A novice will often make up the structure of their code as they go along - but for more advanced software development, 
-we need to plan this structure beforehand. There is a number of ways to structure code called *software design architectures*. 
-We’ll start off by introducing the Model-View-Controller design architecture, one we’ll use in the example software 
+A novice will often make up the structure of their code as they go along. However, for more advanced software development, 
+we need to plan this structure - which we call a *software architecture* - beforehand.
+We’ll start off by introducing the Model-View-Controller architecture, one we’ll use in the example software 
 project we’ll develop over the course of this workshop.
 
 ## Software Architectures
@@ -80,52 +80,53 @@ request, Controller updates a picture on a user's GitHub profile and then modifi
 updated profile back to the user.
       
 Let's have a look at some MVC examples. 
-       
-> ## MVC Application Examples
-> What MVC application examples do you know, either from scientific or general applications or real life? This exercise can be done as 
->a group discussion.
-> > ## Solution 
-> > ### Scientific Applications 
-> > MVC architecture is typically [applied in scientific applications](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach) 
-> > in the following manner. Model comprises those parts of the application that deal with some type of 
-> > scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is 
-> > a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
-> > Controller is the part that ties the scientific processing and output parts together, mediating input and passing 
-> > it to the model or view, e.g. command line options, mouse clicks, input files. 
-> > 
-> > For example, a simple DNA visualisation 
-> > program has a Controller which accepts command line parameters for the DNA visualisation from users, 
-> > the Controller then retrieves data from the DNA Model, and uses a single type of View to generate a 
-> > visualisation - in this case, the view creates a visualisation within a single image file.
-> > ![MVC example of a DNA guide Command Line application](../fig/mvc-DNA-guide-CLI.png){: width="400px"}            
-> > The above application can be extended by adding new visualisations or new input interfaces 
-> > (by writing a new View or Controller) without having to consider the inner workings of the Model. For example, 
-> > the above DNA program can be extended by adding another Controller 
-> > (a graphical interface which accepts user mouse clicks) and a different View (rendering the visualisation to a displayed window):
-> > ![MVC example of a DNA guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: width="400px"}
-> > {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
-> > ### Modern Web and Mobile Applications
-> > MVC architecture has become popular for designing web and mobile applications. Users interact with a web/mobile application by sending requests to it via web forms. Requests are processed by the 
-> > Controller, which interacts with the Model to retrieve or update the underlying data. For example, the user may 
-> > request to view its profile/account information or to update their personal details or password. 
-> > Another typical example is adding a 
-> > products into the shopping basket and then proceeding to the checkout to finalise the order. 
-> > Forms to collect users inputs/requests together with 
-> > the info returned and displayed to the user as a result represent the View.  
-> > ### Ordering Food in a Restaurant 
+
+### MVC in Scientific Computing 
+MVC architecture can be [applied in scientific applications](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach) 
+in the following manner. Model comprises those parts of the application that deal with some type of 
+scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is 
+a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
+Controller is the part that ties the scientific processing and output parts together, mediating input and passing 
+it to the model or view, e.g. command line options, mouse clicks, input files. 
+
+For example, a simple DNA visualisation 
+program has a Controller which accepts command line parameters for the DNA visualisation from users, 
+the Controller then retrieves data from the DNA Model, and uses a single type of View to generate a 
+visualisation - in this case, the view creates a visualisation within a single image file.
+![MVC example of a DNA guide Command Line application](../fig/mvc-DNA-guide-CLI.png){: width="400px"}            
+The above application can be extended by adding new visualisations or new input interfaces 
+(by writing a new View or a new Controller) without having to consider the inner workings of the Model. For example, 
+the above DNA program can be extended by adding another Controller 
+(a graphical interface which accepts user mouse clicks) and a different View 
+(rendering the visualisation to a displayed window).
+![MVC example of a DNA guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: width="400px"}
+{% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
+
+### MVC in Modern Web/Mobile Applications
+MVC architecture has become popular for designing web and mobile applications. 
+Users interact with a web/mobile application by sending various requests to it. 
+Forms to collect users inputs/requests together with 
+the info returned and displayed to the user as a result represent the View. 
+Requests are processed by the 
+Controller, which interacts with the Model to retrieve or update the underlying data. For example, a user may 
+request to view its profile. The Controller retrieves the account information for the user from the Model and passes it to 
+the View for rendering. The user may further interact with the application by asking it to update its personal information 
+or password. Controller verifies the correctness of the information (e.g. the password satisfies certain criteria, 
+postal address and phone number are in the correct format, etc.) and 
+passes it to the Model for permanent storage. The View is then updated accordingly and the user sees its updated account details.
+
+### MVC in Real Life
 [comment]: <> (People Couple Waiter photo, Public Domain, https://publicdomainvectors.org/en/free-clipart/Restaurant-order-vector-image/9341.html)  
 [comment]: <> (Chef food preparation photo, Free for commercial use, DMCA, https://www.pxfuel.com/en/free-photo-emwgt)
-> > When you go to a restaurant, the waiter comes to you to take your food order. The waiter doesn't know who you are 
-> > and what you want, they just write down the detail of your order. Then, the waiter moves to the kitchen where 
-> > the cook prepares your food based on the order passed to them by the waiter. 
-> > The cook needs ingredients, which they source from the refrigerator (Data Storage). When the food is ready, the cook 
-> > hands it over to
-> > the waiter, who brings the food to you. You do not know the details of how the food has been prepared. In this 
-> > scenario, menu provides the View, the waiter is the Controller, and the cook is the Model who manipulates the Data 
-> > (food).  
-> > ![mvc-restaurant](../fig/mvc-restaurant.png)
-> {: .solution}  
-{: .challenge}       
+Here is a parallel to the MVC architecture from real life when ordering food in a restaurant. When you go to a restaurant, the waiter comes to you to take your food order. The waiter doesn't know who you are 
+and what you want, they just write down the detail of your order. Then, the waiter moves to the kitchen where 
+the cook prepares your food based on the order passed to them by the waiter. 
+The cook needs ingredients, which they source from the refrigerator (Data Storage). When the food is ready, the cook 
+hands it over to
+the waiter, who brings the food to you. You do not know the details of how the food has been prepared. In this 
+scenario, the menu provides the View, the waiter is the Controller, and the cook is the Model who manipulates the Data 
+(food).  
+![mvc-restaurant](../fig/mvc-restaurant.png)    
        
 > ## Separation of Concerns
 > Separation of concerns is important when designing software architectures in order to reduce the code's complexity. 
@@ -136,6 +137,16 @@ Let's have a look at some MVC examples.
 > before displaying it to the user or passing it from the user to the Model.
 >
 {: .callout}
+
+> ## MVC Application Examples From your Work
+> What examples do you know from your work or life where MVC architecture may be suitable? This exercise can be done as 
+>a group discussion.
+> > ## Solution      
+> > Note that not everything fits into the MVC architecture. Have a 
+> discussion with your fellow learners or have a look at this short [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
+> {: .solution}  
+{: .challenge}     
+
 ## Our Software Project
 For the purpose of this workshop, we will be using the following [software project in Python](https://github.com/softwaresaved/python-intermediate-inflammation). 
 It studies inflammation in patients who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). It is designed using the MVC principles 
@@ -161,7 +172,7 @@ should use a pre-generated personal access token as your password here.
 6. Locate the copied repository under your own GitHub account.
 ![github-template-repository](../fig/own-template-repository.png)
 
-> ## Obtain the software project locally
+> ## Obtain the Software Project Locally
 > Using a command line shell, clone the copied repository from your GitHub account  into your computer.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
