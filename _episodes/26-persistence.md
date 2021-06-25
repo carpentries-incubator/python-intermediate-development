@@ -38,12 +38,6 @@ If we want to bring in this data, modify it somehow, and save it back to a file,
 
 ## Tasks
 
-- create CSV serializer - save method
-- add load method
-- say we want to use JSON instead
-- make parent class - raise NotImplementedError - maybe make abstract
-- make JSON serializer
-
 The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**, so let's start by creating a base class to represent the concept of a serializer for our patient data - then we can specialise this to make serializers for different formats by inheriting from this base class.
 
 By creating a base class we provide a contract that any kind of patient serializer must stick to.
