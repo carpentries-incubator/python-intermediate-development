@@ -45,7 +45,7 @@ There are three main types of automated tests:
 
 For the purposes of this course, we'll focus on unit tests. But the principles and practices we'll talk about can be built on and applied to the other types of tests too.
 
-## Set Up a New feature Branch for Writing Tests
+## Set Up a New Feature Branch for Writing Tests
 
 We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
