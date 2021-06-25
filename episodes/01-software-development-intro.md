@@ -48,11 +48,14 @@ smaller sub-modules. Another example of modules are classes in object-oriented p
 > 
 {: .callout}  
 
-There are various software architectures around. [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) is one way to define 
-how the code is divided into smaller modules with well defined roles; other examples include 
-[Service-Oriented Architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), 
-[Client-Server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), 
-[N-tier architecture](https://en.wikipedia.org/wiki/Multitier_architecture), etc.
+There are various software architectures around defining different ways of dividing the code into smaller modules 
+with well defined roles, for example: 
+
+- [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), which we will look into in detail and use for our software project, 
+- [Service-Oriented Architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services, 
+accessible over a network by consumers (users or other services) that communicate with each other by passing data in a well-defined, shared format (protocol), 
+- [Client-Server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
+- [N-tier architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of client–server architecture in which presentation, application processing and data management functions are physically separated, most often on separate platforms. 
 
 ## Model-View-Controller (MVC) Architecture
 MVC architecture divides the related program 
