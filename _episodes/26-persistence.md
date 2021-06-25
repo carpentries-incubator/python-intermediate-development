@@ -6,7 +6,7 @@ questions:
 - "How can we store and transfer structured data?"
 - "How can we make it easier to substitute new components into our software?"
 objectives:
-- "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
+- "Describe how the environment in which software is used may constrain its design."
 - "Identify common components of multi-layer software projects"
 - "Store structured data using an Object Relational Mapping library"
 - "Define serialization and deserialization"
@@ -28,9 +28,9 @@ What's missing?
 
 Well, at the moment, if we wanted to add a new patient or perform a new observation, we would have to edit the input CSV file by hand.
 We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide the ability to do this through the software.
-That way we can perform any necessary validation (e.g. inflamation measurements must be a number) or transformation before the data gets accepted.
+That way we can perform any necessary validation (e.g. inflammation measurements must be a number) or transformation before the data gets accepted.
 
-If we want to bring in this data, modify it somehow, and save it back to a file, we'd need to:
+If we want to bring in this data, modify it somehow, and save it back to a file, all using our existing MVC architecture pattern, we'd need to:
 
 - Write some code to perform data import / export (**persistence**)
 - Add some views we can use to modify the data
@@ -38,12 +38,14 @@ If we want to bring in this data, modify it somehow, and save it back to a file,
 
 ## Tasks
 
-The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**, so let's start by creating a base class to represent the concept of a serializer for our patient data - then we can specialise this to make serializers for different formats by inheriting from this base class.
+The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**.
+Serialization is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialization is the opposite.
+We're going to be making a serialiser for our patient data, but since there's many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serializers later and swap between them.
+So let's start by creating a base class to represent the concept of a serializer for our patient data - then we can specialise this to make serializers for different formats by inheriting from this base class.
 
-By creating a base class we provide a contract that any kind of patient serializer must stick to.
-If we create multiple different patient serializers, for example to serialize using different formats, we know that we will be able to use them all in exactly the same way.
+By creating a base class we provide a contract that any kind of patient serializer must satisfy.
+If we create some alternative serializers for different data formats, we know that we will be able to use them all in exactly the same way.
 This technique is part of an approach called **design by contract**.
-Some languages provide tools to help us enforce this, such as **interfaces** in Java and C# - in Python **Abstract Base Classes** (ABCs) can help with this, but ABCs are out of the core scope of this course.
 
 We'll call our base class `PatientSerializer`.
 
