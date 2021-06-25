@@ -3,8 +3,7 @@ title: "Persistence"
 teaching: 30
 exercises: 20
 questions:
-- "How can we manage the persistence of our data?"
-- "What should we do when our data isn't well suited to a CSV format?"
+- "How can we store and transfer structured data?"
 - "How can we make it easier to substitute new components into our software?"
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
