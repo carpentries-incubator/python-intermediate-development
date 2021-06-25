@@ -55,7 +55,7 @@ You should see something like:
 
 ~~~
 * develop
-  master
+  main
 ...
 ~~~
 {: .output}
@@ -305,11 +305,11 @@ One really neat feature - and a common practice - of using many CI infrastructur
 ~~~
 # Inflam
 
-![build](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=master)
+![build](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
 ~~~
 {: .language-bash}
 
-This will embed a *badge* at the top of our page the reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `master` branch succeeded or failed.
+This will embed a *badge* at the top of our page the reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `main` branch succeeded or failed.
 
 That's got us started, but there are other aspects we should also cover:
 

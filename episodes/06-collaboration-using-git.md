@@ -11,7 +11,7 @@ objectives:
 
 keypoints:
 - "A branch is one version of your project that can contain its own set of commits."
-- "Feature branches enable us to develop / explore / test new code features without affecting the stable `master` code."
+- "Feature branches enable us to develop / explore / test new code features without affecting the stable `main` code."
 ---
 
 ## Introduction
@@ -36,7 +36,7 @@ $ git status
 {: .language-bash}
 
 ~~~
-On branch master
+On branch main
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -80,7 +80,7 @@ So far we have been working in isolation - all the changes we have done are stil
 machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
 
 ~~~
-$ git push origin master
+$ git push origin main
 ~~~
 {: .language-bash}
 
@@ -93,7 +93,7 @@ and to keep it on the Web rather than on someone’s laptop.
 From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
 
 ## Git Branches
-When we do `git status` git also tells us that we are currently on the `master` branch of the project.
+When we do `git status` git also tells us that we are currently on the `main` branch of the project.
 A branch is one version of your project (the files in your repository) that can contain its own set of commits.
 We can create a new branch, make changes to the code that we then commit to the branch, and when we are are happy with
 those changes, merge them back to the main branch. To see what other branches are available, do:
@@ -103,22 +103,22 @@ $ git branch
 ~~~
 {: .language-bash}
 
-At the moment, there's only one branch (`master`) and hence only one version of the code available. When you create a
-git repository for the first time, by default you only get one version (i.e. branch) - `master`. Let's have a look at
+At the moment, there's only one branch (`main`) and hence only one version of the code available. When you create a
+git repository for the first time, by default you only get one version (i.e. branch) - `main`. Let's have a look at
 why having different branches is so useful.
 
 ### Feature branch software development workflow
-While it is technically OK to commit our changes directly to `master` branch, and you may often find yourself doing so
+While it is technically OK to commit our changes directly to `main` branch, and you may often find yourself doing so
 for some minor changes, the best practice is to use a new branch for each separate and self-contained
 unit/piece of work you want to
 add to the project. This unit of work is also often called a *feature* and the branch where you develop it is called a
 *feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix",
 "python3.8"). If we keep making changes
-and pushing them directly to `master` branch on GitHub, then anyone who downloads our software from there will get all of our
+and pushing them directly to `main` branch on GitHub, then anyone who downloads our software from there will get all of our
 work in progress - whether or not it's ready to use! So, working on a separate branch for each feature you are adding is
 good for several reasons:
 
-* it enables the master branch to remain stable while you and the team explore and test the new code on a feature
+* it enables the main branch to remain stable while you and the team explore and test the new code on a feature
 branch,
 * it enables you to keep the untested and not-yet-functional feature branch code under version control and
 backed up,
@@ -132,12 +132,12 @@ Branches are commonly used as part of a feature-branch workflow, shown in diagra
 <p style="text-align: center;">Git feature branches <br>
 From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
-In the software development workflow, we typically have a main (`master`) branch which is the version of the code that
+In the software development workflow, we typically have a main branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress
 code. As we work on adding new features to the code, we can create new feature branches that first get merged into
-`develop`, and then once thoroughly tested - can get merged into `master`. For smaller projects (e.g. if you are
+`develop`, and then once thoroughly tested - can get merged into `main`. For smaller projects (e.g. if you are
 working alone on a project), it may be enough to
-merge a feature branch directly into `master` upon testing, skipping the `develop` branch step.
+merge a feature branch directly into `main` upon testing, skipping the `develop` branch step.
 
 ### Creating Branches
 Let's create a `develop` branch to work on:
@@ -154,7 +154,7 @@ $ git branch
 {: .language-bash}
 ~~~
     develop
-  * master
+  * main
 ~~~
 {: .output}
 
@@ -181,7 +181,7 @@ Switched to branch 'develop'
 
 ### Updating Branches
 If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
-of the code in `master`. We add and commit things to `develop` branch in the same way as to `master`.
+of the code in `main`. We add and commit things to `develop` branch in the same way as to `main`.
 
 For example, let's make a small modification to `inflammation/models.py` and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
@@ -223,11 +223,11 @@ $ git commit -m "Spelling fix"
 {: .callout}
 
 ### Pushing New Branch Remotely
-We push the contents of the `develop` branch to GitHub in the same way as we pushed the `master`. However, as we have
+We push the contents of the `develop` branch to GitHub in the same way as we pushed the `main`. However, as we have
 just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by
 listing all branches.
 
-<img src="../fig/software-template-repo-master-branch.png" alt="software project's master branch" width="700" />
+<img src="../fig/software-template-repo-master-branch.png" alt="software project's main branch" width="700" />
 
 To push a new local branch remotely for the first time, we have to use the `-u` switch and the name of the branch you
 are creating and pushing to:
@@ -238,7 +238,7 @@ $ git push -u origin develop
 {: .language-bash}
 
 Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your 
-repository in GitHub, click the branch dropdown menu (currently showing the default branch `master`). You should
+repository in GitHub, click the branch dropdown menu (currently showing the default branch `main`). You should
 see your `develop` branch in the list too.
 
 <img src="../fig/software-template-repo-develop-branch.png" alt="software project's develop branch" width="700" />
@@ -253,21 +253,21 @@ $ git push origin develop
 ~~~
 {: .language-bash}
 
-### Merging Into Master Branch
-Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `master` branch.
-To do so, make sure you have all your changes committed and switch to `master`:
+### Merging Into Main Branch
+Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `main` branch.
+To do so, make sure you have all your changes committed and switch to `main`:
 
 ~~~
-$ git checkout master
+$ git checkout main
 ~~~
 {: .language-bash}
 ~~~
-Switched to branch 'master'
-Your branch is up to date with 'origin/master'.
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
 ~~~
 {: .output}
 
-To merge `develop branch` on top of `master` do:
+To merge `develop branch` on top of `main` do:
 
 ~~~
 $ git merge develop
@@ -282,25 +282,25 @@ Fast-forward
 {: .output}
 
 If there are no conflicts, Git will merge the branches without complaining and replay all commits from
-`develop` on top of the last commit from `master`. If there are merge conflicts (e.g. a team collaborator modified the same 
+`develop` on top of the last commit from `main`. If there are merge conflicts (e.g. a team collaborator modified the same 
 portion of the same file you are working on and checked in their changes before you), the particular files with conflicts 
 will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again. 
-Since we have no conflicts, we can now push `master` to remote repository:
+Since we have no conflicts, we can now push `main` to remote repository:
 
 ~~~
-git push origin master
+git push origin main
 ~~~
 {: .language-bash}
 
 > ## All Branches Are Equal
-> In Git, all branches are equal - there is nothing special about the `master` branch. It is called
+> In Git, all branches are equal - there is nothing special about the `main` branch. It is called
 > like that by convention and is created by default, but it can also be called something else. A good example is
-> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `master`, which can
+> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `main`, which can
 > be safely deleted for such projects).
 {: .callout}
 
-> ## Keeping Master Branch Stable
-Good software development practice is to keep the `master` branch stable while you and the team develop and test
+> ## Keeping Main Branch Stable
+Good software development practice is to keep the `main` branch stable while you and the team develop and test
 new functionalities on feature branches (which can be done in parallel and independently). The next step is to merge
 features branches onto the `develop` branch, where more testing can occur to verify that the new features work
 well with the rest of the code (and not just in isolation). We talk more about different types of code testing in the
