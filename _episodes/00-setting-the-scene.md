@@ -110,7 +110,7 @@ where you fit on the skills spectrum and if this course is for you.
 > {: .language-bash}
 > 
 > > ## Solution 
- > > `cd ..` is the correct command. 
+ > > `cd ..` is the correct command. `cd -` goes to the previous location in history (not parent). `cd ~` goes to the home folder. `cd /up` goes to a folder `up` in the root (`/`) of the file system.
  > {: .solution} 
 > 3.How can you append the output of a command to a file?  
 > 
