@@ -34,7 +34,7 @@ a software system that describes high-level components (modules) of the system a
 In software design and development, large systems or programs are often decomposed into a set of smaller 
 modules each with a subset of functionality. Typical examples of modules in programming are software libraries; 
 some software libraries, such as `numpy` and `matplotlib` in Python, are bigger modules that contain several 
-smaller sub-modules. Another examples of modules are classes in object-oriented programming languages. 
+smaller sub-modules. Another example of modules are classes in object-oriented programming languages. 
 
 > ## Programming modules and interfaces
 > Although modules are self-contained and independent elements to a large extent (they can depend on other modules), 
@@ -179,27 +179,27 @@ should use a pre-generated personal access token as your password here.
 > > 1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the 
 >original template repository but rather your own copy, as you should be able to push commits to it later on.
 > > 2. Do:    
-> > `$git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation` 
+> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation` 
 > > 3. Navigate into the cloned repository in your command line shell:    
-> > `$cd python-intermediate-inflammation`
+> > `cd python-intermediate-inflammation`
 > > 4. List the contents of the directory:  
-> > `$ls -l`  
-> > Remember the `-l` flag of the `ls` command and also how to get help for commands in shell: `$man ls`.
+> > `ls -l`  
+> > Remember the `-l` flag of the `ls` command and also how to get help for commands in shell: `man ls`.
 > {: .solution}   
 >
 {: .challenge}       
 
 Let’s inspect the software project. In your shell, from the root directory of the project use the 
 command `ls -l` to get a more detailed list of the contents. You should see something similar to the following.
+
 ~~~
-$ls -l
+$ ls -l
 total 24
--rw-r--r--   1 user  staff   253 20 Apr 15:41 Makefile
--rw-r--r--   1 user  staff  1055 20 Apr 15:41 README.md
-drwxr-xr-x  18 user  staff   576 20 Apr 15:41 data
-drwxr-xr-x   5 user  staff   160 20 Apr 15:41 inflammation
--rw-r--r--   1 user  staff  1122 20 Apr 15:41 patientdb.py
-drwxr-xr-x   4 user  staff   128 20 Apr 15:41 tests
+-rw-r--r--   1 carpentry  users  1055 20 Apr 15:41 README.md
+drwxr-xr-x  18 carpentry  users   576 20 Apr 15:41 data
+drwxr-xr-x   5 carpentry  users   160 20 Apr 15:41 inflammation
+-rw-r--r--   1 carpentry  users  1122 20 Apr 15:41 patientdb.py
+drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 ~~~
 {: .language-bash}
 
