@@ -138,8 +138,8 @@ line continuation (slightly less preferred method).
 if (a == True and 
     b == False):
 
-# Using a backslash (/) for line continuation
-if a == True and /
+# Using a backslash (\) for line continuation
+if a == True and \
     b == False:
  ~~~
 {: .language-python}
@@ -149,7 +149,7 @@ Lines should break before binary operators so that the operators do not get scat
 on the screen. In the example below, the eye does not have to do the extra work to tell which items are added
 and which are subtracted:
 ~~~
-# Correct - easy to match operators with operands
+# PEP 8 compliant - easy to match operators with operands
 income = (gross_wages
           + taxable_interest
           + (dividends - qualified_dividends)
@@ -166,10 +166,10 @@ should be surrounded by a single blank line. You can use blank lines in function
 Avoid extraneous whitespace in the following situations:
 - immediately inside parentheses, brackets or braces
     ~~~
-    # Correct:
+    # PEP 8 compliant:
     my_function(colour[1], {id: 2})
 
-    # Wrong:
+    # Not PEP 8 compliant:
     my_function( colour[ 1 ], { id: 2 } )
     ~~~
     {: .language-python}
@@ -177,42 +177,44 @@ Avoid extraneous whitespace in the following situations:
 - Immediately before a comma, semicolon, or colon (unless doing slicing where the colon acts like a binary operator
 in which case it should should have equal amounts of whitespace on either side)
     ~~~
-    # Correct:
-    if x == 4: print x, y; x, y = y, x
+    # PEP 8 compliant:
+    if x == 4: print(x, y); x, y = y, x
 
-    # Wrong:
-    if x == 4 : print x , y ; x , y = y , x
+    # Not PEP 8 compliant:
+    if x == 4 : print(x , y); x , y = y, x
     ~~~
     {: .language-python}
 
 - Immediately before the open parenthesis that starts the argument list of a function call
     ~~~
-    # Correct:
+    # PEP 8 compliant:
     my_function(1)
 
-    # Wrong:
+    # Not PEP 8 compliant:
     my_function (1)
     ~~~
     {: .language-python}
 
 - Immediately before the open parenthesis that starts an indexing or slicing
      ~~~
-    # Correct:
-    my_dct['key'] = my_lst[id]
+    # PEP 8 compliant:
+    my_dct['key'] = my_lst[id] 
+    first_char = my_str[:, 1]
 
-    # Wrong:
-    my_dct ['key'] = my_lst [id]
+    # Not PEP 8 compliant:
+    my_dct ['key'] = my_lst [id] 
+    first_char = my_str [:, 1]
      ~~~
      {: .language-python}
 
 - More than one space around an assignment (or other) operator to align it with another
      ~~~
-    # Correct:
+    # PEP 8 compliant:
     x = 1
     y = 2
     student_loan_interest = 3
 
-    # Wrong:
+    # Not PEP 8 compliant:
     x                     = 1
     y                     = 2
     student_loan_interest = 3
@@ -228,13 +230,13 @@ booleans (and, or, not).
 - Don't use spaces around the = sign when used to indicate a keyword argument assignment or to indicate a
 default value for an unannotated function parameter
      ~~~
-    # Correct use of spaces around = for variable assignment
+    # PEP 8 compliant use of spaces around = for variable assignment
     axis = 'x'
     angle = 90
     size = 450
     name = 'my_graph'
 
-    # Correct use of no spaces around = for keyword argument assignment in a function call
+    # PEP 8 compliant use of no spaces around = for keyword argument assignment in a function call
     my_function(
         1,
         2,
@@ -294,6 +296,12 @@ and this includes a future version of yourself. It can be easy to forget why you
 months' time. Write comments as complete sentences and in English unless you are 100% sure the code will never be read
 by people who don't speak your language.
 
+> ## The Good, the Bad, and the Ugly
+> Check out the ['Putting comments in code: the good, the bad, and the ugly' blogpost](https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/).
+> Remember - a comment should answer the ‘why’ question”. Occasionally the “what” question. 
+> The “how” question should be answered by the code itself. 
+{: .callout}
+
 Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that
 code. Each line of a block comment starts with a `#` and a single space (unless it is indented text inside the comment).
 ~~~
@@ -308,7 +316,7 @@ An inline comment is a comment on the same line as a statement. Inline comments 
 spaces from the statement. They should start with a `#` and a single space and should be used sparingly.
 ~~~
 def fahr_to_cels(fahr):
-    cels = (fahr + 32) * (5 / 9) # Inline comment example: convert temperature in Fahrenheit to Celsius
+    cels = (fahr + 32) * (5 / 9)  # Inline comment example: convert temperature in Fahrenheit to Celsius
     return cels
 ~~~
 {: .language-python}
@@ -366,7 +374,7 @@ the discovered inconsistencies.
 >recommended for variable names. Rename it to, e.g. `infiles`.
 > >
 > > 3.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the
-> > middle of the code unless you want to separate logical units - in which case only one blank like is used.
+> > middle of the code unless you want to separate logical units - in which case only one blank line is used.
 > > Note how PyCharm is warning us by underlying the whole line.
 > >
 > > 4.Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
@@ -382,7 +390,7 @@ Fibonacci number:
 def fibonacci(n):
     """Calculate the nth Fibonacci number.
 
-    A recursive implementation of Fibonacci.
+    A recursive implementation of Fibonacci array elements.
 
     :param n: integer
     :raises ValueError: raised if n is less than zero
@@ -404,9 +412,17 @@ Note here we are explicitly documenting our input variables, what is returned by
 act as a *contract* for readers to understand what to expect in terms of behaviour when using the function,
 as well as how to use it.
 
-A comment string like this is called a *docstring*. We do not need to use triple quotes when we write one, but
-if we do, we can break the string across multiple lines. This also applies to Python modules, which are essentially
-files of Python functions, or methods within classes and docstrings are used to list them all.
+A special comment string like this is called a **docstring**. We do not need to use triple quotes when writing one, but
+if we do, we can break the text across multiple lines. Docstrings can also be used at the start of a Python module (a file 
+containing a number of Python functions) or at the start of a Python class (containing a number of methods) to list 
+their contents as a reference. You should not confuse docstrings with comments though - docstrings are context-dependent and should only 
+be used in specific locations (e.g. at the top of a module and immediately after `class` and `def` keywords as mentioned). 
+Using triple quoted strings in locations where they will not be interpreted as docstrings or 
+using triple quotes as a way to 'quickly' comment out an entire block of code is considered bad practice. 
+
+In our example case, we used 
+the [Sphynx/ReadTheDocs docstring style](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) formatting 
+for the `param`, `raises` and `returns` - other docstring formats exist as well.
 
 > ## Python PEP 257 - Recommendations for Docstrings
 > PEP 257 is another one of Python Enhancement Proposals and this one deals with docstring conventions to
@@ -438,9 +454,10 @@ Functions:
 ~~~
 {: .language-python}
 
-Docstrings for a function or a module is returned when
-invoking `help` function and passing its name - for example from interactive `ipython` shell or from Jupyter Lab/Notebook
-or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.7/library/index.html)).
+The docstring for a function or a module is returned when
+calling the `help` function and passing its name - for example from interactive `ipython` shell or from Jupyter Lab/Notebook 
+or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)). 
+PyCharm also displays the docstring for a function/module in a little elp popup window when using tab-completion.
 
 ~~~
 help(fibonacci)
@@ -454,33 +471,33 @@ help(fibonacci)
 > > return values.
 > > ~~~
 > > def daily_mean(data):
-> >        """Calculate the daily mean of a 2D inflammation data array for each day.
+> >    """Calculate the daily mean of a 2D inflammation data array for each day.
 > >
-> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day).
-> >        :returns: An array of mean values of measurements for each day.
-> >        """
-> >        return np.mean(data, axis=0)
+> >    :param data: A 2D data array with inflammation data (each row contains measurments for a single day across all patients).
+> >    :returns: An array of mean values of measurements for each day.
+> >    """
+> >    return np.mean(data, axis=0)
 > >    ~~~
 > > {: .language-python}
 > > ~~~
 > > def daily_min(data):
-> >        """Calculate the daily minimum of a 2D inflammation data array for each day.
+> >    """Calculate the daily minimum of a 2D inflammation data array for each day.
 > >
-> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day).
-> >        :returns: An array of min values of measurements for each day.
-> >        """
-> >        return np.min(data, axis=0)
-> >    ~~~
+> >    :param data: A 2D data array with inflammation data (each row contains measurments for a single day across all patients).
+> >    :returns: An array of minimum values of measurements for each day.
+> >    """
+> >    return np.min(data, axis=0)
+> >~~~
 > > {: .language-python}
 > > ~~~
 > > def daily_max(data):
-> >        """Calculate the daily maximum of a 2D inflammation data array for each day.
+> >    """Calculate the daily maximum of a 2D inflammation data array for each day.
 > >
-> >        :param data: A 2D data array containing inflammation data (each row contains measurments for a single day).
-> >        :returns: An array of max values of measurements for each day.
-> >        """
-> >        return np.max(data, axis=0)
-> >    ~~~
+> >    :param data: A 2D data array with inflammation data (each row contains measurments for a single day across all patients).
+> >    :returns: An array of max values of measurements for each day.
+> >    """
+> >    return np.max(data, axis=0)
+> >~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
