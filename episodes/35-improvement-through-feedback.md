@@ -20,6 +20,7 @@ keypoints:
 ---
 
 ## Introduction
+
 When a software project has been around for even just a short amount of time, you'll likely discover many aspects that can be improved. These can come from issues that have been registered via collaborators or users, but also those you're aware of internally, which should also be registered as issues. When starting a new software project, you'll also have to determine how you'll handle all the requirements. But which ones should you work on first, which are the most important and why, and how should you organise all this work?
 
 Software has a fundamental role to play in doing science, but unfortunately software development is often given short shrift in academia when it comes to prioritising effort. There are also many other draws on our time in addition to the research, development, and writing of publications that we do, which makes it all the more important to prioritise our time for development effectively.
@@ -53,7 +54,8 @@ An effective way of helping to make your estimates more accurate is to do it as 
 
 > ## Estimate!
 >
-> As a team go through the issues that your partner team has registered with your software repository, and estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then discuss your rationale and decide on a final estimate. Make sure you are able to complete your estimates in the allotted time!
+> As a team go through the issues that your partner team has registered with your software repository, and estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
+> Time: 5 mins
 {: .challenge}
 
 
@@ -78,9 +80,7 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can optiona
 >
 > Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the stated allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. version 1.1
 >
-> > ## Solution
-> {: .solution}
->
+> Time: 5 mins
 {: .challenge}
 
 ## Using Sprints to Organise and Work on Requirements
@@ -89,11 +89,9 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 
 > ## Conduct a Mini-Mini-Sprint
 >
-> For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue.
+> For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
 >
-> > ## Solution
-> {: .solution}
->
+> Time: however long is left
 {: .challenge}
 
 Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which - particularly in academia - may change over time.
