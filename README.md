@@ -1,4 +1,4 @@
-# Intermediate Software Carpentry
+# Intermediate Research Software Development In Python
 
 A two day, intermediate-level course in software development for researchers.
 
