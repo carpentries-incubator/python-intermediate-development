@@ -92,12 +92,13 @@ You can create an account at [https://github.com/](https://github.com/) if you d
 
 ## Anaconda Python Distribution
 The material has been developed using the [Anaconda Python distribution](https://www.anaconda.com/) and is using the `conda` package manager 
-that comes with Anaconda. The material was not tested with other Python distributions and package managers but could 
-likely be adapted to work. The reason behind choosing Anaconda is the ease of installations for learners 
+that comes with Anaconda. The material has not been extensively tested with other Python distributions and package managers, 
+but most sections are expected to work with some modification. For example, package installation and virtual environments would need to be managed differently.
+The reason behind choosing Anaconda is the ease of installations for learners 
 on various platforms and operating systems and avoiding the issues with different individual Python setups.
   - Anaconda can be downloaded from [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
   
-To test your Anaconda installation in your shell type (note the capital '-V'):
+To test your Anaconda installation in your shell type (note the capital `-V` switch in the command below):
 ~~~
 $ conda -V
 ~~~

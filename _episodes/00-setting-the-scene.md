@@ -38,7 +38,7 @@ on the topics covered, as outlined at the [beginning of the lesson](/index.html#
 Here is a little quiz that you can do to test your prior knowledge to determine 
 where you fit on the skills spectrum and if this course is for you.  
 > ## Quiz 
-> #### Git       
+> ### Git 
 > 1.Which command should you use to initialise a new Git repository?
 >   
 >   ~~~
@@ -84,8 +84,8 @@ where you fit on the skills spectrum and if this course is for you.
 > > staged changes to the local repository and `git push` will push those committed changes to the remote repository. 
 > > `git upload` is not a Git command and will return an error. 
 > {: .solution}  
-> #### Shell  
 >
+> ### Shell 
 > 1.In the command line shell, which command can you use to see the directory you are currently in?  
 > 
 >   ~~~
@@ -110,7 +110,7 @@ where you fit on the skills spectrum and if this course is for you.
 > {: .language-bash}
 > 
 > > ## Solution 
- > > `cd ..` is the correct command. 
+ > > `cd ..` is the correct command. `cd -` goes to the previous location in history (not parent). `cd ~` goes to the home folder. `cd /up` goes to a folder `up` in the root (`/`) of the file system.
  > {: .solution} 
 > 3.How can you append the output of a command to a file?  
 > 
@@ -126,7 +126,8 @@ where you fit on the skills spectrum and if this course is for you.
  > > `command >> file` is the correct command. `command > file` will redirect the output of a command to a file and 
 >overwrite its content, `command file` will pass the file as an argument to the command and `command < file` redirects
 > input rather than output.
- > {: .solution}  
+> {: .solution}  
+>
 > ### Python
 > 1.Which of these collections defines a list in Python?
 > 
@@ -180,7 +181,7 @@ where you fit on the skills spectrum and if this course is for you.
 {: .callout} 
 
 ## Required Software
-Please make sure that you have all the necessary software installed as described in the [Setup](/setup.html) section. 
+Please make sure that you have all the necessary software installed as described in the [Setup](../setup.html) section. 
 This section also contains instructions on how to test your setup. 
 
 {% include links.md %}
