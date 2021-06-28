@@ -1,7 +1,7 @@
 ---
 title: "Assessing Software for Suitability and Improvement"
-teaching: 30
-exercises: 10
+teaching: 15
+exercises: 25
 questions:
 - "What makes good code actually good?"
 - "What should we look for when selecting software to reuse?"
@@ -18,11 +18,14 @@ keypoints:
 ---
 
 ## Introduction
+
 What we've been looking at so far enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
 > ## What Makes Good Software Good?
 >
-> In your groups, discuss what makes good code actually good and note these characteristics down.
+> In your groups, briefly discuss and list what characteristics make good code actually good and note these down.
+>
+> Time: 5 minutes
 >
 > > ## Solution
 > >
@@ -84,6 +87,8 @@ Having open, publicly-visible lists of the the limitations and problems with you
 > ## Our First Issue!
 >
 > Thinking back to the previous exercise on what makes good code, with a critical eye think of an aspect of the code you have developed so far that needs improvement. It could be a bug, for example, or a documentation issue with your README, or an enhancement. Enter the details of the issue with a suitable label and select `Submit new issue`.
+>
+> Time: 5 mins
 {: .challenge}
 
 
@@ -105,12 +110,24 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 
 ## Assessing Software for Suitability
 
+> ## Decide on your Group's Repository!
+>
+> You all have your code repositories you have been working on throughout the course so far. For the upcoming exercise, groups will exchange repositories and review the code of the repository they inherit, and provide feedback.
+>
+> Time: 5 mins
+>
+> 1. Decide as a team on one of your repositories that will represent your group. You can do this any way you wish.
+> 2. Add the URL of the repository to the section in the Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team number in the empty table cell
+{: .challenge}
+
 > ## Conduct Assessment on Third-Party Software
 >
-> *The scenario:* It is envisaged that a piece of software developed by another team will be adopted and used for the long term in a number of future projects. You have been tasked with conducting a detailed assessment of this software to identify any issues that need resolving prior to working with it, and will provide feedback to the developing team to fix these issues.
+> *The scenario:* It is envisaged that a piece of software developed by another team will be adopted and used for the long term in a number of future projects. You have been tasked with conducting an assessment of this software to identify any issues that need resolving prior to working with it, and will provide feedback to the developing team to fix these issues.
+>
+> Time: 20 mins
 >
 > 1. Decide as a team how you will conduct the assessment, e.g. what aspects are important, and who will look at which aspect
-> 2. Obtain a repository's URL from another workshop team for you to assess, and give your repository's URL to another team for them to assess
+> 2. Obtain the URL for the repository you will assess from the Google Doc, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates from which team you should get their repository URL
 > 3. Conduct the assessment and register any issues you find on the other team's software repository
 > 4. Be meticulous in your assessment and register as many issues as you can!
 {: .challenge}
