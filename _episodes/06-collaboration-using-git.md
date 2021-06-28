@@ -59,11 +59,11 @@ And, of course, we have not pushed the changes to the remote repository. It is a
 we are not tracking (i.e. files ignored by git) - in this case `.idea/` folder where PyCharm saves its project data.
 Do not worry if ignored files differ on your machine.
 
-To commit to the local repository, we first have add the files to staging area (i.e. index) to prepare them for
+To commit to the local repository, we first have to add the files to staging area (i.e. index) to prepare them for
 committing:
 
 ~~~
-$ git add patient.db inflammation/models.py
+$ git add patient.py inflammation/models.py
 ~~~
 {: .language-bash}
 
@@ -229,13 +229,21 @@ listing all branches.
 
 <img src="../fig/software-template-repo-master-branch.png" alt="software project's main branch" width="700" />
 
-To push a new local branch remotely for the first time, we have to use the `-u` switch and the name of the branch you
+To push a new local branch remotely for the first time, you could use the `-u` switch and the name of the branch you
 are creating and pushing to:
 
 ~~~
 $ git push -u origin develop
 ~~~
 {: .language-bash}
+
+> ## Git Push With `-u` Switch
+>Using the `-u` switch with the `git push` command is a handy shortcut for: (1) creating the new remote branch and 
+>(2) setting your local branch to automatically track the remote one at the same time. 
+>You need to use the `-u` switch only once to set up that association between your branch and one on the remote explicitly. 
+> After that you could simply use `git push` without specifying the remote repository, if you wished so. We still prefer
+>to explicitly state this information in commands.
+{: .callout}
 
 Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your 
 repository in GitHub, click the branch dropdown menu (currently showing the default branch `main`). You should

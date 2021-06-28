@@ -1,5 +1,5 @@
 ---
-title: "Software Improvement through Feedback"
+title: "Software Improvement Through Feedback"
 teaching: 5
 exercises: 25
 questions:
