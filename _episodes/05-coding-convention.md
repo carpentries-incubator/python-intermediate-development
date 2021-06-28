@@ -4,7 +4,7 @@ start: false
 teaching: 20
 exercises: 10
 questions:
-- "Why should I follow software coding conventions?"
+- "Why should you follow software coding conventions?"
 - "Who is setting coding conventions?"
 - "What coding conventions exist for Python?"
 objectives:
