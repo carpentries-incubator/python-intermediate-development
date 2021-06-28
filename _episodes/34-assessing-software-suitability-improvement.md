@@ -22,7 +22,7 @@ What we've been looking at so far enables us to adopt a more proactive and dilig
 
 > ## What Makes Good Software Good?
 >
-> In pairs, discuss what makes good code actually good and note these characteristics down.
+> In your groups, discuss what makes good code actually good and note these characteristics down.
 >
 > > ## Solution
 > >
