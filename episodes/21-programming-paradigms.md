@@ -50,7 +50,6 @@ If we can be sure that a block has exactly one **entry point** at the top, and e
 This paradigm has largely been replaced now and only exists as a subset of the other paradigms.
 Nonetheless, we should remember this model of entry and exit points and use it to simplify the structure of our code within any of the other paradigms.
 
-
 #### Procedural Programming
 
 - Early examples: FORTRAN II (1958), COBOL (1959)
@@ -61,13 +60,16 @@ In most modern languages we call these **functions**, instead of procedures - so
 
 By grouping code like this, we make it even easier to reason about the overall structure, since we should be able to tell roughly what a function does just by looking at its name.
 These functions are also much easier to reuse code outside of functions, since we can call them from any part of our program.
-The ideas of Procedural Programming still apply here, since we can design our functions with exactly one entry and one exit point.
+The ideas of Structured Programming still apply here, since we can design our functions with exactly one entry and one exit point.
+
+Procedural Programming is most commonly seen in code focused on high performance, with relatively simple data structures, such as in High Performance Computing (HPC).
+These programs tend to be written in C (which doesn't support Object Oriented Programming) or Fortran (which didn't until recently).
 
 Note that you may sometimes hear people refer to this as "Functional Programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
 Functional Programming (see below) places much stronger constraints on the behaviour of a function.
 
-
 #### Object Oriented Programming
+
 - Early examples: Simula (1967), Smalltalk (1972)
 - Common examples in research: Python, C++, Java, C#
 
@@ -83,6 +85,7 @@ The Declarative Family is a distinct set of paradigms which have a different out
 What we really care about here is the outcome - how this is achieved is less important.
 
 #### Functional Programming
+
 - Early example: Lisp (1958)
 - Common examples in research: R, JavaScript, Hadoop, Spark
 
@@ -93,11 +96,12 @@ Anything a function does other than produce an output is known as a **side effec
 Being strict about this definition allows us to break down the distinction between **code** and **data**, for example by writing a function which accepts and transforms other functions - in Functional Programming *code is data*.
 
 The most common application of Functional Programming in research is in data processing, especially when handling **Big Data**.
-One popular definition of Big Data is data which is too large to fit in the memory of a single computer, with a single dataset being multiple terabytes or larger.
+One popular definition of Big Data is data which is too large to fit in the memory of a single computer, with a single dataset sometimes being multiple terabytes or larger.
 With datasets like this, we can't move the data around easily, so we often want to send our code to where the data is instead.
 By writing our code in a functional style, we also gain the ability to run many operations in parallel as it's guaranteed that each operation won't interact with any of the others - this is essential if we want to process this much data in a reasonable amount of time.
 
 #### Logic Programming
+
 - Early and common example: Prolog (1972)
 
 Logic Programming is even closer to mathematics, being based on **formal logic**.
@@ -127,7 +131,7 @@ The idea is to generate the sequence of integers, but replace multiples of three
 
 The examples below are illustrative of some of the major paradigms - we don't expect you to fully understand what's happening in each example.
 
-This first FizzBuzz implementation is characteristic of the procedural paradigm.
+This first FizzBuzz implementation is characteristic of the procedural or structured paradigms.
 The code shows a sequence of instructions which should be run to obtain the desired result.
 
 ~~~

@@ -19,18 +19,22 @@ keypoints:
 - "Use `conda` to manage Python packages (but be aware of other tools, such as `pip`)."
 - "Instead of installing packages individually, `conda` allows you to declare all dependencies in a separate
 file that can be easily shared with your collaborators."
-- "Use `conda env --from-history export > environment.yml` to take snapshot of your project's dependencies."
+- "Use `conda env export --from-history > environment.yml` to take snapshot of your project's dependencies."
 - "Use `conda env create -f environment.yml` to replicate someone else's virtual environment on you machine."
 ---
 
 ## Introduction
-In the previous episode, we have configured PyCharm to run our code from within the IDE. We mentioned that 
-you can run also your code from a command line shell and this is what we will be going in this course as we will 
-also interact with Git from the shell. This 'forces' you
-to familiarise yourself and learn shell well - a bonus is that this knowledge is transferable to running code in other 
-programming languages from within shell too. 
+When we configured a Python interpreter and a set of dependencies for our project in PyCharm in the previous episode, 
+what we did was create a virtual environment for our code to run in. Virtual environments are not just a feature of 
+PyCharm and IDEs though - you can also use them through the command line shell. In this episode, 
+we go into virtual environments in more detail, showing what they are, how and why you would use them. 
 
-## Running Scripts From Command Line
+We also start running our code and interacting with Git from the command line shell (as we will for the rest of this 
+course). This 'forces' you to familiarise yourself and learn shell well - a bonus is that this knowledge is 
+transferable to running code in other programming languages from within shell too and is independent from any IDE 
+you may use in the future.
+
+## Running Scripts From the Command Line
 Let's run our `patientdb.py` script using Python from the command line and use the
 Python Anaconda environment `patient` we created from PyCharm. Open a new shell/terminal and type the 
 following command to list all the environments Anaconda is aware of:
@@ -88,29 +92,25 @@ i.e. Anaconda Python), and
 ## Virtual Environments
 So what exactly is a virtual environment, and why use them?
 
-Consider developing a number of different Python projects that each have their own package dependencies (and versions
-of those dependencies) on the same machine. It could quickly become confusing as to which packages and package versions
-are required by each project, making it difficult for you and others to run your scripts on different
-machines.
-
 A Python virtual environment is an **isolated working copy** of a specific version of
 Python together with specific versions of a number of installed packages which allows you to work on a particular
 project without worry of affecting other projects. In other words, it enables multiple side-by-side installations of
-Python and different versions of the same third party package to coexist on your machine and only one to be selected
+Python interpreters and different versions of the same third party package to coexist on your machine and only one to be selected
 for each of your projects. As more dependencies are added to your Python project over time, you can add them to
-this specific virtual environment and avoid a great deal of confusion
-by having
-separate virtual environments for each project.
+this specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments 
+for each project rather than one huge global environment with potential package version clashes. Another big motivator 
+for using virtual environments is that they make sharing your code with others much easier (as we will see shortly).
 
-Here are some typical virtual environment use cases:
+Here are some other typical scenarios where the usage of virtual environments is highly recommended (almost unavoidable):
 - You have an older project that only works under Python 2. You do not have the time to migrate the project to Python 3
 or it may not even be possible as some of the third party dependencies are not available under Python 3. You have to
 start another project under Python 3. The best way to do this on a single machine is to set up 2 separate Python virtual
 environments.
-- One of your projects is locked to use a particular older version of a third party dependency. You cannot use the
+- One of your Python 3 projects is locked to use a particular older version of a third party dependency. You cannot use the
 latest version of the
 dependency as it breaks things in your project. In a separate branch of your project, you want to try and fix problems
-introduced by the new version of the dependency without affecting the working version of your project.
+introduced by the new version of the dependency without affecting the working version of your project. You need to set up 
+a separate virtual environment for your branch to 'isolate' your code while testing the new feature.
 
 You do not have to worry too much about specific versions of packages that your project depends on most of the time.
 Virtual environments enable you to always use the latest available version without specifying it explicitly.
@@ -184,7 +184,7 @@ that that they can easily 'clone' your software project with all of its dependen
 saving and sharing an environment via an `environment.yml` file. To export your active environment to a file:
 
 ~~~
-$ conda env --from-history export > environment.yml
+$ conda env export --from-history > environment.yml
 ~~~
 {: .language-bash}
 
@@ -236,12 +236,15 @@ to use `conda` for all these tasks. But sometimes packages that you need are not
 in which case you will have to mix the use of both `conda` and `pip` to manage your packages. Recent versions
 of `conda` have improved support for interoperability between `conda` and `pip` and, while `pip` only installs 
 Python packages from [PyPI package repository](https://pypi.org/), `conda` can now install packages from 
-[Anaconda Repository](https://repo.anaconda.com/) and [Anaconda Cloud](https://anaconda.org/) as well as PyPI by using `pip` in an active `conda` environment. 
+[Anaconda Repository](https://repo.anaconda.com/) and [Anaconda Cloud](https://anaconda.org/), 
+as well as PyPI by using `pip` in an active `conda` environment. []https://anaconda.org/search 
 
 > ## Mixing `pip` and `conda`
 > The advice from the [Anaconda blog](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) is: 
 "... when combining `conda` and `pip`, it is best to use an isolated `conda` environment. 
-Only after `conda` has been used to install as many packages as possible should `pip` be used to install any remaining software. "
+Only after `conda` has been used to install as many packages as possible should `pip` be used to install any remaining 
+>software. " Also note that you can now search for PyPI packages via [https://anaconda.org/search](https://anaconda.org/search)
+> by filtering by package type.
 >
 {: .callout}
 
@@ -270,7 +273,7 @@ $ conda install package-name
 ~~~
 {: .language-bash}
 
-To install a specific version of a `conda` package:
+To install a specific version of a `conda` package (e.g. when you need to upgrade/downgrade an existing package):
 
 ~~~
 $ conda install package-name=2.3.4
