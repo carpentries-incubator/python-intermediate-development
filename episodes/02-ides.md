@@ -134,8 +134,8 @@ in whichever environment you choose to run your code from (as these two methods 
 to be familiar with both and choose the one that suits you and your particular situation - running code from a command line is 
 good as it forces you to get more familiar with running scripts from a shell which is then applicable to many other programming languages. 
 
-Before you can run the code from PyCharm, you need to explicitly to specify the path to the Python 
-interpreter executable on your system. The same goes for any dependencies your code may have - you need to tell PyCharm 
+Before you can run the code from PyCharm, you need to explicitly specify the path to the Python 
+interpreter on your system. The same goes for any dependencies your code may have - you need to tell PyCharm 
 where to find them. In our case, we want to use the Python 
 interpreter and extra packages that are supplied with the Anaconda Python distribution. However, you may have
 various Python distributions and versions installed on your system so you have to be careful here to select the one you
