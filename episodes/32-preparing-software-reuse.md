@@ -1,5 +1,6 @@
 ---
 title: "Preparing Software for Reuse"
+start: true
 teaching: 35
 exercises: 20
 questions:
