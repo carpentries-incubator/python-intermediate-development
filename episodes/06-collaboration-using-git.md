@@ -185,7 +185,6 @@ of the code in `main`. We add and commit things to `develop` branch in the same 
 
 For example, let's make a small modification to `inflammation/models.py` and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
-TODO - think of a nice and more useful modification at this point, if possible.
 
 If we do:
 
@@ -223,7 +222,7 @@ $ git commit -m "Spelling fix"
 {: .callout}
 
 ### Pushing New Branch Remotely
-We push the contents of the `develop` branch to GitHub in the same way as we pushed the `main`. However, as we have
+We push the contents of the `develop` branch to GitHub in the same way as we pushed the `main` branch. However, as we have
 just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by
 listing all branches.
 
