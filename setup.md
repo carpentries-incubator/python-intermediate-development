@@ -38,7 +38,6 @@ $ git help
 
 If your Git installation is working you should see something like:
 ~~~
-(base) alex@MacBook-Pro python-intermediate-development % git help
 usage: git [--version] [--help] [-C <path>] [-c name=value]
            [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
            [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
@@ -117,14 +116,13 @@ To make sure you are using the Anaconda distribution of Python and not some othe
  {: .language-bash}
 This should enter you into a Python console and you should see something like:
  ~~~
-(base) alex@MacBook-Pro python-intermediate-development % python
 Python 3.8.5 (default, Sep  4 2020, 02:22:02) 
 [Clang 10.0.0 ] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
  ~~~
  {: .language-bash}
- Press `CONTROL-D` on to exit the Python console.
+ Press `CONTROL-D` to exit the Python console.
   
 ## PyCharm - Python Integrated Development Environment
   - PyCharm can be downloaded from [https://www.jetbrains.com/pycharm/download](https://www.jetbrains.com/pycharm/download)
