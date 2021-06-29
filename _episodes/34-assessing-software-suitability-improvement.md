@@ -21,27 +21,6 @@ keypoints:
 
 What we've been looking at so far enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
-> ## What Makes Good Software Good?
->
-> In your groups, briefly discuss and list what characteristics make good code actually good and note these down.
->
-> Time: 5 minutes
->
-> > ## Solution
-> >
-> > This exercise has been run with groups of researchers, from a diverse array of domains, all over the world by the Software Sustainability Institute seven times from 2011-2014. In summary, the most important characteristics were (against number of workshops where each is mentioned):
-> >
-> > - 7: Well-designed, correct, and readable
-> > - 6: Documented, unit tests
-> > - 5: Usable, efficient
-> > - 3: Under revision control, portable, robust, available
-> > - 2: Follows best community practices, copyrighted and licensed, well commented, reuses other code where possible
-> >
-> > How do these older results from over 6 years ago compare against our findings? How much have they changed in the intervening years? Probably not much!
-> {: .solution}
->
-{: .challenge}
-
 Overall, when adopting software to use it's important to consider not only whether it has the functionality you want, but a broader range of qualities that are important for your project.
 
 
