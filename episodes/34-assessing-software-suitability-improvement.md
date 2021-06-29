@@ -1,7 +1,7 @@
 ---
 title: "Assessing Software for Suitability and Improvement"
 teaching: 15
-exercises: 25
+exercises: 30
 questions:
 - "What makes good code actually good?"
 - "What should we look for when selecting software to reuse?"
@@ -105,7 +105,7 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 >
 > Time: 20 mins
 >
-> 1. Decide as a team how you will conduct the assessment, e.g. what aspects are important, and who will look at which aspect
+> 1. As a team, briefly decide who will assess which aspect of the repository, e.g. its docs, tests, codebase, etc.
 > 2. Obtain the URL for the repository you will assess from the Google Doc, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates from which team you should get their repository URL
 > 3. Conduct the assessment and register any issues you find on the other team's software repository
 > 4. Be meticulous in your assessment and register as many issues as you can!

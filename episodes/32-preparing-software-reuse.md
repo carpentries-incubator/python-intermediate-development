@@ -1,6 +1,6 @@
 ---
 title: "Preparing Software for Reuse"
-teaching: 40
+teaching: 35
 exercises: 20
 questions:
 - "What can we do to make our programs reusable by others?"
@@ -185,11 +185,9 @@ Which of these types of licence you prefer is up to you and those you develop co
 
 > ## Preparing for Release
 >
-> In a (hopefully) highly unlikely scenario, your project leader has informed your team of the need to release your software within the next 40 minutes, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a licence, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
+> In a (hopefully) highly unlikely and thoroughly unrecommended scenario, your project leader has informed your team of the need to release your software within the next half hour, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a licence, and fixing any remaining problems you are aware of in your codebase. As a team, ensure you prioritise and work on the most pressing issues first!
 >
-> > ## Solution
-> {: .solution}
->
+> Time: 20 mins
 {: .challenge}
 
 

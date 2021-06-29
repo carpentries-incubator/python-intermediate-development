@@ -1,7 +1,7 @@
 ---
 title: "Software Improvement Through Feedback"
 teaching: 5
-exercises: 25
+exercises: 45
 questions:
 - "How should we handle feedback on our software?"
 - "How, and to what extent, should we provide support to our users?"
@@ -54,8 +54,9 @@ An effective way of helping to make your estimates more accurate is to do it as 
 
 > ## Estimate!
 >
-> As a team go through the issues that your partner team has registered with your software repository, and estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
-> Time: 5 mins
+> As a team go through the issues that your partner team has registered with your software repository, and quickly estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then briefly discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
+>
+> Time: 15 mins
 {: .challenge}
 
 
@@ -80,7 +81,7 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can optiona
 >
 > Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the stated allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. version 1.1
 >
-> Time: 5 mins
+> Time: 10 mins
 {: .challenge}
 
 ## Using Sprints to Organise and Work on Requirements
