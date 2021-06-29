@@ -22,8 +22,8 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Introduction
 One of the big differences between novice and intermediate software development is planning the structure of your code. 
 A novice will often make up the structure of their code as they go along. However, for more advanced software development, 
-we need to plan this structure - which we call a *software architecture* - beforehand.
-We’ll start off by introducing the Model-View-Controller architecture, one we’ll use in the example software 
+we need to plan this structure - called a *software architecture* - beforehand.
+We’ll look into the Model-View-Controller architecture, one we’ll use in the example software 
 project we’ll develop over the course of this workshop.
 
 ## Software Architectures
