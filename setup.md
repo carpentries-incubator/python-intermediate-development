@@ -17,7 +17,6 @@ $ date
 
 If your shell is working - it should return the current date and time similar to:
 ~~~
-(base) alex@MacBook-Pro python-intermediate-development % date
 Wed 21 Apr 2021 11:38:19 BST
 ~~~
 {: .output}
