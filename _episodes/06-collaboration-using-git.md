@@ -239,7 +239,7 @@ $ git push -u origin develop
 > ## Git Push With `-u` Switch
 >Using the `-u` switch with the `git push` command is a handy shortcut for: (1) creating the new remote branch and 
 >(2) setting your local branch to automatically track the remote one at the same time. 
->You need to use the `-u` switch only once to set up that association between your branch and one on the remote explicitly. 
+>You need to use the `-u` switch only once to set up that association between your branch and the remote one explicitly. 
 > After that you could simply use `git push` without specifying the remote repository, if you wished so. We still prefer
 >to explicitly state this information in commands.
 {: .callout}
