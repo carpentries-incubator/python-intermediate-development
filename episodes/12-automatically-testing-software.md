@@ -98,7 +98,7 @@ Our Patient application has a number of statistical functions held in `inflammat
 def daily_mean(data):
     """Calculate the daily mean of a 2D inflammation data array for each day.
 
-    :param data: A 2D data array containing inflammation data (each row contains measurments for a single day.
+    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
     :returns: An array of mean values of measurements for each day.
     """
     return np.mean(data, axis=0)
