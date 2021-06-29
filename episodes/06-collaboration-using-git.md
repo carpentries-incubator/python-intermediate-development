@@ -1,8 +1,8 @@
 ---
 title: "Collaborative Software Development Using Git and GitHub"
 start: false
-teaching: 40
-exercises: 20
+teaching: 45
+exercises: 0
 questions:
 - "What are git branches and why are they useful?"
 - "What are best practices when developing software collaboratively using Git?"
@@ -17,9 +17,9 @@ keypoints:
 ## Introduction
 So far we have checked out our software project from GitHub, learned how to configure and use PyCharm for Python
 code development, and some Python coding conventions for writing clean and clear code. We have also made some
-changes to our code and now we want to check those changes in and share them with others in our team via GitHub by using 
+changes to our code and now we want to check those changes in and share them with others in our team via GitHub by using
 version control system Git. This is a typical software development workflow - you work locally on code, test it to make sure
-it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository. 
+it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository.
 
 Let's remind ourselves how to work with Git from the command line.
 
@@ -237,14 +237,14 @@ $ git push -u origin develop
 {: .language-bash}
 
 > ## Git Push With `-u` Switch
->Using the `-u` switch with the `git push` command is a handy shortcut for: (1) creating the new remote branch and 
->(2) setting your local branch to automatically track the remote one at the same time. 
->You need to use the `-u` switch only once to set up that association between your branch and the remote one explicitly. 
+>Using the `-u` switch with the `git push` command is a handy shortcut for: (1) creating the new remote branch and
+>(2) setting your local branch to automatically track the remote one at the same time.
+>You need to use the `-u` switch only once to set up that association between your branch and the remote one explicitly.
 > After that you could simply use `git push` without specifying the remote repository, if you wished so. We still prefer
 >to explicitly state this information in commands.
 {: .callout}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your 
+Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your
 repository in GitHub, click the branch dropdown menu (currently showing the default branch `main`). You should
 see your `develop` branch in the list too.
 
@@ -289,9 +289,9 @@ Fast-forward
 {: .output}
 
 If there are no conflicts, Git will merge the branches without complaining and replay all commits from
-`develop` on top of the last commit from `main`. If there are merge conflicts (e.g. a team collaborator modified the same 
-portion of the same file you are working on and checked in their changes before you), the particular files with conflicts 
-will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again. 
+`develop` on top of the last commit from `main`. If there are merge conflicts (e.g. a team collaborator modified the same
+portion of the same file you are working on and checked in their changes before you), the particular files with conflicts
+will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again.
 Since we have no conflicts, we can now push `main` to remote repository:
 
 ~~~
@@ -315,7 +315,3 @@ next episode.
 {: .testimonial}
 
 {% include links.md %}
-
-
-
-
