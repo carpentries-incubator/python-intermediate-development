@@ -297,7 +297,7 @@ months' time. Write comments as complete sentences and in English unless you are
 by people who don't speak your language.
 
 > ## The Good, the Bad, and the Ugly
-> Check out the ['Putting comments in code: the good, the bad, and the ugly' blogpost](https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/).
+> As a side reading, check out the ['Putting comments in code: the good, the bad, and the ugly' blogpost](https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/).
 > Remember - a comment should answer the ‘why’ question”. Occasionally the “what” question. 
 > The “how” question should be answered by the code itself. 
 {: .callout}
