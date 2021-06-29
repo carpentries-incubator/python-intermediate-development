@@ -1,6 +1,6 @@
 ---
 title: "Functional Programming"
-teaching: 30
+teaching: 25
 exercises: 15
 questions:
 - "What is a function really?"

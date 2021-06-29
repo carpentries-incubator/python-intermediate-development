@@ -1,6 +1,6 @@
 ---
 title: "Software Design"
-teaching: 30
+teaching: 15
 exercises: 20
 questions:
 - "Where do we start when beginning a new software project?"
@@ -20,6 +20,7 @@ keypoints:
 ---
 
 ## Introduction
+
 As a piece of software grows, it will reach a point where there's too much code for you to keep in mind at once.
 At this point, it becomes particularly important that the software be designed sensibly.
 
@@ -64,6 +65,7 @@ For example, a design constraint when writing a mobile app would be that it need
 > - If the software needed to be used in a different environment, what difficulties might there be?
 >
 > Some examples of design / development choices constrained by environment might be:
+>
 > - Mobile Apps
 >   - Must have graphical interface suitable for a touch display
 >   - Usually distributed via controlled app store
@@ -82,6 +84,7 @@ For example, a design constraint when writing a mobile app would be that it need
 >   - Typically written in a lower-level language (e.g. C) for better control of resources
 >
 > > ## Some More Examples
+> >
 > > - Desktop Application
 > >   - Has graphical interface for use with mouse and keyboard
 > >   - May need to work on multiple, very different Operating Systems
@@ -108,7 +111,6 @@ For example, a design constraint when writing a mobile app would be that it need
 > >   - Clientside component typically written in JavaScript
 > {: .solution}
 {: .challenge}
-
 
 ## Software Architecture
 
@@ -138,7 +140,7 @@ In many cases, the distinction between some of these patterns isn't particularly
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
-Lets start with adding a view that allows us to get the data for a single patient.
+Let's start with adding a view that allows us to get the data for a single patient.
 First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data:
 
 ~~~
