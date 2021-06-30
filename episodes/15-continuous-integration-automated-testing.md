@@ -133,7 +133,7 @@ For the purposes of using continuous integration and testing our code, there are
 
 ### Defining Our Workflow
 
-With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
+With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directory `.github/workflows`:
 
 ~~~
 $ mkdir -p .github/workflows
