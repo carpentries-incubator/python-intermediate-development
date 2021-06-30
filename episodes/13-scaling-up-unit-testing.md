@@ -86,7 +86,7 @@ Let's commit our new `test_models.py` file and test cases to our `test-suite` br
 
 ~~~
 $ git add setup.py tests/test_models.py
-$ git commit -m "Add initial test cases for daily_max() and daily_min(), add parameterisation"
+$ git commit -m "Add parameterisation to daily_min() and daily_max() test cases"
 ~~~
 {: .language-bash}
 
