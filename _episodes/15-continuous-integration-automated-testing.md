@@ -1,7 +1,7 @@
 ---
 title: "Continuous Integration for Automated Testing"
-teaching: 30
-exercises: 10
+teaching: 45
+exercises: 0
 questions:
 - "How can I apply automated repository testing to scale with development activity?"
 objectives:

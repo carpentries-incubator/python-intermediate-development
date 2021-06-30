@@ -1,7 +1,7 @@
 ---
 title: "Diagnosing Issues and Improving Robustness"
 teaching: 30
-exercises: 15
+exercises: 20
 questions:
 - "Once we know our program has errors, how can we locate them in the code?"
 - "How can we make our programs more resilient to failure?"
