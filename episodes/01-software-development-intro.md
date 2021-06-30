@@ -142,11 +142,9 @@ scenario, the menu provides the View, the waiter is the Controller, and the cook
 {: .callout}
 
 > ## MVC Application Examples From your Work
-> What examples do you know from your work or life where MVC architecture may be suitable? This exercise can be done as 
->a group discussion.
+> Think of some other examples from your work or life where MVC architecture may be suitable. 
 > > ## Solution      
-> > Note that not everything fits into the MVC architecture. Have a 
-> discussion with your fellow learners or have a look at this short [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
+> > Have a discussion with your fellow learners or have a look at this short [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc). Note that not everything fits into the MVC architecture. 
 > {: .solution}  
 {: .challenge}     
 
