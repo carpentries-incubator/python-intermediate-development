@@ -210,7 +210,7 @@ Since we are only committing the GitHub Actions configuration file to the `test-
 
 ### Checking Build Progress and Reports
 
-Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch and then selecting `commits`.
+Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch from the dropdown menu (which currently says `main`), and then selecting `commits` (located just above the code directory listing on the right, alongside the last commit message and a small image of a timer).
 
 ![ci-initial-ga-build](../fig/ci-initial-ga-build.png)
 
