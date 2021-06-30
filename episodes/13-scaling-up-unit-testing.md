@@ -36,7 +36,7 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
+Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
@@ -97,7 +97,7 @@ Pytest can't think of test cases for us. We still have to decide what to test an
 
 Now, we should try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of **code coverage**.
 
-A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by pytest and using that, we can find this out:
+A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by Pytest and using that, we can find this out:
 
 ~~~
 $ conda install pytest-cov
@@ -105,7 +105,7 @@ $ pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we specify the additional named argument `--cov` to pytest specifying the code to analyse for test coverage.
+So here, we specify the additional named argument `--cov` to `pytest` specifying the code to analyse for test coverage.
 
 ~~~
 ============================= test session starts ==============================
