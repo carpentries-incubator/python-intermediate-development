@@ -15,7 +15,7 @@ keypoints:
 - "The three main types of automated tests are **unit tests**, **functional tests**, and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
 - "It should be easy to add or change tests, understand and run them, and understand their results."
-- "We can use a unit testing framework like PyTest to structure and simplify the writing of tests."
+- "We can use a unit testing framework like Pytest to structure and simplify the writing of tests."
 - "We should test for expected errors in our code."
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
@@ -267,7 +267,7 @@ So here, although we have specified two of our tests as separate functions, they
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
-Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What About Unit Testing in Other Languages?
 >
@@ -328,7 +328,7 @@ Proceed ([y]/n)?
 ~~~
 {: .output}
 
-Select `y` and these packages which are required by pytest will be installed.
+Select `y` and these packages which are required by `pytest` will be installed.
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our `patient` Conda virtual environment will now have the `pytest` package installed for use.
 
@@ -343,7 +343,7 @@ setup(name="patient-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-This is a typical short `setup.py` that will enable pytest to locate the Python source files to test, that we have in the `inflammation` directory. We next need to install our code as a local package in our environment so Pytest will find it:
+This is a typical short `setup.py` that will enable Pytest to locate the Python source files to test, that we have in the `inflammation` directory. We next need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
 $ conda develop .
@@ -362,7 +362,7 @@ This will install our code, as a package, within our virtual environment. We're 
 
 ### Running the Tests
 
-Now we can run these tests using pytest:
+Now we can run these tests using `pytest`:
 
 ~~~
 $ pytest tests/test_models.py
@@ -449,7 +449,7 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
-Although note that you need to import the pytest library at the top of our `test_models.py` file with `import pytest` so that we can use pytest's `raises()` function.
+Although note that you need to import the `pytest` library at the top of our `test_models.py` file with `import pytest` so that we can use Pytest's `raises()` function.
 
 Run all your tests as before.
 
