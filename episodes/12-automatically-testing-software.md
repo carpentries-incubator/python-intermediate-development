@@ -1,8 +1,8 @@
 ---
 title: "Automatically Testing your Software"
 start: true
-teaching: 20
-exercises: 10
+teaching: 30
+exercises: 20
 questions:
 - "Does the code we develop work the way it should do?"
 - "Can we (and others) verify these assertions for themselves?"
@@ -21,6 +21,7 @@ keypoints:
 ---
 
 ## Introduction
+
 So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
@@ -198,8 +199,8 @@ We could put these tests in a separate script to automate the running of these t
 Going back to our failed first test, what was the issue? As it turns out, the test itself was incorrect, and should have read:
 
 ~~~
-test_input = np.array([[2, 0], [3, 0]])
-test_result = np.array([2, 0])
+test_input = np.array([[2, 0], [4, 0]])
+test_result = np.array([3, 0])
 npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
