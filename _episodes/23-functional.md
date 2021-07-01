@@ -113,7 +113,7 @@ The output of a pure function depends only on its input, so we'll get the right 
 >
 > > Turns out, every time a user does something, it could be different. Users are surprisingly non-mathematical, so they're gonna have to go.
 > >
-> > -- Douglas Crockford - The Post JavaScript Apocalypse
+> > -- Douglas Crockford - [The Post JavaScript Apocalypse](https://youtu.be/99Zacm7SsWQ)
 >
 > Despite the benefits that pure functions can bring, we shouldn't be trying to use them everywhere.
 > Any software we write needs to interact with the rest of the world somehow, which requires side effects.
