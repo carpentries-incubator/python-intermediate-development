@@ -123,7 +123,7 @@ The output of a pure function depends only on its input, so we'll get the right 
 
 > ## Testing Impure Functions
 >
-> Try writing some unit tests for Python's `random.normalvariate` or NumPy's `numpy.random.normal` function.
+> Try writing some unit tests for Python's [`random.normalvariate` [docs]](https://docs.python.org/3/library/random.html#random.normalvariate) or NumPy's [`numpy.random.normal` [docs]](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html) function.
 > These functions both generate random numbers drawn from a normal distribution.
 > Because they return a different result each time we call them, these functions are not pure.
 >
