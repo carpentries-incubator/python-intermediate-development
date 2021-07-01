@@ -283,4 +283,6 @@ Often, the software is split into three layers:
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
 
+In the next section we'll be looking at one method we might choose to help us manage our data storage.
+
 {% include links.md %}
