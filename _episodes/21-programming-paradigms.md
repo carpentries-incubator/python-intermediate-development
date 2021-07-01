@@ -43,12 +43,38 @@ In the paradigms of the Imperative Family, code describes *how* data processing 
 
 - Early example: Algol (1958)
 
-The core of Structured Programming is the realisation that code should be grouped into *logical blocks*.
-This sounds obvious, but has implications further than just grouping code into blocks using constructs like `for` and `if`.
+The core of Structured Programming is the realisation that code should be grouped into *logical blocks* - before this, code was just a sequence of instructions, with a little bit of flow control.
+This sounds an obvious thing now, but has implications further than just grouping code into blocks using constructs like `for` and `if`.
 If we can be sure that a block has exactly one **entry point** at the top, and exactly one **exit point** at the bottom, then when we reason about the overall flow of the program, we can treat that block as if it's a straight line, regardless of the structure inside it.
 
 This paradigm has largely been replaced now and only really exists as a subset of the other paradigms.
 Nonetheless, we can use this model of entry and exit points to simplify the structure of code we write, whichever paradigm we're using.
+
+~~~ python
+# This code has one entry point at the top and one exit point at the bottom.
+# The overall flow through this code is linear, even though it contains a loop.
+
+total = 0
+for value in my_collection:
+    total += value
+
+print(total)
+
+# This code has one entry point at the top, but multiple exit points.
+# With this code inside a function (for `return` to work), we could either leave
+# at the bottom, past the `print`, or by returning `total` within the loop.
+# When we reason about this code, we have to consider the internal structure of the loop
+# and the collection of values we're using.
+
+total = 0
+for value in my_collection:
+    total += value
+    if total > 10:
+        return total
+
+print(total)
+~~~
+{: .language-python}
 
 #### Procedural Programming
 
