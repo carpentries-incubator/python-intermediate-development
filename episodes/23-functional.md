@@ -32,8 +32,7 @@ A program written in a functional style describes a series of operations which a
 
 You will likely encounter functional programming in the future in data analysis code, or if you use frameworks such as Hadoop, or languages like R.
 In fact, there's a good [section on functional programming](https://adv-r.hadley.nz/fp.html) in Hadley Wickham's Advanced R book.
-
-In his introduction to functional programming in Advanced R, Hadley Wickham gives a good summary of the style:
+In this book, Hadley gives a good summary of the style:
 
 > It’s hard to describe exactly what a functional style is, but generally I think it means decomposing a big problem into smaller pieces, then solving each piece with a function or combination of functions.
 > When using a functional style, you strive to decompose components of the problem into isolated functions that operate independently.
@@ -54,7 +53,7 @@ Examples include: printing text, modifying the value of an argument, or changing
 > ## Pure Functions
 >
 > Which of these functions are pure?
-> If you're not sure, explain your reasoning to a someone else, do they agree?
+> If you're not sure, explain your reasoning to someone else, do they agree?
 >
 > ~~~
 > def add_one(x):
