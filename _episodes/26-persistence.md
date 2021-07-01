@@ -178,7 +178,7 @@ The name of each argument passed is the dictionary key, the value of the argumen
 > ## Linking it All Together
 > We've now got some code which we can use to save and load our patient data, but we've not yet linked it up so people can use it.
 >
-> Just like we did with the `display_patient` view in the previous section, try adding some views to save and load our patient data to and from JSON files.
+> Just like we did with the `display_patient` view in the previous section, try adding some views to work with our patient data using the JSON serializer.
 > When you do this, think about the design of the command line interface - what arguments will you need to get from the user, what output should they receive back?
 {: .challenge}
 
