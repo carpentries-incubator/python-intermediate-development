@@ -1,7 +1,7 @@
 ---
 title: "Persistence"
-teaching: 30
-exercises: 20
+teaching: 25
+exercises: 25
 questions:
 - "How can we store and transfer structured data?"
 - "How can we make it easier to substitute new components into our software?"
@@ -36,7 +36,7 @@ If we want to bring in this data, modify it somehow, and save it back to a file,
 - Add some views we can use to modify the data
 - Link it all together in the controller
 
-## Tasks
+## Serialization and Serializers
 
 The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**.
 Serialization is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialization is the opposite.
@@ -109,6 +109,7 @@ One of the main advantages of JSON is that it's relatively human-readable, so it
 Now if we're going to follow TDD (Test Driven Development), we should write some test code.
 
 Our JSON serializer should be able to save and load our patient data to and from a JSON file, so for our test we could try these save-load steps and check that the result is the same as the data we started with.
+Again you might need to change these examples slightly to get them to fit with how you chose to implement your `Patient` class.
 
 ~~~ python
 # file: tests/test_serializers.py
@@ -173,6 +174,13 @@ Here we need to first read the data from our input file, then convert it to inst
 The `**` syntax here may be unfamiliar to you - this is the **dictionary unpacking operator**.
 The dictionary unpacking operator can be used when calling a function (like a class `__init__` method) and passes the items in the dictionary as named arguments to the function.
 The name of each argument passed is the dictionary key, the value of the argument is the dictionary value.
+
+> ## Linking it All Together
+> We've now got some code which we can use to save and load our patient data, but we've not yet linked it up so people can use it.
+>
+> Just like we did with the `display_patient` view in the previous section, try adding some views to save and load our patient data to and from JSON files.
+> When you do this, think about the design of the command line interface - what arguments will you need to get from the user, what output should they receive back?
+{: .challenge}
 
 > ## Equality Testing
 >
