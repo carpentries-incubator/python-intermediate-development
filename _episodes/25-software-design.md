@@ -55,7 +55,7 @@ For example, a design constraint when writing a mobile app would be that it need
 >
 > Many design choices in a software project depend on the environment in which the software is expected to run.
 >
-> In small groups, discuss some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
+> Think about some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
 > Here are some examples of questions you can use to get started:
 >
 > - What environment does the software run in?
