@@ -43,12 +43,38 @@ In the paradigms of the Imperative Family, code describes *how* data processing 
 
 - Early example: Algol (1958)
 
-The core of Structured Programming is the realisation that code should be grouped into *logical blocks*.
-This sounds obvious, but has implications further than just grouping code into blocks using constructs like `for` and `if`.
+The core of Structured Programming is the realisation that code should be grouped into *logical blocks* - before this, code was just a sequence of instructions, with a little bit of flow control.
+This sounds an obvious thing now, but has implications further than just grouping code into blocks using constructs like `for` and `if`.
 If we can be sure that a block has exactly one **entry point** at the top, and exactly one **exit point** at the bottom, then when we reason about the overall flow of the program, we can treat that block as if it's a straight line, regardless of the structure inside it.
 
-This paradigm has largely been replaced now and only exists as a subset of the other paradigms.
-Nonetheless, we should remember this model of entry and exit points and use it to simplify the structure of our code within any of the other paradigms.
+This paradigm has largely been replaced now and only really exists as a subset of the other paradigms.
+Nonetheless, we can use this model of entry and exit points to simplify the structure of code we write, whichever paradigm we're using.
+
+~~~ python
+# This code has one entry point at the top and one exit point at the bottom.
+# The overall flow through this code is linear, even though it contains a loop.
+
+total = 0
+for value in my_collection:
+    total += value
+
+print(total)
+
+# This code has one entry point at the top, but multiple exit points.
+# With this code inside a function (for `return` to work), we could either leave
+# at the bottom, past the `print`, or by returning `total` within the loop.
+# When we reason about this code, we have to consider the internal structure of the loop
+# and the collection of values we're using.
+
+total = 0
+for value in my_collection:
+    total += value
+    if total > 10:
+        return total
+
+print(total)
+~~~
+{: .language-python}
 
 #### Procedural Programming
 
@@ -62,10 +88,12 @@ By grouping code like this, we make it even easier to reason about the overall s
 These functions are also much easier to reuse code outside of functions, since we can call them from any part of our program.
 The ideas of Structured Programming still apply here, since we can design our functions with exactly one entry and one exit point.
 
-Procedural Programming is most commonly seen in code focused on high performance, with relatively simple data structures, such as in High Performance Computing (HPC).
+As the structure of code here is simpler than the following paradigms, this is an appropriate choice for smaller scripts and software that we're writing just for a single use.
+Aside from smaller scripts, Procedural Programming is also commonly seen in code focused on high performance, with relatively simple data structures, such as in High Performance Computing (HPC).
 These programs tend to be written in C (which doesn't support Object Oriented Programming) or Fortran (which didn't until recently).
+HPC code is also often written in C++, but C++ code would more commonly follow an Object Oriented style, though it may have procedural sections.
 
-Note that you may sometimes hear people refer to this as "Functional Programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
+Note that you may sometimes hear people refer to this paradigm as "Functional Programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
 Functional Programming (see below) places much stronger constraints on the behaviour of a function.
 
 #### Object Oriented Programming
@@ -100,17 +128,27 @@ One popular definition of Big Data is data which is too large to fit in the memo
 With datasets like this, we can't move the data around easily, so we often want to send our code to where the data is instead.
 By writing our code in a functional style, we also gain the ability to run many operations in parallel as it's guaranteed that each operation won't interact with any of the others - this is essential if we want to process this much data in a reasonable amount of time.
 
+#### Query Languages
+
+- Common examples in research: SQL, many domain specific examples
+
+Query Languages are, as you might expect, languages designed for making queries from a set of data.
+In general, queries express the subset of the data to be returned and any operations which should be performed on it before it is returned.
+We aren't particularly concerned with how exactly these operations happen, only that we get the right data back.
+
+SQL (or variants of SQL) is a very commonly used database query language, so many researchers find it useful to learn SQL at some point, regardless of the language they use for the rest of their work.
+It's common to see short sections of SQL within programs written with another language.
+
 #### Logic Programming
 
 - Early and common example: Prolog (1972)
 
-Logic Programming is even closer to mathematics, being based on **formal logic**.
+Logic Programming is even closer to mathematics than Functional Programming, being based on formal logic.
 In this paradigm, our program is written as a *set of facts and rules* which form a system of logic.
 We can then execute queries against this set, which the computer tries to prove.
 
 This paradigm is most useful for handling relatively small datasets with very complex relationships between entities, particularly where we need to be able to prove the existence or non-existence of particular relationships.
 You're unlikely to encounter this paradigm unless you're working on problems around systems of reasoning, but it's included here for balance, to show that the Declarative Family isn't just Functional Programming.
-
 
 ## 1, 2, Fizz, 4, Buzz ... FizzBuzz
 
@@ -135,7 +173,7 @@ This first FizzBuzz implementation is characteristic of the procedural or struct
 The code shows a sequence of instructions which should be run to obtain the desired result.
 
 ~~~
-for i in range(100):
+for i in range(1, 101):
     if i % 15 == 0:
         print('FizzBuzz')
     elif i % 3 == 0:
@@ -147,7 +185,7 @@ for i in range(100):
 ~~~
 {: .language-python}
 
-The fundamental structure is a `for` loop, containing some `if` statements to make decisions - this is probably a structure you're quite familiar with and is probably similar to the fizbuzz solution you wrote yourself.
+The fundamental structure here is a `for` loop, containing some `if` statements to make decisions - this is probably a structure you're quite familiar with and is probably similar to the fizbuzz solution you wrote yourself.
 
 In contrast, this second implementation of FizzBuzz is characteristic of the functional paradigm and may look much less familiar.
 Each line describes either a piece of data or a data transformation, which are combined to obtain the desired result.
@@ -155,7 +193,7 @@ Each line describes either a piece of data or a data transformation, which are c
 ~~~
 factors = [[3, 'Fizz'], [5, 'Buzz']]
 fizzbuzz = lambda val: ''.join(text for factor, text in factors if val % factor == 0) or str(val)
-outputs = map(fizzbuzz, range(100))
+outputs = map(fizzbuzz, range(1, 101))
 print('\n'.join(outputs))
 ~~~
 {: .language-python}
@@ -176,14 +214,6 @@ The Object Oriented implementation of FizzBuzz in Python below has similarities 
 Again, we do not expect you to fully understand this example yet, but it should make more sense after we've covered the necessary Python lessons.
 
 ~~~
-class FizzBuzzFactory:
-    def __init__(self, factor_mapping):
-        self.factor_mapping = factor_mapping
-
-    def generate(self, count):
-        return [FizzBuzzer(i, self.factor_mapping) for i in range(1, count + 1)]
-
-
 class FizzBuzzer:
     def __init__(self, value, factor_mapping=None):
         self.value = value
@@ -204,13 +234,16 @@ class FizzBuzzer:
         return result
 
 
+def fizzbuzz(factor_mapping, start, stop):
+        return [FizzBuzzer(i, factor_mapping) for i in range(start, stop)]
+
+
 fizzbuzz_factors = {
     3: 'Fizz',
     5: 'Buzz',
 }
 
-factory = FizzBuzzFactory(fizzbuzz_factors)
-for val in factory.generate(100):
+for val in fizzbuzz(fizzbuzz_factors, 1, 101):
     print(val)
 ~~~
 {: .language-python}
