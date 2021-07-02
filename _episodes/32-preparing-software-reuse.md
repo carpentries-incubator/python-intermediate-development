@@ -191,6 +191,25 @@ Which of these types of licence you prefer is up to you and those you develop co
 > Time: 20 mins
 {: .challenge}
 
+## Merging into main
+
+Once you've done these updates, commit your changes, and if you're doing this work on a feature branch also ensure you merge it into `develop`, e.g.:
+
+~~~
+$ git checkout develop
+$ git merge my-feature-branch
+~~~
+{: .language-bash}
+
+Finally, once we've fully tested our software and confident it works as expected on `develop`, we can merge our `develop` branch into `main`:
+
+~~~
+$ git checkout main
+$ git merge develop
+$ git push
+~~~
+{: .language-bash}
+
 
 ## Tagging a Release in GitHub
 
