@@ -25,10 +25,10 @@ researchers (developers) and users, and more collaborative development effort is
 while ensuring previous development efforts remain functional and maintainable. At this point, 
 it becomes particularly important that you rethink the design of your software, including:
 
-- algorithm design: what method are you going to use to solve the core problem?
-- software architecture: what components will the software have and how will they interoperate?
-- system architecture: what system components will this software have to interact with and how?
-- UI/UX (User Interface / User Experience): how will users interact with the software?
+- **algorithm design**: what method are you going to use to solve the core problem?
+- **software architecture**: what components will the software have and how will they interoperate?
+- **system architecture**: what system components will this software have to interact with and how?
+- **UI/UX (User Interface / User Experience)**: how will users interact with the software?
 
 This lesson teaches the above intermediate-level software development topics in a way that mimics a typical collaborative 
 software development process. It will teach you to use a number of different **software development tools and techniques** 
@@ -44,9 +44,9 @@ After attending this workshop, you will be equipped with skills and tools for in
 as well as general skills on writing robust software collaboratively making it easier to use, develop, 
 and sustain it in the future for yourself and others. Note that, while this material is Python-specific 
 and we had to select a particular IDE to focus the material on (PyCharm), most of the skills taught here are transferable to other 
-programming languages and IDEs and we try to list different options whenever possible (also see the 
+programming languages and IDEs. We list different options and ways of working whenever possible and also see the 
 [wrap-up episode](../wrap-up/index.html)
-for a comprehensive list of references to alternative tools and further reading). 
+for a comprehensive list of references to alternative tools and further reading. 
 
 Diagram below depicts tools and techniques we will be using and learning throughout this workshop and gives a high-level overview 
 of how they fit together.
@@ -64,6 +64,15 @@ Check out this [quiz](../quiz/index.html) to help you test your prior knowledge 
 > ## Required Software
 Please make sure that you have all the necessary software installed as described in the [Setup](../setup.html) section. 
 This section also contains instructions on how to test your setup. 
+{: .callout} 
+
+> ## Outdated Screenshots
+> Throughout this lesson we will make use and show content from Graphical User Interface (GUI) tools (PyCharm and GitHub). 
+> These are evolving tools and platforms, always adding new features and new visual elements. 
+> Screenshots in the lesson may then become out-of-sync, refer or show content that no longer exists or is different to 
+> what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have 
+> a big discrepancy with what you see, please open an issue describing what you see and how it differs from the lesson 
+> content. Feel free to add as many screenshots as necessary to clarify the issue.
 {: .callout} 
 
 {% include links.md %}
