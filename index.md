@@ -5,77 +5,73 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 This course is aimed at teaching a **core set** of established best practice 
 software development skills for working as part of a team in a 
-research environment (see detailed [learning objectives](/index.html#learning-objectives) below) using Python as an example programming language. The core set 
-of skills we teach is not a comprehensive set of all-encompassing skills, 
+research environment (see detailed [learning objectives](/index.html#learning-objectives) below) using Python as an 
+example programming language. The core set of skills we teach is not a comprehensive set of all-encompassing skills, 
 but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing 
 on your learning journey. 
 
-A typical learner for this course may be someone who finished an 
-undergraduate degree and, moving into academic 
-research and needing to write some code, gained basic software development skills either 
-by self-learning or attending, e.g., a novice [Software Carpentry course](https://software-carpentry.org/lessons) 
-(shell, Python, Git). 
+A **typical learner** for this course may be someone who is working in academic 
+research and, needing to write some code, has **gained basic software development skills** either 
+by self-learning or attending, e.g., a novice [Software Carpentry Python course](https://software-carpentry.org/lessons). 
+They have been **applying those skills in their domain of work by writing code for some time**, e.g. half a year or more. 
 However, their software development-related projects 
-are now becoming more complex, larger, and involving more researchers and other stakeholders (e.g. users), for example:
+are now becoming larger and are involving more researchers and other stakeholders (e.g. users), for example:
 - Software is becoming more complex and more collaborative development effort is needed to keep the software running 
 - Software is going further that just the small group developing and/or using the code - there are more users and 
-the increasing need to add new features and support collaborations with others
-- Increased ['technical debt'](https://en.wikipedia.org/wiki/Technical_debt) and demands to add new functionality while ensuring previous development efforts 
-remain functional and 
-maintainable
-  
+the increasing need to add new features
+- ['Technical debt'](https://en.wikipedia.org/wiki/Technical_debt) is increasing with demands to add new functionality while ensuring previous development efforts remain functional and maintainable
+
+They now need more intermediate software engineering skills to help them design more robust software code, 
+automate the process testing and verifying its correctness and support collaborations with others.
+ 
 ## Target Audience
 This course is for you if:
-- You write software, which may be used by people other than yourself
-- The software you write currently is undocumented or unstructured
+- You have been writing software for a while, which may be used by people other than yourself, but it is 
+currently undocumented or unstructured
 - You want to learn:
     - more intermediate software engineering techniques and tools
     - how to collaborate with others to develop software
     - how to prepare software for others to use
 - You are currently comfortable with:
-    - basic Python programming (though this may not be the main language you use)
+    - basic Python programming (though this may not be the main language you use) and applying it to your work on a regular basis
     - basic version control using Git
     - command line interface (shell)
      
  This course is not for you if:
- - You have not yet started writing software (in which case have a look at the [Software Carpentry course](https://software-carpentry.org/lessons) for novices first)
- - You are well familiar with learning objectives of episodes 
+ - You have not yet started writing software (in which case have a look at the [Software Carpentry course](https://software-carpentry.org/lessons) or some other 
+ Python course for novices first)
+ - You have learned the basics of writing software but have not 
+ applied that knowledge yet (or are unsure how to apply it) to your work. In this case, we suggest you revisit the course
+ after you have been programming for at least 6 months
+ - You are well familiar with the [learning objectives of the course](/index.html#learning-objectives) and those of individual episodes 
  - The software you write is fully documented and well architected
   
 > ## Prerequisites
-> To attend this course you should have either previously attended a 
-> [Software Carpentry](https://software-carpentry.org/lessons/) workshop 
-> or meet the following criteria. You can also test your prerequisite knowledge by taking 
+> To attend this course you should meet the following criteria. You can also test your prerequisite knowledge by taking 
 > [this short quiz](./00-setting-the-scene#prerequisite-knowledge).
 >     
 > #### Git
 > - **You are familiar with the concept of version control**
 > - **You have experience configuring Git for the first time and creating a local repository**
-> - **You have experience using Git to create and clone a repository and add/commit changes to it** 
-> - Optionally, you have experience using Git to push to or pull from a remote repository
+> - **You have experience using Git to create and clone a repository and add/commit changes to it and to push to/pull from a remote repository**
 > - Optionally, you have experience comparing various versions of tracked files or ignoring specific files 
-> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's Git lesson](http://swcarpentry.github.io/git-novice/).
 >
 > #### Python
-> - **You have basic knowledge and experience of programming in Python, for example using: variables, lists, 
-> conditional statements, functions and importing and using external libraries.**  
-> - **You have previously written at least a basic Python script or an iPython/Jupyter notebook to accomplish a 
-> task**   
-> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's Python lesson](https://swcarpentry.github.io/python-novice-inflammation/).
+> - **You have a basic knowledge of programming in Python (using variables, lists, 
+> conditional statements, functions and importing external libraries)**  
+> - **You have previously written Python scripts or iPython/Jupyter notebooks to accomplish tasks in your domain of work**
 >
 > #### Shell
-> - **You have experience using a command line interface (shell), such as Bash under Linux/Windows 10 or 
->Git Bash under Windows to navigate a UNIX-style file system and run 
-> commands with arguments.**
-> - Optionally, you have experience redirecting inputs and outputs from a command. 
-> - You can refresh your previous knowledge or pick up these skills through, e.g., the [Software Carpentry's UNIX Shell lesson](http://swcarpentry.github.io/shell-novice/).
+> - **You have experience using a command line interface, such as Bash, to navigate a UNIX-style file system and run 
+> commands with arguments**
+> - Optionally, you have experience redirecting inputs and outputs from a command
 {: .prereq}
 
 > ## Learning Objectives
-> - know how to set up and use a number of tools and own virtual environment to develop software collaboratively in a team
-> - know how to set up a test framework to verify the correct behaviour of code  
-> - be able to design and write robust software
-> - know how to publish and release your software
+> - Know how to set up and use a number of tools and own virtual environment to develop software collaboratively in a team
+> - Know how to set up a test framework to verify the correct behaviour of code  
+> - Be able to design and write robust software
+> - Know how to publish and release your software for reuse by others
 {: .objectives }
 
 {% include links.md %}
