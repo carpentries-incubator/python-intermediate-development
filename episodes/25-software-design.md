@@ -135,7 +135,7 @@ One particularly good source is [Refactoring Guru](https://refactoring.guru/desi
 **Model-View-Controller** (MVC) is just one of the common architectural patterns
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
 
-There are many variants of an MVC-like pattern (such as MVP, MVVM, etc.), but in most cases, the distinction between these patterns isn't particularly important.
+There are many variants of an MVC-like pattern (such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP), [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.), but in most cases, the distinction between these patterns isn't particularly important.
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
