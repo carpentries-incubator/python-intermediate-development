@@ -5,7 +5,7 @@ teaching: 30
 exercises: 0
 questions:
 - "What are we going to teach in this workshop?"
-- "Have you got all the necessary software installed?"
+- "What different software development tools "
 objectives:
 - "Setting the scene and expectations"
 - "Making sure everyone has all the necessary software is installed"
@@ -17,13 +17,42 @@ you have some basic Python, shell and Git skills."
 ---
 
 ## Introduction
-This lesson teaches intermediate-level software development skills in a way that mimics a typical collaborative 
-software development process. It will teach you to use a number of different software development tools and techniques 
-simultaneously and interchangeably as you would in a real life, rather than teaching them separately. After 
-attending this workshop, you will be equipped with skills and tools for intermediate Python software development, 
+So, you have gained basic software development skills either by self-learning or attending, e.g., a [novice Software 
+Carpentry course][swc-lessons]. You have been applying those skills for a while now by writing code to help with your work and you 
+feel comfortable developing code and troubleshooting problems to a certain extent. However, your software 
+has now reached a point where there’s too much code to be kept in one script. It is perhaps involving more 
+researchers (developers) and users, and more collaborative development effort is needed to add new functionality 
+while ensuring previous development efforts remain functional and maintainable. At this point, 
+it becomes particularly important that you rethink the design of your software, including:
+
+- algorithm design: what method are you going to use to solve the core problem?
+- software architecture: what components will the software have and how will they interoperate?
+- system architecture: what system components will this software have to interact with and how?
+- UI/UX (User Interface / User Experience): how will users interact with the software?
+
+This lesson teaches the above intermediate-level software development topics in a way that mimics a typical collaborative 
+software development process. It will teach you to use a number of different **software development tools and techniques** 
+simultaneously and interchangeably as you would use them in a real life, including:
+- **Integrated Development Environment
+(IDE) tools** to help with **code development, testing and debugging**, 
+- **command line tool** for running code and interacting with **version control system (Git)**, and
+- **GitHub** (source code management platform supporting version control with Git) for 
+**sharing and developing code collaboratively** within a team (and implicitly storing and backing up code), 
+project managing your software development life-cycle, and **releasing code to users**.
+
+After attending this workshop, you will be equipped with skills and tools for intermediate software development in Python, 
 as well as general skills on writing robust software collaboratively making it easier to use, develop, 
-and sustain it in the future for yourself and others.
-           
+and sustain it in the future for yourself and others. Note that, while this material is Python-specific 
+and we had to select a particular IDE to focus the material on (PyCharm), most of the skills taught here are transferable to other 
+programming languages and IDEs and we try to list different options whenever possible (also see the 
+[wrap-up episode](../wrap-up/index.html)
+for a comprehensive list of references to alternative tools and further reading). 
+
+Diagram below depicts tools and techniques we will be using and learning throughout this workshop and gives a high-level overview 
+of how they fit together.
+
+![Overview of tools and techniques covered in the course](../fig/course-concept-map.png)
+
 > ## Prerequisite Knowledge
 > This is an intermediate-level software development course intended for people who have already been developing code in 
 > Python (or other languages), e.g. for at least a few months, and applying it to their own problems 
@@ -36,10 +65,5 @@ Check out this [quiz](../quiz/index.html) to help you test your prior knowledge 
 Please make sure that you have all the necessary software installed as described in the [Setup](../setup.html) section. 
 This section also contains instructions on how to test your setup. 
 {: .callout} 
-
-Diagram below depicts the tools we will be using and learning throughout this workshop and gives a high-level overview 
-of how they fit together.
-
-TODO: birds-eye view diagram or concept map 
 
 {% include links.md %}
