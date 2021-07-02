@@ -32,7 +32,7 @@ It's not easy come up with a complete definition for the term **software design*
 - **UI/UX** (User Interface / User Experience) - How will users interact with the software?
 
 As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
-So we should think about the design of our software from the very beginning - ideally even before we start writing code.
+So we should think about the design of our software from the very beginning, ideally even before we start writing code - but if you didn't, it's never too late to start.
 
 ## Types of Software
 
@@ -55,7 +55,7 @@ For example, a design constraint when writing a mobile app would be that it need
 >
 > Many design choices in a software project depend on the environment in which the software is expected to run.
 >
-> In small groups, discuss some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
+> Think about some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
 > Here are some examples of questions you can use to get started:
 >
 > - What environment does the software run in?
@@ -127,21 +127,21 @@ Using this pattern, we can create a component whose responsibility is transformi
 Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
 Model-View-Controller is one of the best known architecture patterns.
 
+There are many online sources of information about design and architecture patterns, often giving concrete examples of cases where they may be useful.
+One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
+
 ### MVC Revisted
 
 **Model-View-Controller** (MVC) is just one of the common architectural patterns
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
 
-In fact, we've not strictly been sticking to a formal MVC pattern and have ended up with something maybe a bit more like **Model-View-Presenter** (MVP).
-The difference between these is mostly in the amount of work the Controller/Presenter does.
-Since our 'Controller' is responsible for some of the data processing, it's really more like a Presenter.
-
-In many cases, the distinction between some of these patterns isn't particularly important.
+There are many variants of an MVC-like pattern (such as MVP, MVVM, etc.), but in most cases, the distinction between these patterns isn't particularly important.
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
-Let's start with adding a view that allows us to get the data for a single patient.
-First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data:
+Let's start with adding a view that allows us to see the data for a single patient.
+First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data.
+Note that your Patient class may look very different, so adapt this example to fit what you have.
 
 ~~~
 # file: inflammation/views.py
@@ -282,5 +282,7 @@ Often, the software is split into three layers:
 - **Persistence Layer / Data Access Layer**
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
+
+In the next section we'll be looking at one method we might choose to help us manage our data storage.
 
 {% include links.md %}

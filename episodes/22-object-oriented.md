@@ -118,7 +118,7 @@ patients = [
 > > > What would happen if the `data` and `names` inputs were different lengths?
 > > >
 > > > If `names` is longer, we'll loop through, until we run out of rows in the `data` input, at which point we'll stop processing the last few names.
-> > > If `data` is longer, we'll loop through, but at some point we'll run out of names - but this time we try to access part of the list that doesn't exist, so we raise an exception.
+> > > If `data` is longer, we'll loop through, but at some point we'll run out of names - but this time we try to access part of the list that doesn't exist, so we'll get an exception.
 > > >
 > > > A better solution would be to use the `zip` function, which limits us to whichever of `data` and `names` is shorter.
 > > > This way, we shouldn't raise an exception - but, if we really want to avoid errors, we might want to explicitly `assert` that the inputs should be the same length.
@@ -126,7 +126,7 @@ patients = [
 > > >
 > > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
 > > >
-> > > ~~~
+> > > ~~~ python
 > > > def attach_names(data, names):
 > > >     """Create datastructure containing patient records."""
 > > >     assert len(data) == len(names)
@@ -445,13 +445,6 @@ print(paper)
 You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_paper` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 We won't be covering how to make our own decorators, but in the Functional Programming section next, we'll see some of the features which make them possible.
-
-> ## Decorators
->
-> Might come back to these later in Functional Programming - if time
->
-{: .callout}
-
 
 ## Relationships Between Classes
 
