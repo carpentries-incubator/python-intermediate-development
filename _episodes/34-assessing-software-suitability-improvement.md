@@ -96,7 +96,7 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 > Time: 5 mins
 >
 > 1. Decide as a team on one of your repositories that will represent your group. You can do this any way you wish.
-> 2. Add the URL of the repository to the section in the Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team number in the empty table cell
+> 2. Add the URL of the repository to the section in the Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team name in the empty table cell
 {: .challenge}
 
 > ## Conduct Assessment on Third-Party Software
