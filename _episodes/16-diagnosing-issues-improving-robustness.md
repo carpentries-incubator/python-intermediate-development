@@ -186,7 +186,7 @@ So to fix the `patient_normalise` function in `models.py`, change `axis=0` in th
 The test case that we have currently written for `patient_normalise` is parameterised with a fairly standard data
 array. However, when writing your test cases, it is important to consider parametrising them by unusual or extreme
 values, in order to test all the edge or corner cases that your code could be exposed to in practice.
-Generally speaking, it is at these extrema cases that you will find your code failing, so it beneficial to test them beforehand.
+Generally speaking, it is at these extreme cases that you will find your code failing, so it's beneficial to test them beforehand.
 
 What is considered an "edge case" for a given component depends on what that component is meant to do.
 In the case of `patient_normalise` function, the goal is to normalise a numeric array of numbers.
