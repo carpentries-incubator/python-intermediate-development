@@ -37,8 +37,9 @@ simultaneously and interchangeably as you would use them in a real life, includi
 (IDE) tools** to help with **code development, testing and debugging**, 
 - **command line tool** for running code and interacting with **version control system (Git)**, and
 - **GitHub** (source code management platform supporting version control with Git) for 
-**sharing and developing code collaboratively** within a team (and implicitly storing and backing up code), 
-project managing your software development life-cycle, and **releasing code to users**.
+**sharing and developing code collaboratively** within a team (and implicitly storing and backing up code), **automating 
+and scaling up testing** of code (using GitHub's **Continuous Integration** service **GitHub Actions**), 
+project managing your **software development life-cycle**, and **releasing code to users**.
 
 After attending this workshop, you will be equipped with skills and tools for intermediate software development in Python, 
 as well as general skills on writing robust software collaboratively making it easier to use, develop, 
@@ -52,6 +53,30 @@ Diagram below depicts tools and techniques we will be using and learning through
 of how they fit together.
 
 ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png)
+
+The material is organised into the following 4 blocks:
+
+1. In the first block we are going to familiarise ourselves with using various tools for software development and a 
+typical collaborative code development cycle - **PyCharm** (an Integrated Development Environment tool) for writing code, 
+**command line shell** for running code and using **version control tool Git** to help develop various new code features in 
+parallel in with other developers and to interact with **GitHub** where our code will be 
+stored and shared. We will learn how to set and manage a **virtual environment** to isolate our project from 
+other projects developed on the same machine and will also look into Python coding conventions (e.g. **PEP8 
+style guide for Python code**) 
+and documenting code to make sure our it is readable and consistently formatted.
+2. Once we know our way around different tools, in the second block we learn how to set up a **test framework** and write tests 
+to verify the correct behaviour of the code. Next we learn how to automate and scale testing with **Continuous Integration (CI)** 
+using **GitHub Actions** (a CI service available on GitHub) which enables testing on different target user platforms 
+(combinations of operating systems and Python versions).
+3. In the third block, we step away from writing code for a bit to look into different **software design paradigms** 
+historically available to understand the wider landscape in which you can design software and to help you with the 
+design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring 
+the code and each has certain strengths and weaknesses when used to solve particular types of problems - 
+it is useful to know about the major paradigms so you can recognise where it might be useful to switch in your own code. 
+4. Finally, in the forth block, we are back to practical applications and learning to publish and release 
+software for reuse by others. You will work with your fellow learners on a group project (as you would do when 
+collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking 
+issue**s, and **supporting your software**.
 
 > ## Prerequisite Knowledge
 > This is an intermediate-level software development course intended for people who have already been developing code in 
