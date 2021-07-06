@@ -18,8 +18,8 @@ you have some basic Python, shell and Git skills."
 
 ## Introduction
 So, you have gained basic software development skills either by self-learning or attending, e.g., a [novice Software 
-Carpentry course][swc-lessons]. You have been applying those skills for a while now by writing code to help with your work and you 
-feel comfortable developing code and troubleshooting problems to a certain extent. However, your software 
+Carpentry course][swc-lessons]. You have been applying those skills for a while by writing code to help with your work and you 
+feel comfortable developing code and troubleshooting problems. However, your software 
 has now reached a point where there’s too much code to be kept in one script. It is perhaps involving more 
 researchers (developers) and users, and more collaborative development effort is needed to add new functionality 
 while ensuring previous development efforts remain functional and maintainable. At this point, 
@@ -39,35 +39,32 @@ four bigger sections:
 software development and a typical collaborative code development cycle: 
 - **PyCharm** (an Integrated Development Environment (IDE) tool) for **code development, testing and debugging**, 
 - **command line shell** for running code and interacting with **command line tool Git** for version control and 
-branching the code out for developing new features in parallel
+branching the code out for developing new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) for code backup, sharing and 
 collaborative development, 
-- **virtual environments** to isolate our project from other projects developed on the same machine, and 
+- **virtual environments** for isolating a project from other projects developed on the same machine, and 
 - **Python code style guide** to make sure our code is documented, readable and consistently formatted.
-2. Once we know our way around different code development tools, in the second section we learn:
+2. Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, 
 - how to automate and scale testing with **Continuous Integration (CI)** using 
-- **GitHub Actions** (a CI service available on GitHub) which enables testing on different target user platforms 
-(combinations of operating systems and Python versions).
+- **GitHub Actions** (a CI service available on GitHub) which enables automated testing on different target user platforms.
 3. In the third section, we step away from writing code for a bit to look into different **software design paradigms** 
-historically available to understand the wider landscape in which you can design software and to help you with the 
+to understand the wider landscape in which you can design software and to help you with the 
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring 
 the code and each has certain strengths and weaknesses when used to solve particular types of problems - 
-it is useful to know about the major paradigms so you can recognise where it might be useful to switch in your own code. 
+useful to know so you can recognise where it might be useful to switch in your own code. 
 4. Finally, in the forth section, we are back to practical applications and learning to **publish and release 
 software for reuse** by others. You will work with your fellow learners on a group project (as you would do when 
 collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking 
-issue**s, and **supporting your software**.
+issues**, and **supporting your software**.
 
 After attending this workshop, you will be equipped with skills and tools for intermediate software development in Python, 
 as well as general skills on writing robust software collaboratively making it easier to use, develop, 
 and sustain it in the future for yourself and others. Note that, while this material is Python-specific 
-and we had to select a particular IDE to focus the material on (PyCharm), most of the skills taught here are transferable to other 
-programming languages and IDEs. We list different options and ways of working whenever possible. Also check out the 
-[wrap-up episode](../wrap-up/index.html)
-for a comprehensive list of references to alternative tools and further reading. 
+and uses a particular IDE (PyCharm), skills taught here are transferable to other 
+programming languages and IDEs.
 
-Diagram below depicts tools and techniques we will be using and learning throughout this workshop and gives a high-level overview 
+Diagram below depicts tools and techniques we will be using throughout this workshop and gives a high-level overview 
 of how they fit together.
 
 ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png)
