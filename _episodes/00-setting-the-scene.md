@@ -61,8 +61,8 @@ issues**, and **supporting your software**.
 After attending this workshop, you will be equipped with skills and tools for intermediate software development in Python, 
 as well as general skills on writing robust software collaboratively making it easier to use, develop, 
 and sustain it in the future for yourself and others. Note that, while this material is Python-specific 
-and uses a particular IDE (PyCharm), skills taught here are transferable to other 
-programming languages and IDEs.
+and uses a particular Python IDE (PyCharm), skills taught here are transferable to other 
+programming languages and IDEs (e.g. Spyder, Atom, etc.).
 
 Diagram below depicts tools and techniques we will be using throughout this workshop and gives a high-level overview 
 of how they fit together.
