@@ -43,7 +43,7 @@ branching the code out for developing new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) for code backup, sharing and 
 collaborative development, 
 - **virtual environments** for isolating a project from other projects developed on the same machine, and 
-- **Python code style guide** to make sure our code is documented, readable and consistently formatted.
+- **Python code style guide** (PEP8) to make sure our code is documented, readable and consistently formatted.
 2. Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, 
 - how to automate and scale testing with **Continuous Integration (CI)** using 
