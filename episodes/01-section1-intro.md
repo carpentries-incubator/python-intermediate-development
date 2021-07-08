@@ -1,7 +1,7 @@
 ---
 title: "Section 1: Setting Up Environment For Collaborative Code Development"
 start: true
-teaching: 5
+teaching: 10
 exercises: 0
 questions:
 - "What tools are needed to collaborate on code development effectively?"
