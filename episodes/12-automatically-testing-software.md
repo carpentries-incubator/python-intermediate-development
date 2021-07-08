@@ -1,7 +1,6 @@
 ---
 title: "Automatically Testing your Software"
-start: true
-teaching: 30
+steaching: 30
 exercises: 20
 questions:
 - "Does the code we develop work the way it should do?"

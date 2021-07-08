@@ -1,6 +1,6 @@
 ---
 title: "Programming Paradigms"
-start: true
+start: false
 teaching: 10
 exercises: 5
 questions:

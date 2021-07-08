@@ -1,19 +1,5 @@
 ---
-title: "Setting the Scene"
-start: true
-teaching: 30
-exercises: 0
-questions:
-- "What are we going to teach in this workshop?"
-- "Have you got all the necessary software installed?"
-objectives:
-- "Setting the scene and expectations"
-- "Making sure everyone has all the necessary software is installed"
-keypoints:
-- "This lesson focuses on core, intermediate skills covering the whole software development life-cycle 
-that will be of most use to anyone working collaboratively on code."
-- "The lesson follows on from the novice Software Carpentry lesson, but it not a prerequisite for attending as long as
-you have some basic Python, shell and Git skills."
+title: "Setting the Scene For the Workshop"
 ---
 
 ## Introduction
