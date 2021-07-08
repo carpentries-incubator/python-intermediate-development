@@ -5,7 +5,7 @@ teaching: 30
 exercises: 0
 questions:
 - "What are we going to teach in this workshop?"
-- "What different software development tools "
+- "What different software development tools will we be using?"
 objectives:
 - "Setting the scene and expectations"
 - "Making sure everyone has all the necessary software is installed"
@@ -87,7 +87,7 @@ This section also contains instructions on how to test your setup.
 > These are evolving tools and platforms, always adding new features and new visual elements. 
 > Screenshots in the lesson may then become out-of-sync, refer or show content that no longer exists or is different to 
 > what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have 
-> a big discrepancy with what you see, please open an issue describing what you see and how it differs from the lesson 
+> a big discrepancy with what you see, please [open an issue](https://github.com/softwaresaved/python-intermediate-development/issues/new) describing what you see and how it differs from the lesson 
 > content. Feel free to add as many screenshots as necessary to clarify the issue.
 {: .callout} 
 
