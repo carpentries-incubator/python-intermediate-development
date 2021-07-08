@@ -1,5 +1,5 @@
 ---
-title: "Setting the Scene For the Workshop"
+title: "Setting the Scene"
 ---
 
 ## Introduction
