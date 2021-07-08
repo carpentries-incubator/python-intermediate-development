@@ -22,7 +22,7 @@ the increasing need to add new features
 - ['Technical debt'](https://en.wikipedia.org/wiki/Technical_debt) is increasing with demands to add new functionality while ensuring previous development efforts remain functional and maintainable
 
 They now need more intermediate software engineering skills to help them design more robust software code, 
-automate the process testing and verifying its correctness and support collaborations with others.
+automate the process of testing and verifying its correctness and support collaborations with others.
  
 ## Target Audience
 This course is for you if:
@@ -68,10 +68,10 @@ currently undocumented or unstructured
 {: .prereq}
 
 > ## Learning Objectives
-> - Know how to set up and use a number of tools and own virtual environment to develop software collaboratively in a team
-> - Know how to set up a test framework to verify the correct behaviour of code  
-> - Be able to design and write robust software
-> - Know how to publish and release your software for reuse by others
+> - Set up and use a number of tools and own virtual environment to develop software collaboratively in a team
+> - Use a test framework to verify the correct behaviour of code  
+> - Design robust, extensible software
+> - Release your software for reuse by others
 {: .objectives }
 
 {% include links.md %}
