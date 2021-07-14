@@ -127,6 +127,8 @@ daily_mean(data[0:4])
 ~~~
 {: .language-python}
 
+Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `inflammation.models.daily_mean()`).
+
 Which will essentially return the mean inflammation for each day column across those patients:
 
 ~~~
@@ -277,7 +279,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 ### Install Pytest
 
-One of the first things we need to do is install the `pytest` package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line:
+One of the first things we need to do is install the `pytest` package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line. If you're still in the Python interpreter, exit this first (either with `Ctrl-D` or typing `exit()`), then in Bash:
 
 ~~~
 $ conda install pytest
@@ -334,7 +336,9 @@ Whether we do this via PyCharm or the command line, the results are exactly the 
 
 ### Write a Metadata Package Description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following content:
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
+
+Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
 
 ~~~
 from setuptools import setup, find_packages
@@ -343,7 +347,7 @@ setup(name="patient-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-This is a typical short `setup.py` that will enable Pytest to locate the Python source files to test, that we have in the `inflammation` directory. We next need to install our code as a local package in our environment so Pytest will find it:
+Next, in Bash we need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
 $ conda develop .
@@ -359,6 +363,7 @@ completed operation for: /Users/user/Projects/SSI/intermediate-swc/python-interm
 {: .output}
 
 This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it properly as a full package each time we make a change.
+
 
 ### Running the Tests
 
@@ -440,6 +445,8 @@ The big advantage is that as our code develops we can update our test cases and 
 There are some cases where seeing an error is actually the correct behaviour, and Python allows us to test for exceptions. Add this test in `tests/test_models.py`:
 
 ~~~
+import pytest
+...
 def test_daily_min_string():
     """Test for TypeError when passing strings"""
     from inflammation.models import daily_min
