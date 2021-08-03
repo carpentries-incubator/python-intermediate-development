@@ -11,3 +11,7 @@ objectives:
 keypoints:
 - ""
 ---
+
+TODO
+    
+![Managing software](../fig/section4-overview.png){: .image-with-shadow width="800px" }

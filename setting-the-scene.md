@@ -32,7 +32,7 @@ simultaneously and interchangeably as you would use them in a real life.
 The material is organised into the following 
 four bigger sections.
 
-![Course overview](../fig/course-sections-overview.png)
+![Course overview](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
 1. In the first section we are going to familiarise ourselves with using various tools and techniques for 
 software development and a typical collaborative code development cycle: 
@@ -52,7 +52,7 @@ to understand the wider landscape in which you can design software and to help y
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring 
 the code and each has certain strengths and weaknesses when used to solve particular types of problems - 
 useful to know so you can recognise where it might be useful to switch in your own code. 
-4. Finally, in the forth section, we are back to practical applications and learning to **publish and release 
+4. Finally, we are back to practical applications and learning to **publish and release 
 software for reuse** by others. You will work with your fellow learners on a group project (as you would do when 
 collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking 
 issues**, and **supporting your software**.

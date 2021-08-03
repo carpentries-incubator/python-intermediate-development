@@ -11,3 +11,6 @@ objectives:
 keypoints:
 - "TODO"
 ---
+TODO
+
+![Tools for scaled software testing](../fig/section2-overview.png){: .image-with-shadow width="800px" }
