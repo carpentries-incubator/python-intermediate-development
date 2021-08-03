@@ -11,3 +11,11 @@ objectives:
 keypoints:
 - "TODO"
 ---
+
+At this point, 
+it becomes particularly important that you rethink the design of your software, including:
+
+- **algorithm design**: what method are you going to use to solve the core problem?
+- **software architecture**: what components will the software have and how will they interoperate?
+- **system architecture**: what system components will this software have to interact with and how?
+- **UI/UX (User Interface / User Experience)**: how will users interact with the software?

@@ -37,7 +37,7 @@ Days are displayed if at least one episode has 'start = true'.
             <td class="col-md-1"></td>
             {% endif %}
             <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
-            <td class="col-md-3"><a href="{{ relative_root_path }}{% link setting-the-scene.md %}">Introduction</a></td>
+            <td class="col-md-3"><a href="{{ relative_root_path }}{% link setting-the-scene.md %}">Setting the Scene</a></td>
             <td class="col-md-7">Setting the scene for the whole workshop</td>
         </tr>
         {% for lesson_episode in lesson_episodes %}
@@ -111,6 +111,18 @@ Days are displayed if at least one episode has 'start = true'.
             </td>
             <td class="col-md-3">Finish</td>
             <td class="col-md-7"></td>
+        </tr>
+        <tr>
+            {% if multiday %}
+            <td class="col-md-1"></td>
+            {% endif %}
+            <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
+            <td class="col-md-3"><a href="{{ relative_root_path }}{% link wrap-up.md %}">Workshop Wrap-up & Where Next</a></td>
+            <td class="col-md-7">
+               Looking back at what was covered and how different pieces fit together
+                <br>
+                Where are some advanced topics and further reading available?
+            </td>
         </tr>
     </table>
 

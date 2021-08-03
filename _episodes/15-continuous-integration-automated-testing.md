@@ -23,7 +23,7 @@ So far we've been manually running our tests as we require. So once we've made a
 
 ## What is Continuous Integration?
 
-The automated testing we've done so far only takes into account the state of the repository we have on our own machines. In a software project involving multiple developers working and pushing changes on a repository, it would be great to know holistically how all these changes are affecting our codebase without everyone having to pull down all the changes and test them. If we also take into account the testing required on different target user plaforms for our software and the changes being made to many repository branches, the effort required to conduct testing at this scale can quickly become intractable for a research project to sustain.
+The automated testing we've done so far only takes into account the state of the repository we have on our own machines. In a software project involving multiple developers working and pushing changes on a repository, it would be great to know holistically how all these changes are affecting our codebase without everyone having to pull down all the changes and test them. If we also take into account the testing required on different target user platforms for our software and the changes being made to many repository branches, the effort required to conduct testing at this scale can quickly become intractable for a research project to sustain.
 
 Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes predictable processes more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
 
@@ -140,7 +140,7 @@ $ mkdir -p .github/workflows
 ~~~
 {: .language-bash}
 
-This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions, which is also written using YAML. So let's add a new YAML file called `main.yml` within the new `.github/workflows` directory:
+This directory is used specifically for GitHub Actions, allowing us to specify any number of workflows that can be run under a variety of conditions, which is also written using YAML. So let's add a new YAML file called `main.yml` (note it's extension is `.yml` without the `a`) within the new `.github/workflows` directory:
 
 ~~~
 name: CI
@@ -183,6 +183,8 @@ jobs:
 ~~~
 {: .language-bash}
 
+NB: be sure to create this file as `main.yml` within the newly created `.github/workflows` directory, or it won't work!
+
 So as well as giving our workflow a name - CI - we indicate with `on` that we want this workflow to run when we `push` commits to our repository. The workflow itself is made of a single `job` named `build`, and we could define any number of jobs after this one if we wanted, and each one would run in parallel.
 
 Next, we define what our build job will do. With `runs-on` we first state which operating systems we want to use, in this case just Ubuntu for now. We'll be looking at ways we can scale this up to testing on more systems later.
@@ -194,6 +196,10 @@ Lastly, we define the `step`s that our job will undertake in turn, to set up the
 - **Install conda-build and our inflammation package:** In order to locally install our `inflammation` package we first need to install a package called `conda-build` in the default `base` Conda environment to do this. Once installed, we can use `conda develop` as before, except here we explicitly specify that we want the local `inflammation` package to be installed to the `patient` virtual environment. We use `run` here to run the conda commands
 - **Test with PyTest:** Lastly, we run pytest. In order to do this successfully, we use `conda run` to execute a given command explicitly within our `patient` environment, with the same arguments we used manually before
 
+> ## What about other Actions?
+>
+> Our workflow here uses the `setup-miniconda` Action, which is provided via the [GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview). It contains many third-party actions (as well as apps) that you can use with GitHub for many tasks across many programming languages, particularly for setting up environments for running tests, code analysis and other tools, setting up and using infrastructure (for things like Docker or Amazon's AWS cloud), or even managing repository issues.
+{: .callout}
 
 ### Triggering a Build on GitHub Actions
 
@@ -235,7 +241,7 @@ Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows
 
 Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
 
-Let's see how this is done using GitHub Actions. To support this, change `.github/workflow/main.yml` to the following:
+Let's see how this is done using GitHub Actions. To support this, change your `.github/workflows/main.yml` to the following:
 
 ~~~
 ...
