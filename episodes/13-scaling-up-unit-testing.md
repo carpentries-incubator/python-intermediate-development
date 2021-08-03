@@ -20,7 +20,9 @@ We're starting to build up a number of tests that test the same function, but ju
 
 ## Parameterising Our Unit Tests
 
-So far, we've been writing a single function for every new test we need. But instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
+So far, we've been writing a single function for every new test we need. But when we simply want to use the same test code but with different data for another test, it would be great to be able to specify multiple sets of data to use with the same test code. Test **parameterization** gives us this.
+
+So instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
 @pytest.mark.parametrize(
@@ -39,6 +41,8 @@ def test_daily_mean(test, expected):
 Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
+
+So our first test will run `daily_mean()` on `[[0, 0], [0, 0], [0, 0]]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3, 4]`.
 
 The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 

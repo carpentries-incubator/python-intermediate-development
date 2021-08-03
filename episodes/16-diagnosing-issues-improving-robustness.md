@@ -94,8 +94,7 @@ def test_patient_normalise(test, expected):
 
 Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly. Also, we are using the `assert_almost_equal()` Numpy testing function instead of `assert_array_equal()`, since it allows us to test against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
 
-Run the tests again using `pytest tests/test_model.py` and you will note that the new
-test is failing, with an error message that does not give many clues as to what went wrong.
+Run the tests again using `pytest tests/test_models.py` and you will note that the new test is failing, with an error message that does not give many clues as to what went wrong.
 
 ~~~
 E       AssertionError:
@@ -119,8 +118,7 @@ Let us use a debugger at this point to see what is going on and why the function
 
 ## Debugging in PyCharm
 
-Think of debugging like performing exploratory surgery - on code! Debuggers allow us to peer at the internal workings
-of a program, such as variables and other state, as it performs its functions.
+Think of debugging like performing exploratory surgery - on code! Debuggers allow us to peer at the internal workings of a program, such as variables and other state, as it performs its functions.
 
 ### Running Tests Within PyCharm
 
@@ -316,14 +314,11 @@ def patient_normalise(data):
 
 In the previous section, we made a few design choices for our `patient_normalise` function:
 
-1. we are implicitly converting any `NaN` and negative values to 0,
-2. normalising a constant 0 array of inflammation results in an identical array of 0s,
-3. we do not want to warn the user of any of these situations.
+1. We are implicitly converting any `NaN` and negative values to 0,
+2. Normalising a constant 0 array of inflammation results in an identical array of 0s,
+3. We don't warn the user of any of these situations.
 
-This could have be handled differently. We might decide that we do not want to silently make
-these changes to the data, but instead to explicitly check that the input data satisfies a given set of
-assumptions (e.g. no negative values) and raise an error if this is not the case.
-Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
+This could have be handled differently. We might decide that we do not want to silently make these changes to the data, but instead to explicitly check that the input data satisfies a given set of assumptions (e.g. no negative values) and raise an error if this is not the case. Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
 
 Checking that input to a function is valid via a set of preconditions is one of the simplest forms of
 **defensive programming** which is used as a way of avoiding potential errors.
@@ -333,8 +328,8 @@ However, in a dynamic language like Python one of the more common preconditions 
 function are of the correct *type*. Currently there is nothing stopping someone from calling `patient_normalise`
 with a string, a dictionary, or another object that is not an `ndarray`.
 
-As an example, let us change the behaviour of the `patient_normalise` function to raise an error on negative
-inflammation values. We can add a precondition check to the beginning of our function like so:
+As an example, let us change the behaviour of the `patient_normalise()` function to raise an error on negative
+inflammation values. Edit the `inflammation/models.py` file, and add a precondition check to the beginning of the `patient_normalise()` function like so:
 
 ~~~
 ...
@@ -344,7 +339,7 @@ inflammation values. We can add a precondition check to the beginning of our fun
 ~~~
 {: .language-python}
 
-We can then modify our test function to check that the function raises the correct exception - a `ValueError`.
+We can then modify our test function in `tests/test_models.py` to check that the function raises the correct exception - a `ValueError`.
 The [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) exception is part of the standard Python
 library and is used to indicate that the function received an argument of the right type, but of an inappropriate value.
 
