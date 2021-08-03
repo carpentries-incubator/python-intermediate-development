@@ -1,5 +1,5 @@
 ---
-title: "Section 1: Setting Up Environment For Collaborative Code Development"
+title: "Section 1: Environment For Collaborative Code Development"
 colour: "#FFF2CC"
 start: true
 teaching: 10

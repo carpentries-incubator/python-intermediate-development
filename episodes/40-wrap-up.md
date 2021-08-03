@@ -1,9 +1,10 @@
 ---
 layout: episode
-title: "Wrap-up"
+title: "Workshop Wrap-up"
 start: false
 teaching: 15
 exercises: 0
+type: workshop_wrapup
 questions:
 - "Looking back at what was covered and how different pieces fit together"
 - "Where are some advanced topics and further reading available?"
@@ -12,7 +13,6 @@ objectives:
 keypoints:
 - ""
 ---
-
 
 Diagram below depicts a concept map of tools and techniques we used throughout this workshop and a high-level overview 
 of how they fit together.
