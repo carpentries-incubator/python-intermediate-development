@@ -1,6 +1,6 @@
 ---
 title: "Section 1: Environment For Collaborative Code Development"
-colour: "#FFF2CC"
+colour: "#f7d77e"
 start: true
 teaching: 10
 exercises: 0
