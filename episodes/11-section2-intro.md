@@ -1,6 +1,6 @@
 ---
 title: "Section 2: Ensuring Correctness of Software at Scale"
-colour: "#f7d77e"
+colour: "#fcecc0"
 start: true
 teaching: 5
 exercises: 0
