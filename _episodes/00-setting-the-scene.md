@@ -1,8 +1,9 @@
 ---
-title: "Setting the Scene"
-start: true
-teaching: 30
+title: "Setting the Scene For the Workshop"
+start: false
+teaching: 15
 exercises: 0
+type: workshop-intro
 questions:
 - "What are we going to teach in this workshop?"
 - "What different software development tools will we be using?"
@@ -12,28 +13,31 @@ objectives:
 keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle 
 that will be of most use to anyone working collaboratively on code."
-- "The lesson follows on from the novice Software Carpentry lesson, but it not a prerequisite for attending as long as
-you have some basic Python, shell and Git skills."
+- "The lesson follows on from the novice Software Carpentry lesson, but this not a prerequisite for attending as long as
+you have some basic Python, Shell and Git skills and you have been using them to write code to help with your work."
 ---
 
 ## Introduction
 So, you have gained basic software development skills either by self-learning or attending, e.g., a [novice Software 
-Carpentry course][swc-lessons]. You have been applying those skills for a while by writing code to help with your work and you 
-feel comfortable developing code and troubleshooting problems. However, your software 
+Carpentry course][swc-lessons]. You have been applying those skills for a while by writing code to help with your work 
+and you feel comfortable developing code and troubleshooting problems. However, your software 
 has now reached a point where there’s too much code to be kept in one script. It is perhaps involving more 
 researchers (developers) and users, and more collaborative development effort is needed to add new functionality 
-while ensuring previous development efforts remain functional and maintainable. At this point, 
-it becomes particularly important that you rethink the design of your software, including:
+while ensuring previous development efforts remain functional and maintainable. 
 
-- **algorithm design**: what method are you going to use to solve the core problem?
-- **software architecture**: what components will the software have and how will they interoperate?
-- **system architecture**: what system components will this software have to interact with and how?
-- **UI/UX (User Interface / User Experience)**: how will users interact with the software?
+This lesson is providing the next step in software development for you - it teaches some intermediate software 
+engineering skills to help you restructure existing and design more robust software code, 
+automate the process of testing and verifying software correctness and support collaborations with others in a way that mimics a typical collaborative 
+software development process. It teaches you to use a number of different **software development tools and techniques** 
+simultaneously and interchangeably as you would use them in a real life. We had to make some choices when choosing 
+tools to teach here (based on ease of installation for the audience and other considerations) - however 
+skills taught here are transferable to other similar tools and programming languages too. 
+Over time, you will develop a preference for certain tools based on your personal taste or based on what is commonly used by your group, collaborators or community. 
 
-This lesson teaches the above intermediate-level software development topics in a way that mimics a typical collaborative 
-software development process. It will teach you to use a number of different **software development tools and techniques** 
-simultaneously and interchangeably as you would use them in a real life. The material is organised into the following 
-four bigger sections:
+The lesson is organised into the following 
+four bigger sections.
+
+![Course overview](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
 1. In the first section we are going to familiarise ourselves with using various tools and techniques for 
 software development and a typical collaborative code development cycle: 
@@ -45,15 +49,15 @@ collaborative development,
 - **virtual environments** for isolating a project from other projects developed on the same machine, and 
 - **Python code style guide** (PEP8) to make sure our code is documented, readable and consistently formatted.
 2. Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
-- how to set up a **test framework** and write tests to verify the correct behaviour of the code, 
+- how to set up a **test framework** and write tests to verify the correct behaviour of the code, and 
 - how to automate and scale testing with **Continuous Integration (CI)** using 
-- **GitHub Actions** (a CI service available on GitHub) which enables automated testing on different target user platforms.
+**GitHub Actions** (a CI service available on GitHub).
 3. In the third section, we step away from writing code for a bit to look into different **software design paradigms** 
 to understand the wider landscape in which you can design software and to help you with the 
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring 
 the code and each has certain strengths and weaknesses when used to solve particular types of problems - 
 useful to know so you can recognise where it might be useful to switch in your own code. 
-4. Finally, in the forth section, we are back to practical applications and learning to **publish and release 
+4. Finally, we are back to practical applications and learning to **publish and release 
 software for reuse** by others. You will work with your fellow learners on a group project (as you would do when 
 collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking 
 issues**, and **supporting your software**.
@@ -63,11 +67,6 @@ as well as general skills on writing robust software collaboratively making it e
 and sustain it in the future for yourself and others. Note that, while this material is Python-specific 
 and uses a particular Python IDE (PyCharm), skills taught here are transferable to other 
 programming languages and IDEs (e.g. Spyder, Atom, etc.).
-
-Diagram below depicts tools and techniques we will be using throughout this workshop and gives a high-level overview 
-of how they fit together.
-
-![Overview of tools and techniques covered in the course](../fig/course-concept-map.png)
 
 > ## Prerequisite Knowledge
 > This is an intermediate-level software development course intended for people who have already been developing code in 

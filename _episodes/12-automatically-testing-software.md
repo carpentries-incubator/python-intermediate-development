@@ -1,6 +1,5 @@
 ---
 title: "Automatically Testing your Software"
-start: true
 teaching: 30
 exercises: 20
 questions:

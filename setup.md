@@ -4,8 +4,8 @@ title: Setup
 
 You will need the following software installed and working correctly on your system to be able to follow the workshop.
 
-## Shell/Terminal Program
-You can use a shell program such as Bash. If you already have a shell other than Bash you can use that instead, that is fine as none of the content of this workshop is specific to Bash.
+## Command Line Shell Program
+You can use a command line shell program such as Bash. If you already have a shell other than Bash you can use that instead, that is fine as none of the content of this workshop is specific to Bash.
   - On Windows the Bash shell will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
   - On MacOS and Linux you will already have a shell available
 
