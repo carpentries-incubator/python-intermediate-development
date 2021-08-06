@@ -48,7 +48,7 @@ currently undocumented or unstructured
   
 > ## Prerequisites
 > To attend this course you should meet the following criteria. You can also test your prerequisite knowledge by taking 
-> [this short quiz](./00-setting-the-scene#prerequisite-knowledge).
+> [this short quiz](../quiz/index.html).
 >     
 > #### Git
 > - **You are familiar with the concept of version control**

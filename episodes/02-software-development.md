@@ -3,7 +3,7 @@ title: "Introduction to Software Design and Development"
 teaching: 20
 exercises: 10
 questions:
-- "Why is splitting an application into smaller functional units (modules) good when designing software?"
+- "Why is splitting code into smaller functional units (modules) good when designing software?"
 - "What are programming interfaces in software design?"
 - "What is Model-View-Controller design architecture?"
 objectives:
