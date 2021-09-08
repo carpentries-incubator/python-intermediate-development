@@ -42,7 +42,7 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
 
 	modified:   inflammation/models.py
-	modified:   patientdb.py
+	modified:   inflammation-analysis.py
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -53,7 +53,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-As expected, git is telling us we have made changes to `patientdb.py` and `inflammation/models.py` files in our working
+As expected, git is telling us we have made changes to `inflammation-analysis.py` and `inflammation/models.py` files in our working
 directory but that we have not staged nor committed those changes to our local repository yet.
 And, of course, we have not pushed the changes to the remote repository. It is also telling us a bit about files that
 we are not tracking (i.e. files ignored by git) - in this case `.idea/` folder where PyCharm saves its project data.
