@@ -334,12 +334,12 @@ However, there are some restrictions. Comments that simply restate what the code
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
 > ## Improve Code Style of Our Project
-Look at `patientdb.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
+Look at `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
 the discovered inconsistencies.
 > > ## Solution
 > > There are a few things to fix here, for example:
 > >
-> > 1.Line 23 in `patientdb.py` is too long and not very readable. A better style would be to use multiple lines and
+> > 1.Line 23 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use multiple lines and
 > > hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of
 > > list or the first character of the line that starts the multiline construct or simply moved to the end of the
 > > previous line. All three acceptable modifications are shown below.
@@ -370,15 +370,15 @@ the discovered inconsistencies.
 > > ~~~
 > > {: .language-python}
 > >
-> > 2.Variable 'InFiles' in `patientdb.py` uses CamelCase naming convention which is not 
+> > 2.Variable 'InFiles' in `inflammation-analysis.py` uses CamelCase naming convention which is not 
 >recommended for variable names. Rename it to, e.g. `infiles`.
 > >
-> > 3.There is an extra blank line on line 20 in `patientdb.py`. Normally, you should not use blank lines in the
+> > 3.There is an extra blank line on line 20 in `inflammation-analysis.py`. Normally, you should not use blank lines in the
 > > middle of the code unless you want to separate logical units - in which case only one blank line is used.
 > > Note how PyCharm is warning us by underlying the whole line.
 > >
 > > 4.Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
-> > `patientdb.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
+> > `inflammation-analysis.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
 > {: .solution}
 {: .challenge}
 

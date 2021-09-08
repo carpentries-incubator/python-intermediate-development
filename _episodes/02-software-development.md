@@ -73,14 +73,14 @@ total 24
 -rw-r--r--   1 carpentry  users  1055 20 Apr 15:41 README.md
 drwxr-xr-x  18 carpentry  users   576 20 Apr 15:41 data
 drwxr-xr-x   5 carpentry  users   160 20 Apr 15:41 inflammation
--rw-r--r--   1 carpentry  users  1122 20 Apr 15:41 patientdb.py
+-rw-r--r--   1 carpentry  users  1122 20 Apr 15:41 inflammation-analysis.py
 drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 ~~~
 {: .language-bash}
 
 As can be seen from the above, our software project contains the `README` file (that typically describes the project, 
-its usage, installation, authors and how to contribute), Python script `patientdb.py`, 
-and three directories - `inflammation`, `data` and `tests`. The Python script `patientdb.py` provides the main
+its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`, 
+and three directories - `inflammation`, `data` and `tests`. The Python script `inflammation-analysis.py` provides the main
 entry point in the application - we will have a more detailed look into it shortly. 
 On closer inspection, we can see that the `inflammation` directory contains two more Python scripts - 
 `view.py` and `model.py`.
@@ -238,7 +238,7 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 
 #### Our Project's MVC Architecture 
 
-Our software project uses the MVC architecture. The file `patientdb.py` is the **Controller** module that performs 
+Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that performs 
 basic statistical analysis over data and provides the main
 entry point into the application through the function called `main()` (as you can see from its listing below). 
 

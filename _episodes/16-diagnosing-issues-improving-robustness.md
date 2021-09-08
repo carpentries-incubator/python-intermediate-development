@@ -130,7 +130,7 @@ Firstly, to make it easier to track what's going on, we can set up PyCharm to ru
 3. Under `Testing`, for `Default test runner` select `pytest`.
 4. Select `OK`.
 
-We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `patientdb.py` file before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
+We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `inflammation-analysis.py` file before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
 
 ![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png)
 
@@ -138,7 +138,7 @@ We can also run our test functions individually. First, let's check that our PyC
 
 ![Ensuring our PyCharm configurations are correct](../fig/pytest-pycharm-check-config.png)
 
-PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `patientdb` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
+PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
 Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 

@@ -35,7 +35,7 @@ transferable to running code in other programming languages from within shell to
 you may use in the future.
 
 ## Running Scripts From the Command Line
-Let's run our `patientdb.py` script using Python from the command line and use the
+Let's run our `inflammation-analysis.py` script using Python from the command line and use the
 Python Anaconda environment `patient` we created from PyCharm. Open a new shell/terminal and type the 
 following command to list all the environments Anaconda is aware of:
 
@@ -72,13 +72,13 @@ Now we can run our script in that environment, ensuring first we are located in 
 
 ~~~
 $ cd python-intermediate-inflammation
-$ python patientdb.py
+$ python inflammation-analysis.py
 ~~~
 {: .language-bash}
 
 ~~~
-usage: patientdb.py [-h] infiles [infiles ...]
-patientdb.py: error: the following arguments are required: infiles
+usage: inflammation-analysis.py [-h] infiles [infiles ...]
+inflammation-analysis.py: error: the following arguments are required: infiles
 ~~~
 {: .output}
 
