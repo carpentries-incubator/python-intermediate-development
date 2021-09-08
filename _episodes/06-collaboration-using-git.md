@@ -4,7 +4,7 @@ start: false
 teaching: 45
 exercises: 0
 questions:
-- "What are git branches and why are they useful?"
+- "What are Git branches and why are they useful?"
 - "What are best practices when developing software collaboratively using Git?"
 objectives:
 - "Use feature branch workflow to effectively collaborate with a team on a software project"
