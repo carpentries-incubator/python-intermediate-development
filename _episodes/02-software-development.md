@@ -244,7 +244,7 @@ entry point into the application through the function called `main()` (as you ca
 
 ~~~
 #!/usr/bin/env python3
-"""Software for managing patient data in our imaginary hospital."""
+"""Software for managing and analysing patients' inflammation data in our imaginary hospital."""
 
 import argparse
 
@@ -252,8 +252,7 @@ from inflammation import models, views
 
 
 def main(args):
-    """The MVC Controller of the patient data system.
-
+    """The MVC Controller of the patient inflammation data system.
     The Controller is responsible for:
     - selecting the necessary models and views for the current task
     - passing data between models and views
@@ -274,7 +273,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='A basic patient data management system')
+        description='A basic patient inflammation data management system')
 
     parser.add_argument(
         'infiles',
