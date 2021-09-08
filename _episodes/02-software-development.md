@@ -21,8 +21,9 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Our Software Project
 So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub. 
 The software project studies inflammation in patients 
-who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The project is not finished and we will be building 
-on top of the existing code during the workshop. The first thing to do is to obtain a local copy of the project on 
+who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The project is not finished - you will be working on in 
+collaboration with others and building on top of the existing code during the workshop. 
+The first thing to do is to obtain a local copy of the project on 
 your machine and inspect it. 
 
 To create your own copy of the software project repository from GitHub:
@@ -95,26 +96,24 @@ total 24
 Directory `data` contains several files with patients’ daily inflammation information. 
 
 ~~~
-$ ls -la data 
+$ ls -l data  
 total 264
-drwxr-xr-x  18 alex  staff    576 25 Jun 13:13 .
-drwxr-xr-x  16 alex  staff    512 30 Jun 14:23 ..
--rw-r--r--   1 alex  staff   5365 25 Jun 13:13 inflammation-01.csv
--rw-r--r--   1 alex  staff   5314 25 Jun 13:13 inflammation-02.csv
--rw-r--r--   1 alex  staff   5127 25 Jun 13:13 inflammation-03.csv
--rw-r--r--   1 alex  staff   5367 25 Jun 13:13 inflammation-04.csv
--rw-r--r--   1 alex  staff   5345 25 Jun 13:13 inflammation-05.csv
--rw-r--r--   1 alex  staff   5330 25 Jun 13:13 inflammation-06.csv
--rw-r--r--   1 alex  staff   5342 25 Jun 13:13 inflammation-07.csv
--rw-r--r--   1 alex  staff   5127 25 Jun 13:13 inflammation-08.csv
--rw-r--r--   1 alex  staff   5327 25 Jun 13:13 inflammation-09.csv
--rw-r--r--   1 alex  staff   5342 25 Jun 13:13 inflammation-10.csv
--rw-r--r--   1 alex  staff   5127 25 Jun 13:13 inflammation-11.csv
--rw-r--r--   1 alex  staff   5340 25 Jun 13:13 inflammation-12.csv
--rw-r--r--   1 alex  staff  22554 25 Jun 13:13 python-novice-inflammation-data.zip
--rw-r--r--   1 alex  staff     12 25 Jun 13:13 small-01.csv
--rw-r--r--   1 alex  staff     15 25 Jun 13:13 small-02.csv
--rw-r--r--   1 alex  staff     12 25 Jun 13:13 small-03.csv
+-rw-r--r--  1 alex  staff   5365 25 Jun 13:13 inflammation-01.csv
+-rw-r--r--  1 alex  staff   5314 25 Jun 13:13 inflammation-02.csv
+-rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-03.csv
+-rw-r--r--  1 alex  staff   5367 25 Jun 13:13 inflammation-04.csv
+-rw-r--r--  1 alex  staff   5345 25 Jun 13:13 inflammation-05.csv
+-rw-r--r--  1 alex  staff   5330 25 Jun 13:13 inflammation-06.csv
+-rw-r--r--  1 alex  staff   5342 25 Jun 13:13 inflammation-07.csv
+-rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-08.csv
+-rw-r--r--  1 alex  staff   5327 25 Jun 13:13 inflammation-09.csv
+-rw-r--r--  1 alex  staff   5342 25 Jun 13:13 inflammation-10.csv
+-rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-11.csv
+-rw-r--r--  1 alex  staff   5340 25 Jun 13:13 inflammation-12.csv
+-rw-r--r--  1 alex  staff  22554 25 Jun 13:13 python-novice-inflammation-data.zip
+-rw-r--r--  1 alex  staff     12 25 Jun 13:13 small-01.csv
+-rw-r--r--  1 alex  staff     15 25 Jun 13:13 small-02.csv
+-rw-r--r--  1 alex  staff     12 25 Jun 13:13 small-03.csv
 ~~~
 {: .language-bash}
 
@@ -188,9 +187,9 @@ within a command line shell (Command Line Interface, CLI) are examples of Views.
 They include anything that the user can see from the application. While building GUIs is not the topic of this workshop,
 we will cover building CLIs in Python in later episodes.
 
-**Controller** manipulates both the Model and the View. It accepts input from the View and performs the corresponding
-action on the Model (changing the state of the model) and then updates the View accordingly. For example, on user
-request, Controller updates a picture on a user's GitHub profile and then modifies the View by displaying the
+**Controller** manipulates both the **Model** and the **View**. It accepts input from the **View** and performs the corresponding
+action on the **Model** (changing the state of the model) and then updates the **View** accordingly. For example, on user
+request, **Controller** updates a picture on a user's GitHub profile and then modifies the **View** by displaying the
 updated profile back to the user.
 
 #### MVC Examples
@@ -204,16 +203,6 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
  
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: width="400px"}
 {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
-
-> ## Separation of Concerns
-> Separation of concerns is important when designing software architectures in order to reduce the code's complexity.
-> Note, however, there are limits to everything - and MVC architecture is no exception. Controller often transcends
-> into Model and View and a clear separation is sometimes difficult to maintain. For example, Command Line Interface
-> provides both the View (what user sees and how they interact with the shell) and the Controller (invoking of a command)
-> aspects of a CLI application. In Web applications, Controller often manipulates the data (received from the Model)
-> before displaying it to the user or passing it from the user to the Model.
->
-{: .callout}
 
 > ## MVC Application Examples From your Work
 > Think of some other examples from your work or life where MVC architecture may be suitable or have a discussion
@@ -237,16 +226,73 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 > {: .solution}
 {: .challenge}
 
+> ## Separation of Concerns
+> Separation of concerns is important when designing software architectures in order to reduce the code's complexity.
+> Note, however, there are limits to everything - and MVC architecture is no exception. Controller often transcends
+> into Model and View and a clear separation is sometimes difficult to maintain. For example, Command Line Interface
+> provides both the View (what user sees and how they interact with the shell) and the Controller (invoking of a command)
+> aspects of a CLI application. In Web applications, Controller often manipulates the data (received from the Model)
+> before displaying it to the user or passing it from the user to the Model.
+>
+{: .callout}
+
 #### Our Project's MVC Architecture 
 
-Our software project uses the MVC architecture. The file `patientdb.py` is the Controller module that performs 
+Our software project uses the MVC architecture. The file `patientdb.py` is the **Controller** module that performs 
 basic statistical analysis over data and provides the main
-entry point into the application. The View and Model modules are contained 
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the Model is contained within
+entry point into the application through the function called `main()` (as you can see from its listing below). 
+
+~~~
+#!/usr/bin/env python3
+"""Software for managing patient data in our imaginary hospital."""
+
+import argparse
+
+from inflammation import models, views
+
+
+def main(args):
+    """The MVC Controller of the patient data system.
+
+    The Controller is responsible for:
+    - selecting the necessary models and views for the current task
+    - passing data between models and views
+    """
+    InFiles = args.infiles
+    if not isinstance(InFiles, list):
+        InFiles = [args.infiles]
+
+
+    for filename in InFiles:
+        inflammation_data = models.load_csv(filename)
+
+        view_data = {'average': models.daily_mean(inflammation_data), 
+                    'max': models.daily_max(inflammation_data), 
+                    'min': models.daily_min(inflammation_data)}
+
+        views.visualize(view_data)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='A basic patient data management system')
+
+    parser.add_argument(
+        'infiles',
+        nargs='+',
+        help='Input CSV(s) containing inflammation series for each patient')
+
+    args = parser.parse_args()
+
+    main(args)
+~~~          
+{: .language-python}
+
+The **View** and **Model** modules are contained 
+in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is contained within
 the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information. 
 
-We will revisit software architectures once again in a [later episode](../index/25-software-design) when we talk in more detail 
-about software design. We now proceed to set up our virtual development environment and work with the code using 
+We will revisit the software architecture topic once again in a [later episode](../index/25-software-design) when we talk in more detail 
+about software design. We now proceed to set up our virtual development environment and start working with the code using 
 a more convenient graphical tool - IDE PyCharm.
 
 {% include links.md %}
