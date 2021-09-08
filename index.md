@@ -68,7 +68,7 @@ currently undocumented or unstructured
 {: .prereq}
 
 > ## Learning Objectives for the Workshop
-> - Use a virtual environment and a set of tools to use to develop software collaboratively
+> - Use a virtual environment and a set of tools (command line shell, Pip, Venv, Git, GitHub, PyCharm IDE) to develop software collaboratively
 > - Use a test framework to verify the correct behaviour of code  
 > - Design robust, extensible software
 > - Release your software for reuse by others
