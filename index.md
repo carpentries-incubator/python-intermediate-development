@@ -67,8 +67,8 @@ currently undocumented or unstructured
 > - Optionally, you have experience redirecting inputs and outputs from a command
 {: .prereq}
 
-> ## Learning Objectives
-> - Set up and use a number of tools and own virtual environment to develop software collaboratively in a team
+> ## Learning Objectives for the Workshop
+> - Use a virtual environment and a set of tools to use to develop software collaboratively
 > - Use a test framework to verify the correct behaviour of code  
 > - Design robust, extensible software
 > - Release your software for reuse by others
