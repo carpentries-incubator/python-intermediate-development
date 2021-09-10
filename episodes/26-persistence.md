@@ -68,7 +68,7 @@ class PatientSerializer:
 
     @classmethod
     def deserialize(cls, data):
-        raise NotImplementedErro
+        raise NotImplementedError
 
     @classmethod
     def load(cls, path):
