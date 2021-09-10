@@ -88,10 +88,11 @@ drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 
 As can be seen from the above, our software project contains the `README` file (that typically describes the project, 
 its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`, 
-and three directories - `inflammation`, `data` and `tests`. The Python script `inflammation-analysis.py` provides the main
-entry point in the application - we will have a more detailed look into it shortly. 
-On closer inspection, we can see that the `inflammation` directory contains two more Python scripts - 
-`view.py` and `model.py`.
+and three directories - `inflammation`, `data` and `tests`. 
+
+The Python script `inflammation-analysis.py` provides the main
+entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts - 
+`view.py` and `model.py`. We will have a more detailed look into these shortly.
 
 ~~~
 $ ls -l inflammation
