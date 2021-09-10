@@ -43,7 +43,7 @@ within your own GitHub account:
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub).
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
-anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to
+anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the lesson).
 ![copy-template-repository](../fig/copy-template-repository.png)
 4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
