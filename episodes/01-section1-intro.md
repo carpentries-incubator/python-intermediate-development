@@ -10,9 +10,9 @@ objectives:
 - "Provide an overview of all the different tools that will be used in this course."
 keypoints:
 - "In order to develop (write, test, debug, backup) code efficiently, 
-you need to use a number of different tools"
+you need to use a number of different tools."
 - "When there is a choice of tools for a task you will have 
-to decide which tool is right for you, which may be a matter of personal preference or what the community you belong to is using"
+to decide which tool is right for you, which may be a matter of personal preference or what the community you belong to is using."
 ---
 
 The first section of the course is dedicated to setting up your environment for collaborative software development. 

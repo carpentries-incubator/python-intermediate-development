@@ -6,27 +6,36 @@ questions:
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 - "What is Model-View-Controller design architecture?"
 objectives:
-- "Use Git to obtain a working copy of our template software project from GitHub"
-- "Understand Model-View-Controller (MVC) architecture in software design and its use in our project"
+- "Use Git to obtain a working copy of our template software project from GitHub."
+- "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
 keypoints:
 - "Programming interfaces define how individual modules within a software application interact among themselves or
 how the application itself interacts with its users."
 - "MVC is a software design architecture which divides the application into three interconnected modules: Model (data),
 View (user interface), and Controller (input/output and data manipulation)."
-- "The software project template we use throughout this workshop is an example of an MVC application that manipulates
+- "The software project template we use throughout this course is an example of an MVC application that manipulates
 patients’ inflammation data and performs basic statistical analysis using Python."
 ---
 
 ## Our Software Project
 So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub. 
 The software project studies inflammation in patients 
-who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The project is not finished - you will be working on in 
-collaboration with others and building on top of the existing code during the workshop. 
-The first thing to do is to obtain a local copy of the project on 
-your machine and inspect it. 
+who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients, 
+who had their inflammation levels recorded for 40 days (a snapshot of data is below). 
 
-To create your own copy of the software project repository from GitHub:
+![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg)
+{% comment %}
+Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
+{% endcomment %}
+
+The project analyses the data to study the effect of the new arthritis treatment by checking the inflammation records 
+across all patients but it is not finished and contains some errors. You will be working on your own and in 
+collaboration with others to fix and build on top of the existing code during the course. 
+
+To start with the development, we have to obtain a local copy of the project on 
+your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
+within your own GitHub account:
 
 1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
 ![template-repository](../fig/template-repository.png)
@@ -35,7 +44,7 @@ the repository under your GitHub account. Note that each participant is creating
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub).
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
 anything you like, but it may be easier if everyone uses the same name). Also set the new repository's visibility to
-'Public' - so it can be seen by other attendees  of the workshop and by third-party Continuous Integration (CI) services (to be covered later on in the lesson).
+'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the lesson).
 ![copy-template-repository](../fig/copy-template-repository.png)
 4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
 5. At this point GitHub may ask you to authenticate. If this happens and
@@ -60,7 +69,6 @@ should use a pre-generated personal access token as your password here.
 > > `ls -l`
 > > Remember the `-l` flag of the `ls` command and also how to get help for commands in shell: `man ls`.
 > {: .solution}
->
 {: .challenge}
 
 ### Our Software Project Structure
@@ -123,11 +131,25 @@ a series of comma-separated values (CSV) format files, where:
 - each row holds temperature measurements for a single patient (in some arbitrary units of inflammation),
 - columns represent successive days.
 
-You can inspect the data files from the command line by issuing command `cat`, e.g. do `cat data/inflammation-01.csv` 
-from the project root to check the contents of the first inflammation file.
+> ## Have a Peak at the Data
+> Which shell command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
+> > ## Solution
+> > 1. To list the entire content from the project root do: `cat data/inflammation-01.csv`.
+> > 2. To list the first 5 lines from the project root do: `head -n 5 data/inflammation-01.csv`.
+> >
+> > ~~~
+> 0,0,1,3,2,3,6,4,5,7,2,4,11,11,3,8,8,16,5,13,16,5,8,8,6,9,10,10,9,3,3,5,3,5,4,5,3,3,0,1
+> 0,1,1,2,2,5,1,7,4,2,5,5,4,6,6,4,16,11,14,16,14,14,8,17,4,14,13,7,6,3,7,7,5,6,3,4,2,2,1,1
+> 0,1,1,1,4,1,6,4,6,3,6,5,6,4,14,13,13,9,12,19,9,10,15,10,9,10,10,7,5,6,8,6,6,4,3,5,2,1,1,1
+> 0,0,0,1,4,5,6,3,8,7,9,10,8,6,5,12,15,5,10,5,8,13,18,17,14,9,13,4,10,11,10,8,8,6,5,5,2,0,2,0
+> 0,0,1,0,3,2,5,4,8,2,9,3,3,10,12,9,14,11,13,8,6,18,11,9,13,11,8,5,5,2,8,5,3,5,4,1,3,1,1,0
+> > ~~~ 
+> >{: .output}
+> {: .solution}
+{: .challenge}
 
 Directory `tests` contains several tests that have been implemented already. We will be adding more tests 
-during the workshop as our code grows.
+during the course as our code grows.
 
 An important thing to note here is that the structure of the project is not arbitrary. 
 One of the big differences between novice and intermediate software development is planning the structure of your code.
@@ -184,7 +206,7 @@ patients' data.
 state of the model).
 For example, displaying a window with input fields and buttons (Graphical User Interface, GUI) or textual options
 within a command line shell (Command Line Interface, CLI) are examples of Views.
-They include anything that the user can see from the application. While building GUIs is not the topic of this workshop,
+They include anything that the user can see from the application. While building GUIs is not the topic of this course,
 we will cover building CLIs in Python in later episodes.
 
 **Controller** manipulates both the **Model** and the **View**. It accepts input from the **View** and performs the corresponding
