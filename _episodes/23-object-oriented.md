@@ -36,7 +36,7 @@ Let's continue to develop this system, using Object Oriented Programming to desi
 One of the main difficulties we encounter when building more complex software is how to structure our data.
 So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to to combine data from a range of different sources and with more data than just an array of numbers.
 
-~~~
+~~~ python
 data = np.array([[1., 2., 3.],
                  [4., 5., 6.]])
 ~~~
@@ -48,7 +48,7 @@ For example, we may need to attach more information about the patients and store
 We can do this using the Python data structures we're already familiar with, dictionaries and lists.
 For instance, we could attach a name to each of our patients:
 
-~~~
+~~~ python
 patients = [
     {
         'name': 'Alice',
@@ -70,7 +70,7 @@ patients = [
 > If you're not sure where to begin, think about ways you might be able to effectively loop over two collections at once.
 > Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a Numpy array - either is fine.
 >
-> ~~~
+> ~~~ python
 > data = np.array([[1., 2., 3.],
 >                  [4., 5., 6.]])
 >
@@ -97,7 +97,7 @@ patients = [
 > >
 > > One possible solution, perhaps the most obvious, is to use the `range` function to index into both lists at the same location:
 > >
-> > ~~~
+> > ~~~ python
 > > def attach_names(data, names):
 > >     """Create datastructure containing patient records."""
 > >     output = []
@@ -158,6 +158,8 @@ Different programming languages make slightly different guarantees about how str
 Let's start with a minimal example of a class representing our patients.
 
 ~~~ python
+# file: inflammation/models.py
+
 class Patient:
     def __init__(self, name):
         self.name = name
@@ -182,7 +184,7 @@ In our `Patient` initialiser method, we set their name to a value provided, and 
 
 You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
 
-~~~
+~~~ python
 my_list = [1, 2, 3]
 my_dict = {1: '1', 2: '2', 3: '3'}
 my_set = {1, 2, 3}
@@ -247,6 +249,8 @@ When we call a method on an object, the value of `self` is automatically set to 
 As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
 
 ~~~ python
+# file: inflammation/models.py
+
 class Patient:
     """A patient in an inflammation study."""
     def __init__(self, name):
@@ -309,6 +313,8 @@ There are a few special method names that we can use which Python will use to pr
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes.
 
 ~~~ python
+# file: inflammation/models.py
+
 class Patient:
     """A patient in an inflammation study."""
     def __init__(self, name):
@@ -398,6 +404,8 @@ The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 
 ~~~ python
+# file: inflammation/models.py
+
 class Patient:
     ...
 
@@ -447,7 +455,7 @@ In the case of our example, we're already saying that patients have observations
 We're currently implementing an observation as a dictionary with a known set of keys though, so maybe we should make a `Observation` class as well.
 
 ~~~ python
-from datetime import datetime
+# file: inflammation/models.py
 
 class Observation:
     def __init__(self, day, value):
@@ -508,7 +516,7 @@ To write our class in Python, we used the `class` keyword, the name of the class
 If the class **inherits** from another class, we include the parent class name in brackets.
 
 ~~~ python
-from datetime import datetime
+# file: inflammation/models.py
 
 class Observation:
     def __init__(self, day, value):
