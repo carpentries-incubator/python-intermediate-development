@@ -90,7 +90,7 @@ ever be installed once on your system but will be referenced from different virt
 
 There are several commonly used command line tools for managing Python virtual environments:
 - `venv`, available by default from the standard `Python` distribution (from `Python 3.3+`)
-- `virtualenv`, which needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
+- `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
 - `conda` which comes together with the Anaconda Python distribution
 
@@ -143,12 +143,13 @@ Note that each Python distribution comes with its own version of
 `pip` - and if you have several Python versions installed you have to be extra careful to use the correct `pip` to 
 manage external packages for that Python version.
 
-`venv` and `pip` are now the *de facto* standard for virtual environment and package management for Python. 
+`venv` and `pip` are now the *de facto* standards for virtual environment and package management for Python 3. 
 However, advantages of using Anaconda and `conda` are that you get (most of the) packages needed for 
 scientific code development included with the distribution. If you are only collaborating with others who are also using 
 Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be aware of all these tools, 
-and use them appropriately - as you become more familiar with them you will realise that they all work in a similar 
-way.
+and use them accordingly. As you become more familiar with them you will realise that equivalent tools work in a similar 
+way even though the command syntax may be different (and that there are equivalent tools for other programming languages 
+too to which your knowledge can be ported).
 
 <img src="../fig/python-environment-hell.png" alt="Python environment hell XKCD comic"/>
 <p style="text-align: center;">Python Environment Hell<br>
