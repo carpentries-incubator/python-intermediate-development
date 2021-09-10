@@ -466,9 +466,6 @@ class Patient:
         self.observations = []
 
     def add_observation(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
-
         new_observation = Observation(value, date)
 
         self.observations.append(new_observation)
@@ -533,9 +530,6 @@ class Patient(Person):
         self.observations = []
 
     def add_observation(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
-
         new_observation = Observation(value, date)
 
         self.observations.append(new_observation)

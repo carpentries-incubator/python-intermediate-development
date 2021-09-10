@@ -140,45 +140,71 @@ What really matters is that we are making decisions about the architecture of ou
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
 Let's start with adding a view that allows us to see the data for a single patient.
-First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data.
-Note that your Patient class may look very different, so adapt this example to fit what you have.
+First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
+Note that your Patient class may look very different now, so adapt this example to fit what you have.
 
-~~~
+~~~ python
 # file: inflammation/views.py
 
 ...
 
-def display_patient(patient):
+def display_patient_record(patient):
     """Display data for a single patient."""
     print(patient.name)
-    print(patient.observations)
+    for obs in patient.observations:
+        print(obs.date, obs.value)
 ~~~
 {: .language-python}
 
-~~~
+~~~ python
 # file: inflammation/models.py
 
 ...
 
-class Patient:
-    def __init__(self, name, observations=None):
+class Observation:
+    def __init__(self, value, date=None):
+        if date is None:
+            date = datetime.now().date()
+
+        self.value = value
+        self.date = date
+
+    def __str__(self):
+        return self.value
+
+class Person:
+    def __init__(self, name):
         self.name = name
 
-        if observations is None:
-            self.observations = []
+    def __str__(self):
+        return self.name
 
-        else:
-            self.observations = observations
+class Patient(Person):
+    """A patient in an inflammation study."""
+    def __init__(self, name, obs_values=None):
+        """Create a new patient record.
 
-    def add_observation(self, obs):
-        self.observations.append(obs)
+        The parameter `obs_values` accepts an iterable of numbers since it is intended to read
+        data which does not yet have dates attached.
+        """
+        super().__init__(name)
+
+        self.observations = []
+        if obs_values is not None:
+            self.observations = [Observation(value) for value in obs_values]
+
+    def add_observation(self, value, date=None):
+        new_observation = Observation(value, date)
+
+        self.observations.append(new_observation)
+        return new_observation
 ~~~
 {: .language-python}
 
 Now we need to make sure people can call this view - that means connecting it to the controller and ensuring that there's a way to request this view when running the program.
 The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
 
-~~~
+~~~ python
 # file: patientdb.py
 
 #!/usr/bin/env python3
@@ -253,16 +279,20 @@ For now, we also don't know the names of any of our patients, so we've made it `
 
 We can now call our program with these extra arguments to see the record for a single patient:
 
-~~~
+~~~ bash
 python patientdb.py --view record --patient 1 data/inflammation-01.csv
 ~~~
 {: .language-bash}
 
 ~~~
 UNKNOWN
-[ 0.  0.  1.  3.  1.  2.  4.  7.  8.  3.  3.  3. 10.  5.  7.  4.  7.  7.
- 12. 18.  6. 13. 11. 11.  7.  7.  4.  6.  8.  8.  4.  4.  5.  7.  3.  4.
-  2.  3.  0.  0.]
+2021-09-10 0.0
+2021-09-10 0.0
+2021-09-10 1.0
+2021-09-10 3.0
+2021-09-10 1.0
+2021-09-10 2.0
+...
 ~~~
 {: .output}
 
