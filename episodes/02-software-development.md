@@ -14,7 +14,7 @@ keypoints:
 how the application itself interacts with its users."
 - "MVC is a software design architecture which divides the application into three interconnected modules: Model (data),
 View (user interface), and Controller (input/output and data manipulation)."
-- "The software project template we use throughout this course is an example of an MVC application that manipulates
+- "The software project we use throughout this course is an example of an MVC application that manipulates
 patients’ inflammation data and performs basic statistical analysis using Python."
 ---
 
@@ -265,60 +265,15 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 
 #### Our Project's MVC Architecture 
 
-Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that performs 
-basic statistical analysis over data and provides the main
-entry point into the application through the function called `main()` (as you can see from its listing below). 
+Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that 
+performs basic statistical analysis over patient data and provides the main
+entry point into the application. The **View** and **Model** modules are contained 
+in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is 
+contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information. 
 
-~~~
-#!/usr/bin/env python3
-"""Software for managing and analysing patients' inflammation data in our imaginary hospital."""
-
-import argparse
-
-from inflammation import models, views
-
-
-def main(args):
-    """The MVC Controller of the patient inflammation data system.
-    The Controller is responsible for:
-    - selecting the necessary models and views for the current task
-    - passing data between models and views
-    """
-    InFiles = args.infiles
-    if not isinstance(InFiles, list):
-        InFiles = [args.infiles]
-
-
-    for filename in InFiles:
-        inflammation_data = models.load_csv(filename)
-
-        view_data = {'average': models.daily_mean(inflammation_data), 
-                    'max': models.daily_max(inflammation_data), 
-                    'min': models.daily_min(inflammation_data)}
-
-        views.visualize(view_data)
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description='A basic patient inflammation data management system')
-
-    parser.add_argument(
-        'infiles',
-        nargs='+',
-        help='Input CSV(s) containing inflammation series for each patient')
-
-    args = parser.parse_args()
-
-    main(args)
-~~~          
-{: .language-python}
-
-The **View** and **Model** modules are contained 
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is contained within
-the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information. 
-
-We will revisit the software architecture topic once again in a [later episode](../index/25-software-design) when we talk in more detail 
-about software design. We now proceed to set up our virtual development environment and start working with the code using 
+We will revisit the software architecture and MVC topics once again in a [later episode](../index/25-software-design) 
+when we talk in more detail about software design. 
+We now proceed to set up our virtual development environment and start working with the code using 
 a more convenient graphical tool - IDE PyCharm.
 
 {% include links.md %}
