@@ -120,8 +120,8 @@ patients = [
 > > > If `names` is longer, we'll loop through, until we run out of rows in the `data` input, at which point we'll stop processing the last few names.
 > > > If `data` is longer, we'll loop through, but at some point we'll run out of names - but this time we try to access part of the list that doesn't exist, so we'll get an exception.
 > > >
-> > > A better solution would be to use the `zip` function, which limits us to whichever of `data` and `names` is shorter.
-> > > This way, we shouldn't raise an exception - but, if we really want to avoid errors, we might want to explicitly `assert` that the inputs should be the same length.
+> > > A better solution would be to use the `zip` function, which allows us to iterate over multiple iterables without needing an index variable.
+> > > The `zip` function also limits the iteration to whichever of the iterables is smaller, so we won't raise an exception here, but this might not quite be the behaviour we want, so we'll also explicitly `assert` that the inputs should be the same length.
 > > > Checking that our inputs are valid in this way is known as a **precondition**.
 > > >
 > > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
@@ -155,27 +155,30 @@ With a class, if an object is an **instance** of that class (i.e. it was made us
 
 Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
 
-For an example of a class, we're going to step away from the inflammation data for a while to another model.
-Let's create a model of academics publishing papers and we'll add extra functionality to this model as we learn more about Object Oriented Programming in Python.
-Note that this isn't part of our inflammation data example, so make sure you keep this code separate - for example in a different directory, or just make sure you don't commit it to your inflammation repository.
+Let's start with a minimal example of a class representing our patients.
 
-~~~
-class Academic:
+~~~ python
+class Patient:
     def __init__(self, name):
         self.name = name
-        self.papers = []
+        self.observations = []
 
-alice = Academic('Alice')
+alice = Patient('Alice')
 print(alice.name)
 ~~~
 {: .language-python}
 
+~~~
+Alice
+~~~
+{: .output}
+
 Here we've defined a class with one method: `__init__`.
 This method is the **initialiser** method, which is responsible for setting up the initial values and structure of the data inside a new instance of the class - this is very similar to **constructors** in other languages, so the term is often used in Python too.
-The `__init__` method is called every time we create a new instance of the class, as in `Academic('Alice')`.
-The argument `self` refers to the instance on which we are calling the method and does is filled in automatically by Python - we don't need to provide a value for this when we call the method.
+The `__init__` method is called every time we create a new instance of the class, as in `Patient('Alice')`.
+The argument `self` refers to the instance on which we are calling the method and gets filled in automatically by Python - we don't need to provide a value for this when we call the method.
 
-In our `Academic` initialiser method, we set their name to a value provided, and create a list of papers they've published, which is currently empty.
+In our `Patient` initialiser method, we set their name to a value provided, and create a list of inflammation observations, which is currently empty.
 
 You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
 
@@ -199,8 +202,8 @@ print(type(my_set))
 
 Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
 
-- They each contain data, as you will have seen before.
-- They also provide a set the set of methods describing the behaviours of the data.
+- They each hold some data (or **state**), as you will have seen before.
+- They also provide some methods describing the behaviours of the data - what can the data do and what can we do to the data?.
 
 The behaviours we may have seen previously include:
 
@@ -209,8 +212,8 @@ The behaviours we may have seen previously include:
 - Lists can be sliced (we won’t get to this)
 - Key-value pairs can be added to dictionaries
 - The value at a key can be looked up in a dictionary
-- The union of two sets can be found
-- The intersection of two sets can be found
+- The union of two sets can be found (the set of values present in any of the sets)
+- The intersection of two sets can be found (the set of values present in all of the sets)
 
 > ## Test Driven Development
 >
@@ -243,56 +246,47 @@ Using the name `self` isn't strictly necessary, but is a very strong convention 
 When we call a method on an object, the value of `self` is automatically set to this object - hence the name.
 As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
 
-~~~
+~~~ python
 from datetime import datetime
 
-class Academic:
-    """Model representing an academic."""
+class Patient:
+    """A patient in an inflammation study."""
     def __init__(self, name):
         self.name = name
-        self.papers = []
+        self.observations = []
 
-    def write_paper(self, title, date=None):
+    def add_observation(self, value, date=None):
         if date is None:
             date = datetime.now().date()
 
-        new_paper = {
-            'title': title,
-            'date': date
+        new_observation = {
+            'value': value,
+            'date': date,
         }
 
-        self.papers.append(new_paper)
-        return new_paper
+        self.observations.append(new_observation)
+        return new_observation
 
-alice = Academic('Alice')
+alice = Patient('Alice')
 print(alice)
 
-paper = alice.write_paper('A new paper')
-print(paper)
-print(alice.papers)
-
-paper = Academic.write_paper(alice, 'Another new paper')
-print(paper)
-print(alice.papers)
+observation = alice.add_observation(3)
+print(observation)
+print(alice.observations)
 ~~~
 {: .language-python}
 
 ~~~
-<__main__.Academic object at 0x7fd7e61b73d0>
-{'title': 'A new paper', 'date': datetime.date(2020, 5, 27)}
-[{'title': 'A new paper', 'date': datetime.date(2020, 5, 27)}]
-{'title': 'Another new paper', 'date': datetime.date(2020, 5, 27)}
-[{'title': 'A new paper', 'date': datetime.date(2020, 5, 27)}, {'title': 'Another new paper', 'date': datetime.date(2020, 5, 27)}]
+<__main__.Patient object at 0x7fd7e61b73d0>
+{'value': 3, 'date': datetime.date(2020, 5, 27)}
+[{'value': 3, 'date': datetime.date(2020, 5, 27)}]
 ~~~
 {: .output}
 
-The second use of the `write_paper` method in the example above proves that `self` behaves like a normal parameter, because we call the method from the class, not from an instance of the class.
-This is occasionally useful if we want to pass the method itself as an argument to another function, such as when combining the Object Oriented and Functional paradigms, but in general should be avoided.
-
-Note also how we used `date=None` in the parameter list of the `write_paper` method, then initialise it if the value is indeed `None`.
+Note also how we used `date=None` in the parameter list of the `add_observation` method, then initialise it if the value is indeed `None`.
 This is one of the common ways to handle an optional argument in Python, so we'll see this pattern quite a lot in real projects.
 
-And finally, we're using Python's built in `datetime` module to handle the publication dates for us.
+And finally, we're using Python's built in `datetime` module to handle the dates for us.
 Properly managing dates and especially times is hard, so we should hand off this responsibility to existing libraries whenever possible.
 For more information, see the `datetime` [module documentation](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime).
 
@@ -316,67 +310,49 @@ There are a few special method names that we can use which Python will use to pr
 
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes.
 
-~~~
+~~~ python
 from datetime import datetime
 
-class Academic:
-    """Model representing an academic."""
+class Patient:
+    """A patient in an inflammation study."""
     def __init__(self, name):
         self.name = name
-        self.papers = []
+        self.observations = []
 
-    def write_paper(self, title, date=None):
+    def add_observation(self, value, date=None):
         if date is None:
             date = datetime.now().date()
 
-        new_paper = {
-            'title': title,
-            'date': date
+        new_observation = {
+            'value': value,
+            'date': date,
         }
 
-        self.papers.append(new_paper)
-        return new_paper
+        self.observations.append(new_observation)
+        return new_observation
 
     def __str__(self):
         return self.name
 
-    def __getitem__(self, index):
-        return self.papers[index]
 
-    def __len__(self):
-        return len(self.papers)
-
-alice = Academic('Alice')
+alice = Patient('Alice')
 print(alice)
-
-alice.write_paper('A new paper')
-paper = alice[0]
-print(paper)
-
-print(len(alice))
 ~~~
 {: .language-python}
 
 ~~~
 Alice
-{'title': 'A new paper', 'date': datetime.date(2020, 5, 27)}
-1
 ~~~
 {: .output}
 
-These dunder methods are not usually called directly, but rather provide the implementation of some functionality we can use.
-In the example above we can see:
+These dunder methods are not usually called directly, but rather provide the implementation of some functionality we can use - we didn't call `alice.__str__()`, but it was called for us when we did `print(alice)`.
+Some we see quite commonly are:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
 - `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
 - `__len__` - gets the length of an object when we use `len(object)` - usually the number of items it contains
 
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
-
-Just because we *can* use these methods, doesn't necessarily mean we *should* though.
-By implementing the `__getitem__` and `__len__` methods on `Academic` in the way we did, we're suggesting that an academic *is* a collection of papers, which may not be quite what we intended to say.
-If we were to use this class in a real program, it would be better not to implement these methods on the `Academic` class and make people use `len(alice.papers)` instead.
-
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
 
 > ## A Basic Class
@@ -388,7 +364,7 @@ For a more complete list of these special methods, see the [Special Method Names
 > - Have an author
 > - When printed using `print(book)`, show text in the format "title by author"
 >
-> ~~~
+> ~~~ python
 > book = Book('A Book', 'Me')
 >
 > print(book)
@@ -401,7 +377,8 @@ For a more complete list of these special methods, see the [Special Method Names
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> >
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -420,30 +397,30 @@ The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 
 ~~~
-class Academic:
+class Patient:
     ...
 
     @property
-    def last_paper(self):
-        return self.papers[-1]
+    def last_observation(self):
+        return self.observations[-1]
 
-alice = Academic('Alice')
+alice = Patient('Alice')
 
-alice.write_paper('First paper')
-alice.write_paper('Second paper')
+alice.add_observation(3)
+alice.add_observation(4)
 
-paper = alice.last_paper
-print(paper)
+obs = alice.last_observation
+print(obs)
 ~~~
 {: .language-python}
 
 ~~~
-{'title': 'Second paper', 'date': datetime.date(2020, 5, 27)}
+{'value': 4, 'date': datetime.date(2020, 5, 27)}
 ~~~
 {: .output}
 
 You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
-In this case the `property` decorator is taking the `last_paper` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
+In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 We won't be covering how to make our own decorators, but in the Functional Programming section next, we'll see some of the features which make them possible.
 
 ## Relationships Between Classes
@@ -452,55 +429,64 @@ We now have a language construct for grouping data and behaviour related to a si
 The next step we need to take is to describe the relationships between the concepts in our code.
 
 There are two fundamental types of relationship between objects which we need to be able to describe:
+
 1. Ownership - x **has a** y - this is **composition**
 2. Identity - x **is a** y - this is **inheritance**
 
 ### Composition
 
-You should hopefully have come across the term 'composition' already - in the novice Software Carpentry, we use composition of functions to reduce code duplication.
+You should hopefully have come across the term **composition** already - in the novice Software Carpentry, we use composition of functions to reduce code duplication.
 That time, we used a function which converted temperatures in Celsius to Kelvin as a **component** of another function which converted temperatures in Fahrenheit to Kelvin.
 
 In the same way, in object oriented programming, we can make things components of other things.
 
-We often use composition where we can say 'x *has a* y' - for example in our inflammation database, we might want to say that a doctor *has* patients.
+We often use composition where we can say 'x *has a* y' - for example in our inflammation database, we might want to say that a doctor *has* patients or that a patient *has* observations.
 
-In the case of our academics example, we're already saying that academics have papers, so we're already using composition here.
-We're currently implementing a paper as a dictionary with a known set of keys though, so maybe we should make a `Paper` class as well.
+In the case of our example, we're already saying that patients have observations, so we're already using composition here.
+We're currently implementing an observation as a dictionary with a known set of keys though, so maybe we should make a `Observation` class as well.
 
-~~~
+~~~ python
 from datetime import datetime
 
-class Paper:
-    def __init__(self, title, date=None):
+class Observation:
+    def __init__(self, value, date=None):
         if date is None:
             date = datetime.now().date()
 
-        self.title = title
+        self.value = value
         self.date = date
 
     def __str__(self):
-        return self.title
+        return self.value
 
-class Academic:
+class Patient:
+    """A patient in an inflammation study."""
     def __init__(self, name):
         self.name = name
-        self.papers = []
+        self.observations = []
 
-    def write_paper(self, title, date=None):
-        new_paper = Paper(title, date)
+    def add_observation(self, value, date=None):
+        if date is None:
+            date = datetime.now().date()
 
-        self.papers.append(new_paper)
-        return new_paper
+        new_observation = Observation(value, date)
 
-alice = Academic('Alice')
-paper = alice.write_paper('A new paper')
+        self.observations.append(new_observation)
+        return new_observation
 
-print(paper)
+    def __str__(self):
+        return self.name
+
+
+alice = Patient('Alice')
+obs = alice.add_observation(3)
+
+print(obs)
 ~~~
 {: .language-python}
 
 ~~~
-A new paper
+3
 ~~~
 {: .output}
 
@@ -516,22 +502,22 @@ If we want to extend the previous example to also manage people who aren't acade
 But `Person` will share some data and behaviour with `Academic` - in this case both have a name and show that name when you print them.
 Since we expect all academics to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Academic`.
 
-To write a class in Python, we use the `class` keyword, the name of the class, and then a block of the functions and sometimes attributes that belong to it.
+To write our class in Python, we used the `class` keyword, the name of the class, and then a block of the functions that belong to it.
 If the class **inherits** from another class, we include the parent class name in brackets.
 
-~~~
+~~~ python
 from datetime import datetime
 
-class Paper:
-    def __init__(self, title, date=None):
+class Observation:
+    def __init__(self, value, date=None):
         if date is None:
             date = datetime.now().date()
 
-        self.title = title
+        self.value = value
         self.date = date
 
     def __str__(self):
-        return self.title
+        return self.value
 
 class Person:
     def __init__(self, name):
@@ -540,36 +526,40 @@ class Person:
     def __str__(self):
         return self.name
 
-class Academic(Person):
+class Patient(Person):
+    """A patient in an inflammation study."""
     def __init__(self, name):
         super().__init__(name)
-        self.papers = []
+        self.observations = []
 
-    def write_paper(self, title, date=None):
-        new_paper = Paper(title, date)
+    def add_observation(self, value, date=None):
+        if date is None:
+            date = datetime.now().date()
 
-        self.papers.append(new_paper)
-        return new_paper
+        new_observation = Observation(value, date)
 
-alice = Academic('Alice')
+        self.observations.append(new_observation)
+        return new_observation
+
+alice = Patient('Alice')
 print(alice)
 
-paper = alice.write_paper('A paper')
-print(paper)
+obs = alice.add_observation(3)
+print(obs)
 
 bob = Person('Bob')
 print(bob)
 
-paper = bob.write_paper('A different paper')
-print(paper)
+obs = bob.add_observation('A different paper')
+print(obs)
 ~~~
 {: .language-python}
 
 ~~~
 Alice
-A paper
+3
 Bob
-AttributeError: 'Person' object has no attribute 'write_paper'
+AttributeError: 'Person' object has no attribute 'add_observation'
 ~~~
 {: .output}
 
@@ -586,18 +576,15 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 
 > ## A Model Patient
 >
-> Use what we have learnt in this episode to extend the model layer our hospital record system.
+> Use what we have learnt in this episode to extend the model layer of our clinical trial system.
 >
-> Our core requirements are:
+> Let's start with extending:
 >
-> - There must be a `Patient` class to hold the data representing a single patient
->   - Must have a `name` attribute
->   - Must hold a series of inflammation measurements - use any representation you feel is appropriate as long as the tests pass
 > - There must be a `Doctor` class to hold the data representing a single doctor
 >   - Must have a `name` attribute
 >   - Must have a list of patients that this doctor is responsible for
 >
-> In addition to these, try to think of an extra feature you could add to these models that would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
+> In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
 > The tests have been started for you in `tests/test_patient.py`, but you will probably want to add some more.
 >
@@ -614,7 +601,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
 > For example, it's not obvious whether a photocopier *is a* printer and *is a* scanner, or *has a* printer and *has a* scanner.
 >
-> ~~~
+> ~~~ python
 > class Machine:
 >     pass
 >
@@ -630,7 +617,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > ~~~
 > {: .language-python}
 >
-> ~~~
+> ~~~ python
 > class Machine:
 >     pass
 >
@@ -669,7 +656,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 >
 > Using what we've seen so far, implement two classes: `Book` (you can use the one from the earlier exercise) and `Library` which have the following behaviour:
 >
-> ~~~
+> ~~~ python
 > library = Library()
 >
 > library.add_book('My First Book', 'Alice')
@@ -699,7 +686,8 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> >
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -752,7 +740,8 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> >
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -814,7 +803,8 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > The `__eq__` dunder method should take two objects (one of which is `self`) and return `True` if the two objects should be considered equal - otherwise return `False`.
 >
 > > ## Solution
-> > ~~~
+> >
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
