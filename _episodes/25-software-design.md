@@ -152,7 +152,7 @@ def display_patient_record(patient):
     """Display data for a single patient."""
     print(patient.name)
     for obs in patient.observations:
-        print(obs.date, obs.value)
+        print(obs.day, obs.value)
 ~~~
 {: .language-python}
 
@@ -162,12 +162,9 @@ def display_patient_record(patient):
 ...
 
 class Observation:
-    def __init__(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
-
+    def __init__(self, day, value):
+        self.day = day
         self.value = value
-        self.date = date
 
     def __str__(self):
         return self.value
@@ -181,20 +178,22 @@ class Person:
 
 class Patient(Person):
     """A patient in an inflammation study."""
-    def __init__(self, name, obs_values=None):
-        """Create a new patient record.
-
-        The parameter `obs_values` accepts an iterable of numbers since it is intended to read
-        data which does not yet have dates attached.
-        """
+    def __init__(self, name, observations=None):
         super().__init__(name)
 
         self.observations = []
-        if obs_values is not None:
-            self.observations = [Observation(value) for value in obs_values]
+        if observations is not None:
+            self.observations = observations
 
-    def add_observation(self, value, date=None):
-        new_observation = Observation(value, date)
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
+        new_observation = Observation(value, day)
 
         self.observations.append(new_observation)
         return new_observation
@@ -239,7 +238,10 @@ def main(args):
             views.visualize(view_data)
 
         elif args.view == 'record':
-            patient = models.Patient('UNKNOWN', inflammation_data[0])
+            patient_data = inflammation_data[args.patient]
+            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
+            patient = models.Patient('UNKNOWN', observations)
+
             views.display_patient_record(patient)
 
 
@@ -261,7 +263,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--patient',
         type=int,
-        default=-1,
+        default=0,
         help='Which patient should be displayed?')
 
     args = parser.parse_args()
@@ -273,7 +275,7 @@ if __name__ == "__main__":
 We've added two options to our command line interface here: one to request a specific view and one for the patient id that we want to lookup.
 For the full range of features that we have access to with `argparse` see the [Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
 Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
-You can find more information in [Click's documentation](https://click.palletsprojects.com/en/7.x/).
+You can find more information in [Click's documentation](https://click.palletsprojects.com/).
 
 For now, we also don't know the names of any of our patients, so we've made it `'UNKNOWN'` until we get more data.
 
@@ -286,12 +288,14 @@ python patientdb.py --view record --patient 1 data/inflammation-01.csv
 
 ~~~
 UNKNOWN
-2021-09-10 0.0
-2021-09-10 0.0
-2021-09-10 1.0
-2021-09-10 3.0
-2021-09-10 1.0
-2021-09-10 2.0
+0 0.0
+1 0.0
+2 1.0
+3 3.0
+4 1.0
+5 2.0
+6 4.0
+7 7.0
 ...
 ~~~
 {: .output}

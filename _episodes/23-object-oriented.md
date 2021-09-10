@@ -247,21 +247,23 @@ When we call a method on an object, the value of `self` is automatically set to 
 As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
 
 ~~~ python
-from datetime import datetime
-
 class Patient:
     """A patient in an inflammation study."""
     def __init__(self, name):
         self.name = name
         self.observations = []
 
-    def add_observation(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
 
         new_observation = {
+            'day': day,
             'value': value,
-            'date': date,
         }
 
         self.observations.append(new_observation)
@@ -278,17 +280,13 @@ print(alice.observations)
 
 ~~~
 <__main__.Patient object at 0x7fd7e61b73d0>
-{'value': 3, 'date': datetime.date(2020, 5, 27)}
-[{'value': 3, 'date': datetime.date(2020, 5, 27)}]
+{'day': 0, 'value': 3}
+[{'day': 0, 'value': 3}]
 ~~~
 {: .output}
 
-Note also how we used `date=None` in the parameter list of the `add_observation` method, then initialise it if the value is indeed `None`.
+Note also how we used `day=None` in the parameter list of the `add_observation` method, then initialise it if the value is indeed `None`.
 This is one of the common ways to handle an optional argument in Python, so we'll see this pattern quite a lot in real projects.
-
-And finally, we're using Python's built in `datetime` module to handle the dates for us.
-Properly managing dates and especially times is hard, so we should hand off this responsibility to existing libraries whenever possible.
-For more information, see the `datetime` [module documentation](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime).
 
 > ## Class and Static Methods
 >
@@ -311,21 +309,24 @@ There are a few special method names that we can use which Python will use to pr
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes.
 
 ~~~ python
-from datetime import datetime
-
 class Patient:
     """A patient in an inflammation study."""
     def __init__(self, name):
         self.name = name
         self.observations = []
 
-    def add_observation(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
 
         new_observation = {
+            'day': day,
             'value': value,
-            'date': date,
         }
 
         self.observations.append(new_observation)
@@ -396,7 +397,7 @@ For a more complete list of these special methods, see the [Special Method Names
 The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 
-~~~
+~~~ python
 class Patient:
     ...
 
@@ -415,7 +416,7 @@ print(obs)
 {: .language-python}
 
 ~~~
-{'value': 4, 'date': datetime.date(2020, 5, 27)}
+{'day': 1, 'value': 4}
 ~~~
 {: .output}
 
@@ -449,15 +450,12 @@ We're currently implementing an observation as a dictionary with a known set of 
 from datetime import datetime
 
 class Observation:
-    def __init__(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
-
+    def __init__(self, day, value):
+        self.day = day
         self.value = value
-        self.date = date
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 class Patient:
     """A patient in an inflammation study."""
@@ -465,8 +463,15 @@ class Patient:
         self.name = name
         self.observations = []
 
-    def add_observation(self, value, date=None):
-        new_observation = Observation(value, date)
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
+        new_observation = Observation(value, day)
 
         self.observations.append(new_observation)
         return new_observation
@@ -506,12 +511,9 @@ If the class **inherits** from another class, we include the parent class name i
 from datetime import datetime
 
 class Observation:
-    def __init__(self, value, date=None):
-        if date is None:
-            date = datetime.now().date()
-
+    def __init__(self, day, value):
+        self.day = day
         self.value = value
-        self.date = date
 
     def __str__(self):
         return self.value
@@ -529,8 +531,15 @@ class Patient(Person):
         super().__init__(name)
         self.observations = []
 
-    def add_observation(self, value, date=None):
-        new_observation = Observation(value, date)
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
+        new_observation = Observation(value, day)
 
         self.observations.append(new_observation)
         return new_observation
@@ -544,7 +553,7 @@ print(obs)
 bob = Person('Bob')
 print(bob)
 
-obs = bob.add_observation('A different paper')
+obs = bob.add_observation(4)
 print(obs)
 ~~~
 {: .language-python}
