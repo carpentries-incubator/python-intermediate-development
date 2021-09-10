@@ -286,7 +286,7 @@ You can also supply a list of packages to uninstall at the same time.
 ### Exporting/Importing an Environment With `pip`
 
 You are collaborating on a project with a team so, naturally, you will want to share your environment with your 
-collaborators. This is so that that they can easily 'clone' your software project with all of its dependencies and everyone 
+collaborators. This means being able to easily 'clone' your software project with all of its dependencies and everyone 
 can replicate and have equivalent virtual environments on their machines. `pip` has a handy way of exporting,
 saving and sharing virtual environments. 
 
@@ -360,7 +360,7 @@ In the above command, we tell the command line shell two things:
 
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects 
-an input file or a list of input files to process. Do not worry about this error for now - 
+a list of input files to process. Do not worry about this error for now - 
 we will learn how to fix the errors and write tests to detect errors in 
 the following episodes. 
 
