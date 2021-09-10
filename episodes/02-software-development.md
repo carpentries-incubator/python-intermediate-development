@@ -151,10 +151,14 @@ a series of comma-separated values (CSV) format files, where:
 Directory `tests` contains several tests that have been implemented already. We will be adding more tests 
 during the course as our code grows.
 
-An important thing to note here is that the structure of the project is not arbitrary. 
-One of the big differences between novice and intermediate software development is planning the structure of your code.
+An important thing to note here is that the structure of the project 
+is not arbitrary. One of the big differences between novice and intermediate software development is 
+planning the structure of your code. This structure includes software components and behavioural interactions between 
+them (including how these components are laid out in a directory and file structure). 
 A novice will often make up the structure of their code as they go along. However, for more advanced software development,
-we need to plan this structure - called a *software architecture* - beforehand. Let's have a more detailed look
+we need to plan this structure - called a *software architecture* - beforehand. 
+
+Let's have a more detailed look
 into what a software architecture is and which architecture is used by our software project before we 
 start adding more code to it.
 
