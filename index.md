@@ -3,7 +3,7 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-This course is aimed at teaching a **core set** of established best practice 
+This course is aimed at teaching a **core set** of established intermediate-level best practice 
 software development skills for working as part of a team in a 
 research environment (see detailed [learning objectives](/index.html#learning-objectives) below) using Python as an 
 example programming language. The core set of skills we teach is not a comprehensive set of all-encompassing skills, 

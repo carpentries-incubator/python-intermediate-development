@@ -119,8 +119,8 @@ You can get a full
 
 Note that you can only do 
 comparison of changes if you have actually modified your files locally. You can try this out now if you modify 
-any file - for example add a blank line anywhere in `patientdb.py` then navigate to the `Version Control` panel at the bottom 
- of PyCharm. `patientdb.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click 
+any file - for example add a blank line anywhere in `inflammation-analysis.py` then navigate to the `Version Control` panel at the bottom 
+ of PyCharm. `inflammation-analysis.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click 
  on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from 
  the `Local Changes` tab.
 
@@ -172,7 +172,7 @@ we can configure these for our project:
 1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
 2. Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see
 `Python 3.8 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder
-button and find and select `patientdb.py`. This tells PyCharm which script to run.
+button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run.
 You can even give this configuration a name at the top of the window if you like - let's name it `patient`.
 3. Select `OK` to confirm these settings.
 
@@ -190,13 +190,13 @@ You can even give this configuration a name at the top of the window if you like
 Once done, you are ready to run your script from PyCharm!
 
 ### Running Scripts From PyCharm
-Right-click the `patientdb.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`.
+Right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`.
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
-/Users/alex/anaconda/envs/patient/bin/python /Users/alex/python-intermediate-inflammation/patientdb.py
-usage: patientdb.py [-h] infiles [infiles ...]
-patientdb.py: error: the following arguments are required: infiles
+/Users/alex/anaconda/envs/patient/bin/python /Users/alex/python-intermediate-inflammation/inflammation-analysis.py
+usage: inflammation-analysis.py [-h] infiles [infiles ...]
+inflammation-analysis.py: error: the following arguments are required: infiles
 
 Process finished with exit code 2
 ~~~
@@ -204,8 +204,8 @@ Process finished with exit code 2
 
 Here, we can see that a new shell has been created that uses the Anaconda interpreter
 `/Users/alex/anaconda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our
-script located at `/Users/alex/python-intermediate-inflammation/patientdb.py`. The script is currently throwing an error -
-`patientdb.py: error: the following arguments are required: infiles`.
+script located at `/Users/alex/python-intermediate-inflammation/inflammation-analysis.py`. The script is currently throwing an error -
+`inflammation-analysis.py: error: the following arguments are required: infiles`.
 We will learn how to fix the errors and write tests to detect errors in the following episodes. 
 
 {% include links.md %}
