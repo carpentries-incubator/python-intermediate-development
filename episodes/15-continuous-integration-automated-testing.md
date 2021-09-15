@@ -267,7 +267,7 @@ $ git push origin develop
 
 Now these changes have migrated to our parent `develop` branch, `develop` will also inherit the configuration to run CI builds, so these will run automatically on this branch as well.
 
-This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `develop` and `main` this newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
+This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `develop` and `main` these newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
 
 
 {% include links.md %}
