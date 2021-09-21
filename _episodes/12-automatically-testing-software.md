@@ -281,7 +281,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 One of the first things we need to do is install the `pytest` package in our virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line. If you're still in the Python interpreter, exit this first (either with `Ctrl-D` or typing `exit()`), then in Bash:
 
 ~~~
-$ pip install pytest
+$ pip3 install pytest
 ~~~
 {: .language-bash}
 
@@ -327,7 +327,7 @@ setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 Next, in Bash we need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
-$ pip install -e .
+$ pip3 install -e .
 ~~~
 {: .language-bash}
 
@@ -442,7 +442,7 @@ Run all your tests as before.
 Since we've installed pytest to our environment, we should also regenerate our requirements.txt:
 
 ~~~
-$ pip freeze --exclude-editable > requirements.txt
+$ pip3 freeze --exclude-editable > requirements.txt
 ~~~
 {: .language-bash}
 
