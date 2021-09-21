@@ -104,7 +104,7 @@ Now, we should try to choose tests that are as different from each other as poss
 A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by Pytest and using that, we can find this out:
 
 ~~~
-$ pip install pytest-cov
+$ pip3 install pytest-cov
 $ pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
@@ -155,7 +155,7 @@ So there's still one statement not being tested at line 18, and it turns out it'
 Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip freeze --exclude-editable > requirements.txt
+$ pip3 freeze --exclude-editable > requirements.txt
 $ cat requirements.txt
 ~~~
 {: .language-bash}
