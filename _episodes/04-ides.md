@@ -16,11 +16,13 @@ syntax highlighting, code search and completion, version control and debugging."
 ---
 
 ## Introduction
-Initially, you may have only written a single script to solve your problem or analyse some data. As we have seen in the
-previous episode on software architectures - even a simple software project is typically split into smaller 
- functional units and modules. As your code starts to grow and becomes more complex - involving many different files and linking various libraries - 
-you will need an application to help you manage all the complexities of, and provide you with some useful facilities for, 
-the software development process. Such applications are called Integrated Development Environments (IDEs). 
+So far, you may have only written a single script to solve your problem or analyse some data, perhaps using Jupyter
+Notebook or Jupyter Lab. As we have seen in the
+previous episode - even a simple software project is typically split into smaller functional units and modules which are kept in separate files and subdirectories.
+As your code starts to grow and becomes more complex - involving many different files and linking various libraries -
+you will need an application to help you manage all the complexities of, and provide you with some useful (visual)
+facilities for, the software development process. Such clever and useful graphical
+software development applications are called Integrated Development Environments (IDEs).
 
 ## Integrated Development Environments (IDEs)
 An IDE normally consists of at least a source code editor, build automation tools and a debugger.
@@ -29,12 +31,12 @@ nowadays IDEs also offer version control support, tools to construct graphical u
 integration for web app development, source code inspection for dependencies and many other useful functionalities. The
 following is a list of most commonly seen IDE features:
 
-- Syntax highlighting - to show the language constructs, keywords and the syntax errors with visually distinct colors
+- syntax highlighting - to show the language constructs, keywords and the syntax errors with visually distinct colors
 and font effects
-- Code completion - to speed up programming by offering a set of possible (syntactically correct) code options
-- Code search - finding package, class, function and variable declarations, their usages and referencing
-- Version control support - to interact with source code repositories
-- Debugging - for setting breakpoints in the code editor, step-by-step execution of code and inspection of variables
+- code completion - to speed up programming by offering a set of possible (syntactically correct) code options
+- code search - finding package, class, function and variable declarations, their usages and referencing
+- version control support - to interact with source code repositories
+- debugging - for setting breakpoints in the code editor, step-by-step execution of code and inspection of variables
 
 IDEs are extremely useful and modern software development would be very hard without them. There are a number of IDEs
 available for Python development; a good overview is available from the
@@ -44,34 +46,38 @@ Python support. Code editors can be as simple as a text editor with syntax highl
 (e.g. GNU EMACS, Vi/Vim, Atom). Most good code editors can also execute code and control a
 debugger, and some can also interact with a version control system. Compared to an IDE, a good dedicated code
 editor is usually smaller and quicker, but often less feature rich. You will have to decide which one is the best for
-you but for the purpose of this workshop we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/) -
-a free, open source Python IDE.
+you - in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/), a free,
+open source Python IDE.
 
 ## Using the PyCharm IDE
 
-Let's open our project in PyCharm now and familiarise ourselves with some commonly used PyCharm features.
- 
+Let's open our project in PyCharm now and familiarise ourselves with some commonly used features.
+
 ### Opening a Software Project in PyCharm
 If you have not PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 
-Select `Open` and find the software project repository you cloned earlier, and select the `python-intermediate-inflammation`
-directory. This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm,
+Select `Open` and find the software project directory `python-intermediate-inflammation` you cloned earlier.
+This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm,
 this is the directory they will run from.
 
-PyCharm will show you a *'Tip of the Day'* window which you can safely ignore and close for now. You may also get a 
-warning *'No Python interpreter configured for the project'* - we [will deal with this](#configuring-pycharm-with-anaconda) 
-shortly after we familiarise ourselves with 
+PyCharm will show you a *'Tip of the Day'* window which you can safely ignore and close for now. You may also get a
+warning *'No Python interpreter configured for the project'* - we [will deal with this](#configuring-pycharm-with-anaconda)
+shortly after we familiarise ourselves with
 the PyCharm environment.
 You will notice the IDE shows you a project/file navigator window on the left hand side, to traverse and select the files
-(and any subdirectories) within the working directory, and an editor window on the right. At the bottom, you would 
+(and any subdirectories) within the working directory, and an editor window on the right. At the bottom, you would
 typically have a panel for version control, terminal (command line shell within PyCharm) and a TODO list.
 
+Select the 'inflammation-analysis.py' file in the project navigator on the left so that its contents are
+displayed in the editor window.
+
 ### Syntax Highlighting
+The first thing you may notice is that code is displayed using different colours.
 Syntax highlighting is a feature that displays source code terms in different colors and fonts according to the syntax
 category the highlighted term belongs to. It also makes syntax errors visually distinct. Highlighting does not affect
-the meaning of the code itself - is intended only for human readers and makes reading code and finding errors easier.
+the meaning of the code itself - is intended only for humans to make reading code and finding errors easier.
 
 <img src="../fig/ide-syntax.png" alt="Pycharm syntax highlighting" width="900" />
 
@@ -83,9 +89,21 @@ names, functions from available packages, parameters of functions, hints related
 
 <img src="../fig/ide-code-completion.png" alt="Pycharm code completion" width="600" />
 
+### Code References
+You will often need code reference information to help you code. PyCharm show this useful information, such as definitions of symbols (e.g. functions, parameters, classes, fields, and methods) and documentation references by means of quick popups and inline tooltips.
+
+For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), uncluding:
+- Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
+- Quick Type Definition - type definition of variables, fields or any other symbols
+- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../05-coding-conventions/index.html#documentation-strings-aka-docstrings))
+- Parameter Info - the names of parameters in method and function calls
+- Type Info - type of an expression
+
+![PyCharm Code Reference Functionalities](../fig/pycharm-code-reference.png){: .image-with-shadow width="800px" }
+
 ### Code Search
-You can search for a text string within a project, use different scopes to narrow your search process, use regular expressions 
-for complex searches, include/exclude certain files from your search, find usages and occurrences. To find a search string 
+You can search for a text string within a project, use different scopes to narrow your search process, use regular expressions
+for complex searches, include/exclude certain files from your search, find usages and occurrences. To find a search string
 in the whole project:
 
 1. From the main menu, select `Edit | Find | Find in Path ...` (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
@@ -108,93 +126,169 @@ PyCharm supports a directory-based versioning model, which means that each proje
 associated with a different version control system. Our project was already under Git version control and PyCharm
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-For the purposes of this workshop, we will do all our version control commands from the shell but it is worth
+During this course, we will do all our version control commands from the commond line shell but it is worth
 noting that PyCharm offers a **comprehensive subset** of Git commands (i.e. it is possible to perform a set of common
 Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing
 changes you made locally to a file with the same repository version, a different commit version or a version in a different
-branch - this is something that cannot be done equally well from a text-based shell terminal. 
+branch - this is something that cannot be done equally well from a text-based shell terminal.
 
 You can get a full
 [documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
 
-Note that you can only do 
-comparison of changes if you have actually modified your files locally. You can try this out now if you modify 
-any file - for example add a blank line anywhere in `inflammation-analysis.py` then navigate to the `Version Control` panel at the bottom 
- of PyCharm. `inflammation-analysis.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click 
- on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from 
+Note that you can only do
+comparison of changes if you have actually modified your files locally. You can try this out now if you modify
+any file - for example add a blank line anywhere in `inflammation-analysis.py` then navigate to the `Version Control` panel at the bottom
+ of PyCharm. `inflammation-analysis.py` should appear on `Local Changes` tab within `Version Control` panel and you should be able to right-click
+ on the file and select `Show Diff` from the menu. If you revert/undo the changes you made the file should disappear from
  the `Local Changes` tab.
 
 <img src="../fig/ide-version-control.png" alt="PyCharm version control panel"  width="900"/>
 
-### Configuring PyCharm with Anaconda
-Our software project already contains some Python code (scripts). PyCharm (and IDEs in general) allow you to run the code
-from within the IDE. An alternative is to use the IDE for code development and then run the code from the command line.
-Either way of running code is fine - you just have to make sure that you have all the necessary dependencies (libraries/packages) installed
-in whichever environment you choose to run your code from (as these two methods are typically independent from one another). It is good however 
-to be familiar with both and choose the one that suits you and your particular situation - running code from a command line is 
-good as it forces you to get more familiar with running scripts from a shell which is then applicable to many other programming languages. 
-
-Before you can run the code from PyCharm, you need to explicitly specify the path to the Python 
-interpreter on your system. The same goes for any dependencies your code may have - you need to tell PyCharm 
-where to find them. In our case, we want to use the Python 
-interpreter and extra packages that are supplied with the Anaconda Python distribution. However, you may have
-various Python distributions and versions installed on your system so you have to be careful here to select the one you
-want to use from PyCharm.
+### Configuring a Virtual Environment in PyCharm
+Before you can run the code from PyCharm, you need to explicitly specify the path to the Python
+interpreter on your system within PyCharm.
+The same goes for any dependencies your code may have - you need to tell PyCharm
+where to find them. Luckily for us, we have already set up a virtual environment
+for our project from the command line and PyCharm is clever enough to detect it.
 
 #### Adding a Python Interpreter in PyCharm
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. Then, in the preferences window that appears, select `Project: python-intermediate-inflammation` >
 `Project Interpreter` from the left. You'll
 see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
-being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`
-or `Python 3.8 /usr/bin/python3.8`, which we do not want to use in this instance - we want to use Anaconda
-distribution of Python.
+being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your version). An `Add Local Python Interpreter` window will appear.
-4. Select `Conda Environment` from the list on the left so we can configure an Anaconda environment, and ensure that `New environment` is
-selected. In the `Location` field, you'll see something like `/Users/<USERNAME>/anaconda/envs/python-intermediate-inflammation`, which will likely look a little different depending on your
-   system. Replace the `python-intermediate-inflammation` part of the field with `patient` - which is a name we'll use to refer to this environment later on.
+4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
+selected within the popup window. In the `Interpreter` field point to the Python executable inside your virtual
+environment's bin directory.
 5. Select `Make available to all projects` so we can also use this environment with other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select
-`Python 3.8 (patient)` or similar from the `Project Interpreter` drop-down list.
+"Python 3.9 (python-intermediate-inflammation)" or similar (that you've just added) from the `Project Interpreter` drop-down list.
 
-#### Adding Additional Packages
-7. We also need to add the packages `numpy` and `matplotlib` to this environment, since our software uses them. In this window select the `+` icon at the bottom
-   of the window. In the window that appears, type in `numpy`, and select the package from the list, then select `Install Package`. Do the same for `matplotlib`, then close the window.
-7. Select `OK` in the `Preferences` window.
+Note that a number of third party packages have magically appeared under the
+"Python 3.9 (python-intermediate-inflammation)" interpreter, including `numpy` and `matplotlib`. PyCharm has recognised
+the virtual environment we created from the command line using `venv` (named `venv-inflammation`) and has added these dependencies effectively configuring our virtual environment for us in PyCharm (referred to as "Python 3.9 (python-intermediate-inflammation)").
 
-It may take a few minutes for PyCharm to read and familiarise itself with the Anaconda installation you have configured
-(you may see `n processes running` in the bar at the bottom of the PyCharm IDE while it does this).
+![Configuring Python Interpreter in PyCharm](../fig/configuring-interpreter-pycharm.png){: .image-with-shadow width="800px"}
 
-#### Configuring Interpreter & Environment for a Project
-Having told PyCharm about the new Python interpreter and having created a new environment (`patient`), 
-we can configure these for our project:
+>## Compare Third-Party Dependencies in Command Line With PyCharm
+Can you recall two places where the information about our project's third-party dependencies
+can be found? (Hint: the first one is recorded in a subdirectory
+of our virtual environment directory `venv-inflammation` and the second one can be obtained using
+`pip freeze` command.) Compare that information with the equivalent configuration in PyCharm.
+>>## Solution
+>>From the previous episode, you may recall that information on third-party dependencies for our project
+>> is kept in the following subdirectory of `venv-inflammation`
+>> directory, which was created by the `venv` tool:
+>>~~~
+>>(venv-inflammation) $ ls -l venv-inflammation/lib/python3.9/site-packages
+>>~~~
+>>{: .language-bash}
+>>
+>>~~~
+>>total 1088
+>>drwxr-xr-x   29 alex  staff     928  5 Oct 14:04 .
+>>drwxr-xr-x    3 alex  staff      96  5 Oct 14:02 ..
+>>drwxr-xr-x  103 alex  staff    3296  5 Oct 14:03 PIL
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:03 Pillow-8.3.2.dist-info
+>>drwxr-xr-x    6 alex  staff     192  5 Oct 14:04 __pycache__
+>>drwxr-xr-x    5 alex  staff     160  5 Oct 14:02 _distutils_hack
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:04 cycler-0.10.0.dist-info
+>>-rw-r--r--    1 alex  staff   15959  5 Oct 14:04 cycler.py
+>>drwxr-xr-x   14 alex  staff     448  5 Oct 14:03 dateutil
+>>-rw-r--r--    1 alex  staff     152  5 Oct 14:02 distutils-precedence.pth
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:04 kiwisolver-1.3.2.dist-info
+>>-rwxr-xr-x    1 alex  staff  216968  5 Oct 14:04 kiwisolver.cpython-39-darwin.so
+>>drwxr-xr-x   93 alex  staff    2976  5 Oct 14:04 matplotlib
+>>-rw-r--r--    1 alex  staff     569  5 Oct 14:04 matplotlib-3.4.3-py3.9-nspkg.pth
+>>drwxr-xr-x   20 alex  staff     640  5 Oct 14:04 matplotlib-3.4.3.dist-info
+>>drwxr-xr-x    7 alex  staff     224  5 Oct 14:04 mpl_toolkits
+>>drwxr-xr-x   39 alex  staff    1248  5 Oct 14:04 numpy
+>>drwxr-xr-x   11 alex  staff     352  5 Oct 14:04 numpy-1.21.2.dist-info
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:02 pip
+>>drwxr-xr-x   10 alex  staff     320  5 Oct 14:02 pip-21.1.3.dist-info
+>>drwxr-xr-x    7 alex  staff     224  5 Oct 14:02 pkg_resources
+>>-rw-r--r--    1 alex  staff      90  5 Oct 14:04 pylab.py
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:03 pyparsing-2.4.7.dist-info
+>>-rw-r--r--    1 alex  staff  273365  5 Oct 14:03 pyparsing.py
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:03 python_dateutil-2.8.2.dist-info
+>>drwxr-xr-x   41 alex  staff    1312  5 Oct 14:02 setuptools
+>>drwxr-xr-x   11 alex  staff     352  5 Oct 14:02 setuptools-57.0.0.dist-info
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:03 six-1.16.0.dist-info
+>>-rw-r--r--    1 alex  staff   34549  5 Oct 14:03 six.py
+>>~~~
+>>{: .output}
+>> We also used `pip freeze` command to export our dependencies to a file `requirements.txt` in the project root,
+>> which can be used to replicate the environment. We can the following output when we list the contents of `requirements.txt`:
+>>~~~
+>>(venv-inflammation) $ cat requirements.txt
+>>~~~
+>>{: .language-bash}
+>>~~~
+>>cycler==0.10.0
+>>kiwisolver==1.3.2
+>>matplotlib==3.4.3
+>>numpy==1.21.2
+>>Pillow==8.3.2
+>>pyparsing==2.4.7
+>>python-dateutil==2.8.2
+>>six==1.16.0
+>>~~~
+>>{: .output}
+>> Note, however, that adding, removing and updating packages with `pip` package manager only affects the records in the
+>> virtual environment and not the `requirements.txt` file. If you want to make use of that file,
+>> you have to keep it in sync with your virtual environment manually and update it every time the environment changes.
+>>
+>> Finally, if you look at the contents of `venv-inflammation/lib/python3.9/site-packages` and `requirements.txt` and
+>> compare them with the packages shown in PyCharm's Python Interpreter Configuration - you will see that they all
+>> contain the same information.
+>>
+>{: .solution}
+{: .challenge}
+
+#### Adding a Third Party Package in PyCharm
+At the moment our environment is up-to-date with all the third packages we require, but if you need to, you can also
+install a package into your environment from PyCharm.
+
+1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
+2. Then, in the preferences window that appears, select `Project: python-intermediate-inflammation` >
+   `Project Interpreter` from the left.
+3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the package or
+select the package from the list, then select `Install Package`.
+4. Select `OK` in the `Preferences` window.
+
+It may take a few minutes for PyCharm to install the package. After it is done, the package is added to our
+environment and this is also true
+
+#### Adding a Run Configuration for Our Project
+Having configured a virtual environment ("Python 3.9 (python-intermediate-inflammation)"),
+we now need to tell PyCharm to use if for our project. This is done by adding a "run configuration" to a project -
+a combination of a virtual environment and some run parameters:
 
 1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
-2. Select `+` button from the top left to add a configuration, selecting `Python` from the drop down list. You should see
-`Python 3.8 (patient)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder
+2. Select `Python` then `Add new run configuration...`
+3. In the new popup window, in the `Script path` field select the folder
 button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run.
-You can even give this configuration a name at the top of the window if you like - let's name it `patient`.
-3. Select `OK` to confirm these settings.
+4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
+5. You can give this configuration a name at the top of the window if you like - e.g. let's name it `inflammation`.
+6. You can further configure run parameters and environment variables - but we do not need to do anything at the moment.
+7. Select `Apply` to confirm these settings.
 
-> ## Virtual Environments
+> ## Virtual Environments & Run Configurations in PyCharm
 >
-> By configuring the Python interpreter to use in PyCharm, we have created a new Python configuration within which our
-> code will can run. These configurations are commonly known as *virtual environments*, and we will cover them in more detail in the
-> [next episode](../03-virtual-environments/index.html). Note that you can create several configurations 
-> based on the same Python interpreter - this is helpful when you need to create different virtual environments for 
-> developing different types of applications. For example, you can create one virtual environment based on Python 3.8 
-> to develop Django Web applications and another virtual environment based on the same Python 3.8 to work with 
-> scientific libraries.
+> By configuring the Python interpreter to use in PyCharm, we have created a new virtual environment within which our
+> code will run. Note that you can create several virtual environments based on the same Python interpreter but with
+different third party packages - this is helpful when you need to develop different types of applications.
+> For example, you can create one virtual environment based on Python 3.9 to develop Django Web applications and another virtual environment based on the same Python 3.9 to work with scientific libraries. Run configurations in PyCharm
+> offer additional configuration options on top of virtual environments - for example ... TODO.
 {: .callout}
 
-Once done, you are ready to run your script from PyCharm!
-
 ### Running Scripts From PyCharm
-Right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`.
+You are now ready to run your script from PyCharm! Right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'patient'`.
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
-/Users/alex/anaconda/envs/patient/bin/python /Users/alex/python-intermediate-inflammation/inflammation-analysis.py
+/Users/alex/work/python-intermediate-inflammation/venv-inflammation/bin/python /Users/alex/work/python-intermediate-inflammation/inflammation-analysis.py
 usage: inflammation-analysis.py [-h] infiles [infiles ...]
 inflammation-analysis.py: error: the following arguments are required: infiles
 
@@ -202,11 +296,11 @@ Process finished with exit code 2
 ~~~
 {: .output}
 
-Here, we can see that a new shell has been created that uses the Anaconda interpreter
-`/Users/alex/anaconda/envs/patient/bin/python` from the virtual environment `patient` we just created in PyCharm to run our
-script located at `/Users/alex/python-intermediate-inflammation/inflammation-analysis.py`. The script is currently throwing an error -
-`inflammation-analysis.py: error: the following arguments are required: infiles`.
-We will learn how to fix the errors and write tests to detect errors in the following episodes. 
+This is the same error we got when running the script from the command line. We will get back to this error
+shortly - for now, the good thing is that we managed to set up our project for development both from the
+command line and PyCharm and are getting the same outputs.
+Before we move on to fixing errors and writing more code, let's have a look a
+Python coding conventions for writing readable and consistently-formatted code.
 
 {% include links.md %}
 
