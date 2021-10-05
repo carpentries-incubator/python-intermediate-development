@@ -334,7 +334,6 @@ six==1.16.0
 ~~~
 {: .output}
 
-
 The first of the above commands will create a `requirements.txt` file in your current directory.
 The `requirements.txt` file can then be committed to a version control system (e.g. Git) and
 get shipped as part of your software and shared with collaborators and/or users. They can then replicate your environment and
