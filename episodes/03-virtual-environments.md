@@ -12,6 +12,7 @@ objectives:
 
 keypoints:
 - "Virtual environments keep Python versions and dependencies required by different projects separate."
+- "A virtual environment is itself a directory structure."
 - "Use `venv` to create and manage Python virtual environments."
 - "Use `pip` to install and manage Python third-party packages."
 - "`pip` allows you to declare all dependencies for a project in a separate
@@ -169,16 +170,16 @@ $ python3 -m venv /path/to/new/virtual/environment
 where `/path/to/new/virtual/environment` is a path to a directory where you want to place it.
 This will create the target directory for the virtual environment (and any parent directories that don’t exist already).
 
-For our project, let's create a virtual environment called `inflammation` off the project root:
+For our project, let's create a virtual environment called `venv-inflammation` off the project root:
 ~~~
-$ python3 -m venv inflammation
+$ python3 -m venv venv-inflammation
 ~~~
 {: .language-bash}
 
-If you list the contents of the newly created `inflammation` directory, you should see something like:
+If you list the contents of the newly created `venv-inflammation` directory, you should see something like:
 
 ~~~
-$ ls -l inflammation
+$ ls -l venv-inflammation
 ~~~
 {: .language-bash}
 ~~~
@@ -190,7 +191,7 @@ drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
 ~~~
 {: .output}
 
-Running the `python3 -m venv inflammation` command created the target directory called `inflammation`
+Running the `python3 -m venv venv-inflammation` command created the target directory called `venv-inflammation`
 containing:
 
 - `pyvenv.cfg` configuration file with a home key pointing to the Python installation from which the command was run,
@@ -202,8 +203,8 @@ environment and the standard Python library,
 Once you’ve created a virtual environment, you need to activate it:
 
 ~~~
-$ source inflammation/bin/activate
-(inflammation) $
+$ source venv-inflammation/bin/activate
+(venv-inflammation) $
 ~~~
 {: .language-bash}
 
@@ -211,6 +212,23 @@ Activating the virtual environment will change your shell’s prompt to show wha
 you are currently using (indicated by its name in round brackets at the start of the prompt),
 and modify the environment so that running Python will get you the particular
 version of Python configured in your virtual environment.
+
+> ## Naming Virtual Environments
+What is a good name to use for a virtual environment? Some people prefer to use ".venv" or "venv" as the
+name for their environments - this way when you come across such a subdirectory within a software project,
+by convention you know it contains its virtual environment details.
+The downside is that all different virtual environments
+on your machine then use the same name and you never know which one is current. An alternative is to
+use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
+that such a folder contains a virtual environment. In our case, we settled to name "venv-inflammation" as the
+middle ground - you will have to decide what naming convention works best for you.
+{: .callout}
+
+When you’re done working on your project, we can exit the environment with:
+~~~
+(venv-inflammation) $ deactivate
+~~~
+{: .language-bash}
 
 ### Installing Packages in an Environment With `pip`
 
@@ -221,15 +239,15 @@ install these two dependencies into your virtual environment.
 To install the latest version of a package with `pip` you use the `pip install` command and specify the package’s name, e.g.:
 
 ~~~
-(inflammation) $ pip3 install numpy
-(inflammation) $ pip3 install matplotlib
+(venv-inflammation) $ pip3 install numpy
+(venv-inflammation) $ pip3 install matplotlib
 ~~~
 {: .language-bash}
 
 or like this to install multiple packages at once for short:
 
 ~~~
-(inflammation) $ pip3 install numpy matplotlib
+(venv-inflammation) $ pip3 install numpy matplotlib
 ~~~
 {: .language-bash}
 
@@ -246,7 +264,7 @@ To upgrade a package to the latest version, e.g. `pip3 install --upgrade numpy`.
 To display information about a particular installed package do:
 
 ~~~
-(inflammation) $ pip3 show numpy
+(venv-inflammation) $ pip3 show numpy
 ~~~
 {: .language-bash}
 ~~~
@@ -266,7 +284,7 @@ Required-by: matplotlib
 To list all packages installed with `pip` (in your current virtual environment):
 
 ~~~
-(inflammation) $ pip3 list
+(venv-inflammation) $ pip3 list
 ~~~
 {: .language-bash}
 ~~~
@@ -300,8 +318,8 @@ produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
 ~~~
-(inflammation) $ pip3 freeze > requirements.txt
-(inflammation) $ cat requirements.txt
+(venv-inflammation) $ pip3 freeze > requirements.txt
+(venv-inflammation) $ cat requirements.txt
 ~~~
 {: .language-bash}
 ~~~
@@ -323,7 +341,7 @@ get shipped as part of your software and shared with collaborators and/or users.
 install all the necessary packages from the project root as follows:
 
 ~~~
-(inflammation) $ pip3 install -r requirements.txt
+(venv-inflammation) $ pip3 install -r requirements.txt
 ~~~
 {: .language-bash}
 
@@ -341,12 +359,14 @@ via your code sharing platform (e.g. GitHub).
 {: .testimonial}
 
 ## Running Python Scripts From Command Line
-Now that your environment has been set up and activated, you are ready to run our `inflammation-analysis.py` script
-from the command line. You should already be located in the root of the `python-intermediate-inflammation` directory
-(if not, navigate to it from the command line now). To run the script, type the following command:
+Congratulations! Your environment is now activated and set up to run our `inflammation-analysis.py` script
+from the command line.
+
+You should already be located in the root of the `python-intermediate-inflammation` directory
+(if not, please navigate to it from the command line now). To run the script, type the following command:
 
 ~~~
-(inflammation) $ python3 inflammation-analysis.py
+(venv-inflammation) $ python3 inflammation-analysis.py
 ~~~
 {: .language-bash}
 
