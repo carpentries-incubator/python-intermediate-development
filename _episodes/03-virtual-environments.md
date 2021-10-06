@@ -224,7 +224,7 @@ that such a folder contains a virtual environment. In our case, we settled to na
 middle ground - you will have to decide what naming convention works best for you.
 {: .callout}
 
-When you’re done working on your project, we can exit the environment with:
+When you’re done working on your project, you can exit the environment with:
 ~~~
 (venv-inflammation) $ deactivate
 ~~~
