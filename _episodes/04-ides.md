@@ -169,7 +169,7 @@ though the following exercise.
 
 ![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="600px"}
 
->## Compare Third-Party Dependencies in Command Line With PyCharm
+>## Compare Third-Party Dependencies in Command Line and in PyCharm
 Can you recall two places where information about our project's third-party dependencies
 can be found from the command line? (Hint: the first one is in a specific subdirectory
 of our virtual environment directory `venv-inflammation` and the second one can be obtained using
@@ -253,7 +253,76 @@ We have already added packages `numpy` and `matplotlib` to our virtual environme
 5. Select `OK` in the `Preferences` window.
 
 It may take a few minutes for PyCharm to install the package. After it is done, the `argparse` package is added to our
-environment in PyCharm and also propagated to the environment in the command line (which you can verify by listing the `venv-inflammation/lib/python3.9/site-packages` subdirectory). Note that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually.
+environment in PyCharm and also propagated to the environment in the command line (which you can verify by listing the `venv-inflammation/lib/python3.9/site-packages` subdirectory). Note that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
+
+>## Update `requirements.txt` After Adding a New Third-Party Dependency
+Export the newly updated virtual environment into `requirements.txt` file.
+>>## Solution
+>>Let's verify first that the newly installed package `argparse` is appearing in our virtual environment
+>>but not in `requirements.txt`. From the project root do:
+>>
+>>~~~
+>>(venv-inflammation) $ ls -l venv-inflammation/lib/python3.9/site-packages
+>>~~~
+>>{: .language-bash}
+>>~~~
+>>total 1264
+>>drwxr-xr-x   29 alex  staff     928  5 Oct 14:04 .
+>>drwxr-xr-x    3 alex  staff      96  5 Oct 14:02 ..
+>>drwxr-xr-x  103 alex  staff    3296  5 Oct 14:03 PIL
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:03 Pillow-8.3.2.dist-info
+>>drwxr-xr-x    6 alex  staff     192  5 Oct 14:04 __pycache__
+>>drwxr-xr-x    5 alex  staff     160  5 Oct 14:02 _distutils_hack
+>>drwxr-xr-x   10 alex  staff     320  6 Oct 11:20 argparse-1.4.0.dist-info
+>>-rw-r--r--    1 alex  staff   89214  6 Oct 11:20 argparse.py
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:04 cycler-0.10.0.dist-info
+>>-rw-r--r--    1 alex  staff   15959  5 Oct 14:04 cycler.py
+>>drwxr-xr-x   14 alex  staff     448  5 Oct 14:03 dateutil
+>>-rw-r--r--    1 alex  staff     152  5 Oct 14:02 distutils-precedence.pth
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:04 kiwisolver-1.3.2.dist-info
+>>-rwxr-xr-x    1 alex  staff  216968  5 Oct 14:04 kiwisolver.cpython-39-darwin.so
+>>drwxr-xr-x   93 alex  staff    2976  5 Oct 14:04 matplotlib
+>>-rw-r--r--    1 alex  staff     569  5 Oct 14:04 matplotlib-3.4.3-py3.9-nspkg.pth
+>>drwxr-xr-x   20 alex  staff     640  5 Oct 14:04 matplotlib-3.4.3.dist-info
+>>drwxr-xr-x    7 alex  staff     224  5 Oct 14:04 mpl_toolkits
+>>drwxr-xr-x   39 alex  staff    1248  5 Oct 14:04 numpy
+>>drwxr-xr-x   11 alex  staff     352  5 Oct 14:04 numpy-1.21.2.dist-info
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:02 pip
+>>drwxr-xr-x   10 alex  staff     320  5 Oct 14:02 pip-21.1.3.dist-info
+>>drwxr-xr-x    7 alex  staff     224  5 Oct 14:02 pkg_resources
+>>-rw-r--r--    1 alex  staff      90  5 Oct 14:04 pylab.py
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:03 pyparsing-2.4.7.dist-info
+>>-rw-r--r--    1 alex  staff  273365  5 Oct 14:03 pyparsing.py
+>>drwxr-xr-x    9 alex  staff     288  5 Oct 14:03 python_dateutil-2.8.2.dist-info
+>>drwxr-xr-x   41 alex  staff    1312  5 Oct 14:02 setuptools
+>>drwxr-xr-x   11 alex  staff     352  5 Oct 14:02 setuptools-57.0.0.dist-info
+>>drwxr-xr-x    8 alex  staff     256  5 Oct 14:03 six-1.16.0.dist-info
+>>-rw-r--r--    1 alex  staff   34549  5 Oct 14:03 six.py
+>>~~~
+>>{: .output}
+>> We can see the `argparse` package appearing in the listing above. However, if we do:
+>>~~~
+>>(venv-inflammation) $ cat requirements.txt
+>>~~~
+>>{: .language-bash}
+>>~~~
+>>cycler==0.10.0
+>>kiwisolver==1.3.2
+>>matplotlib==3.4.3
+>>numpy==1.21.2
+>>Pillow==8.3.2
+>>pyparsing==2.4.7
+>>python-dateutil==2.8.2
+>>six==1.16.0
+>>~~~
+>>{: .output}
+>> `argparse` package is missing from `requirements.txt`. To refresh it, we need to re-issue command:
+>>~~~
+>>(venv-inflammation) $ pip3 freeze > requirements.txt
+>>~~~
+>>{: .language-bash}
+>{: .solution}
+{: .challenge}
 
 #### Adding a Run Configuration for Our Project
 Having configured a virtual environment, we now need to tell PyCharm to use it for our project. This is done by adding a "run configuration" to a project:

@@ -15,9 +15,10 @@ keypoints:
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub, learned how to configure and use PyCharm for Python
-code development, and some Python coding conventions for writing clean and clear code. We have also made some
-changes to our code and now we want to check those changes in and share them with others in our team via GitHub by using
+So far we have checked out our software project from GitHub and learned how to configure and use PyCharm for Python
+code development. We have also made some
+changes to our project - remember that we created a virtual environment and exported it to the `requirements.txt` file.
+Now we want to check in those changes and share them with others in our team via GitHub by using
 version control system Git. This is a typical software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository.
 
