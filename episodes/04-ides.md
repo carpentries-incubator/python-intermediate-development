@@ -360,8 +360,8 @@ Process finished with exit code 2
 This is the same error we got when running the script from the command line. We will get back to this error
 shortly - for now, the good thing is that we managed to set up our project for development both from the
 command line and PyCharm and are getting the same outputs.
-Before we move on to fixing errors and writing more code, let's have a look a
-Python coding conventions for writing readable and consistently-formatted code.
+Before we move on to fixing errors and writing more code, let's have a look at another tool for collaborative
+code development (Git and GitHub) and Python coding conventions for writing readable and consistently-formatted code.
 
 {% include links.md %}
 
