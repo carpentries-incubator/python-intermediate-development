@@ -23,9 +23,9 @@ to."
 
 We now have all the tools we need for software development and are rearing to go.
 But before you dive into writing some more code and
-sharing it with others, think about what kind of code should you be sharing with others? It may be
+sharing it with others, think about what kind of code should you be writing and publishing? It may be
 worth spending some time learning a bit about Python
-coding style conventions to make sure that your code is consistently formatted and readable.
+coding style conventions to make sure that your code is consistently formatted and readable by yourself and others.
 
 ## Python Coding Style Guide
 One of the most important things we can do to make sure our code is readable by others
