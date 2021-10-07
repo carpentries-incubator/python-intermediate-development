@@ -565,12 +565,14 @@ help(fibonacci)
 
 In the previous exercises, we made some code improvements on feature branch `style-fixes`. We have committed our
 changes locally but have not pushed this branch remotely for others to have a look at our code before we merge it
-onto the `develop` branch. Let's do that now:
+onto the `develop` branch. Let's do that now, namely:
 - push `style-fixes` to GitHub
 - merge `style-fixes` to `develop` (once we are happy with the changes)
 - push updates to `develop` branch to GitHub (to keep our main development branch up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
+Here is a set commands that will achieve the above set of actions (remember to use `git status` often in between other
+Git commands to double check which branch you are on and its status):
 ~~~
 $ git push -u origin style-fixes
 $ git checkout develop
