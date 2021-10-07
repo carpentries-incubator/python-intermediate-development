@@ -7,7 +7,8 @@ questions:
 - "What are Git branches and why are they useful?"
 - "What are best practices when developing software collaboratively using Git?"
 objectives:
-- "Use feature branch workflow to effectively collaborate with a team on a software project"
+- "Use Git from the command line to commit changes to our project to a local repository and push those changes to a remote repository on GitHub"
+- "Create different branches for code development and learn to use feature-branch workflow to effectively collaborate with a team on a software project"
 
 keypoints:
 - "A branch is one version of your project that can contain its own set of commits."
@@ -15,14 +16,14 @@ keypoints:
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub and learned how to configure and use PyCharm for Python
-code development. We have also made some
-changes to our project - remember that we created a virtual environment and exported it to the `requirements.txt` file.
-Now we want to check in those changes and share them with others in our team via GitHub by using
-version control system Git. This is a typical software development workflow - you work locally on code, test it to make sure
+So far we have checked out our software project from GitHub and used command line tools to configure a virtual environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
+will use for code development, testing and debugging. We are now going to start using another set of tools from the collaborative code development toolbox - namely, version control system Git and code sharing platform GitHub - which will enable us to track changes to our code and share it with others.
+
+You may recall that we have already made some changes to our project - we created a virtual environment in `venv-inflammation` folder and exported it to the `requirements.txt` file.
+We should now decide which of those changes we want to check in and share with others in our team. This is a typical software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository.
 
-Let's remind ourselves how to work with Git from the command line.
+Firstly, let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 <img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
@@ -38,40 +39,91 @@ $ git status
 
 ~~~
 On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-	modified:   inflammation/models.py
-	modified:   inflammation-analysis.py
+Your branch is up to date with 'origin/main'.
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
+	requirements.txt
+	venv-inflammation/
 
-	.idea/
+nothing added to commit but untracked files present (use "git add" to track)
+~~~
+{: .output}
+
+As expected, Git is telling us that we have some untracked files - `requirements.txt` and directory
+`venv-inflammation` - present in our working
+directory which we have not staged nor committed to our local repository yet.
+And, of course, we have not pushed these changes to the remote repository on GitHub. You do not want
+to commit the newly created `venv-inflammation` directory and share it with others because this
+directory is specific to your machine and setup only (i.e. it contains local paths to libraries on your
+system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
+your team as this file can be used to replicate the virtual environment on your collaborators' systems.
+
+To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root (our project already has `.gitignore`, but in cases where you do not have
+it - you can simply create it yourself). In our case, we
+want to tell Git to ignore the `venv-inflammation` directory and stop notifying us about it. Edit your `.gitignore`
+file in PyCharm and add a line containing `venv-inflammation/` (it does not matter much in this case where within the file you add the
+line, so let's do it at the end). Your `.gitignore` should look something like this:
+
+~~~
+# IDEs
+.vscode/
+.idea/
+
+# Intermediate Coverage file
+.coverage
+
+# Output files
+*.png
+
+# Python runtime
+*.pyc
+*.egg-info
+.pytest_cache
+
+# Virtual environments
+venv-inflammation/
+~~~
+{: .output}
+
+You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match the pattern at the same line (e.g. `*.png`).
+
+If you issue `git status` command now you will notice that Git has cleverly understood that you want to ignore changes to `venv-inflammation` folder so it is not warning us about it any more. However, it has now detected a change to
+`.gitignore` file that needs to be committed.
+
+~~~
+$ git status
+~~~
+{: .language-bash}
+
+~~~
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	requirements.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-As expected, git is telling us we have made changes to `inflammation-analysis.py` and `inflammation/models.py` files in our working
-directory but that we have not staged nor committed those changes to our local repository yet.
-And, of course, we have not pushed the changes to the remote repository. It is also telling us a bit about files that
-we are not tracking (i.e. files ignored by git) - in this case `.idea/` folder where PyCharm saves its project data.
-Do not worry if ignored files differ on your machine.
-
-To commit to the local repository, we first have to add the files to staging area (i.e. index) to prepare them for
-committing:
+To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to staging area (i.e. index) to prepare them for committing. We can do that at the same time as:
 
 ~~~
-$ git add patient.py inflammation/models.py
+$ git add .gitignore requirements.txt
 ~~~
 {: .language-bash}
 
-Then we can commit them to the local repository with:
+Now we can commit them to the local repository with:
 
 ~~~
-$ git commit -m "Coding style improvements"
+$ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folder."
 ~~~
 {: .language-bash}
 
@@ -86,7 +138,7 @@ $ git push origin main
 {: .language-bash}
 
 Remember, systems like Git allow us to synchronise work between any two copies of the same repository. In practice,
-though, it is easiest to use one copy as a central hub where everyone pushes their changes to,
+though, it is easiest to use one copy as a central hub (such as GitHub or GitLab) where everyone pushes their changes to,
 and to keep it on the Web rather than on someone’s laptop.
 
 ![git-distributed](../fig/git-distributed.png)
@@ -94,27 +146,30 @@ and to keep it on the Web rather than on someone’s laptop.
 From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
 
 ## Git Branches
-When we do `git status` git also tells us that we are currently on the `main` branch of the project.
+When we do `git status`, Git also tells us that we are currently on the `main` branch of the project.
 A branch is one version of your project (the files in your repository) that can contain its own set of commits.
-We can create a new branch, make changes to the code that we then commit to the branch, and when we are are happy with
-those changes, merge them back to the main branch. To see what other branches are available, do:
+We can create a new branch, make changes to the code which we then commit to the branch, and, once we are are happy
+with those changes, merge them back to the main branch. To see what other branches are available, do:
 
 ~~~
 $ git branch
 ~~~
 {: .language-bash}
+~~~
+* main
+~~~
+{: .output}
 
 At the moment, there's only one branch (`main`) and hence only one version of the code available. When you create a
-git repository for the first time, by default you only get one version (i.e. branch) - `main`. Let's have a look at
-why having different branches is so useful.
+Git repository for the first time, by default you only get one version (i.e. branch) - `main`. Let's have a look at
+why having different branches might be useful.
 
 ### Feature branch software development workflow
-While it is technically OK to commit our changes directly to `main` branch, and you may often find yourself doing so
+While it is technically OK to commit your changes directly to `main` branch, and you may often find yourself doing so
 for some minor changes, the best practice is to use a new branch for each separate and self-contained
 unit/piece of work you want to
 add to the project. This unit of work is also often called a *feature* and the branch where you develop it is called a
-*feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix",
-"python3.8"). If we keep making changes
+*feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix"). If we keep making changes
 and pushing them directly to `main` branch on GitHub, then anyone who downloads our software from there will get all of our
 work in progress - whether or not it's ready to use! So, working on a separate branch for each feature you are adding is
 good for several reasons:
@@ -135,7 +190,7 @@ From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gi
 
 In the software development workflow, we typically have a main branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress
-code. As we work on adding new features to the code, we can create new feature branches that first get merged into
+code. As we work on adding new features to the code, we create new feature branches that first get merged into
 `develop`, and then once thoroughly tested - can get merged into `main`. For smaller projects (e.g. if you are
 working alone on a project), it may be enough to
 merge a feature branch directly into `main` upon testing, skipping the `develop` branch step.
@@ -159,8 +214,8 @@ $ git branch
 ~~~
 {: .output}
 
-The * indicates the currently active branch. So how do we switch to our new branch? We use `git checkout` again,
-but this time with the name of the branch instead of the name of a file:
+The `*` indicates the currently active branch. So how do we switch to our new branch? We use the `git checkout`
+command with the name of the branch:
 ~~~
 $ git checkout develop
 ~~~
@@ -182,9 +237,9 @@ Switched to branch 'develop'
 
 ### Updating Branches
 If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
-of the code in `main`. We add and commit things to `develop` branch in the same way as to `main`.
+of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
-For example, let's make a small modification to `inflammation/models.py` and, say, change the spelling of "2d" to
+Let's make a small modification to `inflammation/models.py` in PyCharm, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
 
 If we do:
@@ -204,9 +259,7 @@ $ git status
    no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
-git is telling us that we are on branch `develop`, which tracked files have been modified in our working directory
-and the state of our branch
-("up to date with 'origin/develop'", as we have not committed anything to our local repository yet).
+Git is telling us that we are on branch `develop` and which tracked files have been modified in our working directory.
 
 We can now `add` and `commit` the changes in the usual way.
 
@@ -310,9 +363,9 @@ git push origin main
 > ## Keeping Main Branch Stable
 Good software development practice is to keep the `main` branch stable while you and the team develop and test
 new functionalities on feature branches (which can be done in parallel and independently). The next step is to merge
-features branches onto the `develop` branch, where more testing can occur to verify that the new features work
-well with the rest of the code (and not just in isolation). We talk more about different types of code testing in the
-next episode.
+feature branches onto the `develop` branch, where more testing can occur to verify that the new features work
+well with the rest of the code (and not just in isolation). We talk more about different types of code testing in one
+of the following episodes.
 {: .testimonial}
 
 {% include links.md %}
