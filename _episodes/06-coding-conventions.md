@@ -585,12 +585,13 @@ $ git push origin main
 {: .language-bash}
 
 >## Typical Code Development Cycle
-This is a typical software development workflow - you work locally on code on a feature branch,
+What you've done in the exercises in this episode mimics a typical software development workflow -
+you work locally on code on a feature branch,
 test it to make sure it works correctly and as expected, then record your changes using version
-control and share your work with others via a shared and centrally backed-up repository.
-Many feature branches from you and your collaborators are then merged onto the main development branch.
-After further testing and verifying that no code has been broken by the new features - the development
-branch gets merged onto the stable main branch.
+control and share your work with others via a centrally backed-up repository. Other team
+members work on their feature branches in parallel and similarly share their work with colleagues for discussions.
+Different feature branches from around the team get merged onto the main development branch, often in small and quick development cycles. After further testing and verifying that no code has been broken by the new features - the development branch gets merged onto the stable main branch, where new features finally resurface to end-users in
+bigger "software release" cycles.
 {: .testimonial}
 
 {% include links.md %}
