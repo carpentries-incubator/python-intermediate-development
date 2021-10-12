@@ -493,7 +493,7 @@ Functions:
 {: .language-python}
 
 The docstring for a function or a module is returned when
-calling the `help` function and passing its name - for example from interactive `ipython` shell or from Jupyter Lab/Notebook
+calling the `help` function and passing its name - for example from interactive `ipython` terminal or from Jupyter Lab/Notebook
 or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
 PyCharm also displays the docstring for a function/module in a little elp popup window when using tab-completion.
 
@@ -502,7 +502,7 @@ help(fibonacci)
  ~~~
  {: .language-python}
 
-> ## Fix the docstrings
+> ## Fix the Docstrings
 > Look into `models.py` in PyCharm and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. Commit those changes to feature branch `style-fixes`.
 > > ## Solution
 > > For example, the improved docstrings for the above functions would contain explanations for parameters and
