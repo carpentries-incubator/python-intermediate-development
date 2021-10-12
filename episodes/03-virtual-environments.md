@@ -124,21 +124,6 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 >
 {: .callout}
 
-> ## Mixing `pip` and `conda` for Anaconda Users
-> Sometimes packages that you need are not available via `conda`, in which case you will have to mix
-> the use of both `conda` and `pip` to manage your packages. Recent versions of `conda` have improved support
-> for interoperability between `conda` and `pip` and, while `pip` only installs Python packages from PyPI package
-> repository, conda can now install packages from [Anaconda Repository](https://repo.anaconda.com/)
-> and [Anaconda Cloud](https://anaconda.org/), as well as
-> [PyPI](https://pypi.org/) by using `pip` in an active `conda` environment. You can now also search for
-> PyPI packages via [Anaconda Cloud](https://anaconda.org/search) and filtering by package type.
->
-> The advice from the [Anaconda blog](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) is:
-"*... when combining `conda` and `pip`, it is best to use an isolated `conda` environment.
-Only after `conda` has been used to install as many packages as possible should `pip` be used to install any remaining software.*"
->
-{: .callout}
-
 ### Many Tools for the Job
 
 Things with installing and managing Python distributions, third party packages and virtual environments are, well,
