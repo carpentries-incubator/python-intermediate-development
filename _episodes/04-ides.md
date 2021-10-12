@@ -18,8 +18,7 @@ syntax highlighting, code search and completion, version control and debugging."
 ## Introduction
 As we have seen in the
 previous episode - even a simple software project is typically split into smaller functional units and modules which are kept in separate files and subdirectories.
-As your code starts to grow and becomes more complex - involving many different files and linking various libraries -
-you will need an application to help you manage all the complexities of, and provide you with some useful (visual)
+As your code starts to grow and becomes more complex, it will involve many different files and various external libraries. You will need an application to help you manage all the complexities of, and provide you with some useful (visual)
 facilities for, the software development process. Such clever and useful graphical
 software development applications are called Integrated Development Environments (IDEs).
 
