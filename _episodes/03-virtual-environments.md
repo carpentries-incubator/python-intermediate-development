@@ -108,7 +108,7 @@ also recognised and picked up automatically by PyCharm IDE, as we will see in th
 ### Managing Python Packages
 
 Part of managing your (virtual) working environment involves installing, updating and removing external packages
-on your system. Package manager tool `pip` is most commonly used for this - it interacts
+on your system. The Python package manager tool `pip` is most commonly used for this - it interacts
  and obtains the packages from the central repository called [Python Package Index (PyPI)](https://pypi.org/).
 `pip` can now be used with all Python distributions (including Anaconda).
 
