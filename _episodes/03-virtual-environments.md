@@ -24,11 +24,11 @@ the `requirements.txt` file."
 
 ## Introduction
 So far we have checked out our software project from GitHub and inspected its contents and architecture a bit.
-We now want to run our code to see what it does - let's do that from the command line shell.
-For the most part of the course we will run our code and interact with Git from the shell,
-and, while we will develop and debug our code using the PyCharm IDE and it is possible to use Git from PyCharm too, typing commands in shell 'forces' you to familiarise yourself and learn shell well - a bonus is that this knowledge is
-transferable to running code in other programming languages and is independent from any IDE
-you may use in the future.
+We now want to run our code to see what it does - let's do that from the command line.
+For the most part of the course we will run our code and interact with Git from the command line,
+and, while we will develop and debug our code using the PyCharm IDE and it is possible to use Git from PyCharm too, typing commands in the command line 'forces' you to familiarise yourself and learn it well.
+A bonus is that this knowledge is transferable to running code in other programming languages and is independent
+from any IDE you may use in the future.
 
 If you have a little peak into our code (e.g. do `cat inflammation/views.py` from the project root), you will see the
 following two lines somewhere at the top.
@@ -42,12 +42,15 @@ import numpy as np
 This means that our code requires two *external libraries* (also called third-party packages or dependencies) -
 `numpy` and `matplotlib`.
 Python applications often use packages and modules that don’t come as part of the standard Python distribution. This means
-that you will have to use a *package manager* tool to install them on your system. Applications will also sometimes need a
-specific version of an external library, for example because the application may require that a particular
-bug has been fixed, or a specific version of Python interpreter. This means it may not be possible for one Python
-installation and setup to meet the requirements of every application you may work with. The solution for this problem is to create a *virtual
-environment*, a self-contained directory that contains a Python installation for a particular version of Python
-plus a number of additional packages.
+that you will have to use a *package manager* tool to install them on your system.
+Applications will also sometimes need a
+specific version of an external library (e.g. because they require that a particular
+bug has been fixed in a newer version of the library), or a specific version of Python interpreter.
+This means that each Python application you work with may require a different setup and a set of dependencies so it
+is important to be able to keep these configurations separate to avoid confusion between projects.
+The solution for this problem is to create a self-contained *virtual
+environment* per project, which contains a particular version of Python installation plus a number of
+additional external libraries.
 
 Virtual environments are not just a feature of Python - all modern programming languages use them to isolate code
 of a specific project and make it easier to develop, run, test and share code with others. In this episode, we learn how
@@ -57,13 +60,13 @@ to set up a virtual environment to develop our code and manage our external depe
 So what exactly are virtual environments, and why use them?
 
 A Python virtual environment is an **isolated working copy** of a specific version of
-Python interpreter together with specific versions of a number of packages installed into that
-virtual environment which allow you to work on a particular
-project without worry of affecting other projects. A virtual environment is simply a *directory with a particular
+Python interpreter together with specific versions of a number of external libraries installed into that
+virtual environment. A virtual environment is simply a *directory with a particular
 structure* which includes links to and enables multiple side-by-side installations of
-different Python interpreters or different versions of the same third party package to coexist on your machine and only one to be selected for each of our projects.
+different Python interpreters or different versions of the same external library to coexist on your machine and only one to be selected for each of our projects. This allows you to work on a particular
+project without worry of affecting other projects on your machine.
 
-As more dependencies are added to your Python project over time, you can add them to
+As more external libraries are added to your Python project over time, you can add them to
 its specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments
 for each project rather than one huge global environment with potential package version clashes. Another big motivator
 for using virtual environments is that they make sharing your code with others much easier (as we will see shortly).
@@ -78,7 +81,7 @@ dependency as it breaks things in your project. In a separate branch of your pro
 introduced by the new version of the dependency without affecting the working version of your project. You need to set up
 a separate virtual environment for your branch to 'isolate' your code while testing the new feature.
 
-You do not have to worry too much about specific versions of packages that your project depends on most of the time.
+You do not have to worry too much about specific versions of external libraries that your project depends on most of the time.
 Virtual environments enable you to always use the latest available version without specifying it explicitly.
 They also enable you to use a specific older version of a package for your project, should you need to.
 
@@ -100,7 +103,7 @@ While there are pros and cons for using each of the above, all will do the job o
 virtual environments for you and it may be a matter of personal preference which one you go for.
 In this course, we will use `venv` to create and manage our
 virtual environment (which is the preferred way for Python 3.3+). The upside is that `venv` virtual environments created from the command line are
-also recognised and picked up automatically by PyCharm IDE.
+also recognised and picked up automatically by PyCharm IDE, as we will see in the next episode.
 
 ### Managing Python Packages
 
