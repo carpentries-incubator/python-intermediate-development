@@ -2,7 +2,7 @@
 title: Quiz
 ---
 This is an intermediate-level software development course so it is expected for you to have some prerequisite knowledge
-on the topics covered, as outlined at the [beginning of the lesson](/index.html#prerequisites).
+on the topics covered, as outlined at the [beginning of the lesson](../index.html#prerequisites).
 Here is a little quiz that you can do to test your prior knowledge to determine 
 where you fit on the skills spectrum and if this course is for you. 
  
