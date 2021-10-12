@@ -261,7 +261,7 @@ way of doing this and how it propagates to the command line.
 It may take a few minutes for PyCharm to install it. After it is done, the `argparse` library is added to our
 environment in PyCharm and also propagated to the environment in the command line (which you can verify by listing the `venv/lib/python3.9/site-packages` subdirectory). Note that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
 
->## Update `requirements.txt` After Adding a New Third-Party Dependency
+>## Update `requirements.txt` After Adding a New Dependency
 Export the newly updated virtual environment into `requirements.txt` file.
 >>## Solution
 >>Let's verify first that the newly installed library `argparse` is appearing in our virtual environment
