@@ -16,8 +16,7 @@ syntax highlighting, code search and completion, version control and debugging."
 ---
 
 ## Introduction
-So far, you may have only written a single script to solve your problem or analyse some data, perhaps using Jupyter
-Notebook or Jupyter Lab. As we have seen in the
+As we have seen in the
 previous episode - even a simple software project is typically split into smaller functional units and modules which are kept in separate files and subdirectories.
 As your code starts to grow and becomes more complex - involving many different files and linking various libraries -
 you will need an application to help you manage all the complexities of, and provide you with some useful (visual)
