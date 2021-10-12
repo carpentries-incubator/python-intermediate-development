@@ -242,7 +242,7 @@ of our virtual environment directory `venv-inflammation` and the second one can 
 {: .challenge}
 
 #### Adding a Third Party Package in PyCharm
-We have already added packages `numpy` and `matplotlib` to our virtual environment in the previous episode, and we are currently up-to-date with all the third packages we require at the moment. However, we will need the package `argparse` soon to parse command line arguments passed to our script. (Recall the error we got when we ran our script about the missing argument `infiles`?) We will now install this package into our environment from PyCharm in order to see an alternative way of doing this and how it propagates to command line too.
+We have already added packages `numpy` and `matplotlib` to our virtual environment in the previous episode, and we are currently up-to-date with all the third packages we require at the moment. However, we will need the package `argparse` soon to parse command line arguments passed to our script. (Recall the error we got when we ran our script about the missing argument `infiles`?) We will now install this package into our environment from PyCharm in order to see an alternative way of doing this and how it propagates to the command line.
 
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
