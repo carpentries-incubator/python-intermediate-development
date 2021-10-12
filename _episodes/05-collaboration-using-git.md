@@ -4,33 +4,61 @@ start: false
 teaching: 45
 exercises: 0
 questions:
-- "What are Git branches and why are they useful?"
-- "What are best practices when developing software collaboratively using Git?"
+- "What are Git branches and why are they useful for code development?"
+- "What are some best practices when developing software collaboratively using Git?"
 objectives:
-- "Use Git from the command line to commit changes to our project to a local repository and push those changes to a remote repository on GitHub"
-- "Create different branches for code development and learn to use feature-branch workflow to effectively collaborate with a team on a software project"
+- "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
+- "Create different branches for code development"
+- "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
 keypoints:
 - "A branch is one version of your project that can contain its own set of commits."
 - "Feature branches enable us to develop / explore / test new code features without affecting the stable `main` code."
 ---
 
+Non-linear development allows yourself to work on different parts of a system concurrently.
+
 ## Introduction
 So far we have checked out our software project from GitHub and used command line tools to configure a virtual environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
-will use for code development, testing and debugging. We are now going to start using another set of tools from the collaborative code development toolbox - namely, version control system Git and code sharing platform GitHub - which will enable us to track changes to our code and share it with others.
+will use for code development, testing and debugging. We are now going to start using another set of tools from the collaborative code development toolbox - namely, version control system Git and code sharing platform GitHub.
+These two will enable us to track changes to our code and share it with others.
 
-You may recall that we have already made some changes to our project - we created a virtual environment in `venv-inflammation` folder and exported it to the `requirements.txt` file.
+You may recall that we have already made some changes to our project locally - we created a virtual
+environment in `venv` directory and exported it to the `requirements.txt` file.
 We should now decide which of those changes we want to check in and share with others in our team. This is a typical software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository.
 
 Firstly, let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
+Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development but it can be used to
+track changes in files in general - it is particularly effective for tracking text-based files (e.g. CSV, Markdown, HTML, CSS, Tex, etc. files).
+
+Git has several important characteristics:
+- support for non-linear development allowing you and your colleagues to work on different parts of a project concurrently,
+- support for distributed development allowing for multiple people to be working on the same project (even the same file) at the same time,
+- every change recorded by Git remains part of the project history and can be retrieved at a later date, so even
+if you make a mistake you can revert to a point before it.
+
+Diagram below shows a typical software development lifecycle with Git and the commonly used commands to interact
+with different parts of Git infrastructure, such as:
+- **working directory** - a directory where your project files live and where you are currently working. It is also known as the “untracked” area of Git. Any changes to files will be marked by Git in the working directory. If you make changes to the working directory and do not explicitly tell Git to save them - you will likely lose those changes. Using `git add filename` command, you tell Git to start tracking changes to file `filename` within your working directory.
+- **staging area (index)** - once you tell Git to start tracking changes to files (with `git add` command), Git saves those changes in the staging area. Each subsequent change to the same file
+  needs to be followed by another `git add filename` command to tell Git to update it in the staging area. To see what is in your working directory and staging area at any moment (i.e. what changes is Git tracking), run the command `git status`.
+- **local repository** - stored within the `.git` directory of your project, this is where Git wraps together all your changes from the staging area and puts them using the `git commit` command. Each commit is a new, permanent snapshot (checkpoint, record) of your project in time, which you can share or revert back to.
+- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on GitHub, GitLab or somewhere else). While your project is nicely version-controlled in your local repository, and you have
+snapshots of its versions from the past, if your machine crashes - you still may lose all your work.
+Working with a remote
+repository involves pushing your changes and pulling other people's changes to keep your local repository in sync
+in order to collaborate with others and to backup your work on a different machine.
+
 <img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
 <p style="text-align: center;">Software development lifecycle with Git<br>
 From <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
 
-The first thing to do upon navigating into our software project's directory is to check the current status of our local repository.
+## Checking-in Changes to Our Project
+Let's check-in the changes we have done to our project so far. The first thing to do upon navigating into our software project's directory root is to check the current status of
+our local working directory and repository.
 
 ~~~
 $ git status
@@ -44,26 +72,27 @@ Your branch is up to date with 'origin/main'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 	requirements.txt
-	venv-inflammation/
+	venv/
 
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
 {: .output}
 
 As expected, Git is telling us that we have some untracked files - `requirements.txt` and directory
-`venv-inflammation` - present in our working
+`venv` - present in our working
 directory which we have not staged nor committed to our local repository yet.
-And, of course, we have not pushed these changes to the remote repository on GitHub. You do not want
-to commit the newly created `venv-inflammation` directory and share it with others because this
+You do not want
+to commit the newly created `venv` directory and share it with others because this
 directory is specific to your machine and setup only (i.e. it contains local paths to libraries on your
 system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
 your team as this file can be used to replicate the virtual environment on your collaborators' systems.
 
-To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root (our project already has `.gitignore`, but in cases where you do not have
-it - you can simply create it yourself). In our case, we
-want to tell Git to ignore the `venv-inflammation` directory and stop notifying us about it. Edit your `.gitignore`
-file in PyCharm and add a line containing `venv-inflammation/` (it does not matter much in this case where within the file you add the
-line, so let's do it at the end). Your `.gitignore` should look something like this:
+To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root Our project already has `.gitignore`, but in cases where you do not have
+it - you can simply create it yourself. In our case, we
+want to tell Git to ignore the `venv` directory (and `.venv` as another naming convention for virtual environments)
+and stop notifying us about it. Edit your `.gitignore`
+file in PyCharm and add a line containing "venv/" and another one containing ".venv/". It does not matter much
+in this case where within the file you add these lines, so let's do it at the end. Your `.gitignore` should look something like this:
 
 ~~~
 # IDEs
@@ -82,13 +111,14 @@ line, so let's do it at the end). Your `.gitignore` should look something like t
 .pytest_cache
 
 # Virtual environments
-venv-inflammation/
+venv/
+.venv/
 ~~~
 {: .output}
 
-You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match the pattern at the same line (e.g. `*.png`).
+You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match a pattern (e.g. "*.png" will ignore all PNG files in the current directory).
 
-If you issue `git status` command now you will notice that Git has cleverly understood that you want to ignore changes to `venv-inflammation` folder so it is not warning us about it any more. However, it has now detected a change to
+If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to `venv` folder so it is not warning us about it any more. However, it has now detected a change to
 `.gitignore` file that needs to be committed.
 
 ~~~
@@ -113,7 +143,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to staging area (i.e. index) to prepare them for committing. We can do that at the same time as:
+To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to staging area to prepare them for committing. We can do that at the same time as:
 
 ~~~
 $ git add .gitignore requirements.txt
@@ -137,18 +167,27 @@ $ git push origin main
 ~~~
 {: .language-bash}
 
-Remember, systems like Git allow us to synchronise work between any two copies of the same repository. In practice,
-though, it is easiest to use one copy as a central hub (such as GitHub or GitLab) where everyone pushes their changes to,
-and to keep it on the Web rather than on someone’s laptop.
+`origin` here is the remote repository you have used when cloning the project locally (it is called like that
+by convention and set up automatically by Git when you run `git clone remote_url` command to replicate a remote
+repository locally); `main` is the name of our
+main (and currently only) development branch.
 
-![git-distributed](../fig/git-distributed.png)
-<p style="text-align: center;">Git - distributed version control system<br>
-From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
+>## Git Remotes
+> Note that systems like Git allow us to synchronise work between any two copies of the same repository. In practice,
+> though, it is easiest to use one copy as a central hub (such as GitHub or GitLab) where everyone pushes their
+> changes to, and to keep it on the Web rather than on someone’s laptop. You can have more than one remote configured
+> for your local repository, each of which generally is either read-only or read/write for you. Collaborating
+> with others involves managing these remote repositories and pushing and pulling information to and from
+> them when you need to share work.
+>
+> ![git-distributed](../fig/git-distributed.png)
+> <p style="text-align: center;">Git - distributed version control system<br> From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
+{: .callout}
 
 ## Git Branches
 When we do `git status`, Git also tells us that we are currently on the `main` branch of the project.
 A branch is one version of your project (the files in your repository) that can contain its own set of commits.
-We can create a new branch, make changes to the code which we then commit to the branch, and, once we are are happy
+We can create a new branch, make changes to the code which we then commit to the branch, and, once we are happy
 with those changes, merge them back to the main branch. To see what other branches are available, do:
 
 ~~~
@@ -164,7 +203,7 @@ At the moment, there's only one branch (`main`) and hence only one version of th
 Git repository for the first time, by default you only get one version (i.e. branch) - `main`. Let's have a look at
 why having different branches might be useful.
 
-### Feature branch software development workflow
+### Feature Branch Software Development Workflow
 While it is technically OK to commit your changes directly to `main` branch, and you may often find yourself doing so
 for some minor changes, the best practice is to use a new branch for each separate and self-contained
 unit/piece of work you want to
@@ -189,7 +228,8 @@ Branches are commonly used as part of a feature-branch workflow, shown in diagra
 From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main branch which is the version of the code that
-is tested, stable and reliable. Then, we normally have a development (`develop`) branch that we use for work-in-progress
+is tested, stable and reliable. Then, we normally have a development branch
+(called `develop` or `dev` by convention) that we use for work-in-progress
 code. As we work on adding new features to the code, we create new feature branches that first get merged into
 `develop`, and then once thoroughly tested - can get merged into `main`. For smaller projects (e.g. if you are
 working alone on a project), it may be enough to
@@ -362,7 +402,8 @@ git push origin main
 
 > ## Keeping Main Branch Stable
 Good software development practice is to keep the `main` branch stable while you and the team develop and test
-new functionalities on feature branches (which can be done in parallel and independently). The next step is to merge
+new functionalities on feature branches (which can be done in parallel and independently by different team
+members). The next step is to merge
 feature branches onto the `develop` branch, where more testing can occur to verify that the new features work
 well with the rest of the code (and not just in isolation). We talk more about different types of code testing in one
 of the following episodes.
