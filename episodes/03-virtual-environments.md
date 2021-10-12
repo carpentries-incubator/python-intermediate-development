@@ -126,7 +126,7 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 
 ### Many Tools for the Job
 
-Things with installing and managing Python distributions, third party packages and virtual environments are, well,
+Installing and managing Python distributions, external libraries and virtual environments is, well,
 complex. There is abundance of tools for each task, each with its advantages and disadvantages, and there are different
 ways to achieve the same effect (and even different ways to install the same tool!).
 Note that each Python distribution comes with its own version of
@@ -155,19 +155,20 @@ $ python3 -m venv /path/to/new/virtual/environment
 ~~~
 {: .language-bash}
 
-where `/path/to/new/virtual/environment` is a path to a directory where you want to place it.
+where `/path/to/new/virtual/environment` is a path to a directory where you want to place it - conventionally within
+your software project so they are co-located.
 This will create the target directory for the virtual environment (and any parent directories that don’t exist already).
 
-For our project, let's create a virtual environment called `venv-inflammation` off the project root:
+For our project, let's create a virtual environment called `venv` off the project root:
 ~~~
-$ python3 -m venv venv-inflammation
+$ python3 -m venv venv
 ~~~
 {: .language-bash}
 
-If you list the contents of the newly created `venv-inflammation` directory, you should see something like:
+If you list the contents of the newly created `venv` directory, you should see something like:
 
 ~~~
-$ ls -l venv-inflammation
+$ ls -l venv
 ~~~
 {: .language-bash}
 ~~~
@@ -179,7 +180,7 @@ drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
 ~~~
 {: .output}
 
-Running the `python3 -m venv venv-inflammation` command created the target directory called `venv-inflammation`
+So, running the `python3 -m venv venv` command created the target directory called `venv`
 containing:
 
 - `pyvenv.cfg` configuration file with a home key pointing to the Python installation from which the command was run,
@@ -188,29 +189,35 @@ environment and the standard Python library,
 - `lib/pythonX.Y/site-packages` subdirectory (`Lib\site-packages` on Windows) to contain its own independent set of installed Python packages isolated from other projects,
 - various other configuration and supporting files and subdirectories.
 
-Once you’ve created a virtual environment, you need to activate it:
+> ## Naming Virtual Environments
+> What is a good name to use for a virtual environment? Using "venv" or ".venv" as the
+name for an environment and storing it within the project's directory seems to be the recommended way -
+this way when you come across such a subdirectory within a software project,
+by convention you know it contains its virtual environment details.
+A slight downside is that all different virtual environments
+on your machine then use the same name and the current one is determined by the context of the path
+you are currently located in. A (non-conventional) alternative is to
+use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
+that such a directory contains a virtual environment. In our case, we have settled to use "venv" since it's not
+> a hidden directory and will be displayed by the command line when listing directory contents - in the future,
+> you will decide what naming convention works best for you. Here are some references for each of the naming conventions:
+- [The Hitchhiker's Guide to Python](https://docs.python-guide.org/dev/virtualenvs/) notes that "venv" is the general convention used globally
+- [The Python Documentation](https://docs.python.org/3/library/venv.html) indicates that ".venv" is common
+- ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
+{: .callout}
+
+Once you’ve created a virtual environment, you will need to activate it:
 
 ~~~
-$ source venv-inflammation/bin/activate
-(venv-inflammation) $
+$ source venv/bin/activate
+(venv) $
 ~~~
 {: .language-bash}
 
-Activating the virtual environment will change your shell’s prompt to show what virtual environment
+Activating the virtual environment will change your command line’s prompt to show what virtual environment
 you are currently using (indicated by its name in round brackets at the start of the prompt),
 and modify the environment so that running Python will get you the particular
 version of Python configured in your virtual environment.
-
-> ## Naming Virtual Environments
-What is a good name to use for a virtual environment? Some people prefer to use ".venv" or "venv" as the
-name for their environments - this way when you come across such a subdirectory within a software project,
-by convention you know it contains its virtual environment details.
-The downside is that all different virtual environments
-on your machine then use the same name and you never know which one is current. An alternative is to
-use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
-that such a folder contains a virtual environment. In our case, we settled to name "venv-inflammation" as the
-middle ground - you will have to decide what naming convention works best for you.
-{: .callout}
 
 When you’re done working on your project, you can exit the environment with:
 ~~~
