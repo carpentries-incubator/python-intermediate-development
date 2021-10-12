@@ -16,6 +16,7 @@
       </button>
 
       {% comment %} Select what logo to display. {% endcomment %}
+      {% comment %}
       {% if site.carpentry == "swc" %}
       <a href="{{ site.swc_site }}" class="pull-left">
         <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/swc-icon-blue.svg %}" alt="Software Carpentry logo" />
@@ -33,7 +34,11 @@
         <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/cp-logo-blue.svg %}" alt="The Carpentries logo" />
       </a>
       {% endif %}
-
+      {% endcomment %}
+      <a href="https://www.software.ac.uk" class="pull-left">
+   	<img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/SSI-logo.png %}" alt="The Software Sustainability Institute logo" />
+      </a>
+	    
       {% comment %} Always show link to home page. {% endcomment %}
       <a class="navbar-brand" href="{{ relative_root_path }}{% link index.md %}">Home</a>
 
