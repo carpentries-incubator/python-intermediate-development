@@ -5,7 +5,7 @@ teaching: 30
 exercises: 0
 questions:
 - "What are virtual environments in software development and why you should use them?"
-- "How can we manage Python virtual environments and external (third-party) packages?"
+- "How can we manage Python virtual environments and external (third-party) libraries?"
 objectives:
 - "Set up a Python virtual environment for our software project using `venv` and `pip`."
 - "Run our software from the command line."
@@ -14,7 +14,7 @@ keypoints:
 - "Virtual environments keep Python versions and dependencies required by different projects separate."
 - "A virtual environment is itself a directory structure."
 - "Use `venv` to create and manage Python virtual environments."
-- "Use `pip` to install and manage Python third-party packages."
+- "Use `pip` to install and manage Python external (third-party) libraries."
 - "`pip` allows you to declare all dependencies for a project in a separate
 file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment."
 - "Use `pip3 freeze > requirements.txt` to take snapshot of your project's dependencies."
@@ -41,7 +41,7 @@ import numpy as np
 
 This means that our code requires two *external libraries* (also called third-party packages or dependencies) -
 `numpy` and `matplotlib`.
-Python applications often use packages and modules that don’t come as part of the standard Python distribution. This means
+Python applications often use external libraries that don’t come as part of the standard Python distribution. This means
 that you will have to use a *package manager* tool to install them on your system.
 Applications will also sometimes need a
 specific version of an external library (e.g. because they require that a particular
@@ -370,8 +370,10 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 ~~~
 {: .output}
 
-In the above command, we tell the command line shell two things:
+In the above command, we tell the command line two things:
 
+1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
+1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
 1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
 2. to use it to run our script `inflammation-analysis.py`, which resides in the current directory.
 

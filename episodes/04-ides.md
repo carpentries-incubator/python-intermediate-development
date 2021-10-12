@@ -68,7 +68,7 @@ shortly after we familiarise ourselves with
 the PyCharm environment.
 You will notice the IDE shows you a project/file navigator window on the left hand side, to traverse and select the files
 (and any subdirectories) within the working directory, and an editor window on the right. At the bottom, you would
-typically have a panel for version control, terminal (command line shell within PyCharm) and a TODO list.
+typically have a panel for version control, terminal (the command line within PyCharm) and a TODO list.
 
 Select the 'inflammation-analysis.py' file in the project navigator on the left so that its contents are
 displayed in the editor window.
@@ -126,11 +126,11 @@ PyCharm supports a directory-based versioning model, which means that each proje
 associated with a different version control system. Our project was already under Git version control and PyCharm
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-During this course, we will do all our version control commands from the commond line shell but it is worth
+During this course, we will do all our version control commands from the command line but it is worth
 noting that PyCharm offers a **comprehensive subset** of Git commands (i.e. it is possible to perform a set of common
 Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing
 changes you made locally to a file with the same repository version, a different commit version or a version in a different
-branch - this is something that cannot be done equally well from a text-based shell terminal.
+branch - this is something that cannot be done equally well from a text-based command line.
 
 You can get a full
 [documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
