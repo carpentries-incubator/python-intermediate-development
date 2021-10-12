@@ -30,8 +30,8 @@ based on what your collaborators are using.
 Here is an overview of the tools we will be using.
 
 ### Command Line & Virtual Development Environment
-We will use the [command line shell](https://en.wikipedia.org/wiki/Shell_(computing))
-(also known as the command line prompt/console, command line, or simply shell) to run our code and
+We will use the [command line](https://en.wikipedia.org/wiki/Shell_(computing))
+(also known as the command line shell/prompt/console) to run our code and
 interact with the version control tool Git and software sharing platform GitHub. We will also use command line
 tools [`venv`](https://docs.python.org/3/library/venv.html) and [`pip`](https://pip.pypa.io/en/stable/)
 to set up a virtual development environment and isolate our software project from other projects we may work on.

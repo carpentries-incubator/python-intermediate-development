@@ -19,21 +19,21 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Our Software Project
-So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub. 
-The software project studies inflammation in patients 
-who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients, 
-who had their inflammation levels recorded for 40 days (a snapshot of data is below). 
+So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub.
+The software project studies inflammation in patients
+who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients,
+who had their inflammation levels recorded for 40 days (a snapshot of data is below).
 
 ![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg)
 {% comment %}
 Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
 {% endcomment %}
 
-The project analyses the data to study the effect of the new arthritis treatment by checking the inflammation records 
-across all patients but it is not finished and contains some errors. You will be working on your own and in 
-collaboration with others to fix and build on top of the existing code during the course. 
+The project analyses the data to study the effect of the new arthritis treatment by checking the inflammation records
+across all patients but it is not finished and contains some errors. You will be working on your own and in
+collaboration with others to fix and build on top of the existing code during the course.
 
-To start with the development, we have to obtain a local copy of the project on 
+To start with the development, we have to obtain a local copy of the project on
 your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
@@ -56,18 +56,18 @@ should use a pre-generated personal access token as your password here.
 ![github-template-repository](../fig/own-template-repository.png)
 
 > ## Obtain the Software Project Locally
-> Using a command line shell, clone the copied repository from your GitHub account  into your computer.
+> Using the command line, clone the copied repository from your GitHub account  into your computer.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
 > > 1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
 >original template repository but rather your own copy, as you should be able to push commits to it later on.
 > > 2. Do:
 > > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`
-> > 3. Navigate into the cloned repository in your command line shell:
+> > 3. Navigate into the cloned repository in your command line:
 > > `cd python-intermediate-inflammation`
 > > 4. List the contents of the directory:
 > > `ls -l`
-> > Remember the `-l` flag of the `ls` command and also how to get help for commands in shell: `man ls`.
+> > Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line: `man ls`.
 > {: .solution}
 {: .challenge}
 
@@ -86,12 +86,12 @@ drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 ~~~
 {: .language-bash}
 
-As can be seen from the above, our software project contains the `README` file (that typically describes the project, 
-its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`, 
-and three directories - `inflammation`, `data` and `tests`. 
+As can be seen from the above, our software project contains the `README` file (that typically describes the project,
+its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`,
+and three directories - `inflammation`, `data` and `tests`.
 
 The Python script `inflammation-analysis.py` provides the main
-entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts - 
+entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts -
 `view.py` and `model.py`. We will have a more detailed look into these shortly.
 
 ~~~
@@ -102,10 +102,10 @@ total 24
 ~~~
 {: .language-bash}
 
-Directory `data` contains several files with patients’ daily inflammation information. 
+Directory `data` contains several files with patients’ daily inflammation information.
 
 ~~~
-$ ls -l data  
+$ ls -l data
 total 264
 -rw-r--r--  1 alex  staff   5365 25 Jun 13:13 inflammation-01.csv
 -rw-r--r--  1 alex  staff   5314 25 Jun 13:13 inflammation-02.csv
@@ -133,7 +133,7 @@ a series of comma-separated values (CSV) format files, where:
 - columns represent successive days.
 
 > ## Have a Peak at the Data
-> Which shell command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
+> Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
 > > ## Solution
 > > 1. To list the entire content from the project root do: `cat data/inflammation-01.csv`.
 > > 2. To list the first 5 lines from the project root do: `head -n 5 data/inflammation-01.csv`.
@@ -144,23 +144,23 @@ a series of comma-separated values (CSV) format files, where:
 > 0,1,1,1,4,1,6,4,6,3,6,5,6,4,14,13,13,9,12,19,9,10,15,10,9,10,10,7,5,6,8,6,6,4,3,5,2,1,1,1
 > 0,0,0,1,4,5,6,3,8,7,9,10,8,6,5,12,15,5,10,5,8,13,18,17,14,9,13,4,10,11,10,8,8,6,5,5,2,0,2,0
 > 0,0,1,0,3,2,5,4,8,2,9,3,3,10,12,9,14,11,13,8,6,18,11,9,13,11,8,5,5,2,8,5,3,5,4,1,3,1,1,0
-> > ~~~ 
+> > ~~~
 > >{: .output}
 > {: .solution}
 {: .challenge}
 
-Directory `tests` contains several tests that have been implemented already. We will be adding more tests 
+Directory `tests` contains several tests that have been implemented already. We will be adding more tests
 during the course as our code grows.
 
-An important thing to note here is that the structure of the project 
-is not arbitrary. One of the big differences between novice and intermediate software development is 
-planning the structure of your code. This structure includes software components and behavioural interactions between 
-them (including how these components are laid out in a directory and file structure). 
+An important thing to note here is that the structure of the project
+is not arbitrary. One of the big differences between novice and intermediate software development is
+planning the structure of your code. This structure includes software components and behavioural interactions between
+them (including how these components are laid out in a directory and file structure).
 A novice will often make up the structure of their code as they go along. However, for more advanced software development,
-we need to plan this structure - called a *software architecture* - beforehand. 
+we need to plan this structure - called a *software architecture* - beforehand.
 
 Let's have a more detailed look
-into what a software architecture is and which architecture is used by our software project before we 
+into what a software architecture is and which architecture is used by our software project before we
 start adding more code to it.
 
 ## Software Architecture
@@ -210,7 +210,7 @@ patients' data.
 **View** is the means of displaying data to users/clients within an application (i.e. provides visualisation of the
 state of the model).
 For example, displaying a window with input fields and buttons (Graphical User Interface, GUI) or textual options
-within a command line shell (Command Line Interface, CLI) are examples of Views.
+within a command line (Command Line Interface, CLI) are examples of Views.
 They include anything that the user can see from the application. While building GUIs is not the topic of this course,
 we will cover building CLIs in Python in later episodes.
 
@@ -225,30 +225,30 @@ MVC architecture can be applied in scientific applications in the following mann
 scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is
 a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
 Controller is the part that ties the scientific processing and output parts together, mediating input and passing
-it to the model or view, e.g. command line options, mouse clicks, input files. For example, diagram below 
+it to the model or view, e.g. command line options, mouse clicks, input files. For example, diagram below
 depicts the use of MVC architecture for the [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
- 
+
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: width="400px"}
 {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
 
 > ## MVC Application Examples From your Work
 > Think of some other examples from your work or life where MVC architecture may be suitable or have a discussion
-> with your fellow learners. 
-> > ## Solution 
+> with your fellow learners.
+> > ## Solution
 > > MVC architecture is a popular choice when designing web and mobile applications.
 > > Users interact with a web/mobile application by sending various requests to it.
-> > Forms to collect users inputs/requests together with the info returned and displayed to the user as a 
-> > result represent the View. Requests are processed by the Controller, which interacts with the Model to retrieve or 
+> > Forms to collect users inputs/requests together with the info returned and displayed to the user as a
+> > result represent the View. Requests are processed by the Controller, which interacts with the Model to retrieve or
 > > update the underlying data.
-> > For example, a user may request to view its profile. 
+> > For example, a user may request to view its profile.
 > > The Controller retrieves the account information for the user from the Model and passes it to
-> > the View for rendering. The user may further interact with the application by asking it to update its personal information. 
+> > the View for rendering. The user may further interact with the application by asking it to update its personal information.
 > > Controller verifies the correctness of the information (e.g. the password satisfies certain criteria,
 > > postal address and phone number are in the correct format, etc.) and
 > > passes it to the Model for permanent storage. The View is then updated accordingly and the user sees its updated profile details.
-> >         
-> > Note that not everything fits into the MVC architecture but it is still good to think 
-> > about how things could be split into smaller units. 
+> >
+> > Note that not everything fits into the MVC architecture but it is still good to think
+> > about how things could be split into smaller units.
 > > For a few more examples, have a look at this short [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
 > {: .solution}
 {: .challenge}
@@ -257,23 +257,24 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 > Separation of concerns is important when designing software architectures in order to reduce the code's complexity.
 > Note, however, there are limits to everything - and MVC architecture is no exception. Controller often transcends
 > into Model and View and a clear separation is sometimes difficult to maintain. For example, Command Line Interface
-> provides both the View (what user sees and how they interact with the shell) and the Controller (invoking of a command)
+> provides both the View (what user sees and how they interact with the command line) and the Controller
+> (invoking of a command)
 > aspects of a CLI application. In Web applications, Controller often manipulates the data (received from the Model)
 > before displaying it to the user or passing it from the user to the Model.
 >
 {: .callout}
 
-#### Our Project's MVC Architecture 
+#### Our Project's MVC Architecture
 
-Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that 
+Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that
 performs basic statistical analysis over patient data and provides the main
-entry point into the application. The **View** and **Model** modules are contained 
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is 
-contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information. 
+entry point into the application. The **View** and **Model** modules are contained
+in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
+contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
-We will revisit the software architecture and MVC topics once again in a [later episode](../index/25-software-design) 
-when we talk in more detail about software design. 
-We now proceed to set up our virtual development environment and start working with the code using 
+We will revisit the software architecture and MVC topics once again in a [later episode](../index/25-software-design)
+when we talk in more detail about software design.
+We now proceed to set up our virtual development environment and start working with the code using
 a more convenient graphical tool - IDE PyCharm.
 
 {% include links.md %}
