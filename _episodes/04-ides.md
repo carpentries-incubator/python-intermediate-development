@@ -16,11 +16,9 @@ syntax highlighting, code search and completion, version control and debugging."
 ---
 
 ## Introduction
-So far, you may have only written a single script to solve your problem or analyse some data, perhaps using Jupyter
-Notebook or Jupyter Lab. As we have seen in the
+As we have seen in the
 previous episode - even a simple software project is typically split into smaller functional units and modules which are kept in separate files and subdirectories.
-As your code starts to grow and becomes more complex - involving many different files and linking various libraries -
-you will need an application to help you manage all the complexities of, and provide you with some useful (visual)
+As your code starts to grow and becomes more complex, it will involve many different files and various external libraries. You will need an application to help you manage all the complexities of, and provide you with some useful (visual)
 facilities for, the software development process. Such clever and useful graphical
 software development applications are called Integrated Development Environments (IDEs).
 
@@ -68,7 +66,7 @@ shortly after we familiarise ourselves with
 the PyCharm environment.
 You will notice the IDE shows you a project/file navigator window on the left hand side, to traverse and select the files
 (and any subdirectories) within the working directory, and an editor window on the right. At the bottom, you would
-typically have a panel for version control, terminal (command line shell within PyCharm) and a TODO list.
+typically have a panel for version control, terminal (the command line within PyCharm) and a TODO list.
 
 Select the 'inflammation-analysis.py' file in the project navigator on the left so that its contents are
 displayed in the editor window.
@@ -126,11 +124,11 @@ PyCharm supports a directory-based versioning model, which means that each proje
 associated with a different version control system. Our project was already under Git version control and PyCharm
 recognised it. It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-During this course, we will do all our version control commands from the commond line shell but it is worth
+During this course, we will do all our version control commands from the command line but it is worth
 noting that PyCharm offers a **comprehensive subset** of Git commands (i.e. it is possible to perform a set of common
 Git commands from PyCharm but not all). A very useful version control feature in PyCharm is graphically comparing
 changes you made locally to a file with the same repository version, a different commit version or a version in a different
-branch - this is something that cannot be done equally well from a text-based shell terminal.
+branch - this is something that cannot be done equally well from a text-based command line.
 
 You can get a full
 [documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
@@ -145,15 +143,16 @@ You may have noticed a warning about the missing Python interpreter at the top o
 Before you can run the code from PyCharm, you need to explicitly specify the path to the Python
 interpreter on your system. The same goes for any dependencies your code may have - you need to tell PyCharm
 where to find them. Luckily for us, we have already set up a virtual environment
-for our project from the command line and PyCharm is clever enough to detect it.
+for our project from the command line and PyCharm is clever enough to understand it.
 
-#### Adding a Python Interpreter in PyCharm
+#### Adding a Python Interpreter
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
 `Project Interpreter` from the left. You'll
 see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
 being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Local Python Interpreter` window will appear.
+4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
 4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
 selected within the popup window. In the `Interpreter` field point to the Python executable inside your virtual
 environment's `bin` directory.
@@ -162,24 +161,26 @@ environment's `bin` directory.
 6. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select
 "Python 3.9 (python-intermediate-inflammation)" or similar (that you've just added) from the `Project Interpreter` drop-down list.
 
-Note that a number of third party packages have magically appeared under the
+Note that a number of external libraries have magically appeared under the
 "Python 3.9 (python-intermediate-inflammation)" interpreter, including `numpy` and `matplotlib`. PyCharm has recognised
-the virtual environment `venv-inflammation` we created from the command line using `venv` and has added these dependencies effectively replicating our virtual environment in PyCharm (referred to as "Python 3.9 (python-intermediate-inflammation)"). Also note that, although the names are not the same this is one virtual environment - changes done to it in PyCharm will propagate to command line and vice versa. Let's see this in action
+the virtual environment we created from the command line using `venv` and has added these libraries
+effectively replicating our virtual environment in PyCharm (referred to as "Python 3.9 (python-intermediate-inflammation)"). Also note that, although the names are not the same this is one virtual environment - changes done to it in PyCharm will propagate to command line and vice versa. Let's see this in action
 though the following exercise.
 
 ![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="600px"}
 
->## Compare Third-Party Dependencies in Command Line and in PyCharm
-Can you recall two places where information about our project's third-party dependencies
-can be found from the command line? (Hint: the first one is in a specific subdirectory
-of our virtual environment directory `venv-inflammation` and the second one can be obtained using
-`pip freeze` command.) Compare that information with the equivalent configuration in PyCharm.
+>## Compare External Libraries in the Command Line and PyCharm
+>Can you recall two places where information about our project's dependencies
+can be found from the command line? Compare that information with the equivalent configuration in PyCharm.
+>
+>Hint: the first one is in a subdirectory
+of our virtual environment directory `venv` and the second one can be obtained using the
+`pip freeze` command.
 >>## Solution
->>From the previous episode, you may recall that information on third-party dependencies for our project
->> is kept in the following subdirectory of `venv-inflammation`
->> directory, which was created by the `venv` tool:
+>>From the previous episode, you may recall that information on external libraries our project depends on
+>> is kept in the following subdirectory of `venv`:
 >>~~~
->>(venv-inflammation) $ ls -l venv-inflammation/lib/python3.9/site-packages
+>>(venv) $ ls -l venv/lib/python3.9/site-packages
 >>~~~
 >>{: .language-bash}
 >>
@@ -219,7 +220,7 @@ of our virtual environment directory `venv-inflammation` and the second one can 
 >> We also used `pip freeze` command to export our dependencies to the `requirements.txt` file in the project root,
 >> which can be used to replicate the environment. We get the following output when we list the contents of `requirements.txt`:
 >>~~~
->>(venv-inflammation) $ cat requirements.txt
+>>(venv) $ cat requirements.txt
 >>~~~
 >>{: .language-bash}
 >>~~~
@@ -237,32 +238,37 @@ of our virtual environment directory `venv-inflammation` and the second one can 
 >> virtual environment and not the `requirements.txt` file. If you want to make use of that file,
 >> you have to keep it in sync with your virtual environment manually and update it every time the environment changes.
 >>
->> Finally, if you look at both the contents of `venv-inflammation/lib/python3.9/site-packages` and `requirements.txt` and compare that with the packages shown in PyCharm's Python Interpreter Configuration - you will see that they all
+>> Finally, if you look at both the contents of `venv/lib/python3.9/site-packages` and `requirements.txt` and compare that with the packages shown in PyCharm's Python Interpreter Configuration - you will see that they all
 >> contain equivalent information.
 >>
 >{: .solution}
 {: .challenge}
 
-#### Adding a Third Party Package in PyCharm
-We have already added packages `numpy` and `matplotlib` to our virtual environment in the previous episode, and we are currently up-to-date with all the third packages we require at the moment. However, we will need the package `argparse` soon to parse command line arguments passed to our script. (Recall the error we got when we ran our script about the missing argument `infiles`?) We will now install this package into our environment from PyCharm in order to see an alternative way of doing this and how it propagates to command line too.
+#### Adding an External Library
+We have already added packages `numpy` and `matplotlib` to our virtual environment in the previous episode,
+and we are  up-to-date with all external libraries we require at the moment. However,
+we will need library`argparse` soon to parse command line arguments passed to our script
+(recall the error about the missing argument `infiles` we got when we ran our script in the previous episode?).
+We will now install this library into our environment from PyCharm in order to see an alternative
+way of doing this and how it propagates to the command line.
 
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
    `Project Interpreter` from the left.
-3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the package (`argparse`), select it from the list, then select `Install Package`.
+3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`argparse`), select it from the list, then select `Install Package`.
 5. Select `OK` in the `Preferences` window.
 
-It may take a few minutes for PyCharm to install the package. After it is done, the `argparse` package is added to our
-environment in PyCharm and also propagated to the environment in the command line (which you can verify by listing the `venv-inflammation/lib/python3.9/site-packages` subdirectory). Note that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
+It may take a few minutes for PyCharm to install it. After it is done, the `argparse` library is added to our
+environment in PyCharm and also propagated to the environment in the command line (which you can verify by listing the `venv/lib/python3.9/site-packages` subdirectory). Note that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
 
->## Update `requirements.txt` After Adding a New Third-Party Dependency
+>## Update `requirements.txt` After Adding a New Dependency
 Export the newly updated virtual environment into `requirements.txt` file.
 >>## Solution
->>Let's verify first that the newly installed package `argparse` is appearing in our virtual environment
+>>Let's verify first that the newly installed library `argparse` is appearing in our virtual environment
 >>but not in `requirements.txt`. From the project root do:
 >>
 >>~~~
->>(venv-inflammation) $ ls -l venv-inflammation/lib/python3.9/site-packages
+>>(venv) $ ls -l venv/lib/python3.9/site-packages
 >>~~~
 >>{: .language-bash}
 >>~~~
@@ -300,9 +306,9 @@ Export the newly updated virtual environment into `requirements.txt` file.
 >>-rw-r--r--    1 alex  staff   34549  5 Oct 14:03 six.py
 >>~~~
 >>{: .output}
->> We can see the `argparse` package appearing in the listing above. However, if we do:
+>> We can see the `argparse` library appearing in the listing above. However, if we do:
 >>~~~
->>(venv-inflammation) $ cat requirements.txt
+>>(venv) $ cat requirements.txt
 >>~~~
 >>{: .language-bash}
 >>~~~
@@ -316,9 +322,9 @@ Export the newly updated virtual environment into `requirements.txt` file.
 >>six==1.16.0
 >>~~~
 >>{: .output}
->> `argparse` package is missing from `requirements.txt`. To refresh it, we need to re-issue command:
+>> `argparse` library is missing from `requirements.txt`. To refresh it, we need to re-issue command:
 >>~~~
->>(venv-inflammation) $ pip3 freeze > requirements.txt
+>>(venv) $ pip3 freeze > requirements.txt
 >>~~~
 >>{: .language-bash}
 >{: .solution}
@@ -330,18 +336,23 @@ Having configured a virtual environment, we now need to tell PyCharm to use it f
 1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
 2. Select `Python` then `Add new run configuration...`
 3. In the new popup window, in the `Script path` field select the folder
-button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what is the main entry point to our application).
+button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
 4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
 5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation`.
-6. You can optionally configure run parameters and environment variables in the same window - but we do not need this at the moment.
+6. You can optionally configure run parameters and environment variables in the same window - we do not need this at the moment.
 7. Select `Apply` to confirm these settings.
 
 > ## Virtual Environments & Run Configurations in PyCharm
 >
-> By configuring the Python interpreter to use in PyCharm, we have effectively created a new virtual environment within which our code will run. Note that you can create several virtual environments based on the same Python interpreter but with
-different third party packages - this is helpful when you need to develop different types of applications.
-> For example, you can create one virtual environment based on Python 3.9 to develop Django Web applications and another virtual environment based on the same Python 3.9 to work with scientific libraries. Run configurations in PyCharm are named sets of startup properties that define what to execute and what parameters (i.e. what additional configuration options) to use on top of virtual environments.
-> You can vary these configurations each time your code is executed, which is particularly useful for you running, debugging and testing your code.
+> We configured the Python interpreter to use for our project by pointing PyCharm to the
+> virtual environment we created from the command line (which also included external libraries
+> which our code needed to run).
+> Recall that you can create several virtual environments based on the same Python interpreter but with
+different external libraries - this is helpful when you need to develop different types of applications.
+> For example, you can create one virtual environment based on Python 3.9 to develop Django Web applications and another virtual environment based on the same Python 3.9 to work with scientific libraries.
+>
+> Run configurations in PyCharm are named sets of startup properties that define what to execute and what parameters (i.e. what additional configuration options) to use on top of virtual environments.
+> You can vary these configurations each time your code is executed, which is particularly useful for running, debugging and testing your code.
 {: .callout}
 
 ### Running Scripts in PyCharm
@@ -349,7 +360,7 @@ You are now ready to run your script from PyCharm! Right-click the `inflammation
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
-/Users/alex/work/python-intermediate-inflammation/venv-inflammation/bin/python /Users/alex/work/python-intermediate-inflammation/inflammation-analysis.py
+/Users/alex/work/python-intermediate-inflammation/venv/bin/python /Users/alex/work/python-intermediate-inflammation/inflammation-analysis.py
 usage: inflammation-analysis.py [-h] infiles [infiles ...]
 inflammation-analysis.py: error: the following arguments are required: infiles
 
