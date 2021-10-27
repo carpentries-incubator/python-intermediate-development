@@ -16,8 +16,6 @@ keypoints:
 - "Feature branches enable us to develop / explore / test new code features without affecting the stable `main` code."
 ---
 
-Non-linear development allows yourself to work on different parts of a system concurrently.
-
 ## Introduction
 So far we have checked out our software project from GitHub and used command line tools to configure a virtual environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
 will use for code development, testing and debugging. We are now going to start using another set of tools from the collaborative code development toolbox - namely, version control system Git and code sharing platform GitHub.
