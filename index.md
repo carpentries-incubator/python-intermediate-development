@@ -3,10 +3,11 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-This course is aimed at teaching a **core set** of established intermediate-level best practice
-software development skills for working as part of a team in a
-research environment (see detailed [learning objectives](/index.html#learning-objectives) below) using Python as an
-example programming language. The core set of skills we teach is not a comprehensive set of all-encompassing skills,
+
+This course aims to teach a **core set** of established, intermediate-level software development skills and
+best practices for working as part of a team in a research environment using Python as an
+example programming language (see detailed [learning objectives](/index.html#learning-objectives) below).
+The core set of skills we teach is not a comprehensive set of all-encompassing skills,
 but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing
 on your learning journey.
 
@@ -48,7 +49,7 @@ currently undocumented or unstructured
 
 > ## Prerequisites
 > To attend this course you should meet the following criteria. You can also test your prerequisite knowledge by taking
-> [this short quiz](../quiz/index.html).
+> [this short quiz](quiz/index.html).
 >
 > #### Git
 > - **You are familiar with the concept of version control**
