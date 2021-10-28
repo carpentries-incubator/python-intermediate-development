@@ -24,7 +24,7 @@ The software project studies inflammation in patients
 who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients,
 who had their inflammation levels recorded for 40 days (a snapshot of data is below).
 
-![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg)
+![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg){: .image-with-shadow width="300px" }
 {% comment %}
 Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
 {% endcomment %}
