@@ -37,7 +37,7 @@ Over time, you will develop a preference for certain tools based on your persona
 The lesson is organised into the following
 four bigger sections.
 
-![Course overview](../fig/course-overview.png){: .image-with-shadow width="800px" }
+![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
 1. In the first section we are going to familiarise ourselves with using various tools and techniques for
 software development and a typical collaborative code development cycle:

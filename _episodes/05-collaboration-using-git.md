@@ -50,7 +50,7 @@ Working with a remote
 repository involves pushing your changes and pulling other people's changes to keep your local repository in sync
 in order to collaborate with others and to backup your work on a different machine.
 
-<img src="../fig/git-lifecycle.png" alt="Development lifecycle with Git" width="600" />
+![Development lifecycle with Git](../fig/git-lifecycle.png){: .image-with-shadow width="600px"}
 <p style="text-align: center;">Software development lifecycle with Git<br>
 From <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a> (licenced for non-commercial reuse)</p>
 
@@ -221,8 +221,8 @@ branch without affecting the rest of the code.
 
 Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
 
-<img src="../fig/git-feature-branch.svg" alt="Git feature branch" width="700" />
-<p style="text-align: center;">Git feature branches <br>
+![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="700px"}
+<p style="text-align: center;">Git feature branches<br>
 From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main branch which is the version of the code that
@@ -318,7 +318,7 @@ We push the contents of the `develop` branch to GitHub in the same way as we pus
 just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by
 listing all branches.
 
-<img src="../fig/software-template-repo-master-branch.png" alt="software project's main branch" width="700" />
+![Software project's main branch](../fig/software-project-main-branch.png){: .image-with-shadow width="700px"}
 
 To push a new local branch remotely for the first time, you could use the `-u` switch and the name of the branch you
 are creating and pushing to:
@@ -340,7 +340,7 @@ Let's confirm that the new branch `develop` now exist remotely on GitHub too. Fr
 repository in GitHub, click the branch dropdown menu (currently showing the default branch `main`). You should
 see your `develop` branch in the list too.
 
-<img src="../fig/software-template-repo-develop-branch.png" alt="software project's develop branch" width="700" />
+![Software project's develop branch](../fig/software-project-develop-branch.png){: .image-with-shadow width="700px"}
 
 Now the others can check out the `develop` branch too and continue to develop code on it.
 

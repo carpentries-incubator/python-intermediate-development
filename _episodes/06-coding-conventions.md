@@ -68,10 +68,9 @@ introduce an error by missing a single space character, etc.) and do not follow 
 follow this guideline or not, be consistent and follow the style already used in the project.
 
 >## Indentation in Python 2 vs Python 3
-Python 2 allowed code
-indented with a mixture of tabs and spaces. Python 3 disallows mixing the use of tabs and spaces for indentation.
-Whichever you chose, be consistent throughout the project.
->
+> Python 2 allowed code
+> indented with a mixture of tabs and spaces. Python 3 disallows mixing the use of tabs and spaces for indentation.
+> Whichever you chose, be consistent throughout the project.
 {: .callout}
 
 PyCharm has built-in support for converting tab indentation to spaces "under the hood" for Python code in order to
@@ -80,12 +79,12 @@ the amount of spaces that PyCharm uses to replace one tab character or you can d
 altogether and prevent automatic conversion. You can modify these settings in PyCharm's
 `Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux) or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
 
-<img src="../fig/pycharm-indentation.png" alt="Python code indentation settings in PyCharm" width="800" />
+![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
 
 You can also tell the editor to show non-printable characters if you are ever unsure what character exactly is
 being used by selecting `View`>`Active Editor`>`Show whitespace`.
 
-<img src="../fig/pycharm-whitespace.png" alt="Python code whitespace settings in PyCharm" width="500" />
+![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="500px"}
 
 There are more complex rules on indenting single units of code that continue over several lines, e.g. function,
 list or dictionary definitions can all take more than one line. The preferred way of wrapping such long lines is by

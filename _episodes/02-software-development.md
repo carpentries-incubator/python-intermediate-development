@@ -38,14 +38,14 @@ your machine and inspect it. To first step to this is to create a copy of the so
 within your own GitHub account:
 
 1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
-![template-repository](../fig/template-repository.png)
+![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub).
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
-![copy-template-repository](../fig/copy-template-repository.png)
+![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="800px" }
 4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
 5. At this point GitHub may ask you to authenticate. If this happens and
 you do not have 2-Factor-Authentication (2FA) enabled in your
@@ -53,7 +53,7 @@ GitHub account, you can just enter your password to proceed. If you are using 2F
 "Your old project requires credentials for read-only access. We will only temporarily store them for importing." and
 should use a pre-generated personal access token as your password here.
 6. Locate the copied repository under your own GitHub account.
-![github-template-repository](../fig/own-template-repository.png)
+![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Obtain the Software Project Locally
 > Using the command line, clone the copied repository from your GitHub account  into your computer.
@@ -228,7 +228,7 @@ Controller is the part that ties the scientific processing and output parts toge
 it to the model or view, e.g. command line options, mouse clicks, input files. For example, diagram below
 depicts the use of MVC architecture for the [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
-![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: width="400px"}
+![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
 {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
 
 > ## MVC Application Examples From your Work
