@@ -4,32 +4,38 @@ title: Setup
 
 You will need the following software installed and working correctly on your system to be able to follow the workshop.
 
-## Command Line Shell Program
-You can use a command line shell program such as Bash. If you already have a shell other than Bash you can use that instead, that is fine as none of the content of this workshop is specific to Bash.
-  - On Windows the Bash shell will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
-  - On MacOS and Linux you will already have a shell available
+## Command Line Program
+You can use a command line program such as [Bash](https://www.gnu.org/software/bash/). 
+If you already have a command line program other than Bash - you can use that 
+instead as none of the content of this workshop is specific to Bash.
+  - On Windows, Bash will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
+  - On macOS and Linux, you will already have a command line program available (note that starting with macOS Catalina, 
+Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default shell instead of Bash)
 
-To test the installation, start your shell/terminal/Git Bash program and type:
+To test the installation, start your command line/Git Bash program and type:
 ~~~
 $ date
 ~~~
 {: .language-bash}
 
-If your shell is working - it should return the current date and time similar to:
+If your command line program is working - it should return the current date and time similar to:
 ~~~
 Wed 21 Apr 2021 11:38:19 BST
 ~~~
 {: .output}
   
 ## Git Version Control Tool
-Git is a program that can accessed via a shell/terminal.
+Git is a program that can accessed via the command line.
 
   - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
   install the Bash shell as well as Git 
-  - On MacOS Git should be included as part of xcode-tools and should be available from your shell/terminal
-  - On Linux Git can be installed using your favourite package manager
+  - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode) 
+and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from 
+[Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can 
+[install Git using alternative methods](https://git-scm.com/download/mac).
+  - On Linux, Git can be installed using your favourite package manager
 
-To test the installation, start your shell/terminal/Git Bash program and type:
+To test your Git installation, start your command line/Git Bash program and type:
 ~~~
 $ git help
 ~~~
@@ -84,47 +90,62 @@ $ git help
 {: .output}
 
 ### GitHub Account                     
-For the purposes of the workshop, you will also need a GitHub account. 
-GitHub is a free, online host for Git repositories that you will use during the workshop to store your code in. 
-You can create an account at [https://github.com/](https://github.com/) if you don't already have one.
+For the purposes of the course, you will also need a [GitHub](https://github.com/) account. 
+GitHub is a free, online host for Git repositories that you will use during the course to store your code in. 
+You can create an account at [GitHub](https://github.com/) for free if you don't already have one.
 
-## Anaconda Python Distribution
-The material has been developed using the [Anaconda Python distribution](https://www.anaconda.com/) and is using the `conda` package manager 
-that comes with Anaconda. The material has not been extensively tested with other Python distributions and package managers, 
-but most sections are expected to work with some modification. For example, package installation and virtual environments would need to be managed differently.
-The reason behind choosing Anaconda is the ease of installations for learners 
-on various platforms and operating systems and avoiding the issues with different individual Python setups.
-  - Anaconda can be downloaded from [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-  
-To test your Anaconda installation in your shell type (note the capital `-V` switch in the command below):
+## Python Distribution
+The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/) 
+and is using `venv` for virtual environments and `pip` for package management. 
+The material has not been extensively tested with other Python distributions and package managers, 
+but most sections are expected to work with some modifications. 
+For example, package installation and virtual environments would need to be managed differently, but Python script 
+invocations should remain the same regardless of the Python distribution used.
+
+To download a Python distribution for your operating system,
+please head to [Python.org](https://www.python.org/downloads/).
+>## Recommended Python Version
+> We recommend using Python version 3.3+ since `venv` will be included in the Python standard library and requires 
+> no additional installation. Things won't work well if you use Python 2.
+{: .callout}
+
+You can 
+test your Python installation from the command line with:
 ~~~
-$ conda -V
+$ python3 --version
 ~~~
 {: .language-bash}
 If all is well with your installation, you should see something like:
 ~~~       
-conda 4.9.2
+Python 3.8.2
 ~~~
 {: .output}
 
-To make sure you are using the Anaconda distribution of Python and not some other distribution you may have on your system, 
+To make sure you are using the standard Python distribution and not some other distribution you may have on your system, 
  type the following in your shell:
  ~~~
- $ python
+ $ python3
  ~~~
  {: .language-bash}
 This should enter you into a Python console and you should see something like:
  ~~~
-Python 3.8.5 (default, Sep  4 2020, 02:22:02) 
-[Clang 10.0.0 ] :: Anaconda, Inc. on darwin
+Python 3.8.2 (default, Jun  8 2021, 11:59:35) 
+[Clang 12.0.5 (clang-1205.0.22.11)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
  ~~~
  {: .language-bash}
  Press `CONTROL-D` to exit the Python console.
-  
-## PyCharm - Python Integrated Development Environment
-  - PyCharm can be downloaded from [https://www.jetbrains.com/pycharm/download](https://www.jetbrains.com/pycharm/download)
-  - The Community edition is fine, though if you are developing software for the purpose of academic research you may be eligible for a free license for the Professional edition which contains extra features
+
+### `venv` and `pip`
+If you are using a Python 3 distribution from [Python.org](https://www.python.org/), 
+`venv` and `pip` will be automatically installed for you. If not, please make sure you have these
+two tools (that correspond to your Python distribution) installed on your machine.
+
+## PyCharm IDE
+We use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course. 
+PyCharm can be downloaded from [the JetBrains website](https://www.jetbrains.com/pycharm/download).
+The Community edition is fine, though if you are developing software for the purpose of academic research you may 
+be eligible for a free license for the Professional edition which contains extra features
   
 {% include links.md %}
