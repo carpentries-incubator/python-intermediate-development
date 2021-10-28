@@ -5,11 +5,13 @@ start: true
 teaching: 5
 exercises: 0
 questions:
-- "What architectural and software design paradigms exist to help us design our software?"
+- "How can we use common patterns and paradigms to improve the sustainability of our software?"
 objectives:
-- "TODO"
+- "Design software around a number of common patterns and paradigms to improve extensibility, testability and overall sustainability."
 keypoints:
-- "TODO"
+- "Each of the major programming paradigms are suited to different kinds of problem."
+- "A single piece of software will often contain instances of multiple paradigms."
+- "By deliberately designing our software, we can avoid or mitigate many of the common issues encountered when working with legacy software."
 ---
 In this section, we step away from writing code for a bit to look into different software design paradigms to
 understand a broader set of approaches you can take to design software and to help you with the design decisions
