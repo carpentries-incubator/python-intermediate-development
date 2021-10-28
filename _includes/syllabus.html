@@ -63,7 +63,7 @@ Days are displayed if at least one episode has 'start = true'.
 
         <tr {% if multiday and episode.colour %}style="background-color:{{ episode.colour }};"{% endif %}>
             {% if multiday %}
-            <td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>
+            <td class="col-md-1">{% if episode.start %}Section {{ day }}{% endif %}</td>
             {% endif %}
             <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours
                 }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}

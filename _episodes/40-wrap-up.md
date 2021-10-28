@@ -14,10 +14,10 @@ keypoints:
 - ""
 ---
 
-Diagram below depicts a concept map of tools and techniques we used throughout this workshop and a high-level overview 
+Diagram below depicts a concept map of tools and techniques we used throughout this workshop and a high-level overview
 of how they fit together.
 
-![Overview of tools and techniques covered in the course](../fig/course-concept-map.png)
+![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="700px"}
 
 
 {% include links.md %}

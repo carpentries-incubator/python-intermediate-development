@@ -1,18 +1,19 @@
 ---
 title: "Integrated Software Development Environments"
 start: false
-teaching: 20
-exercises: 10
+teaching: 25
+exercises: 15
 questions:
 - "What are Integrated Development Environments (IDEs)?"
 - "What are the advantages of using IDEs for software development?"
 objectives:
-- "Set up a development environment in PyCharm IDE"
+- "Set up a (virtual) development environment in PyCharm"
 - "Use PyCharm to run a Python script"
 
 keypoints:
-- "An IDE is an application that provides a comprehensive set of facilities for software development, for example
-syntax highlighting, code search and completion, version control and debugging."
+- "An IDE is an application that provides a comprehensive set of facilities for software development, including
+syntax highlighting, code search and completion, version control, testing and debugging."
+- "PyCharm recognises virtual environments configured from the command line using `venv` and `pip`."
 ---
 
 ## Introduction

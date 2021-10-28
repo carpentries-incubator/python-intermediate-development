@@ -37,12 +37,12 @@ Over time, you will develop a preference for certain tools based on your persona
 The lesson is organised into the following
 four bigger sections.
 
-![Course overview](../fig/course-overview.png){: .image-with-shadow width="800px" }
+![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
 1. In the first section we are going to familiarise ourselves with using various tools and techniques for
 software development and a typical collaborative code development cycle:
 - **PyCharm** (an Integrated Development Environment (IDE) tool) for **code development, testing and debugging**,
-- **command line** for running code and interacting with **command line tool Git** for version control and
+- **command line** for running code and interacting with the **command line tool Git** for version control and
 branching the code out for developing new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) for code backup, sharing and
 collaborative development,
