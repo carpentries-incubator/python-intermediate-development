@@ -54,18 +54,18 @@ by the maximum value for that patient stored in the 1D array `max`.
 However, we cannot do that division automatically as `data` is a 2D array (of shape `(n, m)`) and `max`
 is a 1D array (of shape `(n, )`) meaning that their shapes are not compatible.
 
-![incompatible_shapes](../fig/incompatible_shapes.png)
+![NumPy arrays of incompatible shapes](../fig/numpy_incompatible_shapes.png){: .image-with-shadow width="500px"}
 
 Hence, to make sure that we can perform this division and get the expected result, we need to convert `max` to be a 2D array by using the `newaxis` index operator to
 insert a new axis into `max`, making it a 2D array of shape `(n, 1)`.
 
-![shapes_after_new_axis](../fig/shapes_after_new_axis.png)
+![NumPy arrays' shapes after adding a new_axis](../fig/numpy_shapes_after_new_axis.png){: .image-with-shadow width="500px"}
 
 Now the division will give us the expected result. Even though the shapes are not identical,
 NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max` array is now
 "stretched" ("broadcast") to match that of `data` - i.e. `(n, m)`, and element-wise division can be performed.
 
-![shapes_after_broadcasting](../fig/shapes_after_broadcasting.png)
+![NumPy arrays' shapes after broadcasting](../fig/numpy_shapes_after_broadcasting.png){: .image-with-shadow width="500px"}
 
 > ## Broadcasting
 >
@@ -130,19 +130,19 @@ Firstly, to make it easier to track what's going on, we can set up PyCharm to ru
 3. Under `Testing`, for `Default test runner` select `pytest`.
 4. Select `OK`.
 
-We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `patientdb.py` file before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
+We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `inflammation-analysis.py` file before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
 
-![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png)
+![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png){: .image-with-shadow width="700px"}
 
 We can also run our test functions individually. First, let's check that our PyCharm running and testing configurations are correct. Select `Run` > `Edit Configurations...` from the PyCharm menu, and you should see something like the following:
 
-![Ensuring our PyCharm configurations are correct](../fig/pytest-pycharm-check-config.png)
+![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="700px"}
 
-PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `patientdb` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
+PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
 Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 
-![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png)
+![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="700px"}
 
 Click on the "run" button next to `test_patient_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
 
@@ -156,7 +156,7 @@ Now if you select the green arrow next to the `test_patient_normalise` function 
 
 In the debug panel below, in the `Debugger` tab you will be able to see two sections that looks something like the following:
 
-![Debugging in PyCharm](../fig/pytest-pycharm-debug.png)
+![Debugging in PyCharm](../fig/pytest-pycharm-debug.png){: .image-with-shadow width="700px"}
 
 - The `Frames` section on the left, which shows the **call stack**, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
 - The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
@@ -176,7 +176,7 @@ So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the 
 
 So to fix the `patient_normalise` function in `models.py`, change `axis=0` in the first line of the function to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
 
-![All tests successful](../fig/pytest-pycharm-all-tests-pass.png)
+![All tests in PyCharm are successful](../fig/pytest-pycharm-all-tests-pass.png){: .image-with-shadow width="700px"}
 
 
 ## Corner or Edge Cases

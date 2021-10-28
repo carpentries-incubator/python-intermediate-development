@@ -203,8 +203,8 @@ class Patient(Person):
 Now we need to make sure people can call this view - that means connecting it to the controller and ensuring that there's a way to request this view when running the program.
 The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
 
-~~~ python
-# file: patientdb.py
+~~~
+# file: inflammation-analysis.py
 
 #!/usr/bin/env python3
 """Software for managing patient data in our imaginary hospital."""
@@ -281,8 +281,8 @@ For now, we also don't know the names of any of our patients, so we've made it `
 
 We can now call our program with these extra arguments to see the record for a single patient:
 
-~~~ bash
-python patientdb.py --view record --patient 1 data/inflammation-01.csv
+~~~
+python inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
 ~~~
 {: .language-bash}
 
