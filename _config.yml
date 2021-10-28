@@ -29,7 +29,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "team@carpentries.org"
+email: "info@software.ac.uk"
 
 # Sites.
 amy_site: "https://amy.carpentries.org/workshops"
