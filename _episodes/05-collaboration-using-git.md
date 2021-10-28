@@ -17,20 +17,26 @@ keypoints:
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub and used command line tools to configure a virtual environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
-will use for code development, testing and debugging. We are now going to start using another set of tools from the collaborative code development toolbox - namely, version control system Git and code sharing platform GitHub.
+So far we have checked out our software project from GitHub and used command line tools to configure a virtual 
+environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
+will use for code development, testing and debugging. We are now going to start using another set of tools from the 
+collaborative code development toolbox - namely, the version control system Git and code sharing platform GitHub.
 These two will enable us to track changes to our code and share it with others.
 
 You may recall that we have already made some changes to our project locally - we created a virtual
 environment in `venv` directory and exported it to the `requirements.txt` file.
-We should now decide which of those changes we want to check in and share with others in our team. This is a typical software development workflow - you work locally on code, test it to make sure
-it works correctly and as expected, then record your changes using version control and share your work with others via a shared and centrally backed-up repository.
+We should now decide which of those changes we want to check in and share with others in our team. This is a typical 
+software development workflow - you work locally on code, test it to make sure
+it works correctly and as expected, then record your changes using version control and share your work with others 
+via a shared and centrally backed-up repository.
 
 Firstly, let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
-Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development but it can be used to
-track changes in files in general - it is particularly effective for tracking text-based files (e.g. CSV, Markdown, HTML, CSS, Tex, etc. files).
+Git is a version control system for tracking changes in computer files and coordinating work on those files among 
+multiple people. It is primarily used for source code management in software development but it can be used to
+track changes in files in general - it is particularly effective for tracking text-based files (e.g. source code files, 
+CSV, Markdown, HTML, CSS, Tex, etc. files).
 
 Git has several important characteristics:
 - support for non-linear development allowing you and your colleagues to work on different parts of a project concurrently,
@@ -40,11 +46,20 @@ if you make a mistake you can revert to a point before it.
 
 Diagram below shows a typical software development lifecycle with Git and the commonly used commands to interact
 with different parts of Git infrastructure, such as:
-- **working directory** - a directory where your project files live and where you are currently working. It is also known as the “untracked” area of Git. Any changes to files will be marked by Git in the working directory. If you make changes to the working directory and do not explicitly tell Git to save them - you will likely lose those changes. Using `git add filename` command, you tell Git to start tracking changes to file `filename` within your working directory.
-- **staging area (index)** - once you tell Git to start tracking changes to files (with `git add` command), Git saves those changes in the staging area. Each subsequent change to the same file
-  needs to be followed by another `git add filename` command to tell Git to update it in the staging area. To see what is in your working directory and staging area at any moment (i.e. what changes is Git tracking), run the command `git status`.
-- **local repository** - stored within the `.git` directory of your project, this is where Git wraps together all your changes from the staging area and puts them using the `git commit` command. Each commit is a new, permanent snapshot (checkpoint, record) of your project in time, which you can share or revert back to.
-- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on GitHub, GitLab or somewhere else). While your project is nicely version-controlled in your local repository, and you have
+- **working directory** - a directory (including any subdirectories) where your project files live and where you are currently working. 
+It is also known as the “untracked” area of Git. Any changes to files will be marked by Git in the working directory. 
+If you make changes to the working directory and do not explicitly tell Git to save them - you will likely lose those 
+changes. Using `git add filename` command, you tell Git to start tracking changes to file `filename` within your 
+working directory.
+- **staging area (index)** - once you tell Git to start tracking changes to files (with `git add filename` command), 
+Git saves those changes in the staging area. Each subsequent change to the same file needs to be followed by 
+another `git add filename` command to tell Git to update it in the staging area. To see what is in your working 
+directory and staging area at any moment (i.e. what changes is Git tracking), run the command `git status`.
+- **local repository** - stored within the `.git` directory of your project, this is where Git wraps together all your 
+changes from the staging area and puts them using the `git commit` command. Each commit is a new, permanent snapshot 
+(checkpoint, record) of your project in time, which you can share or revert back to.
+- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on GitHub, 
+GitLab or somewhere else). While your project is nicely version-controlled in your local repository, and you have
 snapshots of its versions from the past, if your machine crashes - you still may lose all your work.
 Working with a remote
 repository involves pushing your changes and pulling other people's changes to keep your local repository in sync
@@ -171,9 +186,11 @@ repository locally); `main` is the name of our
 main (and currently only) development branch.
 
 >## Git Remotes
-> Note that systems like Git allow us to synchronise work between any two copies of the same repository. In practice,
-> though, it is easiest to use one copy as a central hub (such as GitHub or GitLab) where everyone pushes their
-> changes to, and to keep it on the Web rather than on someone’s laptop. You can have more than one remote configured
+> Note that systems like Git allow us to synchronise work between any two or more copies of the same repository - 
+> the ones that are not located on your machine are "Git remotes" for you. In practice,
+> though, it is easiest to agree with your collaborators to use one copy as a central hub (such as GitHub or GitLab), where everyone pushes their
+> changes to. This also avoid risks associated with keeping the "central copy" on someone’s laptop. 
+> You can have more than one remote configured
 > for your local repository, each of which generally is either read-only or read/write for you. Collaborating
 > with others involves managing these remote repositories and pushing and pulling information to and from
 > them when you need to share work.
