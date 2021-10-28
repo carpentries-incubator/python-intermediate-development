@@ -21,15 +21,15 @@ keypoints:
 
 ## Introduction
 
-So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
-
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
 
 - Does the code we develop work the way it should do?
 - Can we (and others) verify these assertions for themselves?
-- And perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
+- Perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
 
-If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it?
+If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software are useful for this, but manually testing software can prove an expensive process.
+
+Automation can help, and automation where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 
 ## What Is Software Testing?
