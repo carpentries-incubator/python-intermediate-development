@@ -86,11 +86,11 @@ The big pluses here are that we don't need to write separate functions for each 
 
 Try them out!
 
-Let's commit our new `test_models.py` file and test cases to our `test-suite` branch (but don't push it yet!):
+Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push it yet!):
 
 ~~~
 $ git add setup.py tests/test_models.py
-$ git commit -m "Add parameterisation to daily_min() and daily_max() test cases"
+$ git commit -m "Add parameterisation mean, min, max test cases"
 ~~~
 {: .language-bash}
 
@@ -104,7 +104,7 @@ Now, we should try to choose tests that are as different from each other as poss
 A simple way to check the code coverage for a set of tests is to use `pytest` to tell us how many statements in our code are being tested. By installing a Python package to our virtual environment called `pytest-cov` that is used by Pytest and using that, we can find this out:
 
 ~~~
-$ conda install pytest-cov
+$ pip3 install pytest-cov
 $ pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
@@ -143,27 +143,27 @@ $ pytest --cov=inflammation.models --cov-report term-missing tests/test_models.p
 ...
 Name                     Stmts   Miss  Cover   Missing
 ------------------------------------------------------
-inflammation/models.py       9      1    89%   14
+inflammation/models.py       9      1    89%   18
 ------------------------------------------------------
 TOTAL                        9      1    89%
 ...
 ~~~
 {: .output}
 
-So there's still one statement not being tested at line 14, and it turns out it's in the function `load_csv()`. So, here we should consider whether or not to write a test for this function, and in general, any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
+So there's still one statement not being tested at line 18, and it turns out it's in the function `load_csv()`. So, here we should consider whether or not to write a test for this function, and in general, any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
-We should also update our `environment.yml` file with our latest package environment, which now includes `pytest-cov`, and commit it:
+Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 
 ~~~
-$ conda env export --from-history > environment.yml
-$ cat environment.yml
+$ pip3 freeze --exclude-editable > requirements.txt
+$ cat requirements.txt
 ~~~
 {: .language-bash}
 
 You'll notice `pytest-cov` and `coverage` have been added. Let's commit this file and push our new branch to GitHub:
 
 ~~~
-$ git add environment.yml
+$ git add requirements.txt
 $ git commit -m "Add coverage support"
 $ git push origin test-suite
 ~~~
