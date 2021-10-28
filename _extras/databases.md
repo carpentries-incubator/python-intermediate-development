@@ -1,5 +1,5 @@
 ---
-title: "Advanced Material: Databases"
+title: "Additional Material: Databases"
 teaching: 30
 exercises: 30
 questions:

@@ -86,6 +86,14 @@ defaults:
       root: ..
       layout: page
 
+extras_order:
+  - about
+  - figures
+  - guide
+  - discuss
+  - databases
+  - verifying-code-style-linters
+  - quiz
 # Files and directories that are not to be copied.
 exclude:
   - Makefile
