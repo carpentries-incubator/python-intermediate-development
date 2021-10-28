@@ -220,7 +220,7 @@ version of Python configured in your virtual environment.
 
 When you’re done working on your project, you can exit the environment with:
 ~~~
-(venv-inflammation) $ deactivate
+(venv) $ deactivate
 ~~~
 {: .language-bash}
 
@@ -233,15 +233,15 @@ install these two dependencies into your virtual environment.
 To install the latest version of a package with `pip` you use the `pip install` command and specify the package’s name, e.g.:
 
 ~~~
-(venv-inflammation) $ pip3 install numpy
-(venv-inflammation) $ pip3 install matplotlib
+(venv) $ pip3 install numpy
+(venv) $ pip3 install matplotlib
 ~~~
 {: .language-bash}
 
 or like this to install multiple packages at once for short:
 
 ~~~
-(venv-inflammation) $ pip3 install numpy matplotlib
+(venv) $ pip3 install numpy matplotlib
 ~~~
 {: .language-bash}
 
@@ -258,7 +258,7 @@ To upgrade a package to the latest version, e.g. `pip3 install --upgrade numpy`.
 To display information about a particular installed package do:
 
 ~~~
-(venv-inflammation) $ pip3 show numpy
+(venv) $ pip3 show numpy
 ~~~
 {: .language-bash}
 ~~~
@@ -278,7 +278,7 @@ Required-by: matplotlib
 To list all packages installed with `pip` (in your current virtual environment):
 
 ~~~
-(venv-inflammation) $ pip3 list
+(venv) $ pip3 list
 ~~~
 {: .language-bash}
 ~~~
@@ -312,8 +312,8 @@ produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
 ~~~
-(venv-inflammation) $ pip3 freeze > requirements.txt
-(venv-inflammation) $ cat requirements.txt
+(venv) $ pip3 freeze > requirements.txt
+(venv) $ cat requirements.txt
 ~~~
 {: .language-bash}
 ~~~
@@ -334,7 +334,7 @@ get shipped as part of your software and shared with collaborators and/or users.
 install all the necessary packages from the project root as follows:
 
 ~~~
-(venv-inflammation) $ pip3 install -r requirements.txt
+(venv) $ pip3 install -r requirements.txt
 ~~~
 {: .language-bash}
 
@@ -359,7 +359,7 @@ You should already be located in the root of the `python-intermediate-inflammati
 (if not, please navigate to it from the command line now). To run the script, type the following command:
 
 ~~~
-(venv-inflammation) $ python3 inflammation-analysis.py
+(venv) $ python3 inflammation-analysis.py
 ~~~
 {: .language-bash}
 
