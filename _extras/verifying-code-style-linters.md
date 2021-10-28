@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Verifying Code Style using Linters"
+title: "Additional Material: Verifying Code Style Using Linters"
 teaching: 15
 exercises: 5
 questions:
