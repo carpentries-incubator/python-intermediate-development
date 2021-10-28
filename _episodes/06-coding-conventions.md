@@ -502,13 +502,14 @@ help(fibonacci)
  {: .language-python}
 
 > ## Fix the Docstrings
-> Look into `models.py` in PyCharm and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. Commit those changes to feature branch `style-fixes`.
+> Look into `models.py` in PyCharm and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. 
+> Commit those changes to feature branch `style-fixes`.
 > > ## Solution
 > > For example, the improved docstrings for the above functions would contain explanations for parameters and
 > > return values.
 > > ~~~
 > > def daily_mean(data):
-> >    """Calculate the daily mean of a 2d inflammation data array for each day.
+> >    """Calculate the daily mean of a 2D inflammation data array for each day.
 > >
 > >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
 > >    :returns: An array of mean values of measurements for each day.
@@ -518,7 +519,7 @@ help(fibonacci)
 > > {: .language-python}
 > > ~~~
 > > def daily_min(data):
-> >    """Calculate the daily minimum of a 2d inflammation data array for each day.
+> >    """Calculate the daily minimum of a 2D inflammation data array for each day.
 > >
 > >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
 > >    :returns: An array of minimum values of measurements for each day.
@@ -528,7 +529,7 @@ help(fibonacci)
 > > {: .language-python}
 > > ~~~
 > > def daily_max(data):
-> >    """Calculate the daily maximum of a 2d inflammation data array for each day.
+> >    """Calculate the daily maximum of a 2D inflammation data array for each day.
 > >
 > >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
 > >    :returns: An array of max values of measurements for each day.
