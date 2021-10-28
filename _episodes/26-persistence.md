@@ -30,7 +30,7 @@ Well, at the moment, if we wanted to add a new patient or perform a new observat
 We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide the ability to do this through the software.
 That way we can perform any necessary validation (e.g. inflammation measurements must be a number) or transformation before the data gets accepted.
 
-If we want to bring in this data, modify it somehow, and save it back to a file, all using our existing MVC architecture pattern, we'd need to:
+If we want to bring in this data, modify it somehow, and save it back to a file, all using our existing MVC architecture pattern, we'll need to:
 
 - Write some code to perform data import / export (**persistence**)
 - Add some views we can use to modify the data
@@ -114,10 +114,12 @@ For example, we're going to try to use this format to store data about our patie
 ~~~
 {: .language-json}
 
-One of the main advantages of JSON is that it's relatively human-readable, so it's a bit easier to check the structure of some new JSON data than it can be with some of the other common formats.
+Compared to the CSV format, this gives us much more flexibility to describe complex structured data.
+If we wanted to represent this data in CSV format, the most natural way would be to have two separate files: one with each row representing a patient, the other with each row representing an observation.
+We'd then need to use a unique identifier to link each observation record to the relevant patient.
+This is how relational databases work, but it would be quite complicated to manage this ourselves with CSVs.
 
 Now if we're going to follow TDD (Test Driven Development), we should write some test code.
-
 Our JSON serializer should be able to save and load our patient data to and from a JSON file, so for our test we could try these save-load steps and check that the result is the same as the data we started with.
 Again you might need to change these examples slightly to get them to fit with how you chose to implement your `Patient` class.
 
@@ -299,6 +301,15 @@ class PatientSerializer(Serializer):
 >
 > **Hint:** The method Python uses to check for equality of two instances of a class is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
 {: .challenge}
+
+## Design Early
+
+By taking time to design our software for extensibility, we can save ourselves a lot of time later when requirements change.
+The sooner we do this the better - ideally we should have a rough design sketched out for our software before we write a single line of code.
+This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
+Who will be using our software and how will the interact with it?
+
+Software is often designed and built as part of a team, so in the next section we'll be looking at how to manage the process of software development.
 
 > ## Advanced Challenge: Abstract Base Classes
 >
