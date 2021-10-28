@@ -205,7 +205,7 @@ print(type(my_set))
 Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
 
 - They each hold some data (or **state**), as you will have seen before.
-- They also provide some methods describing the behaviours of the data - what can the data do and what can we do to the data?.
+- They also provide some methods describing the behaviours of the data - what can the data do and what can we do to the data?
 
 The behaviours we may have seen previously include:
 
@@ -508,9 +508,9 @@ The other type of relationship used in object oriented programming is **inherita
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
 If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
 
-If we want to extend the previous example to also manage people who aren't academics we can add another class `Person`.
-But `Person` will share some data and behaviour with `Academic` - in this case both have a name and show that name when you print them.
-Since we expect all academics to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Academic`.
+If we want to extend the previous example to also manage people who aren't patients we can add another class `Person`.
+But `Person` will share some data and behaviour with `Patient` - in this case both have a name and show that name when you print them.
+Since we expect all patients to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Patient`.
 
 To write our class in Python, we used the `class` keyword, the name of the class, and then a block of the functions that belong to it.
 If the class **inherits** from another class, we include the parent class name in brackets.
