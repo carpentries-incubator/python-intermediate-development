@@ -121,7 +121,6 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 > dual functionality - (1) it is a package manager that helps you find Python packages from
 > remote package repositories and install them on your system, and (2) it is also a virtual environment manager.
 > So, if you are using Anaconda Python distribution, you can use `conda` for both tasks instead of using `venv` and `pip`.
->
 {: .callout}
 
 ### Many Tools for the Job
@@ -141,7 +140,7 @@ and use them accordingly. As you become more familiar with them you will realise
 way even though the command syntax may be different (and that there are equivalent tools for other programming languages
 too to which your knowledge can be ported).
 
-<img src="../fig/python-environment-hell.png" alt="Python environment hell XKCD comic"/>
+![Python environment hell XKCD comic](../fig/python-environment-hell.png){: .image-with-shadow width="500px"}
 <p style="text-align: center;">Python Environment Hell<br>
 From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons Attribution-NonCommercial 2.5 License)</p>
 

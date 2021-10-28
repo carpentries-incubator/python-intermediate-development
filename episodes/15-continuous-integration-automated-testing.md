@@ -218,17 +218,17 @@ Since we are only committing the GitHub Actions configuration file to the `test-
 
 Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch from the dropdown menu (which currently says `main`), and then selecting `commits` (located just above the code directory listing on the right, alongside the last commit message and a small image of a timer).
 
-![ci-initial-ga-build](../fig/ci-initial-ga-build.png)
+![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="800px"}
 
 You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful build or not.
 
 Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output.
 
-![ci-initial-ga-build-log](../fig/ci-initial-ga-build-log.png)
+![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="800px"}
 
 The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
 
-![ci-initial-ga-build-details](../fig/ci-initial-ga-build-details.png)
+![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="800px"}
 
 GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
 
@@ -283,7 +283,7 @@ $ git push
 
 If we go to our GitHub build now, we can see that a new job has been created for each permutation.
 
-![ci-ga-build-matrix](../fig/ci-ga-build-matrix.png)
+![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="800px"}
 
 Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 

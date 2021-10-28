@@ -30,13 +30,14 @@ As a piece of software is used, bugs and other issues will inevitably come to li
 
 GitHub provides a framework (as does GitLab!) for managing bug reports, feature requests, and lists of future work - *Issues*.
 
-Go back to the home page for your `python-intermediate-inflammation` repository, and click on the Issues tab. You should see a page listing the open issues on your repository, currently none.
+Go back to the home page for your `python-intermediate-inflammation` repository, and click on the Issues tab.
+You should see a page listing the open issues on your repository, currently none.
 
-![assi-issue-list](../fig/assi-issue-list.png)
+![List of project issues in GitHub](../fig/github-issue-list.png){: .image-with-shadow width="700px"}
 
 Let's go through the process of creating a new issue. Start by selecting `New issue`.
 
-![assi-issue-new](../fig/assi-issue-new.png)
+![Creating a new issue in GitHub](../fig/github-new-issue.png){: .image-with-shadow width="700px"}
 
 When you create an issue, you can provide a range of details added to them. They can be *assigned to a specific developer* for example - this can be a helpful way to know who, if anyone, is currently working to fix an issue (or a way to assign responsibility to someone to deal with it!).
 
