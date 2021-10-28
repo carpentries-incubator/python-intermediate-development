@@ -178,7 +178,7 @@ main (and currently only) development branch.
 > with others involves managing these remote repositories and pushing and pulling information to and from
 > them when you need to share work.
 >
-> ![git-distributed](../fig/git-distributed.png)
+> ![git-distributed](../fig/git-distributed.png){: .image-with-shadow width="400px"}
 > <p style="text-align: center;">Git - distributed version control system<br> From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
 {: .callout}
 
