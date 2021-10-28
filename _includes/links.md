@@ -15,6 +15,7 @@
 [gdpr]: https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en
 [github-importer]: https://import.github.com/
 [github-markdown]: https://guides.github.com/features/mastering-markdown/
+[github-importer]: https://import2.github.com/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
