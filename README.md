@@ -26,8 +26,6 @@ The software project template repository used for this lesson is available at:
 
 The lesson is using [The Carpentries lesson template][styles].
 
-The lesson has been developed by the [Software Sustainability Institute][ssi], with [contributions from other authors](AUTHORS).
-
 ### Lesson Status
 The lesson is currently in alpha status, which means that it is still being actively developed. 
 However, all planned episodes have been written and finished, and the lesson has be tested several times with 
@@ -80,7 +78,7 @@ To cite this lesson, please consult with [CITATION](CITATION).
 
 ## Acknowledgements
 
-Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the UK Engineering and Physical Sciences Research Council (EPSRC) through grant EP/H043160/1 and EPSRC, BBSRC and ESRC Grant EP/N006410/1 and EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1 for the UK Software Sustainability Institute.
+Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the UK Engineering and Physical Sciences Research Council (EPSRC) through grant EP/H043160/1 and EPSRC, BBSRC and ESRC Grant EP/N006410/1 and EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1 for the [UK Software Sustainability Institute][ssi].
 
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
