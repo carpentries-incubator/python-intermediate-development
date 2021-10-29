@@ -19,7 +19,7 @@ as described in [Best Practices for Scientific Computing][best-practices] and
 [Good enough practices in scientific computing][good-practices].
 
 The code examples used in this lesson build upon the examples used in Software Carpentry's 
-[Programming with Python][programming-with-python] lesson and work with patients' inflammation dataset.
+[Programming with Python][programming-with-python] lesson and work with the patients' inflammation dataset.
 
 The software project template repository used for this lesson is available at:
 <https://github.com/softwaresaved/python-intermediate-inflammation>.
