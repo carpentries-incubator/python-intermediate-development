@@ -39,7 +39,7 @@ nicely explained in the chapter [Contributing to a Project](http://git-scm.com/b
 by Scott Chacon.
 Look for tags ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg) or
 ![help_wanted](https://img.shields.io/badge/-help%20wanted%20issue-green.svg). 
-This indicates that the maintainers will welcome a pull request fixing these issues.
+This indicates that the maintainers will welcome pull requests fixing such issues.
 
 ## Maintainer(s)
 
