@@ -24,7 +24,7 @@ The code examples used in this lesson build upon the examples used in Software C
 The software project template repository used for this lesson is available at:
 <https://github.com/carpentries-incubator/python-intermediate-inflammation>.
 
-The lesson is using [The Carpentries lesson template][styles].
+The lesson is using the official [Carpentries lesson template][styles].
 
 ### Lesson Status
 The lesson is currently in alpha status, which means that it is still being actively developed. 
