@@ -69,10 +69,11 @@ currently undocumented or unstructured
 {: .prereq}
 
 > ## Learning Objectives for the Workshop
-> - Use a virtual environment and a set of tools (command line, Pip, Venv, Git, GitHub, PyCharm) to develop software collaboratively
-> - Use a test framework to verify the correct behaviour of code
-> - Design robust, extensible software
-> - Release your software for reuse by others
+> - Set up and use a suitable development environment together with popular source code management infrastructure to develop software collaboratively
+> - Use a test framework to automate the verification of correct behaviour of code, and employ parameterisation and continuous integration to scale and further automate your testing
+> - Design robust, extensible software through the application of suitable programming paradigms and design techniques
+> - Use a critical, reflective mindset to prepare and release your software for reuse by others
+> - Manage software improvement from feedback through agile techniques
 {: .objectives }
 
 {% include links.md %}
