@@ -28,7 +28,7 @@ As part of this course we have looked at a core set of established, intermediate
 ## Further Resources
 Below are some additional resources to help you continue learning:
 
-- [Additional episode on databases](/databases)
-- [Additional episode verifying code style using linters](/verifying-code-style-linters)
+- [Additional episode on databases]({{ relative_root_path }}/databases)
+- [Additional episode verifying code style using linters]({{ relative_root_path }}/verifying-code-style-linters)
 
 {% include links.md %}
