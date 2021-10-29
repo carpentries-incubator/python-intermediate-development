@@ -24,6 +24,14 @@ The code examples used in this lesson build upon the examples used in Software C
 The software project template repository used for this lesson is available at:
 <https://github.com/softwaresaved/python-intermediate-inflammation>.
 
+### Lesson Status
+The lesson is currently in alpha status, which means that it is still being actively developed. 
+However, the lesson has be tested several times with different cohorts and is in a good state to be reused
+and tried by others. Please be aware that there may be some discrepancies and inconsistencies 
+with images, screenshots and code outputs. We would appreciate any contributions from the community in 
+fixing these issues - see the section below on how to make contributions. 
+
+
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
