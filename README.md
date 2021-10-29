@@ -26,7 +26,7 @@ The software project template repository used for this lesson is available at:
 
 The lesson is using [The Carpentries lesson template][styles].
 
-The lesson has been developed by the [Software Sustainability Institute][ssi], with [contributions from other authors](AUTHORS) too.
+The lesson has been developed by the [Software Sustainability Institute][ssi], with [contributions from other authors](AUTHORS).
 
 ### Lesson Status
 The lesson is currently in alpha status, which means that it is still being actively developed. 
