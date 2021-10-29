@@ -10,7 +10,7 @@ questions:
 objectives:
 - "Put the course in context with future learning."
 keypoints:
-- ""
+- "Collaborative techniques and tools play an important part of research software development in teams"
 ---
 
 Diagram below depicts a concept map of tools and techniques we used throughout this workshop and a high-level overview
@@ -24,5 +24,11 @@ As part of this course we have looked at a core set of established, intermediate
 - We've gone beyond procedural programming and explored different paradigms, such as object oriented and functional styles of programming. We've contrasted their pros, cons, and the situations in which they work best, and how separation of concerns through modularity and architectural design can help shape good software.
 - We've looked at the importance of being able to verify the correctness of software and automation, and how we can leverage techniques and infrastructure to automate and scale tasks such as testing to save us time - but automation has a role beyond simply testing: what else can you automate that would save you even more time? Once found, we've also examined how to locate faults in our software.
 - As an intermediate developer, aspects other than technical skills become important, particularly in development teams. We've looked at the importance of good, consistent practices for team working, and the importance of having a self-critical mindset when developing software,  and ways to manage feedback effectively and efficiently.
+
+## Further Resources
+Below are some additional resources to help you continue learning:
+
+- [Additional episode on databases](/databases)
+- [Additional episode verifying code style using linters](/verifying-code-style-linters)
 
 {% include links.md %}
