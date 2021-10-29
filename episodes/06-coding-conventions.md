@@ -57,7 +57,8 @@ As we have already covered in the [episode on PyCharm IDE](../04-ides/index.html
 (reserved words) and syntax errors to help us with coding. PyCharm also gives us recommendations for formatting the code - these recommendations
 are mostly taken from the PEP8 style guide.
 
-A full list of style guidelines is available from the [PEP8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
+A full list of style guidelines for this style 
+is available from the [PEP8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
 
 ### Indentation
 Python is a kind of language that uses indentation as a way of grouping statements that belong to a particular
@@ -492,8 +493,9 @@ Functions:
 {: .language-python}
 
 The docstring for a function or a module is returned when
-calling the `help` function and passing its name - for example from interactive `ipython` terminal or from Jupyter Lab/Notebook
-or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
+calling the `help` function and passing its name - for example from the interactive Python console/terminal available
+from the command line or when rendering code documentation online 
+(e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
 PyCharm also displays the docstring for a function/module in a little elp popup window when using tab-completion.
 
 ~~~
@@ -567,7 +569,7 @@ In the previous exercises, we made some code improvements on feature branch `sty
 changes locally but have not pushed this branch remotely for others to have a look at our code before we merge it
 onto the `develop` branch. Let's do that now, namely:
 - push `style-fixes` to GitHub
-- merge `style-fixes` to `develop` (once we are happy with the changes)
+- merge `style-fixes` into `develop` (once we are happy with the changes)
 - push updates to `develop` branch to GitHub (to keep our main development branch up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
