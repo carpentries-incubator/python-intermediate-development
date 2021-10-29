@@ -22,7 +22,7 @@ The code examples used in this lesson build upon the examples used in Software C
 [Programming with Python][programming-with-python] lesson and work with the patients' inflammation dataset.
 
 The software project template repository used for this lesson is available at:
-<https://github.com/softwaresaved/python-intermediate-inflammation>.
+<https://github.com/carpentries-incubator/python-intermediate-inflammation>.
 
 The lesson is using [The Carpentries lesson template][styles].
 
