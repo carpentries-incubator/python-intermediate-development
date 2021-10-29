@@ -1,31 +1,28 @@
-# Intermediate Research Software Development In Python
+# Intermediate Research Software Development Skills In Python
 
-A two day, intermediate-level course in software development for researchers.
+This is a multi-day, intermediate-level lesson/course in software development skills for researchers using
+Python as a programming language. A typical learner for this course may be someone who is working in 
+academic research 
+and, needing to write some code, has gained basic software development skills either by 
+self-learning or attending, e.g., a novice [Software Carpentry Python course][swc-lessons]. However, their software 
+development-related projects are now becoming larger and more complex and they need more 
+intermediate software engineering skills to help them design more robust software code, 
+automate the process of testing and verifying its correctness and support collaborations with others.
 
 ## About the Lesson
 
 This lesson teaches intermediate-level software development skills in a way that mimics a typical software development process in a team,
 starting from an existing piece of software.
-It continues from the material covered in the novice-level [Software Carpentry lessons][swc-lessons] and follows the same principles,
+It continues from the material covered in the novice-level [Software Carpentry lessons][swc-lessons] 
+and follows the same principles,
 as described in [Best Practices for Scientific Computing][best-practices] and
 [Good enough practices in scientific computing][good-practices].
 
-The example used in this lesson also builds upon the example used in Software Carpentry's [Programming with Python][programming-with-python] lesson.
+The code examples used in this lesson build upon the examples used in Software Carpentry's 
+[Programming with Python][programming-with-python] lesson and work with patients' inflammation dataset.
 
-The rendered version of the lesson is available at:
-<https://softwaresaved.github.io/python-intermediate-development/>.
-
-The software template repository for this lesson is available at:
+The software project template repository used for this lesson is available at:
 <https://github.com/softwaresaved/python-intermediate-inflammation>.
-
-
-## Episodes
-
-| # |  Episode | Time | Question(s) |
-|--:|:---------|:----:|:------------|
-
-**TODO:** Populate table with links to each episode
-
 
 ## Contributing
 
@@ -40,8 +37,9 @@ Please see the current list of [issues][issues] for ideas for contributing to th
 repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
-Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.
-
+Look for tags ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg) or
+![help_wanted](https://img.shields.io/badge/-help%20wanted%20issue-green.svg). 
+This indicates that the maintainers will welcome a pull request fixing these issues.
 
 ## Maintainer(s)
 
@@ -54,8 +52,7 @@ Current maintainers of this lesson are:
 
 ## Authors
 
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
-
+A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
 
 ## License
 
@@ -66,17 +63,21 @@ under the [MIT license][mit-license]. For more information, see [LICENSE.md](LIC
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION)
+To cite this lesson, please consult with [CITATION](CITATION).
 
+{% include links.md %}
+
+{% comment %}
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 [good-practices]: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
 [programming-with-python]: https://swcarpentry.github.io/python-novice-inflammation/
 [lesson-example]: https://carpentries.github.io/lesson-example
-[issues]: https://github.com/softwaresaved/swc-intermediate-lesson/issues
+[issues]: /issues
 [steve-crouch]: https://github.com/steve-crouch
 [james-graham]: https://github.com/jag1g13
 [aleksandra-nenadic]: https://github.com/anenadic
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/MIT
+{% endcomment %}
