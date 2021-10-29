@@ -7,7 +7,7 @@ exercises: 0
 questions:
 - "What should we do to ensure our code is correct?"
 objectives:
-- "Explain the testing tools, techniques, and infrastructure that will be used in this course."
+- "Explain the testing tools, techniques, and infrastructure that will be used in this section."
 keypoints:
 - "Automated testing can help determine if our code is running correctly, as well as save us time in the future."
 - "Parameterisation and Continuous Integration can help scale and further automate our testing process."
