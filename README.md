@@ -65,9 +65,6 @@ under the [MIT license][mit-license]. For more information, see [LICENSE.md](LIC
 
 To cite this lesson, please consult with [CITATION](CITATION).
 
-{% include links.md %}
-
-{% comment %}
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 [good-practices]: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
@@ -80,4 +77,3 @@ To cite this lesson, please consult with [CITATION](CITATION).
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/MIT
-{% endcomment %}
