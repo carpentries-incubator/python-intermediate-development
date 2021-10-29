@@ -7,7 +7,7 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
-carpentry: "swc"
+carpentry: "incubator"
 
 # Overall title for pages.
 title: "Intermediate Research Software Development in Python"
