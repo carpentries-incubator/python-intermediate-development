@@ -39,7 +39,8 @@ four bigger sections.
 
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
-1. In the first section we are going to familiarise ourselves with using various tools and techniques for
+## Section 1: Setting up Software Environment
+In the first section we are going to familiarise ourselves with using various tools and techniques for
 software development and a typical collaborative code development cycle:
 - **PyCharm** (an Integrated Development Environment (IDE) tool) for **code development, testing and debugging**,
 - **command line** for running code and interacting with the **command line tool Git** for version control and
@@ -48,17 +49,24 @@ branching the code out for developing new features in parallel,
 collaborative development,
 - **virtual environments** for isolating a project from other projects developed on the same machine, and
 - **Python code style guide** (PEP8) to make sure our code is documented, readable and consistently formatted.
-2. Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
+
+## Section 2:  Verifying Software Correctness at Scale
+Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
 - how to automate and scale testing with **Continuous Integration (CI)** using
 **GitHub Actions** (a CI service available on GitHub).
-3. In the third section, we step away from writing code for a bit to look into different **software design paradigms**
+
+## Section 3: Designing Software Architecture
+In this section, we step away from writing code for a bit to look into different **software design paradigms**
 to understand the wider landscape in which you can design software and to help you with the
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
 useful to know so you can recognise where it might be useful to switch in your own code.
-4. Finally, we are back to practical applications and learning to **publish and release
-software for reuse** by others. You will work with your fellow learners on a group project (as you would do when
+
+## Section 4: Managing and Improving Software
+Finally, we are back to practical applications and learning to **publish and release
+software for reuse** by others and how to manage software improvements from feedback through 
+agile techniques. You will work with your fellow learners on a group project (as you would do when
 collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking
 issues**, and **supporting your software**.
 
