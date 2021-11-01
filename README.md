@@ -27,12 +27,13 @@ The software project template repository used for this lesson is available at:
 The lesson is using the official [Carpentries lesson template][styles].
 
 ### Lesson Status
-The lesson is currently in alpha status, which means that it is still being actively developed. 
+The lesson is currently in the alpha status, which means that it is still being actively developed. 
 However, all planned episodes have been written and finished, and the lesson has be tested several times with 
 different cohorts and is in a good state to be reused
 and tried by others. Please be aware that there may be some discrepancies and inconsistencies 
-with images, screenshots and code outputs. We would appreciate any contributions from the community in 
-fixing these issues - see the section below on how to make contributions. 
+with language, images, screenshots and code outputs. We would appreciate any contributions from the community in 
+fixing these issues - see the section below on how to make contributions. After these inconsistencies are fixed, 
+the lesson will graduate to beta.
 
 
 ## Contributing
