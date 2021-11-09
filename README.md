@@ -1,4 +1,4 @@
-# Intermediate Research Software Development In Python
+# Intermediate Research Software Development
 
 A two day, intermediate-level course in research software engineering and development skills and working as part of a team (using Python as an example language).
 
