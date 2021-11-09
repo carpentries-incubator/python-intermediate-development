@@ -34,7 +34,7 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ### YAML - a Deeper Dive
 
-We've seen YAML files before, with our `environment.yml` file which we'll be looking in more detail at shortly, but they're also used to write GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
+YAML is a text format used by GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
 
 [YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
 
@@ -96,44 +96,9 @@ first_scaled_by:
 So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
 
 
-### Preparing a Suitable `environment.yml` for CI
-
-Since we're going to be running our tests on a third-party server infrastructure, we first need to consider how well our code will run across other platforms. This is a good mindset to have in any case!
-
-As was mentioned in the [Virtual Environments](../03-virtual-environments/index.html#exporting-a-conda-environment) episode, one problem we can run into with Conda's exported environments is that they tend to include platform-specific packages. This could well cause us issues for running on continuous integration infrastructures, as well as for others who wish to use our software on different operating systems, so we use `--from-history` to export our environment from the commands that were used to build it, which has the useful effect of not including platform-specific packages that could give us trouble. However, in the case of CI we need to go one step further.
-
-Let's look at our `environment.yml`:
-
-~~~
-$ cat environment.yml
-~~~
-{: .language-bash}
-
-~~~
-name: patient
-channels:
-  - defaults
-dependencies:
-  - python=3.8
-  - numpy
-  - matplotlib
-  - pytest
-  - pytest-cov
-~~~
-{: .language-bash}
-
-For the purposes of using continuous integration and testing our code, there are no version numbers for the Python packages, which is very useful - it means the latest packages will always be tested against. However, you'll notice that the version of Python itself is mentioned explicitly. One of the major benefits of CI that we'll explore is that it allows us to specify the type of plaform(s) we want to test against, which may include the version of Python. To avoid confusion with which version will be used, we should remove the Python version that is specified here. So edit your `environment.yml` file so that line looks like the following and save the file:
-
-~~~
-...
-  - python
-...
-~~~
-{: .language-bash}
-
 ### Defining Our Workflow
 
-With a GitHub repository there's a way we can set up CI to run our tests when we make a change, by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
+With a GitHub repository there's a way we can set up CI to run our tests automatically when we commit changes. Let's do this now by adding a new file to our repository whilst on the `test-suite` branch. First, create the new directories `.github/workflows`:
 
 ~~~
 $ mkdir -p .github/workflows
@@ -164,22 +129,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Conda
-      uses: conda-incubator/setup-miniconda@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
       with:
-        auto-update-conda: true
         python-version: 3.8
-        activate-environment: patient
-        environment-file: environment.yml
 
-    - name: Install conda-build and our inflammation package
+    - name: Install Python dependencies
       run: |
-        conda install -n base --yes conda-build
-        conda develop -n patient .
+        python3 -m pip install --upgrade pip
+        pip3 install -r requirements.txt
+        pip3 install -e .
 
     - name: Test with PyTest
       run: |
-        conda run -n patient pytest --cov=inflammation.models tests/test_models.py
+        pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -192,13 +155,13 @@ Next, we define what our build job will do. With `runs-on` we first state which 
 Lastly, we define the `step`s that our job will undertake in turn, to set up the job's environment and run our tests. You can think of the job's environment intially as a blank slate: much like a freshly installed machine (albeit virtual) with very little installed on it, we need to prepare it with what it needs to be able to run our tests. Each of these steps are:
 
 - **Checkout repository for the job:** `uses` indicates that want to use a GitHub Action called `checkout` that does this
-- **Set up Conda:** here we use the `setup-miniconda` Action, passing some parameters to govern its behaviour: that we want the latest version of Conda for Python version 3.8, and to define a new environment based on our `environment.yml` file which is called `patient`
-- **Install conda-build and our inflammation package:** In order to locally install our `inflammation` package we first need to install a package called `conda-build` in the default `base` Conda environment to do this. Once installed, we can use `conda develop` as before, except here we explicitly specify that we want the local `inflammation` package to be installed to the `patient` virtual environment. We use `run` here to run the conda commands
-- **Test with PyTest:** Lastly, we run pytest. In order to do this successfully, we use `conda run` to execute a given command explicitly within our `patient` environment, with the same arguments we used manually before
+- **Set up Python 3.8:** here we use the `setup-python` Action, indicating that we want Python version 3.8
+- **Install latest version of pip, dependencies, and our inflammation package:** In order to locally install our `inflammation` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
+- **Test with PyTest:** lastly, we run pytest, with the same arguments we used manually before
 
 > ## What about other Actions?
 >
-> Our workflow here uses the `setup-miniconda` Action, which is provided via the [GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview). It contains many third-party actions (as well as apps) that you can use with GitHub for many tasks across many programming languages, particularly for setting up environments for running tests, code analysis and other tools, setting up and using infrastructure (for things like Docker or Amazon's AWS cloud), or even managing repository issues.
+> Our workflow here uses standard GitHub Actions (indicated by `actions/*`). Beyond the standard set of actions, others are available via the [GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview). It contains many third-party actions (as well as apps) that you can use with GitHub for many tasks across many programming languages, particularly for setting up environments for running tests, code analysis and other tools, setting up and using infrastructure (for things like Docker or Amazon's AWS cloud), or even managing repository issues. You can even contribute your own.
 {: .callout}
 
 ### Triggering a Build on GitHub Actions
@@ -206,7 +169,7 @@ Lastly, we define the `step`s that our job will undertake in turn, to set up the
 Now if we commit and push this change a CI run will be triggered:
 
 ~~~
-$ git add .github environment.yml
+$ git add .github
 $ git commit -m "Add GitHub Actions configuration"
 $ git push
 ~~~
@@ -218,17 +181,17 @@ Since we are only committing the GitHub Actions configuration file to the `test-
 
 Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch from the dropdown menu (which currently says `main`), and then selecting `commits` (located just above the code directory listing on the right, alongside the last commit message and a small image of a timer).
 
-![ci-initial-ga-build](../fig/ci-initial-ga-build.png)
+![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="800px"}
 
 You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful build or not.
 
 Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output.
 
-![ci-initial-ga-build-log](../fig/ci-initial-ga-build-log.png)
+![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="800px"}
 
 The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
 
-![ci-initial-ga-build-details](../fig/ci-initial-ga-build-details.png)
+![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="800px"}
 
 GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
 
@@ -259,18 +222,15 @@ Let's see how this is done using GitHub Actions. To support this, change your `.
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Conda
-      uses: conda-incubator/setup-miniconda@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        auto-update-conda: true
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-        activate-environment: patient
-        environment-file: environment.yml
 ...
 ~~~
 {: .language-bash}
 
-Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configurations. So every possible permutation of Python versions 3.7 and 3.8 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
+Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configuration values. So every possible permutation of Python versions 3.7 and 3.8 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
 
 Let's commit and push this change and see what happens:
 
@@ -283,7 +243,7 @@ $ git push
 
 If we go to our GitHub build now, we can see that a new job has been created for each permutation.
 
-![ci-ga-build-matrix](../fig/ci-ga-build-matrix.png)
+![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="800px"}
 
 Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 
@@ -307,7 +267,7 @@ $ git push origin develop
 
 Now these changes have migrated to our parent `develop` branch, `develop` will also inherit the configuration to run CI builds, so these will run automatically on this branch as well.
 
-This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `develop` and `main` this newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
+This highlights a big benefit of CI when you perform merges (and apply pull requests). As new branch code is merged into upstream branches like `develop` and `main` these newly integrated code changes are automatically tested *together* with existing code - which of course may also have changed in the meantime!
 
 
 {% include links.md %}

@@ -21,15 +21,15 @@ keypoints:
 
 ## Introduction
 
-So far we've seen how to use version control to manage the development of code with tools that help automate the process. Automation, where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
-
 Being able to demonstrate that a process generates the right results is important in any field of research, whether it's software generating those results or not. So when writing software we need to ask ourselves some key questions:
 
 - Does the code we develop work the way it should do?
 - Can we (and others) verify these assertions for themselves?
-- And perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
+- Perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
 
-If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it?
+If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software are useful for this, but manually testing software can prove an expensive process.
+
+Automation can help, and automation where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
 
 ## What Is Software Testing?
@@ -67,11 +67,11 @@ Later on, once we've finished writing these tests and are convinced they work pr
 Let's go back to our Patient software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
 There are a number of data sets in the `data` directory recording inflammation information in patients, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have the `patient` Conda environment activated in your terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
+Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have your virtual environment activated in your terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
 ~~~
 $ cd ~/python-intermediate-inflammation
-$ conda activate patient
+$ source venv/bin/activate
 $ python
 ~~~
 {: .language-bash}
@@ -115,7 +115,7 @@ Here, we use numpy's `np.mean()` function to calculate the mean *vertically* acr
 ~~~
 {: .language-python}
 
-...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column.
+...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row).
 
 To show this working with our patient data, we can use the function like this, passing four patient rows to the function:
 
@@ -178,7 +178,7 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-However, if we were to enter these in this order, we'd now get the following after the first test:
+However, if we were to enter these in this order, we'll find we get the following after the first test:
 
 ~~~
 ...
@@ -278,60 +278,38 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 ### Install Pytest
 
-One of the first things we need to do is install the `pytest` package in our `patient` Conda virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line. If you're still in the Python interpreter, exit this first (either with `Ctrl-D` or typing `exit()`), then in Bash:
+One of the first things we need to do is install the `pytest` package in our virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line. If you're still in the Python interpreter, exit this first (either with `Ctrl-D` or typing `exit()`), then in Bash:
 
 ~~~
-$ conda install pytest
+$ pip3 install pytest
 ~~~
 {: .language-bash}
 
 You should see something like:
 
 ~~~
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-## Package Plan ##
-
-  environment location: /Users/user/opt/anaconda3/envs/patient
-
-  added / updated specs:
-    - pytest
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    attrs-20.3.0               |     pyhd3eb1b0_0          43 KB
-    iniconfig-1.1.1            |     pyhd3eb1b0_0           8 KB
-    more-itertools-8.6.0       |     pyhd3eb1b0_0          40 KB
-    packaging-20.9             |     pyhd3eb1b0_0          37 KB
-    pluggy-0.13.1              |           py38_0          33 KB
-    py-1.10.0                  |     pyhd3eb1b0_0          76 KB
-    pytest-6.2.2               |   py38hecd8cb5_2         442 KB
-    ------------------------------------------------------------
-                                           Total:         678 KB
-
-The following NEW packages will be INSTALLED:
-
-  attrs              pkgs/main/noarch::attrs-20.3.0-pyhd3eb1b0_0
-  iniconfig          pkgs/main/noarch::iniconfig-1.1.1-pyhd3eb1b0_0
-  more-itertools     pkgs/main/noarch::more-itertools-8.6.0-pyhd3eb1b0_0
-  packaging          pkgs/main/noarch::packaging-20.9-pyhd3eb1b0_0
-  pluggy             pkgs/main/osx-64::pluggy-0.13.1-py38_0
-  py                 pkgs/main/noarch::py-1.10.0-pyhd3eb1b0_0
-  pytest             pkgs/main/osx-64::pytest-6.2.2-py38hecd8cb5_2
-  toml               pkgs/main/noarch::toml-0.10.1-py_0
-
-
-Proceed ([y]/n)?
+Collecting pytest
+  Downloading https://files.pythonhosted.org/packages/40/76/86f886e750b81a4357b6ed606b2bcf0ce6d6c27ad3c09ebf63ed674fc86e/pytest-6.2.5-py3-none-any.whl (280kB)
+     |████████████████████████████████| 286kB 2.6MB/s
+Collecting attrs>=19.2.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/20/a9/ba6f1cd1a1517ff022b35acd6a7e4246371dfab08b8e42b829b6d07913cc/attrs-21.2.0-py2.py3-none-any.whl
+Collecting toml (from pytest)
+  Using cached https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+Collecting pluggy<2.0,>=0.12 (from pytest)
+  Downloading https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl
+Collecting packaging (from pytest)
+  Using cached https://files.pythonhosted.org/packages/3c/77/e2362b676dc5008d81be423070dd9577fa03be5da2ba1105811900fda546/packaging-21.0-py3-none-any.whl
+Collecting py>=1.8.2 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl
+Collecting iniconfig (from pytest)
+  Using cached https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl
+Requirement already satisfied: pyparsing>=2.0.2 in ./venv/lib/python3.8/site-packages (from packaging->pytest) (2.4.7)
+Installing collected packages: attrs, toml, pluggy, packaging, py, iniconfig, pytest
+Successfully installed attrs-21.2.0 iniconfig-1.1.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pytest-6.2.5 toml-0.10.2
 ~~~
 {: .output}
 
-Select `y` and these packages which are required by `pytest` will be installed.
-
-Whether we do this via PyCharm or the command line, the results are exactly the same: our `patient` Conda virtual environment will now have the `pytest` package installed for use.
+Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
 ### Write a Metadata Package Description
 
@@ -342,22 +320,24 @@ Create a new file `setup.py` in the root directory of the `python-intermediate-i
 ~~~
 from setuptools import setup, find_packages
 
-setup(name="patient-analysis", version='1.0', packages=find_packages())
+setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
 Next, in Bash we need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
-$ conda develop .
+$ pip3 install -e .
 ~~~
 {: .language-bash}
 
 We should see:
 
 ~~~
-added /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
-completed operation for: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
+Obtaining file:///Users/user/Projects/SSI/intermediate-swc/steve-crouch.python-intermediate-inflammation
+Installing collected packages: inflammation-analysis
+  Running setup.py develop for inflammation-analysis
+Successfully installed inflammation-analysis
 ~~~
 {: .output}
 
@@ -459,10 +439,19 @@ Although note that you need to import the `pytest` library at the top of our `te
 
 Run all your tests as before.
 
-Finally, let's commit our new `test_models.py` file and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
+Since we've installed pytest to our environment, we should also regenerate our requirements.txt:
 
 ~~~
-$ git add setup.py tests/test_models.py
+$ pip3 freeze --exclude-editable > requirements.txt
+~~~
+{: .language-bash}
+
+We use `--exclude-editable` here to ensure our locally installed `inflammation` package isn't included in this list of installed packages, since it isn't required for running the software, and would cause problems with others reusing this environment.
+
+Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
+
+~~~
+$ git add requirements.txt setup.py tests/test_models.py
 $ git commit -m "Add initial test cases for daily_max() and daily_min()"
 $ git push -u origin test-suite
 ~~~

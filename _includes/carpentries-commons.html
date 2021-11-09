@@ -1,0 +1,37 @@
+{% comment %}
+
+{% if site.carpentry == "swc" or site.carpentry == "dc" or
+site.carpentry == "lc" or site.carpentry == "cp" %}
+
+{% comment %}
+We have no notice for official lessons
+{% endcomment %}
+
+{% elsif site.carpentry == "incubator" %}
+
+
+<div class="alert alert-info text-center" role="alert">
+    This lesson is part of
+    <a href="https://github.com/carpentries-incubator/proposals/#the-carpentries-incubator" data-checker-ignore>
+        The Carpentries Incubator</a>, a place to share and use each other's
+    Carpentries-style lessons. <strong>This lesson has not been reviewed by and is
+    not endorsed by The Carpentries</strong>.
+</div>
+
+{% elsif site.carpentry == "lab" %}
+
+{% comment %}
+Should we add a notice for Carpentries Lab?
+{% endcomment %}
+
+{% else %}
+
+<div class="alert alert-danger text-center" role="alert">
+    Invalid value for variable <code>carpentry</code> defined in
+    <code>_config.yml</code>. Current value: <code>{{ site.carpentry }}</code>
+    allowed values: ("swc", "dc", "lc", "cp", "incubator", "lab")
+</div>
+
+
+{% endif %}
+{% endcomment %}
