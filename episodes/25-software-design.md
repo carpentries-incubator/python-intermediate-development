@@ -140,38 +140,63 @@ What really matters is that we are making decisions about the architecture of ou
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
 Let's start with adding a view that allows us to see the data for a single patient.
-First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data.
-Note that your Patient class may look very different, so adapt this example to fit what you have.
+First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
+Note that your Patient class may look very different now, so adapt this example to fit what you have.
 
-~~~
+~~~ python
 # file: inflammation/views.py
 
 ...
 
-def display_patient(patient):
+def display_patient_record(patient):
     """Display data for a single patient."""
     print(patient.name)
-    print(patient.observations)
+    for obs in patient.observations:
+        print(obs.day, obs.value)
 ~~~
 {: .language-python}
 
-~~~
+~~~ python
 # file: inflammation/models.py
 
 ...
 
-class Patient:
-    def __init__(self, name, observations=None):
+class Observation:
+    def __init__(self, day, value):
+        self.day = day
+        self.value = value
+
+    def __str__(self):
+        return self.value
+
+class Person:
+    def __init__(self, name):
         self.name = name
 
-        if observations is None:
-            self.observations = []
+    def __str__(self):
+        return self.name
 
-        else:
+class Patient(Person):
+    """A patient in an inflammation study."""
+    def __init__(self, name, observations=None):
+        super().__init__(name)
+
+        self.observations = []
+        if observations is not None:
             self.observations = observations
 
-    def add_observation(self, obs):
-        self.observations.append(obs)
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
+        new_observation = Observation(value, day)
+
+        self.observations.append(new_observation)
+        return new_observation
 ~~~
 {: .language-python}
 
@@ -213,7 +238,10 @@ def main(args):
             views.visualize(view_data)
 
         elif args.view == 'record':
-            patient = models.Patient('UNKNOWN', inflammation_data[0])
+            patient_data = inflammation_data[args.patient]
+            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
+            patient = models.Patient('UNKNOWN', observations)
+
             views.display_patient_record(patient)
 
 
@@ -235,7 +263,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--patient',
         type=int,
-        default=-1,
+        default=0,
         help='Which patient should be displayed?')
 
     args = parser.parse_args()
@@ -247,7 +275,7 @@ if __name__ == "__main__":
 We've added two options to our command line interface here: one to request a specific view and one for the patient id that we want to lookup.
 For the full range of features that we have access to with `argparse` see the [Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
 Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
-You can find more information in [Click's documentation](https://click.palletsprojects.com/en/7.x/).
+You can find more information in [Click's documentation](https://click.palletsprojects.com/).
 
 For now, we also don't know the names of any of our patients, so we've made it `'UNKNOWN'` until we get more data.
 
@@ -260,9 +288,15 @@ python inflammation-analysis.py --view record --patient 1 data/inflammation-01.c
 
 ~~~
 UNKNOWN
-[ 0.  0.  1.  3.  1.  2.  4.  7.  8.  3.  3.  3. 10.  5.  7.  4.  7.  7.
- 12. 18.  6. 13. 11. 11.  7.  7.  4.  6.  8.  8.  4.  4.  5.  7.  3.  4.
-  2.  3.  0.  0.]
+0 0.0
+1 0.0
+2 1.0
+3 3.0
+4 1.0
+5 2.0
+6 4.0
+7 7.0
+...
 ~~~
 {: .output}
 
