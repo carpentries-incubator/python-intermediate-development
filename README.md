@@ -1,6 +1,6 @@
 # Intermediate Research Software Development In Python
 
-A two day, intermediate-level course in software development for researchers.
+A two day, intermediate-level course in research software engineering and development skills and working as part of a team (using Python as an example language).
 
 ## About the Lesson
 
