@@ -54,7 +54,7 @@ Current maintainers of this lesson are:
 
 ## Authors
 
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
+A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
 
 
 ## License
@@ -66,7 +66,7 @@ under the [MIT license][mit-license]. For more information, see [LICENSE.md](LIC
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION)
+To cite this lesson, please consult with [CITATION](CITATION).
 
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
