@@ -92,7 +92,7 @@ and three directories - `inflammation`, `data` and `tests`.
 
 The Python script `inflammation-analysis.py` provides the main
 entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts -
-`view.py` and `model.py`. We will have a more detailed look into these shortly.
+`views.py` and `models.py`. We will have a more detailed look into these shortly.
 
 ~~~
 $ ls -l inflammation
