@@ -154,7 +154,6 @@ see a number of Python packages displayed as a list, and importantly above that,
 being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Local Python Interpreter` window will appear.
 4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
-4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
 selected within the popup window. In the `Interpreter` field point to the Python executable inside your virtual
 environment's `bin` directory.
    ![Configuring Python Interpreter in PyCharm](../fig/pycharm-configuring-interpreter.png){: .image-with-shadow width="800px"}
