@@ -19,7 +19,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Our Software Project
-So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub.
+So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
 The software project studies inflammation in patients
 who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients,
 who had their inflammation levels recorded for 40 days (a snapshot of data is below).
@@ -37,7 +37,7 @@ To start with the development, we have to obtain a local copy of the project on
 your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
-1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
+1. Log into your GitHub account and go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
