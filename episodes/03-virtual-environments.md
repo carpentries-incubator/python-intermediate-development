@@ -284,16 +284,20 @@ To list all packages installed with `pip` (in your current virtual environment):
 ~~~
 Package         Version
 --------------- -------
-cycler          0.10.0
+cycler          0.11.0
+fonttools       4.28.1
 kiwisolver      1.3.2
-matplotlib      3.4.3
-numpy           1.21.2
-Pillow          8.3.2
+matplotlib      3.5.0
+numpy           1.21.4
+packaging       21.2
+Pillow          8.4.0
 pip             21.1.3
 pyparsing       2.4.7
 python-dateutil 2.8.2
 setuptools      57.0.0
+setuptools-scm  6.3.2
 six             1.16.0
+tomli           1.2.2
 ~~~
 {: .output}
 
@@ -317,14 +321,18 @@ A common convention is to put this list in a `requirements.txt` file:
 ~~~
 {: .language-bash}
 ~~~
-cycler==0.10.0
+cycler==0.11.0
+fonttools==4.28.1
 kiwisolver==1.3.2
-matplotlib==3.4.3
-numpy==1.21.2
-Pillow==8.3.2
+matplotlib==3.5.0
+numpy==1.21.4
+packaging==21.2
+Pillow==8.4.0
 pyparsing==2.4.7
 python-dateutil==2.8.2
+setuptools-scm==6.3.2
 six==1.16.0
+tomli==1.2.2
 ~~~
 {: .output}
 
