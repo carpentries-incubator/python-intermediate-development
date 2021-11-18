@@ -224,7 +224,7 @@ When you’re done working on your project, you can exit the environment with:
 ~~~
 {: .language-bash}
 
-### Installing Packages in an Environment With `pip`
+### Installing External Libraries in an Environment With `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
 for the code to run on your machine, you need to
@@ -356,7 +356,7 @@ via your code sharing platform (e.g. GitHub).
 
 > ## Official Documentation
 > For a full list of options and commands, consult the [official `venv` documentation](https://docs.python.org/3/library/venv.html)
-> and the [Installing Python Modules with `pip` guide](https://docs.python.org/3/installing/index.html#installing-index). Also check out the guide ["Installing packages using pip and virtual environments"](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments).
+> and the [Installing Python Modules with `pip` guide](https://docs.python.org/3/installing/index.html#installing-index). Also check out the guide ["Installing packages using `pip` and virtual environments"](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments).
 {: .testimonial}
 
 ## Running Python Scripts From Command Line
