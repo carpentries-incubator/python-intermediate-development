@@ -281,8 +281,8 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
-1. via PyCharm (see ["Adding an external library" section](../04-ides/index.html#adding-an-external-library)), or 
-2. via the command line.
+1. via PyCharm (see ["Adding an External Library"](../04-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../04-ides/index.html) episode), or 
+2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../03-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../03-virtual-environments/index.html) episode).
 
 To do it via the command line - exit the Python console first (either with `Ctrl-D` or by typing `exit()`), then do:
 
@@ -290,30 +290,6 @@ To do it via the command line - exit the Python console first (either with `Ctrl
 $ pip3 install pytest
 ~~~
 {: .language-bash}
-
-You should see something like:
-
-~~~
-Collecting pytest
-  Downloading https://files.pythonhosted.org/packages/40/76/86f886e750b81a4357b6ed606b2bcf0ce6d6c27ad3c09ebf63ed674fc86e/pytest-6.2.5-py3-none-any.whl (280kB)
-     |████████████████████████████████| 286kB 2.6MB/s
-Collecting attrs>=19.2.0 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/20/a9/ba6f1cd1a1517ff022b35acd6a7e4246371dfab08b8e42b829b6d07913cc/attrs-21.2.0-py2.py3-none-any.whl
-Collecting toml (from pytest)
-  Using cached https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
-Collecting pluggy<2.0,>=0.12 (from pytest)
-  Downloading https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl
-Collecting packaging (from pytest)
-  Using cached https://files.pythonhosted.org/packages/3c/77/e2362b676dc5008d81be423070dd9577fa03be5da2ba1105811900fda546/packaging-21.0-py3-none-any.whl
-Collecting py>=1.8.2 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl
-Collecting iniconfig (from pytest)
-  Using cached https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl
-Requirement already satisfied: pyparsing>=2.0.2 in ./venv/lib/python3.8/site-packages (from packaging->pytest) (2.4.7)
-Installing collected packages: attrs, toml, pluggy, packaging, py, iniconfig, pytest
-Successfully installed attrs-21.2.0 iniconfig-1.1.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pytest-6.2.5 toml-0.10.2
-~~~
-{: .output}
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
