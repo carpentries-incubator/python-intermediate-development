@@ -138,13 +138,13 @@ We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `
 
 We can also run our test functions individually. First, let's check that our PyCharm running and testing configurations are correct. Select `Run` > `Edit Configurations...` from the PyCharm menu, and you should see something like the following:
 
-![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="1000px"}
+![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="800px"}
 
 PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
 Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 
-![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="700px"}
+![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="800px"}
 
 Click on the "run" button next to `test_patient_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
 
@@ -154,7 +154,7 @@ Now we want to use the debugger to investigate what is happening inside the `pat
 
 To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `patient_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
 
-![Setting a breakpoint in PyCharm](../fig/pytest-pycharm-set-breakpoint.png){: .image-with-shadow width="700px"}
+![Setting a breakpoint in PyCharm](../fig/pytest-pycharm-set-breakpoint.png){: .image-with-shadow width="600px"}
 
 Now if you select the green arrow next to the `test_patient_normalise` function and instead select `Debug 'pytest in test_model...'`, you will notice that execution will be paused at the `return` statement of `patient_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
 
