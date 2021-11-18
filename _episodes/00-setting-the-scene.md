@@ -13,7 +13,7 @@ objectives:
 keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle
 that will be of most use to anyone working collaboratively on code."
-- "The lesson follows on from the novice Software Carpentry lesson, but this not a prerequisite for attending as long as
+- "The lesson follows on from the novice Software Carpentry lesson, but this is not a prerequisite for attending as long as
 you have some basic Python, command line and Git skills and you have been using them to write code to help with your work."
 ---
 
@@ -63,7 +63,7 @@ design decisions you have to make. Each paradigm represents a slightly different
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
 useful to know so you can recognise where it might be useful to switch in your own code.
 
-## Section 4: Managing and Improving Software
+## Section 4: Managing and Improving Software 
 Finally, we are back to practical applications and learning to **publish and release
 software for reuse** by others and how to manage software improvements from feedback through 
 agile techniques. You will work with your fellow learners on a group project (as you would do when
