@@ -18,7 +18,7 @@ keypoints:
 
 ## Introduction
 
-So far we've been manually running our tests as we require. So once we've made a change, or add a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using **Continuous Integration**.
+So far we've been manually running our tests as we require. Once we've made a change, or added a new feature with accompanying tests, we can re-run our tests, giving ourselves (and others who wish to run them) increased confidence that everything is working as expected. Now we're going to take further advantage of automation in a way that helps testing scale across a development team with very little overhead, using **Continuous Integration**.
 
 
 ## What is Continuous Integration?
@@ -27,16 +27,16 @@ The automated testing we've done so far only takes into account the state of the
 
 Continuous Integration (CI) aims to reduce this burden by further automation, and automation - wherever possible - helps us to reduce errors and makes predictable processes more efficient. The idea is that when a new change is committed to a repository, CI clones the repository, builds it if necessary, and runs any tests. Once complete, it presents a report to let you see what happened.
 
-There are many CI infrastructures and services, free and paid for, and subject to change as they evolve their features. We'll be looking at GitHub Actions - which unsurprisingly is available as part of GitHub.
+There are many CI infrastructures and services, free and paid for, and subject to change as they evolve their features. We'll be looking at [GitHub Actions](https://github.com/features/actions) - which unsurprisingly is available as part of GitHub.
 
 
 ## Continuous Integration with GitHub Actions
 
 ### YAML - a Deeper Dive
 
-YAML is a text format used by GitHub Action workflow files. They're also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
+YAML is a text format used by GitHub Action workflow files. It is also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
 
-[YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about with YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
+[YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
 
 So firstly, YAML files are essentially made up of **key-value** pairs, in the form `key: value`, for example:
 
@@ -45,23 +45,23 @@ name: Kilimanjaro
 height_metres: 5892
 first_scaled_by: Hans Meyer
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
-In general you don't need quotes for strings, but you can use them when you want to explicitly distinguish between numbers and strings, e.g. `height_metres: "5892"` would be a string, but above it is an integer. It turns out Hans Meyer isn't the only first ascender of Kilimanjaro, so one way to add this person as another value to this key is by using YAML **arrays**, like this:
+In general, you don't need quotes for strings, but you can use them when you want to explicitly distinguish between numbers and strings, e.g. `height_metres: "5892"` would be a string, but in the above example it is an integer. It turns out Hans Meyer isn't the only first ascender of Kilimanjaro, so one way to add this person as another value to this key is by using YAML **arrays**, like this:
 
 ~~~
 first_scaled_by:
   - Hans Meyer
   - Ludwig Purtscheller
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 An alternative to this format for arrays is the following, which would have the same meaning:
 
 ~~~
 first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 If we wanted to express more information for one of these values we could use a feature known as **maps**, which allow us to define nested, hierarchical data structures, e.g.
 
@@ -75,7 +75,7 @@ height:
     by: Kilimanjaro 2008 Precise Height Measurement Expedition
 ...
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 So here, `height` itself is made up of three keys `value`, `unit`, and `measured`, with the last of these being another nested key with the keys `year` and `by`. Note the convention of using two spaces for tabs, instead of Python's four.
 
@@ -91,10 +91,9 @@ first_scaled_by:
     date_of_birth: 22-03-1858
     nationality: Austrian
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 So here we have a YAML array of our two mountaineers, each with additional keys offering more information. As we'll see shortly, GitHub Actions workflows will use all of these.
-
 
 ### Defining Our Workflow
 
@@ -129,10 +128,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.9
 
     - name: Install Python dependencies
       run: |
@@ -144,7 +143,7 @@ jobs:
       run: |
         pytest --cov=inflammation.models tests/test_models.py
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 NB: be sure to create this file as `main.yml` within the newly created `.github/workflows` directory, or it won't work!
 
@@ -152,12 +151,12 @@ So as well as giving our workflow a name - CI - we indicate with `on` that we wa
 
 Next, we define what our build job will do. With `runs-on` we first state which operating systems we want to use, in this case just Ubuntu for now. We'll be looking at ways we can scale this up to testing on more systems later.
 
-Lastly, we define the `step`s that our job will undertake in turn, to set up the job's environment and run our tests. You can think of the job's environment intially as a blank slate: much like a freshly installed machine (albeit virtual) with very little installed on it, we need to prepare it with what it needs to be able to run our tests. Each of these steps are:
+Lastly, we define the `step`s that our job will undertake in turn, to set up the job's environment and run our tests. You can think of the job's environment initially as a blank slate: much like a freshly installed machine (albeit virtual) with very little installed on it, we need to prepare it with what it needs to be able to run our tests. Each of these steps are:
 
 - **Checkout repository for the job:** `uses` indicates that want to use a GitHub Action called `checkout` that does this
-- **Set up Python 3.8:** here we use the `setup-python` Action, indicating that we want Python version 3.8
+- **Set up Python 3.9:** here we use the `setup-python` Action, indicating that we want Python version 3.9
 - **Install latest version of pip, dependencies, and our inflammation package:** In order to locally install our `inflammation` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
-- **Test with PyTest:** lastly, we run pytest, with the same arguments we used manually before
+- **Test with PyTest:** lastly, we run `pytest`, with the same arguments we used manually before
 
 > ## What about other Actions?
 >
@@ -181,19 +180,19 @@ Since we are only committing the GitHub Actions configuration file to the `test-
 
 Handily, we can see the progress of the build from our repository on GitHub by selecting the `test-suite` branch from the dropdown menu (which currently says `main`), and then selecting `commits` (located just above the code directory listing on the right, alongside the last commit message and a small image of a timer).
 
-![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="800px"}
+![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="1000px"}
 
 You'll see a list of commits for this branch, and likely see an orange marker next to the latest commit (clicking on it yields `Some checks haven’t completed yet`) meaning the build is still in progress. This is a useful view, as over time, it will give you a history of commits, who did them, and whether the commit resulted in a successful build or not.
 
-Hopefully after a while, the marker will turn green indicating a successful build. Selecting it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output.
+Hopefully after a while, the marker will turn into a green tick indicating a successful build. Clicking it gives you even more information about the build, and selecting `Details` link takes you to a complete log of the build and its output.
 
-![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="800px"}
+![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="1000px"}
 
 The logs are actually truncated; selecting the arrows next to the entries - which are the `name` labels we specified in the `main.yml` file - will expand them with more detail, including the output from the actions performed.
 
-![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="800px"}
+![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="1000px"}
 
-GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like, although paid levels are available.
+GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like. Paid levels are available too.
 
 
 ## Scaling Up Testing Using Build Matrices
@@ -228,7 +227,7 @@ Let's see how this is done using GitHub Actions. To support this, change your `.
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 ...
 ~~~
-{: .language-bash}
+{: .language-yaml}
 
 Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configuration values. So every possible permutation of Python versions 3.7 and 3.8 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
 
@@ -243,7 +242,7 @@ $ git push
 
 If we go to our GitHub build now, we can see that a new job has been created for each permutation.
 
-![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="800px"}
+![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="1000px"}
 
 Note all jobs running in parallel (up to the limit allowed by our account) which potentially saves us a lot of time waiting for testing results. Overall, this approach allows us to massively scale our automated testing across platforms we wish to test.
 

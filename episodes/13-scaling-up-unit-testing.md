@@ -9,7 +9,7 @@ objectives:
 - "Use parameterisation to automatically run tests over a set of inputs"
 - "Use code coverage to understand how much of our code is being tested using unit tests"
 keypoints:
-- "We can assign multiple inputs to tests using parametrization."
+- "We can assign multiple inputs to tests using parametrisation."
 - "It's important to understand the **coverage** of our tests across our code."
 - "Writing unit tests takes time, so apply them where it makes the most sense."
 ---
@@ -20,9 +20,9 @@ We're starting to build up a number of tests that test the same function, but ju
 
 ## Parameterising Our Unit Tests
 
-So far, we've been writing a single function for every new test we need. But when we simply want to use the same test code but with different data for another test, it would be great to be able to specify multiple sets of data to use with the same test code. Test **parameterization** gives us this.
+So far, we've been writing a single function for every new test we need. But when we simply want to use the same test code but with different data for another test, it would be great to be able to specify multiple sets of data to use with the same test code. Test **parameterisation** gives us this.
 
-So instead of writing a separate function for each different test, we can **parameterize** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
+So instead of writing a separate function for each different test, we can **parameterise** the tests with multiple test inputs. For example, in `tests/test_models.py` let us rewrite the `test_daily_mean_zeros()` and `test_daily_mean_integers()` into a single test function:
 
 ~~~
 @pytest.mark.parametrize(
@@ -38,7 +38,7 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
+Here, we use `pytest`'s **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
@@ -113,20 +113,19 @@ So here, we specify the additional named argument `--cov` to `pytest` specifying
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
-plugins: cov-2.11.1
-collected 9 items
+platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /Users/alex/python-intermediate-inflammation
+plugins: anyio-3.3.4, cov-3.0.0
+collected 9 items                                                               
 
-tests/test_models.py .........                                           [100%]
+tests/test_models.py .........                                            [100%]
 
----------- coverage: platform darwin, python 3.8.5-final-0 -----------
+---------- coverage: platform darwin, python 3.9.6-final-0 -----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
 inflammation/models.py       9      1    89%
 --------------------------------------------
 TOTAL                        9      1    89%
-
 
 ============================== 9 passed in 0.26s ===============================
 ~~~
@@ -150,7 +149,8 @@ TOTAL                        9      1    89%
 ~~~
 {: .output}
 
-So there's still one statement not being tested at line 18, and it turns out it's in the function `load_csv()`. So, here we should consider whether or not to write a test for this function, and in general, any others that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
+So there's still one statement not being tested at line 18, and it turns out it's in the function `load_csv()`. Here 
+we should consider whether or not to write a test for this function, and, in general, any other functions that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
 Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 
@@ -171,9 +171,9 @@ $ git push origin test-suite
 
 > ## What about Testing Against Indeterminate Output?
 >
-> But what if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
+> What if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
 >
-> One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. So you could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
+> One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. You could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
 >
 > Another way is to *control the randomness* during testing to provide results that are deterministic - the same each time. Implementations of randomness in computing languages, including Python, are actually never truly random - they are **pseudorandom**: the sequence of 'random' numbers are typically generated using a mathematical algorithm. A **seed** value is used to initialise an implementation's random number generator, and from that point, the sequence of numbers is actually deterministic. Many implementations just use the system time as the default seed, but you can set your own. By doing so, the generated sequence of numbers is the same, e.g. using Python's `random` library to randomly select a sample of ten numbers from a sequence between 0-99:
 >
