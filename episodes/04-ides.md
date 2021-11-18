@@ -98,7 +98,7 @@ for our project from the command line and PyCharm is clever enough to understand
    file browser rather than just accept the default offered by PyCharm). Note that there is also an option to create a new virtual environment, 
    but we are not using that option as we want to reuse the one we created from the command line in 
    the previous episode.
-   ![Configuring Python Interpreter in PyCharm](../fig/pycharm-configuring-interpreter.png){: .image-with-shadow width="1000px"}
+   ![Configuring Python Interpreter in PyCharm](../fig/pycharm-configuring-interpreter.png){: .image-with-shadow width="800px"}
 5. Select `Make available to all projects` checkbox so we can also use this environment for other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select
    "Python 3.9 (python-intermediate-inflammation)" or similar (that you've just added) from the `Project Interpreter` drop-down list.
@@ -108,7 +108,7 @@ Note that a number of external libraries have magically appeared under the
 the virtual environment we created from the command line using `venv` and has added these libraries
 effectively replicating our virtual environment in PyCharm (referred to as "Python 3.9 (python-intermediate-inflammation)"). 
 
-![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="1000px"}
+![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="800px"}
 
 Also note that, although the names are not the same - this is one and the same virtual environment and changes done to it in PyCharm will propagate to the command line and vice versa. Let's see this in 
 action through the following exercise.
@@ -391,7 +391,7 @@ in the whole project:
 want to find and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows). PyCharm places the highlighted
 string into the search field of the popup.
 
-    ![Code Search Functionality in PyCharm](../fig/pycharm-code-search.png){: .image-with-shadow width="1000px" } 
+    ![Code Search Functionality in PyCharm](../fig/pycharm-code-search.png){: .image-with-shadow width="800px" } 
     If you need, specify the additional options in the popup. PyCharm will list the search strings and all the files that contain them.
 3. Check the results in the preview area of the dialog where you can replace the search string or select another string,
 or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again to start a new search.
@@ -420,7 +420,7 @@ You can get a full
 ### Running Scripts in PyCharm
 We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! to do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation'`.
 
-![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="1000px" }
+![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="800px" }
 
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 

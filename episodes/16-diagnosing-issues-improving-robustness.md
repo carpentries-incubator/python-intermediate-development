@@ -130,19 +130,21 @@ Firstly, to make it easier to track what's going on, we can set up PyCharm to ru
 3. Under `Testing`, for `Default test runner` select `pytest`.
 4. Select `OK`.
 
-We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `inflammation-analysis.py` file before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
+![Setting up test framework in PyCharm](../fig/pycharm-test-framework.png){: .image-with-shadow width="1000px"}
 
-![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png){: .image-with-shadow width="700px"}
+We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `inflammation-analysis.py` script before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
+
+![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png){: .image-with-shadow width="1000px"}
 
 We can also run our test functions individually. First, let's check that our PyCharm running and testing configurations are correct. Select `Run` > `Edit Configurations...` from the PyCharm menu, and you should see something like the following:
 
-![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="700px"}
+![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="800px"}
 
 PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
 Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 
-![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="700px"}
+![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="800px"}
 
 Click on the "run" button next to `test_patient_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
 
@@ -152,16 +154,20 @@ Now we want to use the debugger to investigate what is happening inside the `pat
 
 To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `patient_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
 
+![Setting a breakpoint in PyCharm](../fig/pytest-pycharm-set-breakpoint.png){: .image-with-shadow width="600px"}
+
 Now if you select the green arrow next to the `test_patient_normalise` function and instead select `Debug 'pytest in test_model...'`, you will notice that execution will be paused at the `return` statement of `patient_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
 
 In the debug panel below, in the `Debugger` tab you will be able to see two sections that looks something like the following:
 
-![Debugging in PyCharm](../fig/pytest-pycharm-debug.png){: .image-with-shadow width="700px"}
+![Debugging in PyCharm](../fig/pytest-pycharm-debug.png){: .image-with-shadow width="1000px"}
 
-- The `Frames` section on the left, which shows the **call stack**, which is the chain of functions that have been executed to lead to this point. We can traverse this chain of functions if we wish, to observe the state of each function.
+- The `Frames` section on the left, which shows the **call stack** (the chain of functions that have been executed to lead to this point). We can traverse this chain of functions if we wish, to observe the state of each function.
 - The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
 
 We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
+
+![Debugging in PyCharm](../fig/pytest-pycharm-console.png){: .image-with-shadow width="1000px"}
 
 Now, looking at the `max` variable, we can see that something looks wrong, as the maximum values for each patient do not correspond to the `data` array. Recall that the input `data` array we are using for the function is
 
@@ -176,7 +182,7 @@ So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the 
 
 So to fix the `patient_normalise` function in `models.py`, change `axis=0` in the first line of the function to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
 
-![All tests in PyCharm are successful](../fig/pytest-pycharm-all-tests-pass.png){: .image-with-shadow width="700px"}
+![All tests in PyCharm are successful](../fig/pytest-pycharm-all-tests-pass.png){: .image-with-shadow width="1000px"}
 
 
 ## Corner or Edge Cases
@@ -213,7 +219,7 @@ We will add two extra tests, corresponding to an input array of all 0, and an in
 ~~~
 {: .language-python}
 
-Running the tests now results in the following assertion error, due to the division by zero as we predicted.
+Running the tests now from the command line results in the following assertion error, due to the division by zero as we predicted.
 
 ~~~
 E           AssertionError:
@@ -227,7 +233,7 @@ E            y: array([[0, 0, 0],
 E                  [0, 0, 0],
 E                  [0, 0, 0]])
 
-env/lib/python3.6/site-packages/numpy/testing/_private/utils.py:740: AssertionError
+tests/test_models.py:88: AssertionError
 ~~~
 {: .output}
 
