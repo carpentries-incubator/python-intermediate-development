@@ -277,7 +277,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Install Pytest
+### Installing Pytest
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
@@ -293,7 +293,7 @@ $ pip3 install pytest
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
-### Write a Metadata Package Description
+### Writing a Metadata Package Description
 
 Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
 
