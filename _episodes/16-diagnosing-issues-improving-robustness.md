@@ -219,7 +219,7 @@ We will add two extra tests, corresponding to an input array of all 0, and an in
 ~~~
 {: .language-python}
 
-Running the tests now results in the following assertion error, due to the division by zero as we predicted.
+Running the tests now from the command line results in the following assertion error, due to the division by zero as we predicted.
 
 ~~~
 E           AssertionError:
@@ -233,7 +233,7 @@ E            y: array([[0, 0, 0],
 E                  [0, 0, 0],
 E                  [0, 0, 0]])
 
-env/lib/python3.6/site-packages/numpy/testing/_private/utils.py:740: AssertionError
+tests/test_models.py:88: AssertionError
 ~~~
 {: .output}
 
