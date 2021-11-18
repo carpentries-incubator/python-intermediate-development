@@ -1,5 +1,5 @@
 ---
-title: "Developing Software In a Team and Releasing It"
+title: "Section 4: Developing Software In a Team and Releasing It"
 colour: "#fcecc0"
 start: true
 teaching: 5
