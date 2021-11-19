@@ -17,8 +17,8 @@ keypoints:
 - "Use `pip` to install and manage Python external (third-party) libraries."
 - "`pip` allows you to declare all dependencies for a project in a separate
 file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment."
-- "Use `pip3 freeze > requirements.txt` to take snapshot of your project's dependencies."
-- "Use `pip3 install -r requirements.txt` to replicate someone else's virtual environment on you machine from
+- "Use `pip3 freeze > requirements.txt` to take a snapshot of your project's dependencies."
+- "Use `pip3 install -r requirements.txt` to replicate someone else's virtual environment on your machine from
 the `requirements.txt` file."
 ---
 
@@ -30,7 +30,7 @@ and, while we will develop and debug our code using the PyCharm IDE and it is po
 A bonus is that this knowledge is transferable to running code in other programming languages and is independent
 from any IDE you may use in the future.
 
-If you have a little peak into our code (e.g. do `cat inflammation/views.py` from the project root), you will see the
+If you have a little peek into our code (e.g. do `cat inflammation/views.py` from the project root), you will see the
 following two lines somewhere at the top.
 
 ~~~
@@ -64,7 +64,7 @@ Python interpreter together with specific versions of a number of external libra
 virtual environment. A virtual environment is simply a *directory with a particular
 structure* which includes links to and enables multiple side-by-side installations of
 different Python interpreters or different versions of the same external library to coexist on your machine and only one to be selected for each of our projects. This allows you to work on a particular
-project without worry of affecting other projects on your machine.
+project without the worry of affecting other projects on your machine.
 
 As more external libraries are added to your Python project over time, you can add them to
 its specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments
@@ -126,14 +126,14 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 ### Many Tools for the Job
 
 Installing and managing Python distributions, external libraries and virtual environments is, well,
-complex. There is abundance of tools for each task, each with its advantages and disadvantages, and there are different
+complex. There is an abundance of tools for each task, each with its advantages and disadvantages, and there are different
 ways to achieve the same effect (and even different ways to install the same tool!).
 Note that each Python distribution comes with its own version of
 `pip` - and if you have several Python versions installed you have to be extra careful to use the correct `pip` to
 manage external packages for that Python version.
 
 `venv` and `pip` are considered the *de facto* standards for virtual environment and package management for Python 3.
-However, advantages of using Anaconda and `conda` are that you get (most of the) packages needed for
+However, the advantages of using Anaconda and `conda` are that you get (most of the) packages needed for
 scientific code development included with the distribution. If you are only collaborating with others who are also using
 Anaconda, you may find that `conda` satisfies all your needs. It is good, however, to be aware of all these tools,
 and use them accordingly. As you become more familiar with them you will realise that equivalent tools work in a similar
@@ -144,7 +144,7 @@ too to which your knowledge can be ported).
 <p style="text-align: center;">Python Environment Hell<br>
 From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons Attribution-NonCommercial 2.5 License)</p>
 
-Let us have a look at how we can create and manage virtual environments from command line using `venv` and manage packages using `pip`.
+Let us have a look at how we can create and manage virtual environments from the command line using `venv` and manage packages using `pip`.
 
 ### Creating a `venv` Environment
 Creating a virtual environment with `venv` is done by executing the following command:
@@ -155,11 +155,13 @@ $ python3 -m venv /path/to/new/virtual/environment
 {: .language-bash}
 
 where `/path/to/new/virtual/environment` is a path to a directory where you want to place it - conventionally within
-your software project so they are co-located.
+you're software project so they are co-located.
 This will create the target directory for the virtual environment (and any parent directories that don’t exist already).
 
 For our project, let's create a virtual environment called `venv` off the project root:
+
 ~~~
+$ cd ~/python-intermediate-inflammation
 $ python3 -m venv venv
 ~~~
 {: .language-bash}
