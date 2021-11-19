@@ -1,5 +1,5 @@
 ---
-title: "Software Architecture and Design"
+title: "Section 3: Software Architecture and Design"
 colour: "#fcecc0"
 start: true
 teaching: 5

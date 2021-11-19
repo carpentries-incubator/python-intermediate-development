@@ -19,7 +19,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Our Software Project
-So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/softwaresaved/python-intermediate-inflammation) developed in Python and stored on GitHub.
+So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
 The software project studies inflammation in patients
 who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients,
 who had their inflammation levels recorded for 40 days (a snapshot of data is below).
@@ -37,7 +37,7 @@ To start with the development, we have to obtain a local copy of the project on
 your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
-1. Log into your GitHub account and go to the [template repository URL](https://github.com/softwaresaved/python-intermediate-inflammation).
+1. Log into your GitHub account and go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
 2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
@@ -45,7 +45,7 @@ we are not forking the directory but creating a copy (remember - you can fork on
 3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
-![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="800px" }
+![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
 4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
 5. At this point GitHub may ask you to authenticate. If this happens and
 you do not have 2-Factor-Authentication (2FA) enabled in your
@@ -56,18 +56,23 @@ should use a pre-generated personal access token as your password here.
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your GitHub account  into your computer.
+> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer, 
+> (to be consistent with the code examples and exercises in the course).
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-> > 1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
->original template repository but rather your own copy, as you should be able to push commits to it later on.
-> > 2. Do:
-> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`
-> > 3. Navigate into the cloned repository in your command line:
+1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+> > original template repository but rather your own copy, as you should be able to push commits to it later on.
+> > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
+2. Make sure you are located in your home directory in the command line with:
+> > `cd ~`
+3. From your home directory, do:
+> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
+> > your copy of the software project and not the template repo.
+4. Navigate into the cloned repository in your command line with:
 > > `cd python-intermediate-inflammation`
-> > 4. List the contents of the directory:
-> > `ls -l`
-> > Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line: `man ls`.
+5. List the contents of the directory:
+> > `ls -l`. Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line using 
+> > manual pages, e.g.: `man ls`.
 > {: .solution}
 {: .challenge}
 
@@ -76,6 +81,7 @@ Let’s inspect the content of the software project from the command line. From 
  use the command `ls -l` to get a more detailed list of the contents. You should see something similar to the following.
 
 ~~~
+$ cd ~/python-intermediate-inflammation
 $ ls -l
 total 24
 -rw-r--r--   1 carpentry  users  1055 20 Apr 15:41 README.md
@@ -92,7 +98,7 @@ and three directories - `inflammation`, `data` and `tests`.
 
 The Python script `inflammation-analysis.py` provides the main
 entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts -
-`view.py` and `model.py`. We will have a more detailed look into these shortly.
+`views.py` and `models.py`. We will have a more detailed look into these shortly.
 
 ~~~
 $ ls -l inflammation

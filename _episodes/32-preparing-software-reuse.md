@@ -131,7 +131,7 @@ One really neat feature - and a common practice - of using many CI infrastructur
 ~~~
 # Inflam
 
-![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main){: .image-with-shadow width="800px"}
+![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
 ~~~
 {: .language-bash}
 
