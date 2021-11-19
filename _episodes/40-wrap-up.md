@@ -15,10 +15,9 @@ keypoints:
   
 ## Summary
 As part of this course we have looked at a core set of established, intermediate-level software development tools and 
-best practices for working as part of a team in research environments. 
-The course teaches a selected set of skills 
+best practices for working as part of a team. The course teaches a selected subset of skills 
 that have been tried and tested in collaborative research software development environments, although not an
-all-encompassing set of every skill you might need (check some [further reading](./#further-resources)). It will also 
+all-encompassing set of every skill you might need (check some [further reading](./#further-resources)). It will 
 provide you with a solid basis for writing industry-grade code, which relies on the same best practices taught in this course:
 
 - Collaborative techniques and tools play an important part of research software development in teams, but also have benefits in solo development. We've looked at the benefits of a well-considered development environment, using practices, tools and infrastructure to help us write code more effectively in collaboration with others.
