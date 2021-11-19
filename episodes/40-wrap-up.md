@@ -34,7 +34,7 @@ high-level overview of how they fit together.
 Below are some additional resources to help you continue learning:
 
 - [Additional episode on databases](../databases)
-- [Additional episode verifying code style using linters](../verifying-code-style-linters)
+- [Additional episode on verifying code style using linters](../verifying-code-style-linters)
 - [CodeRefinery courses on FAIR (Findable, Accessible, Interoperable, and Reusable) software practices](https://coderefinery.org/lessons/) 
 - [Python documentation](https://docs.python.org/3/)
 - [GitHub Actions documentation](https://docs.github.com/en/actions)
