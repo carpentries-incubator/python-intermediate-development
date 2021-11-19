@@ -362,7 +362,7 @@ the meaning of the code itself - is intended only for humans to make reading cod
 ![Syntax Highlighting Functionality in PyCharm](../fig/pycharm-syntax-highlighting.png){: .image-with-shadow width="1000px" }
 
 ### Code Completion
-As you start typing code, PyCharm will offer to complete some of the code for you in a from of an auto completion popup.
+As you start typing code, PyCharm will offer to complete some of the code for you in a form of an auto completion popup.
 This is a context-aware code completion feature that speeds up the process of coding (e.g. reducing typos and other
 common mistakes) by offering available variable
 names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
@@ -370,9 +370,9 @@ names, functions from available packages, parameters of functions, hints related
 ![Code Completion Functionality in PyCharm](../fig/pycharm-code-completion.png){: .image-with-shadow width="600px" }
 
 ### Code Definition & Documentation References
-You will often need code reference information to help you code. PyCharm show this useful information, such as definitions of symbols (e.g. functions, parameters, classes, fields, and methods) and documentation references by means of quick popups and inline tooltips.
+You will often need code reference information to help you code. PyCharm shows this useful information, such as definitions of symbols (e.g. functions, parameters, classes, fields, and methods) and documentation references by means of quick popups and inline tooltips.
 
-For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), uncluding:
+For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), including:
 - Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
 - Quick Type Definition - type definition of variables, fields or any other symbols
 - Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../05-coding-conventions/index.html#documentation-strings-aka-docstrings))
