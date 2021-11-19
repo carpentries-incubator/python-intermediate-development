@@ -28,7 +28,7 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 Diagram below depicts a concept map of tools and techniques covered in the course and a
 high-level overview of how they fit together.
 
-![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="700px"}
+![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="800px"}
 
 ## Further Resources
 Below are some additional resources to help you continue learning:
