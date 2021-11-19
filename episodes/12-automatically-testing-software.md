@@ -11,10 +11,10 @@ objectives:
 - "Describe the three main types of tests and what each are used for"
 - "Implement and run unit tests to verify the correct behaviour of program functions"
 keypoints:
-- "The three main types of automated tests are **unit tests**, **functional tests**, and **regression tests**."
+- "The three main types of automated tests are **unit tests**, **functional tests** and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
 - "It should be easy to add or change tests, understand and run them, and understand their results."
-- "We can use a unit testing framework like Pytest to structure and simplify the writing of tests."
+- "We can use a unit testing framework like `pytest` to structure and simplify the writing of tests."
 - "We should test for expected errors in our code."
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
@@ -64,10 +64,10 @@ Later on, once we've finished writing these tests and are convinced they work pr
 
 ## An Example Dataset and Application
 
-Let's go back to our Patient software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
+Let's go back to our patient inflammation software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
 There are a number of data sets in the `data` directory recording inflammation information in patients, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (`python-intermediate-inflammation`), ensure you have your virtual environment activated in your terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
+Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (which should be in your home directory `~/python-intermediate-inflammation`), ensure you have your virtual environment activated in your command line terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
 ~~~
 $ cd ~/python-intermediate-inflammation
@@ -93,7 +93,7 @@ data.shape
 
 The data in this case is two-dimensional - it has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient.
 
-Our Patient application has a number of statistical functions held in `inflammation/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
+Our patient inflammation application has a number of statistical functions held in `inflammation/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
 
 ~~~
 def daily_mean(data):
@@ -117,7 +117,8 @@ Here, we use numpy's `np.mean()` function to calculate the mean *vertically* acr
 
 ...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row).
 
-To show this working with our patient data, we can use the function like this, passing four patient rows to the function:
+To show this working with our patient data, we can use the function like this, passing four patient rows to the 
+function in the Python console:
 
 ~~~
 from inflammation.models import daily_mean
@@ -276,42 +277,23 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Install Pytest
+### Installing Pytest
 
-One of the first things we need to do is install the `pytest` package in our virtual environment, and we have a couple of options. We can do this via PyCharm, in the same way we installed Numpy and Matplotlib, by opening PyCharm's Preferences/Settings, selecting `Project: python-intermediate-inflammation` > `Project Interpreter`, and using the `+` button to search for and install the `pytest` package. Alternatively, we can do this via the command line. If you're still in the Python interpreter, exit this first (either with `Ctrl-D` or typing `exit()`), then in Bash:
+If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
+as we have seen, we have a couple of options for installing external libraries:
+1. via PyCharm (see ["Adding an External Library"](../04-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../04-ides/index.html) episode), or 
+2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../03-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../03-virtual-environments/index.html) episode).
+
+To do it via the command line - exit the Python console first (either with `Ctrl-D` or by typing `exit()`), then do:
 
 ~~~
 $ pip3 install pytest
 ~~~
 {: .language-bash}
 
-You should see something like:
-
-~~~
-Collecting pytest
-  Downloading https://files.pythonhosted.org/packages/40/76/86f886e750b81a4357b6ed606b2bcf0ce6d6c27ad3c09ebf63ed674fc86e/pytest-6.2.5-py3-none-any.whl (280kB)
-     |████████████████████████████████| 286kB 2.6MB/s
-Collecting attrs>=19.2.0 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/20/a9/ba6f1cd1a1517ff022b35acd6a7e4246371dfab08b8e42b829b6d07913cc/attrs-21.2.0-py2.py3-none-any.whl
-Collecting toml (from pytest)
-  Using cached https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
-Collecting pluggy<2.0,>=0.12 (from pytest)
-  Downloading https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl
-Collecting packaging (from pytest)
-  Using cached https://files.pythonhosted.org/packages/3c/77/e2362b676dc5008d81be423070dd9577fa03be5da2ba1105811900fda546/packaging-21.0-py3-none-any.whl
-Collecting py>=1.8.2 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl
-Collecting iniconfig (from pytest)
-  Using cached https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl
-Requirement already satisfied: pyparsing>=2.0.2 in ./venv/lib/python3.8/site-packages (from packaging->pytest) (2.4.7)
-Installing collected packages: attrs, toml, pluggy, packaging, py, iniconfig, pytest
-Successfully installed attrs-21.2.0 iniconfig-1.1.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pytest-6.2.5 toml-0.10.2
-~~~
-{: .output}
-
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
-### Write a Metadata Package Description
+### Writing a Metadata Package Description
 
 Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
 
@@ -324,7 +306,7 @@ setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-Next, in Bash we need to install our code as a local package in our environment so Pytest will find it:
+Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
 $ pip3 install -e .
@@ -334,14 +316,15 @@ $ pip3 install -e .
 We should see:
 
 ~~~
-Obtaining file:///Users/user/Projects/SSI/intermediate-swc/steve-crouch.python-intermediate-inflammation
+Obtaining file:///Users/alex/python-intermediate-inflammation
+  Preparing metadata (setup.py) ... done
 Installing collected packages: inflammation-analysis
   Running setup.py develop for inflammation-analysis
-Successfully installed inflammation-analysis
+Successfully installed inflammation-analysis-1.0
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it properly as a full package each time we make a change.
+This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change.
 
 
 ### Running the Tests
@@ -357,14 +340,15 @@ So here, we specify the `tests/test_models.py` file to run the tests in that fil
 explicitly.
 
 ~~~
-============================= test session starts ==============================
-platform darwin -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/user/Projects/SSI/intermediate-swc/python-intermediate-inflammation
-collected 2 items
+============================================== test session starts =====================================================
+platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /Users/alex/python-intermediate-inflammation
+plugins: anyio-3.3.4
+collected 2 items                               
+                                                                        
+tests/test_models.py ..                                                                                           [100%]
 
-tests/test_models.py ..                                                  [100%]
-
-============================== 2 passed in 0.12s ===============================
+=============================================== 2 passed in 0.79s ======================================================
 ~~~
 {: .output}
 
@@ -435,11 +419,11 @@ def test_daily_min_string():
 ~~~
 {: .language-python}
 
-Although note that you need to import the `pytest` library at the top of our `test_models.py` file with `import pytest` so that we can use Pytest's `raises()` function.
+Note that you need to import the `pytest` library at the top of our `test_models.py` file with `import pytest` so that we can use `pytest`'s `raises()` function.
 
 Run all your tests as before.
 
-Since we've installed pytest to our environment, we should also regenerate our requirements.txt:
+Since we've installed `pytest` to our environment, we should also regenerate our requirements.txt:
 
 ~~~
 $ pip3 freeze --exclude-editable > requirements.txt
@@ -460,7 +444,7 @@ $ git push -u origin test-suite
 
 > ## Why Should We Test Invalid Input Data?
 >
-> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command-line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
+> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
 >
 {: .callout}
 

@@ -61,7 +61,7 @@ To cite this lesson, please consult with [CITATION](CITATION).
 
 ## Acknowledgements
 
-Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the UK Engineering and Physical Sciences Research Council (EPSRC) through grant EP/H043160/1 and EPSRC, BBSRC and ESRC Grant EP/N006410/1 and EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1 for the [UK Software Sustainability Institute][ssi].
+Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the [UK's Software Sustainability Institute][ssi] via the [EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/S021779/1).
 
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745

@@ -27,6 +27,9 @@ sharing it with others, think about what kind of code should you be writing and 
 worth spending some time learning a bit about Python
 coding style conventions to make sure that your code is consistently formatted and readable by yourself and others.
 
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", 
+[Martin Fowler, a British software engineer, author and international speaker on software development](https://en.wikiquote.org/wiki/Martin_Fowler)
+
 ## Python Coding Style Guide
 One of the most important things we can do to make sure our code is readable by others
 (and ourselves a
@@ -85,7 +88,7 @@ altogether and prevent automatic conversion. You can modify these settings in Py
 You can also tell the editor to show non-printable characters if you are ever unsure what character exactly is
 being used by selecting `View`>`Active Editor`>`Show whitespace`.
 
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="500px"}
+![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="1000px"}
 
 There are more complex rules on indenting single units of code that continue over several lines, e.g. function,
 list or dictionary definitions can all take more than one line. The preferred way of wrapping such long lines is by
