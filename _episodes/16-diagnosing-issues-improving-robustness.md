@@ -46,26 +46,28 @@ def patient_normalise(data):
     return data / max[:, np.newaxis]
 ~~~
 {: .language-python}
+**Note:** *there is an intentional mistake in the above code, which will be detected by further testing below so bare 
+with us for the moment*.
 
 In the code above, we first go row by row and find the maximum inflammation value for each patient and
 store these values in a 1-dimensional NumPy array `max`. We then want to use
 NumPy's element-wise division, to divide each value in every row of inflammation data (belonging to the same patient)
 by the maximum value for that patient stored in the 1D array `max`.
-However, we cannot do that division automatically as `data` is a 2D array (of shape `(n, m)`) and `max`
-is a 1D array (of shape `(n, )`) meaning that their shapes are not compatible.
+However, we cannot do that division automatically as `data` is a 2D array (of shape `(60, 40)`) and `max`
+is a 1D array (of shape `(60, )`), which means that their shapes are not compatible.
 
-![NumPy arrays of incompatible shapes](../fig/numpy_incompatible_shapes.png){: .image-with-shadow width="500px"}
+![NumPy arrays of incompatible shapes](../fig/numpy-incompatible-shapes.png){: .image-with-shadow width="600px"}
 
-Hence, to make sure that we can perform this division and get the expected result, we need to convert `max` to be a 2D array by using the `newaxis` index operator to
-insert a new axis into `max`, making it a 2D array of shape `(n, 1)`.
+Hence, to make sure that we can perform this division and get the expected result, we need to convert `max` to be a 
+2D array by using the `newaxis` index operator to insert a new axis into `max`, making it a 2D array of shape `(60, 1)`.
 
-![NumPy arrays' shapes after adding a new_axis](../fig/numpy_shapes_after_new_axis.png){: .image-with-shadow width="500px"}
+![NumPy arrays' shapes after adding a new_axis](../fig/numpy-shapes-after-new-axis.png){: .image-with-shadow width="600px"}
 
 Now the division will give us the expected result. Even though the shapes are not identical,
 NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max` array is now
-"stretched" ("broadcast") to match that of `data` - i.e. `(n, m)`, and element-wise division can be performed.
+"stretched" ("broadcast") to match that of `data` - i.e. `(60, 40)`, and element-wise division can be performed.
 
-![NumPy arrays' shapes after broadcasting](../fig/numpy_shapes_after_broadcasting.png){: .image-with-shadow width="500px"}
+![NumPy arrays' shapes after broadcasting](../fig/numpy-shapes-after-broadcasting.png){: .image-with-shadow width="600px"}
 
 > ## Broadcasting
 >
