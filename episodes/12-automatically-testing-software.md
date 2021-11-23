@@ -72,7 +72,7 @@ Let's take a quick look at the data now from within the Python command line cons
 ~~~
 $ cd ~/python-intermediate-inflammation
 $ source venv/bin/activate
-$ python
+$ python3
 ~~~
 {: .language-bash}
 
@@ -115,9 +115,9 @@ Here, we use numpy's `np.mean()` function to calculate the mean *vertically* acr
 ~~~
 {: .language-python}
 
-...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row).
+...the function would return a 1D numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row in the above data array).
 
-To show this working with our patient data, we can use the function like this, passing four patient rows to the 
+To show this working with our patient data, we can use the function like this, passing the first four patient rows to the 
 function in the Python console:
 
 ~~~
@@ -129,7 +129,8 @@ daily_mean(data[0:4])
 
 Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `inflammation.models.daily_mean()`).
 
-Which will essentially return the mean inflammation for each day column across those patients:
+The above code will return the mean inflammation for each day column across the first four patients (as a 1D numpy array 
+of shape (40, 0)):
 
 ~~~
 array([ 0.  ,  0.5 ,  1.5 ,  1.75,  2.5 ,  1.75,  3.75,  3.  ,  5.25,
@@ -208,7 +209,6 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 {: .language-python}
 
 Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure the tests themselves are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
-
 
 ### Using a Testing Framework
 
@@ -324,7 +324,8 @@ Successfully installed inflammation-analysis-1.0
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change.
+This will install our code, as a package, within our virtual environment. We're installing this as a 'development' 
+package (using the `-e` parameter in the above `pip3 install` command), which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change (or edit it - hence the `-e`).
 
 
 ### Running the Tests
@@ -423,7 +424,7 @@ Note that you need to import the `pytest` library at the top of our `test_models
 
 Run all your tests as before.
 
-Since we've installed `pytest` to our environment, we should also regenerate our requirements.txt:
+Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`:
 
 ~~~
 $ pip3 freeze --exclude-editable > requirements.txt
