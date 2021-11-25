@@ -186,6 +186,10 @@ So to fix the `patient_normalise` function in `models.py`, change `axis=0` in th
 
 ![All tests in PyCharm are successful](../fig/pytest-pycharm-all-tests-pass.png){: .image-with-shadow width="1000px"}
 
+> ## NumPy Axis
+> Getting the axes right in NumPy is not trivial - the [following tutorial](https://www.sharpsightlabs.com/blog/numpy-axes-explained/#:~:text=NumPy%20axes%20are%20the%20directions,along%20the%20rows%20and%20columns.
+) offers a good explanation on how axes work when applying NumPy functions to arrays.
+{: .callout}
 
 ## Corner or Edge Cases
 
