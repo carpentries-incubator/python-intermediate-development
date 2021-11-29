@@ -384,7 +384,7 @@ def test_patient_normalise(test, expected, raises):
 
 Be sure to commit your changes so far and push them to GitHub.
 
-> ## Add a Precondition to Check the Correct Type and Shape of Data (Optional Advanced Challenge)
+> ## Optional Advanced Challenge: Add a Precondition to Check the Correct Type and Shape of Data
 >
 > Add preconditions to check that data is an `ndarray` object and that it is of the correct shape.
 > Add corresponding tests to check that the function raises the correct exception.
