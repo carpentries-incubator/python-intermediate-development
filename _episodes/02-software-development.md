@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Software Design and Development"
+title: "Introduction to Our Project and Architecture"
 teaching: 20
 exercises: 10
 questions:
