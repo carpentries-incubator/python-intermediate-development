@@ -59,7 +59,7 @@ concept in collaborative development is version control workflows (i.e. how to e
 
 ### Python Coding Style
 Most programming languages will have associated standards and conventions for how the source code should be formatted and styled. Although
-this sounds pedantic, it is important for maintaining the consistency and readability of code across a project. Therefore, it is
-important to be aware of these guidelines and adhere to whatever the project you are working on has specified.
+this sounds pedantic, it is important for maintaining the consistency and readability of code across a project. Therefore, one should be aware of 
+these guidelines and adhere to whatever the project you are working on has specified. In Python, we will be looking at a convention called PEP8.
 
 Let's get started with setting up our software development environment!
