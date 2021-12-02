@@ -245,7 +245,7 @@ or like this to install multiple packages at once for short:
 ~~~
 {: .language-bash}
 
-If you run the `pip install` command on a package that is already installed, `pip` will notice this and do nothing.
+If you run the `pip3 install` command on a package that is already installed, `pip` will notice this and do nothing.
 
 To install a specific version of a Python package give the package name followed by `==` and the version number, e.g.
 `pip3 install numpy==1.21.1`.
