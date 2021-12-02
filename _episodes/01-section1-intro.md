@@ -54,6 +54,12 @@ We will use [PyCharm](https://www.jetbrains.com/pycharm/) in this course - a fre
 we use Git to version control our code in conjunction with [GitHub](https://github.com/) for code backup and sharing.
 GitHub is one of the leading integrated products and
 social platforms for modern software development, monitoring and management - it will help us with
-version control, issue management, code review, code testing/Continuous Integration, and collaborative development.
+version control, issue management, code review, code testing/Continuous Integration, and collaborative development. An important
+concept in collaborative development is version control workflows (i.e. how to effectively use version control on a project with others).
+
+### Python Coding Style
+Most programming languages will have associated standards and conventions for how the source code should be formatted and styled. Although
+this sounds pedantic, it is important for maintaining the consistency and readability of code across a project. Therefore, it is
+important to be aware of these guidelines and adhere to whatever the project you are working on has specified.
 
 Let's get started with setting up our software development environment!
