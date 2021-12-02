@@ -15,7 +15,8 @@ you need to use a number of different tools."
 to decide which tool is right for you, which may be a matter of personal preference or what the team or community you belong to is using."
 ---
 
-The first section of the course is dedicated to setting up your environment for collaborative software development.
+The first section of the course is dedicated to setting up your environment for collaborative software development
+and introducing the project that we will be working on throughout the course.
 In order to build working (research) software efficiently
 and to do it in collaboration with others rather than in isolation,
 you will have to get comfortable with using a number of different tools interchangeably
