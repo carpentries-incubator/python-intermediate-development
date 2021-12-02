@@ -1,12 +1,13 @@
 ---
-title: "Introduction to Software Design and Development"
+title: "Introduction to a Software Project"
 teaching: 20
 exercises: 10
 questions:
+- "What is a design architecture of a software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
-- "What is Model-View-Controller design architecture?"
 objectives:
 - "Use Git to obtain a working copy of our template software project from GitHub."
+- "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
 keypoints:
