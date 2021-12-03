@@ -89,7 +89,7 @@ Try them out!
 Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push it yet!):
 
 ~~~
-$ git add setup.py tests/test_models.py
+$ git add tests/test_models.py
 $ git commit -m "Add parameterisation mean, min, max test cases"
 ~~~
 {: .language-bash}

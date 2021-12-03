@@ -189,10 +189,10 @@ Arrays are not equal
 
 Mismatched elements: 1 / 2 (50%)
 Max absolute difference: 1.
-Max relative difference: 0.33333333
- x: array([2, 0])
- y: array([3., 0.])
- ~~~
+Max relative difference: 0.5
+ x: array([3., 0.])
+ y: array([2, 0])
+~~~
 {: .output}
 
 This tells us that one element between our generated and expected arrays doesn't match, and shows us the different arrays.
