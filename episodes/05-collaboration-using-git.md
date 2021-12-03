@@ -389,7 +389,7 @@ Your branch is up to date with 'origin/main'.
 ~~~
 {: .output}
 
-To merge `develop branch` on top of `main` do:
+To merge the `develop` branch on top of `main` do:
 
 ~~~
 $ git merge develop
@@ -407,7 +407,7 @@ If there are no conflicts, Git will merge the branches without complaining and r
 `develop` on top of the last commit from `main`. If there are merge conflicts (e.g. a team collaborator modified the same
 portion of the same file you are working on and checked in their changes before you), the particular files with conflicts
 will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again.
-Since we have no conflicts, we can now push `main` to remote repository:
+Since we have no conflicts, we can now push the `main` branch to the remote repository:
 
 ~~~
 git push origin main
