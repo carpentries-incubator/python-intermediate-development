@@ -302,15 +302,6 @@ class PatientSerializer(Serializer):
 > **Hint:** The method Python uses to check for equality of two instances of a class is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
 {: .challenge}
 
-## Design Early
-
-By taking time to design our software for extensibility, we can save ourselves a lot of time later when requirements change.
-The sooner we do this the better - ideally we should have a rough design sketched out for our software before we write a single line of code.
-This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
-Who will be using our software and how will the interact with it?
-
-Software is often designed and built as part of a team, so in the next section we'll be looking at how to manage the process of software development.
-
 > ## Advanced Challenge: Abstract Base Classes
 >
 > Since our `Serializer` class is designed not to be directly usable and its methods raise `NotImplementedError`, it ideally should be an abstract base class.
