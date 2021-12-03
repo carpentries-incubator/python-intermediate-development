@@ -1,6 +1,6 @@
 ---
 title: "Section 2: Ensuring Correctness of Software at Scale"
-colour: "#fcecc0"
+colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
@@ -23,3 +23,5 @@ In this section we will:
 - Design, write and run **unit tests** using pytest to verify the correct behaviour of code and identify faults, making use of test **parameterisation** to increase the number of different test cases we can run.
 - Automatically run a set of unit tests using **GitHub Actions** - a **Continuous Integration** infrastructure that allows us to automate tasks when things happen to our code, such as running those tests when a new commit is made to a code repository.
 - Use PyCharm's integrated **debugger** to help us locate a fault in our code while it is running.
+
+{% include links.md %}

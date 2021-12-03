@@ -32,7 +32,7 @@ Because of this, it's useful to know about the major paradigms, so you can recog
 > -- Wikipedia - Paradigm
 
 There's two major families that we can group the common major paradigms into: **Imperative** and **Declarative**.
-For each of these families, some of the major paradigms are listed, with examples of the languges which introduced them and some languages you might encounter in your own work which predominantly use each paradigm.
+For each of these families, some of the major paradigms are listed, with examples of the languages which introduced them and some languages you might encounter in your own work which predominantly use each paradigm.
 However, most of the languages listed can be used with multiple paradigms, and it's common to see multiple paradigms within a single program - so this isn't a strict list.
 
 ### The Imperative Family

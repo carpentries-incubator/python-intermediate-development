@@ -9,7 +9,6 @@ questions:
 - "What coding conventions exist for Python?"
 objectives:
 - "Understand the benefits of following community coding conventions"
-
 keypoints:
 - "Always assume that someone else will read your code at a later date, including yourself."
 - "Community coding conventions help you create more readable software projects that are easier to contribute
@@ -56,7 +55,7 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 >
 {: .callout}
 
-As we have already covered in the [episode on PyCharm IDE](../04-ides/index.html), PyCharm highlights the language constructs
+As we have already covered in the [episode on PyCharm IDE](../13-ides/index.html), PyCharm highlights the language constructs
 (reserved words) and syntax errors to help us with coding. PyCharm also gives us recommendations for formatting the code - these recommendations
 are mostly taken from the PEP8 style guide.
 
@@ -340,12 +339,13 @@ However, there are some restrictions. Comments that simply restate what the code
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
 > ## Improve Code Style of Our Project
-Create a feature branch called `style-fixes`, then look at `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
+Create a feature branch called `style-fixes` off our `develop` branch, then look at `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
 the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
->> To create a new feature branch called `style-fixes` and switch to it at the same time, from the project root do:
+>> To create a new feature branch called `style-fixes` off our `develop` branch and switch to it at the same time, from the project root do:
 >>  ~~~
->>  $ git checkout -b style-fixes
+>> $ git checkout develop
+>> $ git checkout -b style-fixes
 >> ~~~
 >>  {: .language-bash}
 >>

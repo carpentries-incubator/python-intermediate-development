@@ -30,7 +30,6 @@ In the context of our clinical trial data system, we might be interested in all 
 
 Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
 
-
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
