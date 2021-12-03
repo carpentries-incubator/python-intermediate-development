@@ -1,6 +1,6 @@
 ---
 title: "Section 4: Developing Software In a Team and Releasing It"
-colour: "#fcecc0"
+colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
