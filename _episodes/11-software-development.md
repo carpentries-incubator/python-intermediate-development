@@ -135,7 +135,7 @@ a series of comma-separated values (CSV) format files, where:
 - each row holds temperature measurements for a single patient (in some arbitrary units of inflammation),
 - columns represent successive days.
 
-> ## Have a Peak at the Data
+> ## Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
 > > ## Solution
 > > 1. To list the entire content from the project root do: `cat data/inflammation-01.csv`.
@@ -228,7 +228,7 @@ MVC architecture can be applied in scientific applications in the following mann
 scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is
 a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
 Controller is the part that ties the scientific processing and output parts together, mediating input and passing
-it to the model or view, e.g. command line options, mouse clicks, input files. For example, diagram below
+it to the model or view, e.g. command line options, mouse clicks, input files. For example, the diagram below
 depicts the use of MVC architecture for the [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }

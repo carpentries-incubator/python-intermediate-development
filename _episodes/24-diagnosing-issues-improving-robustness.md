@@ -46,8 +46,8 @@ def patient_normalise(data):
     return data / max[:, np.newaxis]
 ~~~
 {: .language-python}
-**Note:** *there is an intentional mistake in the above code, which will be detected by further testing below so bare 
-with us for the moment*.
+**Note:** *there is an intentional mistake in the above code, which will be detected by further testing below so bear 
+with us for the moment!*
 
 In the code above, we first go row by row and find the maximum inflammation value for each patient and
 store these values in a 1-dimensional NumPy array `max`. We then want to use

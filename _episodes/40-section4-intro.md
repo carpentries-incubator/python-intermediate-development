@@ -1,6 +1,6 @@
 ---
-title: "Section 4: Developing Software In a Team and Releasing It"
-colour: "#fcecc0"
+title: "Section 4: Improving and Managing Software Over its Lifetime"
+colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
@@ -25,3 +25,5 @@ In this section we will:
 - Look at how to **prepare our software for release**, looking at what we actually mean by software reusability, the importance of good documentation, as well as what to consider when choosing an open source licence.
 - Explore ways for us to **track issues with our software** registered by ourselves and external users, and how we should employ a critical mindset when reviewing software for reuse.
 - Examine how we can manage the **improvement of our software through feedback** using agile management techniques. We'll employ effort estimation of development tasks as a foundational tool for prioritising future team work, and use the MoSCoW approach and software development sprints to manage improvement. As we will see, it is very difficult to prioritise work effectively without knowing both its relative importance to others as well as the effort required to deliver those work items.
+
+{% include links.md %}

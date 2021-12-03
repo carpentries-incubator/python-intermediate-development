@@ -329,7 +329,7 @@ Software is often designed and built as part of a team, so in the next section w
 > Try implementing an alternative serializer, using the CSV format instead of JSON.
 >
 > **Hint:** Python also has a module for handling CSVs - see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
-> This module provides a CSV reader and writer which are a bit more flexible, but slower for purely numeric data, than the ones we've seen previously as part of numpy.
+> This module provides a CSV reader and writer which are a bit more flexible, but slower for purely numeric data, than the ones we've seen previously as part of NumPy.
 >
 > Can you think of any cases when a CSV might not be a suitable format to hold our patient data?
 {: .challenge}

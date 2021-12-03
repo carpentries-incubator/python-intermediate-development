@@ -224,13 +224,21 @@ When you’re done working on your project, you can exit the environment with:
 ~~~
 {: .language-bash}
 
+If you've just done the `deactivate`, ensure you reactivate the environment ready for the next part:
+~~~
+source venv/bin/activate
+(venv) $
+~~~
+{: .language-bash}
+
+
 ### Installing External Libraries in an Environment With `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
 for the code to run on your machine, you need to
 install these two dependencies into your virtual environment.
 
-To install the latest version of a package with `pip` you use the `pip install` command and specify the package’s name, e.g.:
+To install the latest version of a package with `pip` you use pip's `install` command and specify the package’s name, e.g.:
 
 ~~~
 (venv) $ pip3 install numpy
@@ -380,14 +388,11 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 In the above command, we tell the command line two things:
 
 1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
-1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
-1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
 2. to use it to run our script `inflammation-analysis.py`, which resides in the current directory.
 
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects
-a list of input files to process. Do not worry about this error for now -
-we will learn how to fix and write tests to detect errors in
-the following episodes.
+a list of input files to process, so this is expected behaviour since we don't supply any.
+
 
 {% include links.md %}

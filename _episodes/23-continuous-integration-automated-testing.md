@@ -32,9 +32,9 @@ There are many CI infrastructures and services, free and paid for, and subject t
 
 ## Continuous Integration with GitHub Actions
 
-### YAML - a Deeper Dive
+### A Quick Look at YAML
 
-YAML is a text format used by GitHub Action workflow files. It is also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format in more detail.
+YAML is a text format used by GitHub Action workflow files. It is also increasingly used for configuration files and storing other types of data, so it's worth taking a bit of time looking into this file format.
 
 [YAML](https://www.commonwl.org/user_guide/yaml/) (a recursive acronym which stands for "YAML Ain't Markup Language") is a language designed to be human readable. The three basic things you need to know about YAML to get started with GitHub Actions are key-value pairs, arrays, and maps.
 
