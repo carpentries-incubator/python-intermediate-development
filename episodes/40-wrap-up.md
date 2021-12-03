@@ -25,7 +25,7 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 - We've gone beyond procedural programming and explored different software design paradigms, such as object-oriented and functional styles of programming. We've contrasted their pros, cons, and the situations in which they work best, and how separation of concerns through modularity and architectural design can help shape good software.
 - As an intermediate developer, aspects other than technical skills become important, particularly in development teams. We've looked at the importance of good, consistent practices for team working, and the importance of having a self-critical mindset when developing software,  and ways to manage feedback effectively and efficiently.
 
-Diagram below depicts a concept map of tools and techniques covered in the course and a
+Diagram below depicts a [concept map][concept-maps] of tools and techniques covered in the course and a
 high-level overview of how they fit together.
 
 ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="800px"}
@@ -35,8 +35,8 @@ Below are some additional resources to help you continue learning:
 
 - [Additional episode on databases](../databases)
 - [Additional episode on verifying code style using linters](../verifying-code-style-linters)
-- [CodeRefinery courses on FAIR (Findable, Accessible, Interoperable, and Reusable) software practices](https://coderefinery.org/lessons/) 
-- [Python documentation](https://docs.python.org/3/)
-- [GitHub Actions documentation](https://docs.github.com/en/actions)
+- [CodeRefinery courses on FAIR (Findable, Accessible, Interoperable, and Reusable) software practices][coderefinery-lessons] 
+- [Python documentation][python-documentation]
+- [GitHub Actions documentation][github-actions]
 
 {% include links.md %}

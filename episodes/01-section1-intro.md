@@ -57,3 +57,5 @@ social platforms for modern software development, monitoring and management - it
 version control, issue management, code review, code testing/Continuous Integration, and collaborative development.
 
 Let's get started with setting up our software development environment!
+
+{% include links.md %}
