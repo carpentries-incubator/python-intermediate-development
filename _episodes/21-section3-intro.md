@@ -30,3 +30,5 @@ it becomes particularly important that you rethink the design of your software, 
 - **UI/UX (User Interface / User Experience)**: how will users interact with the software?
 
 ![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+
+{% include links.md %}

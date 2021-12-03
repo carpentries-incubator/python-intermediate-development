@@ -1,9 +1,11 @@
 {% include base_path.html %}
+[best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[coderefinery-lessons]: https://coderefinery.org/lessons/
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
@@ -15,7 +17,10 @@
 [gdpr]: https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en
 [github-importer]: https://import2.github.com/
 [github-markdown]: https://guides.github.com/features/mastering-markdown/
+[github-actions]: https://docs.github.com/en/actions
+[good-practices]: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
 [importer]: https://github.com/new/import
+[issues]: {{ repo_url }}/issues
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
 [jekyll-windows]: http://jekyll-windows.juthilo.com/
@@ -36,6 +41,7 @@
 [osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
+[python-documentation]: https://docs.python.org/3/
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.org/project/PyYAML/
 [r-markdown]: https://rmarkdown.rstudio.com/
@@ -47,6 +53,7 @@
 [ssi-choosing-name]: https://software.ac.uk/resources/guides/choosing-project-and-product-names
 [styles]: https://github.com/carpentries/styles/
 [swc-lessons]: https://software-carpentry.org/lessons/
+[swc-programming-with-python]: https://swcarpentry.github.io/python-novice-inflammation/
 [swc-releases]: https://github.com/swcarpentry/swc-releases
 [training]: https://carpentries.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
