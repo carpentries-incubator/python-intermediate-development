@@ -19,7 +19,7 @@ keypoints:
 
 ## What is a Function?
 
-Often when we use the term **function** we're refering to a construct for containing a block of code which performs a particular task.
+Often when we use the term **function** we're referring to a construct for containing a block of code which performs a particular task.
 But we borrowed the term from mathematics, so what does it mean there?
 
 > In mathematics, a function is a relation between sets that associates to every element of a first set exactly one element of the second set.
