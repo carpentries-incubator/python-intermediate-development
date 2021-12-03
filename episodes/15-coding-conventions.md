@@ -55,7 +55,7 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 >
 {: .callout}
 
-As we have already covered in the [episode on PyCharm IDE](../04-ides/index.html), PyCharm highlights the language constructs
+As we have already covered in the [episode on PyCharm IDE](../13-ides/index.html), PyCharm highlights the language constructs
 (reserved words) and syntax errors to help us with coding. PyCharm also gives us recommendations for formatting the code - these recommendations
 are mostly taken from the PEP8 style guide.
 
