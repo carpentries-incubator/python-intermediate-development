@@ -1,7 +1,9 @@
 ---
 layout: episode
 title: "Wrap-up"
-start: false
+start: true
+type: "wrap-up"
+colour: "#FBED65"
 teaching: 15
 exercises: 0
 questions:
