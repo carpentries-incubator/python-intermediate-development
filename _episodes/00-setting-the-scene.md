@@ -63,7 +63,7 @@ design decisions you have to make. Each paradigm represents a slightly different
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
 useful to know so you can recognise where it might be useful to switch in your own code.
 
-## Section 4: Managing and Improving Software Over its Lifetime
+## Section 4: Improving and Managing Software Over its Lifetime
 Finally, we are back to practical applications and learning to **publish and release
 software for reuse** by others and how to manage software improvements from feedback through 
 agile techniques. You will work with your fellow learners on a group project (as you would do when
