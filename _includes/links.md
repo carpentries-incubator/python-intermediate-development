@@ -33,7 +33,9 @@
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
+[numpy]: http://www.numpy.org/
 [osi]: https://opensource.org
+[pandas]: https://pandas.pydata.org/
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
@@ -43,6 +45,7 @@
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
 [ruby-installer]: https://rubyinstaller.org/
 [rubygems]: https://rubygems.org/pages/download/
+[scikit-learn]: https://github.com/scikit-learn/scikit-learn
 [ssi]: https://software.ac.uk/
 [ssi-choosing-name]: https://software.ac.uk/resources/guides/choosing-project-and-product-names
 [styles]: https://github.com/carpentries/styles/
