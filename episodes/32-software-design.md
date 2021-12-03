@@ -1,7 +1,7 @@
 ---
 title: "Software Design"
-teaching: 15
-exercises: 20
+teaching: ""
+exercises: ""
 questions:
 - "Where do we start when beginning a new software project?"
 - "How do people use software?"
@@ -317,6 +317,14 @@ Often, the software is split into three layers:
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
 
-In the next section we'll be looking at one method we might choose to help us manage our data storage.
+In the next episode we'll be looking at one method we might choose to help us manage our data storage.
+
+> ## Design Early
+> By taking time to design our software for extensibility, we can save ourselves a lot of time later when requirements change.
+The sooner we do this the better - ideally we should have a rough design sketched out for our software before we write a single line of code.
+This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
+Who will be using our software and how will the interact with it?
+{: .testimonial}
+
 
 {% include links.md %}
