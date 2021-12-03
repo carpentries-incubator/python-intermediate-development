@@ -281,8 +281,8 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
-1. via PyCharm (see ["Adding an External Library"](../04-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../04-ides/index.html) episode), or 
-2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../03-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../03-virtual-environments/index.html) episode).
+1. via PyCharm (see ["Adding an External Library"](../13-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../13-ides/index.html) episode), or 
+2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../12-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../12-virtual-environments/index.html) episode).
 
 To do it via the command line - exit the Python console first (either with `Ctrl-D` or by typing `exit()`), then do:
 
