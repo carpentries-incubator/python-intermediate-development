@@ -106,7 +106,7 @@ def daily_mean(data):
 ~~~
 {: .language-python}
 
-Here, we use numpy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a numpy array of three rows like...
+Here, we use NumPy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a NumPy array of three rows like...
 
 ~~~
 [[1, 2],
@@ -115,7 +115,7 @@ Here, we use numpy's `np.mean()` function to calculate the mean *vertically* acr
 ~~~
 {: .language-python}
 
-...the function would return a 1D numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row in the above data array).
+...the function would return a 1D NumPy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row in the above data array).
 
 To show this working with our patient data, we can use the function like this, passing the first four patient rows to the 
 function in the Python console:
@@ -129,7 +129,7 @@ daily_mean(data[0:4])
 
 Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `inflammation.models.daily_mean()`).
 
-The above code will return the mean inflammation for each day column across the first four patients (as a 1D numpy array 
+The above code will return the mean inflammation for each day column across the first four patients (as a 1D NumPy array 
 of shape (40, 0)):
 
 ~~~
@@ -161,7 +161,7 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with numpy arrays in all cases.
+So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values, and end up with something like:
 
@@ -241,7 +241,7 @@ def test_daily_mean_zeros():
                            [0, 0]])
     test_result = np.array([0, 0])
 
-    # Need to use Numpy testing functions to compare arrays
+    # Need to use NumPy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
 
@@ -254,7 +254,7 @@ def test_daily_mean_integers():
                            [5, 6]])
     test_result = np.array([3, 4])
 
-    # Need to use Numpy testing functions to compare arrays
+    # Need to use NumPy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 ...
 ~~~
@@ -262,14 +262,14 @@ def test_daily_mean_integers():
 
 So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
-- Inputs, e.g. the `test_input` Numpy array
+- Inputs, e.g. the `test_input` NumPy array
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
 - Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_array_equal()` to test its validity
-- Expected outputs, e.g. our `test_result` Numpy array that we test against
+- Expected outputs, e.g. our `test_result` NumPy array that we test against
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
-Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What About Unit Testing in Other Languages?
 >
@@ -277,7 +277,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Installing Pytest
+### Installing `pytest`
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
@@ -295,7 +295,7 @@ Whether we do this via PyCharm or the command line, the results are exactly the 
 
 ### Writing a Metadata Package Description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
 
 Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
 
@@ -306,7 +306,7 @@ setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
+Next, in the command line we need to install our code as a local package in our environment so pytest will find it:
 
 ~~~
 $ pip3 install -e .
