@@ -48,7 +48,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 ## Set Up a New Feature Branch for Writing Tests
 
-We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our test writing work:
+We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` off the `develop` branch - a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
 ~~~
 $ git checkout develop
