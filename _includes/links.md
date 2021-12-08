@@ -6,6 +6,7 @@
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [coderefinery-lessons]: https://coderefinery.org/lessons/
+[code-review]: https://en.wikipedia.org/wiki/Code_review
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
@@ -14,6 +15,7 @@
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
+[functional-programming]: (https://en.wikipedia.org/wiki/Functional_programming
 [gdpr]: https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en
 [github-importer]: https://import2.github.com/
 [github-markdown]: https://guides.github.com/features/mastering-markdown/
@@ -43,6 +45,7 @@
 [pandas]: https://pandas.pydata.org/
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
+[pull-request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 [python-documentation]: https://docs.python.org/3/
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.org/project/PyYAML/

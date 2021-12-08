@@ -92,6 +92,7 @@ extras_order:
   - figures
   - guide
   - discuss
+  - persistence
   - databases
   - verifying-code-style-linters
   - quiz
