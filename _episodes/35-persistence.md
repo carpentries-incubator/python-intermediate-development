@@ -8,11 +8,10 @@ questions:
 objectives:
 - "Describe how the environment in which software is used may constrain its design."
 - "Identify common components of multi-layer software projects"
-- "Store structured data using an Object Relational Mapping library"
 - "Define serialization and deserialization"
 - "Store and retrieve structured data using an appropriate format"
 - "Define what is meant by a contract in the context of Object Oriented design"
-- "Explain the benefits of contracts and implement modules which fulfill them"
+- "Explain the benefits of contracts and implement software components which fulfill them"
 keypoints:
 - "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
