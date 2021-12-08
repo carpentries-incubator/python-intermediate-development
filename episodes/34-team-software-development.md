@@ -11,14 +11,17 @@ keypoints:
 ---
 
 >## Note
-- This episode needs finishing off - it contains only the basic structure and is missing exercises.
-- One idea here might be to split people in groups of 2 or 3 and to add each other as collaborators 
+> - This episode needs finishing off - it contains soma suggested and basic structure (with some content) and is missing exercises.
+> - One idea here might be to split people in groups of 2 or 3 and to add each other as collaborators 
 > on their repositories and then have some exercises where two people do pair programming and then 
 > other exercises where they do a pull request on another team member's repo.  
-- For the exercises - an idea might be to move the 4 exercises from the end of the previous episode and 
-> do them here to give learners a chance to to write more code independently and different from the 
+> - Exercise suggestions:
+>    - adding tests to the code written in the previous episode
+>    - adding additional views over the data 
+> - This will give learners a chance to to write more code independently and different from the 
 > suggested solutions. This will enable them to be able to comment more on each other's solutions.
-- Also need to be able to introduce conflicts. 
+> - Also need to be able to introduce conflicts in exercises or the main section code.
+> - **Question for AZ: what code review techniques should be covered here - e.g. pair programming, structured team code review (i.e. over-the-shoulder style where team members eye-ball code together), code review as part of pull requests?**
 {: .note}
 
 ## Introduction
@@ -97,7 +100,8 @@ will have to be organised in small teams with your fellow learners.
 
 ...
 
-Task learners with the last 4 exercises from the previous episode. Embed pair programming (if possible), 
-pull requests and resolving conflicts.
+Exercise suggestions:
+- adding tests to the code written in the previous episode
+- adding additional views over the data
 
 {% include links.md %}
