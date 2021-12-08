@@ -26,7 +26,8 @@ know about the major paradigms, so you can recognise where it might be useful to
 paradigms that may be useful to you - **Procedural Programming** and **Object-Oriented Programming**.
 
 ## Procedural Programming
-Procedural Programming is probably the style you're most familiar with up to this point, where we group code into *procedures performing a single task, with exactly one entry and one exit point*.
+Procedural Programming is probably the style you're most familiar with and the one we used 
+up to this point, where we group code into *procedures performing a single task, with exactly one entry and one exit point*.
 In most modern languages we call these **functions**, instead of procedures - so if you're grouping your code into functions, this might be the paradigm you're using. By grouping code like this, we make it even easier to reason about the overall structure, since we should be able to tell roughly what a function does just by looking at its name.
 These functions are also much easier to reuse outside of functions, since we can call them from any part of our program.
 
@@ -38,7 +39,7 @@ HPC code is also often written in C++, but C++ code would more commonly follow a
 
 Note that you may sometimes hear people refer to this paradigm as "Functional Programming" to contrast it with 
 Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
-[Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) is a separate paradigm that places much stronger constraints on the behaviour of a function.
+[Functional Programming][functional-programming] is a separate paradigm that places much stronger constraints on the behaviour of a function.
 
 ## Object Oriented Programming
 
@@ -642,3 +643,5 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > Would they have implemented that feature in the same way?
 >
 {: .challenge}
+
+{% include links.md %}

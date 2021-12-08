@@ -21,6 +21,11 @@ keypoints:
 - "When writing software used for research, requirements *always* change."
 ---
 
+>## Note
+- Even though we initially said we would remove this episode - it might provide opportunities for learners
+ to write more code and more independently which could lead nicely to the next episode about code review.
+  {: .note}
+
 ## Introduction
 
 Our patient data system so far can read in some data, process it, and display it to people.
