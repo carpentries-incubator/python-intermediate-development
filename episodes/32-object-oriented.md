@@ -828,8 +828,11 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >
 > >
 > > class Library:
-> >     def __init__(self):
-> >         self.books = []
+> >     def __init__(self, books=None):
+> >         if books is None:
+> >             self.books = []
+> >         else:
+> >             self.books = books
 > >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))
