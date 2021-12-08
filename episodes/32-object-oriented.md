@@ -323,7 +323,7 @@ class Patient:
     def add_observation(self, value, day=None):
         if day is None:
             try:
-                day = self.observations[-1].day + 1
+                day = self.observations[-1]['day'] + 1
 
             except IndexError:
                 day = 0
