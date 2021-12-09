@@ -591,9 +591,9 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 >
 > Let's start with extending:
 >
-> - There must be a `Doctor` class to hold the data representing a single doctor
->   - Must have a `name` attribute
->   - Must have a list of patients that this doctor is responsible for
+> - There must be a `Doctor` class to hold the data representing a single doctor, which:
+>   - must have a `name` attribute
+>   - must have a list of patients that this doctor is responsible for
 >
 > In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
