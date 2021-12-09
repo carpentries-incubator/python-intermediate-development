@@ -574,6 +574,8 @@ AttributeError: 'Person' object has no attribute 'add_observation'
 ~~~
 {: .output}
 
+As expected, an error is thrown because we cannot add an observation to `bob`, who is a Person but not a Patient.
+
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
 There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourselves.
