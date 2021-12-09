@@ -449,7 +449,7 @@ That time, we used a function which converted temperatures in Celsius to Kelvin 
 
 In the same way, in object oriented programming, we can make things components of other things.
 
-We often use composition where we can say 'x *has a* y' - for example in our inflammation database, we might want to say that a doctor *has* patients or that a patient *has* observations.
+We often use composition where we can say 'x *has a* y' - for example in our inflammation project, we might want to say that a doctor *has* patients or that a patient *has* observations.
 
 In the case of our example, we're already saying that patients have observations, so we're already using composition here.
 We're currently implementing an observation as a dictionary with a known set of keys though, so maybe we should make an `Observation` class as well.
