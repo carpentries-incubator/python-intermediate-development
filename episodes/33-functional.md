@@ -11,7 +11,7 @@ objectives:
 - "Describe the core concepts that define the Functional Paradigm"
 - "Decompose the flow of data within a program info a sequence of data transformations"
 keypoints:
-- "Pure Functions are functions with deterministic behaviour and no side effects."
+- "*Pure functions* are functions with deterministic behaviour and no side effects."
 - "By working towards pure functions, we can make our code more testable and composable."
 - "There is very little difference between data and code in many languages - we can pass functions in and out of other functions without any extra work."
 - "Comprehensions and generators are Python features for efficiently processing a collection of data."
