@@ -246,10 +246,72 @@ $ git show v1.0.0
 ~~~
 {: .language-bash}
 
+You should see something like this:
+
 ~~~
-FIXME: add output from git show
+tag v1.0.0
+Tagger: <Name> <email>
+Date:   Fri Dec 10 10:22:36 2021 +0000
+
+Version 1.0.0
+
+commit 2df4bfcbfc1429c12f92cecba751fb2d7c1a4e28 (HEAD -> main, tag: v1.0.0, origin/main, origin/develop, origin/HEAD, develop)
+Author: <Name> <email>
+Date:   Fri Dec 10 10:21:24 2021 +0000
+
+	Finalising README.
+
+diff --git a/README.md b/README.md
+index 4818abb..5b8e7fd 100644
+--- a/README.md
++++ b/README.md
+@@ -22,4 +22,33 @@ Flimflam requires the following Python packages:
+ The following optional packages are required to run Flimflam's unit tests:
+ 
+ - [pytest](https://docs.pytest.org/en/stable/) - Flimflam's unit tests are written using pytest
+-- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
+\ No newline at end of file
++- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
++
++## Installation
++- Clone the repo ``git clone repo``
++- Install via ``pip install -e .``
++- Check everything runs by running ``pytest`` in the root directory
++- Hurray 😊
++
++## Contributing
++- Create an issue [here](https://github.com/Onoddil/python-intermediate-inflammation/issues)
++  - What works, what doesn't? You tell me
++- Randomly edit some code and see if it improves things, then submit a [pull request](https://github.com/Onoddil/python-intermediate-inflammation/pulls)
++- Just yell at me while I edit the code, pair programmer style!
++
++## Getting Help
++- Nice try
++
++## Credits
++- Directed by Michael Bay
++
++## Citation
++Please cite [J. F. W. Herschel, 1829, MmRAS, 3, 177](https://ui.adsabs.harvard.edu/abs/1829MmRAS...3..177H/abstract) if you used this work in your day-to-day life.  
++Please cite [C. Herschel, 1787, RSPT, 77, 1](https://ui.adsabs.harvard.edu/abs/1787RSPT...77....1H/abstract) if you actually use this for scientific work.
++
++## License
++This source code is protected under international copyright law.  All rights
++reserved and protected by the copyright holders.
++This file is confidential and only available to authorized individuals with the
++permission of the copyright holders.  If you encounter this file and do not have
++permission, please contact the copyright holders and delete this file.
+\ No newline at end of file
 ~~~
 {: .output}
+
+So now we've added a tag, we need this reflected in our Github repository.
+You can push this tag to your remote by doing:
+
+~~~
+git push origin v1.0.0
+~~~
+{: .language-bash}
 
 > ## What is a Version Number Anyway?
 >
