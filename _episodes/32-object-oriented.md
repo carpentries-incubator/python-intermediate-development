@@ -826,7 +826,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
 > >
-> > def __eq__(self, other):
+> >     def __eq__(self, other):
 > >         return self.title == other.title and self.author == other.author
 > >
 > >
