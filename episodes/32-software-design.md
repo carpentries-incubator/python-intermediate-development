@@ -338,7 +338,7 @@ These can be summarised in the following quote from the [Intent HG blog](https:/
 
 and in the [XKCD comic](https://xkcd.com/844/):
 
-![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="600px" }
+![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
 
 Not following these best practices can lead to accumulated "technical debt", which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
 instead of using a better approach that would take longer". So, the pressure to achieve project goals 
@@ -351,7 +351,7 @@ to keep these interest payments on making changes manageable. If this isn't done
 technical debt, and it can become too messy and prohibitive to maintain and develop, and then it cannot evolve.
 
 One of the best ways to ensure the 'good' coding standards are achieved and maintained within a team is to have
-multiple people have look and comment at code each time a change is introduced to see how it fits into the codebase.
+multiple people have a look and comment at code each time a change is introduced to see how it fits into the codebase.
 Such reviews check the correctness of the new code, test coverage, functionality changes, and confirm that they
 follow the coding guides and best practices. Let's have look at some code review techniques available to us.
 

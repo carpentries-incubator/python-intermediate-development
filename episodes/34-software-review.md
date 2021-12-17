@@ -12,16 +12,18 @@ keypoints:
 
 >## Note
 > - This episode needs finishing off - it contains soma suggested and basic structure (with some content) and is missing exercises.
-> - One idea here might be to split people in groups of 2 or 3 and to add each other as collaborators 
-> on their repositories and then have some exercises where two people do pair programming and then 
-> other exercises where they do a pull request on another team member's repo.  
+> - For an  online workshop, we could split learners in pairs and add each other as collaborators 
+> on their repositories. Then have them create PRs on each others repos and do code review on PRs received on own repos. 
+> Because we cannot do multiple screen sharing we cannot do pair programming and over-the-shoulder programming in an online setting 
+> but this may be possible in in person setting (so have 2 people pair program and then do a PR on the third team member's repo, then 
+> do code reviews independently).
 > - Exercise suggestions:
 >    - adding tests to the code written in the previous episode
 >    - adding additional views over the data 
 > - This will give learners a chance to to write more code independently and different from the 
 > suggested solutions. This will enable them to be able to comment more on each other's solutions.
-> - Also need to be able to introduce conflicts in exercises or the main section code.
-> - **Question for AZ: what code review techniques should be covered here - e.g. pair programming, structured team code review (i.e. over-the-shoulder style where team members eye-ball code together), code review as part of pull requests?**
+> - Also need to be able to introduce conflicts in exercises so that learners can look into resolving conflicts.
+> - **From AZ: mention various code review techniques but focus on code review as part of pull requests**
 {: .note}
 
 ## Introduction
@@ -95,7 +97,7 @@ they initiate code review and general discussion about a set of changes before t
 into the main development branch. This model is more prevalent with smaller teams and organisations 
 collaborating on private projects.
 
-Let's do some exercises now to practice pair programming and code review via pull requests. For this, you 
+Let's do some exercises now to practice code review via pull requests. For this, you 
 will have to be organised in small teams with your fellow learners.
 
 ...
