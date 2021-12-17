@@ -30,7 +30,6 @@ In the context of our clinical trial data system, we might be interested in all 
 
 Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
 
-
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
@@ -260,7 +259,7 @@ class Patient:
     def add_observation(self, value, day=None):
         if day is None:
             try:
-                day = self.observations[-1].day + 1
+                day = self.observations[-1]['day'] + 1
 
             except IndexError:
                 day = 0
@@ -310,7 +309,8 @@ This is one of the common ways to handle an optional argument in Python, so we'l
 Why is the `__init__` method not called `init`?
 There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a double-underscore, hence the name **dunder method**.
 
-When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes.
+When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(alice)` returned `<__main__.Patient object at 0x7fd7e61b73d0>`, which is the string represenation of the `alice` object. We 
+may want the print statement to display the objects's name instead. We can achieve this by overriding the `__str__` method of our class.
 
 ~~~ python
 # file: inflammation/models.py
@@ -324,7 +324,7 @@ class Patient:
     def add_observation(self, value, day=None):
         if day is None:
             try:
-                day = self.observations[-1].day + 1
+                day = self.observations[-1]['day'] + 1
 
             except IndexError:
                 day = 0
@@ -449,7 +449,7 @@ That time, we used a function which converted temperatures in Celsius to Kelvin 
 
 In the same way, in object oriented programming, we can make things components of other things.
 
-We often use composition where we can say 'x *has a* y' - for example in our inflammation database, we might want to say that a doctor *has* patients or that a patient *has* observations.
+We often use composition where we can say 'x *has a* y' - for example in our inflammation project, we might want to say that a doctor *has* patients or that a patient *has* observations.
 
 In the case of our example, we're already saying that patients have observations, so we're already using composition here.
 We're currently implementing an observation as a dictionary with a known set of keys though, so maybe we should make an `Observation` class as well.
@@ -479,7 +479,7 @@ class Patient:
             except IndexError:
                 day = 0
 
-        new_observation = Observation(value, day)
+        new_observation = Observation(day, value)
 
         self.observations.append(new_observation)
         return new_observation
@@ -524,7 +524,7 @@ class Observation:
         self.value = value
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 class Person:
     def __init__(self, name):
@@ -547,7 +547,7 @@ class Patient(Person):
             except IndexError:
                 day = 0
 
-        new_observation = Observation(value, day)
+        new_observation = Observation(day, value)
 
         self.observations.append(new_observation)
         return new_observation
@@ -574,6 +574,8 @@ AttributeError: 'Person' object has no attribute 'add_observation'
 ~~~
 {: .output}
 
+As expected, an error is thrown because we cannot add an observation to `bob`, who is a Person but not a Patient.
+
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
 There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourselves.
@@ -591,9 +593,9 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 >
 > Let's start with extending:
 >
-> - There must be a `Doctor` class to hold the data representing a single doctor
->   - Must have a `name` attribute
->   - Must have a list of patients that this doctor is responsible for
+> - There must be a `Doctor` class to hold the data representing a single doctor, which:
+>   - must have a `name` attribute
+>   - must have a list of patients that this doctor is responsible for
 >
 > In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
@@ -824,13 +826,16 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
 > >
-> > def __eq__(self, other):
+> >     def __eq__(self, other):
 > >         return self.title == other.title and self.author == other.author
 > >
 > >
 > > class Library:
-> >     def __init__(self):
-> >         self.books = []
+> >     def __init__(self, books=None):
+> >         if books is None:
+> >             self.books = []
+> >         else:
+> >             self.books = books
 > >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))

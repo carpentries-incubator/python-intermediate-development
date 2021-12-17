@@ -224,13 +224,21 @@ When you’re done working on your project, you can exit the environment with:
 ~~~
 {: .language-bash}
 
-### Installing Packages in an Environment With `pip`
+If you've just done the `deactivate`, ensure you reactivate the environment ready for the next part:
+~~~
+source venv/bin/activate
+(venv) $
+~~~
+{: .language-bash}
+
+
+### Installing External Libraries in an Environment With `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
 for the code to run on your machine, you need to
 install these two dependencies into your virtual environment.
 
-To install the latest version of a package with `pip` you use the `pip install` command and specify the package’s name, e.g.:
+To install the latest version of a package with `pip` you use pip's `install` command and specify the package’s name, e.g.:
 
 ~~~
 (venv) $ pip3 install numpy
@@ -245,7 +253,7 @@ or like this to install multiple packages at once for short:
 ~~~
 {: .language-bash}
 
-If you run the `pip install` command on a package that is already installed, `pip` will notice this and do nothing.
+If you run the `pip3 install` command on a package that is already installed, `pip` will notice this and do nothing.
 
 To install a specific version of a Python package give the package name followed by `==` and the version number, e.g.
 `pip3 install numpy==1.21.1`.
@@ -356,7 +364,7 @@ via your code sharing platform (e.g. GitHub).
 
 > ## Official Documentation
 > For a full list of options and commands, consult the [official `venv` documentation](https://docs.python.org/3/library/venv.html)
-> and the [Installing Python Modules with `pip` guide](https://docs.python.org/3/installing/index.html#installing-index). Also check out the guide ["Installing packages using pip and virtual environments"](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments).
+> and the [Installing Python Modules with `pip` guide](https://docs.python.org/3/installing/index.html#installing-index). Also check out the guide ["Installing packages using `pip` and virtual environments"](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments).
 {: .testimonial}
 
 ## Running Python Scripts From Command Line
@@ -380,14 +388,11 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 In the above command, we tell the command line two things:
 
 1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
-1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
-1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
 2. to use it to run our script `inflammation-analysis.py`, which resides in the current directory.
 
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects
-a list of input files to process. Do not worry about this error for now -
-we will learn how to fix and write tests to detect errors in
-the following episodes.
+a list of input files to process, so this is expected behaviour since we don't supply any.
+
 
 {% include links.md %}

@@ -48,7 +48,7 @@ For the purposes of this course, we'll focus on unit tests. But the principles a
 
 ## Set Up a New Feature Branch for Writing Tests
 
-We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` - a common term we use to refer to sets of tests - that we'll use for our test writing work:
+We're going to look at how to run some existing tests and also write some new ones, so let's ensure we're initially on our `develop` branch we created earlier. And then, we'll create a new feature branch called `test-suite` off the `develop` branch - a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
 ~~~
 $ git checkout develop
@@ -72,7 +72,7 @@ Let's take a quick look at the data now from within the Python command line cons
 ~~~
 $ cd ~/python-intermediate-inflammation
 $ source venv/bin/activate
-$ python
+$ python3
 ~~~
 {: .language-bash}
 
@@ -106,7 +106,7 @@ def daily_mean(data):
 ~~~
 {: .language-python}
 
-Here, we use numpy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a numpy array of three rows like...
+Here, we use NumPy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a NumPy array of three rows like...
 
 ~~~
 [[1, 2],
@@ -115,9 +115,9 @@ Here, we use numpy's `np.mean()` function to calculate the mean *vertically* acr
 ~~~
 {: .language-python}
 
-...the function would return a numpy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row).
+...the function would return a 1D NumPy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row in the above data array).
 
-To show this working with our patient data, we can use the function like this, passing four patient rows to the 
+To show this working with our patient data, we can use the function like this, passing the first four patient rows to the 
 function in the Python console:
 
 ~~~
@@ -129,7 +129,8 @@ daily_mean(data[0:4])
 
 Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `inflammation.models.daily_mean()`).
 
-Which will essentially return the mean inflammation for each day column across those patients:
+The above code will return the mean inflammation for each day column across the first four patients (as a 1D NumPy array 
+of shape (40, 0)):
 
 ~~~
 array([ 0.  ,  0.5 ,  1.5 ,  1.75,  2.5 ,  1.75,  3.75,  3.  ,  5.25,
@@ -160,7 +161,7 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with numpy arrays in all cases.
+So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values, and end up with something like:
 
@@ -188,10 +189,10 @@ Arrays are not equal
 
 Mismatched elements: 1 / 2 (50%)
 Max absolute difference: 1.
-Max relative difference: 0.33333333
- x: array([2, 0])
- y: array([3., 0.])
- ~~~
+Max relative difference: 0.5
+ x: array([3., 0.])
+ y: array([2, 0])
+~~~
 {: .output}
 
 This tells us that one element between our generated and expected arrays doesn't match, and shows us the different arrays.
@@ -208,7 +209,6 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 {: .language-python}
 
 Which highlights an important point: as well as making sure our code is returning correct answers, we also need to ensure the tests themselves are also correct. Otherwise, we may go on to fix our code only to return an incorrect result that *appears* to be correct. So a good rule is to make tests simple enough to understand so we can reason about both the correctness of our tests as well as our code. Otherwise, our tests hold little value.
-
 
 ### Using a Testing Framework
 
@@ -241,7 +241,7 @@ def test_daily_mean_zeros():
                            [0, 0]])
     test_result = np.array([0, 0])
 
-    # Need to use Numpy testing functions to compare arrays
+    # Need to use NumPy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
 
@@ -254,7 +254,7 @@ def test_daily_mean_integers():
                            [5, 6]])
     test_result = np.array([3, 4])
 
-    # Need to use Numpy testing functions to compare arrays
+    # Need to use NumPy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 ...
 ~~~
@@ -262,14 +262,14 @@ def test_daily_mean_integers():
 
 So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
-- Inputs, e.g. the `test_input` Numpy array
+- Inputs, e.g. the `test_input` NumPy array
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
 - Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_array_equal()` to test its validity
-- Expected outputs, e.g. our `test_result` Numpy array that we test against
+- Expected outputs, e.g. our `test_result` NumPy array that we test against
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
-Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What About Unit Testing in Other Languages?
 >
@@ -277,12 +277,12 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Install Pytest
+### Installing `pytest`
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
-1. via PyCharm (see ["Adding an external library" section](../04-ides/index.html#adding-an-external-library)), or 
-2. via the command line.
+1. via PyCharm (see ["Adding an External Library"](../13-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../13-ides/index.html) episode), or 
+2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../12-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../12-virtual-environments/index.html) episode).
 
 To do it via the command line - exit the Python console first (either with `Ctrl-D` or by typing `exit()`), then do:
 
@@ -291,35 +291,11 @@ $ pip3 install pytest
 ~~~
 {: .language-bash}
 
-You should see something like:
-
-~~~
-Collecting pytest
-  Downloading https://files.pythonhosted.org/packages/40/76/86f886e750b81a4357b6ed606b2bcf0ce6d6c27ad3c09ebf63ed674fc86e/pytest-6.2.5-py3-none-any.whl (280kB)
-     |████████████████████████████████| 286kB 2.6MB/s
-Collecting attrs>=19.2.0 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/20/a9/ba6f1cd1a1517ff022b35acd6a7e4246371dfab08b8e42b829b6d07913cc/attrs-21.2.0-py2.py3-none-any.whl
-Collecting toml (from pytest)
-  Using cached https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
-Collecting pluggy<2.0,>=0.12 (from pytest)
-  Downloading https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl
-Collecting packaging (from pytest)
-  Using cached https://files.pythonhosted.org/packages/3c/77/e2362b676dc5008d81be423070dd9577fa03be5da2ba1105811900fda546/packaging-21.0-py3-none-any.whl
-Collecting py>=1.8.2 (from pytest)
-  Using cached https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl
-Collecting iniconfig (from pytest)
-  Using cached https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl
-Requirement already satisfied: pyparsing>=2.0.2 in ./venv/lib/python3.8/site-packages (from packaging->pytest) (2.4.7)
-Installing collected packages: attrs, toml, pluggy, packaging, py, iniconfig, pytest
-Successfully installed attrs-21.2.0 iniconfig-1.1.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pytest-6.2.5 toml-0.10.2
-~~~
-{: .output}
-
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
-### Write a Metadata Package Description
+### Writing a Metadata Package Description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
 
 Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
 
@@ -330,7 +306,7 @@ setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
+Next, in the command line we need to install our code as a local package in our environment so pytest will find it:
 
 ~~~
 $ pip3 install -e .
@@ -348,7 +324,8 @@ Successfully installed inflammation-analysis-1.0
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. We're installing this as a 'development' package, which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change.
+This will install our code, as a package, within our virtual environment. We're installing this as a 'development' 
+package (using the `-e` parameter in the above `pip3 install` command), which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change (or edit it - hence the `-e`).
 
 
 ### Running the Tests
@@ -447,7 +424,7 @@ Note that you need to import the `pytest` library at the top of our `test_models
 
 Run all your tests as before.
 
-Since we've installed `pytest` to our environment, we should also regenerate our requirements.txt:
+Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`:
 
 ~~~
 $ pip3 freeze --exclude-editable > requirements.txt

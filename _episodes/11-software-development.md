@@ -3,10 +3,11 @@ title: "Introduction to Our Project and Architecture"
 teaching: 20
 exercises: 10
 questions:
+- "What is a design architecture of a software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
-- "What is Model-View-Controller design architecture?"
 objectives:
 - "Use Git to obtain a working copy of our template software project from GitHub."
+- "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
 keypoints:
@@ -37,21 +38,17 @@ To start with the development, we have to obtain a local copy of the project on
 your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
-1. Log into your GitHub account and go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
+1. Log into your GitHub account. 
+2. Go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-2. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
+3. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
-we are not forking the directory but creating a copy (remember - you can fork only once but can have multiple copies in GitHub).
-3. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
+we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
+4. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
 ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
-4. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
-5. At this point GitHub may ask you to authenticate. If this happens and
-you do not have 2-Factor-Authentication (2FA) enabled in your
-GitHub account, you can just enter your password to proceed. If you are using 2FA, you may get a message:
-"Your old project requires credentials for read-only access. We will only temporarily store them for importing." and
-should use a pre-generated personal access token as your password here.
+5. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
 6. Locate the copied repository under your own GitHub account.
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
@@ -138,7 +135,7 @@ a series of comma-separated values (CSV) format files, where:
 - each row holds temperature measurements for a single patient (in some arbitrary units of inflammation),
 - columns represent successive days.
 
-> ## Have a Peak at the Data
+> ## Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
 > > ## Solution
 > > 1. To list the entire content from the project root do: `cat data/inflammation-01.csv`.
@@ -231,7 +228,7 @@ MVC architecture can be applied in scientific applications in the following mann
 scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is
 a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
 Controller is the part that ties the scientific processing and output parts together, mediating input and passing
-it to the model or view, e.g. command line options, mouse clicks, input files. For example, diagram below
+it to the model or view, e.g. command line options, mouse clicks, input files. For example, the diagram below
 depicts the use of MVC architecture for the [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
@@ -278,7 +275,7 @@ entry point into the application. The **View** and **Model** modules are contain
 in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
-We will revisit the software architecture and MVC topics once again in a [later episode](../index/25-software-design)
+We will revisit the software architecture and MVC topics once again in a [later episode](../../32-software-design)
 when we talk in more detail about software design.
 We now proceed to set up our virtual development environment and start working with the code using
 a more convenient graphical tool - IDE PyCharm.

@@ -156,7 +156,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to staging area to prepare them for committing. We can do that at the same time as:
+To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to 
+staging area to prepare them for committing. We can do that at the same time as:
 
 ~~~
 $ git add .gitignore requirements.txt
@@ -174,13 +175,18 @@ Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
 machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
+GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
+any more - you need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security before you can push remotely the changes you made locally. So, when you run the command below:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-`origin` here is the remote repository you have used when cloning the project locally (it is called like that
+Git will prompt you to authenticate - enter your GitHub username and the previously generated access token as the 
+password (you can also [enable caching of the credentials](https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html) so your machine remembers the access token). In the above command, 
+`origin` is an alias for the remote repository you used when cloning the project locally (it is called like that
 by convention and set up automatically by Git when you run `git clone remote_url` command to replicate a remote
 repository locally); `main` is the name of our
 main (and currently only) development branch.
@@ -383,7 +389,7 @@ Your branch is up to date with 'origin/main'.
 ~~~
 {: .output}
 
-To merge `develop branch` on top of `main` do:
+To merge the `develop` branch on top of `main` do:
 
 ~~~
 $ git merge develop
@@ -401,7 +407,7 @@ If there are no conflicts, Git will merge the branches without complaining and r
 `develop` on top of the last commit from `main`. If there are merge conflicts (e.g. a team collaborator modified the same
 portion of the same file you are working on and checked in their changes before you), the particular files with conflicts
 will be marked and you will need to resolve those conflicts and commit the changes before attempting to merge again.
-Since we have no conflicts, we can now push `main` to remote repository:
+Since we have no conflicts, we can now push the `main` branch to the remote repository:
 
 ~~~
 git push origin main

@@ -6,11 +6,11 @@ questions:
 - "Where do we start when beginning a new software project?"
 - "How do people use software?"
 - "How can we make sure the components of our software are reusable?"
-- "What should we do when our requirements change?"
+- "How do we add components to an MVC application?"
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
-- "Identify common components of multi-layer software projects"
-- "Store structured data using an Object Relational Mapping library"
+- "Identify common components of multi-layer software projects."
+- "Better understand the components of an MVC architecture."
 keypoints:
 - "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
@@ -282,7 +282,7 @@ For now, we also don't know the names of any of our patients, so we've made it `
 We can now call our program with these extra arguments to see the record for a single patient:
 
 ~~~
-python inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
+python3 inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
 ~~~
 {: .language-bash}
 

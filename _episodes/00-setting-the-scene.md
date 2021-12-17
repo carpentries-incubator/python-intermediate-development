@@ -1,19 +1,19 @@
 ---
 title: "Setting the Scene For the Workshop"
 start: false
+colour: "#FBED65"
 teaching: 15
 exercises: 0
-type: workshop-intro
 questions:
-- "What are we going to teach in this workshop?"
-- "What different software development tools will we be using?"
+- "What are we teaching in this course?"
+- "Why did we pick specific topics to cover?"
 objectives:
 - "Setting the scene and expectations"
 - "Making sure everyone has all the necessary software is installed"
 keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle
 that will be of most use to anyone working collaboratively on code."
-- "The lesson follows on from the novice Software Carpentry lesson, but this not a prerequisite for attending as long as
+- "The lesson follows on from the novice Software Carpentry lesson, but this is not a prerequisite for attending as long as
 you have some basic Python, command line and Git skills and you have been using them to write code to help with your work."
 ---
 
@@ -29,12 +29,12 @@ This lesson is providing the next step in software development for you - it teac
 engineering skills to help you restructure existing and design more robust software code,
 automate the process of testing and verifying software correctness and support collaborations with others in a way that mimics a typical collaborative
 software development process. It teaches you to use a number of different **software development tools and techniques**
-simultaneously and interchangeably as you would use them in a real life. We had to make some choices when choosing
-tools to teach here (based on ease of installation for the audience and other considerations) - however
-skills taught here are transferable to other similar tools and programming languages too.
-Over time, you will develop a preference for certain tools based on your personal taste or based on what is commonly used by your group, collaborators or community.
+simultaneously and interchangeably as you would use them in a real life. We had to make some choices when choosing topics and tools to teach here - based on ease of installation for the audience and other considerations. However, we hope that the topics covered will give you a solid foundation to work in a team 
+on software development and produce high quality software for yourself and others. Skills and tools 
+taught here are transferable to other similar tools and programming languages.
+Over time, you will develop a preference for certain tools and languages based on your personal taste or based on what is commonly used by your group, collaborators or community.
 
-The lesson is organised into the following
+The course is organised into the following
 four bigger sections.
 
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
@@ -63,7 +63,7 @@ design decisions you have to make. Each paradigm represents a slightly different
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
 useful to know so you can recognise where it might be useful to switch in your own code.
 
-## Section 4: Managing and Improving Software
+## Section 4: Improving and Managing Software Over its Lifetime
 Finally, we are back to practical applications and learning to **publish and release
 software for reuse** by others and how to manage software improvements from feedback through 
 agile techniques. You will work with your fellow learners on a group project (as you would do when

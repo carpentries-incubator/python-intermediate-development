@@ -1,6 +1,6 @@
 ---
-title: "Section 1: Environment For Collaborative Code Development"
-colour: "#fcecc0"
+title: "Section 1: Setting Up Environment For Collaborative Code Development"
+colour: "#fafac8"
 start: true
 teaching: 10
 exercises: 0
@@ -64,3 +64,5 @@ this sounds pedantic, it is important for maintaining the consistency and readab
 these guidelines and adhere to whatever the project you are working on has specified. In Python, we will be looking at a convention called PEP8.
 
 Let's get started with setting up our software development environment!
+
+{% include links.md %}
