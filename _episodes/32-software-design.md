@@ -10,13 +10,13 @@ questions:
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Identify common components of multi-layer software projects"
-- "Store structured data using an Object Relational Mapping library"
 keypoints:
 - "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change."
 - "These components can be as small as a single function, or be a software package in their own right."
-- "When writing software used for research, requirements *always* change."
+- "When writing software used for research, requirements will almost *always* change."
+- "*`Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do'*"
 ---
 
 ## Introduction
@@ -317,14 +317,42 @@ Often, the software is split into three layers:
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
 
-In the next episode we'll be looking at one method we might choose to help us manage our data storage.
+## Software Development Best Practices
 
 > ## Design Early
 > By taking time to design our software for extensibility, we can save ourselves a lot of time later when requirements change.
 The sooner we do this the better - ideally we should have a rough design sketched out for our software before we write a single line of code.
 This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
 Who will be using our software and how will the interact with it?
-{: .testimonial}
+{: .testimonial}                                 
 
+So far in the course we looked at some aspects of writing 'good' code that you should try and implement:
+- Write documented, easy to read and self-explanatory code 
+- Write code covered by automated tests
+- Design composable and maintainable code split in well-defined interconnected units that can be extended and reused
+
+These can be summarised in the following quote from the [Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
+
+> *“Good code is written so that is readable, understandable, covered by automated tests, not over complicated and 
+> does well what is intended to do.”*
+
+and in the [XKCD comic](https://xkcd.com/844/):
+
+![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="600px" }
+
+Not following these best practices can lead to accumulated "technical debt", which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
+instead of using a better approach that would take longer". So, the pressure to achieve project goals 
+can sometimes lead to quick and easy solutions, which make the software become more messy, more complex, 
+more difficult to understand and maintain. The extra effort required to make 
+changes in the future is the interest paid on the (technical) debt. It's natural for software to accrue some 
+technical debt, but it's important to pay off that debt during a
+maintenance phase - simplifying, clarifying the code, making it easier to understand -
+to keep these interest payments on making changes manageable. If this isn't done, the software may accrue too much
+technical debt, and it can become too messy and prohibitive to maintain and develop, and then it cannot evolve.
+
+One of the best ways to ensure the 'good' coding standards are achieved and maintained within a team is to have
+multiple people have look and comment at code each time a change is introduced to see how it fits into the codebase.
+Such reviews check the correctness of the new code, test coverage, functionality changes, and confirm that they
+follow the coding guides and best practices. Let's have look at some code review techniques available to us.
 
 {% include links.md %}
