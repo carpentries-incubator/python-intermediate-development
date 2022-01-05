@@ -1,6 +1,6 @@
 ---
 title: "Section 3: Design and Development Techniques for Writing `Good` Code"
-colour: "#fcecc0"
+colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
