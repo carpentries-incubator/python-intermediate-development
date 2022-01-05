@@ -89,12 +89,20 @@ Please make sure that you have all the necessary software installed as described
 This section also contains instructions on how to test your setup.
 {: .callout}
 
+> ## Compulsory and Optional Exercises
+Exercises are a crucial part of this course and the narrative. They are used to re-enforce the points taught and give 
+you an opportunity to practice things on your own. Please do not be tempted to skip exercises as that will get your 
+local software project out of sync with the course and break the narrative. Exercises that are clearly marked 
+as "optional" can be skipped without breaking things but we advise you to go through them too, if time allows. 
+All exercises contain solutions but, wherever possible, try and work out a solution on your own. 
+{: .callout}
+
 > ## Outdated Screenshots
 > Throughout this lesson we will make use and show content from Graphical User Interface (GUI) tools (PyCharm and GitHub).
 > These are evolving tools and platforms, always adding new features and new visual elements.
 > Screenshots in the lesson may then become out-of-sync, refer or show content that no longer exists or is different to
 > what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have
-> a big discrepancy with what you see, please [open an issue](https://github.com/softwaresaved/python-intermediate-development/issues/new) describing what you see and how it differs from the lesson
+> a big discrepancy with what you see, please [open an issue]({{ repo_url }}/issues/new) describing what you see and how it differs from the lesson
 > content. Feel free to add as many screenshots as necessary to clarify the issue.
 {: .callout}
 
