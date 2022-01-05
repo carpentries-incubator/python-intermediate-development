@@ -1,5 +1,5 @@
 ---
-title: "Preparing Software for Reuse"
+title: "Software Release"
 start: false
 teaching: 35
 exercises: 20
@@ -273,5 +273,8 @@ We may also wish to make data available to either be used with the software or a
 
 We need to ensure that we are still conforming to the relevant policies and guidelines regarding how we manage research data, which may include funding council, institutional, national, and even international policies and laws. Within Europe, for example, there's the need to conform to things like [GDPR][gdpr], for example. It's a very good idea to make yourself aware of these aspects.
 
+
+## Packaging Code for Release
+Material from https://sabs-r3.github.io/software-engineering-day4/03-packaging/index.html to be folded into this section. Possibly some restructuring and cutting down needed.
 
 {% include links.md %}
