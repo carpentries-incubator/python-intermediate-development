@@ -6,6 +6,7 @@
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [coderefinery-lessons]: https://coderefinery.org/lessons/
+[code-review]: https://en.wikipedia.org/wiki/Code_review
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
@@ -14,6 +15,7 @@
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
+[functional-programming]: (https://en.wikipedia.org/wiki/Functional_programming
 [gdpr]: https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en
 [github-importer]: https://import2.github.com/
 [github-markdown]: https://guides.github.com/features/mastering-markdown/
@@ -38,9 +40,12 @@
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
+[numpy]: http://www.numpy.org/
 [osi]: https://opensource.org
+[pandas]: https://pandas.pydata.org/
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
+[pull-request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 [python-documentation]: https://docs.python.org/3/
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.org/project/PyYAML/
@@ -49,6 +54,7 @@
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
 [ruby-installer]: https://rubyinstaller.org/
 [rubygems]: https://rubygems.org/pages/download/
+[scikit-learn]: https://github.com/scikit-learn/scikit-learn
 [ssi]: https://software.ac.uk/
 [ssi-choosing-name]: https://software.ac.uk/resources/guides/choosing-project-and-product-names
 [styles]: https://github.com/carpentries/styles/

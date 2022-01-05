@@ -14,7 +14,9 @@ keypoints:
 - "Estimating the effort to deliver work items is a foundational tool for prioritising that work."
 ---
 
-So far in this course we've focused on learning technical practices, tools, and infrastructure that help the development of software in a team environment, but in an individual setting. In this section of the course we look at how to improve the reusability of our software for others as well as ourselves, the importance of critical reflection, and what we need to take into account when sharing our code with others, in the context of working as a team. We'll also be making use of skills learnt previously in the course.
+In this section of the course we look how to manage the evolution of our software - 
+how to improve the reusability of our software for others as well as ourselves, the importance of critical reflection, 
+and what we need to take into account when sharing our code with others, in the context of working as a team. We'll also be making use of skills learnt previously in the course.
 
 The focus in this section also will move beyond software development to **management**: management of how the outside world interacts with and makes use of our software, how others can interact with ourselves to report issues, and the ways we can successfully manage software improvement in response to feedback.
 

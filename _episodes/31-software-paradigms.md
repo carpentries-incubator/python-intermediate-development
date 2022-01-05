@@ -1,36 +1,74 @@
 ---
-title: "Object Oriented Programming"
-teaching: 30
-exercises: 20
+title: "Software Paradigms"
+start: false
+teaching: 10
+exercises: 5
 questions:
-- "How can we use code to describe the structure of data?"
-- "How should the relationships between structures be described?"
+- "How does the structure of a problem affect the structure of our code?"
 objectives:
-- "Describe the core concepts that define the Object Oriented Paradigm"
-- "Use classes to encapsulate data within a more complex program"
-- "Structure concepts within a program in terms of sets of behaviour"
-- "Identify different types of relationship between concepts within a program"
-- "Structure data within a program using these relationships"
+- "Describe some of the major paradigms we can use to classify programming languages."
 keypoints:
-- "Classes allow us to organise data into distinct concepts."
-- "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
-- "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
+- "A paradigm describes a way of structuring reasoning about code."
+- "Different programming languages are suited to different paradigms."
+- "Different paradigms are suited to solving different classes of problems."
 ---
 
 ## Introduction
 
-With FizzBuzz, we saw an example of where Object Oriented Programming works badly, so where does it work well?
+As you become more experienced in software development, it becomes increasingly important to understand the wider 
+landscape in which you operate - i.e. what software decisions have the people around you made and why?
+There are hundreds (probably thousands) of different programming languages, each with different approaches of how a 
+programmer will use them to solve a problem. These approaches group the programming languages into **paradigms**.
+Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain 
+strengths and weaknesses when used to solve particular types of problems. Once your software begins to get more 
+complex it's common to use aspects of different paradigms to handle different subtasks. Because of this, it's useful to 
+know about the major paradigms, so you can recognise where it might be useful to switch. We will look into two major 
+paradigms that may be useful to you - **Procedural Programming** and **Object-Oriented Programming**.
 
-This paradigm is useful when data is structured, often because it represents an entity which exists in the real world.
-This entity has **attributes** which can be measured, and **behaviours** which it can perform.
-An obvious example of an entity with attributes and behaviours is a person.
+## Procedural Programming
+Procedural Programming is probably the style you're most familiar with and the one we used 
+up to this point, where we group code into *procedures performing a single task, with exactly one entry and one exit point*.
+In most modern languages we call these **functions**, instead of procedures - so if you're grouping your code into functions, this might be the paradigm you're using. By grouping code like this, we make it even easier to reason about the overall structure, since we should be able to tell roughly what a function does just by looking at its name.
+These functions are also much easier to reuse outside of functions, since we can call them from any part of our program.
 
-People have names, heights, weights, etc., all of which might be useful for software to know about in some context.
-In the context of our clinical trial data system, we might be interested in all three of these, but also in their measurements of inflammation.
+So far we have been using this technique in our code - it contains a
+list of instructions that execute one after the other starting from the top. This is an appropriate choice for smaller scripts and software that we're writing just for a single use.
+Aside from smaller scripts, Procedural Programming is also commonly seen in code focused on high performance, with relatively simple data structures, such as in High Performance Computing (HPC).
+These programs tend to be written in C (which doesn't support Object Oriented Programming) or Fortran (which didn't until recently).
+HPC code is also often written in C++, but C++ code would more commonly follow an Object Oriented style, though it may have procedural sections.
 
-Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
+Note that you may sometimes hear people refer to this paradigm as "Functional Programming" to contrast it with 
+Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
+[Functional Programming][functional-programming] is a separate paradigm that places much stronger constraints on the behaviour of a function.
 
-## Encapsulating Data
+## Object Oriented Programming
+
+Object Oriented Programming focuses on the specific characteristics of each object and what each object can do.
+An object has two fundamental parts - properties (characteristics) and actions. In Object Oriented Programming, we 
+first think about the data and the things that we're modelling - and represent these by objects. 
+
+For example, 
+if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
+Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want - 
+in this case, for example, we often need to know the mass and electric charge of each atom.
+So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
+This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
+
+Python is considered as an object oriented programming language rather than a procedural programming language.
+It is identified by looking at Python packages like Scikit-learn¹, pandas², and NumPy³. These are all Python packages built with object-oriented programming. Scikit-learn, for example, is a relatively comprehensive and complicated package built with object-oriented programming. This package has grown over the years with the latest functionality and new algorithms.
+When you train a machine learning algorithm with Scikit-learn, you do not have to know anything about how the algorithms work or how they were coded. You can straightly focus on the modeling.
+
+> ## Is Python Procedural or Object Oriented Language?
+> Python is a multi-paradigm and multipurpose programming language. You can use it as a procedural language and 
+> you can use it in a more object oriented way, but it tends to land more on the object oriented side. 
+> Much of the builtins and standard library are built around classes and 
+> objects. Python packages like [NumPy][numpy], [pandas][pandas] and [Scikit-learn][scikit-learn] are all built using object oriented programming.
+{: .callout}
+
+Let's continue to develop our software project, using Object Oriented Programming to design a more complete model 
+of our patients and to get a bit more experience with object oriented programming paradigm.
+
+### Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
 So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to to combine data from a range of different sources and with more data than just an array of numbers.
@@ -235,7 +273,7 @@ The behaviours we may have seen previously include:
 >
 {: .callout}
 
-## Encapsulating Behaviour
+### Encapsulating Behaviour
 
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
@@ -397,7 +435,7 @@ For a more complete list of these special methods, see the [Special Method Names
 > {: .solution}
 {: .challenge}
 
-## Properties
+### Properties
 
 The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
@@ -431,7 +469,7 @@ You may recognise the `@` syntax from our lesson on parameterising unit tests - 
 In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 We won't be covering how to make our own decorators, but in the Functional Programming section next, we'll see some of the features which make them possible.
 
-## Relationships Between Classes
+### Relationships Between Classes
 
 We now have a language construct for grouping data and behaviour related to a single conceptual object.
 The next step we need to take is to describe the relationships between the concepts in our code.
@@ -441,7 +479,7 @@ There are two fundamental types of relationship between objects which we need to
 1. Ownership - x **has a** y - this is **composition**
 2. Identity - x **is a** y - this is **inheritance**
 
-### Composition
+#### Composition
 
 You should hopefully have come across the term **composition** already - in the novice Software Carpentry, we use composition of functions to reduce code duplication.
 That time, we used a function which converted temperatures in Celsius to Kelvin as a **component** of another function which converted temperatures in Fahrenheit to Kelvin.
@@ -501,7 +539,7 @@ print(obs)
 
 Now we're using a composition of two custom classes to describe the relationship between two types of entity in the system that we're modelling.
 
-### Inheritance
+#### Inheritance
 
 The other type of relationship used in object oriented programming is **inheritance**.
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
@@ -604,284 +642,6 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > For any extra features you've added, explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
 >
-{: .challenge}
-
-> ## Composition vs Inheritance
->
-> When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
-> For example, it's not obvious whether a photocopier *is a* printer and *is a* scanner, or *has a* printer and *has a* scanner.
->
-> ~~~ python
-> class Machine:
->     pass
->
-> class Printer(Machine):
->     pass
->
-> class Scanner(Machine):
->     pass
->
-> class Copier(Printer, Scanner):
->     # Copier `is a` Printer and `is a` Scanner
->     pass
-> ~~~
-> {: .language-python}
->
-> ~~~ python
-> class Machine:
->     pass
->
-> class Printer(Machine):
->     pass
->
-> class Scanner(Machine):
->     pass
->
-> class Copier(Machine):
->     def __init__(self):
->         # Copier `has a` Printer and `has a` Scanner
->         self.printer = Printer()
->         self.scanner = Scanner()
-> ~~~
-> {: .language-python}
->
-> Both of these would be perfectly valid models and would work for most purposes.
-> However, unless there's something about how you need to use the model which would benefit from using a model based on inheritance, it's usually recommended to opt for **composition over inheritance**.
-> This is a common design principle in the object oriented paradigm and is worth remembering, as it's very common for people to overuse inheritance once they've been introduced to it.
->
-> For much more detail on this (which will hopefully make more sense after we've covered software design a bit), see [this page](https://python-patterns.guide/gang-of-four/composition-over-inheritance/) from a Python Design Patterns guide.
-{: .callout}
-
-
-> ## Multiple Inheritance
->
-> **Multiple Inheritance** is when a class inherits from more than one direct parent class.
-> It exists in Python, but is often not present in other Object Oriented languages.
-> Although this might seem useful, like in our inheritance-based model of the photocopier above, it's best to avoid it unless you're sure it's the right thing to do, due to the complexity of the inheritance heirarchy.
-> Often using multiple inheritance is a sign you should instead be using composition - again like the photocopier model above.
-{: .callout}
-
-
-> ## Building a Library
->
-> Using what we've seen so far, implement two classes: `Book` (you can use the one from the earlier exercise) and `Library` which have the following behaviour:
->
-> ~~~ python
-> library = Library()
->
-> library.add_book('My First Book', 'Alice')
-> library.add_book('My Second Book', 'Alice')
-> library.add_book('A Different Book', 'Bob')
->
-> print(len(library))
->
-> book = library[2]
-> print(book)
->
-> books = library.by_author('Alice')
-> for book in books:
->     print(book)
->
-> books = library.by_author('Carol')
-> ~~~
-> {: .language-python}
->
-> ~~~
-> 3
-> A Different Book by Bob
-> My First Book by Alice
-> My Second Book by Alice
-> KeyError: 'Author does not exist'
-> ~~~
-> {: .output}
->
-> > ## Solution
-> >
-> > ~~~ python
-> > class Book:
-> >     def __init__(self, title, author):
-> >         self.title = title
-> >         self.author = author
-> >
-> >     def __str__(self):
-> >         return self.title + ' by ' + self.author
-> >
-> >
-> > class Library:
-> >     def __init__(self):
-> >         self.books = []
-> >
-> >     def add_book(self, title, author):
-> >         self.books.append(Book(title, author))
-> >
-> >     def __len__(self):
-> >         return len(self.books)
-> >
-> >     def __getitem__(self, key):
-> >         return self.books[key]
-> >
-> >     def by_author(self, author):
-> >         matches = []
-> >         for book in self.books:
-> >             if book.author == author:
-> >                 matches.append(book)
-> >
-> >         if not matches:
-> >             raise KeyError('Author does not exist')
-> >
-> >         return matches
-> > ~~~
-> > {: .output}
-> {: .solution}
->
-> Extend the class so that we can get the list of all authors and titles.
-> If an author appears multiple times, they should only appear once in the list of authors:
->
-> ~~~
-> print(library.titles)
-> print(library.authors)
-> ~~~
-> {: .language-python}
->
-> ~~~
-> ['My First Book', 'My Second Book', 'A Different Book']
-> ['Alice', 'Bob']
-> ~~~
-> {: .output}
->
-> > ## Solution
-> >
-> > ~~~ python
-> > class Book:
-> >     def __init__(self, title, author):
-> >         self.title = title
-> >         self.author = author
-> >
-> >     def __str__(self):
-> >         return self.title + ' by ' + self.author
-> >
-> >
-> > class Library:
-> >     def __init__(self):
-> >         self.books = []
-> >
-> >     def add_book(self, title, author):
-> >         self.books.append(Book(title, author))
-> >
-> >     def __len__(self):
-> >         return len(self.books)
-> >
-> >     def __getitem__(self, key):
-> >         return self.books[key]
-> >
-> >     def by_author(self, author):
-> >         matches = []
-> >         for book in self.books:
-> >             if book.author == author:
-> >                 matches.append(book)
-> >
-> >         if not matches:
-> >             raise KeyError('Author does not exist')
-> >
-> >         return matches
-> >
-> >     @property
-> >     def titles(self):
-> >         titles = []
-> >         for book in self.books:
-> >             titles.append(book.title)
-> >
-> >         return titles
-> >
-> >     @property
-> >     def authors(self):
-> >         authors = []
-> >         for book in self.books:
-> >             if book.author not in authors:
-> >                 authors.append(book.author)
-> >
-> >         return authors
-> > ~~~
-> > {: .output}
-> {: .solution}
->
-> The built in `set` class has a `set.union` method which takes two sets (one of which is `self`) and returns a new set containing all of the members of both sets, with no duplicates.
->
-> Extend your library model with a `union` method which behaves the same way - it should return a new `Library` containing all the books of the two provided libraries.
->
-> To do this you might need to create a `Book.__eq__` method.
-> The `__eq__` dunder method should take two objects (one of which is `self`) and return `True` if the two objects should be considered equal - otherwise return `False`.
->
-> > ## Solution
-> >
-> > ~~~ python
-> > class Book:
-> >     def __init__(self, title, author):
-> >         self.title = title
-> >         self.author = author
-> >
-> >     def __str__(self):
-> >         return self.title + ' by ' + self.author
-> >
-> > def __eq__(self, other):
-> >         return self.title == other.title and self.author == other.author
-> >
-> >
-> > class Library:
-> >     def __init__(self):
-> >         self.books = []
-> >
-> >     def add_book(self, title, author):
-> >         self.books.append(Book(title, author))
-> >
-> >     def __len__(self):
-> >         return len(self.books)
-> >
-> >     def __getitem__(self, key):
-> >         return self.books[key]
-> >
-> >     def by_author(self, author):
-> >         matches = []
-> >         for book in self.books:
-> >             if book.author == author:
-> >                 matches.append(book)
-> >
-> >         if not matches:
-> >             raise KeyError('Author does not exist')
-> >
-> >         return matches
-> >
-> >     @property
-> >     def titles(self):
-> >         titles = []
-> >         for book in self.books:
-> >             titles.append(book.title)
-> >
-> >         return titles
-> >
-> >     @property
-> >     def authors(self):
-> >         authors = []
-> >         for book in self.books:
-> >             if book.author not in authors:
-> >                 authors.append(book.author)
-> >
-> >         return authors
-> >
-> >     def union(self, other):
-> >         books = []
-> >         for book in self.books:
-> >             if book not in books:
-> >                 books.append(book)
-> >
-> >         for book in other.books:
-> >             if book not in books:
-> >                 books.append(book)
-> >
-> >         return Library(books)
-> > ~~~
-> > {: .output}
-> {: .solution}
 {: .challenge}
 
 {% include links.md %}
