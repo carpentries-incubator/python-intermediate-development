@@ -1,5 +1,5 @@
 ---
-title: "Section 3: Design and Development Techniques for Writing `Good` Code"
+title: "Section 3: Design and Development Practices for Writing `Good` Code"
 colour: "#fafac8"
 start: true
 teaching: 5
