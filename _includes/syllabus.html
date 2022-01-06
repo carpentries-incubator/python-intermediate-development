@@ -53,11 +53,11 @@ Days are displayed if at least one episode has 'start = true'.
         {% assign hours = current | divided_by: 60 %}
         {% assign minutes = current | modulo: 60 %}
         <tr {% if multiday and episode.colour %}style="background-color:{{ episode.colour }};"{% endif %}>
-            {% if multiday %}<td class="col-md-1">{% if episode.start %}Section {{ day }}{% endif %}</td>{% endif %}
+            {% if multiday %}<td class="col-md-1">{% if episode.start and episode.type != "wrap-up"%}Section {{ day }}{% endif %}</td>{% endif %}
             <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
             <td class="col-md-3">
                 {% assign lesson_number = lesson_number | plus: 1 %}
-                {{ lesson_number }}. <a href="{{ relative_root_path }}{{ episode.url }}">{{ episode.title }}</a>
+                {% comment %} {{ lesson_number }}. {% endcomment %} <a href="{{ relative_root_path }}{{ episode.url }}">{{ episode.title }}</a>
             </td>
             <td class="col-md-7">
                 {% if episode.break %}
