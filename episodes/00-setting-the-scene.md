@@ -9,7 +9,7 @@ questions:
 - "What different software development tools will we be using?"
 objectives:
 - "Setting the scene and expectations"
-- "Making sure everyone has all the necessary software is installed"
+- "Making sure everyone has all the necessary software installed"
 keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle
 that will be of most use to anyone working collaboratively on code."
@@ -21,15 +21,15 @@ you have some basic Python, command line and Git skills and you have been using 
 So, you have gained basic software development skills either by self-learning or attending, e.g., a [novice Software
 Carpentry course][swc-lessons]. You have been applying those skills for a while by writing code to help with your work
 and you feel comfortable developing code and troubleshooting problems. However, your software
-has now reached a point where there’s too much code to be kept in one script. It is perhaps involving more
+has now reached a point where there’s too much code to be kept in one script. Perhaps it's involving more
 researchers (developers) and users, and more collaborative development effort is needed to add new functionality
 while ensuring previous development efforts remain functional and maintainable.
 
-This lesson is providing the next step in software development for you - it teaches some intermediate software
+This lesson provides the next step in software development for you - it teaches some intermediate software
 engineering skills to help you restructure existing and design more robust software code,
 automate the process of testing and verifying software correctness and support collaborations with others in a way that mimics a typical collaborative
 software development process. It teaches you to use a number of different **software development tools and techniques**
-simultaneously and interchangeably as you would use them in a real life. We had to make some choices when choosing
+simultaneously and interchangeably as you would use them in real life. We had to make some choices about which
 tools to teach here (based on ease of installation for the audience and other considerations) - however
 skills taught here are transferable to other similar tools and programming languages too.
 Over time, you will develop a preference for certain tools based on your personal taste or based on what is commonly used by your group, collaborators or community.
