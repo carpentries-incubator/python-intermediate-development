@@ -22,8 +22,12 @@ keypoints:
 
 ## Introduction
 
+So far in the course we looked at some aspects of writing 'good' code: writing documented, easy to read and self-explanatory code, and writing automated tests that help us verify the correctness of that code in some way. We've also looked at established practices - for example, coding conventions, and feature-branch workflow - that are useful to help us develop code for ourselves, but more importantly, for developing code in teams.
+
+These aspects are concerned with the **implementation** of software. Taking a step back, how should we *design* that code in the first place? 
 As a piece of software grows, it will reach a point where there's too much code for you to keep in mind at once.
 At this point, it becomes particularly important that the software be designed sensibly.
+What should be the overall structure of our software, how should all the pieces of functionality fit together, and how should we work towards fulfulling this overall design throughout development?
 
 It's not easy come up with a complete definition for the term **software design**, but some of the common aspects are:
 
@@ -39,7 +43,7 @@ So we should think about the design of our software from the very beginning, ide
 
 Before we start writing code, we would like to have a reasonable idea of who will be using our software and what they want it to do.
 
-This is often difficult, particularly when developing software for research, because the users and their needs can change with very little warning.
+This is often difficult, particularly when developing software for research, because the users and their needs (the software's **requirements**) can change with very little warning.
 Maybe we have an idea for a new research project that could use our existing code, or maybe a research group at another institution wants to use it to support their work in a slightly different environment.
 
 Despite this potential for change, there are a few characteristics of a piece of software which tend to remain fixed.
@@ -131,7 +135,7 @@ Model-View-Controller is one of the best known architecture patterns.
 There are many online sources of information about design and architecture patterns, often giving concrete examples of cases where they may be useful.
 One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
 
-### MVC Revisted
+### MVC Revisited
 
 **Model-View-Controller** (MVC) is just one of the common architectural patterns
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
@@ -318,30 +322,32 @@ Often, the software is split into three layers:
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
 
-## Software Development Best Practices
+> ## Extending our MVC Application
+> 
+> 
+{: .challenge}
 
-> ## Design Early
-> By taking time to design our software for extensibility, we can save ourselves a lot of time later when requirements change.
-The sooner we do this the better - ideally we should have a rough design sketched out for our software before we write a single line of code.
-This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
-Who will be using our software and how will the interact with it?
-{: .testimonial}                                 
+> ## Testing our MVC Application Extensions
+>
+> 
+{: .challenge}
 
-So far in the course we looked at some aspects of writing 'good' code that you should try and implement:
-- Write documented, easy to read and self-explanatory code 
-- Write code covered by automated tests
-- Design composable and maintainable code split in well-defined interconnected units that can be extended and reused
 
-These can be summarised in the following quote from the [Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
+## Summary
 
-> *“Good code is written so that is readable, understandable, covered by automated tests, not over complicated and 
+Aspirationally, what makes good code can be summarised in the following quote from the [Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
+
+> *“Good code is written so that is readable, understandable, covered by automated tests, not over complicated and
 > does well what is intended to do.”*
 
-and in the [XKCD comic](https://xkcd.com/844/):
+By taking time to design our software to be easily modifiable and extensible, we can save ourselves a lot of time later when requirements change.
+The sooner we do this the better - ideally we should have at least a rough design sketched out for our software before we write a single line of code.
+This design should be based around the structure of the problem we're trying to solve: what are the concepts we need to represent and what are the relationships between them.
+And importantly, who will be using our software and how will they interact with it?
 
-![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
+Here's another way of looking at it.
 
-Not following these best practices can lead to accumulated "technical debt", which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
+Not following good software design and development practices can lead to accumulated "technical debt", which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
 instead of using a better approach that would take longer". So, the pressure to achieve project goals 
 can sometimes lead to quick and easy solutions, which make the software become more messy, more complex, 
 more difficult to understand and maintain. The extra effort required to make 
@@ -351,8 +357,14 @@ maintenance phase - simplifying, clarifying the code, making it easier to unders
 to keep these interest payments on making changes manageable. If this isn't done, the software may accrue too much
 technical debt, and it can become too messy and prohibitive to maintain and develop, and then it cannot evolve.
 
-One of the best ways to ensure the 'good' coding standards are achieved and maintained within a team is to have
-multiple people have a look and comment at code each time a change is introduced to see how it fits into the codebase.
+Importantly, there is only so much time available. How much effort should we spend on designing our code properly and using good development practices? The following [XKCD comic](https://xkcd.com/844/) summarises this tension:
+
+![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
+
+At an intermediate level there are a wealth of practices that can be used. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices *enough* so that progress can be made. It's very easy to under-design software, but remember it's also possible to over-design software too.
+
+FIXME: add Fagan inspection / Cohen 2006 references for code review? This section or next? Probably next
+One practice that should always be considered, and has been shown to be very effective in team-based software development is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit within the codebase.
 Such reviews check the correctness of the new code, test coverage, functionality changes, and confirm that they
 follow the coding guides and best practices. Let's have look at some code review techniques available to us.
 
