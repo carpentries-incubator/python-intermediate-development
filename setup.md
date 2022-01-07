@@ -206,6 +206,9 @@ invocations should remain the same regardless of the Python distribution used.
 
 To download a Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
+If you are on Linux,
+it is likely that the system Python already installed will satisfy the requirements of this course.
+Check its version using the commands below.
 
 >## Recommended Python Version
 > We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/versions/#versions) should work (i.e. version 3.7 onward. 
