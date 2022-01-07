@@ -103,7 +103,9 @@ For example, package installation and virtual environments would need to be mana
 invocations should remain the same regardless of the Python distribution used.
 
 To download a Python distribution for your operating system,
-please head to [Python.org](https://www.python.org/downloads/).
+please head to [Python.org](https://www.python.org/downloads/). If you are on
+Linux, it is likely that the system Python already installed will satisfy the
+requirements of this course. Check its version using the commands below.
 >## Recommended Python Version
 > We recommend using Python version 3.3+ since `venv` will be included in the Python standard library and requires 
 > no additional installation. Things won't work well if you use Python 2.
