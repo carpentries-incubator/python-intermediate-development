@@ -89,6 +89,14 @@ Please make sure that you have all the necessary software installed as described
 This section also contains instructions on how to test your setup.
 {: .callout}
 
+> ## Compulsory and Optional Exercises
+Exercises are a crucial part of this course and the narrative. They are used to re-enforce the points taught and give 
+you an opportunity to practice things on your own. Please do not be tempted to skip exercises as that will get your 
+local software project out of sync with the course and break the narrative. Exercises that are clearly marked 
+as "optional" can be skipped without breaking things but we advise you to go through them too, if time allows. 
+All exercises contain solutions but, wherever possible, try and work out a solution on your own. 
+{: .callout}
+
 > ## Outdated Screenshots
 > Throughout this lesson we will make use and show content from Graphical User Interface (GUI) tools (PyCharm and GitHub).
 > These are evolving tools and platforms, always adding new features and new visual elements.
