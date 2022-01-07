@@ -322,12 +322,21 @@ Often, the software is split into three layers:
   - This layer handles data storage and provides data to the rest of the system
   - Has some overlap with the MVC **Model**
 
-> ## Extending our MVC Application
+## Addressing New Requirements
+
+So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data. Let's now take a further step back from design and implementation to the level of requirements.
+
+> ## Implement Extensions
 > 
 > 
+> One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature?
+> 
+> -
+> -
+> -
 {: .challenge}
 
-> ## Testing our MVC Application Extensions
+> ## Adding Tests for our Extensions
 >
 > 
 {: .challenge}
@@ -361,7 +370,7 @@ Importantly, there is only so much time available. How much effort should we spe
 
 ![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
 
-At an intermediate level there are a wealth of practices that can be used. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices *enough* so that progress can be made. It's very easy to under-design software, but remember it's also possible to over-design software too.
+At an intermediate level there are a wealth of practices that *could* be used, and applying suitable design and coding practices is what separates an *intermediate developer* from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices *enough* so that progress can be made. It's very easy to under-design software, but remember it's also possible to over-design software too.
 
 FIXME: add Fagan inspection / Cohen 2006 references for code review? This section or next? Probably next
 One practice that should always be considered, and has been shown to be very effective in team-based software development is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit within the codebase.
