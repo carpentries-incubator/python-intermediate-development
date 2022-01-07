@@ -17,7 +17,7 @@ to decide which tool is right for you, which may be a matter of personal prefere
 
 The first section of the course is dedicated to setting up your environment for collaborative software development.
 In order to build working (research) software
-efficiently and to do it collaboration with others rather than isolation, you will have to get comfortable
+efficiently and to do it in collaboration with others rather than in isolation, you will have to get comfortable
 with using a number of different tools interchangeably as they’ll make your life a lot easier.
 There are many options when it comes to deciding on which software development tools to use for your daily tasks - we
 will use a few of them in this course that we believe make a difference. There are sometimes multiple tools for the
@@ -42,7 +42,7 @@ that goes beyond a single script - including a smart code editor,
 a code compiler/interpreter, a debugger, etc. It will help you write well-formatted & readable code that conforms to
 code style guides (such as [PEP8](https://www.python.org/dev/peps/pep-0008/) for Python) more efficiently by giving relevant and intelligent suggestions for
 code completion and refactoring.
-IDEs often integrates command line console and version control tools - we teach
+IDEs often integrate command line console and version control tools - we teach
 them separately in this course as this knowledge can be ported to other programming languages and command line tools
 you may use in the future (but is perfectly fine to use these integrated versions too).
 
