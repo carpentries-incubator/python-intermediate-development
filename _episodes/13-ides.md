@@ -53,7 +53,7 @@ open source Python IDE.
 Let's open our project in PyCharm now and familiarise ourselves with some commonly used features.
 
 ### Opening a Software Project
-If you have not PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
+If you don't have PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 
@@ -88,7 +88,7 @@ for our project from the command line and PyCharm is clever enough to understand
 #### Adding a Python Interpreter
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
-   `Project Interpreter` from the left. You'll
+   `Python Interpreter` from the left. You'll
    see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
    being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Python Interpreter` window will appear.
@@ -328,7 +328,7 @@ tomli==1.2.2
 Having configured a virtual environment, we now need to tell PyCharm to use it for our project. This is done by adding a **Run Configuration** to a project:
 
 1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
-2. Select `Python` then `Add new run configuration...`
+2. Select `Python` then `Add new run configuration...` (in Linux, this order is swapped)
 3. In the new popup window, in the `Script path` field select the folder
    button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
 4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
@@ -376,7 +376,7 @@ For a selected piece of code, you can access various code reference information 
 - Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
 - Quick Type Definition - type definition of variables, fields or any other symbols
 - Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../05-coding-conventions/index.html#documentation-strings-aka-docstrings))
-- Parameter Info - the names of parameters in method and function calls
+- Parameter Info - the names and expected types of parameters in method and function calls. Use this when cursor is on the argument of a function call.
 - Type Info - type of an expression
 
 ![Code References Functionality in PyCharm](../fig/pycharm-code-reference.png){: .image-with-shadow width="1000px" }
