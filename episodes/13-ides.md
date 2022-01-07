@@ -486,7 +486,8 @@ including:
   inline documentation ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings)
   for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/)
 - Parameter Info -
-  the names of parameters in method and function calls
+  the names and expected types of parameters in method and function calls.
+  Use this when cursor is on the argument of a function call.
 - Type Info -
   type of an expression
 
