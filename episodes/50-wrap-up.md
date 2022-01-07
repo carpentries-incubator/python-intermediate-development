@@ -14,7 +14,23 @@ objectives:
 keypoints:
 - "Collaborative techniques and tools play an important part of research software development in teams."
 ---
-  
+    
+{% comment %}
+'Good' code best practices (from Steve's slides):
+Correct – does what it’s intended to do
+Readable – remember WORM (Write Once Read Many)
+Testable – “if it’s not tested it’s broken”
+Documented – not what/how but why/because
+Robust and reliable
+Maintainable – by you and others six months from now
+Extensible, flexible + reusable
+Efficient, performant + scalable
+Secure
+Discoverable – others can understand quickly + easily
+Simple – modular
+{% endcomment %}
+
+
 ## Summary
 As part of this course we have looked at a core set of established, intermediate-level software development tools and 
 best practices for working as part of a team. The course teaches a selected subset of skills 
