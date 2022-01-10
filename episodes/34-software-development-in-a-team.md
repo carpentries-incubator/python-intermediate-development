@@ -228,9 +228,11 @@ Repeat the above actions for the pull request you received.
         
 TODO: elaborate more on the practices below
 
-There are multiple perspectives to a code review process - from technical details to general practices 
-relating to different roles involved in the process. The team has to decide and set the process - 
-here are some examples of best practices for you to consider (also check this useful [code review blog](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)):
+There are multiple perspectives to a code review process - general practices to technical details 
+relating to different roles involved in the process. It is critical for the code's quality, stability and maintainability 
+that the team decides on and sets the code 
+review process - whatever that process may be. Here are some examples of best practices for you to consider 
+(also check this useful [code review blog](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)):
    
 1. Decide the focus of a code review process, e.g.:
    - code functionality
