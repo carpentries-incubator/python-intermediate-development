@@ -35,13 +35,13 @@ across all patients but it is not finished and contains some errors. You will be
 collaboration with others to fix and build on top of the existing code during the course.
 
 To start with the development, we have to obtain a local copy of the project on
-your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
+your machine and inspect it. The first step is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
 1. Log into your GitHub account. 
 2. Go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-3. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
+3. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
 4. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
@@ -195,7 +195,7 @@ with well defined roles, for example:
 - [Service-Oriented Architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services,
 accessible over a network by consumers (users or other services) that communicate with each other by passing data in a well-defined, shared format (protocol),
 - [Client-Server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
-- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may event be physically separated to run on separate machines - some more detail on this later in the course.
+- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may even be physically separated to run on separate machines - some more detail on this later in the course.
 
 ### Model-View-Controller (MVC) Architecture
 MVC architecture divides the related program
