@@ -133,7 +133,7 @@ More details on good and bad practices for continuation lines can be found in
 
 ### Maximum Line Length
 All lines should be up to 80 characters long; for lines containing comments or docstrings (to be covered later) the
-line length limit should be 73 - see [this discussion](https://www.google.com/url?q=https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length&sa=D&source=editors&ust=1619088968027000&usg=AOvVaw3jn26Qt-kwog_tJnaMR48x) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
+line length limit should be 73 - see [this discussion](https://stackoverflow.com/q/15438326) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
 length of 100. Long lines of code can be broken over multiple lines by wrapping expressions in delimiters, as
 mentioned above (preferred method), or using a backslash (`\`) at the end of the line to indicate
 line continuation (slightly less preferred method).
