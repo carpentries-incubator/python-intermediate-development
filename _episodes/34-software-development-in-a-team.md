@@ -89,7 +89,7 @@ information and capabilities being held by a single person "responsible" for a c
 not being shared among team members.
 
 ### Code Review Roles and Responsibilities
-Depending on the size of the team and its code review process, there are one or more of the following roles involved:
+Depending on the size of the team and its code review process, some the following roles are involved:
 - **code author** is the writer of the ‘code under review’ who aims to improve the codebase in a certain aspect and 
 enhance their knowledge in the process.
 - **reviewers** are technical members of the team (potentially with different expertises)
@@ -176,10 +176,10 @@ You need to add the other team member(s) as collaborator(s) on your repository
 to enable them to create branches and pull requests. To do so, each repository owner needs to:
 
 1. Head over to Settings section of your software project's repository in GitHub.
-  ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
 2. Select tab 'Manage access' and click 'Add people' button.
-   ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
+   ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
 3. Add your collaborators by their GitHub usernames, full names or email addresses.
+   ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
 4. Collaborators will be notified of your invitation to join your repository based on their notification preferences.
 5. Once they accept the invitation, they will have the "collaborator"-level access to your repository and will show up
 in the list of our collaborators.
@@ -226,34 +226,39 @@ Repeat the above actions for the pull request you received.
 
 ## Best Practices for Code Reviews
         
-TODO: elaborate more on the practices below
-
 There are multiple perspectives to a code review process - general practices to technical details 
 relating to different roles involved in the process. It is critical for the code's quality, stability and maintainability 
 that the team decides on and sets the code 
 review process - whatever that process may be. Here are some examples of best practices for you to consider 
-(also check this useful [code review blog](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)):
+(also check these useful code review blogs from [Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB) and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
    
 1. Decide the focus of a code review process, e.g.:
-   - code functionality
-   - code complexity and understandability
-   - tests
-   - naming
-   - comments
-   - documentation
-2. Decide on the level of depth for code reviews to maintain the balance between the creation time
-   and time spent reviewing code - e.g. reserve them for critical portions of code
-4. Avoid nit-picking on small details and try using automated checks and linters when possible (e.g. for consistent usage of certain
-   terminology across the code and code styles).
-5. Communicate clearly and effectively - when reviewing code, be explicit about the action you request from the author.
-6. Foster a positive feedback culture:
+   - code design and functionality - does the code fit in the overall design and does it do what was intended? 
+   - code understandability and complexity - is the code readable and would another developer be able to understand it?
+   - tests - does the code have automated tests?
+   - naming - are names used for variables and functions descriptive, do they follow naming conventions?
+   - comments and documentation - are there clear and useful comments that explain complex designs well and focus not on the "what/how" but the "why/because"? 
+2. Do not review code too quickly and do not review for too long in one sitting. According to
+[“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) - the first hour of review 
+matters the most as detection of defects significantly drops after this period. [Studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) 
+also show that you should not review more than 400 lines of code at a time. Conducting more frequent shorter reviews 
+seems to be the most effective.
+3. Decide on the level of depth for code reviews to maintain the balance between the creation time
+and time spent reviewing code - e.g. reserve them for critical portions of code and avoid nit-picking on small 
+details. Try using automated checks and linters when possible, e.g. for consistent usage of certain terminology across the code and code styles.
+4. Communicate clearly and effectively - when reviewing code, be explicit about the action you request from the author.
+5. Foster a positive feedback culture:
   - give feedback about the code, not about the author
   - accept that there are multiple correct solutions to a problem
   - sandwich criticism with positive comments and praise
-7. Avoid large pull requests (what is large anyway?) as they are more difficult to review 
-8. From a more technical perspective: 
+7. Utilise multiple code review techniques - use email, pair programming, over-the-shoulder, team discussions and 
+tool-assisted or any combination that works for your team. However, for the most effective and efficient code reviews, 
+tool-assisted process is recommended.
+9. From a more technical perspective: 
    - use a feature branch for pull requests as you can push follow-up commits if you need to update
-         your proposed changes 
+         your proposed changes
+   - avoid large pull requests as they are more difficult to review. What does "too large" mean anyway? There are some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0) and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html) 
+   as to what a "large pull request" is but it is not exact science.
    - don't force push to a pull request as it changes the repository history
          and can corrupt your pull request for other collaborators
    - use pull request states in GitHub effectively (based on your team's code review process) - e.g. you can open a 
