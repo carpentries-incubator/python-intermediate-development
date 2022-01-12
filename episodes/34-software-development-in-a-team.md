@@ -116,14 +116,15 @@ developer through the new code, providing explanations and suggestions through a
 in-person and synchronously but it can be time-consuming as the reviewer cannot do any other work during the
 pair programming period.
 - **Fagan code inspection** is a formal and heavyweight process of 
-finding defects in specifications or designs during various phases of the software development process. There are several roles 
-taken by different team members in a Fagan inspection and each inspection is a formal 7-step process with a 
-predefined entry and exit criteria. See [Fagan inspection](https://en.wikipedia.org/wiki/Fagan_inspection) for full 
-details on this method.
+finding defects in specifications or designs during various phases of the software development process. There are 
+several roles taken by different team members in a Fagan inspection and each inspection is a formal 7-step process 
+with a predefined entry and exit criteria. See [Fagan inspection](https://en.wikipedia.org/wiki/Fagan_inspection) for 
+full details on this method.
 - **Tool-assisted code review** process uses a specialised tool to facilitate the process of code review, which typically
 helps with the following tasks: (1) collecting and displaying the updated files and highlighting what has changed, (2) 
 facilitating a conversation between team members (reviewers and developers), and (3) allowing code administrators and 
-product managers a certain control and overview of the code development workflow. Modern tools may provide a handful of other functionalities too, such as metrics (e.g. inspection or defect rate).
+product managers a certain control and overview of the code development workflow. Modern tools may provide a handful 
+of other functionalities too, such as metrics (e.g. inspection rate, defect rate, defect density).
 
 Each of the above techniques have their pros and cons and varying degrees practicality - 
 it is up to the team to decide which one is best and most suitable for the project and stick to it.
@@ -137,38 +138,41 @@ Pull requests are fundamental to how teams review and improve code on GitHub (an
 they let you tell others about changes you've pushed to a branch in a repository on GitHub and that your 
 code is ready for review. Once a pull request is opened, you can discuss and review the potential changes with others 
 on the team and add follow-up commits based on the feedback before your changes are merged into 
-the main `develop` branch. The name 'pull request' means you are **requesting** the codebase 
-moderators to **pull** your changes into the codebase or to **approve** your pull request and you can merge the 
-changes yourself if you have sufficient privileges on the repository (based on the collaborative code development model
-used by your team).
+the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
+moderators to **pull** your changes into the codebase. 
 
-These changes to the codebase are normally done in a separate (feature) branch, to ensure that they are separate and 
-self-contained and that the default branch only contains "production-ready" work. You create a branch for your work
+Such changes are normally done in a 
+(feature) branch, to ensure that they are separate and self-contained and 
+that the default branch only contains "production-ready" work. You create a branch for your work
 based on one of the existing branches (typically the `develop` branch but can be any other branch), 
 do some commits on that branch, and, once you are ready to merge your changes, create a pull request to bring 
 the changes back to that branch. In this 
 context, the branch from which you branched off to do your work and where the changes should be applied 
-back to is called the **base branch** and the **head branch** (your feature branch)
-contains changes you would like to be applied.
+back to is called the **base branch**, while the feature branch that contains changes you would like to be applied
+is the **head branch**.
  
-How you create your feature branches and open pull requests in GitHub will depend on your collaborative code development model:
+How you create your feature branches and open pull requests in GitHub will depend on your collaborative code 
+development model:
 
 - In the shared repository model, in order to create a feature branch and open a 
 pull request based on it you must have write access to the source repository or, for organisation-owned repositories, 
-you must be a member of the organisation that owns the repository. Once you have access to the repository, you proceed to create a feature branch on that repository directly.
+you must be a member of the organisation that owns the repository. Once you have access to the repository, you proceed 
+to create a feature branch on that repository directly.
 - In the fork and pull model, where you do not have write permissions to the source repository, you need to fork the
 repository first before you create a feature branch (in your fork) to base your pull request on.
 
 In both development models, it is recommended to create a feature branch for your work and 
-the subsequent pull request, even though you can submit pull requests from any branch or commit. This is because 
-with a feature branch you can push follow-up commits if you need to update your proposed changes. 
-The only difference in creating a pull request between the two models is how you create the feature branch. In either model, once you are ready to merge your changes in - you will need to specify the base branch and the head
+the subsequent pull request, even though you can submit pull requests from any branch or commit. This is because, 
+with a feature branch, you can push follow-up commits as a response to feedback and update your proposed changes within
+a self-contained bundle. 
+The only difference in creating a pull request between the two models is how you create the feature branch. 
+In either model, once you are ready to merge your changes in - you will need to specify the base branch and the head
 branch. 
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
-collaborating in the shared repository model. Next you will propose changes to other team members' 
-repositories via pull requests (which become the shared repositories in this context) 
-and engage in code reviews with them. You will receive pull requests on your repository
+collaborating in the shared repository model. Next, you will propose changes to another team member's 
+repository (which become the shared repositories in this context) a via pull request 
+and engage in code review with them. You will receive pull requests on your repository
 from other team members too, in which case you take on the role of the repository moderator and code reviewer.
            
 ### Adding Collaborators to a Shared Repository
@@ -202,6 +206,7 @@ tests and verify they run correctly. Add as many commits as necessary.
 2. Push your branch remotely to the shared repository.
 3. Head over to GitHub and locate your branch from the repository home page. 
 4. Open a pull request by clicking "Create pull request" button. 
+
   TODO: add a screenshot
 5. Team members (collaborators on the repository) will be notified of your pull request by GitHub.
 6. At this point, the code review process is initiated.
@@ -210,26 +215,28 @@ On the repository you own, you will also receive a pull request from other team 
 
 ### Code Review
 
-1. The team will review your changes and provide feedback to you 
+1. The moderator will review your changes and provide feedback to you 
 in the form of comments.
 2. Respond to their comments and do any subsequent commits, as requested by reviewers.
-3. It may take a few rounds of exchanging comments and discussions until your team is ready to accept your pull request. 
+3. It may take a few rounds of exchanging comments and discussions until your team is ready to accept your changes. 
 
 Perform the above actions on the pull request you received, this time acting as a reviewer.
 
 ### Closing a Pull Request
 
-7. Once your team mate approves your changes, either one of you can merge the branch onto `develop`.
-8. Delete the merged branch to reduce the clutter in the repository.
+7. Once the moderator approves your changes, either one of you can merge the branch onto `develop`. Typically, it is 
+the responsibility of the code's author to do the merge.
+
+  TODO: add a screenshot
+9. Delete the merged branch to reduce the clutter in the repository.
 
 Repeat the above actions for the pull request you received.
 
 ## Best Practices for Code Reviews
         
-There are multiple perspectives to a code review process - general practices to technical details 
+There are multiple perspectives to a code review process - from general practices to technical details 
 relating to different roles involved in the process. It is critical for the code's quality, stability and maintainability 
-that the team decides on and sets the code 
-review process - whatever that process may be. Here are some examples of best practices for you to consider 
+that the team decides on this process and sticks to it. Here are some examples of best practices for you to consider 
 (also check these useful code review blogs from [Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB) and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
    
 1. Decide the focus of a code review process, e.g.:
@@ -237,7 +244,8 @@ review process - whatever that process may be. Here are some examples of best pr
    - code understandability and complexity - is the code readable and would another developer be able to understand it?
    - tests - does the code have automated tests?
    - naming - are names used for variables and functions descriptive, do they follow naming conventions?
-   - comments and documentation - are there clear and useful comments that explain complex designs well and focus not on the "what/how" but the "why/because"? 
+   - comments and documentation - are there clear and useful comments that explain complex designs well and focus 
+on the "why/because" rather than the "what/how"? 
 2. Do not review code too quickly and do not review for too long in one sitting. According to
 [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) - the first hour of review 
 matters the most as detection of defects significantly drops after this period. [Studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) 
@@ -257,11 +265,12 @@ tool-assisted process is recommended.
 9. From a more technical perspective: 
    - use a feature branch for pull requests as you can push follow-up commits if you need to update
          your proposed changes
-   - avoid large pull requests as they are more difficult to review. What does "too large" mean anyway? There are some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0) and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html) 
-   as to what a "large pull request" is but it is not exact science.
+   - avoid large pull requests as they are more difficult to review. You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0) and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html) 
+   as to what a "large pull request" is but be aware that it is not exact science.
    - don't force push to a pull request as it changes the repository history
          and can corrupt your pull request for other collaborators
-   - use pull request states in GitHub effectively (based on your team's code review process) - e.g. you can open a 
+   - use pull request states in GitHub effectively (based on your team's code review process) - e.g. in GitHub 
+   you can open a 
    pull request in a `DRAFT` state to show progress or request early feedback; `READY FOR REVIEW` when you are ready 
    for feedback; `CHANGES REQUESTED` to let the author know they need to fix the requested changes or discuss more; 
    `APPROVED` to let the author they can merge their pull request.
