@@ -273,7 +273,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 > ## What About Unit Testing in Other Languages?
 >
-> Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. FRUIT for Fortran, JUnit for Java (the original unit testing framework), Catch for C++, etc.
+> Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. pFUnit for Fortran, JUnit for Java (the original unit testing framework), Catch or gtest for C++, etc.
 {: .callout}
 
 
@@ -358,7 +358,7 @@ Pytest looks for functions whose names also start with the letters 'test_' and r
 - If the function completes without an assertion being triggered, we count the test as a success (indicated as `.`).
 - If an assertion fails, or we encounter an error, we count the test as a failure (indicated as `F`). The error is included in the output so we can see what went wrong.
 
-So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, do we think these results are easy to understand?
+So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements (the bullets under [Using a Testing Framework](#using-a-testing-framework)), do we think these results are easy to understand?
 
 > ## Write Some Unit Tests
 >
