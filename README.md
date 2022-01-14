@@ -19,7 +19,7 @@ The software project template repository used for this lesson is available at:
 
 The lesson is using the official [Carpentries lesson template][styles].
 
-### Running Lesson Locally
+### Running & Modifying the Lesson Locally
 
 See the [following inststructions](https://carpentries.github.io/lesson-example/#ten-things-you-need-to-know) 
 for compiling and running the lesson locally and making any changes.
