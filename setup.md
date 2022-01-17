@@ -29,6 +29,8 @@ Git is a program that can accessed via the command line.
 
   - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
   install the Bash shell as well as Git 
+    - On AZ-managed computers, install [Git 2.33](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2833), or a newer
+    version in the future
   - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode) 
 and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from 
 [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can 
@@ -104,6 +106,10 @@ invocations should remain the same regardless of the Python distribution used.
 
 To download a Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
+
+AZ Software Store currently makes [Python 3.9.7](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2788)
+available. Please don't use Anaconda, as it is not free for commercial use.
+
 >## Recommended Python Version
 > We recommend using Python version 3.3+ since `venv` will be included in the Python standard library and requires 
 > no additional installation. Things won't work well if you use Python 2.
@@ -146,6 +152,7 @@ two tools (that correspond to your Python distribution) installed on your machin
 We use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course. 
 PyCharm can be downloaded from [the JetBrains website](https://www.jetbrains.com/pycharm/download).
 The Community edition is fine, though if you are developing software for the purpose of academic research you may 
-be eligible for a free license for the Professional edition which contains extra features
+be eligible for a free license for the Professional edition which contains extra features. The Community Edition is available
+in [AZ Sotfware Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2482).
   
 {% include links.md %}
