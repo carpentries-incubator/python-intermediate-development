@@ -76,7 +76,7 @@ viewing parts of its source code with the purpose of:
 
 - improving internal code readability, understandability, quality and maintainability
 - checking for coding standards compliance, code uniformity and consistency
-- detecting bugs and code defects early
+- checking for test coverage and detecting bugs and code defects early
 - detecting performance problems and identifying code optimisation points
 - finding alternative/better solutions.
 
