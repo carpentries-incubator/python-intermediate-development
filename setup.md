@@ -5,9 +5,10 @@ title: Setup
 You will need the following software installed and working correctly on your system to be able to follow the workshop.
 
 ## Command Line Program
-You can use a command line program such as [Bash](https://www.gnu.org/software/bash/). 
-If you already have a command line program other than Bash - you can use that 
-instead as none of the content of this workshop is specific to Bash.
+You can use a command line program that has similar syntax to
+[Bash](https://www.gnu.org/software/bash/), although using Bash itself is
+recommended. The `cmd` command line in Windows is not suitable.
+
   - On Windows, Bash will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
   - On macOS and Linux, you will already have a command line program available (note that starting with macOS Catalina, 
 Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default shell instead of Bash)
