@@ -3,7 +3,7 @@ title: "Developing Software In a Team"
 teaching: ""
 exercises: ""
 questions: 
-- "What is code review and how it can improve the quality of the codebase?"
+- "What is code review and how it can improve the quality of code?"
 objectives:
 - "Describe commonly used code review techniques."
 - "Understand how to do a pull request via GitHub to engage in code review with a team and contribute to a shared code repository."
