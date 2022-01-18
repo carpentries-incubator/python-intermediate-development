@@ -5,12 +5,14 @@ teaching: 10
 exercises: 5
 questions:
 - "How does the structure of a problem affect the structure of our code?"
+- "How can we use common software paradigms to improve the quality of our software?"
 objectives:
-- "Describe some of the major paradigms we can use to classify programming languages."
+- "Describe some of the major software paradigms we can use to classify programming languages."
 keypoints:
-- "A paradigm describes a way of structuring reasoning about code."
+- "A software paradigm describes a way of structuring or reasoning about code."
 - "Different programming languages are suited to different paradigms."
 - "Different paradigms are suited to solving different classes of problems."
+- "A single piece of software will often contain instances of multiple paradigms."
 ---
 
 ## Introduction
