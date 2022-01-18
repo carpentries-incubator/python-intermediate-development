@@ -1,21 +1,20 @@
 ---
-title: "Section 3: Design and Development Practices for Writing `Good` Code"
+title: "Section 3: Collaborative Software Design and Development for Reuse"
 colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
 questions:
-- "How can we use common patterns and paradigms to improve the robustness of our software?"
+- "How can we use common patterns and paradigms to improve the quality of our software?"
 objectives:
-- "Design software around a number of common patterns and paradigms to improve extensibility, testability and overall sustainability."
+- "Design software around a number of common patterns and paradigms to improve its understandability, extensibility, testability and overall sustainability."
 keypoints:
 - "Each of the major programming paradigms are suited to different kinds of problem."
 - "A single piece of software will often contain instances of multiple paradigms."
 - "By deliberately designing our software, we can avoid or mitigate many of the common issues encountered when working 
 with legacy software."
 ---
-In this section, we are going to step back and think about the definition of "good code" - 
-robust, maintainable, reusable - and how to achieve it by collaborating with our team members.
+In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements, and how doing these things well makes it easier for others to develop and reuse our software.
 
 We will first look a bit past the language specifics and capabilities of Python and into 
 different software design paradigms and design architectures to understand a broader set of approaches 
@@ -26,6 +25,8 @@ However, sometimes you
 inherit code from someone else or you yourself have written some code that now needs to grow and become more robust.
 At this point, before your software grows even more and becomes harder to manage,
 it becomes particularly important that you rethink its design.
+
+FIXME: code review
 
 After that, we'll look at some general principles of software maintainability, the benefits that writing maintainable 
 code can give you, and also getting some practice at identifying problems with existing code, and
