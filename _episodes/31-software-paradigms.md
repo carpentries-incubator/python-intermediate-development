@@ -1,8 +1,8 @@
 ---
 title: "Software Paradigms"
 start: false
-teaching: 10
-exercises: 5
+teaching: 15
+exercises: 30
 questions:
 - "How does the structure of a problem affect the structure of our code?"
 - "How can we use common software paradigms to improve the quality of our software?"

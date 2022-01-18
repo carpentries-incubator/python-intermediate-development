@@ -1,7 +1,7 @@
 ---
 title: "Software Design"
-teaching: ""
-exercises: ""
+teaching: 15
+exercises: 30
 questions:
 - "Where do we start when beginning a new software project?"
 - "How can we make sure the components of our software are reusable?"
