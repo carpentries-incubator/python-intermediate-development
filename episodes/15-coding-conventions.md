@@ -1,7 +1,7 @@
 ---
 title: "Python Coding Conventions"
 start: false
-teaching: 25
+teaching: 20
 exercises: 15
 questions:
 - "Why should you follow software coding conventions?"

@@ -6,7 +6,7 @@ teaching: 5
 exercises: 0
 questions:
 - "What are some best practices for collaborative code development available to help us design and write 'good'
-  software that will make it easier for us and others to further develop and reuse it."
+  software that will make it easier for us and others to further develop and reuse it?"
 objectives:
 - "Look at the bigger picture of software as a process of development: from 'good' software design 
 based on clear requirements to an implementation that meets those requirements."

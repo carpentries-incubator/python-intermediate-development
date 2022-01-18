@@ -1,7 +1,7 @@
 ---
 title: "Collaborative Software Development Using Git and GitHub"
 start: false
-teaching: 45
+teaching: 35
 exercises: 0
 questions:
 - "What are Git branches and why are they useful for code development?"
@@ -30,7 +30,7 @@ software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others 
 via a shared and centrally backed-up repository.
 
-Firstly, let's remind ourselves how to work with Git from the command line.
+Firstly, let's remind ourselves how to work with Git from the Command Line.
 
 ## Git Refresher
 Git is a version control system for tracking changes in computer files and coordinating work on those files among 
