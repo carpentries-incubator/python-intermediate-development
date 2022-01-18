@@ -24,17 +24,20 @@ keypoints:
 
 So far in the course we looked at some aspects of writing 'good' code: writing documented, easy to read and self-explanatory code, and writing automated tests that help us verify the correctness of that code in some way. We've also looked at established practices - for example, coding conventions, and feature-branch workflow - that are useful to help us develop code for ourselves, but more importantly, for developing code in teams.
 
-These aspects are concerned with the **implementation** of software. Taking a step back, how should we *design* that code in the first place? 
+These aspects are concerned with the **implementation** of software. Taking a step back, how should we *design* that software in the first place? 
+In previous episode we looked at one aspect of design and using different programming language paradigms 
+as a way of structuring code into units. We are now talking about the higher level design - the fundamental 
+structure of the whole software system and its main components.
 As a piece of software grows, it will reach a point where there's too much code for you to keep in mind at once.
 At this point, it becomes particularly important that the software be designed sensibly.
 What should be the overall structure of our software, how should all the pieces of functionality fit together, and how should we work towards fulfulling this overall design throughout development?
 
 It's not easy come up with a complete definition for the term **software design**, but some of the common aspects are:
 
-- **Algorithm design** - What method are we going to use to solve the core business problem?
-- **Software architecture** - What components will the software have and how will they cooperate?
-- **System architecture** - What other things will this software have to interact with and how?
-- **UI/UX** (User Interface / User Experience) - How will users interact with the software?
+- **Algorithm design** - what method are we going to use to solve the core business problem?
+- **Software architecture** - what components will the software have and how will they cooperate?
+- **System architecture** - what other things will this software have to interact with and how?
+- **UI/UX** (User Interface / User Experience) - how will users interact with the software?
 
 As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
 So we should think about the design of our software from the very beginning, ideally even before we start writing code - but if you didn't, it's never too late to start.
@@ -43,8 +46,10 @@ So we should think about the design of our software from the very beginning, ide
 
 Before we start writing code, we would like to have a reasonable idea of who will be using our software and what they want it to do.
 
-This is often difficult, particularly when developing software for research, because the users and their needs (the software's **requirements**) can change with very little warning.
-Maybe we have an idea for a new research project that could use our existing code, or maybe a research group at another institution wants to use it to support their work in a slightly different environment.
+This is often difficult, particularly when developing software for research, because the users and their needs 
+(i.e. the **software's requirements**) can change with very little warning.
+Maybe we have an idea for a new research project that could use our existing code, or maybe a research group at 
+another institution wants to use it to support their work in a slightly different environment.
 
 Despite this potential for change, there are a few characteristics of a piece of software which tend to remain fixed.
 Some of the most important questions you should ask when beginning a new software project are:
@@ -73,47 +78,47 @@ For example, a design constraint when writing a mobile app would be that it need
 >
 > - Mobile Apps
 >   - Must have graphical interface suitable for a touch display
->   - Usually distributed via controlled app store
+>   - Usually distributed via a controlled app store
 >   - Users will not (usually) modify / compile the software themselves
 >   - Should work on a range of hardware specifications with range of Operating System (OS) versions
 >     - But OS is unlikely to be anything other than Android or iOS
->   - Documentation probably in the software itself or on web page
->   - Typically written in one of the platform prefered languages (e.g. Java, Kotlin, Swift)
+>   - Documentation probably in the software itself or on a Web page
+>   - Typically written in one of the platform preferred languages (e.g. Java, Kotlin, Swift)
 > - Embedded Software
 >   - May have no user interface - user interface may be physical buttons
->   - Usually distributed pre-installed on physical device
+>   - Usually distributed pre-installed on a physical device
 >   - Often runs on low power device with limited memory and CPU performance - must take care to use these resources efficiently
 >   - Exact specification of hardware is known - often not necessary to support multiple devices
->   - Documentation probably in technical manual with separate user manual
+>   - Documentation probably in a technical manual with a separate user manual
 >   - May need to run continuously for the lifetime of the device
 >   - Typically written in a lower-level language (e.g. C) for better control of resources
 >
 > > ## Some More Examples
 > >
 > > - Desktop Application
-> >   - Has graphical interface for use with mouse and keyboard
-> >   - May need to work on multiple, very different Operating Systems
+> >   - Has a graphical interface for use with mouse and keyboard
+> >   - May need to work on multiple, very different operating systems
 > >   - May be intended for users to modify / compile themselves
-> >   - Should work on wide range of hardware configurations
-> >   - Documentation probably either in manual or in software itself
+> >   - Should work on a wide range of hardware configurations
+> >   - Documentation probably either in a manual or in the software itself
 > > - Command-line Application - UNIX Tool
 > >   - User interface is text based, probably via command-line arguments
 > >   - Intended to be modified / compiled by users - though most will choose not to
-> >   - Documentation has standard formats - also accessible from command-line
+> >   - Documentation has standard formats - also accessible from the command line
 > >   - Should be usable as part of a pipeline
 > > - Command-line Application - High Performance Computing
-> >   - Similar to UNIX Tool
+> >   - Similar to a UNIX Tool
 > >   - Usually supports running across multiple networked machines simultaneously
-> >   - Usually operated via scheduler - interface should be scriptable
-> >   - May need to run on wide range of hardware (e.g. different CPU architectures)
+> >   - Usually operated via a scheduler - interface should be scriptable
+> >   - May need to run on a wide range of hardware (e.g. different CPU architectures)
 > >   - May need to process large amounts of data
 > >   - Often entirely or partially written in a lower-level language for performance (e.g. C, C++, Fortran)
 > > - Web Application
 > >   - Usually has components which run on server and components which run on the user's device
 > >   - Graphical interface should usually support both Desktop and Mobile devices
-> >   - Clientside component should run on range of browsers and Operating Systems
+> >   - Client-side component should run on a range of browsers and operating systems
 > >   - Documentation probably part of the software itself
-> >   - Clientside component typically written in JavaScript
+> >   - Client-side component typically written in JavaScript
 > {: .solution}
 {: .challenge}
 
@@ -123,10 +128,12 @@ At the beginning of this episode we defined **Software Architecture** with the q
 Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques have some similarities.
 
 One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
-This term is often attributed to the book 'A Pattern Language' by Christopher Alexander *et al* published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
+This term is often attributed to the book ['A Pattern Language' by Christopher Alexander *et al.*](https://en.wikipedia.org/wiki/A_Pattern_Language) published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
 
 Design patterns are relatively small-scale templates which we can use to solve problems which affect a small part of our software.
-For example, the Adapter pattern may be useful if part of our software needs to consume data from a number of different external data sources.
+For example, the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) (which allows a class that does not 
+have the "right interface" to be reused)
+may be useful if part of our software needs to consume data from a number of different external data sources.
 Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
 
 Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
@@ -324,7 +331,7 @@ Often, the software is split into three layers:
 
 ## Addressing New Requirements
 
-So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data. Let's now take a further step back from design and implementation to the level of requirements.
+So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data. Let's now take a further step back from design and implementation to the level of software requirements.
 
 > ## Implement Extensions
 > 
@@ -342,7 +349,7 @@ So far in this episode we've extended our application - designed around an MVC a
 {: .challenge}
 
 
-## Summary
+## Best Practices for 'Good' Software Design
 
 Aspirationally, what makes good code can be summarised in the following quote from the [Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
 
@@ -372,9 +379,11 @@ Importantly, there is only so much time available. How much effort should we spe
 
 At an intermediate level there are a wealth of practices that *could* be used, and applying suitable design and coding practices is what separates an *intermediate developer* from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices *enough* so that progress can be made. It's very easy to under-design software, but remember it's also possible to over-design software too.
 
-FIXME: add Fagan inspection / Cohen 2006 references for code review? This section or next? Probably next
-One practice that should always be considered, and has been shown to be very effective in team-based software development is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit within the codebase.
-Such reviews check the correctness of the new code, test coverage, functionality changes, and confirm that they
-follow the coding guides and best practices. Let's have look at some code review techniques available to us.
+One practice that should always be considered, and has been shown to be very effective in team-based 
+software development, is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved 
+and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit 
+within the codebase. Such reviews check the correctness of the new code, test coverage, functionality changes, 
+and confirm that they follow the coding guides and best practices. Let's have look at some code review techniques 
+available to us.
 
 {% include links.md %}
