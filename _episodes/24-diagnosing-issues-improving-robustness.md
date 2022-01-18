@@ -201,7 +201,6 @@ Generally speaking, it is at these extreme cases that you will find your code fa
 What is considered an "edge case" for a given component depends on what that component is meant to do.
 In the case of `patient_normalise` function, the goal is to normalise a numeric array of numbers.
 For numerical values, extreme cases could be zeros, very large or small values, not-a-number (`NaN`) or infinity values.
-Since we are specifically considering an *array* of values, an edge case could be that all the numbers of the array are equal.
 
 For all the given edge cases you might come up with, you should also consider their likelihood of occurrence.
 It is often too much effort to exhaustively test a given function against every possible input, so you should prioritise edge cases that are likely to occur. For our `patient_normalise` function, some common edge cases might be the occurrence of zeros,
