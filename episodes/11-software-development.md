@@ -41,8 +41,9 @@ within your own GitHub account:
 1. Log into your GitHub account. 
 2. Go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-3. Click `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
-the repository under your GitHub account. Note that each participant is creating their own copy to work on. Also,
+3. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
+the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
+Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
 4. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
@@ -195,7 +196,7 @@ with well defined roles, for example:
 - [Service-Oriented Architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services,
 accessible over a network by consumers (users or other services) that communicate with each other by passing data in a well-defined, shared format (protocol),
 - [Client-Server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
-- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may event be physically separated to run on separate machines - some more detail on this later in the course.
+- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may even be physically separated to run on separate machines - some more detail on this later in the course.
 
 ### Model-View-Controller (MVC) Architecture
 MVC architecture divides the related program
@@ -259,7 +260,7 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 > ## Separation of Concerns
 > Separation of concerns is important when designing software architectures in order to reduce the code's complexity.
 > Note, however, there are limits to everything - and MVC architecture is no exception. Controller often transcends
-> into Model and View and a clear separation is sometimes difficult to maintain. For example, Command Line Interface
+> into Model and View and a clear separation is sometimes difficult to maintain. For example, the Command Line Interface
 > provides both the View (what user sees and how they interact with the command line) and the Controller
 > (invoking of a command)
 > aspects of a CLI application. In Web applications, Controller often manipulates the data (received from the Model)
