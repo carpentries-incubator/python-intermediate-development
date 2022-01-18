@@ -4,20 +4,18 @@ teaching: ""
 exercises: ""
 questions:
 - "Where do we start when beginning a new software project?"
-- "How do people use software?"
 - "How can we make sure the components of our software are reusable?"
-- "How do we add components to an MVC application?"
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
-- "Identify common components of multi-layer software projects"
-- "Understand the components of an MVC architecture."
+- "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
+- "Understand the components of MVC and multi-layer architectures."
 keypoints:
-- "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
+- "Planning software projects in advance can save a lot of effort and reduce 'technical debt' later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
-- "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change."
-- "These components can be as small as a single function, or be a software package in their own right."
+- "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
+Such components can be as small as a single function, or be a software package in their own right."
 - "When writing software used for research, requirements will almost *always* change."
-- "*`Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do'*"
+- "*'Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do.'*"
 ---
 
 ## Introduction
@@ -363,7 +361,7 @@ And importantly, who will be using our software and how will they interact with 
 
 Here's another way of looking at it.
 
-Not following good software design and development practices can lead to accumulated "technical debt", which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
+Not following good software design and development practices can lead to accumulated 'technical debt', which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
 instead of using a better approach that would take longer". So, the pressure to achieve project goals 
 can sometimes lead to quick and easy solutions, which make the software become more messy, more complex, 
 more difficult to understand and maintain. The extra effort required to make 

@@ -5,14 +5,16 @@ start: true
 teaching: 5
 exercises: 0
 questions:
-- "How can we use common patterns and paradigms to improve the quality of our software?"
+- "What are some best practices for collaborative code development available to help us design and write 'good'
+  software that will make it easier for us and others to further develop and reuse it."
 objectives:
-- "Design software around a number of common patterns and paradigms to improve its understandability, extensibility, testability and overall sustainability."
+- "Look at the bigger picture of software as a process of development: from 'good' software design 
+based on clear requirements to an implementation that meets those requirements."
 keypoints:
-- "Each of the major programming paradigms are suited to different kinds of problem."
-- "A single piece of software will often contain instances of multiple paradigms."
 - "By deliberately designing our software, we can avoid or mitigate many of the common issues encountered when working 
-with legacy software."
+with legacy software and/or accumulated 'technical debt'."
+- "Agreeing on a set of best practices within a software development team will help 
+to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
 In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements, and how doing these things well makes it easier for others to develop and reuse our software.
 
@@ -26,15 +28,16 @@ inherit code from someone else or you yourself have written some code that now n
 At this point, before your software grows even more and becomes harder to manage,
 it becomes particularly important that you rethink its design.
 
-FIXME: code review
-
 After that, we'll look at some general principles of software maintainability, the benefits that writing maintainable 
 code can give you, and also getting some practice at identifying problems with existing code, and
 some general, established practices you can apply when writing new code or to the code you've already written.
 Sometimes project goals and time pressures take precedence and producing maintainable, reusable code is not given the 
 time it deserves. So, when a change or a new feature is needed - often the shortest route to making it work is taken 
 as opposed to a more well thought-out solution. For this reason, it is important not to write the code alone and in 
-isolation and use other team members to measure our coding standards against and check and verify each other's code.
+isolation and use other team members verify each other's code and measure our coding standards against.
+This process of having multiple team members comment on key code changes is called *code review* - 
+this is one of the most important practices of collaborative software development that helps ensure 
+the ‘good’ coding standards are achieved and maintained within a team.
 
 ![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
 
