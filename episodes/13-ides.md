@@ -208,7 +208,8 @@ way of doing this and how it propagates to the command line.
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
    `Project Interpreter` from the left.
 3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.
-5. Select `OK` in the `Preferences` window.
+   ![Installing a package in PyCharm](../fig/pycharm-add-library.png){: .image-with-shadow width="800px" }
+4. Select `OK` in the `Preferences` window.
 
 It may take a few minutes for PyCharm to install it. After it is done, the `pytest` library is added to our
 virtual environment. You can also verify this from the command line by listing the `venv/lib/python3.9/site-packages` subdirectory. Note, however, that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
@@ -328,9 +329,11 @@ tomli==1.2.2
 Having configured a virtual environment, we now need to tell PyCharm to use it for our project. This is done by adding a **Run Configuration** to a project:
 
 1. To add a new configuration for a project - select `Run` > `Edit Configurations...` from the top menu.
-2. Select `Python` then `Add new run configuration...`
+2. Select `Add new run configuration...` then `Python`.
+   ![Adding a Run Configuration in PyCharm](../fig/pycharm-add-run-configuration.png){: .image-with-shadow width="800px" }
 3. In the new popup window, in the `Script path` field select the folder
    button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
+   ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
 4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
 5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation`.
 6. You can optionally configure run parameters and environment variables in the same window - we do not need this at the moment.
