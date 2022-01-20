@@ -63,7 +63,8 @@ first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
 ~~~
 {: .language-yaml}
 
-If we wanted to express more information for one of these values we could use a feature known as **maps**, which allow us to define nested, hierarchical data structures, e.g.
+If we wanted to express more information for one of these values we could use a feature known as **maps** (dictionaries/hashes), 
+which allow us to define nested, hierarchical data structures, e.g.
 
 ~~~
 ...
