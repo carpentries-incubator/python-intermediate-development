@@ -21,3 +21,4 @@ tmp/
 venv/
 .venv/
 .*history
+.tool-versions
