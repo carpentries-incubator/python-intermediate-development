@@ -1,5 +1,5 @@
 ---
-title: "Automatically Testing your Software"
+title: "Automatically Testing Software"
 teaching: 30
 exercises: 20
 questions:
@@ -269,7 +269,7 @@ So here, although we have specified two of our tests as separate functions, they
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
-Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
+Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What About Unit Testing in Other Languages?
 >
@@ -295,7 +295,7 @@ Whether we do this via PyCharm or the command line, the results are exactly the 
 
 ### Writing a Metadata Package Description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
+Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
 
 Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
 
@@ -306,7 +306,7 @@ setup(name="inflammation-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
-Next, in the command line we need to install our code as a local package in our environment so pytest will find it:
+Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
 
 ~~~
 $ pip3 install -e .

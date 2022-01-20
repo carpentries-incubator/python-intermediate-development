@@ -352,7 +352,7 @@ the discovered inconsistencies and commit them to the feature branch.
 >> We now proceed to modify `inflammation-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
 >> coding guidelines by underlying them. There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
->>  1. Line 23 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
+>>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
 >>  multiple lines and
 >>  hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of
 >>  list or the first character of the line that starts the multiline construct or simply moved to the end of the
