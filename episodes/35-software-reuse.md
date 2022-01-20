@@ -1,5 +1,5 @@
 ---
-title: "Software Release"
+title: "Preparing Software for Release"
 start: false
 teaching: 35
 exercises: 20
@@ -334,9 +334,5 @@ Using features like tagging allow us to highlight commits that are particularly 
 We may also wish to make data available to either be used with the software or as generated results. This may be via GitHub or some other means. An important aspect to remember with sharing data on such systems is that they may reside in other countries, and we must be careful depending on the nature of the data.
 
 We need to ensure that we are still conforming to the relevant policies and guidelines regarding how we manage research data, which may include funding council, institutional, national, and even international policies and laws. Within Europe, for example, there's the need to conform to things like [GDPR][gdpr], for example. It's a very good idea to make yourself aware of these aspects.
-
-
-## Packaging Code for Release
-Material from https://sabs-r3.github.io/software-engineering-day4/03-packaging/index.html to be folded into this section. Possibly some restructuring and cutting down needed.
 
 {% include links.md %}
