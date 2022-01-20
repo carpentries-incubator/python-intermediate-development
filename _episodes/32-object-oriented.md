@@ -33,7 +33,7 @@ Let's continue to develop this system, using Object Oriented Programming to desi
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
-So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to to combine data from a range of different sources and with more data than just an array of numbers.
+So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to combine data from a range of different sources and with more data than just an array of numbers.
 
 ~~~ python
 data = np.array([[1., 2., 3.],
@@ -307,10 +307,10 @@ This is one of the common ways to handle an optional argument in Python, so we'l
 ### Dunder Methods
 
 Why is the `__init__` method not called `init`?
-There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a double-underscore, hence the name **dunder method**.
+There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a **d**ouble-**under**score, hence the name **dunder method**.
 
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(alice)` returned `<__main__.Patient object at 0x7fd7e61b73d0>`, which is the string represenation of the `alice` object. We 
-may want the print statement to display the objects's name instead. We can achieve this by overriding the `__str__` method of our class.
+may want the print statement to display the object's name instead. We can achieve this by overriding the `__str__` method of our class.
 
 ~~~ python
 # file: inflammation/models.py
