@@ -44,7 +44,7 @@ code style guides (such as [PEP8](https://www.python.org/dev/peps/pep-0008/) for
 code completion and refactoring.
 IDEs often integrate command line console and version control tools - we teach
 them separately in this course as this knowledge can be ported to other programming languages and command line tools
-you may use in the future (but is perfectly fine to use these integrated versions too).
+you may use in the future (but is applicable to the integrated versions too).
 
 We will use [PyCharm](https://www.jetbrains.com/pycharm/) in this course - a free, open source IDE.
 
