@@ -649,7 +649,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > > ## Solution
 > > One example solution is shown below. You may start by writing some tests (that will initially fail), and then add the .
 > > ~~~ python
-> > # file: tests/test_models.py   
+> > # file: tests/test_patient.py   
 > > ...
 > > def test_doctor_is_person():
 > >     """Check if a doctor is a person."""
