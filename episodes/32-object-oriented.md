@@ -67,7 +67,7 @@ patients = [
 > When used as below, it should produce the expected output.
 >
 > If you're not sure where to begin, think about ways you might be able to effectively loop over two collections at once.
-> Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a Numpy array - either is fine.
+> Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a NumPy array - either is fine.
 >
 > ~~~ python
 > data = np.array([[1., 2., 3.],
