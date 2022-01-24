@@ -36,14 +36,14 @@ But before we can prioritise our requirements, there are some things we need to 
 
 Firstly, we need to know:
 
-- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadline requiring their completion. This is known as a **timebox**. This might be a week or two, but for agile, this should not be longer than a month. Longer deadlines with more complex requirements may be split into a number of timeboxes.
+- *The period of time we have to resolve these requirements* - e.g. before the next software release, pivotal demonstration, or other deadlines requiring their completion. This is known as a **timebox**. This might be a week or two, but for agile, this should not be longer than a month. Longer deadlines with more complex requirements may be split into a number of timeboxes.
 - *How much overall effort we have available* - i.e. who will be involved and how much of their time we will have during this period
 
 We also need estimates for how long each requirement will take to resolve, since we cannot meaningfully prioritise requirements without knowing what the effort tradeoffs will be. Even if we know how important each requirement is, how would we even know if completing the project is possible? Or if we don't know how long it will take to deliver those requirements we deem to be critical to the success of a project, how can we know if we can include other less important ones?
 
 It is often not the reality, but estimation should ideally be done by the people likely to do the actual work (i.e. the Research Software Engineers, researchers, or developers). It shouldn't be done by project managers or PIs simply because they are not best placed to estimate, and those doing the work are the ones who are effectively committing to these figures.
 
-> ## Why Is It so Difficult to Estimate?
+> ## Why is it so Difficult to Estimate?
 >
 > Estimation is a very valuable skill to learn, and one that is often difficult. Lack of experience in estimation can play a part, but a number of psychological causes can also contribute. One of these is Dunning-Kruger, a type of cognitive bias in which people tend to overestimate their abilities, whilst in opposition to this is imposter syndrome, where due to a lack of confidence people underestimate their abilities. The key message here is to be honest about what you can do, and find out as much information that is reasonably appropriate before arriving at an estimate.
 >
@@ -66,10 +66,10 @@ Now we have our estimates we can decide how important each requirement is to the
 
 To prioritise these requirements we can use a method called **MoSCoW**, a way to reach a common understanding with stakeholders on the importance of successfully delivering each requirement for a timebox. MoSCoW is an acronym that stands for **Must have**, **Should have**, **Could have**, and **Won't have**. Each requirement is discussed by the stakeholder group and falls into one of these categories:
 
-- *Must Have* (MH) - these requirements are critical to the current timebox for it to succeed. Even the inability to deliver just one of these would cause the project to be considered a failure
-- *Should Have* (SH) - these are important requirements but not *necessary* for delivery in the timebox. They may be as *important* as Must Haves, but there may be other ways to achieve them or perhaps they can be held back for a future development timebox
-- *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved
-- *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development
+- *Must Have* (MH) - these requirements are critical to the current timebox for it to succeed. Even the inability to deliver just one of these would cause the project to be considered a failure.
+- *Should Have* (SH) - these are important requirements but not *necessary* for delivery in the timebox. They may be as *important* as Must Haves, but there may be other ways to achieve them or perhaps they can be held back for a future development timebox.
+- *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved.
+- *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development.
 
 In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20%. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
 
@@ -79,7 +79,7 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can optiona
 
 > ## Prioritise!
 >
-> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the stated allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. version 1.1
+> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. version 1.1
 >
 > Time: 10 mins
 {: .challenge}
