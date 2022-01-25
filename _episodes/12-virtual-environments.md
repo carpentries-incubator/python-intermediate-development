@@ -218,6 +218,16 @@ you are currently using (indicated by its name in round brackets at the start of
 and modify the environment so that running Python will get you the particular
 version of Python configured in your virtual environment.
 
+You can verify you are using your virtual environment's version of Python by checking the path using `which`:
+~~~
+(venv) $ which python3
+~~~
+{: .language-bash}
+~~~
+/home/alex/python-intermediate-inflammation/venv/bin/python3
+~~~
+{: .output}
+
 When you’re done working on your project, you can exit the environment with:
 ~~~
 (venv) $ deactivate
@@ -231,6 +241,14 @@ source venv/bin/activate
 ~~~
 {: .language-bash}
 
+> ## Python Within A Virtual Environment
+> 
+> On Mac and Linux, within a virtual environment `python` and `pip` will refer to the version of Python you created the environment with. If you create a virtual environment with `python3 -m venv venv`, `python` will refer to `python3` and `pip` will refer to `pip3`. 
+>
+> On *some* Windows machines with Python 2 installed, `python` will refer to the copy of Python 2 installed outside of the virtual environment instead. You can always check if you are using the version of Python in your virtual environment with the command `which python`.
+>
+> We continue using `python3` and `pip3` in this material to avoid confusion for those Windows users.
+{: .callout}
 
 ### Installing External Libraries in an Environment With `pip`
 
@@ -245,6 +263,8 @@ To install the latest version of a package with `pip` you use pip's `install` co
 (venv) $ pip3 install matplotlib
 ~~~
 {: .language-bash}
+
+
 
 or like this to install multiple packages at once for short:
 
