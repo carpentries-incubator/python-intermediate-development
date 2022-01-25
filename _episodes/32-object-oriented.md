@@ -611,7 +611,22 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > > develop the code to satisfy the new requirements and pass the tests.
 > > ~~~ python
 > > # file: tests/test_patient.py   
-> > ...
+> > """Tests for the Patient model."""    
+> >
+> > def test_create_patient():
+> >     """Check a patient is created correctly given a name."""
+> >     from inflammation.models import Patient
+> >     name = 'Alice'
+> >     p = Patient(name=name)
+> >     assert p.name == name
+> >
+> > def test_create_doctor():
+> >     """Check a doctor is created correctly given a name."""
+> >     from inflammation.models import Doctor
+> >     name = 'Sheila Wheels'
+> >     doc = Doctor(name=name)
+> >     assert doc.name == name
+> > 
 > > def test_doctor_is_person():
 > >     """Check if a doctor is a person."""
 > >     from inflammation.models import Doctor, Person
