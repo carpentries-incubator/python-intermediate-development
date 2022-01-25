@@ -606,7 +606,89 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 >
 > For any extra features you've added, explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
->
+> > ## Solution
+> > One example solution is shown below. You may start by writing some tests (that will initially fail), and then  
+> > develop the code to satisfy the new requirements and pass tests.
+> > ~~~ python
+> > # file: tests/test_patient.py   
+> > ...
+> > def test_doctor_is_person():
+> >     """Check if a doctor is a person."""
+> >     from inflammation.models import Doctor, Person
+> >     doc = Doctor("Sheila Wheels")
+> >     assert isinstance(doc, Person)
+> >
+> > def test_patient_is_person():
+> >     """Check if a patient is a person. """
+> >     from inflammation.models import Patient, Person
+> >     alice = Patient("Alice")
+> >     assert isinstance(alice, Person)
+> >
+> > def test_patients_added_correctly():
+> >     """Check patients are being added correctly by a doctor. """
+> >     from inflammation.models import Doctor, Patient
+> >     doc = Doctor("Sheila Wheels")
+> >     alice = Patient("Alice")
+> >     doc.add_patient(alice)
+> >     assert doc.patients is not None
+> >     assert len(doc.patients) == 1
+> >
+> > def test_no_duplicate_patients():
+> >     """Check adding the same patient to the same doctor twice does not result in duplicates. """
+> >     from inflammation.models import Doctor, Patient
+> >     doc = Doctor("Sheila Wheels")
+> >     alice = Patient("Alice")
+> >     doc.add_patient(alice)
+> >     doc.add_patient(alice)
+> >     assert len(doc.patients) == 1   
+> > ...
+> > ~~~    
+> > {: .language-python} 
+> > 
+> > ~~~ python
+> > # file: inflammation/models.py
+> > ...
+> > class Person:
+> >     """A person."""
+> >     def __init__(self, name):
+> >         self.name = name
+> >
+> >     def __str__(self):
+> >         return self.name
+> >
+> > class Patient(Person):
+> >     """A patient in an inflammation study."""
+> >     def __init__(self, name):
+> >         super().__init__(name)
+> >         self.observations = []
+> >
+> >     def add_observation(self, value, day=None):
+> >         if day is None:
+> >             try:
+> >                 day = self.observations[-1].day + 1
+> >             except IndexError:
+> >                 day = 0
+> >         new_observation = Observation(day, value)
+> >         self.observations.append(new_observation)
+>         return new_observation
+> >
+> > class Doctor(Person):
+> >     """A doctor in an inflammation study."""
+> >     def __init__(self, name):
+> >         super().__init__(name)
+> >         self.patients = []
+> >
+> >     def add_patient(self, new_patient):
+> >         # A crude check by name if this patient is already looked after
+> >         # by this doctor before adding them
+> >         for patient in self.patients:
+> >             if patient.name == new_patient.name:
+> >                 return
+> >         self.patients.append(new_patient)
+> > ...
+> > ~~~    
+> {: .language-python} 
+> {: .solution}
 {: .challenge}
 
 > ## Composition vs Inheritance
