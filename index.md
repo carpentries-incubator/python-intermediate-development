@@ -6,7 +6,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 This course aims to teach a **core set** of established, intermediate-level software development skills and
 best practices for working as part of a team in a research environment using Python as an
-example programming language (see detailed [learning objectives](/index.html#learning-objectives) below).
+example programming language (see detailed [learning objectives](/index.html#learning-objectives-for-the-workshop) below).
 The core set of skills we teach is not a comprehensive set of all-encompassing skills,
 but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing
 on your learning journey.
@@ -45,7 +45,7 @@ currently undocumented or unstructured
  - You have learned the basics of writing software but have not
  applied that knowledge yet (or are unsure how to apply it) to your work. In this case, we suggest you revisit the course
  after you have been programming for at least 6 months
- - You are well familiar with the [learning objectives of the course](/index.html#learning-objectives) and those of individual episodes
+ - You are well familiar with the [learning objectives of the course](/index.html#learning-objectives-for-the-workshop) and those of individual episodes
  - The software you write is fully documented and well architected
 
 > ## Prerequisites
