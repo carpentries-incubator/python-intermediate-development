@@ -101,6 +101,7 @@ entry point in the application, and on closer inspection, we can see that the `i
 ~~~
 $ ls -l inflammation
 total 24
+-rw-r--r--  1 alex  staff   71 29 Jun 09:59 __init__.py
 -rw-r--r--  1 alex  staff  838 29 Jun 09:59 models.py
 -rw-r--r--  1 alex  staff  649 25 Jun 13:13 views.py
 ~~~
@@ -276,7 +277,7 @@ entry point into the application. The **View** and **Model** modules are contain
 in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
-We will revisit the software architecture and MVC topics once again in a [later episode](../../32-software-design)
+We will revisit the software architecture and MVC topics once again in a [later episode](../34-software-design/index.html)
 when we talk in more detail about software design.
 We now proceed to set up our virtual development environment and start working with the code using
 a more convenient graphical tool - IDE PyCharm.
