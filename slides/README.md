@@ -21,3 +21,25 @@ There are a few options for accessing these slides in a slideshow view.
 3. A more involved option if you don't have an internet connection (this is the only instance I can see this option being useful) is to link the above command with your local reveal.js installation. I lost the page where this command is :(
 
 When the slides need to link to the course content, they assume the pages are hosted locally at `0.0.0.0:4000`. This is the default location where `make docker-serve` puts the website if you have build locally from this repo. The decision was made to link locally rather than too the live website to allow for local modifications of the content.
+
+## Screen Arrangement for Remote Delivery
+
+- Screen 1
+  - if there is a size difference in your screens, this should be the largest one
+  - shared with participants
+  - web browser with jupyter-notebook for current section open, `alt-r` to get presentation view, then `t` to get presenter view window which should be put on screen 2
+    - tab with course content page
+    - tab with GitHub repo of example project
+  - PyCharm with example project open
+  - Terminal with current directory in example project
+- Screen 2
+  - smaller, not shared
+  - terminal running jupyter-notebook server for slides
+  - presenter view (produced from going to presenter view above)
+  - Zoom window
+  - Web browser
+    - workshop website
+    - course content
+    - collaborative document
+    - any other resources you think you might need to refer to
+  - messaging app for communication with helpers
