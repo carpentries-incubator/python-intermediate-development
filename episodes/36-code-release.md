@@ -1,10 +1,10 @@
 ---
-title: "Packaging Code for Distribution"
+title: "Packaging Code for Release and Distribution"
 teaching: 0
 exercises: 30
 questions:
 - "How do we prepare our code for sharing as a Python package?"
-- "How do we release our project for other people to install?"
+- "How do we release our project for other people to install and reuse?"
 objectives:
 - "Describe the steps necessary for sharing Python code as installable packages."
 - "Use Poetry to prepare an installable package."
@@ -12,8 +12,8 @@ objectives:
 - "Upload an installable Python package to a package index."
 keypoints:
 - "Poetry allows us to produce an installable package and upload it to a package index."
-- "Making our software installable with pip makes it easier for others to start using it."
-- "For complete control over building a package, we can use a setup.py file."
+- "Making our software installable with Pip makes it easier for others to start using it."
+- "For complete control over building a package, we can use a `setup.py` file."
 ---
 
 ## Why Package our Software?
@@ -26,7 +26,7 @@ By distributing our code as a package, we reduce the complexity of fetching, ins
 
 In this session we'll introduce two different methods for building an installable package from our code.
 The first, using a tool called **Poetry**, is the simpler of the two methods, so we'll walk through the complete packaging process and end up with a package uploaded to the PyPI test site.
-The second method, using **setup.py**, is the more traditional method and gives us full control, but is more complicated - we won't cover this fully, but it might be something you want to investigate further in future.
+The second method, using `setup.py`, is the more traditional method and gives us full control, but is more complicated - we won't cover this fully, but it might be something you want to investigate further in future.
 
 ## Packaging our Software with Poetry
 

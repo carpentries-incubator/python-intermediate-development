@@ -1,5 +1,5 @@
 ---
-title: "Preparing Software for Release"
+title: "Preparing Software for Reuse and Release"
 start: false
 teaching: 35
 exercises: 20
@@ -22,7 +22,6 @@ keypoints:
 
 ## Introduction
 If previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
-
 
 ## The Levels of Software Reusability - Good Practice Revisited
 
@@ -327,7 +326,6 @@ git push origin v1.0.0
 We can now use the more memorable tag to refer to this specific commit. Plus, once we've pushed this back up to GitHub, it appears as a specific release within our code repository which can be downloaded in compressed `.zip` or `.tar.gz` formats. Note that these downloads just contain the state of the repository at that commit, and not its entire history.
 
 Using features like tagging allow us to highlight commits that are particularly important, which is very useful for *reproducibility* purposes. We can (and should) refer to specific commits for software in academic papers that make use of results from software, but tagging with a specific version number makes that just a little bit easier for humans.
-
 
 ## Conforming to Data Policy and Regulation
 
