@@ -191,6 +191,13 @@ by convention and set up automatically by Git when you run `git clone remote_url
 repository locally); `main` is the name of our
 main (and currently only) development branch.
 
+> ## Account Security
+> When using `git config --global credential.helper cache`, any password or personal access token you enter will be cached for a period of time, a default of 15 minutes. Re-entering a password every 15 minutes can be OK, but for a personal access token it can be inconvenient, and lead to you writing the token down elsewhere. To *permanently* store passwords or tokens, use `stash` instead of `cache`.
+>
+> Storing an access token always carries a security risk. One compromise between short cache timescales and permanent stores, is to set a time-out on your personal access token when you make it, reducing the risk of it being stolen after you stop working on the project you issued it for.
+{: .callout}
+
+
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between any two or more copies of the same repository - 
 > the ones that are not located on your machine are "Git remotes" for you. In practice,
