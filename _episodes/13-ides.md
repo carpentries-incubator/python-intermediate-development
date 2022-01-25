@@ -117,12 +117,63 @@ action through the following exercise.
 >Can you recall two places where information about our project's dependencies
 can be found from the command line? Compare that information with the equivalent configuration in PyCharm.
 >
->Hint: the first one is in a subdirectory
-of our virtual environment directory `venv` and the second one can be obtained using the
-`pip freeze` command.
->>## Solution
->>From the previous episode, you may recall that information on external libraries our project depends on
->> is kept in the following subdirectory of `venv`:
+>Hint: We can use an argument to `pip`, or find the packages directly in a subdirectory
+of our virtual environment directory `venv`.
+>
+>> ## Solution
+>> From the previous episode, you may remember that we can get the list of packages in the current virtual environment using the `pip3 list` command:
+>> ~~~
+>> (venv) $ pip3 list
+>> ~~~
+>> {: .language-bash}
+>> ~~~
+Package         Version
+--------------- -------
+cycler          0.11.0
+fonttools       4.28.1
+kiwisolver      1.3.2
+matplotlib      3.5.0
+numpy           1.21.4
+packaging       21.2
+Pillow          8.4.0
+pip             21.1.3
+pyparsing       2.4.7
+python-dateutil 2.8.2
+setuptools      57.0.0
+setuptools-scm  6.3.2
+six             1.16.0
+tomli           1.2.2
+>> ~~~
+>> {: .output}
+>> However, `pip3 list` shows all the packages in the virtual environment - if we want to see only the list of packages that we installed, we can use the `pip3 freeze` command instead:
+>> ~~~
+>> (venv) $ pip3 freeze
+>> ~~~
+>> {: .language-bash}
+>> ~~~
+cycler==0.11.0
+fonttools==4.28.1
+kiwisolver==1.3.2
+matplotlib==3.5.0
+numpy==1.21.4
+packaging==21.2
+Pillow==8.4.0
+pyparsing==2.4.7
+python-dateutil==2.8.2
+setuptools-scm==6.3.2
+six==1.16.0
+tomli==1.2.2
+>> ~~~
+>> {: .output}
+>> We see `pip` in `pip3 list` but not in `pip3 freeze` as we did not install it using `pip`. 
+>> Remember that we use `pip3 freeze` to update our `requirements.txt` file, to keep a list of the packages our virtual environment includes. 
+>> Python will not do this automatically; we have to manually update the file when our requirements change using:
+>> ~~~
+>> pip3 freeze > requirements.txt
+>> ~~~
+>> {: .language-bash}
+>>
+>> If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
 >>~~~
 >>(venv) $ ls -l venv/lib/python3.9/site-packages
 >>~~~
@@ -167,35 +218,10 @@ drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 tomli
 drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
 >>~~~
 >>{: .output}
->> We also used `pip freeze` command to export our dependencies to the `requirements.txt` file in the project root,
->> which can be used to replicate the environment. We get the following output when we list the contents of `requirements.txt`:
->>~~~
->>(venv) $ cat requirements.txt
->>~~~
->>{: .language-bash}
->>~~~
-cycler==0.11.0
-fonttools==4.28.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
-pyparsing==2.4.7
-python-dateutil==2.8.2
-setuptools-scm==6.3.2
-six==1.16.0
-tomli==1.2.2
->>~~~
->>{: .output}
->> Note, however, that adding, removing and updating packages with `pip` package manager only affects the records in the
->> virtual environment and not the `requirements.txt` file. If you want to make use of that file,
->> you have to keep it in sync with your virtual environment manually and update it every time the environment changes.
 >>
 >> Finally, if you look at both the contents of `venv/lib/python3.9/site-packages` and `requirements.txt` and compare that with the packages shown in PyCharm's Python Interpreter Configuration - you will see that they all
 >> contain equivalent information.
->>
->{: .solution}
+> {: .solution}
 {: .challenge}
 
 #### Adding an External Library
@@ -218,64 +244,35 @@ virtual environment. You can also verify this from the command line by listing t
 Export the newly updated virtual environment into `requirements.txt` file.
 >>## Solution
 >>Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
->>but not in `requirements.txt`. From the project root do:
->>
->>~~~
->>(venv) $ ls -l venv/lib/python3.9/site-packages
->>~~~
->>{: .language-bash}
->>~~~
-total 1088
-drwxr-xr-x  103 alex  staff    3296 17 Nov 11:55 PIL
-drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 Pillow-8.4.0.dist-info
-drwxr-xr-x    6 alex  staff     192 17 Nov 11:55 __pycache__
-drwxr-xr-x    5 alex  staff     160 17 Nov 11:53 _distutils_hack
-drwxr-xr-x   52 alex  staff    1664 17 Nov 12:24 _pytest
-drwxr-xr-x   25 alex  staff     800 17 Nov 12:24 attr
-drwxr-xr-x    9 alex  staff     288 17 Nov 12:24 attrs-21.2.0.dist-info
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 cycler-0.11.0.dist-info
--rw-r--r--    1 alex  staff   14519 17 Nov 11:55 cycler.py
-drwxr-xr-x   14 alex  staff     448 17 Nov 11:55 dateutil
--rw-r--r--    1 alex  staff     152 17 Nov 11:53 distutils-precedence.pth
-drwxr-xr-x   31 alex  staff     992 17 Nov 11:55 fontTools
-drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 fonttools-4.28.1.dist-info
-drwxr-xr-x    6 alex  staff     192 17 Nov 12:24 iniconfig
-drwxr-xr-x    8 alex  staff     256 17 Nov 12:24 iniconfig-1.1.1.dist-info
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 kiwisolver-1.3.2.dist-info
--rwxr-xr-x    1 alex  staff  216968 17 Nov 11:55 kiwisolver.cpython-39-darwin.so
-drwxr-xr-x   92 alex  staff    2944 17 Nov 11:55 matplotlib
--rw-r--r--    1 alex  staff     569 17 Nov 11:55 matplotlib-3.5.0-py3.9-nspkg.pth
-drwxr-xr-x   20 alex  staff     640 17 Nov 11:55 matplotlib-3.5.0.dist-info
-drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 mpl_toolkits
-drwxr-xr-x   39 alex  staff    1248 17 Nov 11:55 numpy
-drwxr-xr-x   11 alex  staff     352 17 Nov 11:55 numpy-1.21.4.dist-info
-drwxr-xr-x   15 alex  staff     480 17 Nov 11:55 packaging
-drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 packaging-21.2.dist-info
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:53 pip
-drwxr-xr-x   10 alex  staff     320 17 Nov 11:53 pip-21.1.3.dist-info
-drwxr-xr-x    7 alex  staff     224 17 Nov 11:53 pkg_resources
-drwxr-xr-x   10 alex  staff     320 17 Nov 12:24 pluggy
-drwxr-xr-x    8 alex  staff     256 17 Nov 12:24 pluggy-1.0.0.dist-info
-drwxr-xr-x   24 alex  staff     768 17 Nov 12:24 py
-drwxr-xr-x    8 alex  staff     256 17 Nov 12:24 py-1.11.0.dist-info
--rw-r--r--    1 alex  staff      90 17 Nov 11:55 pylab.py
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 pyparsing-2.4.7.dist-info
--rw-r--r--    1 alex  staff  273365 17 Nov 11:55 pyparsing.py
-drwxr-xr-x    7 alex  staff     224 17 Nov 12:24 pytest
-drwxr-xr-x   10 alex  staff     320 17 Nov 12:24 pytest-6.2.5.dist-info
-drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 python_dateutil-2.8.2.dist-info
-drwxr-xr-x   41 alex  staff    1312 17 Nov 11:53 setuptools
-drwxr-xr-x   11 alex  staff     352 17 Nov 11:53 setuptools-57.0.0.dist-info
-drwxr-xr-x   19 alex  staff     608 17 Nov 11:55 setuptools_scm
-drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 setuptools_scm-6.3.2.dist-info
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 six-1.16.0.dist-info
--rw-r--r--    1 alex  staff   34549 17 Nov 11:55 six.py
-drwxr-xr-x    8 alex  staff     256 17 Nov 12:24 toml
-drwxr-xr-x    8 alex  staff     256 17 Nov 12:24 toml-0.10.2.dist-info
-drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 tomli
-drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
->>~~~
->>{: .output}
+>>but not in `requirements.txt`. First, let's check the list of installed 
+>> ~~~
+>> (venv) $ pip3 list
+>> ~~~
+>> {: .language-bash}
+>> ~~~
+Package         Version
+--------------- -------
+attrs           21.4.0 
+cycler          0.11.0 
+fonttools       4.28.5 
+iniconfig       1.1.1  
+kiwisolver      1.3.2  
+matplotlib      3.5.1  
+numpy           1.22.0 
+packaging       21.3   
+Pillow          9.0.0  
+pip             20.0.2 
+pluggy          1.0.0  
+py              1.11.0 
+pyparsing       3.0.7  
+pytest          6.2.5  
+python-dateutil 2.8.2  
+setuptools      44.0.0 
+six             1.16.0 
+toml            0.10.2 
+tomli           2.0.0  
+>> ~~~
+>> {: .output}
 >> We can see the `pytest` library appearing in the listing above. However, if we do:
 >>~~~
 >>(venv) $ cat requirements.txt
@@ -296,7 +293,7 @@ six==1.16.0
 tomli==1.2.2
 >>~~~
 >>{: .output}
->> `pytest` is missing from `requirements.txt`. To refresh it, we need to re-issue command:
+>> `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
 >>~~~
 >>(venv) $ pip3 freeze > requirements.txt
 >>~~~
