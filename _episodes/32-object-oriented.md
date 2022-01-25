@@ -607,8 +607,8 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > For any extra features you've added, explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
 > > ## Solution
-> > One example solution is shown below. You may start by writing some tests (that will initially fail), and then  
-> > develop the code to satisfy the new requirements and pass tests.
+> > One example solution is shown below. You may start by writing some tests (that will initially fail), and then 
+> > develop the code to satisfy the new requirements and pass the tests.
 > > ~~~ python
 > > # file: tests/test_patient.py   
 > > ...
