@@ -42,7 +42,7 @@ and not just within the currently active virtual environment.
 ~~~
 {: .language-bash}
 
-Note that `deactivate` might return an error or a warning if you are not within an active virtual environment - that's fine.
+Note that `deactivate` might return an error or a warning if you are not within an active virtual environment.
 
 The recommended install method for Poetry is to download an execute an installer script.
 The exact method for this will vary depending on your operating system - the instructions below assume you are using Ubuntu Linux.
