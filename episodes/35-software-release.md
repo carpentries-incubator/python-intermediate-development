@@ -81,7 +81,7 @@ $ which poetry
 {: .language-bash}
 
 ~~~
-/home/sabsr3/.local/bin/poetry
+/home/alex/.local/bin/poetry
 ~~~
 {: .output}
 
@@ -96,7 +96,7 @@ $ which poetry
 {: .language-bash}
 
 ~~~
-/home/sabsr3/.poetry/bin/poetry
+/home/alex/.poetry/bin/poetry
 ~~~
 {: .output}
 
@@ -330,8 +330,7 @@ One of the common cases where this is particularly useful is if our project has 
 For example, to speed up some of the core parts we might write some of our functions in C, then call these from our Python code.
 Using a `setup.py` gives us the flexibility to handle building these components in different ways and bring them together at the end.
 
-In the template repository for one of the SABS mini-projects, we have an example of a basic, general purpose `setup.py` file.
-You can find this file [https://github.com/SABS-R3/2020-software-engineering-projects-pk/blob/master/setup.py](https://github.com/SABS-R3/2020-software-engineering-projects-pk/blob/master/setup.py).
+Have a look at the [following example](https://github.com/SABS-R3/2020-software-engineering-projects-pk/blob/master/setup.py) of a basic, general purpose `setup.py` file.
 
 > ## Our Own `setup.py` (Optional)
 >
