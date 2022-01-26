@@ -16,18 +16,22 @@ keypoints:
 ---
     
 {% comment %}
-'Good' code best practices (from Steve's slides):
+Examples of 'good' code best practices (from Steve's slides):
 Correct – does what it’s intended to do
 Readable – remember WORM (Write Once Read Many)
 Testable – “if it’s not tested it’s broken”
 Documented – not what/how but why/because
 Robust and reliable
 Maintainable – by you and others six months from now
-Extensible, flexible + reusable
-Efficient, performant + scalable
+Extensible, flexible + reusable - trade off
+Efficient, performant + scalable - trade off
 Secure
 Discoverable – others can understand quickly + easily
 Simple – modular
+Pick the properties that are relevant to your project - e.g. trade off between time, efficiency and performance, 
+the levels of software reusability - this will dictate practices and the level of development.  This can lead to a discussion.
+
+Reiterate some of the key messages.
 {% endcomment %}
 
 
