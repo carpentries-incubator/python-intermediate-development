@@ -56,15 +56,12 @@ in this case, for example, we often need to know the mass and electric charge of
 So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
 This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
 
-Python is considered as an object oriented programming language rather than a procedural programming language.
-It is identified by looking at Python packages like Scikit-learn¹, pandas², and NumPy³. These are all Python packages built with object-oriented programming. Scikit-learn, for example, is a relatively comprehensive and complicated package built with object-oriented programming. This package has grown over the years with the latest functionality and new algorithms.
-When you train a machine learning algorithm with Scikit-learn, you do not have to know anything about how the algorithms work or how they were coded. You can straightly focus on the modeling.
-
 > ## Is Python Procedural or Object Oriented Language?
-> Python is a multi-paradigm and multipurpose programming language. You can use it as a procedural language and 
-> you can use it in a more object oriented way, but it tends to land more on the object oriented side. 
-> Much of the builtins and standard library are built around classes and 
-> objects. Python packages like [NumPy][numpy], [pandas][pandas] and [Scikit-learn][scikit-learn] are all built using object oriented programming.
+> Python is a multi-paradigm and multi-purpose programming language. You can use it as a procedural language and 
+> you can use it in a more object oriented way. It tends to land more on the object oriented side as all its core data 
+> types (strings, integers, floats, booleans, lists, sets, arrays, tuples, dictionaries, files) as well as functions, 
+> modules and classes are objects. Many built-in functions and external Python packages 
+> like [NumPy][numpy], [pandas][pandas] and [Scikit-learn][scikit-learn] are also built using object oriented programming.
 {: .callout}
 
 Let's continue to develop our software project, using Object Oriented Programming to design a more complete model 
@@ -73,7 +70,7 @@ of our patients and to get a bit more experience with object oriented programmin
 ### Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
-So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to to combine data from a range of different sources and with more data than just an array of numbers.
+So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to combine data from a range of different sources and with more data than just an array of numbers.
 
 ~~~ python
 data = np.array([[1., 2., 3.],
@@ -347,10 +344,10 @@ This is one of the common ways to handle an optional argument in Python, so we'l
 ### Dunder Methods
 
 Why is the `__init__` method not called `init`?
-There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a double-underscore, hence the name **dunder method**.
+There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a **d**ouble-**under**score, hence the name **dunder method**.
 
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(alice)` returned `<__main__.Patient object at 0x7fd7e61b73d0>`, which is the string represenation of the `alice` object. We 
-may want the print statement to display the objects's name instead. We can achieve this by overriding the `__str__` method of our class.
+may want the print statement to display the object's name instead. We can achieve this by overriding the `__str__` method of our class.
 
 ~~~ python
 # file: inflammation/models.py

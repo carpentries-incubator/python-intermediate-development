@@ -110,8 +110,8 @@ The AZ Software Store currently makes [Python 3.9.7](http://azsoftwarestore.astr
 available. Please don't use Anaconda, as it is not free for commercial use.
 
 >## Recommended Python Version
-> We recommend using Python version 3.3+ since `venv` will be included in the Python standard library and requires 
-> no additional installation. Things won't work well if you use Python 2.
+> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. 3.7 onward.
+> Specifically, we recommend upgrading from Python 2.7 wherever possible. Continuing to use it will likely result in difficulty finding supported dependencies or syntax errors.
 {: .callout}
 
 You can 
@@ -140,7 +140,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
  ~~~
  {: .language-bash}
- Press `CONTROL-D` to exit the Python console.
+ Press `CONTROL-D` or type `exit()` to exit the Python console. 
 
 ### `venv` and `pip`
 If you are using a Python 3 distribution from [Python.org](https://www.python.org/), 

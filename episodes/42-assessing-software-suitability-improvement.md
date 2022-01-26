@@ -119,7 +119,7 @@ You can also use the mention system to link **GitHub accounts**. Instead of <kbd
 >
 > - Provide contact information: so users know what to do and how to get in contact if they run into problems
 > - Manage your support: an issue tracker - like the one in GitHub - is essential to track and manage issues
-> - Manage expectations: let users know the level of support you offer, in terms of the when they can expect responses to queries, the scope of support (e.g. which platforms, types of releases, etc.), the types of support (e.g. bug resolution, helping develop tailored solutions), and expectations for support in the future (e.g. when project funding runs out)
+> - Manage expectations: let users know the level of support you offer, in terms of when they can expect responses to queries, the scope of support (e.g. which platforms, types of releases, etc.), the types of support (e.g. bug resolution, helping develop tailored solutions), and expectations for support in the future (e.g. when project funding runs out)
 >
 > All of this requires effort, and you can't do everything. It's therefore important to agree and be clear on how the software will be supported from the outset, whether it's within the context of a single laboratory, project, or other collaboration, or across an entire community.
 {: .callout}

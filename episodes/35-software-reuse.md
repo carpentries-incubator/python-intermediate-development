@@ -21,7 +21,7 @@ keypoints:
 ---
 
 ## Introduction
-If previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
+In previous episodes we've looked at skills, practices, and tools to help us design and develop software in a collaborative environment. In this lesson we'll be looking at a critical piece of the development puzzle that builds on what we've learnt so far - sharing our software with others.
 
 ## The Levels of Software Reusability - Good Practice Revisited
 
@@ -50,7 +50,7 @@ A few reasons for this are that writing documentation is often considered:
 - Expensive in terms of effort, with little reward
 - Writing documentation is boring!
 
-A very useful form of documentation for understanding our code is code commenting, and are most effective when used to explain complex interfaces or behaviour, or the reasoning behind why something is coded a certain way. But code comments only go so far.
+A very useful form of documentation for understanding our code is code commenting, and is most effective when used to explain complex interfaces or behaviour, or the reasoning behind why something is coded a certain way. But code comments only go so far.
 
 Whilst it's certainly arguable that writing documentation isn't as exciting as writing code, it doesn't have to be expensive and brings many benefits. In addition to enabling general reproducibility by others, documentation...
 
@@ -134,7 +134,7 @@ One really neat feature - and a common practice - of using many CI infrastructur
 ~~~
 {: .language-bash}
 
-This will embed a *badge* at the top of our page the reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `main` branch succeeded or failed.
+This will embed a *badge* at the top of our page that reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `main` branch succeeded or failed.
 
 That's got us started, but there are other aspects we should also cover:
 
@@ -200,7 +200,7 @@ $ git merge my-feature-branch
 ~~~
 {: .language-bash}
 
-Finally, once we've fully tested our software and confident it works as expected on `develop`, we can merge our `develop` branch into `main`:
+Finally, once we've fully tested our software and are confident it works as expected on `develop`, we can merge our `develop` branch into `main`:
 
 ~~~
 $ git checkout main
@@ -325,7 +325,7 @@ git push origin v1.0.0
 
 We can now use the more memorable tag to refer to this specific commit. Plus, once we've pushed this back up to GitHub, it appears as a specific release within our code repository which can be downloaded in compressed `.zip` or `.tar.gz` formats. Note that these downloads just contain the state of the repository at that commit, and not its entire history.
 
-Using features like tagging allow us to highlight commits that are particularly important, which is very useful for *reproducibility* purposes. We can (and should) refer to specific commits for software in academic papers that make use of results from software, but tagging with a specific version number makes that just a little bit easier for humans.
+Using features like tagging allows us to highlight commits that are particularly important, which is very useful for *reproducibility* purposes. We can (and should) refer to specific commits for software in academic papers that make use of results from software, but tagging with a specific version number makes that just a little bit easier for humans.
 
 ## Conforming to Data Policy and Regulation
 
