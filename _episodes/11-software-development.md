@@ -35,7 +35,7 @@ across all patients but it is not finished and contains some errors. You will be
 collaboration with others to fix and build on top of the existing code during the course.
 
 To start with the development, we have to obtain a local copy of the project on
-your machine and inspect it. To first step to this is to create a copy of the software project repository from GitHub
+your machine and inspect it. The first step is to create a copy of the software project repository from GitHub
 within your own GitHub account:
 
 1. Log into your GitHub account. 

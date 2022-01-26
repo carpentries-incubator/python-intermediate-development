@@ -44,7 +44,7 @@ We specify these as arguments to the `parameterize()` decorator, firstly indicat
 
 So our first test will run `daily_mean()` on `[[0, 0], [0, 0], [0, 0]]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3, 4]`.
 
-The big pluses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
+The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
 > ## Write Parameterised Unit Tests
 >

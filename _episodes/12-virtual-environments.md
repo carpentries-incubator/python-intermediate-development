@@ -64,7 +64,7 @@ Python interpreter together with specific versions of a number of external libra
 virtual environment. A virtual environment is simply a *directory with a particular
 structure* which includes links to and enables multiple side-by-side installations of
 different Python interpreters or different versions of the same external library to coexist on your machine and only one to be selected for each of our projects. This allows you to work on a particular
-project without the worry of affecting other projects on your machine.
+project without worrying about affecting other projects on your machine.
 
 As more external libraries are added to your Python project over time, you can add them to
 its specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments
@@ -73,7 +73,7 @@ for using virtual environments is that they make sharing your code with others m
 Here are some typical scenarios where the usage of virtual environments is highly recommended (almost unavoidable):
 - You have an older project that only works under Python 2. You do not have the time to migrate the project to Python 3
 or it may not even be possible as some of the third party dependencies are not available under Python 3. You have to
-start another project under Python 3. The best way to do this on a single machine is to set up 2 separate Python virtual
+start another project under Python 3. The best way to do this on a single machine is to set up two separate Python virtual
 environments.
 - One of your Python 3 projects is locked to use a particular older version of a third party dependency. You cannot use the
 latest version of the
@@ -118,7 +118,7 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 > number of commonly used scientific computing packages so you do not have to obtain them separately.
 > `conda` (that comes with the Anaconda distribution) is a command line
 > tool with
-> dual functionality - (1) it is a package manager that helps you find Python packages from
+> dual functionality: (1) it is a package manager that helps you find Python packages from
 > remote package repositories and install them on your system, and (2) it is also a virtual environment manager.
 > So, if you are using Anaconda Python distribution, you can use `conda` for both tasks instead of using `venv` and `pip`.
 {: .callout}
@@ -250,7 +250,7 @@ source venv/bin/activate
 > We continue using `python3` and `pip3` in this material to avoid confusion for those Windows users.
 {: .callout}
 
-### Installing External Libraries in an Environment With `pip`
+### Installing External Libraries in an Environment with `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
 for the code to run on your machine, you need to
@@ -332,7 +332,7 @@ tomli           1.2.2
 To uninstall a package installed in the virtual environment do: `pip3 uninstall package-name`.
 You can also supply a list of packages to uninstall at the same time.
 
-### Exporting/Importing an Environment With `pip`
+### Exporting/Importing an Environment with `pip`
 
 You are collaborating on a project with a team so, naturally, you will want to share your environment with your
 collaborators so they can easily 'clone' your software project with all of its dependencies and everyone
