@@ -37,7 +37,6 @@ Firstly, whilst we want to ensure our software is reusable by others, as well as
 
 Later levels imply the earlier ones. So what should we aim for? As researchers who develop software - or developers who write research software - we should be aiming for at least the fourth one: reusability. Reproducibility is required if we are to successfully claim that what we are doing when we write software fits within acceptable scientific practice, but it is also crucial that we can write software that can be *understood* by others. If others are unable to verify that a piece of software follows published algorithms and ideally *modified*. Where 'others', of course, can include a future version of ourselves.
 
-
 ## Documenting Code to Improve Reusability
 
 Reproducibility is a cornerstone of science, and scientists who work in many disciplines are expected to document the processes by which they've conducted their research so it can be reproduced by others. In medicinal, pharmacological, and similar research fields for example, researchers use logbooks which are then used to write up protocols and methods for publication.
@@ -62,7 +61,6 @@ Whilst it's certainly arguable that writing documentation isn't as exciting as w
 
 In the next section we'll see that writing a sensible minimum set of documentation in a single document doesn't have to be expensive, and can greatly aid reproducibility.
 
-
 ### Writing a README
 
 A README file is the first piece of documentation (perhaps other than publications that refer to it) that people should read to acquaint themselves with the software. It concisely explains what the software is about and what it's for, and covers the steps necessary to obtain and install the software and use it to accomplish basic tasks. Think of it not as a comprehensive reference of all functionality, but more a short tutorial with links to further information - hence it should contain brief explanations and be focused on instructional steps.
@@ -74,29 +72,32 @@ $ rm README.md
 ~~~
 {: .language-bash}
 
-In the root of your repository create a replacement `README.md` file. The `.md` indicates this is a **markdown** file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures, and are very quick to write. GitHub provides a very useful [guide to writing markdown][github-markdown] for its repositories.
+In the root of your repository create a replacement `README.md` file. The `.md` indicates this is a **Markdown** file, a lightweight markup language which is basically a text file with some extra syntax to provide ways of formatting them. A big advantage of them is that they can be read as plain-text files or as source files for rendering them with formatting structures, and are very quick to write. GitHub provides a very useful [guide to writing Markdown][github-markdown] for its repositories.
 
-Let's start writing it.
+Let's start writing `README.md` using a text editor of your choice and add the following line.
 
 ~~~
 # Inflam
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
-So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. We would ideally rename the repository to reflect the new name, but let's leave that for now. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on. The Software Sustainability Institute [guide on naming projects][ssi-choosing-name] and products provides some helpful pointers.
+So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. We would ideally rename the repository to reflect the new name, but let's leave that for now. In Markdown, the `#` designates a heading, two `##` are used for a subheading, and so on. The Software Sustainability Institute's [guide on naming projects][ssi-choosing-name] and products provides some helpful pointers.
 
-We should also add a short description.
+We should also add a short description underneath the title.
 
 ~~~
+# Inflam
 Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 To give readers an idea of the software's capabilities, let's add some key features next:
 
 ~~~
-## Main features
+# Inflam
+Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
+## Main features
 Here are some key features of Inflam:
 
 - Provide basic statistical analyses over clinical trial data
@@ -104,13 +105,23 @@ Here are some key features of Inflam:
 - Generate plots of trial data
 - Analytical functions and views can be easily extended based on its Model-View-Controller architecture
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 As well as knowing what the software aims to do and its key features, it's very important to specify what other software and related dependencies are needed to use the software (typically called `dependencies` or `prerequisites`):
 
 ~~~
-## Prerequisites
+# Inflam
+Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
+## Main features
+Here are some key features of Inflam:
+
+- Provide basic statistical analyses over clinical trial data
+- Ability to work on trial data in Comma-Separated Value (CSV) format
+- Generate plots of trial data
+- Analytical functions and views can be easily extended based on its Model-View-Controller architecture
+
+## Prerequisites
 Inflam requires the following Python packages:
 
 - [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
@@ -121,32 +132,35 @@ The following optional packages are required to run Inflam's unit tests:
 - [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
-Here we're making use of markdown links, with some text describing the link within `[]` followed by the link itself within `()`.
+Here we're making use of Markdown links, with some text describing the link within `[]` followed by the link itself within `()`.
 
 One really neat feature - and a common practice - of using many CI infrastructures is that we can include the status of running recent tests within our README file. Just below the `# Inflam` title on our README.md file, add the following (replacing `<your_github_username>` with your own:
 
 ~~~
 # Inflam
-
 ![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
+...
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
-This will embed a *badge* at the top of our page that reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `main` branch succeeded or failed.
+This will embed a *badge* (icon) at the top of our page that reflects the most recent GitHub Actions build status of 
+your software repository, essentially showing whether the tests that were run when 
+the last change was made to the `main` branch succeeded or failed.
 
-That's got us started, but there are other aspects we should also cover:
+That's got us started with documenting our code, 
+but there are other aspects we should also cover:
 
 - *Installation/deployment:* step-by-step instructions for setting up the software so it can be used
 - *Basic usage:* step-by-step instructions that cover using the software to accomplish basic tasks
 - *Contributing:* for those wishing to contribute to the software's development, this is an opportunity to detail what kinds of contribution are sought and how to get involved
 - *Contact information/getting help:* which may include things like key author email addresses, and links to mailing lists and other resources
-- *Credits/Acknowledgements:* where appropriate, be sure to credit those who have helped in the software's development or inspired it
-- *Citation:* particularly for academic software, it's a very good idea to specify a reference to an appropriate academic publication so other academics can cite use of the software in their own publications and media. You can do this within a separate [CITATION text file](https://github.com/citation-file-format/citation-file-format) within the repository's root directory and link to it from the markdown
+- *Credits/acknowledgements:* where appropriate, be sure to credit those who have helped in the software's development or inspired it
+- *Citation:* particularly for academic software, it's a very good idea to specify a reference to an appropriate academic publication so other academics can cite use of the software in their own publications and media. You can do this within a separate [CITATION text file](https://github.com/citation-file-format/citation-file-format) within the repository's root directory and link to it from the Markdown
 - *Licence:* a short description of and link to the software's licence
 
-For more verbose sections, there are usually just highlights in the README with links to further information, which may be held within other markdown files within the repository or elsewhere.
+For more verbose sections, there are usually just highlights in the README with links to further information, which may be held within other Markdown files within the repository or elsewhere.
 
 We'll finish these off later. See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
@@ -154,14 +168,23 @@ We'll finish these off later. See [Matias Singer's curated list of awesome READM
 
 There are many different types of other documentation you should also consider writing and making available that's beyond the scope of this course. The key is to consider which audiences you need to write for, e.g. end users, developers, maintainers, etc., and what they need from the documentation. There's a Software Sustainability Institute [blog post on best practices for research software documentation](https://www.software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation) that helpfully covers the kinds of documentation to consider and other effective ways to convey the same information.
 
-One that you should always consider is **technical documentation**. This typically aims to help other developers understand your code sufficiently well to make their own changes to it, which could include other members in your team (and as we said before, also a future version of yourself). This may include documentation that covers the software's architecture, including the different components and how they fit together, API (Application Programmer Interface) documentation that describes the interface points designed into your software for other developers to use, e.g. for a software library, or technical tutorials/'how tos' to accomplish developer-oriented tasks.
-
+One that you should always consider is **technical documentation**. This typically aims to help other developers 
+understand your code sufficiently well to make their own changes to it, including external developers, 
+other members in your team and a future version of yourself too. This may include documentation that covers 
+the software's architecture, 
+including its different components and how they fit together, API (Application Programmer Interface) documentation 
+that describes the interface points designed into your software for other developers to use, e.g. for a software 
+library, or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
 
 ## Choosing an Open Source Licence
 
-Software licensing can be a whole topic in itself, so we’ll just summarise here. Your institution’s Intellectual Property (IP) team will be able to offer specific guidance that fits the way your institution thinks about software.
+Software licensing is a whole topic in itself, so we’ll just summarise here. Your institution’s Intellectual Property 
+(IP) team will be able to offer specific guidance that fits the way your institution thinks about software.
 
-In IP law, software is considered a creative work of literature, so any code you write automatically has copyright protection applied. This copyright will usually belong to the institution that employs you, but this may be different for PhD students. If you need to check, this should be included in your employment / studentship contract or talk to your university’s IP team.
+In IP law, software is considered a creative work of literature, so any code you write automatically has copyright 
+protection applied. This copyright will usually belong to the institution that employs you, but this may be different 
+for PhD students. If you need to check, this should be included in your employment/studentship contract or talk to your 
+university’s IP team.
 
 Since software is automatically under copyright, without a licence no one may:
 
@@ -186,11 +209,9 @@ Which of these types of licence you prefer is up to you and those you develop co
 > ## Preparing for Release
 >
 > In a (hopefully) highly unlikely and thoroughly unrecommended scenario, your project leader has informed you of the need to release your software within the next half hour, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a licence, and fixing any remaining problems you are aware of in your codebase. Ensure you prioritise and work on the most pressing issues first!
->
-> Time: 20 mins
 {: .challenge}
 
-## Merging into main
+## Merging into `main`
 
 Once you've done these updates, commit your changes, and if you're doing this work on a feature branch also ensure you merge it into `develop`, e.g.:
 
@@ -308,7 +329,7 @@ So now we've added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
 ~~~
-git push origin v1.0.0
+$ git push origin v1.0.0
 ~~~
 {: .language-bash}
 
