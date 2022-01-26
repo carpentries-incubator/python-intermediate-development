@@ -7,11 +7,11 @@ questions:
 - "How can we make it easier to substitute new components into our software?"
 objectives:
 - "Describe how the environment in which software is used may constrain its design."
-- "Identify common components of multi-layer software projects"
-- "Define serialization and deserialization"
-- "Store and retrieve structured data using an appropriate format"
-- "Define what is meant by a contract in the context of Object Oriented design"
-- "Explain the benefits of contracts and implement software components which fulfill them"
+- "Identify common components of multi-layer software projects."
+- "Define serialization and deserialization."
+- "Store and retrieve structured data using an appropriate format."
+- "Define what is meant by a contract in the context of Object Oriented design."
+- "Explain the benefits of contracts and implement software components which fulfill them."
 keypoints:
 - "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
@@ -39,7 +39,7 @@ If we want to bring in this data, modify it somehow, and save it back to a file,
 
 The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**.
 Serialization is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialization is the opposite.
-We're going to be making a serialiser for our patient data, but since there's many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serializers later and swap between them.
+We're going to be making a serialiser for our patient data, but since there are many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serializers later and swap between them.
 So let's start by creating a base class to represent the concept of a serializer for our patient data - then we can specialise this to make serializers for different formats by inheriting from this base class.
 
 By creating a base class we provide a contract that any kind of patient serializer must satisfy.
@@ -79,7 +79,7 @@ Our serializer base class has two pairs of classmethods, one to serialize (save)
 We're not actually going to implement any of them quite yet as this is just a template for how our real serializers should look, so we'll raise `NotImplementedError` to make this clear if anyone tries to use this class directly.
 The reason we've used classmethods is that we don't need to be able to pass any data in using the `__init__` method, as we'll be passing the data to be serialized directly to the `save` function.
 
-There's many different formats we could use to store our data, but a good one is **JSON** (JavaScript Object Notation).
+There are many different formats we could use to store our data, but a good one is **JSON** (JavaScript Object Notation).
 This format comes originally from JavaScript, but is now one of the most widely used serialization formats for exchange or storage of structured data, used across most common programming languages.
 
 Data in JSON format is structured using nested **arrays** (very similar to Python lists) and **objects** (very similar to Python dictionaries).

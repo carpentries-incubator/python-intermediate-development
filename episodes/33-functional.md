@@ -9,7 +9,7 @@ questions:
 - "What do we need to do differently when working with Big Data?"
 objectives:
 - "Describe the core concepts that define the Functional Paradigm"
-- "Decompose the flow of data within a program info a sequence of data transformations"
+- "Decompose the flow of data within a program into a sequence of data transformations"
 keypoints:
 - "*Pure functions* are functions with deterministic behaviour and no side effects."
 - "By working towards pure functions, we can make our code more testable and composable."
@@ -82,14 +82,14 @@ Examples include: printing text, modifying the value of an argument, or changing
 >
 {: .challenge}
 
-There's a few benefits we get when working with a pure function:
+There are a few benefits we get when working with a pure function:
 
 - Testability
 - Composability
 - Parallelisability
 
 **Testability**, as you might expect, means how easy it is to test the function - usually meaning unit tests.
-It's much easier to test a function if we can be certain that a certain input will always produce the same output.
+It's much easier to test a function if we can be certain that a particular input will always produce the same output.
 This has been the case with the examples we've seen so far.
 If a function we're testing might have different results each time it runs, we need to come up with a new way to test it.
 Similarly, it can be more difficult to test a function with side effects as it's not always obvious what the side effects will be, or how to measure them.

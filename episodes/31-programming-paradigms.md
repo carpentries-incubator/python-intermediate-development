@@ -21,7 +21,7 @@ A good understanding of their landscape is one of the key things that makes some
 By giving a small amount of background in theory and historical context here, we hope that this will help you to examine and understand your landscape.
 
 There are hundreds (probably thousands) of different programming languages, each with different expectations of how a programmer will use them to solve a problem.
-To help us to choose the language we will use and to help us describe how we want to use them, we can group the languages into **paradigms**.
+To help us choose the language we will use and to help us describe how we want to use them, we can group the languages into **paradigms**.
 
 Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain strengths and weaknesses when used to solve particular types of problems.
 Once your software begins to get more complex it's common to use aspects of different paradigms to handle different subtasks.
@@ -31,7 +31,7 @@ Because of this, it's useful to know about the major paradigms, so you can recog
 >
 > -- Wikipedia - Paradigm
 
-There's two major families that we can group the common major paradigms into: **Imperative** and **Declarative**.
+There are two major families that we can group the common major paradigms into: **Imperative** and **Declarative**.
 For each of these families, some of the major paradigms are listed, with examples of the languages which introduced them and some languages you might encounter in your own work which predominantly use each paradigm.
 However, most of the languages listed can be used with multiple paradigms, and it's common to see multiple paradigms within a single program - so this isn't a strict list.
 
@@ -104,7 +104,7 @@ Functional Programming (see below) places much stronger constraints on the behav
 In Object Oriented Programming, we first think about the structure of the data and the things that we're modelling.
 For example, if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
 Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want - in this case, for example, we often need to know the mass and electric charge of each atom.
-So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of it's properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
+So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
 This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
 
 ### The Declarative Family
@@ -204,7 +204,7 @@ In this example, there's three main things to notice:
 - One of the variables (`fizzbuzz`) is actually a function, which we then pass into another function (`map`)
 - To add an extra factor (e.g. 7 = 'Foo') we only need to update the factor mapping, none of the code which actually performs the work needs to be changed.
 
-There are all common features in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
+These are all common features in functional programming - we treat functions exactly the same as data, and usually do not modify existing data, but apply transformations to create new data.
 
 It's quite difficult to come up with a sensible implementation of FizzBuzz which demonstrates the Object Oriented Paradigm.
 This is because the problem doesn't really involve structured data.

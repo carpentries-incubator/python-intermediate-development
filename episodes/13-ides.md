@@ -28,9 +28,9 @@ An IDE normally consists of at least a source code editor, build automation tool
 The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as
 nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
 integration for web app development, source code inspection for dependencies and many other useful functionalities. The
-following is a list of most commonly seen IDE features:
+following is a list of the most commonly seen IDE features:
 
-- syntax highlighting - to show the language constructs, keywords and the syntax errors with visually distinct colors
+- syntax highlighting - to show the language constructs, keywords and the syntax errors with visually distinct colours
 and font effects
 - code completion - to speed up programming by offering a set of possible (syntactically correct) code options
 - code search - finding package, class, function and variable declarations, their usages and referencing
@@ -40,11 +40,11 @@ and font effects
 IDEs are extremely useful and modern software development would be very hard without them. There are a number of IDEs
 available for Python development; a good overview is available from the
 [Python Project Wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments). In addition to IDEs,
-there is also a number of code editors that have
+there are also a number of code editors that have
 Python support. Code editors can be as simple as a text editor with syntax highlighting and code formatting capabilities
 (e.g. GNU EMACS, Vi/Vim, Atom). Most good code editors can also execute code and control a
 debugger, and some can also interact with a version control system. Compared to an IDE, a good dedicated code
-editor is usually smaller and quicker, but often less feature rich. You will have to decide which one is the best for
+editor is usually smaller and quicker, but often less feature-rich. You will have to decide which one is the best for
 you - in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/), a free,
 open source Python IDE.
 
@@ -53,7 +53,7 @@ open source Python IDE.
 Let's open our project in PyCharm now and familiarise ourselves with some commonly used features.
 
 ### Opening a Software Project
-If you have not PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
+If you don't have PyCharm running yet, start it up now. You can skip the initial configuration steps which just go through
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 
@@ -355,14 +355,14 @@ PyCharm.
 
 ### Syntax Highlighting
 The first thing you may notice is that code is displayed using different colours.
-Syntax highlighting is a feature that displays source code terms in different colors and fonts according to the syntax
+Syntax highlighting is a feature that displays source code terms in different colours and fonts according to the syntax
 category the highlighted term belongs to. It also makes syntax errors visually distinct. Highlighting does not affect
-the meaning of the code itself - is intended only for humans to make reading code and finding errors easier.
+the meaning of the code itself - it's intended only for humans to make reading code and finding errors easier.
 
 ![Syntax Highlighting Functionality in PyCharm](../fig/pycharm-syntax-highlighting.png){: .image-with-shadow width="1000px" }
 
 ### Code Completion
-As you start typing code, PyCharm will offer to complete some of the code for you in a form of an auto-completion popup.
+As you start typing code, PyCharm will offer to complete some of the code for you in the form of an auto completion popup.
 This is a context-aware code completion feature that speeds up the process of coding (e.g. reducing typos and other
 common mistakes) by offering available variable
 names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
@@ -418,7 +418,7 @@ You can get a full
 ![Version Control Functionality in PyCharm](../fig/pycharm-version-control.png){: .image-with-shadow width="1000px" }
 
 ### Running Scripts in PyCharm
-We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! to do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation'`.
+We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! To do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation'`.
 
 ![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="800px" }
 

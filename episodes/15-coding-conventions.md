@@ -20,9 +20,9 @@ to."
 
 ## Introduction
 
-We now have all the tools we need for software development and are rearing to go.
+We now have all the tools we need for software development and are raring to go.
 But before you dive into writing some more code and
-sharing it with others, think about what kind of code should you be writing and publishing? It may be
+sharing it with others, ask yourself what kind of code should you be writing and publishing? It may be
 worth spending some time learning a bit about Python
 coding style conventions to make sure that your code is consistently formatted and readable by yourself and others.
 
@@ -36,7 +36,7 @@ few months down the line) is to make sure that it is descriptive, cleanly and co
 descriptive names for variable, function and module names. In order to help us format our code, we generally follow
 guidelines known as a **style guide**. A style guide is a set of conventions that we agree upon with our colleagues or
 community, to ensure that everyone contributing to the same project is producing code which looks similar in style.
-While a group of developers may choose the write and agree upon a new style guide unique to each project,
+While a group of developers may choose to write and agree upon a new style guide unique to each project,
 in practice many programming languages have a single style guide which is
 adopted almost universally by the communities around the world. In Python, although we do have a choice of style guides
 available, the [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used.
@@ -50,7 +50,7 @@ one of the PEP8 authors, is that code is read much more often than it is
 written. Style guidelines are intended to improve the readability of code and make it consistent across the
 wide spectrum of Python code. Consistency with the style guide is important. Consistency within a project is more
 important. Consistency within one module or function is the most important. However, know when to be inconsistent --
-sometimes style guide recommendations just are not applicable. When in doubt, use your best judgment.
+sometimes style guide recommendations are just not applicable. When in doubt, use your best judgment.
 Look at other examples and decide what looks best. And don't hesitate to ask!
 >
 {: .callout}
@@ -65,7 +65,7 @@ is available from the [PEP8 website](https://www.python.org/dev/peps/pep-0008/);
 ### Indentation
 Python is a kind of language that uses indentation as a way of grouping statements that belong to a particular
 block of code. Spaces are the recommended indentation method in Python code. The guideline is to use 4 spaces per indentation level -
-so 4 spaces on level one, 8 spaces on level 2 and so on.
+so 4 spaces on level one, 8 spaces on level two and so on.
 Many people prefer the use of tabs to spaces to indent the code for many reasons (e.g. additional typing, easy to
 introduce an error by missing a single space character, etc.) and do not follow this guideline. Whether you decide to
 follow this guideline or not, be consistent and follow the style already used in the project.
@@ -73,7 +73,7 @@ follow this guideline or not, be consistent and follow the style already used in
 >## Indentation in Python 2 vs Python 3
 > Python 2 allowed code
 > indented with a mixture of tabs and spaces. Python 3 disallows mixing the use of tabs and spaces for indentation.
-> Whichever you chose, be consistent throughout the project.
+> Whichever you choose, be consistent throughout the project.
 {: .callout}
 
 PyCharm has built-in support for converting tab indentation to spaces "under the hood" for Python code in order to
@@ -265,14 +265,14 @@ There are a lot of different naming styles in use, including:
 - lower_case_with_underscores
 - UPPERCASE
 - UPPER_CASE_WITH_UNDERSCORES
-- CapitalizedWords (or CamelCase) (note: When using acronyms in CapWords, capitalize all the letters of the acronym,
+- CapitalisedWords (or CamelCase) (note: When using acronyms in CapWords, capitalise all the letters of the acronym,
 e.g HTTPServerError)
-- mixedCase (differs from CapitalizedWords by initial lowercase character!)
-- Capitalized_Words_With_Underscores
+- mixedCase (differs from CapitalisedWords by initial lowercase character!)
+- Capitalised_Words_With_Underscores
 
 As with other style guide recommendations - consistency is key. Pick one and stick to it, or follow the one already
-established if joining a project mid-way. Some things to be vary of when naming things in the code:
-- Avoid using the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye)
+established if joining a project mid-way. Some things to be wary of when naming things in the code:
+- Avoid using the characters 'l' (lowercase letter L), 'O' (uppercase letter o), or 'I' (uppercase letter i)
 as single character variable names. In some fonts, these characters are indistinguishable from the numerals
 one and zero. When tempted to use 'l', use 'L' instead.
 - Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
@@ -282,10 +282,10 @@ sticking with either ‘American’ or 'British' English spellings but do not mi
 
 > ## Function, Variable, Class, Module, Package Naming
 >
-> - Function and variable names should be lowercase, with words separated by underscores as necessary to improve readability
-> - Class names should normally use the CapitalizedWords (or CamelCase) convention
-> - Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability
-> - Packages should also have short, all-lowercase names, although the use of underscores is discouraged
+> - Function and variable names should be lowercase, with words separated by underscores as necessary to improve readability.
+> - Class names should normally use the CapitalisedWords (or CamelCase) convention.
+> - Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability.
+> - Packages should also have short, all-lowercase names, although the use of underscores is discouraged.
 >
 >A more detailed guide on
 [naming functions, modules, classes and variables](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)
