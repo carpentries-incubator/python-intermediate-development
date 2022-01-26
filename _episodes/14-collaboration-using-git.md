@@ -44,7 +44,7 @@ Git has several important characteristics:
 - every change recorded by Git remains part of the project history and can be retrieved at a later date, so even
 if you make a mistake you can revert to a point before it.
 
-Diagram below shows a typical software development lifecycle with Git and the commonly used commands to interact
+The diagram below shows a typical software development lifecycle with Git and the commonly used commands to interact
 with different parts of Git infrastructure, such as:
 - **working directory** - a directory (including any subdirectories) where your project files live and where you are currently working. 
 It is also known as the “untracked” area of Git. Any changes to files will be marked by Git in the working directory. 
@@ -100,7 +100,7 @@ directory is specific to your machine and setup only (i.e. it contains local pat
 system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
 your team as this file can be used to replicate the virtual environment on your collaborators' systems.
 
-To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root Our project already has `.gitignore`, but in cases where you do not have
+To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root. Our project already has `.gitignore`, but in cases where you do not have
 it - you can simply create it yourself. In our case, we
 want to tell Git to ignore the `venv` directory (and `.venv` as another naming convention for virtual environments)
 and stop notifying us about it. Edit your `.gitignore`
@@ -186,10 +186,17 @@ $ git push origin main
 
 Git will prompt you to authenticate - enter your GitHub username and the previously generated access token as the 
 password (you can also [enable caching of the credentials](https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html) so your machine remembers the access token). In the above command, 
-`origin` is an alias for the remote repository you used when cloning the project locally (it is called like that
+`origin` is an alias for the remote repository you used when cloning the project locally (it is called that
 by convention and set up automatically by Git when you run `git clone remote_url` command to replicate a remote
 repository locally); `main` is the name of our
 main (and currently only) development branch.
+
+> ## Account Security
+> When using `git config --global credential.helper cache`, any password or personal access token you enter will be cached for a period of time, a default of 15 minutes. Re-entering a password every 15 minutes can be OK, but for a personal access token it can be inconvenient, and lead to you writing the token down elsewhere. To *permanently* store passwords or tokens, use `stash` instead of `cache`.
+>
+> Storing an access token always carries a security risk. One compromise between short cache timescales and permanent stores, is to set a time-out on your personal access token when you make it, reducing the risk of it being stolen after you stop working on the project you issued it for.
+{: .callout}
+
 
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between any two or more copies of the same repository - 
@@ -331,8 +338,8 @@ $ git commit -m "Spelling fix"
 {: .language-bash}
 
 > ## Currently Active Branch
-> Remember, `add` and `commit` commands always act on the currently active branch. You have to be careful and aware which
-> branch you are working with at any given moment. `git status` can help with that, and you fill find yourself invoking
+> Remember, `add` and `commit` commands always act on the currently active branch. You have to be careful and aware of which
+> branch you are working with at any given moment. `git status` can help with that, and you will find yourself invoking
 > it very often.
 {: .callout}
 
@@ -416,7 +423,7 @@ git push origin main
 
 > ## All Branches Are Equal
 > In Git, all branches are equal - there is nothing special about the `main` branch. It is called
-> like that by convention and is created by default, but it can also be called something else. A good example is
+> that by convention and is created by default, but it can also be called something else. A good example is
 > `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `main`, which can
 > be safely deleted for such projects).
 {: .callout}

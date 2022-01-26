@@ -9,7 +9,7 @@ questions:
 - "Why did we pick specific topics to cover?"
 objectives:
 - "Setting the scene and expectations"
-- "Making sure everyone has all the necessary software is installed"
+- "Making sure everyone has all the necessary software installed"
 keypoints:
 - "This lesson focuses on core, intermediate skills covering the whole software development life-cycle
 that will be of most use to anyone working collaboratively on code."
@@ -21,21 +21,23 @@ you have some basic Python, command line and Git skills and you have been using 
 So, you have gained basic software development skills either by self-learning or attending, e.g., a [novice Software
 Carpentry course][swc-lessons]. You have been applying those skills for a while by writing code to help with your work
 and you feel comfortable developing code and troubleshooting problems. However, your software
-has now reached a point where there’s too much code to be kept in one script. It is perhaps involving more
+has now reached a point where there’s too much code to be kept in one script. Perhaps it's involving more
 researchers (developers) and users, and more collaborative development effort is needed to add new functionality
 while ensuring previous development efforts remain functional and maintainable.
 
-This lesson is providing the next step in software development for you - it teaches some intermediate software
+This lesson provides the next step in software development for you - it teaches some intermediate software
 engineering skills to help you restructure existing and design more robust software code,
 automate the process of testing and verifying software correctness and support collaborations with others in a way that mimics a typical collaborative
 software development process. It teaches you to use a number of different **software development tools and techniques**
-simultaneously and interchangeably as you would use them in a real life. We had to make some choices when choosing topics and tools to teach here - based on ease of installation for the audience and other considerations. However, we hope that the topics covered will give you a solid foundation to work in a team 
+simultaneously and interchangeably as you would use them in a real life. We had to make some choices about
+topics and tools to teach here - based on ease of installation for the audience and other considerations. 
+However, we hope that the topics covered will give you a solid foundation to work in a team 
 on software development and produce high quality software for yourself and others. Skills and tools 
 taught here are transferable to other similar tools and programming languages.
 Over time, you will develop a preference for certain tools and languages based on your personal taste or based on what is commonly used by your group, collaborators or community.
 
 The course is organised into the following
-four bigger sections.
+four bigger sections:
 
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
@@ -90,7 +92,7 @@ This section also contains instructions on how to test your setup.
 {: .callout}
 
 > ## Compulsory and Optional Exercises
-Exercises are a crucial part of this course and the narrative. They are used to re-enforce the points taught and give 
+Exercises are a crucial part of this course and the narrative. They are used to reinforce the points taught and give 
 you an opportunity to practice things on your own. Please do not be tempted to skip exercises as that will get your 
 local software project out of sync with the course and break the narrative. Exercises that are clearly marked 
 as "optional" can be skipped without breaking things but we advise you to go through them too, if time allows. 
@@ -100,7 +102,7 @@ All exercises contain solutions but, wherever possible, try and work out a solut
 > ## Outdated Screenshots
 > Throughout this lesson we will make use and show content from Graphical User Interface (GUI) tools (PyCharm and GitHub).
 > These are evolving tools and platforms, always adding new features and new visual elements.
-> Screenshots in the lesson may then become out-of-sync, refer or show content that no longer exists or is different to
+> Screenshots in the lesson may then become out-of-sync, refer to or show content that no longer exists or is different to
 > what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have
 > a big discrepancy with what you see, please [open an issue]({{ repo_url }}/issues/new) describing what you see and how it differs from the lesson
 > content. Feel free to add as many screenshots as necessary to clarify the issue.

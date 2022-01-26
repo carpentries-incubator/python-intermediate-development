@@ -7,8 +7,8 @@ exercises: 0
 questions:
 - "What should we do to enable software reuse, encourage external feedback, and act on it?"
 objectives:
-- "Apply theoretical and practical skills learnt so far within a team environment"
-- "Prepare and release software for reuse and manage and act on feedback to improvement it"
+- "Apply theoretical and practical skills learnt so far within a team environment."
+- "Prepare and release software for reuse and manage and act on feedback to improve it."
 keypoints:
 - "For software to succeed it needs to be managed as well as developed."
 - "Estimating the effort to deliver work items is a foundational tool for prioritising that work."
@@ -18,7 +18,7 @@ In this section of the course we look how to manage the evolution of our softwar
 how to improve the reusability of our software for others as well as ourselves, the importance of critical reflection, 
 and what we need to take into account when sharing our code with others, in the context of working as a team. We'll also be making use of skills learnt previously in the course.
 
-The focus in this section also will move beyond software development to **management**: management of how the outside world interacts with and makes use of our software, how others can interact with ourselves to report issues, and the ways we can successfully manage software improvement in response to feedback.
+The focus in this section will also move beyond software development to **management**: management of how the outside world interacts with and makes use of our software, how others can interact with ourselves to report issues, and the ways we can successfully manage software improvement in response to feedback.
 
 ![Managing software](../fig/section4-overview.png){: .image-with-shadow width="800px" }
 

@@ -78,7 +78,7 @@ For example, a design constraint when writing a mobile app would be that it need
 >   - Must have graphical interface suitable for a touch display
 >   - Usually distributed via a controlled app store
 >   - Users will not (usually) modify / compile the software themselves
->   - Should work on a range of hardware specifications with range of Operating System (OS) versions
+>   - Should work on a range of hardware specifications with a range of Operating System (OS) versions
 >     - But OS is unlikely to be anything other than Android or iOS
 >   - Documentation probably in the software itself or on a Web page
 >   - Typically written in one of the platform preferred languages (e.g. Java, Kotlin, Swift)
@@ -142,7 +142,7 @@ One particularly good source is [Refactoring Guru](https://refactoring.guru/desi
 
 ### MVC Revisited
 
-**Model-View-Controller** (MVC) is just one of the common architectural patterns
+**Model-View-Controller** (MVC) is just one of the common architectural patterns.
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
 
 There are many variants of an MVC-like pattern (such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP), [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.), but in most cases, the distinction between these patterns isn't particularly important.
@@ -282,7 +282,7 @@ if __name__ == "__main__":
 ~~~
 {: .language-python}
 
-We've added two options to our command line interface here: one to request a specific view and one for the patient id that we want to lookup.
+We've added two options to our command line interface here: one to request a specific view and one for the patient ID that we want to lookup.
 For the full range of features that we have access to with `argparse` see the [Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
 Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
 You can find more information in [Click's documentation](https://click.palletsprojects.com/).
@@ -313,7 +313,7 @@ UNKNOWN
 ### Multilayer Architecture
 
 Another common architectural pattern is **Multilayer Architecture**.
-Software designed using a this architecture pattern is split into layers, each of which is responsible for a different part of the process of manipulating data.
+Software designed using this architecture pattern is split into layers, each of which is responsible for a different part of the process of manipulating data.
 
 Often, the software is split into three layers:
 
