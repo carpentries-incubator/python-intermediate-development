@@ -148,20 +148,18 @@ The output of a pure function depends only on its input, so we'll get the right 
 > > Even with these values, the test will occasionally fail if you run it enough times.
 > >
 > > ~~~
-> > import unittest
-> >
+> > # file: test_random.py or test_models.py
 > > import numpy as np
 > >
-> > class RandomTest(unittest.TestCase):
-> >     def test_random_numpy(self):
-> >         mean = 5
-> >         sdev = 3
-> >         sample_size = 1000000
+> > def test_random_numpy():
+> >     mean = 5
+> >     sdev = 3
+> >     sample_size = 1000000
 > >
-> >         sample = np.random.normal(mean, sdev, sample_size)
+> >     sample = np.random.normal(mean, sdev, sample_size)
 > >
-> >         self.assertAlmostEqual(mean, np.mean(sample), places=2)
-> >         self.assertAlmostEqual(sdev, np.std(sample), places=2)
+> >     np.testing.assert_almost_equal(mean, np.mean(sample), decimal=2)
+> >     np.testing.assert_almost_equal(sdev, np.std(sample), decimal=2)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
