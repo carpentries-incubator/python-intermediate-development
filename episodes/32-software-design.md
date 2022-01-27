@@ -376,8 +376,10 @@ It's often tempting to go right ahead and implement requirements within our soft
 > ## Implement Requirements
 > 
 > Pick one of the SR1 or SR2 requirements above to implement.
+> 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature?
->
+> 
+> If you have time, feel free to implement the other requirement, or invent your own!
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
