@@ -348,7 +348,7 @@ For our inflammation project, they could include things for trial managers such 
 
 - UR1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
 - UR2 (from BR1): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
-- UR3 (from BR3): ability to have an individual trial report processed and generated in under 30 seconds
+- UR3 (from BR3): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
 ### Solution Requirements
 
@@ -357,8 +357,8 @@ Solution (or product) requirements describe characteristics that a concrete solu
 - *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.
     - SR1 (from UR1): add standard deviation to data model and include in graph visualisation view
     - SR2 (from UR2): add a new view to generate a textual representation invoked by an optional command line argument
-- *Non-functional Requirements* focus on how the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR3 (from UR3):
+- *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
+    - SR3 (from UR3): generate graphical statistics report on clinical workstation configuration in under 30 seconds
   
 ### From Requirements to Implementation, via Design
 
@@ -366,9 +366,11 @@ In practice, these different types of requirements are sometimes confused and co
 
 It's often tempting to go right ahead and implement requirements within our software, but this neglects a crucial step: do these new requirements fit within our existing design, or does our design need to be revisited? It may not need any changes at all, but if it doesn't fit logically our design will need a bigger rethink so the new requirement can be implemented in a sensible way. We'll look at this a bit later in this episode, but simply adding new code without considering how the design and implementation need to change at a high level can make our software increasingly messy and difficult to change in the future.
 
-> ## Out of Scope?
+> ## What about Performance?
 > 
-> We could consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we? We should certainly have a testing strategy in place for this so we can verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (including techniques such as *code profiling*, and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements.
+> We could consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we?
+>
+> We should certainly have a testing strategy in place for this so we can verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as *code profiling*), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
 {: .callout}
 
 > ## Implement Requirements
