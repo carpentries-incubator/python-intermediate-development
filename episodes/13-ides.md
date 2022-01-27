@@ -46,7 +46,7 @@ Python support. Code editors can be as simple as a text editor with syntax highl
 debugger, and some can also interact with a version control system. Compared to an IDE, a good dedicated code
 editor is usually smaller and quicker, but often less feature-rich. You will have to decide which one is the best for
 you - in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/), a free,
-open source Python IDE.
+open source Python IDE. Some popular alternatives include free and open source IDE [Spyder](https://www.spyder-ide.org/) and Microsoft's free [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Using the PyCharm IDE
 
