@@ -16,7 +16,7 @@ with legacy software and/or accumulated 'technical debt'."
 - "Agreeing on a set of best practices within a software development team will help 
 to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
-In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements, and how doing these things well makes it easier for others to develop and reuse our software.
+In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements, and how doing these things well makes it easier for others (including future versions of ourselves) to develop and reuse our software.
 
 We will first look a bit past the language specifics and capabilities of Python and into 
 different software design paradigms and design architectures to understand a broader set of approaches 
@@ -26,7 +26,15 @@ Normally, you would make these design considerations early on - before you even 
 However, sometimes you
 inherit code from someone else or you yourself have written some code that now needs to grow and become more robust.
 At this point, before your software grows even more and becomes harder to manage,
-it becomes particularly important that you rethink its design.
+it becomes particularly important that you reconsider its design - is it still fit for purpose, or are modifications and extensions becoming increasingly difficult to make?
+
+When changes - particularly big changes - are made to a codebase, how can we as a team ensure that these changes are well considered and represent good solutions?
+And how can we increase the overall knowledge of a codebase across a team?
+We'll thus look at the benefits of reviewing code,
+in particular, the value of this type of activity within a team,
+and how this can fit within various ways of team working.
+We'll see how GitHub can support code review activities via pull requests,
+and how we can do these ourselves making use of best practices.
 
 After that, we'll look at some general principles of software maintainability, the benefits that writing maintainable 
 code can give you, and also getting some practice at identifying problems with existing code, and
