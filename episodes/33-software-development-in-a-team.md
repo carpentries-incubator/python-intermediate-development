@@ -165,12 +165,18 @@ In either model, once you are ready to merge your changes in - you will need to 
 branch. 
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
-collaborating in the shared repository model. Next, you will propose changes to another team member's 
-repository (which becomes the shared repositories in this context) a via pull request 
-and engage in code review with them. You will receive pull requests on your repository
-from other team members too, in which case you take on the role of the repository moderator and code reviewer.
-           
-#### Adding Collaborators to a Shared Repository
+collaborating in the shared repository model. You will be added as a collaborator on your team member's repository 
+(which becomes the shared repository in this context) and, likewise, you will add your team member as a collaborator on your repository. 
+Recall [Solution Requirements](/32-software-design/index.html#solution-requirements) SR1 and SR2 from the
+previous episode. Your team member has implemented SR1 or SR2 according to the specification  
+but tests are still missing. You are now tasked with implementing tests on top of 
+that existing implementation to make sure it satisfies the requirements. You will propose 
+changes to the shared repository a via pull request (acting as a code author) and engage in code review with your 
+team member (taking the roles of a repository moderator and code reviewer). 
+Similarly, you will receive a pull request on your repository from your team members, 
+in which case the roles will be reversed. To achieve this, the following steps are needed.
+
+#### Step 1: Adding Collaborators to a Shared Repository
 
 You need to add the other team member(s) as collaborator(s) on your repository 
 to enable them to create branches and pull requests. To do so, each repository owner needs to:
@@ -178,9 +184,9 @@ to enable them to create branches and pull requests. To do so, each repository o
 1. Head over to Settings section of your software project's repository in GitHub.
 2. Select tab 'Manage access' and click 'Add people' button.
    ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
-3. Add your collaborators by their GitHub usernames, full names or email addresses.
+3. Add your collaborator(s) by their GitHub username(s), full name(s) or email address(es).
    ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
-4. Collaborators will be notified of your invitation to join your repository based on their notification preferences.
+4. Collaborator(s) will be notified of your invitation to join your repository based on their notification preferences.
 5. Once they accept the invitation, they will have the "collaborator"-level access to your repository and will show up
 in the list of our collaborators.
 
@@ -188,45 +194,59 @@ See the full details on ["collaborator" permissions for personal repositories](h
 Note that repositories owned by an organisation have a [more granular access control](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github) compared to that of personal
 repositories.
 
-#### Preparing Your Local Environment for a Pull Request
+#### Step 2: Preparing Your Local Environment for a Pull Request
 
 1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
-2. Create a local feature branch called `feature_x_tests` off the `develop` branch.
-3. Review the code already in the project and familiarise yourself with it. It should be similar to the project 
-you have worked on so far.
+2. Check with the repository owner (your team member) which feature (SR1 or SR2) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
+3. Create a local feature branch (`feature-SR1-tests` or `feature-SR2-tests`) off the appropriate feature branch (`feature-SR1` or `feature-SR2`) to contain your new code.
 
-#### Submitting a Pull Request
+#### Step 3: Adding New Code 
 
-1. Starting off from the last exercise in the previous episode, on your feature branch `feature_x_tests` add the missing 
-tests and verify they run correctly. Add as many commits as necessary.
-2. Push your branch remotely to the shared repository.
+> ## Implement Tests for a New Feature
+> Look back at the [Solution Requirements](/32-software-design/index.html#solution-requirements) (SR1 or SR2) for 
+> the feature that was implemented in your shared repository. Implement tests against the appropriate
+> specification in your local feature branch.
+>
+> Try not to not fall into the trap of writing the tests to test the existing code/implementation - you need to 
+> write the tests to make sure the code satisfies the requirements regardless of the actual implementation (you can 
+> treat the implementation as a black box in a way to make sure it is properly tested and defects are detected).
+{: .challenge}
+
+#### Step 4: Submitting a Pull Request
+
+1. You have finished with adding your code and are ready for the others in the team to review them.
+2. Push your local feature branch remotely to the shared repository.
 3. Head over to GitHub and locate your branch from the repository home page. 
 4. Open a pull request by clicking "Create pull request" button. 
     
     TODO: add a screenshot
-5. Team members (collaborators on the repository) will be notified of your pull request by GitHub.
-6. At this point, the code review process is initiated.
+5. Select the base and the head branch - e.g. `feature-SR2` and `feature-SR2-tests`, respectively. 
+6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
+7. At this point, the code review process is initiated.
 
-On the repository you own, you will also receive a pull request from other team members.
+You will receive a similar pull request from other team members on your repository.
 
-#### Code Review
+#### Step 4: Code Review
 
-1. The moderator will review your changes and provide feedback to you 
+1. The repository moderator/code reviewers reviews your changes and provides feedback to you 
 in the form of comments.
 2. Respond to their comments and do any subsequent commits, as requested by reviewers.
-3. It may take a few rounds of exchanging comments and discussions until your team is ready to accept your changes. 
+3. It may take a few rounds of exchanging comments and discussions until the team is ready to accept your changes. 
 
-Perform the above actions on the pull request you received, this time acting as a reviewer.
+Perform the above actions on the pull request you received, this time acting as the moderator/code reviewer.
 
-#### Closing a Pull Request
+#### Step 5: Closing a Pull Request
 
-1. Once the moderator approves your changes, either one of you can merge the branch onto `develop`. Typically, it is 
-the responsibility of the code's author to do the merge.
+1. Once the moderator approves your changes, either one of you can merge onto the base branch. Typically, it is 
+the responsibility of the code's author to do the merge but this may differ from team to team.
 
     TODO: add a screenshot
 2. Delete the merged branch to reduce the clutter in the repository.
 
 Repeat the above actions for the pull request you received.
+
+If the work on the feature branch is completed and it is sufficiently tested, the feature branch can now be merged 
+into the `develop` branch.
 
 ## Best Practices for Code Reviews
         
@@ -246,7 +266,7 @@ on the "why/because" rather than the "what/how"?
 [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) - the first hour of review 
 matters the most as detection of defects significantly drops after this period. [Studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) 
 also show that you should not review more than 400 lines of code at a time. Conducting more frequent shorter reviews 
-seems to be the most effective.
+seems to be more effective.
 3. Decide on the level of depth for code reviews to maintain the balance between the creation time
 and time spent reviewing code - e.g. reserve them for critical portions of code and avoid nit-picking on small 
 details. Try using automated checks and linters when possible, e.g. for consistent usage of certain terminology across the code and code styles.

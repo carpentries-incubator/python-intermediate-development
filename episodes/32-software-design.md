@@ -338,7 +338,7 @@ Business requirements describe what is needed from the perspective of the organi
 For adapting our inflammation software project, example business requirements could include:
 
 - BR1: improving the statistical quality of clinical trial reporting to meet the needs of external audits 
-- BR3: increasing the throughput of trial analyses to meet higher demand during peak periods
+- BR2: increasing the throughput of trial analyses to meet higher demand during peak periods
 
 ### User (or Stakeholder) Requirements
 
@@ -347,8 +347,8 @@ These define what particular stakeholder groups each expect from an eventual sol
 For our inflammation project, they could include things for trial managers such as (building on the business requirements):
 
 - UR1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
-- UR2 (from BR1): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
-- UR3 (from BR3): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
+- UR2 (from BR2): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
+- UR3 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
 ### Solution Requirements
 
@@ -378,11 +378,14 @@ The key is to think about which kind of testing should be used to check if the c
 
 > ## Implement Requirements
 > 
-> Pick one of the SR1 or SR2 requirements above to implement.
+> Pick one of the SR1 or SR2 requirements above to implement and create an appropriate feature branch - 
+> e.g. `feature-SR1` or `feature-SR2`.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
+> 
+> **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along with the new code, we will do this in the next episode. Equally, do not merge your changes to `develop` branch just yet.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
