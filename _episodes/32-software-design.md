@@ -366,12 +366,15 @@ In practice, these different types of requirements are sometimes confused and co
 
 It's often tempting to go right ahead and implement requirements within our software, but this neglects a crucial step: do these new requirements fit within our existing design, or does our design need to be revisited? It may not need any changes at all, but if it doesn't fit logically our design will need a bigger rethink so the new requirement can be implemented in a sensible way. We'll look at this a bit later in this episode, but simply adding new code without considering how the design and implementation need to change at a high level can make our software increasingly messy and difficult to change in the future.
 
-> ## What about Performance?
-> 
-> We could consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we?
->
-> We should certainly have a testing strategy in place for this so we can verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as *code profiling*), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
-{: .callout}
+## How Should I Test *This*?
+
+Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself well to how it should be tested. So what should we do?
+
+Consider SR2. We have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we could move the command line parsing portion to a separate function, and use that in our unit tests. So in general, it's a good idea to make sure your software's features are modularised and accessible via logical functions.
+
+We could also consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we? We do need to verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
+
+The key is to think about which kind of testing should be used to check if the code satisfies a requirement, but also what you can do to make that code amenable to that type of testing.
 
 > ## Implement Requirements
 > 
@@ -381,52 +384,6 @@ It's often tempting to go right ahead and implement requirements within our soft
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 {: .challenge}
-
-## Writing Code that's Amenable to Testing
-
-Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself to straightforward unit testing. In this case, further modularisation can often be helpful.
-
-Consider SR2. We have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we should move the command line parsing portion to a separate function:
-
-~~~
-import sys
-...
-
-def parse_arguments(args):
-    parser = argparse.ArgumentParser(
-        description='A basic patient inflammation data management system')
-
-    parser.add_argument(
-        'infiles',
-        nargs='+',
-        help='Input CSV(s) containing inflammation series for each patient')
-
-    # Other arguments here...
-    ...
-
-    return parser.parse_args(args)
-
-
-if __name__ == "__main__":
-    # Pass the arguments to parser, omitting the script name
-    args = parse_arguments(sys.argv[1:])
-    main(args)
-~~~
-{: .language-python}
-
-Now if we want to invoke a specific argument in a unit test, we could have:
-
-~~~
-def test_argument_something():
-    from inflammation_analysis import parse_arguments, main
-     
-    args = parse_arguments(["Arg1", "Arg2"])
-    main(args)
-    ...
-~~~
-{: .language-python}
-
-The key is to think about this as you implement: is the code I'm writing amenable to testing? If not, how could I modify it to make structuring our tests straightforward?
 
 ## Best Practices for 'Good' Software Design
 
