@@ -82,7 +82,7 @@ Let's start writing it.
 ~~~
 # Inflam
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 So here, we're giving our software a name. Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does. We would ideally rename the repository to reflect the new name, but let's leave that for now. In markdown, the `#` designates a heading, two `##` are used for a subheading, and so on. The Software Sustainability Institute [guide on naming projects][ssi-choosing-name] and products provides some helpful pointers.
 
@@ -91,7 +91,7 @@ We should also add a short description.
 ~~~
 Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 To give readers an idea of the software's capabilities, let's add some key features next:
 
@@ -105,7 +105,7 @@ Here are some key features of Inflam:
 - Generate plots of trial data
 - Analytical functions and views can be easily extended based on its Model-View-Controller architecture
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 As well as knowing what the software aims to do and its key features, it's very important to specify what other software and related dependencies are needed to use the software (typically called `dependencies` or `prerequisites`):
 
@@ -122,7 +122,7 @@ The following optional packages are required to run Inflam's unit tests:
 - [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 Here we're making use of markdown links, with some text describing the link within `[]` followed by the link itself within `()`.
 
@@ -133,7 +133,7 @@ One really neat feature - and a common practice - of using many CI infrastructur
 
 ![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
 ~~~
-{: .language-bash}
+{: .language-markdown}
 
 This will embed a *badge* at the top of our page the reflects the most recent GitHub Actions build status of our repository, essentially showing whether the tests that were run when the last change was made to the `main` branch succeeded or failed.
 
