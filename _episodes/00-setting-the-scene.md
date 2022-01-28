@@ -70,19 +70,23 @@ Once we know our way around different code development tools, techniques and con
 ### Section 3: Collaborative Software Design and Development for Reuse
 In this section, we step away from writing code for a bit to look at things from a higher level:
 
-- Different **programming and software design paradigms**, where we'll look at the wider landscape in which you can design software and to help you with the
+- different **programming and software design paradigms**, where we'll look at the wider landscape in which you can design software and to help you with the
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
 useful to know so you can recognise where it might be useful to switch in your own code
 - **Software design** and **software requirements**, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
-- How **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
-- What we can do to prepare our software for further development and reuse - and how to **package software** for release to others.
+- how **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
+- what we can do to prepare our software for further development and reuse, by adopting best practices in **documenting**, **licencing**, **tracking issues**, and **supporting your software**, and and how to **package software** for release to others.
 
 ### Section 4: Improving and Managing Software Over its Lifetime
-Finally, we are back to practical applications and learning to **publish and release
-software for reuse** by others and how to manage software improvements from feedback through 
-agile techniques. You will work with your fellow learners on a group project (as you would do when
-collaborating on a software project in a team) and we will address best practices in **documenting**, **licencing**, **tracking issues**, and **supporting your software**.
+Finally, we'll look at:
+
+- how to **assess software to ensure it is suitable** for us to reuse, identify areas for improvement, and how to use GitHub to register good quality issues with a particular code repository.
+- how to **manage software improvements** from feedback using 
+agile techniques, using effort estimation as a foundation for prioritising development work.
+
+For these episodes you will work with your fellow learners on a group project (as you would do when
+collaborating on a software project in a team).
 
 ## Before We Start
 
