@@ -41,10 +41,8 @@ the way how code reviews are implemented in your team.
 
 ## Collaborative Code Development Models
 The way your team provides contributions to the shared codebase depends on the type of development model you use in your project. 
-Two commonly used models are the **fork and pull model** and the **shared repository model**.
-
-### Fork and Pull Model
-In the fork and pull model, anyone can **fork** an existing repository (to create their copy of the project linked to 
+Two commonly used models are:
+- **fork and pull model** - where anyone can **fork** an existing repository (to create their copy of the project linked to 
 the source) and push changes to their personal fork. 
 A contributor can work independently on their own fork as they 
 do not need permissions on the source repository to push modifications to a fork they own. 
@@ -54,9 +52,7 @@ source projects as it reduces the start up costs for new contributors and allows
 independently without upfront coordination with source project maintainers. So, for example, 
 you may use this model when you are an 
 external collaborator on a project rather than a core team member.
-
-### Shared Repository Model
-In the shared repository model, collaborators are granted push access to a single shared code repository. 
+- **shared repository model** - where collaborators are granted push access to a single shared code repository. 
 Even though collaborators have write access to the main 
 development and production branches, the best practice of creating feature branches for new developments and 
 when changes need to be made is still followed. This is to enable easier testing of the new code and 
@@ -88,8 +84,8 @@ collective code ownership and responsibility, which in turn helps increase the "
 information and capabilities being held by a single person "responsible" for a certain part of the codebase and 
 not being shared among team members.
 
-### Code Review Roles and Responsibilities
-Depending on the size of the team and its code review process, some the following roles are involved:
+Depending on the size of the team and its code review process, code review responsibilities are shared between
+(some of) the following roles:
 - **code author** is the writer of the ‘code under review’ who aims to improve the codebase in a certain aspect and 
 enhance their knowledge in the process.
 - **reviewers** are technical members of the team (potentially with different expertises)
@@ -98,10 +94,9 @@ specifications, standards, and domain knowledge.
 - **moderator or review lead** is a skilled and technical team member who leads the review process and co-ordinates 
 with the author.
 - **manager** manages the execution of reviews, allocates time in the project schedule and sometimes also play the role of a reviewer.
-                
-### Code Review Techniques
-There are several ways to conduct code reviews, with differing degree of formality and the use of 
-a technical infrastructure:
+
+There are several **code review techniques** with various degree of formality and the use of 
+a technical infrastructure, including:
 
 - **Over-the-shoulder code review** is the most common and informal of code review techniques and involves one or more team 
 members standing over the code author's shoulder while the author walks the reviewers through a set of code changes.
@@ -171,11 +166,12 @@ branch.
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
 collaborating in the shared repository model. Next, you will propose changes to another team member's 
-repository (which become the shared repositories in this context) a via pull request 
+repository (which becomes the shared repositories in this context) a via pull request 
 and engage in code review with them. You will receive pull requests on your repository
 from other team members too, in which case you take on the role of the repository moderator and code reviewer.
            
-### Adding Collaborators to a Shared Repository
+#### Adding Collaborators to a Shared Repository
+
 You need to add the other team member(s) as collaborator(s) on your repository 
 to enable them to create branches and pull requests. To do so, each repository owner needs to:
 
@@ -192,28 +188,28 @@ See the full details on ["collaborator" permissions for personal repositories](h
 Note that repositories owned by an organisation have a [more granular access control](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github) compared to that of personal
 repositories.
 
-### Preparing Your Local Environment for a Pull Request
+#### Preparing Your Local Environment for a Pull Request
 
 1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
 2. Create a local feature branch called `feature_x_tests` off the `develop` branch.
 3. Review the code already in the project and familiarise yourself with it. It should be similar to the project 
 you have worked on so far.
 
-### Submitting a Pull Request
+#### Submitting a Pull Request
 
 1. Starting off from the last exercise in the previous episode, on your feature branch `feature_x_tests` add the missing 
 tests and verify they run correctly. Add as many commits as necessary.
 2. Push your branch remotely to the shared repository.
 3. Head over to GitHub and locate your branch from the repository home page. 
 4. Open a pull request by clicking "Create pull request" button. 
-
-  TODO: add a screenshot
+    
+    TODO: add a screenshot
 5. Team members (collaborators on the repository) will be notified of your pull request by GitHub.
 6. At this point, the code review process is initiated.
 
 On the repository you own, you will also receive a pull request from other team members.
 
-### Code Review
+#### Code Review
 
 1. The moderator will review your changes and provide feedback to you 
 in the form of comments.
@@ -222,13 +218,13 @@ in the form of comments.
 
 Perform the above actions on the pull request you received, this time acting as a reviewer.
 
-### Closing a Pull Request
+#### Closing a Pull Request
 
-7. Once the moderator approves your changes, either one of you can merge the branch onto `develop`. Typically, it is 
+1. Once the moderator approves your changes, either one of you can merge the branch onto `develop`. Typically, it is 
 the responsibility of the code's author to do the merge.
 
-  TODO: add a screenshot
-9. Delete the merged branch to reduce the clutter in the repository.
+    TODO: add a screenshot
+2. Delete the merged branch to reduce the clutter in the repository.
 
 Repeat the above actions for the pull request you received.
 
