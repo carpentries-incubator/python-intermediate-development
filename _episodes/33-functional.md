@@ -238,9 +238,9 @@ For that we either need to rely on a built in reduction operator, or use the `re
 In many cases, what we want to do is to sum the values in a collection - for this we have the built in `sum` function:
 
 ~~~
-l = [1, 2, 3]
+sequence = [1, 2, 3]
 
-print(sum(l))
+print(sum(sequence))
 ~~~
 {: .language-python}
 
@@ -377,13 +377,13 @@ Then for each remaining value, we take the previous result and the new value as 
 ~~~
 from functools import reduce
 
-l = [1, 2, 3]
+sequence = [1, 2, 3]
 
 def product(a, b):
     return a * b
 
-print(reduce(product, l))
-print(reduce((lambda a, b: a * b), l))
+print(reduce(product, sequence))
+print(reduce((lambda a, b: a * b), sequence))
 ~~~
 {: .language-python}
 
@@ -400,7 +400,7 @@ print(reduce((lambda a, b: a * b), l))
 > Your function should behave as below:
 >
 > ~~~
-> def sum_of_squares(l):
+> def sum_of_squares(sequence):
 >     # Your code here
 >
 > print(sum_of_squares([0]))
@@ -425,8 +425,8 @@ print(reduce((lambda a, b: a * b), l))
 > > ~~~
 > > from functools import reduce
 > >
-> > def sum_of_squares(l):
-> >     squares = [x * x for x in l]
+> > def sum_of_squares(sequence):
+> >     squares = [x * x for x in sequence]
 > >     return reduce(lambda a, b: a + b, squares)
 > > ~~~
 > > {: .language-python}
@@ -453,8 +453,8 @@ print(reduce((lambda a, b: a * b), l))
 > > ~~~
 > > from functools import reduce
 > >
-> > def sum_of_squares(l):
-> >     integers = [int(x) for x in l]
+> > def sum_of_squares(sequence):
+> >     integers = [int(x) for x in sequence]
 > >     squares = [x * x for x in integers]
 > >     return reduce(lambda a, b: a + b, squares)
 > > ~~~
@@ -484,8 +484,8 @@ print(reduce((lambda a, b: a * b), l))
 > > ~~~
 > > from functools import reduce
 > >
-> > def sum_of_squares(l):
-> >     integers = [int(x) for x in l if x[0] != '#']
+> > def sum_of_squares(sequence):
+> >     integers = [int(x) for x in sequence if x[0] != '#']
 > >     squares = [x * x for x in integers]
 > >     return reduce(lambda a, b: a + b, squares)
 > > ~~~
