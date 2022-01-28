@@ -342,7 +342,7 @@ For adapting our inflammation software project, example business requirements co
 
 ### User (or Stakeholder) Requirements
 
-These define what particular stakeholder groups each expect from an eventual solution, essentially acting as a bridge between the higher-level business requirements and specific solution requirements. These are typically captured in a User Requirements Specification
+These define what particular stakeholder groups each expect from an eventual solution, essentially acting as a bridge between the higher-level business requirements and specific solution requirements. These are typically captured in a User Requirements Specification.
 
 For our inflammation project, they could include things for trial managers such as (building on the business requirements):
 
@@ -356,7 +356,7 @@ Solution (or product) requirements describe characteristics that a concrete solu
 
 - *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.
     - SR1 (from UR1): add standard deviation to data model and include in graph visualisation view
-    - SR2 (from UR2): add a new view to generate a textual representation invoked by an optional command line argument
+    - SR2 (from UR2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
     - SR3 (from UR3): generate graphical statistics report on clinical workstation configuration in under 30 seconds
   
@@ -377,10 +377,56 @@ It's often tempting to go right ahead and implement requirements within our soft
 > 
 > Pick one of the SR1 or SR2 requirements above to implement.
 > 
-> One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature?
+> One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 {: .challenge}
+
+## Writing Code that's Amenable to Testing
+
+Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself to straightforward unit testing. In this case, further modularisation can often be helpful.
+
+Consider SR2. We have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we should move the command line parsing portion to a separate function:
+
+~~~
+import sys
+...
+
+def parse_arguments(args):
+    parser = argparse.ArgumentParser(
+        description='A basic patient inflammation data management system')
+
+    parser.add_argument(
+        'infiles',
+        nargs='+',
+        help='Input CSV(s) containing inflammation series for each patient')
+
+    # Other arguments here...
+    ...
+
+    return parser.parse_args(args)
+
+
+if __name__ == "__main__":
+    # Pass the arguments to parser, omitting the script name
+    args = parse_arguments(sys.argv[1:])
+    main(args)
+~~~
+{: .language-python}
+
+Now if we want to invoke a specific argument in a unit test, we could have:
+
+~~~
+def test_argument_something():
+    from inflammation_analysis import parse_arguments, main
+     
+    args = parse_arguments(["Arg1", "Arg2"])
+    main(args)
+    ...
+~~~
+{: .language-python}
+
+The key is to think about this as you implement: is the code I'm writing amenable to testing? If not, how could I modify it to make structuring our tests straightforward?
 
 ## Best Practices for 'Good' Software Design
 
