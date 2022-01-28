@@ -67,12 +67,16 @@ Once we know our way around different code development tools, techniques and con
 - how to automate and scale testing with **Continuous Integration (CI)** using
 **GitHub Actions** (a CI service available on GitHub).
 
-### Section 3: Designing Software Architecture
-In this section, we step away from writing code for a bit to look into different **software design paradigms**
-to understand the wider landscape in which you can design software and to help you with the
+### Section 3: Collaborative Software Design and Development for Reuse
+In this section, we step away from writing code for a bit to look at things from a higher level:
+
+- Different **programming and software design paradigms**, where we'll look at the wider landscape in which you can design software and to help you with the
 design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring
 the code and each has certain strengths and weaknesses when used to solve particular types of problems -
-useful to know so you can recognise where it might be useful to switch in your own code.
+useful to know so you can recognise where it might be useful to switch in your own code
+- **Software design** and **software requirements**, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
+- How **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
+- What we can do to prepare our software for further development and reuse - and how to **package software** for release to others.
 
 ### Section 4: Improving and Managing Software Over its Lifetime
 Finally, we are back to practical applications and learning to **publish and release
