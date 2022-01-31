@@ -7,10 +7,11 @@ exercises: 0
 questions:
 - "What should we do to ensure our code is correct?"
 objectives:
-- "Explain the testing tools, techniques, and infrastructure that will be used in this section."
+- "Introduce the testing tools, techniques, and infrastructure that will be used in this section."
 keypoints:
-- "Automated testing can help determine if our code is running correctly, as well as save us time in the future."
-- "Parameterisation and Continuous Integration can help scale and further automate our testing process."
+- "Using testing requires us to change our practice of code development, but saves time in the long run by 
+allowing us to more comprehensively and rapidly find faults in code, as well as giving us greater confidence in the correctness of our code."
+- "The use of test techniques and infrastructures such as **parameterisation** and **Continuous Integration** can help scale and further automate our testing process."
 ---
 
 We've previously looked at building a suitable environment for collaboratively developing software. In this section we'll look at testing approaches that help us ensure that the software we write is actually correct, and how we can diagnose and fix issues once faults are found. Using such approaches requires us to change our practice of development. This can take time, but potentially saves us considerable time in the medium to long term by allowing us to more comprehensively and rapidly find such faults, as well as giving us greater confidence in the correctness of our code. We will also make use of techniques and infrastructure that allow us to do this in a scalable and more performant way.
