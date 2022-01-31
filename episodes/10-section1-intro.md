@@ -19,7 +19,7 @@ The first section of the course is dedicated to setting up your environment for 
 In order to build working (research) software
 efficiently and to do it in collaboration with others rather than in isolation, you will have to get comfortable
 with using a number of different tools interchangeably as they’ll make your life a lot easier.
-There are many options when it comes to deciding on which software development tools to use for your daily tasks - we
+There are many options when it comes to deciding which software development tools to use for your daily tasks - we
 will use a few of them in this course that we believe make a difference. There are sometimes multiple tools for the
 job - we select one to use but mention alternatives too. As you get more comfortable with different tools and
 their alternatives, you will select the one that is right for you based on your personal preferences or
