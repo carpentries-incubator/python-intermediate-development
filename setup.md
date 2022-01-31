@@ -29,7 +29,7 @@ Git is a program that can accessed via the command line.
 
   - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
   install the Bash shell as well as Git. 
-    - On AZ-managed computers, install [Git 2.33 (or newer) from the AZ Software Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2833).
+    - *For AstraZeneca-managed computers (where you may not have admin permissions), you can obtain [Git For Windows package from the AstraZeneca Software Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2833).*
   - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode) 
 and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from 
 [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can 
@@ -106,12 +106,12 @@ invocations should remain the same regardless of the Python distribution used.
 To download a Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
 
-The AZ Software Store currently makes [Python 3.9.7](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2788)
-available. Please don't use Anaconda, as it is not free for commercial use.
+*For AstraZeneca-managed computers, you can obtain [Python 3.9.7 from the AstraZeneca Software Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2788). 
+Please make sure not to use Anaconda as it is not free for commercial use.*
 
 >## Recommended Python Version
-> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. 3.7 onward.
-> Specifically, we recommend upgrading from Python 2.7 wherever possible. Continuing to use it will likely result in difficulty finding supported dependencies or syntax errors.
+> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. 3.7 onward).
+> Specifically, we recommend upgrading from Python 2.7 wherever possible - continuing to use it will likely result in difficulty finding supported dependencies or syntax errors.
 {: .callout}
 
 You can 
