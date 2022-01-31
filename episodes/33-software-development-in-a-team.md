@@ -206,11 +206,16 @@ repositories.
 > Look back at the [Solution Requirements](/32-software-design/index.html#solution-requirements) (SR1 or SR2) for 
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
->
-> Try not to not fall into the trap of writing the tests to test the existing code/implementation - you need to 
-> write the tests to make sure the code satisfies the requirements regardless of the actual implementation (you can 
-> treat the implementation as a black box in a way to make sure it is properly tested and defects are detected).
+> 
+> *Note: Try not to not fall into the trap of writing the tests to test the existing code/implementation - you need to
+> write the tests to make sure the code satisfies the requirements regardless of the actual implementation (you can
+> treat the implementation as a black box in a way to make sure it is properly tested and defects are detected).*
 {: .challenge}
+
+> ## Testing Based on Requirements
+Tests should test functionality, which stem from the software requirements, rather than an implementation. Tests can 
+be seen as a reflection those requirements - checking if the requirements are satisfied.
+{: .callout}
 
 #### Step 4: Submitting a Pull Request
 
