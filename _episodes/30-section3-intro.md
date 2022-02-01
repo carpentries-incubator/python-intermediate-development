@@ -55,3 +55,12 @@ We'll also look at how we can package software for release and distribution, usi
 ![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
 
 {% include links.md %}
+                            
+
+{% comment %}
+Designing and Developing "Good" Software in Teams
+- **Software paradigms and design architectures** for solving different problems based on clear requirements
+- **Writing "good" software** that is understandable, modular, extensible and tested
+- **Publishing and releasing software** for reuse by others
+- **Collaborative code development and review** to improve software sustainability and avoid the accumulation of ‘technical debt’.
+{% endcomment %}
