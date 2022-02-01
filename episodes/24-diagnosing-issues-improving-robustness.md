@@ -144,6 +144,17 @@ We can also run our test functions individually. First, let's check that our PyC
 
 PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
+> ## Buffered Output
+>
+> Whenever a Python program prints text to the terminal or to a file, it first stores this text in an **output buffer**.
+> When the buffer becomes full or is **flushed**, the contents of the buffer are written to the terminal / file in one go and the buffer is cleared.
+> This is usually done to increase performance by effectively converting multiple output operations into just one.
+> Printing text to the terminal is a relatively slow operation, so in some cases this can make quite a big difference to the total execution time of a program.
+>
+> However, using buffered output can make debugging more difficult, as we can no longer be quite sure when a log message will be displayed.
+> In order to make debugging simpler, PyCharm automatically adds the environment variable `PYTHONUNBUFFERED` we see in the screenshot above, which disables output buffering.
+{: .callout}
+
 Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 
 ![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="800px"}
