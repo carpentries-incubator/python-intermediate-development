@@ -272,7 +272,17 @@ or like this to install multiple packages at once for short:
 ~~~
 (venv) $ pip3 install numpy matplotlib
 ~~~
-{: .language-bash}
+{: .language-bash} 
+
+> ## How About `python3 -m pip install`?
+> Why are we not using `pip` as an argument to `python3` command, in the same way we did with `venv` 
+> (i.e. `python3 -m venv`)? `python3 -m pip install` should be used according to the 
+> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip); other official documentation
+> still seems to have a mixture of usages. Core Python developer Brett Cannon offers a 
+> [more detailed explanation](https://snarky.ca/why-you-should-use-python-m-pip/) of edge cases when the two options may produce 
+> different results and recommends `python3 -m pip install`. We kept the old-style command (`pip3 install`) as it seems more 
+> prevalent among developers at the moment - but it may be a convention that will soon change and certainly something you should consider. 
+{: .callout}
 
 If you run the `pip3 install` command on a package that is already installed, `pip` will notice this and do nothing.
 
