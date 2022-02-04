@@ -51,7 +51,7 @@ SQLAlchemy is a popular Python library which contains an **Object Relational Map
 Our first step is to install SQLAlchemy, then we can create our first **mapping**.
 
 ```
-conda install sqlalchemy
+$ pip3 install sqlalchemy
 ```
 {: .language-bash}
 
