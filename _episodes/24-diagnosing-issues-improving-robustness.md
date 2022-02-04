@@ -50,21 +50,21 @@ def patient_normalise(data):
 with us for the moment!*
 
 In the code above, we first go row by row and find the maximum inflammation value for each patient and
-store these values in a 1-dimensional NumPy array `max`. We then want to use
+store these values in a 1-dimensional NumPy array `max_data`. We then want to use
 NumPy's element-wise division, to divide each value in every row of inflammation data (belonging to the same patient)
-by the maximum value for that patient stored in the 1D array `max`.
-However, we cannot do that division automatically as `data` is a 2D array (of shape `(60, 40)`) and `max`
+by the maximum value for that patient stored in the 1D array `max_data`.
+However, we cannot do that division automatically as `data` is a 2D array (of shape `(60, 40)`) and `max_data`
 is a 1D array (of shape `(60, )`), which means that their shapes are not compatible.
 
 ![NumPy arrays of incompatible shapes](../fig/numpy-incompatible-shapes.png){: .image-with-shadow width="600px"}
 
-Hence, to make sure that we can perform this division and get the expected result, we need to convert `max` to be a 
-2D array by using the `newaxis` index operator to insert a new axis into `max`, making it a 2D array of shape `(60, 1)`.
+Hence, to make sure that we can perform this division and get the expected result, we need to convert `max_data` to be a 
+2D array by using the `newaxis` index operator to insert a new axis into `max_data`, making it a 2D array of shape `(60, 1)`.
 
 ![NumPy arrays' shapes after adding a new_axis](../fig/numpy-shapes-after-new-axis.png){: .image-with-shadow width="600px"}
 
 Now the division will give us the expected result. Even though the shapes are not identical,
-NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max` array is now
+NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max_data` array is now
 "stretched" ("broadcast") to match that of `data` - i.e. `(60, 40)`, and element-wise division can be performed.
 
 ![NumPy arrays' shapes after broadcasting](../fig/numpy-shapes-after-broadcasting.png){: .image-with-shadow width="600px"}
@@ -165,13 +165,13 @@ In the debug panel below, in the `Debugger` tab you will be able to see two sect
 ![Debugging in PyCharm](../fig/pytest-pycharm-debug.png){: .image-with-shadow width="1000px"}
 
 - The `Frames` section on the left, which shows the **call stack** (the chain of functions that have been executed to lead to this point). We can traverse this chain of functions if we wish, to observe the state of each function.
-- The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
+- The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max_data` local array that was created to hold the maximum inflammation values for each patient.
 
-We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
+We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max_data[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
 
 ![Debugging in PyCharm](../fig/pytest-pycharm-console.png){: .image-with-shadow width="1000px"}
 
-Now, looking at the `max` variable, we can see that something looks wrong, as the maximum values for each patient do not correspond to the `data` array. Recall that the input `data` array we are using for the function is
+Now, looking at the `max_data` variable, we can see that something looks wrong, as the maximum values for each patient do not correspond to the `data` array. Recall that the input `data` array we are using for the function is
 
 ~~~
   [[1, 2, 3],
@@ -247,7 +247,7 @@ Helpfully, you will also notice that NumPy also provides a run-time warning for 
 
 ~~~
   RuntimeWarning: invalid value encountered in true_divide
-    return data / max[:, np.newaxis]
+    return data / max_data[:, np.newaxis]
 ~~~
 {: .output}
 
