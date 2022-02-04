@@ -259,9 +259,12 @@ In the software development workflow, we typically have a main branch which is t
 is tested, stable and reliable. Then, we normally have a development branch
 (called `develop` or `dev` by convention) that we use for work-in-progress
 code. As we work on adding new features to the code, we create new feature branches that first get merged into
-`develop`, and then once thoroughly tested - can get merged into `main`. For smaller projects (e.g. if you are
-working alone on a project), it may be enough to
-merge a feature branch directly into `main` upon testing, skipping the `develop` branch step.
+`develop` after a thorough testing process. After even more testing - `develop` branch will get merged into `main`. 
+The points when feature branches are merged to `develop`, and `develop` to `main` 
+depend entirely on the practice/strategy established in the team. For example, for smaller projects (e.g. if you are
+working alone on a project or in a very small team), feature branches sometimes get directly merged into `main` upon testing,
+skipping the `develop` branch step. In other projects, the merge into `main` happens only at the point of making a new 
+software release. Whichever is the case for you, a good rule of thumb is - nothing that is broken should be in `main`.
 
 ### Creating Branches
 Let's create a `develop` branch to work on:

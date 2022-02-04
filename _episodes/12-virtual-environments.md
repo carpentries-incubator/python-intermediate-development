@@ -250,6 +250,9 @@ source venv/bin/activate
 > We continue using `python3` and `pip3` in this material to avoid confusion for those Windows users.
 {: .callout}
 
+Note that, since our software project is being tracked by Git, the newly created virtual environment will show up 
+in version control - we will see how to handle it using Git in one of the subsequent episodes.
+
 ### Installing External Libraries in an Environment with `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
@@ -264,14 +267,22 @@ To install the latest version of a package with `pip` you use pip's `install` co
 ~~~
 {: .language-bash}
 
-
-
 or like this to install multiple packages at once for short:
 
 ~~~
 (venv) $ pip3 install numpy matplotlib
 ~~~
-{: .language-bash}
+{: .language-bash} 
+
+> ## How About `python3 -m pip install`?
+> Why are we not using `pip` as an argument to `python3` command, in the same way we did with `venv` 
+> (i.e. `python3 -m venv`)? `python3 -m pip install` should be used according to the 
+> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip); other official documentation
+> still seems to have a mixture of usages. Core Python developer Brett Cannon offers a 
+> [more detailed explanation](https://snarky.ca/why-you-should-use-python-m-pip/) of edge cases when the two options may produce 
+> different results and recommends `python3 -m pip install`. We kept the old-style command (`pip3 install`) as it seems more 
+> prevalent among developers at the moment - but it may be a convention that will soon change and certainly something you should consider. 
+{: .callout}
 
 If you run the `pip3 install` command on a package that is already installed, `pip` will notice this and do nothing.
 
@@ -365,7 +376,8 @@ tomli==1.2.2
 {: .output}
 
 The first of the above commands will create a `requirements.txt` file in your current directory.
-The `requirements.txt` file can then be committed to a version control system (e.g. Git) and
+The `requirements.txt` file can then be committed to a version control system (we will see how to do this using Git in 
+one of the following episodes) and
 get shipped as part of your software and shared with collaborators and/or users. They can then replicate your environment and
 install all the necessary packages from the project root as follows:
 
