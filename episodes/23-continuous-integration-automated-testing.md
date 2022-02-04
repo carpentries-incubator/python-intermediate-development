@@ -200,7 +200,7 @@ GitHub Actions offers these continuous integration features as a free service wi
 
 Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale.
 
-Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.7 or 3.8 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
+Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.8 or 3.9 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
 
 Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
 
@@ -212,7 +212,7 @@ Let's see how this is done using GitHub Actions. To support this, change your `.
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7, 3.8]
+        python-version: [3.8, 3.9]
 
     # a job is a seq of steps
     steps:
@@ -230,7 +230,7 @@ Let's see how this is done using GitHub Actions. To support this, change your `.
 ~~~
 {: .language-yaml}
 
-Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configuration values. So every possible permutation of Python versions 3.7 and 3.8 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
+Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configuration values. So every possible permutation of Python versions 3.8 and 3.9 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
 
 Let's commit and push this change and see what happens:
 
