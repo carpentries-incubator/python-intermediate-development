@@ -250,6 +250,9 @@ source venv/bin/activate
 > We continue using `python3` and `pip3` in this material to avoid confusion for those Windows users.
 {: .callout}
 
+Note that, since our software project is being tracked by Git, the newly created virtual environment will show up 
+in version control - we will see how to handle it using Git in one of the subsequent episodes.
+
 ### Installing External Libraries in an Environment with `pip`
 
 We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
@@ -263,8 +266,6 @@ To install the latest version of a package with `pip` you use pip's `install` co
 (venv) $ pip3 install matplotlib
 ~~~
 {: .language-bash}
-
-
 
 or like this to install multiple packages at once for short:
 
