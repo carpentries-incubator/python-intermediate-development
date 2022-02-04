@@ -2,17 +2,18 @@
 title: Setup
 ---
 
-You will need the following software installed and working correctly on your system to be able to follow the workshop.
+You will need the following software installed and working correctly on your system to be able to follow the course.
 
-## Command Line Program
-You can use a command line program such as [Bash](https://www.gnu.org/software/bash/). 
-If you already have a command line program other than Bash - you can use that 
-instead as none of the content of this workshop is specific to Bash.
-  - On Windows, Bash will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
-  - On macOS and Linux, you will already have a command line program available (note that starting with macOS Catalina, 
-Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default shell instead of Bash)
+## Command Line Tool
+You will need a command line tool (shell/console) in order to run Python scripts and version control your code with Git.
+- On Windows, it is recommended to use **Git Bash** (which is included in
+  [Git For Windows package](https://gitforwindows.org/) - see the Git installation section below). The use of Windows command line tool `cmd` is not suitable for the course.
+- On macOS and Linux, you will already have a command line tool available on your system. You can use a command line tool such as [**Bash**](https://www.gnu.org/software/bash/),
+  or any other [command line tool that has similar syntax to Bash](https://en.wikipedia.org/wiki/Comparison_of_command_shells),
+  since none of the content of this course is specific to Bash. Note that starting with macOS Catalina,
+  Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default command line tool instead of Bash.
 
-To test the installation, start your command line/Git Bash program and type:
+To test your command line tool, start it up and type:
 ~~~
 $ date
 ~~~
@@ -23,20 +24,20 @@ If your command line program is working - it should return the current date and 
 Wed 21 Apr 2021 11:38:19 BST
 ~~~
 {: .output}
-  
+
 ## Git Version Control Tool
-Git is a program that can accessed via the command line.
+Git is a program that can be accessed from your command line tool.
 
-  - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
-  install the Bash shell as well as Git. 
-    - *For AstraZeneca-managed computers (where you may not have admin permissions), you can obtain [Git For Windows package from the AstraZeneca Software Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2833).*
-  - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode) 
-and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from 
-[Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can 
-[install Git using alternative methods](https://git-scm.com/download/mac).
-  - On Linux, Git can be installed using your favourite package manager.
+- On Windows, it is recommended to use **Git Bash**, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will
+  install the Bash command line tool as well as Git.
+  - *For AstraZeneca-managed computers (where you may not have admin permissions), you can obtain [Git For Windows package from the AstraZeneca Software Store](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2833).*
+- On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode)
+  and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from
+  [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can
+  [install Git using alternative methods](https://git-scm.com/download/mac).
+- On Linux, Git can be installed using your favourite package manager.
 
-To test your Git installation, start your command line/Git Bash program and type:
+To test your Git installation, start your command line tool and type:
 ~~~
 $ git help
 ~~~
@@ -90,17 +91,17 @@ $ git help
 ~~~
 {: .output}
 
-### GitHub Account                     
-For the purposes of the course, you will also need a [GitHub](https://github.com/) account. 
-GitHub is a free, online host for Git repositories that you will use during the course to store your code in. 
+### GitHub Account
+For the purposes of the course, you will also need a [GitHub](https://github.com/) account.
+GitHub is a free, online host for Git repositories that you will use during the course to store your code in.
 You can create an account at [GitHub](https://github.com/) for free if you don't already have one.
 
 ## Python Distribution
-The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/) 
-and is using `venv` for virtual environments and `pip` for package management. 
-The material has not been extensively tested with other Python distributions and package managers, 
-but most sections are expected to work with some modifications. 
-For example, package installation and virtual environments would need to be managed differently, but Python script 
+The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/)
+and is using `venv` for virtual environments and `pip` for package management.
+The material has not been extensively tested with other Python distributions and package managers,
+but most sections are expected to work with some modifications.
+For example, package installation and virtual environments would need to be managed differently, but Python script
 invocations should remain the same regardless of the Python distribution used.
 
 To download a Python distribution for your operating system,
@@ -110,11 +111,11 @@ please head to [Python.org](https://www.python.org/downloads/).
 Please make sure not to use Anaconda as it is not free for commercial use.*
 
 >## Recommended Python Version
-> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. 3.7 onward).
-> Specifically, we recommend upgrading from Python 2.7 wherever possible - continuing to use it will likely result in difficulty finding supported dependencies or syntax errors.
+> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. 3.7 onward.
+> Specifically, we recommend upgrading from Python 2.7 wherever possible. Continuing to use it will likely result in difficulty finding supported dependencies or syntax errors.
 {: .callout}
 
-You can 
+You can
 test your Python installation from the command line with:
 ~~~
 $ python3 --version
@@ -126,12 +127,12 @@ Python 3.8.2
 ~~~
 {: .output}
 
-To make sure you are using the standard Python distribution and not some other distribution you may have on your system, 
- type the following in your shell:
+To make sure you are using the standard Python distribution and not some other distribution you may have on your system,
+type the following in your shell:
  ~~~
  $ python3
  ~~~
- {: .language-bash}
+{: .language-bash}
 This should enter you into a Python console and you should see something like:
  ~~~
 Python 3.8.2 (default, Jun  8 2021, 11:59:35) 
@@ -139,19 +140,20 @@ Python 3.8.2 (default, Jun  8 2021, 11:59:35)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
  ~~~
- {: .language-bash}
- Press `CONTROL-D` or type `exit()` to exit the Python console. 
+{: .language-bash}
+Press `CONTROL-D` or type `exit()` to exit the Python console.
 
 ### `venv` and `pip`
-If you are using a Python 3 distribution from [Python.org](https://www.python.org/), 
+If you are using a Python 3 distribution from [Python.org](https://www.python.org/),
 `venv` and `pip` will be automatically installed for you. If not, please make sure you have these
 two tools (that correspond to your Python distribution) installed on your machine.
 
 ## PyCharm IDE
-We use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course. 
+We use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course.
 PyCharm can be downloaded from [the JetBrains website](https://www.jetbrains.com/pycharm/download).
-The Community edition is fine, though if you are developing software for the purpose of academic research you may 
-be eligible for a free license for the Professional edition which contains extra features. [PyCharm Community Edition](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2482) is 
-available from the AZ Software Store.
-  
+The Community edition is fine, though if you are developing software for the purpose of academic research you may
+be eligible for a free license for the Professional edition which contains extra features.
+
+*For AstraZeneca-managed computers, [PyCharm Community Edition](http://azsoftwarestore.astrazeneca.net/esd/Items/Details?PackageId=2482) is
+available from the AZ Software Store.*
 {% include links.md %}

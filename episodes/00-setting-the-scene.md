@@ -65,7 +65,7 @@ for **code backup, sharing and collaborative development**,
 Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
 - how to automate and scale testing with **Continuous Integration (CI)** using
-**GitHub Actions** (a CI service available on GitHub).
+  **GitHub Actions** (a CI service available on GitHub).
 
 ### Section 3: Collaborative Software Design and Development for Reuse
 In this section, we step away from writing code for a bit to look at things from a higher level:
@@ -108,11 +108,11 @@ This section also contains instructions on how to test your setup.
 {: .callout}
 
 > ## Compulsory and Optional Exercises
-Exercises are a crucial part of this course and the narrative. They are used to reinforce the points taught and give 
-you an opportunity to practice things on your own. Please do not be tempted to skip exercises as that will get your 
-local software project out of sync with the course and break the narrative. Exercises that are clearly marked 
-as "optional" can be skipped without breaking things but we advise you to go through them too, if time allows. 
-All exercises contain solutions but, wherever possible, try and work out a solution on your own. 
+Exercises are a crucial part of this course and the narrative. They are used to reinforce the points taught and give
+you an opportunity to practice things on your own. Please do not be tempted to skip exercises as that will get your
+local software project out of sync with the course and break the narrative. Exercises that are clearly marked
+as "optional" can be skipped without breaking things but we advise you to go through them too, if time allows.
+All exercises contain solutions but, wherever possible, try and work out a solution on your own.
 {: .callout}
 
 > ## Outdated Screenshots

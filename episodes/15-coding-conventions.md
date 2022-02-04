@@ -339,17 +339,18 @@ However, there are some restrictions. Comments that simply restate what the code
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
 > ## Improve Code Style of Our Project
-Create a feature branch called `style-fixes` off our `develop` branch, then look at `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
+> Let's look at improving the coding style of our project.
+> First create a new feature branch called `style-fixes` off our `develop` branch and switch to it (from the project root):
+> ~~~
+> $ git checkout develop
+> $ git checkout -b style-fixes
+> ~~~
+>  {: .language-bash}
+>
+> Next look at the `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
 the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
->> To create a new feature branch called `style-fixes` off our `develop` branch and switch to it at the same time, from the project root do:
->>  ~~~
->> $ git checkout develop
->> $ git checkout -b style-fixes
->> ~~~
->>  {: .language-bash}
->>
->> We now proceed to modify `inflammation-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
+>> Modify `inflammation-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
 >> coding guidelines by underlying them. There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
 >>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
