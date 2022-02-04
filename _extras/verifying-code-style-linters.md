@@ -39,7 +39,7 @@ If you see you are on a different branch, add, commit and push any changes (if t
 Pylint is just a Python packages so we can install it in our virtual environment using:
 
 ~~~
-$ conda install pylint
+$ pip3 install pylint
 $ pylint --version
 ~~~
 {: .language-bash}
@@ -52,10 +52,10 @@ pylint 2.7.2
 ~~~
 {: .output}
 
-We should also update our `environment.yml` with this new addition:
+We should also update our `requirements.txt` with this new addition:
 
 ~~~
-$ conda env export --from-history > environment.yml
+$ pip3 freeze > requirements.txt
 ~~~
 {: .language-bash}
 
@@ -142,7 +142,7 @@ Now we can also add this Pylint execution to our continuous integration builds. 
 ...
     - name: Check style with Pylint
       run: |
-        conda run -n patient pylint --fail-under=0 --reports=y inflammation
+        python3 -m pylint --fail-under=0 --reports=y inflammation
 ...
 ~~~
 {: .language-bash}
@@ -152,7 +152,7 @@ Note we need to add `--fail-under=0` otherwise the builds will fail if we don't 
 Then we can just add this to our repo and trigger a build:
 
 ~~~
-$ git add .github/workflows/main.yml environment.yml
+$ git add .github/workflows/main.yml requirements.txt
 $ git commit -m "Add Pylint run to build"
 $ git push
 ~~~
