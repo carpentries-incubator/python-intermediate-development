@@ -2,17 +2,18 @@
 title: Setup
 ---
 
-You will need the following software installed and working correctly on your system to be able to follow the workshop.
+You will need the following software installed and working correctly on your system to be able to follow the course.
 
-## Command Line Program
-You can use a command line program such as [Bash](https://www.gnu.org/software/bash/). 
-If you already have a command line program other than Bash - you can use that 
-instead as none of the content of this workshop is specific to Bash.
-  - On Windows, Bash will be installed as part of Git Bash (included in [Git For Windows package](https://gitforwindows.org/) - see Git installation section below)  
-  - On macOS and Linux, you will already have a command line program available (note that starting with macOS Catalina, 
-Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default shell instead of Bash)
+## Command Line Tool
+You will need a command line tool (shell/console) in order to run Python scripts and version control your code with Git.
+  - On Windows, it is recommended to use **Git Bash** (which is included in 
+[Git For Windows package](https://gitforwindows.org/) - see the Git installation section below). The use of Windows command line tool `cmd` is not suitable for the course.
+  - On macOS and Linux, you will already have a command line tool available on your system. You can use a command line tool such as [**Bash**](https://www.gnu.org/software/bash/), 
+or any other [command line tool that has similar syntax to Bash](https://en.wikipedia.org/wiki/Comparison_of_command_shells),
+since none of the content of this course is specific to Bash. Note that starting with macOS Catalina, 
+Macs will use [Zsh (Z shell)](https://www.zsh.org/) as the default command line tool instead of Bash.
 
-To test the installation, start your command line/Git Bash program and type:
+To test your command line tool, start it up and type:
 ~~~
 $ date
 ~~~
@@ -25,17 +26,17 @@ Wed 21 Apr 2021 11:38:19 BST
 {: .output}
   
 ## Git Version Control Tool
-Git is a program that can accessed via the command line.
+Git is a program that can be accessed from your command line tool.
 
-  - On Windows, you will need Git Bash, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
-  install the Bash shell as well as Git 
+  - On Windows, it is recommended to use **Git Bash**, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will 
+  install the Bash command line tool as well as Git. 
   - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode) 
 and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from 
 [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can 
 [install Git using alternative methods](https://git-scm.com/download/mac).
   - On Linux, Git can be installed using your favourite package manager
 
-To test your Git installation, start your command line/Git Bash program and type:
+To test your Git installation, start your command line tool and type:
 ~~~
 $ git help
 ~~~
