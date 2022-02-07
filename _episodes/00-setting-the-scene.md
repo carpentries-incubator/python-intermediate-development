@@ -64,8 +64,8 @@ for **code backup, sharing and collaborative development**,
 ### Section 2:  Verifying Software Correctness at Scale
 Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
-- how to automate and scale testing with **Continuous Integration (CI)** using
-  **GitHub Actions** (a CI service available on GitHub).
+- how to automate and scale testing with **Continuous Integration (CI)** using 
+**GitHub Actions** (a CI service available on GitHub).
 
 ### Section 3: Collaborative Software Design and Development for Reuse
 In this section, we step away from writing code for a bit to look at things from a higher level:
