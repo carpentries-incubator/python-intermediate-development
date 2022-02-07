@@ -98,6 +98,7 @@ There are several commonly used command line tools for managing Python virtual e
 - `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
 - `conda` which comes together with the Anaconda Python distribution
+- `poetry`, a modern Python packaging tool which handles virtual environments automatically
 
 While there are pros and cons for using each of the above, all will do the job of managing Python
 virtual environments for you and it may be a matter of personal preference which one you go for.
