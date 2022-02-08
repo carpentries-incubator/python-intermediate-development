@@ -31,8 +31,7 @@ The lesson is currently in the beta status - it has be tested several times with
 different cohorts and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
-If you want to teach this lesson, please let us know by adding an [issue][issues] with your workshop details and a label 'pilot'. Please also let 
-The Carpentries know by submitting your workshop via the [The Carpentries Incubator website](https://carpentries-incubator.org/#workshops).
+If you would like to teach this lesson to your audience and help with beta testing, please let the lesson developers know by opening an [issue][issues] with your workshop details and a label 'pilot'. You can also let The Carpentries know by submitting your workshop via the [The Carpentries Incubator website](https://carpentries-incubator.org/#workshops).
 
 ## Contributing
 
