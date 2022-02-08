@@ -84,7 +84,7 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [good-practices]: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
 [programming-with-python]: https://swcarpentry.github.io/python-novice-inflammation/
 [lesson-example]: https://carpentries.github.io/lesson-example
-[issues]: /issues
+[issues]: ../../issues
 [steve-crouch]: https://github.com/steve-crouch
 [james-graham]: https://github.com/jag1g13
 [aleksandra-nenadic]: https://github.com/anenadic
