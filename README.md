@@ -27,14 +27,12 @@ The software project template repository used for this lesson is available at:
 The lesson is using the official [Carpentries lesson template][styles].
 
 ### Lesson Status
-The lesson is currently in the alpha status, which means that it is still being actively developed. 
-However, all planned episodes have been written and finished, and the lesson has be tested several times with 
-different cohorts and is in a good state to be reused
-and tried by others. Please be aware that there may be some discrepancies and inconsistencies 
-with language, images, screenshots and code outputs. We would appreciate any contributions from the community in 
-fixing these issues - see the section below on how to make contributions. After these inconsistencies are fixed, 
-the lesson will graduate to beta.
+The lesson is currently in the beta status - it has be tested several times with 
+different cohorts and is in a good state to be reused and taught by others.
 
+## Teaching the Lesson
+If you want to teach this lesson, please let us know by adding an issue with your workshop details and a label 'pilot'. Please also let 
+The Carpentries know by submitting your workshop via [https://carpentries-incubator.org/#workshops].
 
 ## Contributing
 
