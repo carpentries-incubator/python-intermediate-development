@@ -368,9 +368,9 @@ library and is used to indicate that the function received an argument of the ri
 
 ~~~
 @pytest.mark.parametrize(
-    "test, expected, raises",
+    "test, expected, expect_raises",
     [
-        ... # other test cases here, with None for raises
+        ... # other test cases here, with None for expect_raises
         (
             [[-1, 2, 3], [4, 5, 6], [7, 8, 9]],
             [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
@@ -382,11 +382,11 @@ library and is used to indicate that the function received an argument of the ri
             None,
         ),
     ])
-def test_patient_normalise(test, expected, raises):
+def test_patient_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers."""
     from inflammation.models import patient_normalise
-    if raises:
-        with pytest.raises(raises):
+    if expect_raises is not None:
+        with pytest.raises(expect_raises):
             npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
     else:
         npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
@@ -438,7 +438,7 @@ Be sure to commit your changes so far and push them to GitHub.
 > > ~~~
 > > ...
 > > @pytest.mark.parametrize(
-> >     "test, expected, raises",
+> >     "test, expected, expect_raises",
 > >     [
 > >         ...
 > >         (
@@ -457,13 +457,13 @@ Be sure to commit your changes so far and push them to GitHub.
 > >             None,
 > >         )
 > >     ])
-> > def test_patient_normalise(test, expected, raises):
+> > def test_patient_normalise(test, expected, expect_raises):
 > >     """Test normalisation works for arrays of one and positive integers."""
 > >     from inflammation.models import patient_normalise
 > >     if isinstance(test, list):
 > >         test = np.array(test)
-> >     if raises:
-> >         with pytest.raises(raises):
+> >     if expect_raises is not None:
+> >         with pytest.raises(expect_raises):
 > >             npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
 > >     else:
 > >         npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
