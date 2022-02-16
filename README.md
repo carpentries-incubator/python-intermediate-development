@@ -24,7 +24,7 @@ The lesson is using the official [Carpentries lesson template][styles].
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
 questions, concerns, or experience any difficulties along the way.
 
-We'd like to ask you to familiarize yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
+We'd like to ask you to familiarise yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
 the [more detailed guidelines][lesson-example] on proper formatting, instructions on compiling and rendering the lesson locally, and 
 making any changes and adding new content or episodes.
 
