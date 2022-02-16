@@ -11,8 +11,8 @@ The core set of skills we teach is not a comprehensive set of all-encompassing s
 but a selective set of tried-and-tested collaborative development skills that forms a firm foundation for continuing
 on your learning journey.
 
-A **typical learner** for this course may be someone who is working in academic
-research and, needing to write some code, has **gained basic software development skills** either
+A **typical learner** for this course may be someone who is working in 
+a research environment, needing to write some code, has **gained basic software development skills** either
 by self-learning or attending, e.g., a novice [Software Carpentry Python course](https://software-carpentry.org/lessons).
 They have been **applying those skills in their domain of work by writing code for some time**, e.g. half a year or more.
 However, their software development-related projects
