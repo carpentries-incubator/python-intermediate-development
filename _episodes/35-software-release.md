@@ -1,7 +1,7 @@
 ---
 title: "Packaging Code for Release and Distribution"
 teaching: 0
-exercises: 30
+exercises: 20
 questions:
 - "How do we prepare our code for sharing as a Python package?"
 - "How do we release our project for other people to install and reuse?"
@@ -26,6 +26,11 @@ By distributing our code as a package, we reduce the complexity of fetching, ins
 In this session we'll introduce one widely used method for building an installable package from our code.
 There are range of methods in common use, so it's likely you'll also encounter projects which take different approaches.
 
+There's some confusing terminology in this episode around the use of the term "package".
+This term is used to refer to both:
+- A directory containing Python files / modules and an `__init__.py` - a "module package"
+- A way of structuring / bundling a project for easier distribution and installation - a "distributable package"
+
 ## Packaging our Software with Poetry
 
 ### Installing Poetry
@@ -33,7 +38,7 @@ There are range of methods in common use, so it's likely you'll also encounter p
 Because we've recommended GitBash if you're using Windows, we're going to install Poetry using a different method to the officially recommended one.
 If you're on MacOS or Linux, are comfortable with installing software at the command line and want to use Poetry to manage multiple projects, you may instead prefer to follow the official [Poetry installation instructions](https://python-poetry.org/docs/#installation).
 
-We can install Poetry much like any other Python package, using `pip`:
+We can install Poetry much like any other Python distributable package, using `pip`:
 
 ~~~
 $ source venv/bin/activate
@@ -64,7 +69,7 @@ $ poetry config virtualenvs.in-project true
 
 ### Setting up our Poetry Config
 
-Poetry uses a **pyproject.toml** file to describe the build system and requirements of the package.
+Poetry uses a **pyproject.toml** file to describe the build system and requirements of the distributable package.
 This file format was introduced to solve problems with bootstrapping packages (the processing we do to prepare to process something) using the older convention with **setup.py** files and to support a wider range of build tools.
 It is described in [PEP 518 (Specifying Minimum Build System Requirements for Python Projects)](https://www.python.org/dev/peps/pep-0518/).
 
@@ -84,7 +89,7 @@ $ poetry init
 This command will guide you through creating your pyproject.toml config.
 
 Package name [example]:  inflammation
-Version [0.1.0]: 0.1.0
+Version [0.1.0]: 1.0.0
 Description []:  Analyse patient inflammation data
 Author [None, n to skip]: James Graham <J.Graham@software.ac.uk>
 License []:  MIT
@@ -96,7 +101,7 @@ Generated file
 
 [tool.poetry]
 name = "inflammation"
-version = "0.1.0"
+version = "1.0.0"
 description = "Analyse patient inflammation data"
 authors = ["James Graham <J.Graham@software.ac.uk>"]
 license = "MIT"
@@ -114,6 +119,10 @@ build-backend = "poetry.core.masonry.api"
 Do you confirm generation? (yes/no) [yes] yes
 ~~~
 {: .output}
+
+We've called our package "inflammation" in the setup above, instead of "inflammation-analysis" like we did in our previous `setup.py`.
+This is because Poetry will automatically find our code if the name of the distributable package matches the name of our module package.
+If we wanted our distributable package to have a different name, for example "inflammation-analysis", we could do this by explicitly listing the module packages to bundle - see https://python-poetry.org/docs/pyproject/#packages for how to do this.
 
 ### Project Dependencies
 
@@ -138,7 +147,7 @@ $ poetry install
 {: .language-bash}
 
 These two sets of dependencies will be used in different circumstances.
-When we build our installable package and upload it to a package repository, Poetry will only include references to our runtime dependencies.
+When we build our package and upload it to a package repository, Poetry will only include references to our runtime dependencies.
 This is because someone installing our software through a tool like `pip` is only using it, but probably doesn't intend 
 to contribute to the development of our software and does not require development dependencies.
 
@@ -149,14 +158,14 @@ Have a look at the `pyproject.toml` file again to see what's changed.
 
 ### Packaging Our Code
 
-Next, we need to make sure that our code is organised in the recommended Python code package structure.
-This is the package (yes, we use the same word to mean two different things...) structure that we encountered in the refactoring section - a directory containing an `__init__.py` and our Python source code files.
+The final preparation we need to do is to make sure that our code is organised in the recommended structure.
+This is the Python module structure - a directory containing an `__init__.py` and our Python source code files.
+Make sure that the name of this Python package (`inflammation` - unless you've renamed it) matches the name of your distributable package in `pyproject.toml` unless you've chosen to explicitly list the module packages.
 
-We've provided an example of a semi-realistic Python application in the code directory for today.
-By convention installable package (the type we install with `pip`) names use hyphens, whereas code package (a directory of Python files) names use underscores.
-While we could choose to use underscores in an installable package name, we cannot use hyphens in a code package name, as Python will interpret them as a minus sign when we try to import them.
+By convention distributable package names use hyphens, whereas module package names use underscores.
+While we could choose to use underscores in a distributable package name, we cannot use hyphens in a module package name, as Python will interpret them as a minus sign in our code when we try to import them.
 
-Once we've got our `pyproject.toml` configuration done and our code in the right structure, we can go ahead and build a distributable version of our software:
+Once we've got our `pyproject.toml` configuration done and our project is in the right structure, we can go ahead and build a distributable version of our software:
 
 ~~~
 $ poetry build
@@ -180,6 +189,7 @@ We could also rely on Bash's autocomplete functionality and type `dist/inflammat
 After we've been working on our code for a while and want to publish an update, we just need to update the version number in the `pyproject.toml` file (using [SemVer](https://semver.org/) perhaps), then use Poetry to build and publish the new version.
 If we don't increment the version number, people might end up using this version, even though they thought they were using the previous one.
 Any re-publishing of the package, no matter how small the changes, needs to come with a new version number.
+The advantage of [SemVer](https://semver.org/) is that the change in the version number indicates the degree of change in the code and thus the degree of risk of breakage when we update.
 
 ~~~
 $ poetry build
@@ -195,8 +205,8 @@ Every repository may be configured slightly differently, so we'll leave that to 
 
 ## What if We Need More Control?
 
-Sometimes we need more control over the process of building our installable package than Poetry allows.
-In these cases, we have to use the method that existed before Poetry - a `setup.py` file.
+Sometimes we need more control over the process of building our distributable package than Poetry allows.
+In these cases, we have to use the method that we've seen already in this course - a `setup.py` file.
 Because this is a Python file, we can use the full power of Python to describe how to setup our project.
 
 One of the common cases where this is particularly useful is if our project has components in different languages.
@@ -206,7 +216,7 @@ Using a `setup.py` gives us the flexibility to handle building these components 
 > ## Our Own `setup.py` (Optional)
 >
 > The [Python Packaging User Guide](https://packaging.python.org/) provides documentation on [how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/) using `setup.py`.
-> Using this documentation, can you produce a `setup.py` file for our Poetry project?
+> Using this documentation, can you produce a `setup.py` file which is equivalent to our `pyproject.toml`?
 >
 > Which configuration style do you prefer for projects like this one?
 {: .challenge}
