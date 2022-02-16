@@ -19,19 +19,14 @@ The software project template repository used for this lesson is available at:
 
 The lesson is using the official [Carpentries lesson template][styles].
 
-### Running & Modifying the Lesson Locally
-
-See the [following instructions](https://carpentries.github.io/lesson-example/#ten-things-you-need-to-know) 
-for compiling and running the lesson locally and making any changes.
-
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
 questions, concerns, or experience any difficulties along the way.
 
 We'd like to ask you to familiarize yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
-the [more detailed guidelines][lesson-example] on proper formatting, ways to render the lesson locally, and even
-how to write new episodes.
+the [more detailed guidelines][lesson-example] on proper formatting, instructions on compiling and rendering the lesson locally, and 
+making any changes and adding new content or episodes.
 
 Please see the current list of [issues][issues] for ideas for contributing to this
 repository. For making your contribution, we use the GitHub flow, which is
