@@ -94,6 +94,14 @@ def test_patient_normalise(test, expected):
 ~~~
 {: .language-python}
 
+We must also add an import at the top of `tests/test_models.py`.
+
+~~~
+import numpy as np
+~~~
+{: .language-python}
+
+
 Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly. Also, we are using the `assert_almost_equal()` Numpy testing function instead of `assert_array_equal()`, since it allows us to test against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
 
 Run the tests again using `pytest tests/test_models.py` and you will note that the new test is failing, with an error message that does not give many clues as to what went wrong.
