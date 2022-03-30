@@ -1,12 +1,12 @@
 ---
-title: "Python Coding Conventions"
+title: "Python Code Style Conventions"
 start: false
 teaching: 20
 exercises: 15
 questions:
-- "Why should you follow software coding conventions?"
-- "Who is setting coding conventions?"
-- "What coding conventions exist for Python?"
+- "Why should you follow software code style conventions?"
+- "Who is setting code style conventions?"
+- "What code style conventions exist for Python?"
 objectives:
 - "Understand the benefits of following community coding conventions"
 keypoints:

@@ -14,7 +14,6 @@ objectives:
 keypoints:
 - "Collaborative techniques and tools play an important part of research software development in teams."
 ---
-    
 {% comment %}
 Examples of 'good' code best practices (from Steve's slides):
 Correct – does what it’s intended to do
