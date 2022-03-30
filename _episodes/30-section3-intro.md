@@ -1,5 +1,5 @@
 ---
-title: "Section 3: Collaborative Software Design and Development for Reuse"
+title: "Section 3: Software Architecture and Design"
 colour: "#fafac8"
 start: true
 teaching: 5

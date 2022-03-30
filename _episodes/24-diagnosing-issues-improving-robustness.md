@@ -34,10 +34,10 @@ This is where using a **debugger** can be useful.
 ## Setting the Scene
 
 Let us add a new function called `patient_normalise()` to our inflammation example to normalise a
-given inflammation data array so that all entries fall between 0 and 1. To normalise each patient's inflammation
-data we need to divide it by the maximum inflammation experienced by that patient.
-
-To do so, we can add the following code to `inflammation/models.py`:
+given inflammation data array so that all entries fall between 0 and 1.
+(Make sure you create a new feature branch for this work off your `develop` branch.) 
+To normalise each patient's inflammation data we need to divide it by the maximum inflammation 
+experienced by that patient. To do so, we can add the following code to `inflammation/models.py`:
 
 ~~~
 def patient_normalise(data):
@@ -46,8 +46,8 @@ def patient_normalise(data):
     return data / max_data[:, np.newaxis]
 ~~~
 {: .language-python}
-**Note:** *there is an intentional mistake in the above code, which will be detected by further testing below so bear 
-with us for the moment!*
+**Note:** *there are intentional mistakes in the above code, which will be detected by further testing and code 
+style checking below so bear with us for the moment!*
 
 In the code above, we first go row by row and find the maximum inflammation value for each patient and
 store these values in a 1-dimensional NumPy array `max_data`. We then want to use
@@ -395,7 +395,7 @@ def test_patient_normalise(test, expected, expect_raises):
 
 Be sure to commit your changes so far and push them to GitHub.
 
-> ## Optional Advanced Challenge: Add a Precondition to Check the Correct Type and Shape of Data
+> ## Optional Challenge: Add a Precondition to Check the Correct Type and Shape of Data
 >
 > Add preconditions to check that data is an `ndarray` object and that it is of the correct shape.
 > Add corresponding tests to check that the function raises the correct exception.
@@ -487,5 +487,96 @@ from the csv file (in `load_csv`), and therefore there is no reason to test this
 You can also decide against adding explicit preconditions in your code, and instead state the assumptions and
 limitations of your code for users of your code in the docstring and rely on them to invoke your code correctly.
 This approach is useful when explicitly checking the precondition is too costly.
+
+## Improving Robustness with Automated Code Style Checks 
+
+Let's run Pylint over our project again after having added some more code to it. From the project root do:
+
+~~~
+$ pylint inflammation
+~~~
+{: .language-bash}
+
+You may see something like the following in Pylint's output:
+
+~~~
+************* Module inflammation.models
+...
+inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
+...
+~~~
+{: .language-bash}
+
+The above output indicates that by using the local variable called `max` it the `patient_normalise` function, 
+we have redefined a built-in Python function called `max`. This isn't a good idea and may have some undesired effects.
+Let's rename our local variable (e.g. call it `max_data`), then commit these latest changes and push them to GitHub.
+
+It may be hard to remember to run linter tools every now and then. Luckily, we can now add this Pylint execution to our 
+continuous integration builds as on of the extra tasks. 
+For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml` at the end:
+
+~~~
+...
+    - name: Check style with Pylint
+      run: |
+        python3 -m pylint --fail-under=0 --reports=y inflammation
+...
+~~~
+{: .language-bash}
+
+Note we need to add `--fail-under=0` otherwise the builds will fail if we don't get a 'perfect' score of 10! 
+This seems unlikely, so let's be more pessimistic. We've also added `--reports=y` which will give us a more detailed 
+report of the code analysis.
+
+Then we can just add this to our repo and trigger a build:
+
+~~~
+$ git add .github/workflows/main.yml requirements.txt
+$ git commit -m "Add Pylint run to build"
+$ git push
+~~~
+{: .language-bash}
+
+Then once complete, under the build(s) reports you should see an entry with the output from Pylint as before, 
+but with an extended breakdown of the infractions by category as well as other metrics for the code, 
+such as the number and line percentages of code, docstrings, comments, and empty lines.
+
+So we specified a score of 0 as a minimum which is very low. If we decide as a team on a suitable minimum score for 
+our codebase, we can specify this instead. There are also ways to specify specific style rules that shouldn't be broken 
+which will cause Pylint to fail, which could be even more useful if we want to mandate a consistent style.
+
+We can specify overrides to Pylint's rules in a file called `.pylintrc` which Pylint can helpfully generate for us. 
+In our repository root directory:
+
+~~~
+$ pylint --generate-rcfile > .pylintrc
+~~~
+{: .language-bash}
+
+Looking at this file, you'll see it's already pre-populated. No behaviour is currently changed from the default by 
+generating this file, but we can amend it to suit our team's coding style. For example, a typical rule to customise - 
+favoured by many projects - is the one involving line length. 
+You'll see it's set to 100, so let's set that to a more reasonable 120. 
+While we're at it, let's also set our `fail-under` in this file:
+
+~~~
+...
+# Specify a score threshold to be exceeded before program exits with error.
+fail-under=0
+...
+# Maximum number of characters on a single line.
+max-line-length=120
+...
+~~~
+{: .language-bash}
+
+Don't forget to remove the `--fail-under` argument to Pytest in our GitHub Actions configuration file too, 
+since we don't need it anymore.
+
+Now when we run Pylint we won't be penalised for having a reasonable line length. 
+For some further hints and tips on how to approach using Pylint for a project, see [this article](https://pythonspeed.com/articles/pylint/).
+                  
+Before moving on, be sure to commit all you changes and then merge to the `develop` and `main` branches in the usual 
+manner, and push them all to GitHub.
 
 {% include links.md %}
