@@ -222,10 +222,9 @@ be seen as a reflection those requirements - checking if the requirements are sa
 1. You have finished with adding your code and are ready for the others in the team to review them.
 2. Push your local feature branch remotely to the shared repository.
 3. Head over to GitHub and locate your branch from the repository home page. 
-4. Open a pull request by clicking "Create pull request" button. 
-    
-    TODO: add a screenshot
-5. Select the base and the head branch - e.g. `feature-SR2` and `feature-SR2-tests`, respectively. 
+4. Open a pull request by clicking "Compare & pull request" button.
+   ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
+5. Select the base and the head branch - e.g. `feature-SR1` and `feature-SR1-tests`, respectively. 
 6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
 7. At this point, the code review process is initiated.
 
@@ -244,8 +243,7 @@ Perform the above actions on the pull request you received, this time acting as 
 
 1. Once the moderator approves your changes, either one of you can merge onto the base branch. Typically, it is 
 the responsibility of the code's author to do the merge but this may differ from team to team.
-
-    TODO: add a screenshot
+   ![Merging a pull request in GitHub](../fig/github-merge-pull-request.png){: .image-with-shadow width="900px"}
 2. Delete the merged branch to reduce the clutter in the repository.
 
 Repeat the above actions for the pull request you received.
