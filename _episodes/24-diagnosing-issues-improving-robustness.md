@@ -70,7 +70,7 @@ Now the division will give us the expected result. Even though the shapes are no
 NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max` array is now
 "stretched" ("broadcast") to match that of `data` - i.e. `(60, 40)`, and element-wise division can be performed.
 
-![NumPy arrays' shapes after broadcasting](../fig/numpy-shapes-after-broadcasting.png){: .image-with-shadow width="600px"}
+![NumPy arrays' shapes after broadcasting](../fig/numpy-shapes-after-broadcasting.png){: .image-with-shadow width="700px"}
 
 > ## Broadcasting
 >
@@ -510,7 +510,9 @@ inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin
 {: .language-bash}
 
 The above output indicates that by using the local variable called `max` it the `patient_normalise` function, 
-we have redefined a built-in Python function called `max`. This isn't a good idea and may have some undesired effects.
+we have redefined a built-in Python function called `max`. This isn't a good idea and may have some undesired 
+effects (e.g. if you redefine a built-in name in a global scope you may cause yourself some trouble 
+which may be difficult to trace).
 
 > ## Fix Code Style Errors
 >
