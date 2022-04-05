@@ -7,10 +7,9 @@ questions:
 - "What tools can help with maintaining a consistent code style?"
 - "How can we automate code style checking?"
 objectives:
-- "Use code linting tools to verify a program's adherence to a Python code style"
-- "Integrate linting tool style checking into a continuous integration job"
+- "Use code linting tools to verify a program's adherence to a Python coding style convention."
 keypoints:
-- "Use linting tools on the command line or via continuous integration to automatically check your code style."
+- "Use linting tools on the command line (or via continuous integration) to automatically check your code style."
 ---
 
 ## Verifying Code Style Using Linters
