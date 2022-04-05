@@ -29,10 +29,8 @@ Discoverable – others can understand quickly + easily
 Simple – modular
 Pick the properties that are relevant to your project - e.g. trade off between time, efficiency and performance, 
 the levels of software reusability - this will dictate practices and the level of development.  This can lead to a discussion.
-
 Reiterate some of the key messages.
 {% endcomment %}
-
 
 ## Summary
 As part of this course we have looked at a core set of established, intermediate-level software development tools and 
@@ -58,6 +56,7 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 ## Further Resources
 Below are some additional resources to help you continue learning:
 
+- [Additional episode on functional programming](../functional-programming)
 - [Additional episode on databases](../databases)
 - [Additional episode on verifying code style using linters](../verifying-code-style-linters)
 - [CodeRefinery courses on FAIR (Findable, Accessible, Interoperable, and Reusable) software practices][coderefinery-lessons] 

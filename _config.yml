@@ -91,7 +91,7 @@ extras_order:
   - about
   - figures
   - guide
-  - discuss
+  - functional-programming
   - persistence
   - databases
   - verifying-code-style-linters

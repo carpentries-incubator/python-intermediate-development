@@ -19,7 +19,7 @@ We've seen how we can use PyCharm to help us format our Python code in a consist
 This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand 
 if it's consistent.
 
-We can also use tools to identify consistency issues in a report-style too, using code **linters**. 
+We can also use tools to identify consistency issues in a report-style too, using [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29). 
 Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well 
 used one of these called `pylint`.
 
@@ -71,8 +71,8 @@ Pylint can also identify **code smells**.
 {: .callout}
 
 Pylint recommendations are given as warnings or errors, and Pylint also scores the code with an overall mark. 
-We can look at a specific file, or a module. Let's look at our `inflammation` module and code inside it (namely 
-`models.py` and `views.py`). 
+We can look at a specific file (e.g. `inflammation-analysis.py`), or a module 
+(e.g. `inflammation`). Let's look at our `inflammation` module and code inside it (namely `models.py` and `views.py`). 
 From the project root do:
 
 ~~~
@@ -85,44 +85,20 @@ You should see an output similar to the following:
 ~~~
 ************* Module inflammation.models
 inflammation/models.py:5:82: C0303: Trailing whitespace (trailing-whitespace)
-inflammation/models.py:20:0: C0301: Line too long (111/100) (line-too-long)
-inflammation/models.py:29:0: C0301: Line too long (111/100) (line-too-long)
 inflammation/models.py:6:66: C0303: Trailing whitespace (trailing-whitespace)
 inflammation/models.py:34:0: C0305: Trailing newlines (trailing-newlines)
-
 ************* Module inflammation.views
 inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
 
------------------------------------
-Your code has been rated at 8.00/10
-~~~
-{: .output}
-      
-We can also run Pylint on an individual file:
-
-~~~
-pylint inflammation-analysis.py
-~~~
-{: .language-bash}
- 
-with the output similar to:
-~~~
-************* Module inflammation-analysis
-inflammation-analysis.py:24:0: C0301: Line too long (157/100) (line-too-long)
-inflammation-analysis.py:1:0: C0103: Module name "inflammation-analysis" doesn't conform to snake_case naming style (invalid-name)
-inflammation-analysis.py:9:9: W0621: Redefining name 'args' from outer scope (line 37) (redefined-outer-name)
-inflammation-analysis.py:16:4: C0103: Variable name "InFiles" doesn't conform to snake_case naming style (invalid-name)
-inflammation-analysis.py:18:8: C0103: Variable name "InFiles" doesn't conform to snake_case naming style (invalid-name)
-
------------------------------------
-Your code has been rated at 6.67/10
+------------------------------------------------------------------
+Your code has been rated at 8.00/10 (previous run: 8.00/10, +0.00)
 ~~~
 {: .output}
 
-Your own outputs of the above commands will vary depending on how you have implemented and fixed the code in 
+Your own outputs of the above commands may vary depending on how you have implemented and fixed the code in 
 previous exercises and the coding style you have used. 
 
-The five digit code e.g. `C0301` is a unique identifier for that type of warning, with the first character indicating 
+The five digit code e.g. `C0303` is a unique identifier for that type of warning, with the first character indicating 
 the type of warning. There are five different types of warning that Pylint looks for, and you can get a summary of 
 them by doing:
 
@@ -147,8 +123,8 @@ Near the end you'll see:
 ~~~
 {: .output}
 
-So for an example of a Pylint Python-specific `warning`, see unused numpy imported as np or 
-accidental redefining of the name 'args' from outer scope warnings.
+So for an example of a Pylint Python-specific `warning`, see the "W0611: Unused numpy imported 
+as np (unused-import)" warning.
 
 It's important to note that while tools such as Pylint are great at giving you a starting point to consider how to 
 improve your code, they won't find everything that may be wrong with it.
