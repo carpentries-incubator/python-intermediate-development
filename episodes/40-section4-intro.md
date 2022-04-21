@@ -1,34 +1,40 @@
 ---
-title: "Section 4: Improving and Managing Software Over Its Lifetime"
+title: "Section 4: Collaborative Software Development for Reuse"
 colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
 questions:
-- "How do we manage the process of improving our software?"
-- "How do we ensure we reuse other people's code while maintaining the sustainability of our own software?"
+- "What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?"
 objectives:
-- "Understand the importance of critical reflection to improving software quality and reusability."
-- "Improve software through feedback, work estimation, prioritisation and agile development."
+- "FIXME"
 keypoints:
-- "For software to succeed it needs to be managed as well as developed."
-- "Estimating the effort to deliver work items is a foundational tool for prioritising that work."
+- "Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
 
-In this section of the course we look at managing the **development and evolution** of software -
-how to improve the quality and reusability of our software for others as well as ourselves 
-and how to assess other people's software for reuse within our project.
-The focus in this section will also move beyond software development to **management**: 
-management of how the outside world interacts with and makes use of our software, 
-how others can interact with ourselves to report issues, and the ways we can successfully manage software 
-improvement in response to feedback.
+FIXME: revise intro
 
-![Managing software](../fig/section4-overview.png){: .image-with-shadow width="800px" }
+When changes - particularly big changes - are made to a codebase, how can we as a team ensure that these changes are well considered and represent good solutions?
+And how can we increase the overall knowledge of a codebase across a team?
+Sometimes project goals and time pressures take precedence and producing maintainable, reusable code is not given the
+time it deserves. So, when a change or a new feature is needed - often the shortest route to making it work is taken
+as opposed to a more well thought-out solution. For this reason, it is important not to write the code alone and in
+isolation and use other team members verify each other's code and measure our coding standards against.
+This process of having multiple team members comment on key code changes is called *code review* -
+this is one of the most important practices of collaborative software development that helps ensure
+the ‘good’ coding standards are achieved and maintained within a team.
+We'll thus look at the benefits of reviewing code,
+in particular, the value of this type of activity within a team,
+and how this can fit within various ways of team working.
+We'll see how GitHub can support code review activities via pull requests,
+and how we can do these ourselves making use of best practices.
 
-In this section we will:
+After that, we'll look at some general principles of software maintainability and the benefits that writing maintainable
+code can give you. There will also be some practice at identifying problems with existing code, and some general, established practices you can apply when writing new code or to the code you've already written.
+We'll also look at how we can package software for release and distribution, using **Poetry** to manage our Python dependencies and produce a code package we can use with a Python package indexing service to illustrate these principles.
 
-- Explore ways for us to **track issues with our software** registered by ourselves and external users, and how we should employ a critical mindset when reviewing software for reuse.
-- Examine how we can manage the **improvement of our software through feedback** using agile management techniques. We'll employ effort estimation of development tasks as a foundational tool for prioritising future team work, and use the MoSCoW approach and software development sprints to manage improvement. As we will see, it is very difficult to prioritise work effectively without knowing both its relative importance to others as well as the effort required to deliver those work items.
+![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+
 
 {% include links.md %}
 
