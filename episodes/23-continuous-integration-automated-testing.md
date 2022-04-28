@@ -241,7 +241,7 @@ $ git push
 ~~~
 {: .language-bash}
 
-If we go to our GitHub build now, we can see that a new job has been created for each permutation.
+If we go to our GitHub build now, we can see that a new job has been created for each permutation (the Python versions referenced will differ from the 3.7 and 3.8 depicted):
 
 ![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="1000px"}
 

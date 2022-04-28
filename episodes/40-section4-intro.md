@@ -1,42 +1,18 @@
 ---
-title: "Section 4: Collaborative Software Design and Development for Reuse"
+title: "Section 4: Collaborative Software Development for Reuse"
 colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
 questions:
-- "What are some best practices for collaborative code development available to help us design and write 'good'
-software that will make it easier for us and others to further develop and reuse it?"
+- "What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?"
 objectives:
-- "Look at the bigger picture of software as a process of development: from 'good' software design
-based on clear requirements to an implementation that meets those requirements."
+- "FIXME"
 keypoints:
-- "By deliberately designing our software, we can avoid or mitigate many of the common issues encountered when working
-with legacy software and/or accumulated 'technical debt'."
-- "Agreeing on a set of best practices within a software development team will help
-to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
+- "Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
 
-In this section, we will take a step back from coding development practices and tools and look at the bigger picture 
-of software as a *process* of development: from good software design based on clear requirements to an implementation 
-that meets those requirements, and how doing these things well makes it easier for others (including future versions 
-of ourselves) to develop and reuse our software.
-
-We will first look a bit past the language specifics and capabilities of Python and into
-different software design paradigms and design architectures to understand a broader set of approaches
-you can take to design software. Modern software will often contain instances of multiple paradigms so it is
-worthwhile being familiar with them and knowing when to switch in order to make maintainable code.
-Normally, you would make these design considerations early on - before you even start writing code.
-However, sometimes you
-inherit code from someone else or you yourself have written some code that now needs to grow and become more robust.
-At this point, before your software grows even more and becomes harder to manage,
-it becomes particularly important that you reconsider its design - is it still fit for purpose, or are modifications 
-and extensions becoming increasingly difficult to make?
-
-We'll also see how requirements fit into software development,
-as well as different classes of requirements and how to interpret them.
-We'll look at how to take these forward through design to implementation,
-and what needs to be considered when writing unit tests to see if an implementation satisfies its requirements.
+FIXME: revise intro
 
 When changes - particularly big changes - are made to a codebase, how can we as a team ensure that these changes are well considered and represent good solutions?
 And how can we increase the overall knowledge of a codebase across a team?
@@ -58,6 +34,7 @@ code can give you. There will also be some practice at identifying problems with
 We'll also look at how we can package software for release and distribution, using **Poetry** to manage our Python dependencies and produce a code package we can use with a Python package indexing service to illustrate these principles.
 
 ![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+
 
 {% include links.md %}
 
