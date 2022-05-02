@@ -27,7 +27,7 @@ The software project template repository used for this lesson is available at:
 The lesson is using the official [Carpentries lesson template][styles].
 
 ### Lesson Status
-The lesson is currently in the beta status - it has be tested several times with 
+The lesson is currently in the beta status - it has been tested several times with 
 different cohorts and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
@@ -72,7 +72,7 @@ under the [MIT license][mit-license]. For more information, see [LICENSE.md](LIC
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION).
+To cite this lesson, please consult [CITATION](CITATION).
 
 ## Acknowledgements
 
