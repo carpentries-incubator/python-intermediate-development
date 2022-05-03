@@ -19,6 +19,15 @@ The software project template repository used for this lesson is available at:
 
 The lesson is using the official [Carpentries lesson template][styles].
 
+### Lesson Status
+The lesson is currently in the beta status - it has been tested several times with 
+different cohorts and is in a good state to be reused and taught by others.
+
+## Teaching the Lesson
+If you would like to teach this lesson to your audience and help with beta testing, 
+please let the lesson developers know by opening an [issue][issues] with your workshop details and a 
+label 'pilot'.
+
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
