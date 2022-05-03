@@ -32,8 +32,8 @@ At the workshop, everyone in the traning team is a helper. You may have more exp
 Roles and responsibilities of helpers include:
 - Being familiar with the material
 - Facilitating groups/breakout rooms and helping people going through the material
-- Taking notes on what works well and what not - throughout the workshop - from your perspective and perspectives of students
-  - Collect general feelings and comments
+- Taking notes on what works well and what not - throughout the workshop - from your perspective and perspectives of students:
+  - Collecting general feelings and comments
   - Your thoughts as potential student and instructor
 - Noting mistakes, inconsistencies and learning obstacles in the materials
 - Recording issues or doing PRs in the lesson repository during or after of the workshop
