@@ -4,7 +4,7 @@ title: "Instructor Notes"
 
 > ## Common Issues & Tips
 > Check out a [list of issues](../common-issues) previous 
-> participants of the course encountered and some tips to help you with troubleshooting and running the tools.
+> participants of the course encountered and some tips to help you with troubleshooting at the workshop.
 {: .callout} 
 
 
