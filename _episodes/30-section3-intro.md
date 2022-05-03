@@ -1,5 +1,5 @@
 ---
-title: "Section 3: Developing Software to meet Requirements"
+title: "Section 3: Developing Software to Meet Requirements"
 colour: "#fafac8"
 start: true
 teaching: 5
