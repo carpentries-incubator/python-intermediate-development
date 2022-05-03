@@ -88,7 +88,7 @@ for our project from the command line and PyCharm is clever enough to understand
 #### Adding a Python Interpreter
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
-   `Project Interpreter` from the left. You'll
+   `Python Interpreter` from the left. You'll
    see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
    being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Python Interpreter` window will appear.
