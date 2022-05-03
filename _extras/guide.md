@@ -11,12 +11,14 @@ title: "Instructor Notes"
 ## Course Design
 The course follows a narrative around a software development team working on an existing software project that is analysing patients’ inflammation data (from the [novice Software Carpentry Python course](https://software-carpentry.org/lessons). A typical learner for the course is someone who has gained foundational software development skills in using Git, command line shell and Python (e.g. by attending prior courses or by self-learning). They are now joining the development team where they will require a number of software development tools and intermediate software development skills to engineer their code more properly taking into consideration the lifecycle of software, team ethic, writing software for stakeholders, and applying a process to understanding, designing, building, releasing, and maintaining software. 
 
-The course has been separated into four sections which can be delivered in 4 half-day units: 
+The course has been separated into 4 sections: 
 
 - Section 1: Setting up Collaborative Software Development Environment
 - Section 2: Verifying Software Correctness at Scale
 - Section 3: Developing Open Source and Inner Source Ready Code
 - Section 4: Managing the Quality and Evolution of Software
+
+Each section can be delivered in 4 half-day units (try to allow 4 hours for each half-day).
 
 ## Course Delivery
 The course is intended for self-learning - students are organised in small groups but work individually through the material and have a bunch of helpers on hand to help with any issues and questions. This provides a more comfortable and less intimidating learning environment with learners more willing to engage and chat with their group colleagues about what they are doing and ask for help. While this course can be live-coded by an instructor as well, we felt that intermediate-level learners would not require this and are capable of going through the material on their own at a reasonable speed. Exercises in later sections include team work where learners from the ame group are asked to collaborate on a software project (to provide more in-depth practice for software development in teams). 
