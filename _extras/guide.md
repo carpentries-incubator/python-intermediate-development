@@ -26,7 +26,7 @@ A good ratio is 4-6 learners to 1 helper. If you have a smaller number of helper
 
 The workshop kicks off with everyone together at the start of each day, where course leads provide session introduction and explain what the students will be learning on each day. After that, participants are split into groups and go through the materials for that day on their own with helpers are on hand to answer questions. At the end of each day, all reconvene for a joint Q&A session, feedback and wrap-up. In addition to the section intros on each day, there is a course introduction and motivation on the first day of the workshop to set the overall scene and expectations. 
 
-## Helpers Roles and Responsibilities
+### Helpers Roles and Responsibilities
 At the workshop, everyone in the traning team is a helper. You may have more experienced helpers delivering introductions to the workshop and sections. Contact the course authors for intro slides you can reuse.
 
 Roles and responsibilities of helpers include:
@@ -39,5 +39,7 @@ Roles and responsibilities of helpers include:
 - Recording issues or doing PRs in the lesson repository during or after of the workshop
 - Helping students get through the material but also being ready answer questions on applying the material in learners’ domains, if possible
 
+### Group Exercises
+TODO
 
 {% include links.md %}
