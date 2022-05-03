@@ -4,6 +4,11 @@ title: Setup
 
 You will need the following software installed and working correctly on your system to be able to follow the course.
 
+> ## Common Issues & Tips
+> If you are having issues installing or running some of the tools below,
+check a list of [common issues](../common-issues) other course participants encountered and some useful tips for using the tools and working through the material.
+{: .callout}
+
 ## Command Line Tool
 You will need a command line tool (shell/console) in order to run Python scripts and version control your code with Git.
   - On Windows, it is recommended to use **Git Bash** (which is included in 
