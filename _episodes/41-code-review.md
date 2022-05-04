@@ -254,7 +254,7 @@ relating to different roles involved in the process. It is critical for the code
 that the team decides on this process and sticks to it. Here are some examples of best practices for you to consider 
 (also check these useful code review blogs from [Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB) and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
    
-1. Decide the focus of a code review process, e.g.:
+1. Decide the focus of your code review process, e.g., consider some of the following:
    - code design and functionality - does the code fit in the overall design and does it do what was intended? 
    - code understandability and complexity - is the code readable and would another developer be able to understand it?
    - tests - does the code have automated tests?
