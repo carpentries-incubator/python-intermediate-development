@@ -62,11 +62,13 @@ before the next section starts to make sure everyone is in sync as much as possi
 important for later workshop stages when students start with group exercises.
 
 ### Helpers Roles and Responsibilities
-At the workshop, everyone in the traning team is a helper. You may have more experienced helpers delivering introductions to the workshop and sections. Contact the course authors for intro slides you can reuse.
+At the workshop, everyone in the training team is a helper. You may have more experienced helpers delivering introductions to the workshop and sections. Contact the course authors for intro slides you can reuse.
 
 Roles and responsibilities of helpers include:
 - Being familiar with the material
 - Facilitating groups/breakout rooms and helping people going through the material
+- Try to prepare a few questions/discussion points to take to groups/breakout rooms to make sure the groups are engaged 
+(by note some learners may find discussions distracting so try and find a balance)
 - Taking notes on what works well and what not - throughout the workshop - from their individual perspective and perspectives of students:
   - Collecting general feelings and comments
   - Their thoughts as a potential student and instructor
@@ -75,6 +77,22 @@ Roles and responsibilities of helpers include:
 - Helping students get through the material but also being ready answer questions on applying the material in learners’ domains, if possible
 
 ### Group Exercises
-TODO: advice on how best to sync and organised group work
+Here is some advice on how best to sync and organise group exercises in later stages of the course.
+
+- For earlier workshop stages, where learners go through the material individually (though placed in groups), maintaining the
+same group composition is not all that important. However, it would be good to maintain the same teams once group exercises
+start, as group will chose one software project to be the "team project" to work on. 
+- Take a note of who was in which group between different days (e.g. in a share document where people can sign up), 
+as people tend to forget (especially for online workshop).
+- Some group exercises start in the middle (rather than at the beginning) of a section. This means that synchronisation 
+is needed to make sure everyone starts at the same time during that particular session. As some students will naturally 
+be ready faster, perhaps have a shared document for people to put their names down as they are ready to start with 
+the group exercises, and organise them in teams based on the speed they are covering the material. Even if these 
+groups change from previous days, it will ensure people's idle time is minimised.
+- People may lose motivation in the later stages involving teamwork if some team members are missing - while this may 
+be inevitable due to other commitments, make it clear during workshop advertising that people should try
+to commit workshop days/times.  
+- Make it obvious to the learners that they should catch up with any unfinished material or exercises from the previous 
+session before joining the next one - this is even more important for group exercises so the teams are not stalled.
 
 {% include links.md %}
