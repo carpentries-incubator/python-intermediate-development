@@ -7,12 +7,11 @@ exercises: 0
 questions:
 - "What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?"
 objectives:
-- "FIXME"
+- "Understand the code review process and employ it to improve the quality of code."
+- "Understand the process and best practices for preparing Python code for reuse by others."
 keypoints:
 - "Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
-
-FIXME: revise intro
 
 When changes - particularly big changes - are made to a codebase, how can we as a team ensure that these changes are well considered and represent good solutions?
 And how can we increase the overall knowledge of a codebase across a team?

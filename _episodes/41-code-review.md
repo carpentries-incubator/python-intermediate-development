@@ -9,8 +9,7 @@ objectives:
 - "Describe commonly used code review techniques."
 - "Understand how to do a pull request via GitHub to engage in code review with a team and contribute to a shared code repository."
 keypoints:
-- "Code review is a team software quality assurance practice where team members look at parts of the codebase in order 
-to improve code readability, understandability, quality and maintainability."
+- "Code review is a team software quality assurance practice where team members look at parts of the codebase in order to improve their code's readability, understandability, quality and maintainability."
 - "It is important to agree on a set of best practices and establish a code review process in a team to help to 
 sustain a good, stable and maintainable code for many years."
 ---
@@ -59,7 +58,7 @@ viewing parts of its source code.
 > ## Group Exercise: Advantages of Code Review
 > Discuss as a group: what is the rationale behind, and advantages of, code review?
 >> ## Solution 
->> The purpose of code review includes:
+>> The purposes of code review include:
 >> - improving internal code readability, understandability, quality and maintainability
 >> - checking for coding standards compliance, code uniformity and consistency
 >> - checking for test coverage and detecting bugs and code defects early
