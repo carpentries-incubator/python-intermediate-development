@@ -8,7 +8,6 @@ questions:
 - "How should we document and license our code?"
 objectives:
 - "Describe the different levels of software reusability"
-- "Use code linting tools to verify a program's adherence to a Python coding style"
 - "Explain why documentation is important"
 - "Describe the minimum components of software documentation to aid reuse"
 - "Create a repository README file to guide others to successfully reuse a program"
