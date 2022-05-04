@@ -23,14 +23,15 @@ development skills to engineer their code more properly taking into consideratio
 team ethic, writing software for stakeholders, and applying a process to understanding, designing, building, 
 releasing, and maintaining software. 
 
-The course has been separated into 4 sections: 
+The course has been separated into 5 sections: 
 
-- Section 1: Setting up Collaborative Software Development Environment
-- Section 2: Verifying Software Correctness at Scale
-- Section 3: Developing Open Source and Inner Source Ready Code
-- Section 4: Managing the Quality and Evolution of Software
+- Section 1: Setting Up Environment For Collaborative Code Development
+- Section 2: Ensuring Correctness of Software at Scale
+- Section 3: Developing Software to Meet Requirements
+- Section 4: Collaborative Software Development for Reuse
+- Section 5: Improving and Managing Software Over Its Lifetime
 
-Each section can be delivered in a half-day.
+Each section can be approximately delivered in a half-day (e.g. try to allow 4 hours per section).
 
 ## Course Delivery
 The course is intended primarily for self-learning but other modes of delivery are possible (e.g. mixing in elements 
