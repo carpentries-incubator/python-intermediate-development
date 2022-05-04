@@ -1,8 +1,9 @@
 ---
-title: "Developing Software In a Team"
+title: "Developing Software In a Team: Code Review"
 teaching: 15
 exercises: 30
 questions: 
+- "How do we develop software in a team?"
 - "What is code review and how it can improve the quality of code?"
 objectives:
 - "Describe commonly used code review techniques."
@@ -23,24 +24,8 @@ before we merged it into the main development stream. Software is often designed
 so in this episode we'll be looking at how to manage the process of team software development and improve our 
 code by engaging in code review process with other team members.
 
-Code review is one of the most useful team code development practices - someone checks your design or code for errors, they get to learn from your solution and having to 
-explain code to someone else clarifies your rationale and design decisions in your mind too, and collaboration 
-helps to improve the overall team software development process. It is universally applicable throughout
-the software development cycle - from design to development to maintenance. According to Michael Fagan, the 
-author of the [code inspection technique](https://en.wikipedia.org/wiki/Fagan_inspection), rigorous inspections can 
-remove 60-90% of errors from the code even before the 
-first tests are run ([Fagan, 1976](https://doi.org/10.1147%2Fsj.153.0182)). 
-Furthermore, according to Fagan, the cost to remedy a defect in the early (design) stage is 10 to 100 times less 
-compared to fixing the same defect in the development and maintenance 
-stages, respectively. Since the cost of bug fixes grows in orders of magnitude throughout the software 
-lifecycle, it is essential to find and fix defects as close as possible to the point where they were introduced.
-
-Before we dive into code review techniques, let's have a brief look into team software development models 
-used by Git/GitHub and similar distributed version control systems and code sharing platforms which may influence 
-the way how code reviews are implemented in your team.
-
-## Collaborative Code Development Models
-The way your team provides contributions to the shared codebase depends on the type of development model you use in your project. 
+> ## Collaborative Code Development Models
+> The way your team provides contributions to the shared codebase depends on the type of development model you use in your project. 
 Two commonly used models are:
 - **fork and pull model** - where anyone can **fork** an existing repository (to create their copy of the project linked to 
 the source) and push changes to their personal fork. 
@@ -59,7 +44,8 @@ when changes need to be made is still followed. This is to enable easier testing
 initiate code review and general discussion about a set of changes before they are merged 
 into the main development branch. This model is more prevalent with teams and organisations 
 collaborating on private projects.
-
+{: .callout}
+ 
 Regardless of the collaborative code development model you and your collaborators use - code reviews are one of the 
 widely accepted best practices for software development in teams and something you should adopt in your development 
 process too.
@@ -68,32 +54,40 @@ process too.
 
 [Code review][code-review] is a software quality
 assurance practice where one or several people from the team (different from the code's author) check the software by
-viewing parts of its source code with the purpose of:
+viewing parts of its source code.
 
-- improving internal code readability, understandability, quality and maintainability
-- checking for coding standards compliance, code uniformity and consistency
-- checking for test coverage and detecting bugs and code defects early
-- detecting performance problems and identifying code optimisation points
-- finding alternative/better solutions.
-
-An effective code review prevents errors from creeping into your software by improving code quality at an early
+> ## Group Exercise: Advantages of Code Review
+> Discuss as a group: what is the rationale behind, and advantages of, code review?
+>> ## Solution 
+>> The purpose of code review includes:
+>> - improving internal code readability, understandability, quality and maintainability
+>> - checking for coding standards compliance, code uniformity and consistency
+>> - checking for test coverage and detecting bugs and code defects early
+>> - detecting performance problems and identifying code optimisation points
+>> - finding alternative/better solutions. 
+>>
+>> An effective code review prevents errors from creeping into your software by improving code quality at an early
 stage of the software development process. It helps with learning, i.e. sharing knowledge about the codebase,
-solution approaches, expectations regarding quality, coding standards, etc. Developers use code review feedback 
-from more senior developers to improve their own coding practices and expertise. Finally, it helps increase the sense of 
-collective code ownership and responsibility, which in turn helps increase the "bus factor" and reduce the risk resulting from 
-information and capabilities being held by a single person "responsible" for a certain part of the codebase and 
+solution approaches, expectations regarding quality, coding standards, etc. Developers use code review feedback
+from more senior developers to improve their own coding practices and expertise. Finally, it helps increase the sense of
+collective code ownership and responsibility, which in turn helps increase the "bus factor" and reduce the risk resulting from
+information and capabilities being held by a single person "responsible" for a certain part of the codebase and
 not being shared among team members.
+> {: .solution}
+{: .challenge}
 
-Depending on the size of the team and its code review process, code review responsibilities are shared between
-(some of) the following roles:
-- **code author** is the writer of the ‘code under review’ who aims to improve the codebase in a certain aspect and 
-enhance their knowledge in the process.
-- **reviewers** are technical members of the team (potentially with different expertises)
-checking for defects, errors and further improvements in the code in accordance with the code 
-specifications, standards, and domain knowledge.
-- **moderator or review lead** is a skilled and technical team member who leads the review process and co-ordinates 
-with the author.
-- **manager** manages the execution of reviews, allocates time in the project schedule and sometimes also play the role of a reviewer.
+Code review is one of the most useful team code development practices - someone checks your design or code for errors,
+they get to learn from your solution, having to
+explain code to someone else clarifies your rationale and design decisions in your mind too, and collaboration
+helps to improve the overall team software development process. It is universally applicable throughout
+the software development cycle - from design to development to maintenance. According to Michael Fagan, the
+author of the [code inspection technique](https://en.wikipedia.org/wiki/Fagan_inspection), rigorous inspections can
+remove 60-90% of errors from the code even before the
+first tests are run ([Fagan, 1976](https://doi.org/10.1147%2Fsj.153.0182)).
+Furthermore, according to Fagan, the cost to remedy a defect in the early (design) stage is 10 to 100 times less
+compared to fixing the same defect in the development and maintenance
+stages, respectively. Since the cost of bug fixes grows in orders of magnitude throughout the software
+lifecycle, it is essential to find and fix defects as close as possible to the point where they were introduced.
 
 There are several **code review techniques** with various degree of formality and the use of 
 a technical infrastructure, including:
@@ -123,9 +117,8 @@ of other functionalities too, such as metrics (e.g. inspection rate, defect rate
 
 Each of the above techniques have their pros and cons and varying degrees practicality - 
 it is up to the team to decide which one is best and most suitable for the project and stick to it.
-We will have a look at GitHub's built-in code review tool - **pull requests** - which is lightweight, 
-included with GitHub's core service for free and has gained popularity within the software development community 
-in recent years.
+We will have a look at the **tool-assisted code review process** using GitHub's built-in code review tool - **pull requests**. It is a lightweight tool, included with GitHub's core service for free and has gained 
+popularity within the software development community in recent years.
 
 ## Code Reviews via GitHub's Pull Requests
 
@@ -136,8 +129,7 @@ on the team and add follow-up commits based on the feedback before your changes 
 the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
 moderators to **pull** your changes into the codebase. 
 
-Such changes are normally done in a 
-(feature) branch, to ensure that they are separate and self-contained and 
+Such changes are normally done on a (feature) branch, to ensure that they are separate and self-contained and 
 that the default branch only contains "production-ready" work. You create a branch for your work
 based on one of the existing branches (typically the `develop` branch but can be any other branch), 
 do some commits on that branch, and, once you are ready to merge your changes, create a pull request to bring 
@@ -163,18 +155,22 @@ a self-contained bundle.
 The only difference in creating a pull request between the two models is how you create the feature branch. 
 In either model, once you are ready to merge your changes in - you will need to specify the base branch and the head
 branch. 
+   
+## Code Review and Pull Requests In Action
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
-collaborating in the shared repository model. You will be added as a collaborator on your team member's repository 
-(which becomes the shared repository in this context) and, likewise, you will add your team member as a collaborator on your repository. 
+collaborating in the shared repository model. You will be added as a collaborator to another team member's repository (which becomes the shared repository in this context) and, likewise, you will add other team members as collaborators on your repository. You can form teams of 2 and work on each other's. If there are 3 members in your group you can go in a round robin fashion.
+
 Recall [Solution Requirements](/32-software-design/index.html#solution-requirements) SR1 and SR2 from the
-previous episode. Your team member has implemented SR1 or SR2 according to the specification  
+previous episode. Your teammate has implemented SR1 or SR2 according to the specification  
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure it satisfies the requirements. You will propose 
-changes to the shared repository a via pull request (acting as a code author) and engage in code review with your 
-team member (taking the roles of a repository moderator and code reviewer). 
-Similarly, you will receive a pull request on your repository from your team members, 
-in which case the roles will be reversed. To achieve this, the following steps are needed.
+changes to their repository (the shared repository in this context) via pull request 
+(acting as the code author) and engage in code review with your teammate (acting as a code reviewer). 
+Similarly, you will receive a pull request on your repository from another team member, 
+in which case the roles will be reversed. 
+
+To achieve this, the following steps are needed.
 
 #### Step 1: Adding Collaborators to a Shared Repository
 
@@ -251,7 +247,7 @@ Repeat the above actions for the pull request you received.
 If the work on the feature branch is completed and it is sufficiently tested, the feature branch can now be merged 
 into the `develop` branch.
 
-## Best Practices for Code Reviews
+## Best Practice for Code Review
         
 There are multiple perspectives to a code review process - from general practices to technical details 
 relating to different roles involved in the process. It is critical for the code's quality, stability and maintainability 
