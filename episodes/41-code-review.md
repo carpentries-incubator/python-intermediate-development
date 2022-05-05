@@ -158,10 +158,12 @@ branch.
 ## Code Review and Pull Requests In Action
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
-collaborating in the shared repository model. You will be added as a collaborator to another team member's repository (which becomes the shared repository in this context) and, likewise, you will add other team members as collaborators on your repository. You can form teams of 2 and work on each other's. If there are 3 members in your group you can go in a round robin fashion.
+collaborating in the shared repository model. You will be added as a collaborator to another team member's repository (which becomes the shared repository in this context) and, likewise, you will add other team members as collaborators on your repository. You can form teams of 2 and work on each other's repositories. If there are 3 members in your group you can go in a round robin fashion (the first team member does a pull request on the second member's repository and receives a pull request on their repository from the third team member). If you 
+are going through the material on your own and do not have a collaborator, you can do pull requests on your 
+own repository from one to another branch.
 
 Recall [Solution Requirements](/32-software-design/index.html#solution-requirements) SR1 and SR2 from the
-previous episode. Your teammate has implemented SR1 or SR2 according to the specification  
+previous episode. Your teammate has implemented SR1 or SR2 according to the specification 
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure it satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
