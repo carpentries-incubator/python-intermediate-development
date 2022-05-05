@@ -96,5 +96,15 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 {: .challenge}
 
 Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which - particularly in academia - may change over time.
+        
+  
+TODO: link tasks with project boards or milestones, discuss with Steve and James pros and cons of introducing project boards
+## Project Boards For Planning Sprints and Prioritisation
+
+Once your project board has a large number of cards on it, you might want to begin priorisiting them. Not all tasks are going to be equally important, and some will require others to be completed before they can even be begun. Common methods of prioritisation include:
+
+- **Vertical position**: the vertical arrangement of cards in a column implicitly represents their importance. High-priority bugs go to the top of `To Do`, whilst tasks that depend on others go beneath them. This is the easiest one to implement, though you have to remember to correctly place cards when you add them.
+- **Priority columns**: instead of a single `To Do` column, you can have two or more, for example - `To Do: Low Priority` and `To Do: High Priority`. When adding a card, you pick which is the appropriate column for it. You can even add a Triage column for newly-added issues that you’ve not yet had time to classify. This format works well for project boards devoted to bugs.
+- **Labels**: if you convert each card into an issue, then you can label them with their priority - remember GitHub lets you create custom labels and set their colours. Label colours can provide a very visually clear indication of issue priority but require more administrative work on the project, as each card has to be an issue to be assigned a label. If you choose this route for issue prioritisation - be aware of accessibility issues for colour-blind people when picking colours.
 
 {% include links.md %}
