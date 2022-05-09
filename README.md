@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
+
 # Intermediate Research Software Development Skills In Python
 
 This is a multi-day, intermediate-level lesson/course in software development skills for researchers using
