@@ -15,7 +15,7 @@ keypoints:
 - "For accurate effort estimation, it should be done by the people who will *actually do the work*."
 - "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
 - "Ask other team members - or do estimation as a team - to help make accurate estimates."
-- "MoSCoW is a useful tool for prioritising work to help ensure projects deliver successfully."
+- "MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully."
 - "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
 ---
 
