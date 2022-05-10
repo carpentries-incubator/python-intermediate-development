@@ -40,11 +40,11 @@ If you don't have VSCode running yet, start it up now. Select `File` > `Open Fol
 As in the previous chapter, we now want to create a virtual environment we can work in. Go to `Terminal` > `New Terminal` to open a new terminal session within the project directory, and run the command to create a new environment:
 
 ~~~
-python3 -m venv virtual_env
+python3 -m venv venv
 ~~~
 {: .language-bash}
 
-this will create a new folder `virtual_env`. VSCode will notice the new environment and ask if you want to use it as the default Python interpreter for this project, click "Yes":
+this will create a new folder `venv`. VSCode will notice the new environment and ask if you want to use it as the default Python interpreter for this project, click "Yes":
 
 ![use_env](../fig/use_env.png)
 
@@ -75,7 +75,7 @@ Any terminal you now open will start with the virtual environment already activa
 For this workshop you will need to install `pytest`, `numpy` and `matplotlib`, start a new terminal to activate the environment and run:
 
 ~~~
-pip install numpy matplotlib
+pip install numpy matplotlib pytest
 ~~~
 {: .language-bash}
 
