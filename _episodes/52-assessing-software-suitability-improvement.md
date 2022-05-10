@@ -29,7 +29,7 @@ Overall, when adopting software to use it's important to consider not only wheth
 > Time: 5 mins
 >
 > 1. Decide as a team on one of your repositories that will represent your group. You can do this any way you wish.
-> 2. Add the URL of the repository to the section in the Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team name in the empty table cell
+> 2. Add the URL of the repository to the section in a shared Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team name in the empty table cell.
 {: .challenge}
 
 > ## Conduct Assessment on Third-Party Software
@@ -38,9 +38,9 @@ Overall, when adopting software to use it's important to consider not only wheth
 >
 > Time: 20 mins
 >
-> 1. As a team, briefly decide who will assess which aspect of the repository, e.g. its docs, tests, codebase, etc.
-> 2. Obtain the URL for the repository you will assess from the Google Doc, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates from which team you should get their repository URL
-> 3. Conduct the assessment and register any issues you find on the other team's software repository
+> 1. As a team, briefly decide who will assess which aspect of the repository, e.g. its documentation, tests, codebase, etc.
+> 2. Obtain the URL for the repository you will assess from the Google Doc, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates from which team you should get their repository URL.
+> 3. Conduct the assessment and register any issues you find on the other team's software repository.
 > 4. Be meticulous in your assessment and register as many issues as you can!
 {: .challenge}
 

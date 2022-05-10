@@ -151,21 +151,21 @@ GitHub provides two project management tools for this purpose - **Milestones** a
 
 Both Milestones and Project Boards implement an agile development and project management system. 
 Milestones are good for [scrum-style project development and management](https://www.atlassian.com/agile/scrum) - 
-i.e. time-boxed, structured iterations and working in short sprints on batches of issues. Project Boards implement 
+i.e. timeboxed, structured iterations and working in short sprints on batches of issues. Project Boards implement 
 a [Kanban methodology](https://www.atlassian.com/agile/kanban) - 
 good for managing continuous delivery and steady flow of work in a project. 
 
 Both Project Boards and Milestones are a way of organising issues into smaller "sub-projects" (i.e. 
 smaller than the "project" represented by the whole repository). When should you use one over the other? 
 Project Boards provide a way of visualising and organising the work on an higher level (e.g. more suitable for 
-project management tasks) and are not time-bound. Milestones are a way to 
+project management tasks) and are not timeboxed (i.e. time-bound). Milestones are a way to 
 organise lower-level tasks that have deadlines and progress of which needs to be closely tracked 
 (e.g. release and version management). How you organise and partition your project work is up to you and the size 
 of your project. For example, you could create a project per 
 milestone or have several milestones in a single project, or split milestones into shorter sprints. 
 For a good description of differences between the two, have a look at [this answer on StackOverflow](https://stackoverflow.com/questions/39591795/what-is-the-difference-relationship-between-github-projects-and-milestones). 
-We will see Milestones in action in the next episode when we work with our team on a mini sprint - 
-let's have a brief look at Project Boards now.
+We will see Milestones in action soon when we work with our team on a mini sprint - 
+for now, let's have a brief look at Project Boards.
 
 ### Project Boards
 A Project Board (or Kanban board, from the Japanese word for a card) uses columns and cards to keep track of tasks. 
@@ -215,8 +215,32 @@ One common extra column that is typically seen is `On hold` or `Waiting` (you ca
 If you have tasks that get held up by waiting on other people (e.g. to respond to your questions) then moving them 
 to a separate column makes their current state clearer.
 
-> ## Working With Project Boards!
+> ## Working With Project Boards
 > Ideally, we'd have an exercise here. Or perhaps we can postpone for when more issues are added and/or more team work in involved.
+> 
+> An example exercise, for a want of a better one: Play around with a project board - practice with adding and closing 
+> notes and cards, adding and removing columns, closing issues, etc.
+> 
+> 5 min
 {: .challenge}
+
+> ## Prioritisation With Project Boards
+> Once your project board has a large number of cards on it, you might want to begin priorisiting them. 
+Not all tasks are going to be equally important, and some will require others to be completed before they 
+can even be begun. Common methods of prioritisation include:
+- **Vertical position**: the vertical arrangement of cards in a column implicitly represents their importance. 
+High-priority issues go to the top of `To Do`, whilst tasks that depend on others go beneath them. 
+This is the easiest one to implement, though you have to remember to correctly place cards when you add them.
+- **Priority columns**: instead of a single `To Do` column, you can have two or more, for example - 
+`To Do: Low Priority` and `To Do: High Priority`. When adding a card, you pick which is the appropriate column for it. 
+You can even add a `Triage` column for newly-added issues that you’ve not yet had time to classify. 
+This format works well for project boards devoted to bugs.
+- **Labels**: if you convert each card into an issue, then you can label them with their priority - remember GitHub 
+lets you create custom labels and set their colours. Label colours can provide a very visually clear indication of 
+issue priority but require more administrative work on the project, as each card has to be an issue to be assigned a 
+label. If you choose this route for issue prioritisation - be aware of accessibility issues for colour-blind people 
+when picking colours.
+>
+{: .callout}
 
 {% include links.md %}
