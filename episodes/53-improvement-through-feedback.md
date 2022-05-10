@@ -120,7 +120,7 @@ Depending on how many issues were registered on your repository, it's likely you
 
 > ## Project Boards For Planning Sprints
 > Remember, you can use project boards for higher-level project management - e.g. planning several sprints in advance 
-> (and use milestones for managing individual sprints).
+> (and use milestones for tracking progress on individual sprints).
 {: .callout}
 
 {% include links.md %}
