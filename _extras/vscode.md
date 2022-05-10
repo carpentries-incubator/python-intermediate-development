@@ -1,12 +1,15 @@
-# Microsoft Visual Studio Code
+---
+title: "Additional Material: Using Microsoft Visual Studio Code"
+---
 
 ## Installation
 
 VSCode is available from the project website [here](https://code.visualstudio.com/download). Users on Ubuntu can install the program via the package manager:
 
-```sh
+~~~
 sudo apt install code
-```
+~~~
+{: .language-bash}
 
 ### Extensions
 
@@ -36,9 +39,10 @@ If you don't have VSCode running yet, start it up now. Select `File` > `Open Fol
 
 As in the previous chapter, we now want to create a virtual environment we can work in. Go to `Terminal` > `New Terminal` to open a new terminal session within the project directory, and run the command to create a new environment:
 
-```sh
+~~~
 python3 -m venv virtual_env
-```
+~~~
+{: .language-bash}
 
 this will create a new folder `virtual_env`. VSCode will notice the new environment and ask if you want to use it as the default Python interpreter for this project, click "Yes":
 
@@ -70,9 +74,10 @@ Any terminal you now open will start with the virtual environment already activa
 
 For this workshop you will need to install `pytest`, `numpy` and `matplotlib`, start a new terminal to activate the environment and run:
 
-```sh
+~~~
 pip install numpy matplotlib
-```
+~~~
+{: .language-bash}
 
 ---
 
@@ -80,9 +85,10 @@ pip install numpy matplotlib
 
 If you are having issues with `pip` it may be your version is too old. Pip will usually inform you via a warning if a newer version is available, upgrade pip by running:
 
-```sh
+~~~
 pip install --upgrade pip
-```
+~~~
+{: .language-bash}
 
 before installing packages.
 
