@@ -3,16 +3,17 @@ title: "Managing a Collaborative Software Project"
 teaching: 15
 exercises: 30
 questions:
-- "What makes good code actually good?"
-- "What should we look for when selecting software to reuse?"
+- "How can we keep track of identified issues and the list of tasks the team has to do?"
+- "How can we communicate within a team on code-related issues and share responsibilities?"
+- "How can we plan, prioritise and manage tasks for future development?"
 objectives:
-- "Register and track issues with the code in our software project repository"
+- "Register and track progress on issues with the code in our project repository"
 - "Describe some different types of issues we can have with software"
 - "Manage communications on software development activities within the team using GitHub's notification system **Mentions**"
-- "Use GitHub's **Project Boards** for software project management, planning sprints and releases"
+- "Use GitHub's **Project Boards** and **Milestones** for software project management, planning sprints and releases"
 keypoints:
-- "We should use issues to keep track of software problems and other requests for change - even if we are the only developer and user."
-- "GitHub’s notifications system **Mentions** plays an important part in communicating between collaborators and is 
+- "We should use GitHub's **Issues** to keep track of software problems and other requests for change - even if we are the only developer and user."
+- "GitHub’s **Mentions** play an important part in communicating between collaborators and is 
 used as a way of alerting team members of activities and referencing one issue/pull requests/comment/commit from another."
 - "Without a good project and issue management framework, it can be hard to keep track of what’s done, or what needs doing, and 
 particularly difficult to convey that to others in the team or share the responsibilities."
@@ -29,7 +30,10 @@ in the team or share the responsibilities.
 
 ## Using GitHub to Manage Issues With Software
 
-As a piece of software is used, bugs and other issues will inevitably come to light - nothing is perfect! If you work on your code with collaborators, or have non-developer users, it can be helpful to have a single shared record of all the problems people have found with the code, not only to keep track of them for you to work on later, but to avoid the annoyance of people emailing you to report a bug that you already know about!
+As a piece of software is used, bugs and other issues will inevitably come to light - nothing is perfect! 
+If you work on your code with collaborators, or have non-developer users, it can be helpful to have a single shared 
+record of all the problems people have found with the code, not only to keep track of them for you to work on later, 
+but to avoid the annoyance of people emailing you to report a bug that you already know about!
 
 GitHub provides **Issues** - a framework for managing bug reports, feature requests, and lists of future work.
 
@@ -78,14 +82,15 @@ The `enhancement` label is a great way to communicate your future priorities to 
 >
 > Individually, with a critical eye, think of an aspect of the code you have developed so far that needs improvement. 
 > It could be a bug, for example, or a documentation issue with your README, a missing LICENSE file, or an enhancement. 
-> In GitHub, enter the details of the issue with a suitable label and select `Submit new issue`.
->
-> Try and record as many issues as you can with your project.
+> In GitHub, enter the details of the issue *with a suitable label* and select `Submit new issue`.
+> 
+> Do not forget to label your issue! 
 > 
 > Time: 10 mins
 {: .challenge}
 
 ### Issue (and Pull Request) Templates
+TODO: check with Steve and James if this mini section is needed - if there is too muc text we could cut this out.
 GitHub allows you to set up issue and pull request templates for your software project. 
 Such templates provide a structure for the issue/pull request descriptions, and/or prompt issue reporters and collaborators 
 to fill in answers to pre-set questions. They can help contributors raise issues or submit pull requests in a way 
@@ -138,37 +143,80 @@ and GitHub will render it nicely using the identifier's short form and link to t
 > Unfortunately, human memory isn't infallible! After spending six months writing your thesis, or a year working on a different sub-topic, it's inevitable you'll forget some of the plans you had and problems you faced. Not documenting these things can lead to you having to re-learn things you already put the effort into discovering before.
 {: .callout}
 
-## Software Project Management with GitHub's Project Boards
-Managing issues with your software project is one aspect of project management but it gives a relative flat 
+## Software Project Management in GitHub
+Managing issues within your software project is one aspect of project management but it gives a relative flat 
 representation of tasks and may not be as suitable for higher-level project management such as 
 prioritising tasks for future development, planning sprints and releases. Luckily, 
-GitHub provides a project management tool **Project Board** for this purpose. 
+GitHub provides two project management tools for this purpose - **Milestones** and **Project Boards**.
 
-A Project Board uses columns and cards to keep track of tasks. 
-You break down your project into smaller sub-projects or milestones (e.g. a software release), which in turn are split 
+Both Milestones and Project Boards implement an agile development and project management system. 
+Milestones are good for [scrum-style project development and management](https://www.atlassian.com/agile/scrum) - 
+i.e. time-boxed, structured iterations and working in short sprints on batches of issues. Project Boards implement 
+a [Kanban methodology](https://www.atlassian.com/agile/kanban) - 
+good for managing continuous delivery and steady flow of work in a project. 
+
+Both Project Boards and Milestones are a way of organising issues into smaller "sub-projects" (i.e. 
+smaller than the "project" represented by the whole repository). When should you use one over the other? 
+Project Boards provide a way of visualising and organising the work on an higher level (e.g. more suitable for 
+project management tasks) and are not time-bound. Milestones are a way to 
+organise lower-level tasks that have deadlines and progress of which needs to be closely tracked 
+(e.g. release and version management). How you organise and partition your project work is up to you and the size 
+of your project. For example, you could create a project per 
+milestone or have several milestones in a single project, or split milestones into shorter sprints. 
+For a good description of differences between the two, have a look at [this answer on StackOverflow](https://stackoverflow.com/questions/39591795/what-is-the-difference-relationship-between-github-projects-and-milestones). 
+We will see Milestones in action in the next episode when we work with our team on a mini sprint - 
+let's have a brief look at Project Boards now.
+
+### Project Boards
+A Project Board (or Kanban board, from the Japanese word for a card) uses columns and cards to keep track of tasks. 
+You break down your project into smaller sub-projects, which in turn are split 
 into tasks which you write on cards, then move the cards between columns that describe the status of each task. 
-Cards are usually small, descriptive and self-contained tasks that build on each other. Breaking a project/milestone 
+Cards are usually small, descriptive and self-contained tasks that build on each other. Breaking a project 
 down into clearly-defined tasks makes it a lot easier to manage. GitHub project boards interact and integrate with 
 the other features of the site such as issues and pull requests - cards can be added to track the progress of such 
 tasks and automatically moved between columns based on their progress or status.
 
-GitHub provides template boards that by default contain the following three ‘basic’ columns 
-with pretty self-explanatory names:
+GitHub provides several template boards to get you started. Let's use a "Basic Kanban" template 
+that by default contain the following three columns with pretty self-explanatory names:
 
 - `To Do`
 - `In Progress`
 - `Done`
 
-If you add an issue or pull request to a card in the board, it will automatically be moved to ‘Done’ for you when 
-you close the issue or merge the pull request. One common extra column is `On hold` or `Waiting`. If you have tasks 
-that get held up by waiting on other people (e.g. to respond to your questions) then moving them to a separate column 
-makes their current state clearer.
+1. To do so, from the Project tab of your repository, select "Projects" on the left, then click the `New project` 
+button on the right.
 
-You can also create a card without an issue. Such cards (or notes) can have detailed content like checklists. 
-GitHub also allows you to convert a card to an issue so you can add labels or detailed comments to it. Sometimes, 
-a card you thought was simple and self-contained might turn out to be a bigger task than you anticipated - in that 
-case, it is sensible to create new cards that reference the one they broke off from.
-     
-In one of the following episodes, we will use a Project Board to organise a sprint and prioritise work on our issues.
+    ![Adding a new project board in GitHub](../fig/github-new-board.png){: .image-with-shadow width="1000px"}
+
+2. In the form, populate the name and the description of the project - e.g. "Release 0.1" and "Tasks for planning 
+and delivering 0.1 release of our software", respectively. From the template drop-down, select "Basic Kanban".
+
+    ![Creating a project board in GitHub](../fig/github-create-board.png){: .image-with-shadow width="1000px"}
+
+    Note that, regardless of which board template you choose now, you can always add or remove columns from 
+    your project board later on to suit your use case.
+ 
+3. You can now add new notes or existing issues and pull requests 
+(which can be seen and filtered on the right and drag-and-dropped) to create cards in your board. 
+Notes on a project board serve as task reminders or to add information related to the project board.
+
+    ![Adding issues and notes to a project board in GitHub](../fig/github-board-add-note.png){: .image-with-shadow width="1000px"}
+
+    Notes contain task descriptions and can have detailed content like checklists. In some cases, e.g. if a note becomes 
+    too complex, you may want to convert it into an issue so you can add labels, assign them to team members or 
+    write more detailed comments (for that, use the `Convert to issue`
+    option from the `...` menu on the note). Sometimes, a card you thought was simple and self-contained might turn out to
+    be a bigger task than you thought. In that case, it might be sensible to create new cards that reference the one 
+    they broke off from (for that, use the `Copy card link` option from the `...` menu on the card).
+
+You can drag a card to `In Progress` column to indicate that you are working on it. Issues and pull requests on cards 
+will automatically be moved to the `Done` column for you when you close the issue or merge the pull request. 
+One common extra column that is typically seen is `On hold` or `Waiting` (you can add additional columns yourself). 
+If you have tasks that get held up by waiting on other people (e.g. to respond to your questions) then moving them 
+to a separate column makes their current state clearer.
+
+> ## Working With Project Boards!
+> Ideally, we'd have an exercise here. Or perhaps we can postpone for when more issues are added and/or more team work in involved.
+{: .challenge}
 
 {% include links.md %}
