@@ -5,7 +5,7 @@ start: true
 teaching: 5
 exercises: 0
 questions:
-- "How do we manage the process of improving our software?"
+- "How do we manage the process of developing and improving our software?"
 - "How do we ensure we reuse other people's code while maintaining the sustainability of our own software?"
 objectives:
 - "Understand the importance of critical reflection to improving software quality and reusability."
@@ -16,10 +16,12 @@ keypoints:
 ---
 
 In this section of the course we look at managing the **development and evolution** of software -
+how to keep track of the tasks the team has to do, 
 how to improve the quality and reusability of our software for others as well as ourselves 
 and how to assess other people's software for reuse within our project.
-The focus in this section will also move beyond software development to **management**: 
-management of how the outside world interacts with and makes use of our software, 
+The focus in this section will move beyond just software development to **software management**:
+internal planning and prioritising tasks for future development, 
+management of internal communication as well as how the outside world interacts with and makes use of our software, 
 how others can interact with ourselves to report issues, and the ways we can successfully manage software 
 improvement in response to feedback.
 
@@ -28,8 +30,12 @@ improvement in response to feedback.
 In this section we will:
 
 - Learn how to **track issues with our software** registered by ourselves and external users.
-- Learn to manage the **improvement of our software through feedback** using agile management techniques. 
-- We'll employ effort estimation of development tasks as a foundational tool for prioritising future team work, and use the MoSCoW approach and software development sprints to manage improvement. As we will see, it is very difficult to prioritise work effectively without knowing both its relative importance to others as well as the effort required to deliver those work items.
+- Learn how to **communicate within the team** on software development tasks effectively and efficiently.
+- Learn how to use GitHub's **Project Boards** and **Milestones** for project planning and management.
+- Learn to manage the **improvement of our software through feedback** using **agile** management techniques. 
+- Employ **effort estimation** of development tasks as a foundational tool for prioritising future team work, 
+and use the **MoSCoW approach** and software development **sprints** to manage improvement. As we will see, it is very 
+difficult to prioritise work effectively without knowing both its relative importance to others as well as the effort required to deliver those work items.
 - Learn how to employ a critical mindset when reviewing software for reuse.
 
 {% include links.md %}
