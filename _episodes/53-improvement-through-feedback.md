@@ -15,7 +15,7 @@ keypoints:
 - "For accurate effort estimation, it should be done by the people who will *actually do the work*."
 - "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
 - "Ask other team members - or do estimation as a team - to help make accurate estimates."
-- "MoSCoW is a useful tool for prioritising work to help ensure projects deliver successfully."
+- "MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully."
 - "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
 ---
 
@@ -45,7 +45,7 @@ It is often not the reality, but estimation should ideally be done by the people
 
 > ## Why is it so Difficult to Estimate?
 >
-> Estimation is a very valuable skill to learn, and one that is often difficult. Lack of experience in estimation can play a part, but a number of psychological causes can also contribute. One of these is Dunning-Kruger, a type of cognitive bias in which people tend to overestimate their abilities, whilst in opposition to this is imposter syndrome, where due to a lack of confidence people underestimate their abilities. The key message here is to be honest about what you can do, and find out as much information that is reasonably appropriate before arriving at an estimate.
+> Estimation is a very valuable skill to learn, and one that is often difficult. Lack of experience in estimation can play a part, but a number of psychological causes can also contribute. One of these is [Dunning-Kruger](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect), a type of cognitive bias in which people tend to overestimate their abilities, whilst in opposition to this is [imposter syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome), where due to a lack of confidence people underestimate their abilities. The key message here is to be honest about what you can do, and find out as much information that is reasonably appropriate before arriving at an estimate.
 >
 > More experience in estimation will also help to reduce these effects. So keep estimating!
 {: .callout}
@@ -75,14 +75,35 @@ In typical use, the ratio to aim for of requirements to the MH/SH/CH categories 
 
 Why is this important? Because it gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves, you have delivered a *successful* project.
 
-Once we've decided on those we'll work on (i.e. not Won't Haves), we can optionally assign them to a GitHub issue **milestone** to organise them. A milestone is a collection of issues to be worked on in a given period (or timebox). We can create a new one by selecting `Issues` on our repository, then `milestones` to display any existing milestones, then `New milestone`. We add in a title, a completion date (i.e. the end of this timebox), and any description for the milestone. Once created, we can view our issues and assign them to our milestone from the `Issues` page.
+### GitHub's Milestones
+
+Once we've decided on those we'll work on (i.e. not Won't Haves), we can (optionally) use a GitHub's 
+**Milestone** to organise them. Remember, a milestone is a collection of issues to be worked on in a given period 
+(or timebox). We can create a new one by selecting `Issues` on our repository, then `Milestones` to display any 
+existing milestones, then clicking the "New milestone" button to the right.
+![Milestones in GitHub](../fig/github-create-milestone.png){: .image-with-shadow width="1000px"}
+
+We add in a title, a completion date (i.e. the end of this timebox),
+and any description for the milestone. 
+
+![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
+
+Once created, we can view our issues and assign them to our milestone from the `Issues` page.
 
 > ## Prioritise!
 >
-> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. version 1.1
->
+> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. "Tidy up documentation" or "version 0.1".
 > Time: 10 mins
 {: .challenge}
+
+> ## Milestones in Project Boards
+> Milestones are also visible on project boards. If an issue or pull request belongs to a milestone, 
+> the name of the milestone will be displayed on the project card. 
+> You can add or remove an issue or pull request from milestones using the details sidebar, and filter your project 
+> cards by milestones using the search bar.
+>
+> ![Milestones in Project Boards](../fig/github-milestone-in-project-board.png){: .image-with-shadow width="900px"}
+{: .callout}
 
 ## Using Sprints to Organise and Work on Requirements
 
@@ -96,5 +117,10 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 {: .challenge}
 
 Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which - particularly in academia - may change over time.
+
+> ## Project Boards For Planning Sprints
+> Remember, you can use project boards for higher-level project management - e.g. planning several sprints in advance 
+> (and use milestones for tracking progress on individual sprints).
+{: .callout}
 
 {% include links.md %}
