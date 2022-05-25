@@ -8,6 +8,8 @@ The slides themselves are written in Jupyter notebooks which has the built-in ca
 python3 -m venv .venv  # it is important to use the dot prefix if you are creating this at the top level of this repo
 . .venv/bin/activate
 pip install jupyter
+# launch jupyter from the top level of this repo, **not** in the slide
+# directory or else the relative figure links won't work
 jupyter-notebook
 # navigate to the slide file and edit
 ```
