@@ -3,6 +3,7 @@ title: "Software Design"
 teaching: 15
 exercises: 30
 questions:
+- "Where do we start when beginning a new software project?"
 - "How can we make sure the components of our software are reusable?"
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
@@ -13,6 +14,7 @@ keypoints:
 - "The environment in which users run our software has an effect on many design choices we might make."
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
 Such components can be as small as a single function, or be a software package in their own right."
+- "When writing software used for research, requirements will almost *always* change."
 - "*'Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do.'*"
 ---
 
