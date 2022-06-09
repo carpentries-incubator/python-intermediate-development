@@ -15,7 +15,7 @@
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
-[functional-programming]: (https://en.wikipedia.org/wiki/Functional_programming
+[functional-programming]: https://en.wikipedia.org/wiki/Functional_programming
 [gdpr]: https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en
 [github-importer]: https://import2.github.com/
 [github-markdown]: https://guides.github.com/features/mastering-markdown/
