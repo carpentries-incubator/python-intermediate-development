@@ -1,24 +1,28 @@
 ---
-title: "Section 3: Collaborative Software Design and Development for Reuse"
+title: "Section 3: Developing Software to Meet Requirements"
 colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
 questions:
-- "What are some best practices for collaborative code development available to help us design and write 'good'
-  software that will make it easier for us and others to further develop and reuse it?"
+- "How can we write design and write 'good' software that meets its goals?"
 objectives:
-- "Look at the bigger picture of software as a process of development: from 'good' software design 
-based on clear requirements to an implementation that meets those requirements."
+- "FIXME"
 keypoints:
 - "By deliberately designing our software, we can avoid or mitigate many of the common issues encountered when working 
 with legacy software and/or accumulated 'technical debt'."
-- "Agreeing on a set of best practices within a software development team will help 
-to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
-In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements, and how doing these things well makes it easier for others (including future versions of ourselves) to develop and reuse our software.
 
-We will first look a bit past the language specifics and capabilities of Python and into 
+FIXME: revise intro
+
+In this section, we will take a step back from coding development practices and tools and look at the bigger picture of software as a *process* of development: from good software design based on clear requirements to an implementation that meets those requirements.
+
+We'll see how requirements fit into software development,
+as well as different classes of requirements and how to interpret them.
+We'll look at how to take these forward through design to implementation,
+and what needs to be considered when writing unit tests to see if an implementation satisfies its requirements.
+
+We will then look a bit past the language specifics and capabilities of Python and into 
 different software design paradigms and design architectures to understand a broader set of approaches 
 you can take to design software. Modern software will often contain instances of multiple paradigms so it is 
 worthwhile being familiar with them and knowing when to switch in order to make maintainable code. 

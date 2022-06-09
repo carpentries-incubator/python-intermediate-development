@@ -1,12 +1,12 @@
 ---
-title: "Python Coding Conventions"
+title: "Python Code Style Conventions"
 start: false
 teaching: 20
 exercises: 15
 questions:
-- "Why should you follow software coding conventions?"
-- "Who is setting coding conventions?"
-- "What coding conventions exist for Python?"
+- "Why should you follow software code style conventions?"
+- "Who is setting code style conventions?"
+- "What code style conventions exist for Python?"
 objectives:
 - "Understand the benefits of following community coding conventions"
 keypoints:
@@ -360,6 +360,7 @@ the discovered inconsistencies and commit them to the feature branch.
 >>  previous line. All three acceptable modifications are shown below.
 >>
 >>      ~~~
+>>      # Using hanging indent, with the closing '}' aligned with the first non-blank character of the previous line
 >>      view_data = {
 >>          'average': models.daily_mean(inflammation_data),
 >>          'max': models.daily_max(inflammation_data),
@@ -368,8 +369,8 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      {: .language-python}
 >>
->>
 >>      ~~~
+>>      # Using hanging indent with the, closing '}' aligned with the start of the multiline contruct
 >>      view_data = {
 >>          'average': models.daily_mean(inflammation_data),
 >>          'max': models.daily_max(inflammation_data),
@@ -379,6 +380,7 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      {: .language-python}
 >>
 >>      ~~~
+>>      # Using hanging indent where all the lines of the multiline contruct are indented except the first one
 >>      view_data = {
 >>          'average': models.daily_mean(inflammation_data),
 >>          'max': models.daily_max(inflammation_data),

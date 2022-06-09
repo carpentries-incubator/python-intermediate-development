@@ -41,7 +41,9 @@ HPC code is also often written in C++, but C++ code would more commonly follow a
 
 Note that you may sometimes hear people refer to this paradigm as "Functional Programming" to contrast it with 
 Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
-[Functional Programming][functional-programming] is a separate paradigm that places much stronger constraints on the behaviour of a function.
+[Functional Programming][functional-programming] is a separate paradigm that places much stronger constraints 
+on the behaviour of a function - there is an [extra episode on Functional Programming](../functional-programming) 
+for some additional reading.
 
 ## Object Oriented Programming
 
