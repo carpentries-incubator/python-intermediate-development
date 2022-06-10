@@ -45,16 +45,16 @@ If you encounter issues when trying to install packages with `pip`, AstraZeneca 
 This will probably be the case if you are either in the office, or using the Global VPN. In order 
 to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
 
-`pip3 install --proxy http://azpzen.astrazeneca.net:9480 <name of package>`
+`pip3 install --proxy <AZ-proxy-url> <name of package>`
 
 To keep these settings permanently, you may want to add the following to your `.zshrc`/`.bashrc` file to avoid 
 having to specify the proxy for each session, and restart your command line terminal:
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-export {http,https,ftp}_proxy='http://azpzen.astrazeneca.net:9480'
-export {HTTP,HTTPS,FTP}_PROXY='http://azpzen.astrazeneca.net:9480'
-export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.astrazeneca.net, astrazeneca.net
+export {http,https,ftp}_proxy='<AZ-proxy-url>'
+export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>'
+export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>, <AZ-proxy-url>
 }
 
 unset_proxies() {
