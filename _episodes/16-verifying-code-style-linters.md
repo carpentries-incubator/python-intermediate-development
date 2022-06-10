@@ -16,9 +16,8 @@ keypoints:
 
 We've seen how we can use PyCharm to help us format our Python code in a consistent style. 
 This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand 
-if it's consistent.
-
-We can also use tools to identify consistency issues in a report-style too, using [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29). 
+if it's consistent. We can also use tools to identify consistency issues in a report-style too, 
+using [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29). 
 Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well 
 used one of these called `pylint`.
 
@@ -160,12 +159,12 @@ $ git push origin main
 ~~~
 {: .language-bash}
 
-> ## Optional Challenge: Improve Code Style of Your Python Project
+> ## Optional Challenge: Improve Code Style of Your Other Python Projects
 > If you have Python project you are working on or you worked on in the past, run it past Pylint to see what issues
 > with your code are detected, if any.
 {: .challenge}
 
 It is possible to automate these kind of code checks with GitHub's Continuous Integration service GitHub Actions - 
-we will come back to automated linting in the episode on ["Diagnosing issues and improving robustness"](../24-diagnosing-issues-improving-robustness/index.html).
+we will come back to automated linting in the episode on ["Diagnosing Issues and Improving Robustness"](../24-diagnosing-issues-improving-robustness/index.html).
 
 {% include links.md %}
