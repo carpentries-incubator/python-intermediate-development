@@ -50,7 +50,7 @@ The course is organised into the following sections:
 
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
-### Section 1: Setting up Software Environment
+### [Section 1: Setting up Software Environment](../10-section1-intro/index.html)
 In the first section we are going to set up our working environment and familiarise ourselves with various tools and techniques for
 software development in a typical collaborative code development cycle:
 - **Integrated Development Environment** for **code development, testing and debugging**,
@@ -62,13 +62,13 @@ for **code backup, sharing and collaborative development**,
 - **Python code style guidelines** to make sure our code is 
 **documented, readable and consistently formatted**.
 
-### Section 2:  Verifying Software Correctness at Scale
+### [Section 2:  Verifying Software Correctness at Scale](../20-section2-intro/index.html)
 Once we know our way around different code development tools, techniques and conventions, in this section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
 - how to automate and scale testing with **Continuous Integration (CI)** using 
 **GitHub Actions** (a CI service available on GitHub).
  
-### Section 3: Designing Software to Meet Requirements
+### [Section 3: Designing Software to Meet Requirements](../30-section3-intro/index.html)
 In this section, we step away from writing code for a bit to look at things from a higher level:
 
 - **software requirements** and **designing and architecting software** to meet them, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
@@ -76,14 +76,14 @@ In this section, we step away from writing code for a bit to look at things from
 different way of thinking about and structuring the code, where we'll look at the wider landscape in which you can
 design software and to help you with the design decisions you have to make.
 
-### Section 4: Collaborative Software Development for Reuse
+### [Section 4: Collaborative Software Development for Reuse](../40-section4-intro/index.html)
 Advancing from the solo code development, in this section you will start working with your fellow learners 
 on a group project (as you would do when collaborating on a software project in a team), and learn:
 
 - how **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
 - what we can do to prepare our software for further development and reuse, by adopting best practices in **documenting**, **licencing**, **tracking issues**, **supporting** your software, and **packaging software** for release to others.
 
-### Section 5: Managing and Improving Software Over Its Lifetime
+### [Section 5: Managing and Improving Software Over Its Lifetime](../50-section5-intro/index.html)
 Finally, we move beyond just software development to managing a collaborative software project and will look into: 
 
 - internal **planning and prioritising tasks** for future development using agile techniques and effort estimation, management of **internal and external communication**, and **software improvement** through feedback.
