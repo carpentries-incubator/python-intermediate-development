@@ -95,7 +95,7 @@ ever be installed once on your system but will be referenced from different virt
 
 There are several commonly used command line tools for managing Python virtual environments:
 - `venv`, available by default from the standard `Python` distribution from `Python 3.3+`
-- `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`
+- `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`versions
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
 - `conda` which comes together with the Anaconda Python distribution
 - `poetry`, a modern Python packaging tool which handles virtual environments automatically
@@ -184,9 +184,9 @@ So, running the `python3 -m venv venv` command created the target directory call
 containing:
 
 - `pyvenv.cfg` configuration file with a home key pointing to the Python installation from which the command was run,
-- `bin` subdirectory (`Scripts` on Windows) containing a symlink of the Python interpreter binary used to create the
+- `bin` subdirectory (called `Scripts` on Windows) containing a symlink of the Python interpreter binary used to create the
 environment and the standard Python library,
-- `lib/pythonX.Y/site-packages` subdirectory (`Lib\site-packages` on Windows) to contain its own independent set of installed Python packages isolated from other projects,
+- `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows) to contain its own independent set of installed Python packages isolated from other projects,
 - various other configuration and supporting files and subdirectories.
 
 > ## Naming Virtual Environments
@@ -198,9 +198,10 @@ A slight downside is that all different virtual environments
 on your machine then use the same name and the current one is determined by the context of the path
 you are currently located in. A (non-conventional) alternative is to
 use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
-that such a directory contains a virtual environment. In our case, we have settled to use "venv" since it's not
-> a hidden directory and will be displayed by the command line when listing directory contents - in the future,
-> you will decide what naming convention works best for you. Here are some references for each of the naming conventions:
+that such a directory contains a virtual environment. In our case, we have settled to use the name "venv" since it is 
+not a hidden directory and we want it to be displayed by the command line when listing directory contents (hence, 
+no need for the "." in its name that would, by convention, make it hidden). In the future,
+you will decide what naming convention works best for you. Here are some references for each of the naming conventions:
 - [The Hitchhiker's Guide to Python](https://docs.python-guide.org/dev/virtualenvs/) notes that "venv" is the general convention used globally
 - [The Python Documentation](https://docs.python.org/3/library/venv.html) indicates that ".venv" is common
 - ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
@@ -244,11 +245,9 @@ source venv/bin/activate
 
 > ## Python Within A Virtual Environment
 > 
-> On Mac and Linux, within a virtual environment `python` and `pip` will refer to the version of Python you created the environment with. If you create a virtual environment with `python3 -m venv venv`, `python` will refer to `python3` and `pip` will refer to `pip3`. 
+> Within a virtual environment, commands `python` and `pip` will refer to the version of Python you created the environment with. If you create a virtual environment with `python3 -m venv venv`, `python` will refer to `python3` and `pip` will refer to `pip3`. 
 >
-> On *some* Windows machines with Python 2 installed, `python` will refer to the copy of Python 2 installed outside of the virtual environment instead. You can always check if you are using the version of Python in your virtual environment with the command `which python`.
->
-> We continue using `python3` and `pip3` in this material to avoid confusion for those Windows users.
+> On some machines with Python 2 installed, `python` command may refer to the copy of Python 2 installed outside of the virtual environment instead, which can cause confusion. You can always check which version of Python you are using in your virtual environment with the command `which python` to be absolutely sure. We continue using `python3` and `pip3` in this material to avoid confusion for those users, but commands `python` and `pip` may work for you as expected.
 {: .callout}
 
 Note that, since our software project is being tracked by Git, the newly created virtual environment will show up 
@@ -425,7 +424,8 @@ In the above command, we tell the command line two things:
 
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects
-a list of input files to process, so this is expected behaviour since we don't supply any.
+a list of input files to process, so this is expected behaviour since we don't supply any. We will fix this error in a 
+moment.
 
 
 {% include links.md %}

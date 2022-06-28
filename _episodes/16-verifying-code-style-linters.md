@@ -124,7 +124,7 @@ Near the end you'll see:
 So for an example of a Pylint Python-specific `warning`, see the "W0611: Unused numpy imported 
 as np (unused-import)" warning.
 
-It's important to note that while tools such as Pylint are great at giving you a starting point to consider how to 
+It is important to note that while tools such as Pylint are great at giving you a starting point to consider how to 
 improve your code, they won't find everything that may be wrong with it.
 
 > ## How Does Pylint Calculate the Score?
@@ -136,7 +136,8 @@ improve your code, they won't find everything that may be wrong with it.
 > ~~~
 > {: .language-bash}
 >
-> For example, with a total of 31 statements of models.py and views.py, with a count of the errors shown above, we get 8.71 rounded up. Note whilst there is a maximum score of 10, given the formula, there is no minimum score - it's quite possible to get a negative score!
+> For example, with a total of 31 statements of models.py and views.py, with a count of the errors shown above, we get 
+> a score of 8.00. Note whilst there is a maximum score of 10, given the formula, there is no minimum score - it's quite possible to get a negative score!
 {: .callout}
 
 > ## Further Improve Code Style of Our Project
@@ -159,8 +160,8 @@ $ git push origin main
 ~~~
 {: .language-bash}
 
-> ## Optional Challenge: Improve Code Style of Your Other Python Projects
-> If you have Python project you are working on or you worked on in the past, run it past Pylint to see what issues
+> ## Optional Exercise: Improve Code Style of Your Other Python Project
+> If you have a Python project you are working on or you worked on in the past, run it past Pylint to see what issues
 > with your code are detected, if any.
 {: .challenge}
 

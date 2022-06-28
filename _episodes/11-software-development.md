@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Software Project"
+title: "Introduction to the Software Project"
 teaching: 20
 exercises: 10
 questions:
@@ -140,8 +140,8 @@ a series of comma-separated values (CSV) format files, where:
 > ## Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
 > > ## Solution
-> > 1. To list the entire content from the project root do: `cat data/inflammation-01.csv`.
-> > 2. To list the first 5 lines from the project root do: `head -n 5 data/inflammation-01.csv`.
+> > 1. To list the entire content of a file from the project root do: `cat data/inflammation-01.csv`.
+> > 2. To list the first 5 lines of a file from the project root do: `head -n 5 data/inflammation-01.csv`.
 > >
 > > ~~~
 > 0,0,1,3,2,3,6,4,5,7,2,4,11,11,3,8,8,16,5,13,16,5,8,8,6,9,10,10,9,3,3,5,3,5,4,5,3,3,0,1
@@ -170,7 +170,7 @@ start adding more code to it.
 
 ## Software Architecture
 A software architecture is the fundamental structure of a software system that is decided at the beginning of
-project development and cannot be changed that easily once implemented. It refers to a "bigger picture" of
+project development based on its requirements and cannot be changed that easily once implemented. It refers to a "bigger picture" of
 a software system that describes high-level components (modules) of the system and how they interact.
 
 In software design and development, large systems or programs are often decomposed into a set of smaller
@@ -277,9 +277,9 @@ entry point into the application. The **View** and **Model** modules are contain
 in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
-We will revisit the software architecture and MVC topics once again in a [later episode](../34-software-design/index.html)
-when we talk in more detail about software design.
-We now proceed to set up our virtual development environment and start working with the code using
-a more convenient graphical tool - IDE PyCharm.
+We will revisit the software architecture and MVC topics once again in later episodes
+when we talk in more detail about software's [business/user/solution requirements](../31-software-requirements/index.html)
+and [software design](../32-software-design/index.html). We now proceed to set up our virtual development environment 
+and start working with the code using a more convenient graphical tool - IDE PyCharm.
 
 {% include links.md %}
