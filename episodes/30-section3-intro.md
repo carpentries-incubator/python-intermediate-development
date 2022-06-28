@@ -1,11 +1,11 @@
 ---
-title: "Section 3: Developing Software to Meet Requirements"
+title: "Section 3: Designing Software to Meet Requirements"
 colour: "#fafac8"
 start: true
 teaching: 5
 exercises: 0
 questions:
-- "How can we write design and write 'good' software that meets its goals and requirements?"
+- "How can we design and write 'good' software that meets its goals and requirements?"
 objectives:
 - "FIXME"
 keypoints:
