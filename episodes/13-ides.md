@@ -332,7 +332,7 @@ Having configured a virtual environment, we now need to tell PyCharm to use it f
    button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
    ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
 4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
-5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation`.
+5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation analysis`.
 6. You can optionally configure run parameters and environment variables in the same window - we do not need this at the moment.
 7. Select `Apply` to confirm these settings.
 
@@ -418,7 +418,7 @@ You can get a full
 ![Version Control Functionality in PyCharm](../fig/pycharm-version-control.png){: .image-with-shadow width="1000px" }
 
 ### Running Scripts in PyCharm
-We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! To do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation'`.
+We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! To do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation analysis'` (i.e. the Run Configuration we created earlier).
 
 ![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="800px" }
 

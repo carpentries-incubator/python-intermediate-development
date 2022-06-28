@@ -265,9 +265,9 @@ There are a lot of different naming styles in use, including:
 - lower_case_with_underscores
 - UPPERCASE
 - UPPER_CASE_WITH_UNDERSCORES
-- CapitalisedWords (or CamelCase) (note: When using acronyms in CapWords, capitalise all the letters of the acronym,
+- CapitalisedWords (or CamelCase) (note: when using acronyms in CapitalisedWords, capitalise all the letters of the acronym,
 e.g HTTPServerError)
-- mixedCase (differs from CapitalisedWords by initial lowercase character!)
+- mixedCase (differs from CapitalisedWords by initial lowercase character)
 - Capitalised_Words_With_Underscores
 
 As with other style guide recommendations - consistency is key. Pick one and stick to it, or follow the one already
@@ -276,9 +276,9 @@ established if joining a project mid-way. Some things to be wary of when naming 
 as single character variable names. In some fonts, these characters are indistinguishable from the numerals
 one and zero. When tempted to use 'l', use 'L' instead.
 - Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
-- Try to use English words for identifiers and comments whenever possible. Remember that your audience may be
-international so try to avoid abbreviations/local slang too (if you are a native English speaker). Also consider
-sticking with either ‘American’ or 'British' English spellings but do not mix the two.
+- If your audience is international and English is the common language, try to use English words for identifiers and 
+comments whenever possible but try to avoid abbreviations/local slang as they may not be understood by everyone. Also consider
+sticking with either ‘American’ or 'British' English spellings and try not to mix the two.
 
 > ## Function, Variable, Class, Module, Package Naming
 >
@@ -424,6 +424,11 @@ the discovered inconsistencies and commit them to the feature branch.
 >> ~~~
 >> {: .language-bash}
 >{: .solution}
+{: .challenge}
+
+
+> ## Optional Exercise: Improve Code Style of Your Other Python Project
+> If you have another Python project, check to which extent it conforms to PEP8 coding style.
 {: .challenge}
 
 ### Documentation Strings aka Docstrings
