@@ -32,20 +32,21 @@ This course provides the next step in software development - it teaches some **i
 engineering skills and best practices** to help you restructure existing and design more robust, 
 reusable and maintainable code, automate the process of testing and verifying software correctness and 
 support collaborations with others in a way that mimics a typical software development process 
-within a team. The course uses a number of different **software development tools and techniques**
+within a team. 
+
+The course uses a number of different **software development tools and techniques**
 interchangeably as you would in a real life. We had to make some choices about
 topics and tools to teach here - based on ease of installation for the audience, length of the course 
 and other considerations. Tools used here are not mandated though - alternatives exist and 
-we point them out along the way. 
+we point some of them out along the way. 
 Over time, you will develop a preference for certain tools and programming languages based on your 
 personal taste or based on what is commonly used by your group, collaborators or community.
 However, the topics covered should give you a solid foundation for working on software development
-in a team and producing high quality software that is easier to use, develop,
-and sustain in the future by yourself and others, and skills and tools
-taught here, while Python-specific, are transferable to other similar tools and programming languages.
+in a team and producing high quality software that is easier to develop and 
+and sustain in the future by yourself and others. Skills and tools taught here, while Python-specific, 
+are transferable to other similar tools and programming languages.
 
-The course is organised into the following
-four sections:
+The course is organised into the following sections:
 
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
 
@@ -53,42 +54,41 @@ four sections:
 In the first section we are going to set up our working environment and familiarise ourselves with various tools and techniques for
 software development in a typical collaborative code development cycle:
 - **Integrated Development Environment** for **code development, testing and debugging**,
-- **command line** for running code and interacting with the **command line tool Git** for 
+- **Command line** for running code and interacting with the **command line tool Git** for 
 **version control** and branching the code out for developing new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) 
 for **code backup, sharing and collaborative development**,
-- **virtual environments** for **isolating a project** from other projects developed on the same machine, and
+- **Virtual environments** for **isolating a project** from other projects developed on the same machine, and
 - **Python code style guidelines** to make sure our code is 
 **documented, readable and consistently formatted**.
 
 ### Section 2:  Verifying Software Correctness at Scale
-Once we know our way around different code development tools, techniques and conventions, in the second section we learn:
+Once we know our way around different code development tools, techniques and conventions, in this section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
 - how to automate and scale testing with **Continuous Integration (CI)** using 
 **GitHub Actions** (a CI service available on GitHub).
-
-### Section 3: Collaborative Software Design and Development for Reuse
+ 
+### Section 3: Designing Software to Meet Requirements
 In this section, we step away from writing code for a bit to look at things from a higher level:
 
-- different **programming and software design paradigms**, where we'll look at the wider landscape in which you can design software and to help you with the
-design decisions you have to make. Each paradigm represents a slightly different way of thinking about and structuring
-the code and each has certain strengths and weaknesses when used to solve particular types of problems -
-useful to know so you can recognise where it might be useful to switch in your own code.
-- **software design** and **software requirements**, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
+- **software requirements** and **designing and architecting software** to meet them, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
+- different **programming and software design paradigms**, each representing a slightly 
+different way of thinking about and structuring the code, where we'll look at the wider landscape in which you can
+design software and to help you with the design decisions you have to make.
+
+### Section 4: Collaborative Software Development for Reuse
+Advancing from the solo code development, in this section you will start working with your fellow learners 
+on a group project (as you would do when collaborating on a software project in a team), and learn:
+
 - how **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
-- what we can do to prepare our software for further development and reuse, by adopting best practices in **documenting**, **licencing**, **tracking issues**, and **supporting your software**, and how to **package software** for release to others.
+- what we can do to prepare our software for further development and reuse, by adopting best practices in **documenting**, **licencing**, **tracking issues**, **supporting** your software, and **packaging software** for release to others.
 
-From the code review episode, you will start work with your fellow learners on a group project (as you would do when
-collaborating on a software project in a team).
+### Section 5: Managing and Improving Software Over Its Lifetime
+Finally, we move beyond just software development to managing a collaborative software project and will look into: 
 
-### Section 4: Improving and Managing Software Over its Lifetime
-Finally, we'll look at:
-
-- how to **assess other people's software to ensure it is suitable** for us to reuse, identify areas for improvement, and how to use GitHub to register good quality issues with a particular code repository.
-- how to **manage software improvements** from feedback using 
-agile techniques, using effort estimation as a foundation for prioritising development work.
-
-For all of these episodes, you will continue working with your fellow learners in a team.
+- internal **planning and prioritising tasks** for future development using agile techniques and effort estimation, management of **internal and external communication**, and **software improvement** through feedback.
+- how to adopt a critical mindset not just towards our own software project but also to 
+**assess other people's software to ensure it is suitable** for us to reuse, identify areas for improvement, and how to use GitHub to register good quality issues with a particular code repository.
 
 ## Before We Start
 
@@ -96,7 +96,7 @@ A few notes before we start.
 
 > ## Prerequisite Knowledge
 > This is an intermediate-level software development course intended for people who have already been developing code in
-> Python (or other languages), e.g. for at least a few months, and applying it to their own problems
+> Python (or other languages) and applying it to their own problems
 > after gaining basic software development skills.
 > So, it is expected for you to have some prerequisite knowledge on the topics covered, as outlined at the [beginning of the lesson](/index.html#prerequisites).
 Check out this [quiz](../quiz/index.html) to help you test your prior knowledge and determine if this course is for you.
