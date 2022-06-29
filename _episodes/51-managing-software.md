@@ -16,7 +16,7 @@ keypoints:
 - "GitHub’s **Mentions** play an important part in communicating between collaborators and is 
 used as a way of alerting team members of activities and referencing one issue/pull requests/comment/commit from another."
 - "Without a good project and issue management framework, it can be hard to keep track of what’s done, or what needs doing, and 
-particularly difficult to convey that to others in the team or share the responsibilities."
+particularly difficult to convey that to others in the team or sharing the responsibilities."
 ---
 
 ## Introduction
@@ -33,12 +33,12 @@ in the team or share the responsibilities.
 As a piece of software is used, bugs and other issues will inevitably come to light - nothing is perfect! 
 If you work on your code with collaborators, or have non-developer users, it can be helpful to have a single shared 
 record of all the problems people have found with the code, not only to keep track of them for you to work on later, 
-but to avoid the annoyance of people emailing you to report a bug that you already know about!
+but to avoid people emailing you to report a bug that you already know about!
 
 GitHub provides **Issues** - a framework for managing bug reports, feature requests, and lists of future work.
 
-Go back to the home page for your `python-intermediate-inflammation` repository, and click on the Issues tab.
-You should see a page listing the open issues on your repository, currently none.
+Go back to the home page for your `python-intermediate-inflammation` repository in GitHub, and click on the **Issue** tab.
+You should see a page listing the open issues on your repository - currently there should be none.
 
 ![List of project issues in GitHub](../fig/github-issue-list.png){: .image-with-shadow width="1000px"}
 
@@ -46,9 +46,10 @@ Let's go through the process of creating a new issue. Start by clicking the `New
 
 ![Creating a new issue in GitHub](../fig/github-new-issue.png){: .image-with-shadow width="1000px"}
 
-When you create an issue, you can provide a range of details added to them. They can be *assigned to a specific developer* for example - this can be a helpful way to know who, if anyone, is currently working to fix an issue (or a way to assign responsibility to someone to deal with it!).
+When you create an issue, you can add a range of details to them. They can be *assigned to a specific developer* for example - this can be a helpful way to know who, if anyone, is currently working to fix the issue, or a way to assign 
+responsibility to someone to deal with it.
 
-They can also be assigned a *label*. The labels available for issues can be customised, and given a colour, allowing you to see at a glance from the Issues page the state of your code. The default labels available in GitHub include:
+They can also be assigned a *label*. The labels available for issues can be customised, and given a colour, allowing you to see at a glance the state of your code's issues. The default labels available in GitHub include:
 
 - `bug` - indicates an unexpected problem or unintended behavior
 - `documentation` - indicates a need for improvements or additions to documentation
@@ -63,9 +64,9 @@ They can also be assigned a *label*. The labels available for issues can be cust
 Check the [GitHub documentaiton on Issues](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) for the full reference.
 You can also create your own custom labels to help with classifying issues. There are no rules really about naming the labels - use whatever makes sense for your project. Some conventional custom labels include: `status:in progress` (to indicate that someone started working on the issue), `status:blocked` (to indicate that the progress on addressing issue is blocked by another issue or activity), etc.
 
-As well as highlighting problems, the `bug` label can make code much more usable by allowing users to find out if anyone has had the same problem before, and also how to fix (or work around) it on their end. Enabling users to solve their own problems can save you a lot of time and stress! In general, a good bug report should contain only one bug, specific details of the environment in which the issue appeared (operating system or browser, version of the software and its dependencies), and sufficiently clear and concise steps that allow a developer to reproduce the bug themselves. They should also be clear on what the bug reporter considers factual ("I did this and this happened") and speculation ("I think it was caused by this"). If an error report was generated from the software itself, it's a very good idea to include that in the bug report.
+As well as highlighting problems, the `bug` label can make code much more usable by allowing users to find out if anyone has had the same problem before, and also how to fix (or work around) it on their end. Enabling users to solve their own problems can save you a lot of time. In general, a good bug report should contain only one bug, specific details of the environment in which the issue appeared (operating system or browser, version of the software and its dependencies), and sufficiently clear and concise steps that allow a developer to reproduce the bug themselves. They should also be clear on what the bug reporter considers factual ("I did this and this happened") and speculation ("I think it was caused by this"). If an error report was generated from the software itself, it's a very good idea to include that in the issue.
 
-The `enhancement` label is a great way to communicate your future priorities to your collaborators, and also your future self - it’s far too easy to leave a software project for a few months to write a paper, then come back and have forgotten the improvements you were going to make. If you have other users for your code, they can use the label to request new features, or changes to the way the code operates. It’s generally worth paying attention to these suggestions, especially if you spend more time developing than running the code. It can be very easy to end up with quirky behaviour because of off-the-cuff choices during development. Extra pairs of eyes can point out ways the code can be made more accessible, and the easier a code is to use, then the more widely it will be adopted and the greater its impact will be.
+The `enhancement` label is a great way to communicate your future priorities to your collaborators but also to yourself - it’s far too easy to leave a software project for a few months to work on something else, only to come back and forget the improvements you were going to make. If you have other users for your code, they can use the label to request new features, or changes to the way the code operates. It’s generally worth paying attention to these suggestions, especially if you spend more time developing than running the code. It can be very easy to end up with quirky behaviour because of off-the-cuff choices during development. Extra pairs of eyes can point out ways the code can be made more accessible - the easier the code is to use, the more widely it will be adopted and the greater impact it will have.
 
 > ## Wontfix
 >
@@ -82,16 +83,16 @@ The `enhancement` label is a great way to communicate your future priorities to 
 >
 > Individually, with a critical eye, think of an aspect of the code you have developed so far that needs improvement. 
 > It could be a bug, for example, or a documentation issue with your README, a missing LICENSE file, or an enhancement. 
-> In GitHub, enter the details of the issue *with a suitable label* and select `Submit new issue`.
+> In GitHub, enter the details of the issue and select `Submit new issue`. Add a label to your issue, if appropriate.
 > 
-> Do not forget to label your issue! 
-> 
-> Time: 10 mins
+> Time: 5 mins
+>> ## Solution
+>> For example, "Add a licence file" could be a good first issue, with a label `documentation`. 
+> {: .solution}
 {: .challenge}
 
 ### Issue (and Pull Request) Templates
-TODO: check with Steve and James if this mini section is needed - if there is too muc text we could cut this out.
-GitHub allows you to set up issue and pull request templates for your software project. 
+GitHub also allows you to set up issue and pull request templates for your software project. 
 Such templates provide a structure for the issue/pull request descriptions, and/or prompt issue reporters and collaborators 
 to fill in answers to pre-set questions. They can help contributors raise issues or submit pull requests in a way 
 that is clear, helpful and provides enough information for maintainers to act upon 
@@ -122,14 +123,14 @@ GitHub also lets you mention/reference one issue or pull request from another (a
 of any such updates). Whilst writing the description of an issue, or commenting on one,
 if you type <kbd>#</kbd> you should see a list of the issues and pull requests on the repository.
 They are coloured green if they're open, or white if they're closed. Continue typing the issue number, and
-the list will narrow, then you can hit <kbd>Return</kbd> to select the entry and link the two. You can also
-navigate the list with the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys. For example, if you realise that several of your bugs
+the list will narrow down, then you can hit <kbd>Return</kbd> to select the entry and link the two. 
+For example, if you realise that several of your bugs
 have common roots, or that one enhancement can't be implemented before you've finished another, you can use the
 mention system to indicate the depending issue(s). This is a simple way to add much more information to your issues.
 
 While not strictly notifying anyone, GitHub lets you also reference individual comments and commits. If you click the
-"..." button on a comment, from the drop down list you can select to 'Copy link' (which is a URL that points to that
-comment that can be pasted elsewhere) or to 'Reference [a comment] in a new issue' (which opens a new issue and references
+`...` button on a comment, from the drop down list you can select to `Copy link` (which is a URL that points to that
+comment that can be pasted elsewhere) or to `Reference [a comment] in a new issue` (which opens a new issue and references
 the comment by its URL). Within a text box for comments, issue and pull request descriptions, you can reference
 a commit by pasting its long, unique identifier (or its first few digits which uniquely identify it)
 and GitHub will render it nicely using the identifier's short form and link to the commit in question.
@@ -140,7 +141,7 @@ and GitHub will render it nicely using the identifier's short form and link to t
 >
 > This section focuses a lot on how issues can help communicate the current state of the code to others. As a sole developer, and possibly also the only user of the code too, you might be tempted to not bother with recording issues and features as you don't need to communicate the information to anyone else.
 >
-> Unfortunately, human memory isn't infallible! After spending six months writing your thesis, or a year working on a different sub-topic, it's inevitable you'll forget some of the plans you had and problems you faced. Not documenting these things can lead to you having to re-learn things you already put the effort into discovering before.
+> Unfortunately, human memory isn't infallible! After spending six months on a different topic, it's inevitable you'll forget some of the plans you had and problems you faced. Not documenting these things can lead to you having to re-learn things you already put the effort into discovering before.
 {: .callout}
 
 ## Software Project Management in GitHub
@@ -168,7 +169,7 @@ We will see Milestones in action soon when we work with our team on a mini sprin
 for now, let's have a brief look at Project Boards.
 
 ### Project Boards
-A Project Board (or Kanban board, from the Japanese word for a card) uses columns and cards to keep track of tasks. 
+A Project Board (or Kanban board, from the Japanese word for 'card') uses columns and cards to keep track of tasks. 
 You break down your project into smaller sub-projects, which in turn are split 
 into tasks which you write on cards, then move the cards between columns that describe the status of each task. 
 Cards are usually small, descriptive and self-contained tasks that build on each other. Breaking a project 
@@ -216,12 +217,11 @@ If you have tasks that get held up by waiting on other people (e.g. to respond t
 to a separate column makes their current state clearer.
 
 > ## Working With Project Boards
-> Ideally, we'd have an exercise here. Or perhaps we can postpone for when more issues are added and/or more team work in involved.
+> Play around with a project board - practice adding and closing 
+> notes and cards, adding and removing columns, creating issues from cards or adding a card from an open issue, 
+> closing issues, etc.
 > 
-> An example exercise, for a want of a better one: Play around with a project board - practice with adding and closing 
-> notes and cards, adding and removing columns, closing issues, etc.
-> 
-> 5 min
+> Time: 5 mins
 {: .challenge}
 
 > ## Prioritisation With Project Boards

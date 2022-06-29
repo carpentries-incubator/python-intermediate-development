@@ -18,7 +18,9 @@ keypoints:
 
 What we've been looking at so far enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
-Overall, when adopting software to use it's important to consider not only whether it has the functionality you want, but a broader range of qualities that are important for your project.
+Overall, when adopting software to use it's important to consider not only whether it has the functionality you want, 
+but a broader range of qualities that are important for your project. Adopting a critical mindset when assessing other 
+software against suitability criteria will help you adopt the same attitude when assessing your own software for future improvements.
 
 ## Assessing Software for Suitability
 
@@ -29,7 +31,8 @@ Overall, when adopting software to use it's important to consider not only wheth
 > Time: 5 mins
 >
 > 1. Decide as a team on one of your repositories that will represent your group. You can do this any way you wish.
-> 2. Add the URL of the repository to the section in a shared Google Doc labelled 'Decide on your Group's Repository' for this day, next to your team name in the empty table cell.
+> 2. Add the URL of the repository to the section of the shared notes labelled 'Decide on your Group's Repository', 
+> next to your team's name.
 {: .challenge}
 
 > ## Conduct Assessment on Third-Party Software
@@ -39,8 +42,8 @@ Overall, when adopting software to use it's important to consider not only wheth
 > Time: 20 mins
 >
 > 1. As a team, briefly decide who will assess which aspect of the repository, e.g. its documentation, tests, codebase, etc.
-> 2. Obtain the URL for the repository you will assess from the Google Doc, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates from which team you should get their repository URL.
-> 3. Conduct the assessment and register any issues you find on the other team's software repository.
+> 2. Obtain the URL for the repository you will assess from the shared notes document, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates which team's repository you are assessing.
+> 3. Conduct the assessment and register any issues you find on the other team's software repository on GitHub.
 > 4. Be meticulous in your assessment and register as many issues as you can!
 {: .challenge}
 
