@@ -92,7 +92,8 @@ Once created, we can view our issues and assign them to our milestone from the `
 
 > ## Prioritise!
 >
-> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not Won't Haves) to a new milestone, e.g. "Tidy up documentation" or "version 0.1".
+> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not `Won't Haves`) to a new milestone, e.g. "Tidy up documentation" or "version 0.1".
+> 
 > Time: 10 mins
 {: .challenge}
 
@@ -111,12 +112,12 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 
 > ## Conduct a Mini-Mini-Sprint
 >
-> For the remaining time in this lesson, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
+> For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
 >
 > Time: however long is left
 {: .challenge}
 
-Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which - particularly in academia - may change over time.
+Depending on how many issues were registered on your repository, it's likely you won't have resolved all the issues in this first milestone. Of course, in reality, a sprint would be over a much longer period of time. In any event, as the development progresses into future sprints any unresolved issues can be reconsidered and prioritised for another milestone, which are then taken forward, and so on. This process of receiving new requirements, prioritisation, and working on them is naturally continuous - with the benefit that at key stages you are repeatedly **re-evaluating what is important and needs to be worked on** which helps to ensure real concrete progress against project goals and requirements which may change over time.
 
 > ## Project Boards For Planning Sprints
 > Remember, you can use project boards for higher-level project management - e.g. planning several sprints in advance 
