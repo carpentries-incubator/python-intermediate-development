@@ -146,7 +146,7 @@ jobs:
 ~~~
 {: .language-yaml}
 
-NB: be sure to create this file as `main.yml` within the newly created `.github/workflows` directory, or it won't work!
+**Note:** *be sure to create this file as `main.yml` within the newly created `.github/workflows` directory, or it won't work!*
 
 So as well as giving our workflow a name - CI - we indicate with `on` that we want this workflow to run when we `push` commits to our repository. The workflow itself is made of a single `job` named `build`, and we could define any number of jobs after this one if we wanted, and each one would run in parallel.
 
@@ -204,15 +204,20 @@ Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows
 
 Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
 
-Let's see how this is done using GitHub Actions. To support this, change your `.github/workflows/main.yml` to the following:
+Let's see how this is done using GitHub Actions. To support this, we define a `strategy` as a `matrix` of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. Then we replace the `runs-on` and `python-version` parameters 
+to refer to the values from the matrix. So, our `.github/workflows/main.yml` should look like the following:
 
 ~~~
 ...
-    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: [3.8, 3.9]
+...
+
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+
+...
 
     # a job is a seq of steps
     steps:
@@ -230,7 +235,7 @@ Let's see how this is done using GitHub Actions. To support this, change your `.
 ~~~
 {: .language-yaml}
 
-Here, we are specifying a build strategy as a matrix of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. The `{% raw %}${{ }}{% endraw %}` are used as a means to reference these configuration values. So every possible permutation of Python versions 3.8 and 3.9 with the Ubuntu, Mac OS and Windows operating systems will be tested, so we can expect 6 build jobs in total.
+The `{% raw %}${{ }}{% endraw %}` are used as a means to reference configuration values from the matrix. This way, every possible permutation of Python versions 3.8 and 3.9 with the Ubuntu, Mac OS and Windows operating systems will be tested and we can expect 6 build jobs in total.
 
 Let's commit and push this change and see what happens:
 

@@ -431,7 +431,7 @@ $ pip3 freeze --exclude-editable > requirements.txt
 ~~~
 {: .language-bash}
 
-We use `--exclude-editable` here to ensure our locally installed `inflammation` package isn't included in this list of installed packages, since it isn't required for running the software, and would cause problems with others reusing this environment.
+We use `--exclude-editable` here to ensure our locally installed `inflammation-analysis` package is not included in this list of installed packages, since it is not required for running the software, and would cause problems for others reusing this environment.
 
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
@@ -445,7 +445,7 @@ $ git push -u origin test-suite
 
 > ## Why Should We Test Invalid Input Data?
 >
-> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It's generally best not to assume your user's inputs will always be rational.
+> Testing the behaviour of inputs, both valid and invalid, is a really good idea and is known as *data validation*. Even if you are developing command line software that cannot be exploited by malicious data entry, testing behaviour against invalid inputs prevents generation of erroneous results that could lead to serious misinterpretation (as well as saving time and compute cycles which may be expensive for longer-running applications). It is generally best not to assume your user's inputs will always be rational.
 >
 {: .callout}
 

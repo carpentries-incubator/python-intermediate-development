@@ -330,7 +330,7 @@ def patient_normalise(data):
 > > ~~~
 > > {: .language-python}
 > >
-> > You could also test, and handle, the case of a whole row of NaNs...
+> > You could also, for example, test and handle the case of a whole row of NaNs.
 > {: .solution}
 >
 {: .challenge}
@@ -397,7 +397,7 @@ def test_patient_normalise(test, expected, expect_raises):
 
 Be sure to commit your changes so far and push them to GitHub.
 
-> ## Optional Challenge: Add a Precondition to Check the Correct Type and Shape of Data
+> ## Optional Exercise: Add a Precondition to Check the Correct Type and Shape of Data
 >
 > Add preconditions to check that data is an `ndarray` object and that it is of the correct shape.
 > Add corresponding tests to check that the function raises the correct exception.
@@ -516,13 +516,14 @@ which may be difficult to trace).
 
 > ## Fix Code Style Errors
 >
-> Rename our local variable `max` to something else (e.g. call it `max_data`), then commit these latest changes and 
+> Rename our local variable `max` to something else (e.g. call it `max_data`), then rerun your tests and 
+> commit these latest changes and 
 > push them to GitHub using our usual feature branch workflow. Make sure your `develop` and `main` branches are up to date.
 {: .challenge}
 
 It may be hard to remember to run linter tools every now and then. Luckily, we can now add this Pylint execution to our 
 continuous integration builds as on of the extra tasks. 
-For example, to add it to GitHub Actions we can add the following to our `.github/workflows/main.yml` at the end:
+For example, to add it to GitHub Actions we can add the following step to our `steps` in `.github/workflows/main.yml`:
 
 ~~~
 ...
