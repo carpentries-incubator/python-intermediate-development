@@ -86,7 +86,7 @@ The big plusses here are that we don't need to write separate functions for each
 
 Try them out!
 
-Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push it yet!):
+Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push them to remote yet!):
 
 ~~~
 $ git add tests/test_models.py
