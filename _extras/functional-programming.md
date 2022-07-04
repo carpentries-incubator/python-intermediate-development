@@ -500,9 +500,9 @@ print(reduce((lambda a, b: a * b), l))
 >
 {: .challenge}
 
-> ## Multiprocessing (Optional Advanced Challenge)
+> ## Optional Advanced Exercise: Multiprocessing 
 >
-> **Advanced challenge for if you're finished early.**
+> **Advanced optional exercise if you finish other exercises early.**
 >
 > One of the benefits of functional programming is that, if we have pure functions, when applying / mapping a function to many values in a collection, each application is completely independent of the others.
 > This means that we can take advantage of multiprocessing, without many of the normal problems in synchronisation that this brings.
