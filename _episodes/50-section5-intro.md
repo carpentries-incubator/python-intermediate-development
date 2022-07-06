@@ -25,7 +25,7 @@ management of internal communication as well as how the outside world interacts 
 how others can interact with ourselves to report issues, and the ways we can successfully manage software 
 improvement in response to feedback.
 
-![Managing software](../fig/section4-overview.png){: .image-with-shadow width="800px" }
+![Managing software](../fig/section5-overview.png){: .image-with-shadow width="800px" }
 
 In this section we will:
 
