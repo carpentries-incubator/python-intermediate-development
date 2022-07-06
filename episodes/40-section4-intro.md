@@ -32,7 +32,7 @@ After that, we'll look at some general principles of software maintainability an
 code can give you. There will also be some practice at identifying problems with existing code, and some general, established practices you can apply when writing new code or to the code you've already written.
 We'll also look at how we can package software for release and distribution, using **Poetry** to manage our Python dependencies and produce a code package we can use with a Python package indexing service to illustrate these principles.
 
-![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+![Software design and architecture](../fig/section4-overview.png){: .image-with-shadow width="800px" }
 
 
 {% include links.md %}
