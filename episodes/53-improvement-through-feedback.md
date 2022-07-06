@@ -106,11 +106,11 @@ Once created, we can view our issues and assign them to our milestone from the `
 > ![Milestones in Project Boards](../fig/github-milestone-in-project-board.png){: .image-with-shadow width="900px"}
 {: .callout}
 
-## Using Sprints to Organise and Work on Requirements
+## Using Sprints to Organise and Work on Issues
 
-A sprint is an activity applied to a timebox, where development is undertaken on the agreed prioritised work for the period. In a typical sprint, there are daily meetings called **scrum meetings** which check on how work is progressing,  and serves to highlight any blockers and challenges to meeting the sprint goal.
+A sprint is an activity applied to a timebox, where development is undertaken on the agreed prioritised work for the period. In a typical sprint, there are daily meetings called **scrum meetings** which check on how work is progressing, and serves to highlight any blockers and challenges to meeting the sprint goal.
 
-> ## Conduct a Mini-Mini-Sprint
+> ## Conduct a Mini Mini-Sprint
 >
 > For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
 >
