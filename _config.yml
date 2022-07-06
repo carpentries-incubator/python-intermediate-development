@@ -93,6 +93,7 @@ extras_order:
   - guide
   - common-issues
   - discuss
+  - functional-programming
   - persistence
   - databases
   - verifying-code-style-linters
