@@ -38,9 +38,11 @@ credential cache was not enough and updating to Git 2.29 was needed.
 
 ### Issues with Numpy and Other Packages Installed for x86 (Intel, AMD) Architecture on New M1 Macs 
 
-Numpy (and other packages) installed via `pip` on the command line on new M1 Macs are for older x86 (Intel, AMD) CPU architecture which causes the packages not to function properly. The error message is quite verbose but may contain something similar to 
+Numpy (and other packages) installed via `pip` on the command line on new M1 Macs are for older x86 (Intel, AMD) CPU architecture which causes the packages not to function properly. The error message is quite verbose but may contain a line similar to the one below
 
+> ...
 > (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+> ...
 
 The solution is to install packages via PyCharm, which appears to be obtaining the correct Numpy package for the architecture.
 
