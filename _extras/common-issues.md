@@ -34,7 +34,15 @@ The solution is to generate a new token with the correct scope/usage permissions
 credential cache (if that's where the token has been saved). In same cases, simply clearing 
 credential cache was not enough and updating to Git 2.29 was needed.
 
-## Python, `pip`, `venv` Issues
+## Python, `pip`, `venv` & Installing Packages Issues
+
+### Issues with Numpy and Other Packages Installed for x86 (Intel, AMD) Architecture on New M1 Macs 
+
+Numpy (and other packages) installed via `pip` on the command line on new M1 Macs are for older x86 (Intel, AMD) CPU architecture which causes the packages not to function properly. The error message is quite verbose but may contain something similar to 
+
+> (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+
+The solution is to install packages via PyCharm, which appears to be obtaining the correct Numpy package for the architecture.
 
 ### Python installed from the AZ Artifact Store
 Python installed from the AZ Artifact Store may not be accessible as `python3` from the command line, but 
