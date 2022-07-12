@@ -14,12 +14,11 @@ where you fit on the skills spectrum and if this course is for you.
     b. git install
     c. git init
     d. git start
-    ~~~
-    {: .language-bash}
-
-    > > ## Solution 
-    > > `git init` is the command to initialise a Git repository and tell Git to start tracking files in it.
-    > > `git bash`, `git start` and `git install` are not Git commands and will return an error.   
+    ~~~     
+   
+    >> ## Solution 
+    >> `git init` is the command to initialise a Git repository and tell Git to start tracking files in it.
+    >> `git bash`, `git start` and `git install` are not Git commands and will return an error.   
     > {: .solution}
 
 2. After you initialise a new Git repository and create a file named `LICENCE.md` in the root of the repository, 
@@ -31,7 +30,6 @@ which of the following commands will not work?
     c. git add .  
     d. git commit -m "Licence file added"
     ~~~
-    {: .language-bash}
 
     > > ## Solution 
     > > `git commit -m "Licence file added"` won't work because you need to add the file to Git's staging area first 
@@ -47,7 +45,6 @@ used to upload your local changes back to the remote repository?
     c. git upload  
     d. git commit  
     ~~~
-    {: .language-bash}
  
     > > ## Solution 
     > > `git push` is the correct command. `git add` adds a file to the local staging area, `git commit` commits the 
@@ -64,7 +61,6 @@ used to upload your local changes back to the remote repository?
     c. map  
     d. pwd  
     ~~~
-    {: .language-bash}
   
     > > ## Solution 
     > > `pwd` (which stands for 'print working directory') is the correct command. 
@@ -78,7 +74,6 @@ used to upload your local changes back to the remote repository?
     c. cd /up  
     d. cd ..  
     ~~~
-    {: .language-bash}
  
     > > ## Solution 
     > > `cd ..` is the correct command. `cd -` goes to the previous location in history (not parent). `cd ~` goes to the home folder. `cd /up` goes to a folder `up` in the root (`/`) of the file system.
@@ -92,7 +87,6 @@ used to upload your local changes back to the remote repository?
     c. command file  
     d. command < file 
     ~~~
-    {: .language-bash}
  
     > > ## Solution 
     > > `command >> file` is the correct command. `command > file` will redirect the output of a command to a file and 
@@ -109,7 +103,6 @@ used to upload your local changes back to the remote repository?
     c. ["apple", "banana", "cherry"]  
     d. ("apple", "banana", "cherry")   
     ~~~
-    {: .language-python}
  
     > > ## Solution 
     > > While all of the answers define a collection in Python, `["apple", "banana", "cherry"]` defines a list and 
@@ -125,7 +118,6 @@ used to upload your local changes back to the remote repository?
     c. if (x > 3)  
     d. if (x > 3);  
     ~~~
-    {: .language-python}
 
     > > ## Solution 
     > > `if (x > 3):` is the correct answer. 
@@ -138,7 +130,6 @@ used to upload your local changes back to the remote repository?
     m = n  
     n = -100   
     ~~~
-    {: .language-python}
   
     What is the result at the end of the above assignments?
 
@@ -148,7 +139,6 @@ used to upload your local changes back to the remote repository?
     c. n = -100 and m = -100   
     d. n = 300 and m = -10   
     ~~~
-    {: .language-python}
   
     > > ## Solution 
     > > `n = -100 and m = 300` is the correct answer. 
