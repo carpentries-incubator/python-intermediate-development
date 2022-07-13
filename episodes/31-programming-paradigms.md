@@ -211,7 +211,7 @@ This is because the problem doesn't really involve structured data.
 Just because you *can* use a particular paradigm to solve a problem doesn't mean you *should*.
 
 The Object Oriented implementation of FizzBuzz in Python below has similarities with both the procedural and functional implementations above, but is worse than both.
-Again, we do not expect you to fully understand this example yet (e.g. the methods with underscores), but it should make more sense soon after we've covered the necessary Python lessons.
+Again, we do not expect you to fully understand this example yet (e.g. the methods with underscores, such as `__str__` and `__mod__`), but it should make more sense soon after we've covered the necessary Python lessons in the next episode.
 
 ~~~
 class FizzBuzzer:
@@ -249,7 +249,7 @@ for val in fizzbuzz(fizzbuzz_factors, 1, 101):
 {: .language-python}
 
 In this example we make a `FizzBuzzer` structure (a **class**) which holds a numeric value and a mapping from factors to phrases.
-It also implements some **behaviours** - we can find the modulo of the object with respect to a factor and we can convert it to a string.
+It also implements some **behaviours** - we can find the modulo (`%` operator) of the object with respect to a factor and we can convert the object to a string.
 
 > ## Rosetta Code
 >
