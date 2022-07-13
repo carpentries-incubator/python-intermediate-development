@@ -211,7 +211,7 @@ This is because the problem doesn't really involve structured data.
 Just because you *can* use a particular paradigm to solve a problem doesn't mean you *should*.
 
 The Object Oriented implementation of FizzBuzz in Python below has similarities with both the procedural and functional implementations above, but is worse than both.
-Again, we do not expect you to fully understand this example yet, but it should make more sense after we've covered the necessary Python lessons.
+Again, we do not expect you to fully understand this example yet (e.g. the methods with underscores), but it should make more sense soon after we've covered the necessary Python lessons.
 
 ~~~
 class FizzBuzzer:
