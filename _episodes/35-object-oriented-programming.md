@@ -341,8 +341,9 @@ These dunder methods are not usually called directly, but rather provide the imp
 Some we see quite commonly are:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
-- `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
+- `__getitem__` - accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
 - `__len__` - gets the length of an object when we use `len(object)` - usually the number of items it contains
+- `__mod__` - implements the modulo operation `x % y` that returns the remainder of dividing `x` by `y`; internally, Python attempts to call `x.__mod__(y)` 
 
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
