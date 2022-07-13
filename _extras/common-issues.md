@@ -36,15 +36,17 @@ credential cache was not enough and updating to Git 2.29 was needed.
 
 ## Python, `pip`, `venv` & Installing Packages Issues
 
-### Issues with Numpy and Other Packages Installed for x86 (Intel, AMD) Architecture on New M1 Macs 
+### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 
 
-Numpy (and other packages) installed via `pip` on the command line on new M1 Macs are for older x86 (Intel, AMD) CPU architecture which causes the packages not to function properly. The error message is quite verbose but may contain a line similar to the one below
+When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
 
 > ...
-> (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+> 
+> mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e'.
+> 
 > ...
-
-The solution is to install packages via PyCharm, which appears to be obtaining the correct Numpy package for the architecture.
+ 
+Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
 ### Python installed from the AZ Artifact Store
 Python installed from the AZ Artifact Store may not be accessible as `python3` from the command line, but 
