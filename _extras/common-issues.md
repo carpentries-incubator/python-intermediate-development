@@ -1,5 +1,5 @@
 ---
-title: "Common Issues & Tips"
+title: "Common Issues, Fixes & Tips"
 ---
 
 Here is a list of issues previous participants of the course encountered and some tips to help you with troubleshooting.
@@ -41,9 +41,7 @@ credential cache was not enough and updating to Git 2.29 was needed.
 When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
 
 > ...
-> 
-> mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e'.
-> 
+> mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
 > ...
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
