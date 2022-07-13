@@ -19,7 +19,7 @@ keypoints:
 
 ## Introduction
 
-With FizzBuzz, we saw an example of where Object Oriented Programming works badly, so where does it work well?
+With FizzBuzzer class, we saw an example of where Object Oriented Programming works badly, so where does it work well?
 
 This paradigm is useful when data is structured, often because it represents an entity which exists in the real world.
 This entity has **attributes** which can be measured, and **behaviours** which it can perform.
