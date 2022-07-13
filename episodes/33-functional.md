@@ -516,13 +516,13 @@ print(reduce((lambda a, b: a * b), l))
 >
 > **Hint:** To time the execution of a Python script we can use the shell command `time`:
 >
-> **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
-> One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
->
 > ~~~
 > time python3 my_script.py
 > ~~~
 > {: .language-bash}
+>
+> **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
+> One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >
 > Would we get the same benefits from parallel equivalents of the `filter` and `reduce` functions?
 > Why, or why not?
