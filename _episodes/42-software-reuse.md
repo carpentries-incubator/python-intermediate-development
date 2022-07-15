@@ -196,7 +196,7 @@ Since software is automatically under copyright, without a licence no one may:
 Fundamentally there are two kinds of licence, **Open Source licences** and **Proprietary licences**, which serve slightly different purposes:
 
 - *Proprietary licences* are designed to pass on limited rights to end users, and are most suitable if you want to commercialise your software. They tend to be customised to suit the requirements of the software and the institution to which it belongs - again your institutions IP team will be able to help here.
-- *Open Source licences* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The [website Choose A License](https://choosealicense.com/) provides recommendations and a simple summary of some of the most common open source licences.
+- *Open Source licences* are designed more to protect the rights of end users - they specifically grant permission to make modifications and redistribute the software to others. The [website Choose an Open Source License](https://choosealicense.com/) provides recommendations and a simple summary of some of the most common open source licences.
 
 Within the open source licences, there are two categories, **copyleft** and **permissive**:
 
