@@ -160,6 +160,8 @@ Our test also didn't specify what the structure of our output data should be, so
 ~~~ python
 # file: inflammation/serializers.py
 
+import json
+
 class PatientSerializer:
     model = models.Patient
 
