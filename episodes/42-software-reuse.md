@@ -340,7 +340,7 @@ $ git push origin v1.0.0
 > - MINOR version when you add functionality in a backwards compatible manner
 > - PATCH version when you make backwards compatible bug fixes
 >
-> You can also add a hyphen followed by characters to denote a pre-release version, e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (first beta release)
+> You can also add a hyphen followed by characters to denote a pre-release version, e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (fourth beta release)
 {: .callout}
 
 We can now use the more memorable tag to refer to this specific commit. Plus, once we've pushed this back up to GitHub, it appears as a specific release within our code repository which can be downloaded in compressed `.zip` or `.tar.gz` formats. Note that these downloads just contain the state of the repository at that commit, and not its entire history.
