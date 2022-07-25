@@ -64,7 +64,7 @@ anything you like, but it may be easier for future group exercises if everyone u
 2. Make sure you are located in your home directory in the command line with:
 > > `cd ~`
 3. From your home directory, do:
-> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
+> > `git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
 > > your copy of the software project and not the template repo.
 4. Navigate into the cloned repository in your command line with:
 > > `cd python-intermediate-inflammation`
