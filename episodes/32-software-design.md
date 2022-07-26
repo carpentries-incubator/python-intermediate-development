@@ -1,5 +1,5 @@
 ---
-title: "Software Design"
+title: "Software Architecture and Design"
 teaching: 15
 exercises: 30
 questions:
@@ -20,7 +20,11 @@ Such components can be as small as a single function, or be a software package i
 
 ## Introduction
 
-So far in the course we looked at some aspects of writing 'good' code: writing documented, easy to read and self-explanatory code, and writing automated tests that help us verify the correctness of that code in some way. We've also looked at established practices - for example, coding conventions, and feature-branch workflow - that are useful to help us develop code for ourselves, but more importantly, for developing code in teams.
+{% comment %}
+TODO: Move this text to intro for day 3
+{% endcomment %}
+
+So far in the course we looked at some aspects of writing 'good' code: writing documented, easy to read and self-explanatory code, and writing automated tests that help us verify the correctness of that code in some way. We've also looked at established practices - for example, coding conventions, and feature-branch workflow - that are useful when we develop software for ourselves, but essential when developing working in a team.
 
 These aspects are concerned with the **implementation** of software. Taking a step back, how should we *design* that software in the first place? 
 In previous episode we looked at one aspect of design and using different programming language paradigms 
@@ -28,7 +32,7 @@ as a way of structuring code into units. We are now talking about the higher lev
 structure of the whole software system and its main components.
 As a piece of software grows, it will reach a point where there's too much code for you to keep in mind at once.
 At this point, it becomes particularly important that the software be designed sensibly.
-What should be the overall structure of our software, how should all the pieces of functionality fit together, and how should we work towards fulfulling this overall design throughout development?
+What should be the overall structure of our software, how should all the pieces of functionality fit together, and how should we work towards fulfilling this overall design throughout development?
 
 It's not easy come up with a complete definition for the term **software design**, but some of the common aspects are:
 
@@ -40,85 +44,10 @@ It's not easy come up with a complete definition for the term **software design*
 As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
 So we should think about the design of our software from the very beginning, ideally even before we start writing code - but if you didn't, it's never too late to start.
 
-## Types of Software
-
-Before we start writing code, we would like to have a reasonable idea of who will be using our software and what they want it to do.
-
-This is often difficult, particularly when developing software for research, because the users and their needs 
-(i.e. the **software's requirements**) can change with very little warning.
-Maybe we have an idea for a new research project that could use our existing code, or maybe a research group at 
-another institution wants to use it to support their work in a slightly different environment.
-
-Despite this potential for change, there are a few characteristics of a piece of software which tend to remain fixed.
-Some of the most important questions you should ask when beginning a new software project are:
-
-- Where does it run?
-- How do you interact with it?
-- Why do you use it?
 
 The answers to these questions will provide us with some **design constraints** which any software we write must satisfy.
 For example, a design constraint when writing a mobile app would be that it needs to work with a touch screen interface - we might have some software that works really well from the command line, but on a typical mobile phone there isn't a command line interface that people can access.
 
-> ## Types of Software
->
-> Many design choices in a software project depend on the environment in which the software is expected to run.
->
-> Think about some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
-> Here are some examples of questions you can use to get started:
->
-> - What environment does the software run in?
-> - How do people interact with it?
-> - Why do people use it?
-> - What features of the software have been affected by these factors?
-> - If the software needed to be used in a different environment, what difficulties might there be?
->
-> Some examples of design / development choices constrained by environment might be:
->
-> - Mobile Apps
->   - Must have graphical interface suitable for a touch display
->   - Usually distributed via a controlled app store
->   - Users will not (usually) modify / compile the software themselves
->   - Should work on a range of hardware specifications with a range of Operating System (OS) versions
->     - But OS is unlikely to be anything other than Android or iOS
->   - Documentation probably in the software itself or on a Web page
->   - Typically written in one of the platform preferred languages (e.g. Java, Kotlin, Swift)
-> - Embedded Software
->   - May have no user interface - user interface may be physical buttons
->   - Usually distributed pre-installed on a physical device
->   - Often runs on low power device with limited memory and CPU performance - must take care to use these resources efficiently
->   - Exact specification of hardware is known - often not necessary to support multiple devices
->   - Documentation probably in a technical manual with a separate user manual
->   - May need to run continuously for the lifetime of the device
->   - Typically written in a lower-level language (e.g. C) for better control of resources
->
-> > ## Some More Examples
-> >
-> > - Desktop Application
-> >   - Has a graphical interface for use with mouse and keyboard
-> >   - May need to work on multiple, very different operating systems
-> >   - May be intended for users to modify / compile themselves
-> >   - Should work on a wide range of hardware configurations
-> >   - Documentation probably either in a manual or in the software itself
-> > - Command-line Application - UNIX Tool
-> >   - User interface is text based, probably via command-line arguments
-> >   - Intended to be modified / compiled by users - though most will choose not to
-> >   - Documentation has standard formats - also accessible from the command line
-> >   - Should be usable as part of a pipeline
-> > - Command-line Application - High Performance Computing
-> >   - Similar to a UNIX Tool
-> >   - Usually supports running across multiple networked machines simultaneously
-> >   - Usually operated via a scheduler - interface should be scriptable
-> >   - May need to run on a wide range of hardware (e.g. different CPU architectures)
-> >   - May need to process large amounts of data
-> >   - Often entirely or partially written in a lower-level language for performance (e.g. C, C++, Fortran)
-> > - Web Application
-> >   - Usually has components which run on server and components which run on the user's device
-> >   - Graphical interface should usually support both Desktop and Mobile devices
-> >   - Client-side component should run on a range of browsers and operating systems
-> >   - Documentation probably part of the software itself
-> >   - Client-side component typically written in JavaScript
-> {: .solution}
-{: .challenge}
 
 ## Software Architecture
 
