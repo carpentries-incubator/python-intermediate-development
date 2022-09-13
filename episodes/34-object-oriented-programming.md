@@ -1,5 +1,5 @@
 ---
-title: "Software Paradigms"
+title: "Object Oriented Programming"
 start: false
 teaching: 15
 exercises: 30
