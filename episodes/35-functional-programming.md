@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Functional Programming"
+title: "Functional Programming"
 teaching: 25
 exercises: 15
 questions:
@@ -193,8 +193,9 @@ print(double_ints)
 
 The above example uses a **list comprehension** to double each number in a sequence.
 Notice the similarity between the syntax for a list comprehension and a for loop - in effect, this is a for loop compressed into a single line.
+In this simple case we've got code equivalent to using just a map operation.
 
-We can also use list comprehensions to filter data, by adding the filter condition to the end.
+We can also use list comprehensions to filter data, by adding the filter condition to the end:
 
 ~~~
 double_even_ints = [2 * i for i in integers if i % 2 == 0]
@@ -211,30 +212,30 @@ print(double_even_ints)
 Similarly, we have **set** and **dictionary comprehensions**, which look similar to list comprehensions, but use the **set literal** or **dictionary literal** syntax.
 
 ~~~
-double_int_set = {2 * i for i in integers}
+double_even_int_set = {2 * i for i in integers if i % 2 == 0}
 
-print(double_int_set)
+print(double_even_int_set)
 ~~~
 {: .language-python}
 
 ~~~
-{0, 2, 4, 6, 8}
+{0, 4, 8}
 ~~~
 {: .output}
 
 ~~~
-double_int_dict = {i: 2 * i for i in integers}
+double_even_int_dict = {i: 2 * i for i in integers if i % 2 == 0}
 
-print(double_int_dict)
+print(double_even_int_dict)
 ~~~
 {: .language-python}
 
 ~~~
-{0: 0, 1: 2, 2: 4, 3: 6, 4: 8}
+{0: 0, 2: 4, 4: 8}
 ~~~
 {: .output}
 
-These 'comprehensions' cover the map and filter components of MapReduce, but not the reduce component.
+These comprehensions cover the map and filter components of MapReduce, but not the reduce component.
 For that we either need to rely on a built in reduction operator, or use the `reduce` function with a custom reduction operator.
 
 In many cases, what we want to do is to sum the values in a collection - for this we have the built in `sum` function:
@@ -502,7 +503,7 @@ print(reduce((lambda a, b: a * b), l))
 
 > ## Optional Advanced Exercise: Multiprocessing 
 >
-> **Advanced optional exercise if you finish other exercises early.**
+> **Advanced optional exercise to come back to if you finish early.**
 >
 > One of the benefits of functional programming is that, if we have pure functions, when applying / mapping a function to many values in a collection, each application is completely independent of the others.
 > This means that we can take advantage of multiprocessing, without many of the normal problems in synchronisation that this brings.
@@ -515,14 +516,15 @@ print(reduce((lambda a, b: a * b), l))
 > Is this as much as you would expect for the number of cores your CPU has?
 >
 > **Hint:** To time the execution of a Python script we can use the shell command `time`:
->
-> **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
-> One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
->
 > ~~~
 > time python3 my_script.py
 > ~~~
 > {: .language-bash}
+>
+> **Hint:** There is a computational cost associated with creating the process pool and sharing the work - if the computational task being performed is too small, you will may not see a performance improvement.
+>
+> **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
+> One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >
 > Would we get the same benefits from parallel equivalents of the `filter` and `reduce` functions?
 > Why, or why not?

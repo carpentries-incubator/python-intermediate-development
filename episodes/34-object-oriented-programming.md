@@ -27,48 +27,6 @@ complex it's common to use aspects of different paradigms to handle different su
 know about the major paradigms, so you can recognise where it might be useful to switch. We will look into two major 
 paradigms that may be useful to you - **Procedural Programming** and **Object-Oriented Programming**.
 
-## Procedural Programming
-Procedural Programming is probably the style you're most familiar with and the one we used 
-up to this point, where we group code into *procedures performing a single task, with exactly one entry and one exit point*.
-In most modern languages we call these **functions**, instead of procedures - so if you're grouping your code into functions, this might be the paradigm you're using. By grouping code like this, we make it even easier to reason about the overall structure, since we should be able to tell roughly what a function does just by looking at its name.
-These functions are also much easier to reuse outside of functions, since we can call them from any part of our program.
-
-So far we have been using this technique in our code - it contains a
-list of instructions that execute one after the other starting from the top. This is an appropriate choice for smaller scripts and software that we're writing just for a single use.
-Aside from smaller scripts, Procedural Programming is also commonly seen in code focused on high performance, with relatively simple data structures, such as in High Performance Computing (HPC).
-These programs tend to be written in C (which doesn't support Object Oriented Programming) or Fortran (which didn't until recently).
-HPC code is also often written in C++, but C++ code would more commonly follow an Object Oriented style, though it may have procedural sections.
-
-Note that you may sometimes hear people refer to this paradigm as "Functional Programming" to contrast it with 
-Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
-[Functional Programming][functional-programming] is a separate paradigm that places much stronger constraints 
-on the behaviour of a function - there is an [extra episode on Functional Programming](../functional-programming) 
-for some additional reading.
-
-## Object Oriented Programming
-
-Object Oriented Programming focuses on the specific characteristics of each object and what each object can do.
-An object has two fundamental parts - properties (characteristics) and actions. In Object Oriented Programming, we 
-first think about the data and the things that we're modelling - and represent these by objects. 
-
-For example, 
-if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
-Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want - 
-in this case, for example, we often need to know the mass and electric charge of each atom.
-So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
-This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
-
-> ## Is Python Procedural or Object Oriented Language?
-> Python is a multi-paradigm and multi-purpose programming language. You can use it as a procedural language and 
-> you can use it in a more object oriented way. It tends to land more on the object oriented side as all its core data 
-> types (strings, integers, floats, booleans, lists, sets, arrays, tuples, dictionaries, files) as well as functions, 
-> modules and classes are objects. Many built-in functions and external Python packages 
-> like [NumPy][numpy], [pandas][pandas] and [Scikit-learn][scikit-learn] are also built using object oriented programming.
-{: .callout}
-
-Let's continue to develop our software project, using Object Oriented Programming to design a more complete model 
-of our patients and to get a bit more experience with object oriented programming paradigm.
-
 ### Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
