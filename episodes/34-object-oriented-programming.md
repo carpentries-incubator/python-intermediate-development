@@ -1,7 +1,7 @@
 ---
-title: "Software Paradigms"
+title: "Object Oriented Programming"
 start: false
-teaching: 15
+teaching: 20
 exercises: 30
 questions:
 - "How does the structure of a problem affect the structure of our code?"
@@ -427,7 +427,7 @@ print(obs)
 
 You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
-It is possible to make your own decorators but we won't be covering that in this course.
+It is possible to make your own decorators, so we'll be seeing them again in the Functional Programming episode.
 
 ### Relationships Between Classes
 
