@@ -291,4 +291,21 @@ tool-assisted process is recommended.
    for feedback; `CHANGES REQUESTED` to let the author know they need to fix the requested changes or discuss more; 
    `APPROVED` to let the author they can merge their pull request.
 
+> ## Code Review in your Own Working Environment
+> 
+> At the start of this episode we briefly looked at a number of techniques for doing code review, and as an example, went on to see how we can use GitHub Pull Requests to review team member code changes. Finally, we also looked at some best practices for doing code reviews in general.
+> 
+> Now think about how you typically develop code, and how you might institute code review practices within your own working environment. Write down briefly for your own reference (perhaps using bullet points) some answers to the following questions:
+> 
+> - Which 2 or 3 key circumstances would code review be most useful for you and your colleagues?
+> - Referring to the first section of this episode above, which type of code review would be most useful for each circumstance (and would work best within your own working environment)?
+> - Taking one of these circumstances where code review would be most beneficial, how would you organise such a code review? e.g.
+>   - Which aspects of the codebase would be the most useful to cover?
+>   - How often would you do them?
+>   - How long would the activity take?
+>   - Who would ideally be involved?
+>   - Any particular practices you would use?
+{: .challenge}
+
+
 {% include links.md %}
