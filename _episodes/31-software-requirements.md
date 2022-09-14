@@ -16,7 +16,9 @@ keypoints:
 - "The perspective and language of a particular requirement stakeholder group should be reflected in requirements for that group."
 ---
 
-FIXME: add intro - key message: critical to get requirements right, but expect change
+The requirements of our software are the basis on which the whole project rests - if we get the requirements wrong, we'll build the wrong software.
+However, it's unlikely that we'll be able to determine all of the requirements upfront.
+Especially when working in a research context, requirements are flexible and may change as we develop our software.
 
 
 ## Types of Requirements
