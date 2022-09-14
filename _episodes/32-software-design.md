@@ -20,17 +20,8 @@ Such components can be as small as a single function, or be a software package i
 
 ## Introduction
 
-{% comment %}
-TODO: Move this text to intro for day 3
-{% endcomment %}
-
-So far in the course we looked at some aspects of writing 'good' code: writing documented, easy to read and self-explanatory code, and writing automated tests that help us verify the correctness of that code in some way. We've also looked at established practices - for example, coding conventions, and feature-branch workflow - that are useful when we develop software for ourselves, but essential when developing working in a team.
-
-These aspects are concerned with the **implementation** of software. Taking a step back, how should we *design* that software in the first place? 
-In previous episode we looked at one aspect of design and using different programming language paradigms 
-as a way of structuring code into units. We are now talking about the higher level design - the fundamental 
-structure of the whole software system and its main components.
-As a piece of software grows, it will reach a point where there's too much code for you to keep in mind at once.
+In this episode, we'll be looking at how we can design our software to ensure it meets the requirements, but also retains the other qualities of good software.
+As a piece of software grows, it will reach a point where there's too much code for us to keep in mind at once.
 At this point, it becomes particularly important that the software be designed sensibly.
 What should be the overall structure of our software, how should all the pieces of functionality fit together, and how should we work towards fulfilling this overall design throughout development?
 
@@ -38,7 +29,7 @@ It's not easy come up with a complete definition for the term **software design*
 
 - **Algorithm design** - what method are we going to use to solve the core business problem?
 - **Software architecture** - what components will the software have and how will they cooperate?
-- **System architecture** - what other things will this software have to interact with and how?
+- **System architecture** - what other things will this software have to interact with and how will it do this?
 - **UI/UX** (User Interface / User Experience) - how will users interact with the software?
 
 As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
