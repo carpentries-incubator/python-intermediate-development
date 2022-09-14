@@ -571,7 +571,7 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 > One small task you might find a useful case for a decorator is in measuring the time taken to execute a particular function.
 > This is an important part of performance profiling.
 > 
-> Write a decorator which you can use to measure the execution time of the decorated function using the `time.process_time_ns()` function.
+> Write a decorator which you can use to measure the execution time of the decorated function using the [`time.process_time_ns()` [docs]](https://docs.python.org/3/library/time.html#time.process_time_ns) function.
 > There are several different timing functions each with slightly different use-cases, but we won't worry about that here.
 > 
 > For the function to measure, you may wish to use this as an example:
@@ -638,7 +638,7 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 > How much of a performance improvement do you get?
 > Is this as much as you would expect for the number of cores your CPU has?
 >
-> **Hint:** To time the execution of a Python script we can use the shell command `time`:
+> **Hint:** To time the execution of a Python script we can use the shell command `time`, or make careful use of the timing decorator we wrote for the exercise above:
 > ~~~
 > time python3 my_script.py
 > ~~~
