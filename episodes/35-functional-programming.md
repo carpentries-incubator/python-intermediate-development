@@ -1,7 +1,7 @@
 ---
 title: "Functional Programming"
-teaching: 25
-exercises: 15
+teaching: 30
+exercises: 30
 questions:
 - "What is a function really?"
 - "How can we be sure our code does the same thing every time?"

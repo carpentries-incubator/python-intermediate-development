@@ -1,7 +1,7 @@
 ---
 title: "Object Oriented Programming"
 start: false
-teaching: 15
+teaching: 20
 exercises: 30
 questions:
 - "How does the structure of a problem affect the structure of our code?"
