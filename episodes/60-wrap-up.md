@@ -56,9 +56,8 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 ## Further Resources
 Below are some additional resources to help you continue learning:
 
-- [Additional episode on functional programming](../functional-programming)
+- [Additional episode on persisting data](../persistence)
 - [Additional episode on databases](../databases)
-- [Additional episode on verifying code style using linters](../verifying-code-style-linters)
 - [CodeRefinery courses on FAIR (Findable, Accessible, Interoperable, and Reusable) software practices][coderefinery-lessons] 
 - [Python documentation][python-documentation]
 - [GitHub Actions documentation][github-actions]
