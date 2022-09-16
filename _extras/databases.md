@@ -1,5 +1,6 @@
 ---
 title: "Additional Material: Databases"
+layout: episode
 teaching: 30
 exercises: 30
 questions:
@@ -8,10 +9,14 @@ objectives:
 - "Describe the structure of a relational database"
 - "Store and retrieve structured data using an Object Relational Mapping (ORM)"
 keypoints:
-- "Relational databases are often the best persistence mechanism for data which fits well to the Object Oriented paradigm"
+- "Relational databases are often the best persistence mechanism for data which fits well to the Object Oriented paradigm."
 ---
 
 ## Databases
+
+> ## Follow up from Section 3
+> This episode could be read as a follow up from the end of [Section 3 on software design and development](../30-section3-intro).
+{: .callout} 
 
 A **database** is an organised collection of data, usually organised in some way to mimic the structure of the entities it represents.
 There are several major families of database model, but the dominant form is the **relational database**.
