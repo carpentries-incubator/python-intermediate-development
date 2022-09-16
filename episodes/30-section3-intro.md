@@ -20,6 +20,8 @@ In this section, we will take a step back from coding development practices and 
 
 > *"If you fail to plan, you are planning to fail."* - Benjamin Franklin
 
+![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+
 ### Writing Code vs Engineering Software
 
 Traditionally in academia, software - and the process of writing it - is often seen as a necessary but throwaway artefact in research. For example, there may be research questions (for a given research project), code is created to answer those questions, the code is run over some data and analysed, and finally a publication is written based on those results. These steps are often taken informally.
@@ -54,9 +56,6 @@ Following a process of development offers some major benefits:
 - **Predictability:** each stage is given attention in a logical sequence; the next stage should not begin until prior stages have completed. Returning to a prior stage is possible and may be needed, but may prove expensive, particularly if an implementation has already been attempted. However, at least this is an explicit and planned action.
 - **Transparency:** essentially, each stage generates output(s) into subsequent stages, which presents opportunities for them to be published as part of an open development process.
 - **It saves time:** a well-known result from [empirical software engineering studies](https://web.archive.org/web/20160731150816/http://superwebdeveloper.com/2009/11/25/the-incredible-rate-of-diminishing-returns-of-fixing-software-bugs/) is that it becomes exponentially more expensive to fix mistakes in future stages. For example, if a mistake takes 1 hour to fix in requirements, it may take 5 times that during design, and perhaps as much as 20 times that to fix if discovered during testing.
-
-FIXME: update section image
-![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
 
 In this section we will place the actual writing of software (implementation) within the context of the typical software development process:
 

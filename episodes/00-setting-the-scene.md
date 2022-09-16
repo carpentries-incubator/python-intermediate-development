@@ -62,19 +62,19 @@ for **code backup, sharing and collaborative development**,
 - **Python code style guidelines** to make sure our code is 
 **documented, readable and consistently formatted**.
 
-### [Section 2:  Verifying Software Correctness at Scale](../20-section2-intro/index.html)
+### [Section 2: Verifying Software Correctness at Scale](../20-section2-intro/index.html)
 Once we know our way around different code development tools, techniques and conventions, in this section we learn:
 - how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
 - how to automate and scale testing with **Continuous Integration (CI)** using 
 **GitHub Actions** (a CI service available on GitHub).
  
-### [Section 3: Designing Software to Meet Requirements](../30-section3-intro/index.html)
-In this section, we step away from writing code for a bit to look at things from a higher level:
+### [Section 3: Software Development as a Process](../30-section3-intro/index.html)
+In this section, we step away from writing code for a bit to look at software from a higher level 
+as a process of development and its components:
 
-- **software requirements** and **designing and architecting software** to meet them, how these fit within the larger **software development process**, and what we should consider when testing against particular types of requirements.
+- different types of **software requirements** and **designing and architecting software** to meet them, how these fit within the larger **software development process** and what we should consider when **testing** against particular types of requirements.
 - different **programming and software design paradigms**, each representing a slightly 
-different way of thinking about and structuring the code, where we'll look at the wider landscape in which you can
-design software and to help you with the design decisions you have to make.
+different way of thinking about, structuring and **implementing** the code.
 
 ### [Section 4: Collaborative Software Development for Reuse](../40-section4-intro/index.html)
 Advancing from the solo code development, in this section you will start working with your fellow learners 
