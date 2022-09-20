@@ -53,7 +53,7 @@ anything you like, but it may be easier for future group exercises if everyone u
 6. Locate the copied repository under your own GitHub account.
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
-> ## Obtain the Software Project Locally
+> ## Exercise: Obtain the Software Project Locally
 > Using the command line, clone the copied repository from your GitHub account into the home directory on your computer, 
 > (to be consistent with the code examples and exercises in the course).
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
@@ -137,7 +137,7 @@ a series of comma-separated values (CSV) format files, where:
 - each row holds temperature measurements for a single patient (in some arbitrary units of inflammation),
 - columns represent successive days.
 
-> ## Have a Peek at the Data
+> ## Exercise: Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
 > > ## Solution
 > > 1. To list the entire content of a file from the project root do: `cat data/inflammation-01.csv`.
@@ -194,9 +194,9 @@ There are various software architectures around defining different ways of divid
 with well defined roles, for example:
 
 - [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), which we will look into in detail and use for our software project,
-- [Service-Oriented Architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services,
+- [Service-oriented architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services,
 accessible over a network by consumers (users or other services) that communicate with each other by passing data in a well-defined, shared format (protocol),
-- [Client-Server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
+- [Client-server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
 - [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may even be physically separated to run on separate machines - some more detail on this later in the course.
 
 ### Model-View-Controller (MVC) Architecture
@@ -236,7 +236,7 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
 {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
 
-> ## MVC Application Examples From your Work
+> ## Exercise: MVC Application Examples From your Work
 > Think of some other examples from your work or life where MVC architecture may be suitable or have a discussion
 > with your fellow learners.
 > > ## Solution

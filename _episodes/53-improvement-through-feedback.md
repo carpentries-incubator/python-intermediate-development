@@ -52,7 +52,7 @@ It is often not the reality, but estimation should ideally be done by the people
 
 An effective way of helping to make your estimates more accurate is to do it as a team. Other members can ask prudent questions that may not have been considered, and bring in other sanity checks and their own development experience. Just talking things through can help uncover other complexities and pitfalls, and raise crucial questions to clarify ambiguities.
 
-> ## Estimate!
+> ## Exercise: Estimate!
 >
 > As a team go through the issues that your partner team has registered with your software repository, and quickly estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then briefly discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
 >
@@ -90,7 +90,7 @@ and any description for the milestone.
 
 Once created, we can view our issues and assign them to our milestone from the `Issues` page.
 
-> ## Prioritise!
+> ## Exercise: Prioritise!
 >
 > Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues to determine how you will prioritise effort to resolve them in the allotted time. Try to stick to the 60/20/20 rule, and assign all issues you'll be working on (i.e. not `Won't Haves`) to a new milestone, e.g. "Tidy up documentation" or "version 0.1".
 > 
@@ -110,7 +110,7 @@ Once created, we can view our issues and assign them to our milestone from the `
 
 A sprint is an activity applied to a timebox, where development is undertaken on the agreed prioritised work for the period. In a typical sprint, there are daily meetings called **scrum meetings** which check on how work is progressing, and serves to highlight any blockers and challenges to meeting the sprint goal.
 
-> ## Conduct a Mini Mini-Sprint
+> ## Exercise: Conduct a Mini Mini-Sprint
 >
 > For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
 >
