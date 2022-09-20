@@ -199,7 +199,7 @@ repositories.
 
 #### Step 3: Adding New Code 
 
-> ## Implement Tests for a New Feature
+> ## Exercise: Implement Tests for a New Feature
 > Look back at the [Solution Requirements](/32-software-design/index.html#solution-requirements) (SR1 or SR2) for 
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
@@ -291,7 +291,7 @@ tool-assisted process is recommended.
    for feedback; `CHANGES REQUESTED` to let the author know they need to fix the requested changes or discuss more; 
    `APPROVED` to let the author they can merge their pull request.
 
-> ## Code Review in your Own Working Environment
+> ## Exercise: Code Review in Your Own Working Environment
 > 
 > At the start of this episode we briefly looked at a number of techniques for doing code review, and as an example, went on to see how we can use GitHub Pull Requests to review team member code changes. Finally, we also looked at some best practices for doing code reviews in general.
 > 

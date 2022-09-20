@@ -24,7 +24,7 @@ software against suitability criteria will help you adopt the same attitude when
 
 ## Assessing Software for Suitability
 
-> ## Decide on your Group's Repository!
+> ## Exercise: Decide on your Group's Repository!
 >
 > You all have your code repositories you have been working on throughout the course so far. For the upcoming exercise, groups will exchange repositories and review the code of the repository they inherit, and provide feedback.
 >
@@ -35,7 +35,7 @@ software against suitability criteria will help you adopt the same attitude when
 > next to your team's name.
 {: .challenge}
 
-> ## Conduct Assessment on Third-Party Software
+> ## Exercise: Conduct Assessment on Third-Party Software
 >
 > *The scenario:* It is envisaged that a piece of software developed by another team will be adopted and used for the long term in a number of future projects. You have been tasked with conducting an assessment of this software to identify any issues that need resolving prior to working with it, and will provide feedback to the developing team to fix these issues.
 >
