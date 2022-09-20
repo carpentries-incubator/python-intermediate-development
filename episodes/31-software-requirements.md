@@ -53,8 +53,8 @@ These define what particular stakeholder groups each expect from an eventual sol
 For our inflammation project, they could include things for trial managers such as (building on the business requirements):
 
 - UR1.1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
-- UR2.1 (from BR2): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
-- UR2.2 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
+- UR1.2 (from BR1): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
+- UR2.1 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
 > ## Exercise: New User Requirements
 >
@@ -75,9 +75,9 @@ Solution (or product) requirements describe characteristics that a concrete solu
 
 - *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
     - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
-    - SR2.1.1 (from UR2.1): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
+    - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR2.2.1 (from UR2.2): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+    - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
 
 ## The Importance of Non-functional Requirements
 

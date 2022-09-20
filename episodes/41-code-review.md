@@ -162,10 +162,10 @@ collaborating in the shared repository model. You will be added as a collaborato
 are going through the material on your own and do not have a collaborator, you can do pull requests on your 
 own repository from one to another branch.
 
-Recall [Solution Requirements](/32-software-design/index.html#solution-requirements) SR1 and SR2 from the
-previous episode. Your teammate has implemented SR1 or SR2 according to the specification 
+Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from the
+earlier episodes of this section. Your teammate has implemented one of them according to the specification 
 but tests are still missing. You are now tasked with implementing tests on top of 
-that existing implementation to make sure it satisfies the requirements. You will propose 
+that existing implementation to make sure the new feature indeed satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
 (acting as the code author) and engage in code review with your teammate (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
@@ -194,8 +194,9 @@ repositories.
 #### Step 2: Preparing Your Local Environment for a Pull Request
 
 1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
-2. Check with the repository owner (your team member) which feature (SR1 or SR2) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
-3. Create a local feature branch (`feature-SR1-tests` or `feature-SR2-tests`) off the appropriate feature branch (`feature-SR1` or `feature-SR2`) to contain your new code.
+2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
+3. Create the appropriate local branch `add-std-dev` or `add-view` (based on the feature you are working on) 
+off the remote feature branch to contain your new code.
 
 #### Step 3: Adding New Code 
 
@@ -221,7 +222,7 @@ be seen as a reflection those requirements - checking if the requirements are sa
 3. Head over to GitHub and locate your branch from the repository home page. 
 4. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-5. Select the base and the head branch - e.g. `feature-SR1` and `feature-SR1-tests`, respectively. 
+5. Select the base and the head branch - e.g. `add-std-dev` and `add-std-dev-tests`, respectively. 
 6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
 7. At this point, the code review process is initiated.
 
