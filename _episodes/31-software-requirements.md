@@ -23,11 +23,11 @@ Especially when working in a research context, requirements are flexible and may
 
 ## Types of Requirements
 
-Requirements can be categorised in many ways, but at a high level a useful way to split them is into *Business Requirements*, *User Requirements*, and *Solution Requirements*. Let's take a look at these now.
+Requirements can be categorised in many ways, but at a high level a useful way to split them is into *business requirements*, *user requirements*, and *solution requirements*. Let's take a look at these now.
 
 ### Business Requirements
 
-Business requirements describe what is needed from the perspective of the organisation, and define the strategic path of the project, e.g. to increase profit margin or market share, or embark on a new research area or collaborative partnership. These are captured in something like a Business Requirements document.
+Business requirements describe what is needed from the perspective of the organisation, and define the strategic path of the project, e.g. to increase profit margin or market share, or embark on a new research area or collaborative partnership. These are captured in something like a Business Requirements Specification.
 
 For adapting our inflammation software project, example business requirements could include:
 
@@ -35,8 +35,15 @@ For adapting our inflammation software project, example business requirements co
 - BR2: increasing the throughput of trial analyses to meet higher demand during peak periods
 
 > ## What do you Think?
-> 
-> Think of a new hypothetical business-level requirement (BR3) for this software. This can be anything you like, but be sure to keep it at the high-level of the business itself.
+> Think of a new hypothetical business-level requirements for this software. This can be anything you like, but be sure to keep it at the high-level of the business itself.
+>> ## Solution
+>> One hypothetical new business requirement (BR3) could be extending our clinical trial system to
+>> keep track of doctors who are being involved in the project.
+>> 
+>> Another hypothetical new business requirement (BR4) may be adding a new parameter to the treatment and checking if improves 
+>> the effect of the drug being tested - e.g. taking it in conjunction with omega-3 fatty acids and/or increasing physical activity 
+>> while taking the drug therapy.
+> {: .solution}
 {: .challenge}
 
 ### User (or Stakeholder) Requirements
@@ -45,25 +52,31 @@ These define what particular stakeholder groups each expect from an eventual sol
 
 For our inflammation project, they could include things for trial managers such as (building on the business requirements):
 
-- UR1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
-- UR2 (from BR2): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
-- UR3 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
+- UR1.1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
+- UR2.1 (from BR2): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
+- UR2.2 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
 > ## What do you Think II?
 >
-> Break down your new BR3 business requirement into a number of logical user requirements, ensuring they stay above the level and detail of implementation.
+> Break down your new business requirements into a number of logical user requirements, ensuring they stay above the level and detail of implementation.
+>> ## Solution
+>> For our business requirement BR3 from the previous exercise, the new user/stakeholder requirements may be the ability to 
+>> see all the patients a doctor is being responsible for (UR3.1), and to find out a doctor looking after any individual patient (UR3.2).
+>>
+>> For our business requirement BR4 from the previous exercise, the new user/stakeholder requirements may be the ability to 
+>> see the the effect of the drug with and without the additional parameters in all reports and graphs.
+> {: .solution}
 {: .challenge}
 
 ### Solution Requirements
 
-Solution (or product) requirements describe characteristics that a concrete solution or product must have to satisfy the stakeholder requirements They fall into two key categories:
+Solution (or product) requirements describe characteristics that a concrete solution or product must have to satisfy the stakeholder requirements. They fall into two key categories:
 
-- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.
-    - SR1 (from UR1): add standard deviation to data model and include in graph visualisation view
-    - SR2 (from UR2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
+- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
+    - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
+    - SR2.1.1 (from UR2.1): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR3 (from UR3): generate graphical statistics report on clinical workstation configuration in under 30 seconds
-
+    - SR2.2.1 (from UR2.2): generate graphical statistics report on clinical workstation configuration in under 30 seconds
 
 ## The Importance of Non-functional Requirements
 
@@ -129,11 +142,17 @@ When considering software requirements, it's *very* tempting to just think about
 {: .challenge}
 
 > ## What do you Think III?
->
 > Now break down your new user requirements from the *What do you Think II* exercise into a number of logical solution requirements (functional and non-functional), that address the detail required to be able to implement them in the software.
+>> ## Solution
+>> For our hypothetical business requirement BR3, new functional solution requirements would be extending 
+>> the clinical trial system to keep track of:
+>> - the names of all patients (SR3.1.1) and doctors (SR3.1.2) 
+>> - the name of the doctor for a particular patient (SR3.1.3)
+>> - a group of patients being looked after a particular doctor (SR3.2.1).
+> {: .solution}
 {: .challenge}
 
-> ## [An alternative to the 'What do you Think' exercises] What do you Think?
+> ## [An Alternative to *'What do you Think'* exercises] What do you Think?
 >
 > Think back to a piece of code or software (either small or large) you've written, or which you have experience using. First, try to formulate a few of its key business requirements, then derive these into user and then solution requirements (in a similar fashion to the ones above in *Types of Requirements*).
 {: .challenge}
