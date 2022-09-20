@@ -8,6 +8,7 @@ questions:
 - "How do we manage the process of developing and improving our software?"
 - "How do we ensure we reuse other people's code while maintaining the sustainability of our own software?"
 objectives:
+- "Use established tools to track and manage software problems and enhancements in a team."
 - "Understand the importance of critical reflection to improving software quality and reusability."
 - "Improve software through feedback, work estimation, prioritisation and agile development."
 keypoints:
@@ -17,7 +18,7 @@ keypoints:
 
 In this section of the course we look at managing the **development and evolution** of software -
 how to keep track of the tasks the team has to do, 
-how to improve the quality and reusability of our software for others as well as ourselves 
+how to improve the quality and reusability of our software for others as well as ourselves, 
 and how to assess other people's software for reuse within our project.
 The focus in this section will move beyond just software development to **software management**:
 internal planning and prioritising tasks for future development, 

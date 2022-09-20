@@ -112,7 +112,7 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 
 > ## Conduct a Mini Mini-Sprint
 >
-> For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
+> For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Collaborators`, where you can invite other GitHub users to your repository with specific permissions.
 >
 > Time: however long is left
 {: .challenge}
