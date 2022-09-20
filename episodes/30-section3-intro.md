@@ -52,7 +52,7 @@ Whether projects or people that develop software are aware of them or not, these
 
 Following a process of development offers some major benefits:
 
-- **Stage gating:** a quality *gate* at the end of each stage, where stakeholders review the stage's outcomes to decide if that stage has completed successfully before proceeding to the next one (and even if the next stage is warranted at all - for example, it may be discovered during requirements of design that development of the software isn't practical or even required)
+- **Stage gating:** a quality *gate* at the end of each stage, where stakeholders review the stage's outcomes to decide if that stage has completed successfully before proceeding to the next one (and even if the next stage is not warranted at all - for example, it may be discovered during requirements of design that development of the software isn't practical or even required).
 - **Predictability:** each stage is given attention in a logical sequence; the next stage should not begin until prior stages have completed. Returning to a prior stage is possible and may be needed, but may prove expensive, particularly if an implementation has already been attempted. However, at least this is an explicit and planned action.
 - **Transparency:** essentially, each stage generates output(s) into subsequent stages, which presents opportunities for them to be published as part of an open development process.
 - **It saves time:** a well-known result from [empirical software engineering studies](https://web.archive.org/web/20160731150816/http://superwebdeveloper.com/2009/11/25/the-incredible-rate-of-diminishing-returns-of-fixing-software-bugs/) is that it becomes exponentially more expensive to fix mistakes in future stages. For example, if a mistake takes 1 hour to fix in requirements, it may take 5 times that during design, and perhaps as much as 20 times that to fix if discovered during testing.
@@ -62,7 +62,7 @@ In this section we will place the actual writing of software (implementation) wi
 - Explore the **importance of software requirements**, the different classes of requirements, and how we can interpret and capture them.
 - How requirements inform and drive the **design of software**, the importance, role, and examples of **software architecture**, and the ways we can describe a software design.
 - **Implementation choices** in terms of **programming paradigms**, looking at **procedural**, **functional**, and **object oriented** paradigms of development. Modern software will often contain instances of multiple paradigms, so it is worthwhile being familiar with them and knowing when to switch in order to make better code.
-- How you can (and should) assess and update a software's architecture when requirements change and complexity will increase -  is the architecture still fit for purpose, or are modifications and extensions becoming increasingly difficult to make?
+- How you can (and should) assess and update a software's architecture when requirements change and complexity increases - is the architecture still fit for purpose, or are modifications and extensions becoming increasingly difficult to make?
 
 
 {% include links.md %}
