@@ -13,7 +13,7 @@ Such components can be as small as a single function, or be a software package i
 ---
 
 
-### MVC Revisited
+## MVC Revisited
 
 **Model-View-Controller** (MVC) is just one of the common architectural patterns.
 We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
@@ -184,3 +184,11 @@ UNKNOWN
 ...
 ~~~
 {: .output}
+
+> ## Additional Material
+> 
+> Now we've covered the basics of Object Oriented Programming and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
+> 
+> Both episodes cover methods of persistently storing data, but take different approaches.
+> The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.
+{: .callout}
