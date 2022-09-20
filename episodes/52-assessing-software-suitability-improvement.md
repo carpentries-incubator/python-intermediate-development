@@ -16,7 +16,7 @@ keypoints:
 
 ## Introduction
 
-What we've been looking at so far enables us to adopt a more proactive and diligent attitude when developing our own software. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
+What we've been looking at so far enables us to adopt a more proactive and managed attitude and approach to the software we develop. But we should also adopt this attitude when selecting and making use of third-party software we wish to use. With pressing deadlines it's very easy to reach for a piece of software that appears to do what you want without considering properly whether it's a good fit for your project first. A chain is only as strong as its weakest link, and our software may inherit weaknesses in any dependent software or create other problems.
 
 Overall, when adopting software to use it's important to consider not only whether it has the functionality you want, 
 but a broader range of qualities that are important for your project. Adopting a critical mindset when assessing other 
