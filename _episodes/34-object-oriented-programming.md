@@ -15,19 +15,7 @@ keypoints:
 - "A single piece of software will often contain instances of multiple paradigms."
 ---
 
-## Introduction
-
-As you become more experienced in software development, it becomes increasingly important to understand the wider 
-landscape in which you operate - i.e. what software decisions have the people around you made and why?
-There are hundreds (probably thousands) of different programming languages, each with different approaches of how a 
-programmer will use them to solve a problem. These approaches group the programming languages into **paradigms**.
-Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain 
-strengths and weaknesses when used to solve particular types of problems. Once your software begins to get more 
-complex it's common to use aspects of different paradigms to handle different subtasks. Because of this, it's useful to 
-know about the major paradigms, so you can recognise where it might be useful to switch. We will look into two major 
-paradigms that may be useful to you - **Procedural Programming** and **Object-Oriented Programming**.
-
-### Encapsulating Data
+## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
 So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to combine data from a range of different sources and with more data than just an array of numbers.
