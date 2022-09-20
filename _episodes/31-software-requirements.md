@@ -34,7 +34,7 @@ For adapting our inflammation software project, example business requirements co
 - BR1: improving the statistical quality of clinical trial reporting to meet the needs of external audits 
 - BR2: increasing the throughput of trial analyses to meet higher demand during peak periods
 
-> ## What do you Think?
+> ## Exercise: New Business Requirements
 > Think of a new hypothetical business-level requirements for this software. This can be anything you like, but be sure to keep it at the high-level of the business itself.
 >> ## Solution
 >> One hypothetical new business requirement (BR3) could be extending our clinical trial system to
@@ -56,15 +56,16 @@ For our inflammation project, they could include things for trial managers such 
 - UR2.1 (from BR2): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
 - UR2.2 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
-> ## What do you Think II?
+> ## Exercise: New User Requirements
 >
-> Break down your new business requirements into a number of logical user requirements, ensuring they stay above the level and detail of implementation.
+> Break down your new business requirements from the [previous exercise](../31-software-requirements/index.html#exercise-new-business-requirements) 
+> into a number of logical user requirements, ensuring they stay above the level and detail of implementation.
 >> ## Solution
 >> For our business requirement BR3 from the previous exercise, the new user/stakeholder requirements may be the ability to 
 >> see all the patients a doctor is being responsible for (UR3.1), and to find out a doctor looking after any individual patient (UR3.2).
 >>
 >> For our business requirement BR4 from the previous exercise, the new user/stakeholder requirements may be the ability to 
->> see the the effect of the drug with and without the additional parameters in all reports and graphs.
+>> see the the effect of the drug with and without the additional parameters in all reports and graphs (UR4.1).
 > {: .solution}
 {: .challenge}
 
@@ -82,7 +83,7 @@ Solution (or product) requirements describe characteristics that a concrete solu
 
 When considering software requirements, it's *very* tempting to just think about the features users need. However, many design choices in a software project quite rightly depend on the users themselves and the environment in which the software is expected to run, and these aspects should be considered as part of the software's non-functional requirements.
 
-> ## Types of Software
+> ## Exercise: Types of Software
 >
 > Think about some software you are familiar with (could be software you have written yourself or by someone else) and how the environment it is used in have affected its design or development.
 > Here are some examples of questions you can use to get started:
@@ -141,18 +142,20 @@ When considering software requirements, it's *very* tempting to just think about
 > {: .solution}
 {: .challenge}
 
-> ## What do you Think III?
-> Now break down your new user requirements from the *What do you Think II* exercise into a number of logical solution requirements (functional and non-functional), that address the detail required to be able to implement them in the software.
+> ## Exercise: New Solution Requirements
+> Now break down your new user requirements from the 
+> [earlier exercise](../31-software-requirements/index.html#exercise-new-user-requirements) 
+> into a number of logical solution requirements (functional and non-functional), that address the detail required to be able to implement them in the software.
 >> ## Solution
->> For our hypothetical business requirement BR3, new functional solution requirements would be extending 
+>> For our new hypothetical business requirement BR3, new functional solution requirements could be extending 
 >> the clinical trial system to keep track of:
->> - the names of all patients (SR3.1.1) and doctors (SR3.1.2) 
+>> - the names of all patients (SR3.1.1) and doctors (SR3.1.2) involved in the trial
 >> - the name of the doctor for a particular patient (SR3.1.3)
->> - a group of patients being looked after a particular doctor (SR3.2.1).
+>> - a group of patients being administered by a particular doctor (SR3.2.1).
 > {: .solution}
 {: .challenge}
 
-> ## [An Alternative to *'What do you Think'* exercises] What do you Think?
+> ## Optional Exercise: Requirements for Your Software Project
 >
 > Think back to a piece of code or software (either small or large) you've written, or which you have experience using. First, try to formulate a few of its key business requirements, then derive these into user and then solution requirements (in a similar fashion to the ones above in *Types of Requirements*).
 {: .challenge}

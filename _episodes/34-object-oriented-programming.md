@@ -584,15 +584,16 @@ The order in which it does this search is known as the **method resolution order
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
 This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Person` must have a name, before we can properly initialise a `Patient` model with their inflammation data.
 
-> ## A Model Patient
+> ## Exercise: A Model Patient
 >
-> Use what we have learnt in this episode to extend the model layer of our clinical trial system.
+> Let's use what we have learnt in this episode and combine it with what we have learnt on 
+> [software requirements](../31-software-requirements/index.html) to formulate and implement a 
+> [few new solution requirements](../31-software-requirements/index.html#exercise-new-solution-requirements)
+> to extend the model layer of our clinical trial system.
 >
-> Let's start with extending:
->
-> - There must be a `Doctor` class to hold the data representing a single doctor, which:
+> Let's can start with extending the system such that there must be a `Doctor` class to hold the data representing a single doctor, which:
 >   - must have a `name` attribute
->   - must have a list of patients that this doctor is responsible for
+>   - must have a list of patients that this doctor is responsible for.
 >
 > In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
