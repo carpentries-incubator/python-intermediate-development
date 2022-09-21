@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the Software Project"
+title: "Introduction to Our Software Project"
 teaching: 20
 exercises: 10
 questions:
