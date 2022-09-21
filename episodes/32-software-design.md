@@ -42,21 +42,21 @@ For example, a design constraint when writing a mobile app would be that it need
 
 ## Software Architecture
 
-At the beginning of this episode we defined **Software Architecture** with the question, "what components will the software have and how will they cooperate?"
-Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques have some similarities.
-
-One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
+At the beginning of this episode we defined **software architecture** as an answer to the question "what components 
+will the software have and how will they cooperate?". Software engineering borrowed this term, and a few other terms, 
+from architects (of buildings) as many of the processes and techniques have some similarities. 
+One of the other important terms we borrowed is 'pattern', such as in **design patterns** and **architecture patterns**.
 This term is often attributed to the book ['A Pattern Language' by Christopher Alexander *et al.*](https://en.wikipedia.org/wiki/A_Pattern_Language) published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
 
 Design patterns are relatively small-scale templates which we can use to solve problems which affect a small part of our software.
-For example, the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) (which allows a class that does not 
-have the "right interface" to be reused)
-may be useful if part of our software needs to consume data from a number of different external data sources.
-Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
-Many design patterns rely on concepts from Object Oriented Programming, so we'll come back to the MVC pattern after that episode.
+For example, the **[adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern)** (which allows a class that does not 
+have the "right interface" to be reused) may be useful if part of our software needs to consume data from a number of 
+different external data sources.
+Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected 
+format, so the rest of our program doesn't have to worry about it.
 
 Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
-Model-View-Controller is one of the best known architecture patterns.
+Model-View-Controller (which we chose for our project) is one of the best known architecture patterns. Many patterns rely on concepts from Object Oriented Programming, so we'll come back to the MVC pattern shortly after we learn a bit more about Object Oriented Programming.
 
 There are many online sources of information about design and architecture patterns, often giving concrete examples of cases where they may be useful.
 One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
@@ -88,32 +88,34 @@ In a small application, a multilayer architecture is unlikely to be necessary, w
 So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data.
 Let's now take a step back to the solution requirements we discussed in the previous episode:
 
-- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.
-    - SR1 (from UR1): add standard deviation to data model and include in graph visualisation view
-    - SR2 (from UR2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
+- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
+  - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
+  - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR3 (from UR3): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+  - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
 
 ## How Should I Test *This*?
 
 Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself well to how it should be tested. So what should we do?
 
-Consider SR2. We have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we could move the command line parsing portion to a separate function, and use that in our unit tests. So in general, it's a good idea to make sure your software's features are modularised and accessible via logical functions.
+Consider requirement SR1.2.1 - we have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we could move the command line parsing portion to a separate function, and use that in our unit tests. So in general, it's a good idea to make sure your software's features are modularised and accessible via logical functions.
 
-We could also consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we? We do need to verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
+We could also consider writing unit tests for SR2.1.1, ensuring that the system meets our performance requirement, so should we? We do need to verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
 
 The key is to think about which kind of testing should be used to check if the code satisfies a requirement, but also what you can do to make that code amenable to that type of testing.
 
-> ## Implement Requirements
+> ## Exercise: Implementing Requirements
 > 
-> Pick one of the SR1 or SR2 requirements above to implement and create an appropriate feature branch - 
-> e.g. `feature-SR1` or `feature-SR2`.
+> Pick one of the requirements SR1.1.1 or SR1.1.2 above to implement and create an appropriate feature branch - 
+> e.g. `add-std-dev` or `add-view`.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 > 
-> **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along with the new code, we will do this in a later episode. Equally, do not merge your changes to `develop` branch just yet.**
+> **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along 
+> with the new code, we will do this in a later episode. Equally, do not merge your changes to the 
+> `develop` branch just yet.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
