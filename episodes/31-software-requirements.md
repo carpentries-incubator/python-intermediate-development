@@ -78,6 +78,12 @@ Solution (or product) requirements describe characteristics that a concrete solu
     - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
     - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+                          
+> ## Labelling Requirements
+> Note that the naming scheme we used for labelling our requirements is quite arbitrary - you should reference them in a way 
+> that is consistent and makes sense within your projects and team.
+{: .callout}
+
 
 ## The Importance of Non-functional Requirements
 
