@@ -24,7 +24,7 @@ software against suitability criteria will help you adopt the same attitude when
 
 ## Assessing Software for Suitability
 
-> ## Exercise: Decide on your Group's Repository!
+> ## Exercise: Decide on Your Group's Repository!
 >
 > You all have your code repositories you have been working on throughout the course so far. For the upcoming exercise, groups will exchange repositories and review the code of the repository they inherit, and provide feedback.
 >

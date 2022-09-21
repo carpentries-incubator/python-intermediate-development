@@ -30,9 +30,9 @@ improvement in response to feedback.
 
 In this section we will:
 
-- Learn how to **track issues with our software** registered by ourselves and external users.
-- Learn how to **communicate within the team** on software development tasks effectively and efficiently.
-- Learn how to use GitHub's **Project Boards** and **Milestones** for project planning and management.
+- Use GitHub to **track issues with our software** registered by ourselves and external users.
+- Use GitHub's **Mentions** and notifications system to effectively **communicate within the team** on software development tasks.
+- Use GitHub's **Project Boards** and **Milestones** for project planning and management.
 - Learn to manage the **improvement of our software through feedback** using **agile** management techniques. 
 - Employ **effort estimation** of development tasks as a foundational tool for prioritising future team work, 
 and use the **MoSCoW approach** and software development **sprints** to manage improvement. As we will see, it is very 
