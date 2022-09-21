@@ -338,7 +338,7 @@ The reader should be able to understand a single function or method from its cod
 However, there are some restrictions. Comments that simply restate what the code does are redundant, and comments must be
  accurate and updated with the code, because an incorrect comment causes more confusion than no comment at all.
 
-> ## Improve Code Style of Our Project
+> ## Exercise: Improve Code Style of Our Project
 > Let's look at improving the coding style of our project.
 > First create a new feature branch called `style-fixes` off our `develop` branch and switch to it (from the project root):
 > ~~~
@@ -514,7 +514,7 @@ help(fibonacci)
  ~~~
  {: .language-python}
 
-> ## Fix the Docstrings
+> ## Exercise: Fix the Docstrings
 > Look into `models.py` in PyCharm and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. 
 > Commit those changes to feature branch `style-fixes`.
 > > ## Solution

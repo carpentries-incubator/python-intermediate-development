@@ -79,7 +79,7 @@ The `enhancement` label is a great way to communicate your future priorities to 
 > Having open, publicly-visible lists of the the limitations and problems with your code is incredibly helpful. Even if some issues end up languishing unfixed for years, letting users know about them can save them a huge amount of work attempting to fix what turns out to be an unfixable problem on their end. It can also help you see at a glance what state your code is in, making it easier to prioritise future work!
 {: .testimonial}
 
-> ## Our First Issue!
+> ## Exercise: Our First Issue!
 >
 > Individually, with a critical eye, think of an aspect of the code you have developed so far that needs improvement. 
 > It could be a bug, for example, or a documentation issue with your README, a missing LICENSE file, or an enhancement. 
@@ -216,7 +216,7 @@ One common extra column that is typically seen is `On hold` or `Waiting` (you ca
 If you have tasks that get held up by waiting on other people (e.g. to respond to your questions) then moving them 
 to a separate column makes their current state clearer.
 
-> ## Working With Project Boards
+> ## Exercise: Working With Project Boards
 > Play around with a project board - practice adding and closing 
 > notes and cards, adding and removing columns, creating issues from cards or adding a card from an open issue, 
 > closing issues, etc.

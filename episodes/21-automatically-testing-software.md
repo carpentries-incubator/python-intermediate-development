@@ -360,7 +360,7 @@ Pytest looks for functions whose names also start with the letters 'test_' and r
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed. Going back to our list of requirements, do we think these results are easy to understand?
 
-> ## Write Some Unit Tests
+> ## Exercise: Write Some Unit Tests
 >
 > We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Here are some hints:
 >

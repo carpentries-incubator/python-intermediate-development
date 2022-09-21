@@ -42,242 +42,80 @@ For example, a design constraint when writing a mobile app would be that it need
 
 ## Software Architecture
 
-At the beginning of this episode we defined **Software Architecture** with the question, "what components will the software have and how will they cooperate?"
-Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques have some similarities.
-
-One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
+At the beginning of this episode we defined **software architecture** as an answer to the question "what components 
+will the software have and how will they cooperate?". Software engineering borrowed this term, and a few other terms, 
+from architects (of buildings) as many of the processes and techniques have some similarities. 
+One of the other important terms we borrowed is 'pattern', such as in **design patterns** and **architecture patterns**.
 This term is often attributed to the book ['A Pattern Language' by Christopher Alexander *et al.*](https://en.wikipedia.org/wiki/A_Pattern_Language) published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
 
 Design patterns are relatively small-scale templates which we can use to solve problems which affect a small part of our software.
-For example, the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) (which allows a class that does not 
-have the "right interface" to be reused)
-may be useful if part of our software needs to consume data from a number of different external data sources.
-Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
+For example, the **[adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern)** (which allows a class that does not 
+have the "right interface" to be reused) may be useful if part of our software needs to consume data from a number of 
+different external data sources.
+Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected 
+format, so the rest of our program doesn't have to worry about it.
 
 Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
-Model-View-Controller is one of the best known architecture patterns.
+Model-View-Controller (which we chose for our project) is one of the best known architecture patterns. Many patterns rely on concepts from Object Oriented Programming, so we'll come back to the MVC pattern shortly after we learn a bit more about Object Oriented Programming.
 
 There are many online sources of information about design and architecture patterns, often giving concrete examples of cases where they may be useful.
 One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
 
-### MVC Revisited
-
-**Model-View-Controller** (MVC) is just one of the common architectural patterns.
-We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
-
-There are many variants of an MVC-like pattern (such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP), [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.), but in most cases, the distinction between these patterns isn't particularly important.
-What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
-We should reuse these established ideas where we can, but we don't need to stick to them exactly.
-
-Let's start with adding a view that allows us to see the data for a single patient.
-First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
-Note that your Patient class may look very different now, so adapt this example to fit what you have.
-
-~~~ python
-# file: inflammation/views.py
-
-...
-
-def display_patient_record(patient):
-    """Display data for a single patient."""
-    print(patient.name)
-    for obs in patient.observations:
-        print(obs.day, obs.value)
-~~~
-{: .language-python}
-
-~~~ python
-# file: inflammation/models.py
-
-...
-
-class Observation:
-    def __init__(self, day, value):
-        self.day = day
-        self.value = value
-
-    def __str__(self):
-        return self.value
-
-class Person:
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return self.name
-
-class Patient(Person):
-    """A patient in an inflammation study."""
-    def __init__(self, name, observations=None):
-        super().__init__(name)
-
-        self.observations = []
-        if observations is not None:
-            self.observations = observations
-
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1].day + 1
-
-            except IndexError:
-                day = 0
-
-        new_observation = Observation(value, day)
-
-        self.observations.append(new_observation)
-        return new_observation
-~~~
-{: .language-python}
-
-Now we need to make sure people can call this view - that means connecting it to the controller and ensuring that there's a way to request this view when running the program.
-The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
-
-~~~
-# file: inflammation-analysis.py
-
-#!/usr/bin/env python3
-"""Software for managing patient data in our imaginary hospital."""
-
-import argparse
-
-from inflammation import models, views
-
-
-def main(args):
-    """The MVC Controller of the patient data system.
-
-    The Controller is responsible for:
-    - selecting the necessary models and views for the current task
-    - passing data between models and views
-    """
-    infiles = args.infiles
-    if not isinstance(infiles, list):
-        infiles = [args.infiles]
-
-    for filename in infiles:
-        inflammation_data = models.load_csv(filename)
-
-        if args.view == 'visualize':
-            view_data = {
-                'average': models.daily_mean(inflammation_data),
-                'max': models.daily_max(inflammation_data),
-                'min': models.daily_min(inflammation_data),
-            }
-
-            views.visualize(view_data)
-
-        elif args.view == 'record':
-            patient_data = inflammation_data[args.patient]
-            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
-            patient = models.Patient('UNKNOWN', observations)
-
-            views.display_patient_record(patient)
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description='A basic patient data management system')
-
-    parser.add_argument(
-        'infiles',
-        nargs='+',
-        help='Input CSV(s) containing inflammation series for each patient')
-
-    parser.add_argument(
-        '--view',
-        default='visualize',
-        choices=['visualize', 'record'],
-        help='Which view should be used?')
-
-    parser.add_argument(
-        '--patient',
-        type=int,
-        default=0,
-        help='Which patient should be displayed?')
-
-    args = parser.parse_args()
-
-    main(args)
-~~~
-{: .language-python}
-
-We've added two options to our command line interface here: one to request a specific view and one for the patient ID that we want to lookup.
-For the full range of features that we have access to with `argparse` see the [Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
-Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
-You can find more information in [Click's documentation](https://click.palletsprojects.com/).
-
-For now, we also don't know the names of any of our patients, so we've made it `'UNKNOWN'` until we get more data.
-
-We can now call our program with these extra arguments to see the record for a single patient:
-
-~~~
-python3 inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
-~~~
-{: .language-bash}
-
-~~~
-UNKNOWN
-0 0.0
-1 0.0
-2 1.0
-3 3.0
-4 1.0
-5 2.0
-6 4.0
-7 7.0
-...
-~~~
-{: .output}
 
 ### Multilayer Architecture
 
-Another common architectural pattern is **Multilayer Architecture**.
+One common architectural pattern for larger software projects is **Multilayer Architecture**.
 Software designed using this architecture pattern is split into layers, each of which is responsible for a different part of the process of manipulating data.
 
 Often, the software is split into three layers:
 
 - **Presentation Layer**
   - This layer is responsible for managing the interaction between our software and the people using it
-  - Similar to the **View** component in the MVC pattern
+  - May include the **View** components if also using the MVC pattern
 - **Application Layer / Business Logic Layer**
   - This layer performs most of the data processing required by the presentation layer
-  - Could be in any part of an MVC-style architecture, but most commonly the **Model**
+  - Likely to include the **Controller** components if also using an MVC pattern
+  - May also include the **Model** components
 - **Persistence Layer / Data Access Layer**
   - This layer handles data storage and provides data to the rest of the system
-  - Has some overlap with the MVC **Model**
+  - May include the **Model** components of an MVC pattern if they're not in the application layer
+
+Although we've drawn similarities here between the layers of a system and the components of MVC, they're actually solutions to different scales of problem.
+In a small application, a multilayer architecture is unlikely to be necessary, whereas in a very large application, the MVC pattern may be used just within the presentation layer, to handle getting data to and from the people using the software.
 
 ## Addressing New Requirements
 
 So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data.
 Let's now take a step back to the solution requirements we discussed in the previous episode:
 
-- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.
-    - SR1 (from UR1): add standard deviation to data model and include in graph visualisation view
-    - SR2 (from UR2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
+- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
+  - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
+  - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR3 (from UR3): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+  - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
 
 ## How Should I Test *This*?
 
 Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself well to how it should be tested. So what should we do?
 
-Consider SR2. We have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we could move the command line parsing portion to a separate function, and use that in our unit tests. So in general, it's a good idea to make sure your software's features are modularised and accessible via logical functions.
+Consider requirement SR1.2.1 - we have (at least) two things we should test in some way, for which we could write unit tests. For the textual representation of statistics, in a unit test we could invoke our new view function directly with known inflammation data and test the text output as a string against what is expected. The second one, invoking this new view with an optional command line argument, is more problematic since the code isn't structured in a way where we can easily invoke the argument parsing portion to test it. To make this more amenable to unit testing we could move the command line parsing portion to a separate function, and use that in our unit tests. So in general, it's a good idea to make sure your software's features are modularised and accessible via logical functions.
 
-We could also consider writing unit tests for SR3, ensuring that the system meets our performance requirement, so should we? We do need to verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
+We could also consider writing unit tests for SR2.1.1, ensuring that the system meets our performance requirement, so should we? We do need to verify it's being met with the modified implementation, however it's generally considered bad practice to use unit tests for this purpose. This is because unit tests test *if* a given aspect is behaving correctly, whereas performance tests test *how efficiently* it does it. Performance testing produces measurements of performance which require a different kind of analysis (using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)), and require careful and specific configurations of operating environments to ensure fair testing. In addition, unit testing frameworks are not typically designed for conducting such measurements, and only test units of a system, which doesn't give you an idea of performance of the system as it is typically used by stakeholders.
 
 The key is to think about which kind of testing should be used to check if the code satisfies a requirement, but also what you can do to make that code amenable to that type of testing.
 
-> ## Implement Requirements
+> ## Exercise: Implementing Requirements
 > 
-> Pick one of the SR1 or SR2 requirements above to implement and create an appropriate feature branch - 
-> e.g. `feature-SR1` or `feature-SR2`.
+> Pick one of the requirements SR1.1.1 or SR1.1.2 above to implement and create an appropriate feature branch - 
+> e.g. `add-std-dev` or `add-view`.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 > 
-> **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along with the new code, we will do this in a later episode. Equally, do not merge your changes to `develop` branch just yet.**
+> **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along 
+> with the new code, we will do this in a later episode. Equally, do not merge your changes to the 
+> `develop` branch just yet.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
