@@ -113,7 +113,7 @@ effectively replicating our virtual environment in PyCharm (referred to as "Pyth
 Also note that, although the names are not the same - this is one and the same virtual environment and changes done to it in PyCharm will propagate to the command line and vice versa. Let's see this in 
 action through the following exercise.
 
->## Compare External Libraries in the Command Line and PyCharm
+> ## Exercise: Compare External Libraries in the Command Line and PyCharm
 >Can you recall two places where information about our project's dependencies
 can be found from the command line? Compare that information with the equivalent configuration in PyCharm.
 >
@@ -240,7 +240,7 @@ way of doing this and how it propagates to the command line.
 It may take a few minutes for PyCharm to install it. After it is done, the `pytest` library is added to our
 virtual environment. You can also verify this from the command line by listing the `venv/lib/python3.9/site-packages` subdirectory. Note, however, that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
 
->## Update `requirements.txt` After Adding a New Dependency
+>## Exercise: Update `requirements.txt` After Adding a New Dependency
 Export the newly updated virtual environment into `requirements.txt` file.
 >>## Solution
 >>Let's verify first that the newly installed library `pytest` is appearing in our virtual environment

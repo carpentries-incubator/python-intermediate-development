@@ -42,21 +42,21 @@ For example, a design constraint when writing a mobile app would be that it need
 
 ## Software Architecture
 
-At the beginning of this episode we defined **Software Architecture** with the question, "what components will the software have and how will they cooperate?"
-Software engineering borrowed this term, and a few other terms, from architects (of buildings) as many of the processes and techniques have some similarities.
-
-One of the other important terms we borrowed is **'Pattern'**, such as in **Design Patterns** and **Architecture Patterns**.
+At the beginning of this episode we defined **software architecture** as an answer to the question "what components 
+will the software have and how will they cooperate?". Software engineering borrowed this term, and a few other terms, 
+from architects (of buildings) as many of the processes and techniques have some similarities. 
+One of the other important terms we borrowed is 'pattern', such as in **design patterns** and **architecture patterns**.
 This term is often attributed to the book ['A Pattern Language' by Christopher Alexander *et al.*](https://en.wikipedia.org/wiki/A_Pattern_Language) published in 1977 and refers to a template solution to a problem commonly encountered when building a system.
 
 Design patterns are relatively small-scale templates which we can use to solve problems which affect a small part of our software.
-For example, the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) (which allows a class that does not 
-have the "right interface" to be reused)
-may be useful if part of our software needs to consume data from a number of different external data sources.
-Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected format, so the rest of our program doesn't have to worry about it.
-Many design patterns rely on concepts from Object Oriented Programming, so we'll come back to the MVC pattern after that episode.
+For example, the **[adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern)** (which allows a class that does not 
+have the "right interface" to be reused) may be useful if part of our software needs to consume data from a number of 
+different external data sources.
+Using this pattern, we can create a component whose responsibility is transforming the calls for data to the expected 
+format, so the rest of our program doesn't have to worry about it.
 
 Architecture patterns are similar, but larger scale templates which operate at the level of whole programs, or collections or programs.
-Model-View-Controller is one of the best known architecture patterns.
+Model-View-Controller (which we chose for our project) is one of the best known architecture patterns. Many patterns rely on concepts from Object Oriented Programming, so we'll come back to the MVC pattern shortly after we learn a bit more about Object Oriented Programming.
 
 There are many online sources of information about design and architecture patterns, often giving concrete examples of cases where they may be useful.
 One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
