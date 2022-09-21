@@ -288,7 +288,7 @@ def patient_normalise(data):
 ~~~
 {: .language-python}
 
-> ## Exploring Tests for Edge Cases
+> ## Exercise: Exploring Tests for Edge Cases
 >
 > Think of some more suitable edge cases to test our `patient_normalise()` function and add them to the parametrised tests. After you have finished remember to commit your changes.
 >
@@ -514,7 +514,7 @@ we have redefined a built-in Python function called `max`. This isn't a good ide
 effects (e.g. if you redefine a built-in name in a global scope you may cause yourself some trouble 
 which may be difficult to trace).
 
-> ## Fix Code Style Errors
+> ## Exercise: Fix Code Style Errors
 >
 > Rename our local variable `max` to something else (e.g. call it `max_data`), then rerun your tests and 
 > commit these latest changes and 

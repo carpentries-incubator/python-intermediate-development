@@ -213,7 +213,7 @@ One of the common cases where this is particularly useful is if our project has 
 For example, to speed up some of the core parts we might write some of our functions in C, then call these from our Python code.
 Using a `setup.py` gives us the flexibility to handle building these components in different ways and bring them together at the end.
 
-> ## Our Own `setup.py` (Optional)
+> ## Optional Exercise: Our Own `setup.py`
 >
 > The [Python Packaging User Guide](https://packaging.python.org/) provides documentation on [how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/) using `setup.py`.
 > Using this documentation, can you produce a `setup.py` file which is equivalent to our `pyproject.toml`?

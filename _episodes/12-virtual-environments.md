@@ -427,5 +427,4 @@ As we can see, the Python interpreter ran our script, which threw an error -
 a list of input files to process, so this is expected behaviour since we don't supply any. We will fix this error in a 
 moment.
 
-
 {% include links.md %}
