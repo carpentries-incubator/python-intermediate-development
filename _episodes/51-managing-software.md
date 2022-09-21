@@ -166,24 +166,27 @@ and GitHub will render it nicely using the identifier's short form and link to t
 Managing issues within your software project is one aspect of project management but it gives a relative flat 
 representation of tasks and may not be as suitable for higher-level project management such as 
 prioritising tasks for future development, planning sprints and releases. Luckily, 
-GitHub provides two project management tools for this purpose - **Milestones** and **Project Boards**.
+GitHub provides two project management tools for this purpose - **Projects** and **Milestones**.
 
-Both Project Boards and Milestones provide [agile development and project management systems](https://www.atlassian.com/agile) 
+Both Projects and Milestones provide [agile development and project management systems](https://www.atlassian.com/agile) 
 and ways of organising issues into smaller "sub-projects" (i.e. 
 smaller than the "project" represented by the whole repository).
-Project Boards provide a way of visualising and organising the work on an higher level (e.g. more suitable for 
-project management tasks) and are not time-bound. Milestones are a way to 
+Projects provide a way of visualising and organising work which is not time-bound and is on a higher level (e.g. more suitable for
+project management tasks). Milestones are typically used to 
 organise lower-level tasks that have deadlines and progress of which needs to be closely tracked 
-(e.g. release and version management). How you organise and partition your project work is up to you and the size 
-of your project. For example, you could create a project per 
-milestone or have several milestones in a single project, or split milestones into shorter sprints. 
-For a good description of differences between project boards and milestones and suggestions on 
-when should you use one over the other - have a look at [this answer on StackOverflow](https://stackoverflow.com/questions/39591795/what-is-the-difference-relationship-between-github-projects-and-milestones). 
-We will see Milestones in action soon when we work with our team on a mini sprint - 
-for now, let's have a brief look at Project Boards.
+(e.g. release and version management). The main difference is that Milestones are a repository-level feature
+(i.e. they belong and are managed from a single repository), whereas projects are account-level and can manage tasks
+across many repositories under the same user or organisational account.
 
-### Project Boards
-A Project Board (or Kanban board, from the Japanese word for 'card') typically uses columns and cards to keep track of tasks (although GitHub now also provides a table view over a project board). 
+How you organise and partition your project work and which tool you want to use 
+to track progress (if at all) is up to you and the size of your project. For example, you could create a project per 
+milestone or have several milestones in a single project, or split milestones into shorter sprints. 
+We will use Milestones soon to organise work on a mini sprint within our team - 
+for now, we will have a brief look at Projects.
+
+### Projects
+A Project uses a "project board" consisted of 
+columns and cards to keep track of tasks (although GitHub now also provides a table view over a project's tasks). 
 You break down your project into smaller sub-projects, which in turn are split 
 into tasks which you write on cards, then move the cards between columns that describe the status of each task. 
 Cards are usually small, descriptive and self-contained tasks that build on each other. Breaking a project 
@@ -191,23 +194,25 @@ down into clearly-defined tasks makes it a lot easier to manage. GitHub project 
 the other features of the site such as issues and pull requests - cards can be added to track the progress of such 
 tasks and automatically moved between columns based on their progress or status.
 
-Project boards in GitHub are now created on user or organisation level, i.e. they can span all repositories owned by a user or organisation in GitHub and are not a repository-level feature any more.
+> ## Project are a Cross-Repository Management Tool
+> [Project in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) are  created on a user or organisation level, i.e. they can span all repositories owned by a user or organisation in GitHub and are not a repository-level feature any more. A project can integrate your issues and pull requests on GitHub from multiple repositories to help you plan and track your team's work effectively.
+{: .callout}
 
-To create a project board in GitHub, follow the next steps.
+Let's create a Project in GitHub to plan the first release of our code.
 
-1. From your GitHub account's home page (i.e. not your repository's home page!), select the "Projects" tab, then click the `New project` button on the right.
+1. From your GitHub account's home page (not your repository's home page!), select the "Projects" tab, then click the `New project` button on the right.
 
     ![Adding a new project board in GitHub](../fig/github-new-board.png){: .image-with-shadow width="1000px"}
 
-2. In the "Select a template" pop-up, select "Board". This will give you a classic "card board" view of the project.
+2. In the "Select a template" pop-up window, select "Board" - this will give you a classic "cards on a board" view of the project. An alternative is the "Table" view, which presents a spreadsheet-like and slightly more condensed view of a project.
 
     ![Selecting a project board template in GitHub](../fig/github-board-template.png){: .image-with-shadow width="600px"}
 
-3. GitHub will create an unnamed project board for you. You should populate the name and the description of the project from the project's Settings.
+3. GitHub will create an unnamed project board for you. You should populate the name and the description of the project from the project's Settings, which can be found by clicking the `...` button in the top right corner of the board.
 
    ![Project board setting in GitHub](../fig/github-board-settings.png){: .image-with-shadow width="1000px"}
 
-4. We will use "Inflammation project - release v0.1" and "Tasks for the v0.1 release of the inflammation project" for the name and description of our project, respectively. You can use anything that suits your project.
+4. We can, for example, use "Inflammation project - release v0.1" and "Tasks for the v0.1 release of the inflammation project" for the name and description of our project, respectively. Or you can use anything that suits your project.
 
    ![Naming a project in GitHub](../fig/github-name-board.png){: .image-with-shadow width="1000px"}
 
@@ -226,24 +231,29 @@ To create a project board in GitHub, follow the next steps.
     `+` button on the right; to remove a column select the `...` button in the top right corner 
     of the column itself and then the `Delete column` option.
 
-6. You can now add new items (cards) to columns by pressing the `+ Add item` button at the bottom of each column. Cards can be simple text notes which you type into the `+ Add item` box and pres `Enter` when finished. Cards can also be (links to) existing issues and pull requests, which can be filtered out from the `+ Add item` box by pressing `#` (to activate GitHub's referencing mechanism) and selecting the repository and an issue or pull request from that repository that you want to add. 
+6. You can now add new items (cards) to columns by pressing the `+ Add item` button at the bottom of each column - a text box to add a card will appear. Cards can be simple textual notes which you type into the text box and pres `Enter` when finished. Cards can also be (links to) existing issues and pull requests, which can be filtered out from the text box by pressing `#` (to activate GitHub's referencing mechanism) and selecting the repository and an issue or pull request from that repository that you want to add. 
 
     ![Adding issues and notes to a project board in GitHub](../fig/github-board-add-note.png){: .image-with-shadow width="1000px"}
 
     Notes contain task descriptions and can have detailed content like checklists. In some cases, e.g. if a note becomes 
     too complex, you may want to convert it into an issue so you can add labels, assign them to team members or 
     write more detailed comments (for that, use the `Convert to issue`
-    option from the `...` menu on the card).
+    option from the `...` menu on the card itself).
     
    ![Coverting a note to issue](../fig/github-convert-note-to-issue.png){: .image-with-shadow width="1000px"}
 
-7. You can drag a card to `In Progress` column to indicate that you are working on it. Issues and pull requests on cards 
-will automatically be moved to the `Done` column for you when you close the issue or merge the pull request.
+7. You can now drag a card to `In Progress` column to indicate that you are working on it or to the `Done` column to indicate 
+that it has been completed. Issues and pull requests on cards will automatically be moved to the `Done` column for you when you close the issue or merge the pull request - which is very convenient and can save you some project management time.
 
-> ## Exercise: Working With Project Boards
-> Play around with your project board - practice adding and closing 
-> notes and cards, adding and removing columns, creating issues from cards or adding a card from an open issue, 
-> closing issues, etc.
+> ## Exercise: Working With Projects
+> Spend a few minutes planning what you want to do with your project as a bigger chunk of work (you can continue working on the
+> first release of your software if you like) 
+> and play around with your project board to manage tasks around the project:
+> - practice adding and removing columns,
+> - practice adding different types of cards (notes and from already existing open issues and/or unmerged pull requests), 
+> - practice turing cards into issues and closing issues, etc.
+> 
+> Make sure to add a certain number of issues to your repository to be able to use in you project board.
 > 
 > Time: 10 mins
 {: .challenge}

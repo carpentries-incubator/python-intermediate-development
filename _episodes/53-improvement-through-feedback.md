@@ -88,7 +88,12 @@ and any description for the milestone.
 
 ![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
 
-Once created, we can view our issues and assign them to our milestone from the `Issues` page.
+Once created, we can view our issues and assign them to our milestone from the `Issues` page or from an individual
+issue page.
+
+![Milestones in GitHub](../fig/github-assign-milestone.png){: .image-with-shadow width="1000px"}
+ 
+Let's now use Milestones to plan and prioritise our team's next sprint. 
 
 > ## Exercise: Prioritise!
 >
@@ -97,6 +102,7 @@ Once created, we can view our issues and assign them to our milestone from the `
 > Time: 10 mins
 {: .challenge}
 
+{% comment %}
 > ## Milestones in Project Boards
 > Milestones are also visible on project boards. If an issue or pull request belongs to a milestone, 
 > the name of the milestone will be displayed on the project card. 
@@ -105,6 +111,7 @@ Once created, we can view our issues and assign them to our milestone from the `
 >
 > ![Milestones in Project Boards](../fig/github-milestone-in-project-board.png){: .image-with-shadow width="900px"}
 {: .callout}
+{% endcomment %}
 
 ## Using Sprints to Organise and Work on Issues
 
