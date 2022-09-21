@@ -46,7 +46,7 @@ So our first test will run `daily_mean()` on `[[0, 0], [0, 0], [0, 0]]` (our `te
 
 The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
-> ## Write Parameterised Unit Tests
+> ## Exercise: Write Parameterised Unit Tests
 >
 > Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in new test cases for each of them.
 >

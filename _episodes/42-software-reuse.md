@@ -205,7 +205,7 @@ Within the open source licences, there are two categories, **copyleft** and **pe
 
 Which of these types of licence you prefer is up to you and those you develop code with. If you want more information, or help choosing a licence, the [Choose An Open-Source Licence](https://choosealicense.com/) or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
-> ## Preparing for Release
+> ## Exercise: Preparing for Release
 >
 > In a (hopefully) highly unlikely and thoroughly unrecommended scenario, your project leader has informed you of the need to release your software within the next half hour, so it can be assessed for use by another team. You'll need to consider finishing the README, choosing a licence, and fixing any remaining problems you are aware of in your codebase. Ensure you prioritise and work on the most pressing issues first!
 {: .challenge}

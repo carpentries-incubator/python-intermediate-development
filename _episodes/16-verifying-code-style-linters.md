@@ -2,7 +2,7 @@
 title: "Verifying Code Style Using Linters"
 start: false
 teaching: 15
-exercises: 5
+exercises: 10
 questions:
 - "What tools can help with maintaining a consistent code style?"
 - "How can we automate code style checking?"
@@ -140,7 +140,7 @@ improve your code, they won't find everything that may be wrong with it.
 > a score of 8.00. Note whilst there is a maximum score of 10, given the formula, there is no minimum score - it's quite possible to get a negative score!
 {: .callout}
 
-> ## Further Improve Code Style of Our Project
+> ## Exercise: Further Improve Code Style of Our Project
 > Select and fix a few of the issues with our code that Pylint detected. Make sure you do not break the rest of the 
 > code in the process and that the code still runs.
 {: .challenge}
