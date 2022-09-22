@@ -2,7 +2,7 @@
 title: "Programming Paradigms"
 start: false
 teaching: 10
-exercises: 10
+exercises: 0
 questions:
 - "How does the structure of a problem affect the structure of our code?"
 - "How can we use common software paradigms to improve the quality of our software?"
@@ -25,7 +25,7 @@ Each paradigm represents a slightly different way of thinking about and structur
 strengths and weaknesses when used to solve particular types of problems. Once your software begins to get more 
 complex it's common to use aspects of different paradigms to handle different subtasks. Because of this, it's useful to 
 know about the major paradigms, so you can recognise where it might be useful to switch. We will look into three major 
-paradigms that may be useful to you - **Procedural Programming**, **Object-Oriented Programming** and **Functional Programming**.
+paradigms that may be useful to you - **Procedural Programming**, **Functional Programming** and **Object-Oriented Programming**.
 
 ## Procedural Programming
 
@@ -46,19 +46,6 @@ HPC code is also often written in C++, but C++ code would more commonly follow a
 Note that you may sometimes hear people refer to this paradigm as "functional programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
 Functional Programming is a separate paradigm that places much stronger constraints on the behaviour of a function and structures the code differently as we'll see later.
 
-## Object Oriented Programming
-
-Object Oriented Programming focuses on the specific characteristics of each object and what each object can do.
-An object has two fundamental parts - properties (characteristics) and behaviours. In Object Oriented Programming, we 
-first think about the data and the things that we're modelling - and represent these by objects. 
-
-For example, if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
-Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want - 
-in this case, for example, we often need to know the mass and electric charge of each atom.
-So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
-This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
-In our chemistry example, this could be our code for calculating the force between a pair of atoms.
-
 ## Functional Programming
 
 Functional Programming, comes from a different family of paradigms, known as the Declarative Family.
@@ -76,14 +63,29 @@ One popular definition of Big Data is data which is too large to fit in the memo
 With datasets like this, we can't move the data around easily, so we often want to send our code to where the data is instead.
 By writing our code in a functional style, we also gain the ability to run many operations in parallel as it's guaranteed that each operation won't interact with any of the others - this is essential if we want to process this much data in a reasonable amount of time.
 
-> ## So which one is Python?
+## Object Oriented Programming
+
+Object Oriented Programming focuses on the specific characteristics of each object and what each object can do.
+An object has two fundamental parts - properties (characteristics) and behaviours. In Object Oriented Programming, we
+first think about the data and the things that we're modelling - and represent these by objects.
+
+For example, if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
+Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want -
+in this case, for example, we often need to know the mass and electric charge of each atom.
+So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
+This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
+In our chemistry example, this could be our code for calculating the force between a pair of atoms.
+
+> ## So Which one is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
 > You can use it as a procedural language and you can use it in a more object oriented way.
 > It does tend to land more on the object oriented side as all its core data types (strings, integers, floats, booleans, lists, sets, arrays, tuples, dictionaries, files) as well as functions, modules and classes are objects.
 >
-> Since functions are also objects that can be passed around like any other object, Python is also well suited to Functional Programming.
+> Since functions in Python are also objects that can be passed around like any other object, Python is also well suited to Functional Programming.
 {: .callout}
+                           
+## Other Paradigms
 
-The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm).
+The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see the Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). We will now have a closer look at Functional and Object Oriented Programming paradigms and how they can affect our architectural design choices.
 
 {% include links.md %}

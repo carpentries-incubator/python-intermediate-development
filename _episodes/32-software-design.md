@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
-- "Understand the components of MVC and multi-layer architectures."
+- "Understand the components of multi-layer software architectures."
 keypoints:
 - "Planning software projects in advance can save a lot of effort and reduce 'technical debt' later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
