@@ -11,7 +11,6 @@ keypoints:
 Such components can be as small as a single function, or be a software package in their own right."
 ---
 
-
 ## MVC Revisited
 
 We've been developing our software using the **Model-View-Controller** (MVC) architecture so far, but, as we have seen, MVC is just one of the common architectural patterns and is not the only choice we could have made.
@@ -190,3 +189,17 @@ UNKNOWN
 > Both episodes cover the persistence layer of software architectures and methods of persistently storing data, but take different approaches.
 > The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.
 {: .callout}
+                    
+
+## On to Developing Software Collaboratively
+
+Having looked at some theoretical aspects of software design, we are now circling back to 
+implementing our software design and developing our software to satisfy the requirements collaboratively 
+in a team. At an intermediate level of software development, there is a wealth of practices that could be used, and applying suitable design and coding practices is what separates an intermediate developer from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices enough so that progress can be made. 
+
+One practice that should always be considered, and has been shown to be very effective in team-based
+software development, is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved
+and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit
+within the codebase. Such reviews check the correctness of the new code, test coverage, functionality changes,
+and confirm that they follow the coding guides and best practices. Let's have look at some code review techniques
+available to us.
