@@ -1,5 +1,5 @@
 ---
-title: "MVC Architectural Pattern"
+title: "Architecture Revisited: Extending Software"
 teaching: 15
 exercises: 0
 questions:
