@@ -191,7 +191,7 @@ UNKNOWN
 {: .callout}
                     
 
-## On to Developing Software Collaboratively
+## Towards Collaborative Software Development
 
 Having looked at some theoretical aspects of software design, we are now circling back to 
 implementing our software design and developing our software to satisfy the requirements collaboratively 
