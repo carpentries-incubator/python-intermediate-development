@@ -503,7 +503,7 @@ print(reduce((lambda a, b: a * b), l))
 
 ## Decorators
 
-In the section on parametrizing our unit tests and in the previous section on Object Oriented Programming, we have used a **decorator** to modify the behaviour of a function.
+In the section on parametrising our unit tests, we have used a **decorator** to modify the behaviour of a function.
 Here, we'll discuss decorators in more detail and learn how to write our own.
 
 The important feature of a decorator is that it can take a function, modify it, then return the resulting function.

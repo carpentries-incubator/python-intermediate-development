@@ -1,12 +1,11 @@
 ---
-title: "Object Oriented Patterns"
+title: "MVC Architectural Pattern"
 teaching: 15
 exercises: 0
 questions:
-- "How can we make sure the components of our software are reusable?"
+- "How can we extend our software's MVC architectural pattern with additional view components."
 objectives:
-- "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
-- "Understand the components of MVC and multi-layer architectures."
+- "Extend our software to add a view of a single patient and the software's command line interface to request a specific view."
 keypoints:
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
 Such components can be as small as a single function, or be a software package in their own right."
@@ -15,8 +14,7 @@ Such components can be as small as a single function, or be a software package i
 
 ## MVC Revisited
 
-**Model-View-Controller** (MVC) is just one of the common architectural patterns.
-We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
+We've been developing our software using the **Model-View-Controller** (MVC) architecture so far, but, as we have seen, MVC is just one of the common architectural patterns and is not the only choice we could have made.
 
 There are many variants of an MVC-like pattern (such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP), [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.), but in most cases, the distinction between these patterns isn't particularly important.
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
@@ -187,8 +185,8 @@ UNKNOWN
 
 > ## Additional Material
 > 
-> Now we've covered the basics of Object Oriented Programming and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
+> Now we've covered the basics of multi-layer architectures and Object Oriented Programming, and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
 > 
-> Both episodes cover methods of persistently storing data, but take different approaches.
+> Both episodes cover the persistence layer of software architectures and methods of persistently storing data, but take different approaches.
 > The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.
 {: .callout}
