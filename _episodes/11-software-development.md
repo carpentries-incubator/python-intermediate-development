@@ -22,13 +22,22 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Our Software Project
 So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
 The software project studies inflammation in patients
-who have been given a new treatment for arthritis and reuses the inflammation dataset from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html). The dataset contains information for 60 patients,
-who had their inflammation levels recorded for 40 days (a snapshot of data is below).
+who have been given a new treatment for arthritis and reuses inflammation datasets from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
 
-![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg){: .image-with-shadow width="300px" }
-{% comment %}
-Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
-{% endcomment %}
+> ## What is the Format of the Data?
+> 
+> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trail (a snapshot of one of the data files is below).
+>
+> ![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg){: .image-with-shadow width="300px" }
+> {% comment %}
+> Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
+> {% endcomment %}
+>
+> Each of the data files uses the popular comma-separated (CSV) format to represent the data, where:
+>
+> - Each row holds inflammation measurements for a single patient (in some arbitrary units of inflammation),
+> - Each column represents a successive day in the trial.
+{: .callout}
 
 The project analyses the data to study the effect of the new arthritis treatment by checking the inflammation records
 across all patients but it is not finished and contains some errors. You will be working on your own and in
@@ -107,7 +116,7 @@ total 24
 ~~~
 {: .language-bash}
 
-Directory `data` contains several files with patients’ daily inflammation information.
+Directory `data` contains several files with patients’ daily inflammation information (along with some other files):
 
 ~~~
 $ ls -l data
@@ -131,11 +140,7 @@ total 264
 ~~~
 {: .language-bash}
 
-The data is stored in
-a series of comma-separated values (CSV) format files, where:
-
-- each row holds temperature measurements for a single patient (in some arbitrary units of inflammation),
-- columns represent successive days.
+As [previously mentioned](#what-is-the-format-of-the-data), each of the inflammation data files contains separate trial data for 60 patients over 40 days.
 
 > ## Exercise: Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
