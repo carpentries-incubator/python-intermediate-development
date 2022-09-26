@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
-- "Understand the components of MVC and multi-layer architectures."
+- "Understand the components of multi-layer software architectures."
 keypoints:
 - "Planning software projects in advance can save a lot of effort and reduce 'technical debt' later - even a partial plan is better than no plan at all."
 - "The environment in which users run our software has an effect on many design choices we might make."
@@ -147,12 +147,5 @@ Importantly, there is only so much time available. How much effort should we spe
 ![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
 
 At an intermediate level there are a wealth of practices that *could* be used, and applying suitable design and coding practices is what separates an *intermediate developer* from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices *enough* so that progress can be made. It's very easy to under-design software, but remember it's also possible to over-design software too.
-
-One practice that should always be considered, and has been shown to be very effective in team-based 
-software development, is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved 
-and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit 
-within the codebase. Such reviews check the correctness of the new code, test coverage, functionality changes, 
-and confirm that they follow the coding guides and best practices. Let's have look at some code review techniques 
-available to us.
 
 {% include links.md %}

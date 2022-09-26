@@ -1,22 +1,19 @@
 ---
-title: "Object Oriented Patterns"
+title: "Architecture Revisited: Extending Software"
 teaching: 15
 exercises: 0
 questions:
-- "How can we make sure the components of our software are reusable?"
+- "How can we extend our software within the constraints of the MVC architecture?"
 objectives:
-- "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
-- "Understand the components of MVC and multi-layer architectures."
+- "Extend our software to add a view of a single patient in the study and the software's command line interface to request a specific view."
 keypoints:
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
 Such components can be as small as a single function, or be a software package in their own right."
 ---
 
-
 ## MVC Revisited
 
-**Model-View-Controller** (MVC) is just one of the common architectural patterns.
-We've been developing our software using a Model-View-Controller (MVC) architecture so far, but that's not the only choice we could have made.
+We've been developing our software using the **Model-View-Controller** (MVC) architecture so far, but, as we have seen, MVC is just one of the common architectural patterns and is not the only choice we could have made.
 
 There are many variants of an MVC-like pattern (such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP), [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.), but in most cases, the distinction between these patterns isn't particularly important.
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
@@ -187,8 +184,22 @@ UNKNOWN
 
 > ## Additional Material
 > 
-> Now we've covered the basics of Object Oriented Programming and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
+> Now we've covered the basics of multi-layer architectures and Object Oriented Programming, and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
 > 
-> Both episodes cover methods of persistently storing data, but take different approaches.
+> Both episodes cover the persistence layer of software architectures and methods of persistently storing data, but take different approaches.
 > The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.
 {: .callout}
+                    
+
+## Towards Collaborative Software Development
+
+Having looked at some theoretical aspects of software design, we are now circling back to 
+implementing our software design and developing our software to satisfy the requirements collaboratively 
+in a team. At an intermediate level of software development, there is a wealth of practices that could be used, and applying suitable design and coding practices is what separates an intermediate developer from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices enough so that progress can be made. 
+
+One practice that should always be considered, and has been shown to be very effective in team-based
+software development, is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved
+and maintained within a team by having multiple people have a look and comment on key code changes to see how they fit
+within the codebase. Such reviews check the correctness of the new code, test coverage, functionality changes,
+and confirm that they follow the coding guides and best practices. Let's have look at some code review techniques
+available to us.
