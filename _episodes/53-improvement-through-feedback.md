@@ -88,7 +88,12 @@ and any description for the milestone.
 
 ![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
 
-Once created, we can view our issues and assign them to our milestone from the `Issues` page.
+Once created, we can view our issues and assign them to our milestone from the `Issues` page or from an individual
+issue page.
+
+![Milestones in GitHub](../fig/github-assign-milestone.png){: .image-with-shadow width="1000px"}
+ 
+Let's now use Milestones to plan and prioritise our team's next sprint. 
 
 > ## Exercise: Prioritise!
 >
@@ -97,6 +102,7 @@ Once created, we can view our issues and assign them to our milestone from the `
 > Time: 10 mins
 {: .challenge}
 
+{% comment %}
 > ## Milestones in Project Boards
 > Milestones are also visible on project boards. If an issue or pull request belongs to a milestone, 
 > the name of the milestone will be displayed on the project card. 
@@ -105,6 +111,7 @@ Once created, we can view our issues and assign them to our milestone from the `
 >
 > ![Milestones in Project Boards](../fig/github-milestone-in-project-board.png){: .image-with-shadow width="900px"}
 {: .callout}
+{% endcomment %}
 
 ## Using Sprints to Organise and Work on Issues
 
@@ -112,7 +119,7 @@ A sprint is an activity applied to a timebox, where development is undertaken on
 
 > ## Exercise: Conduct a Mini Mini-Sprint
 >
-> For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Manage access`, where you can invite other GitHub users to your repository with specific permissions.
+> For the remaining time in this course, assign repository issues to team members and work on resolving them as per your MoSCoW breakdown. Once an issue has been resolved, notable progress made, or an impasse has been reached, provide concise feedback on the repository issue. Be sure to add the other team members to the chosen repository so they have access to it. You can grant `Write` access to others on a GitHub repository via the `Settings` tab for a repository, then selecting `Collaborators`, where you can invite other GitHub users to your repository with specific permissions.
 >
 > Time: however long is left
 {: .challenge}

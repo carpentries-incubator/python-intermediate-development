@@ -8,6 +8,7 @@ questions:
 - "How do we manage the process of developing and improving our software?"
 - "How do we ensure we reuse other people's code while maintaining the sustainability of our own software?"
 objectives:
+- "Use established tools to track and manage software problems and enhancements in a team."
 - "Understand the importance of critical reflection to improving software quality and reusability."
 - "Improve software through feedback, work estimation, prioritisation and agile development."
 keypoints:
@@ -17,7 +18,7 @@ keypoints:
 
 In this section of the course we look at managing the **development and evolution** of software -
 how to keep track of the tasks the team has to do, 
-how to improve the quality and reusability of our software for others as well as ourselves 
+how to improve the quality and reusability of our software for others as well as ourselves, 
 and how to assess other people's software for reuse within our project.
 The focus in this section will move beyond just software development to **software management**:
 internal planning and prioritising tasks for future development, 
@@ -29,9 +30,9 @@ improvement in response to feedback.
 
 In this section we will:
 
-- Learn how to **track issues with our software** registered by ourselves and external users.
-- Learn how to **communicate within the team** on software development tasks effectively and efficiently.
-- Learn how to use GitHub's **Project Boards** and **Milestones** for project planning and management.
+- Use GitHub to **track issues with our software** registered by ourselves and external users.
+- Use GitHub's **Mentions** and notifications system to effectively **communicate within the team** on software development tasks.
+- Use GitHub's **Project Boards** and **Milestones** for project planning and management.
 - Learn to manage the **improvement of our software through feedback** using **agile** management techniques. 
 - Employ **effort estimation** of development tasks as a foundational tool for prioritising future team work, 
 and use the **MoSCoW approach** and software development **sprints** to manage improvement. As we will see, it is very 
