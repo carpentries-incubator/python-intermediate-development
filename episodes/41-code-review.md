@@ -195,7 +195,7 @@ repositories.
 
 1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
 2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
-3. Create the appropriate local branch `add-std-dev` or `add-view` (based on the feature you are working on) 
+3. Create the appropriate local branch `add-std-dev-tests` or `add-view-tests` (based on the feature you are working on) 
 off the remote feature branch to contain your new code.
 
 #### Step 3: Adding New Code 
@@ -224,12 +224,13 @@ When you have finished adding your tests and have committed them, and are ready 
 3. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
 4. Select the base and the head branch - e.g. `add-std-dev` and `add-std-dev-tests`, respectively. 
-5. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
-6. At this point, the code review process is initiated.
+5. Add a comment describing the nature of the changes, and then submit the pull request.
+6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
+7. At this point, the code review process is initiated.
 
 You will receive a similar pull request from other team members on your repository.
 
-#### Step 4: Code Review
+#### Step 5: Code Review
 
 1. The repository moderator/code reviewers reviews your changes and provides feedback to you 
 in the form of comments.
@@ -238,7 +239,7 @@ in the form of comments.
 
 Perform the above actions on the pull request you received, this time acting as the moderator/code reviewer.
 
-#### Step 5: Closing a Pull Request
+#### Step 6: Closing a Pull Request
 
 1. Once the moderator approves your changes, either one of you can merge onto the base branch. Typically, it is 
 the responsibility of the code's author to do the merge but this may differ from team to team.
