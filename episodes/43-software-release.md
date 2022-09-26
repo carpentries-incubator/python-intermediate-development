@@ -78,7 +78,9 @@ Make sure you are in the root directory of your software project and have activa
 To create a `pyproject.toml` file for our code, we can use `poetry init`.
 This will guide us through the most important settings - for each prompt, we either enter our data or accept the default.
 
-When we get to the questions about defining our dependencies, we'll answer no, so we can do this separately later.
+*Displayed below are the questions you should see with the recommended responses to each question so try to follow these, although use your own contact details!*
+
+**NB: When you get to the questions about defining our dependencies, answer no, so we can do this separately later.**
 
 ~~~
 $ poetry init
@@ -122,7 +124,7 @@ Do you confirm generation? (yes/no) [yes] yes
 
 We've called our package "inflammation" in the setup above, instead of "inflammation-analysis" like we did in our previous `setup.py`.
 This is because Poetry will automatically find our code if the name of the distributable package matches the name of our module package.
-If we wanted our distributable package to have a different name, for example "inflammation-analysis", we could do this by explicitly listing the module packages to bundle - see https://python-poetry.org/docs/pyproject/#packages for how to do this.
+If we wanted our distributable package to have a different name, for example "inflammation-analysis", we could do this by explicitly listing the module packages to bundle - see [the Poetry docs on packages](https://python-poetry.org/docs/pyproject/#packages) for how to do this.
 
 ### Project Dependencies
 
@@ -213,12 +215,24 @@ One of the common cases where this is particularly useful is if our project has 
 For example, to speed up some of the core parts we might write some of our functions in C, then call these from our Python code.
 Using a `setup.py` gives us the flexibility to handle building these components in different ways and bring them together at the end.
 
-> ## Optional Exercise: Our Own `setup.py`
+> ## Alternative Python Packaging Methods?
+> 
+> In the [unit testing episode](../21-automatically-testing-software/index.html#writing-a-metadata-package-description),
+> you may recall we created a `setup.py` file to represent our inflammation code as a package, so it could be 'found' by 
+> pytest. Using a `setup.py` is part of one older convention to packaging Python, and in this episode we looked at another.
+> 
+> There many ways to distribute Python code in packages, with some degree of flux in terms of which methods are most 
+> popular. For a more comprehensive overview of Python packaging you can see the 
+> [Python docs on packaging](https://packaging.python.org/en/latest/), which contains a helpful guide to the overall
+> [packaging process, or 'flow'](https://packaging.python.org/en/latest/flow/), using the [Twine](https://pypi.org/project/twine/) tool to upload created 
+> packages to PyPI for distribution as an alternative.
+{: .callout}
+
+> ## Optional Exercise: Enhancing our Package Metadata
 >
-> The [Python Packaging User Guide](https://packaging.python.org/) provides documentation on [how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/) using `setup.py`.
-> Using this documentation, can you produce a `setup.py` file which is equivalent to our `pyproject.toml`?
->
-> Which configuration style do you prefer for projects like this one?
+> The [Python Packaging User Guide](https://packaging.python.org/) provides documentation on [how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/) using a manual approach to building a `pyproject.toml` file, and using Twine to upload the distribution packages to PyPI.
+> 
+> Referring to the [section on metadata](https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata) in the documentation, enhance your `pyproject.toml` with some additional metadata fields to improve the information your package.
 {: .challenge}
 
 {% include links.md %}
