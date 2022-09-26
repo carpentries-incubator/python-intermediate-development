@@ -21,7 +21,7 @@ as opposed to a more well thought-out solution. For this reason, it is important
 isolation and use other team members verify each other's code and measure our coding standards against.
 This process of having multiple team members comment on key code changes is called *code review* -
 this is one of the most important practices of collaborative software development that helps ensure
-the ‘good’ coding standards are achieved and maintained within a team.
+the ‘good’ coding standards are achieved and maintained within a team, as well as increasing knowledge about the codebase across the team.
 We'll thus look at the benefits of reviewing code,
 in particular, the value of this type of activity within a team,
 and how this can fit within various ways of team working.
