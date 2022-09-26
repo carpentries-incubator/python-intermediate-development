@@ -86,7 +86,7 @@ first tests are run ([Fagan, 1976](https://doi.org/10.1147%2Fsj.153.0182)).
 Furthermore, according to Fagan, the cost to remedy a defect in the early (design) stage is 10 to 100 times less
 compared to fixing the same defect in the development and maintenance
 stages, respectively. Since the cost of bug fixes grows in orders of magnitude throughout the software
-lifecycle, it is essential to find and fix defects as close as possible to the point where they were introduced.
+lifecycle, it is far more efficient to find and fix defects as close as possible to the point where they were introduced.
 
 There are several **code review techniques** with various degree of formality and the use of 
 a technical infrastructure, including:
@@ -115,7 +115,7 @@ product managers a certain control and overview of the code development workflow
 of other functionalities too, such as metrics (e.g. inspection rate, defect rate, defect density).
 
 Each of the above techniques have their pros and cons and varying degrees practicality - 
-it is up to the team to decide which one is best and most suitable for the project and stick to it.
+it is up to the team to decide which ones are most suitable for the project and when to use them.
 We will have a look at the **tool-assisted code review process** using GitHub's built-in code review tool - **pull requests**. It is a lightweight tool, included with GitHub's core service for free and has gained 
 popularity within the software development community in recent years.
 
@@ -201,30 +201,31 @@ off the remote feature branch to contain your new code.
 #### Step 3: Adding New Code 
 
 > ## Exercise: Implement Tests for a New Feature
-> Look back at the [solution requirements](/31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for 
+> Look back at the [solution requirements](/31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
 > 
-> *Note: Try not to not fall into the trap of writing the tests to test the existing code/implementation - you need to
-> write the tests to make sure the code satisfies the requirements regardless of the actual implementation (you can
-> treat the implementation as a black box in a way to make sure it is properly tested and defects are detected).*
+> *Note: Try not to not fall into the trap of writing the tests to test the existing code/implementation - you should
+> write the tests to make sure the code satisfies the requirements regardless of the actual implementation. You can
+> treat the implementation as a [black box](https://en.wikipedia.org/wiki/Black-box_testing) - a typical approach to software testing - as a way to make sure it is properly tested against its requirements without introducing assumptions into the tests about its implementation.*
 {: .challenge}
 
 > ## Testing Based on Requirements
 Tests should test functionality, which stem from the software requirements, rather than an implementation. Tests can 
-be seen as a reflection those requirements - checking if the requirements are satisfied.
+be seen as a reflection of those requirements - checking if the requirements are satisfied.
 {: .callout}
 
 #### Step 4: Submitting a Pull Request
 
-1. You have finished with adding your code and are ready for the others in the team to review them.
-2. Push your local feature branch remotely to the shared repository.
-3. Head over to GitHub and locate your branch from the repository home page. 
-4. Open a pull request by clicking "Compare & pull request" button.
+When you have finished adding your tests and have committed them, and are ready for the others in the team to review them:
+
+1. Push your local feature branch remotely to the shared repository.
+2. Head over to GitHub and locate your branch from the repository home page. 
+3. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-5. Select the base and the head branch - e.g. `add-std-dev` and `add-std-dev-tests`, respectively. 
-6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
-7. At this point, the code review process is initiated.
+4. Select the base and the head branch - e.g. `add-std-dev` and `add-std-dev-tests`, respectively. 
+5. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
+6. At this point, the code review process is initiated.
 
 You will receive a similar pull request from other team members on your repository.
 
