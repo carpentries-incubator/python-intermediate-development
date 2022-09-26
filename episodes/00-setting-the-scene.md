@@ -1,5 +1,5 @@
 ---
-title: "Setting the Scene For the Workshop"
+title: "Setting the Scene"
 start: false
 colour: "#FBED65"
 teaching: 15
