@@ -78,7 +78,7 @@ Examples include: printing text, modifying the value of an argument, or changing
 > > 2. `say_hello` is not pure - printing text counts as a side effect, even though it is the clear purpose of the function
 > > 3. `append_item_1` is not pure - the argument `a_list` gets modified as a side effect - try this yourself to prove it
 > > 4. `append_item_2` is pure - the result is a new variable, so this time `a_list` doesn't get modified - again, try this yourself
-       > {: .solution}
+>{: .solution}
 >
 {: .challenge}
 
