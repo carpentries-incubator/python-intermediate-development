@@ -56,7 +56,7 @@ assurance practice where one or several people from the team (different from the
 viewing parts of its source code.
 
 > ## Group Exercise: Advantages of Code Review
-> Discuss as a group: what is the rationale behind, and advantages of, code review?
+> Discuss as a group: what do you think are the reasons behind, and advantages of, code review?
 >> ## Solution 
 >> The purposes of code review include:
 >> - improving internal code readability, understandability, quality and maintainability
@@ -201,7 +201,7 @@ off the remote feature branch to contain your new code.
 #### Step 3: Adding New Code 
 
 > ## Exercise: Implement Tests for a New Feature
-> Look back at the [Solution Requirements](/32-software-design/index.html#solution-requirements) (SR1 or SR2) for 
+> Look back at the [solution requirements](/31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for 
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
 > 
@@ -300,13 +300,12 @@ tool-assisted process is recommended.
 > 
 > - Which 2 or 3 key circumstances would code review be most useful for you and your colleagues?
 > - Referring to the first section of this episode above, which type of code review would be most useful for each circumstance (and would work best within your own working environment)?
-> - Taking one of these circumstances where code review would be most beneficial, how would you organise such a code review? e.g.
+> - Taking one of these circumstances where code review would be most beneficial, how would you organise such a code review, e.g.:
 >   - Which aspects of the codebase would be the most useful to cover?
 >   - How often would you do them?
 >   - How long would the activity take?
 >   - Who would ideally be involved?
 >   - Any particular practices you would use?
 {: .challenge}
-
 
 {% include links.md %}
