@@ -62,10 +62,10 @@ Good practice is to write our tests around the same time we write our code on a 
 Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
 
-## An Example Dataset and Application
+## Inflammation Data Analysis
 
-Let's go back to our patient inflammation software project. Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
-There are a number of data sets in the `data` directory recording inflammation information in patients, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
+Let's go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project). Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
+There are a number of datasets in the `data` directory recording inflammation information in patients (each file representing a different trial), and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days when inflammation was measured in patients.
 
 Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (which should be in your home directory `~/python-intermediate-inflammation`), ensure you have your virtual environment activated in your command line terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
@@ -295,7 +295,7 @@ Whether we do this via PyCharm or the command line, the results are exactly the 
 
 ### Writing a Metadata Package Description
 
-Another thing we need to do is create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test that we have in the `inflammation` directory.
+Another thing we need to do when automating tests using Pytest is to create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test in the `inflammation` directory.
 
 Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
 
@@ -324,7 +324,7 @@ Successfully installed inflammation-analysis-1.0
 ~~~
 {: .output}
 
-This will install our code, as a package, within our virtual environment. We're installing this as a 'development' 
+This will install our code, as a package, within our virtual environment. We're installing it as a 'development' 
 package (using the `-e` parameter in the above `pip3 install` command), which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change (or edit it - hence the `-e`).
 
 
