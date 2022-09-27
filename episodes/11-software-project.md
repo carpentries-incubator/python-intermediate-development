@@ -20,16 +20,18 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Patient Inflammation Study Project
-So, you have joined a software development team that has been working on the [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
-The software project studies inflammation in patients
-who have been given a new treatment for arthritis and reuses inflammation datasets from the [Software Carpentry Python novice lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
+So, you have joined a software development team that has been working on the [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation) 
+developed in Python and stored on GitHub. The project analyses the data to study the effect of a new 
+treatment for arthritis by analysing the inflammation levels in patients who have been given this treatment. 
+It reuses the inflammation datasets from the 
+[Software Carpentry Python novice lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
 
-> ## What is the Format of the Patient Inflammation Data?
+![Snapshot of the inflammation dataset](../fig/inflammation-study-pipeline.png){: .image-with-shadow width="800px" }
+<p style="text-align: center;">Inflammation study pipeline from the <a href="https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg">Software Carpentry Python novice lesson</a></p>
+
+> ## What Does Patient Inflammation Data Contain?
 > 
 > Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trail (a snapshot of one of the data files is shown below).
->
-> ![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg){: .image-with-shadow width="300px" }
-> <p style="text-align: center;">Figure obtained from the <a href="https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg">Software Carpentry Python novice lesson</a></p>
 >
 > Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values) to represent the data, where:
 >
@@ -37,16 +39,15 @@ who have been given a new treatment for arthritis and reuses inflammation datase
 > - Each column represents a successive day in the trial.
 {: .callout}
 
-The project analyses the data to study the effect of the new arthritis treatment by checking the inflammation records
-across all patients but it is not finished and contains some errors. You will be working on your own and in
+The project is not finished and contains some errors. You will be working on your own and in
 collaboration with others to fix and build on top of the existing code during the course.
 
-To start with the development, we have to obtain a local copy of the project on
-your machine and inspect it. The first step is to create a copy of the software project repository from GitHub
-within your own GitHub account:
+To start working on the project, you will first create a copy of the software project template 
+repository from GitHub within your own GitHub account and then obtain a local copy of the project on
+your machine. Let's do this.
 
 1. Log into your GitHub account. 
-2. Go to the [template repository URL](https://github.com/carpentries-incubator/python-intermediate-inflammation).
+2. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation) in GitHub.
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
 3. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
