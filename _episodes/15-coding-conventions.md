@@ -26,8 +26,7 @@ sharing it with others, ask yourself what kind of code should you be writing and
 worth spending some time learning a bit about Python
 coding style conventions to make sure that your code is consistently formatted and readable by yourself and others.
 
-> *"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."*, 
-[Martin Fowler, a British software engineer, author and international speaker on software development](https://en.wikiquote.org/wiki/Martin_Fowler)
+> *"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."* - [Martin Fowler](https://en.wikiquote.org/wiki/Martin_Fowler), British software engineer, author and international speaker on software development
 
 ## Python Coding Style Guide
 One of the most important things we can do to make sure our code is readable by others
@@ -265,9 +264,9 @@ There are a lot of different naming styles in use, including:
 - lower_case_with_underscores
 - UPPERCASE
 - UPPER_CASE_WITH_UNDERSCORES
-- CapitalisedWords (or CamelCase) (note: when using acronyms in CapitalisedWords, capitalise all the letters of the acronym,
+- CapitalisedWords (or PascalCase) (note: when using acronyms in CapitalisedWords, capitalise all the letters of the acronym,
 e.g HTTPServerError)
-- mixedCase (differs from CapitalisedWords by initial lowercase character)
+- camelCase (differs from CapitalisedWords/PascalCase by the initial lowercase character)
 - Capitalised_Words_With_Underscores
 
 As with other style guide recommendations - consistency is key. Pick one and stick to it, or follow the one already
@@ -283,7 +282,7 @@ sticking with either ‘American’ or 'British' English spellings and try not t
 > ## Function, Variable, Class, Module, Package Naming
 >
 > - Function and variable names should be lowercase, with words separated by underscores as necessary to improve readability.
-> - Class names should normally use the CapitalisedWords (or CamelCase) convention.
+> - Class names should normally use the CapitalisedWords convention.
 > - Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability.
 > - Packages should also have short, all-lowercase names, although the use of underscores is discouraged.
 >
@@ -388,8 +387,7 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      {: .language-python}
 >>
->>  2. Variable 'InFiles' in `inflammation-analysis.py` uses CamelCase naming convention which is not
->> recommended for variable names. Rename it to, e.g. `infiles`.
+>>  2. Variable 'InFiles' in `inflammation-analysis.py` uses CapitalisedWords naming convention which is recommended for class names but not variable names. By convention, variable names should be in lowercase with optional underscores so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
 >>
 >>  3. There is an extra blank line on line 20 in `inflammation-analysis.py`. Normally, you should not use blank
 >> lines in the
@@ -427,7 +425,7 @@ the discovered inconsistencies and commit them to the feature branch.
 {: .challenge}
 
 
-> ## Optional Exercise: Improve Code Style of Your Other Python Project
+> ## Optional Exercise: Improve Code Style of Your Other Python Projects
 > If you have another Python project, check to which extent it conforms to PEP8 coding style.
 {: .challenge}
 

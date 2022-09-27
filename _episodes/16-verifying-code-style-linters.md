@@ -96,8 +96,8 @@ Your code has been rated at 8.00/10 (previous run: 8.00/10, +0.00)
 Your own outputs of the above commands may vary depending on how you have implemented and fixed the code in 
 previous exercises and the coding style you have used. 
 
-The five digit code e.g. `C0303` is a unique identifier for that type of warning, with the first character indicating 
-the type of warning. There are five different types of warning that Pylint looks for, and you can get a summary of 
+The five digit codes, such as `C0303`, are unique identifiers for warnings, with the first character indicating 
+the type of warning. There are five different types of warnings that Pylint looks for, and you can get a summary of 
 them by doing:
 
 ~~~
@@ -160,7 +160,7 @@ $ git push origin main
 ~~~
 {: .language-bash}
 
-> ## Optional Exercise: Improve Code Style of Your Other Python Project
+> ## Optional Exercise: Improve Code Style of Your Other Python Projects
 > If you have a Python project you are working on or you worked on in the past, run it past Pylint to see what issues
 > with your code are detected, if any.
 {: .challenge}
