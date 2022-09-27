@@ -97,7 +97,7 @@ There are several commonly used command line tools for managing Python virtual e
 - `venv`, available by default from the standard `Python` distribution from `Python 3.3+`
 - `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`versions
 - `pipenv`, created to fix certain shortcomings of `virtualenv`
-- `conda` which comes together with the Anaconda Python distribution
+- `conda`, package and environment management system (also included as part of the Anaconda Python distribution often used by the scientific community)
 - `poetry`, a modern Python packaging tool which handles virtual environments automatically
 
 While there are pros and cons for using each of the above, all will do the job of managing Python
@@ -115,13 +115,10 @@ on your system. The Python package manager tool `pip` is most commonly used for 
 
 > ## A Note on Anaconda and `conda`
 > Anaconda is an open source Python
-> distribution commonly used for scientific programming - it conveniently installs Python and a
-> number of commonly used scientific computing packages so you do not have to obtain them separately.
-> `conda` (that comes with the Anaconda distribution) is a command line
-> tool with
-> dual functionality: (1) it is a package manager that helps you find Python packages from
-> remote package repositories and install them on your system, and (2) it is also a virtual environment manager.
-> So, if you are using Anaconda Python distribution, you can use `conda` for both tasks instead of using `venv` and `pip`.
+> distribution commonly used for scientific programming - it conveniently installs Python, package and environment management `conda`, and a 
+> number of commonly used scientific computing packages so you do not have to obtain them separately. 
+> `conda` is an independent command line tool (available separately from the Anaconda distribution too) with dual functionality: (1) it is a package manager that helps you find Python packages from
+> remote package repositories and install them on your system, and (2) it is also a virtual environment manager. So, you can use `conda` for both tasks instead of using `venv` and `pip`.
 {: .callout}
 
 ### Many Tools for the Job
