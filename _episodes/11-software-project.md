@@ -31,12 +31,13 @@ It reuses the inflammation datasets from the
 
 > ## What Does Patient Inflammation Data Contain?
 > 
-> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trail (a snapshot of one of the data files is shown below).
->
+> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trial (a snapshot of one of the data files is shown in diagram above).
+> 
 > Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values) to represent the data, where:
 >
-> - Each row holds inflammation measurements for a single patient (in some arbitrary units of inflammation),
-> - Each column represents a successive day in the trial.
+> - Each row holds inflammation measurements for a single patient,
+> - Each column represents a successive day in the trial,
+> - Each cell represents an inflammation reading on a given day for a patient (in some arbitrary units of inflammation measurement).
 {: .callout}
 
 The project is not finished and contains some errors. You will be working on your own and in
