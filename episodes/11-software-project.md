@@ -3,10 +3,10 @@ title: "Introduction to Our Software Project"
 teaching: 20
 exercises: 10
 questions:
-- "What is a design architecture of a software project?"
+- "What is the design architecture of our software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
-- "Use Git to obtain a working copy of our template software project from GitHub."
+- "Use Git to obtain a working copy of our software project from GitHub."
 - "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
@@ -19,21 +19,19 @@ View (user interface), and Controller (input/output and data manipulation)."
 patients’ inflammation data and performs basic statistical analysis using Python."
 ---
 
-## Our Software Project
-So, you have joined a software development team that has been working on the [patient inflammation project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
+## Patient Inflammation Study Project
+So, you have joined a software development team that has been working on the [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation) developed in Python and stored on GitHub.
 The software project studies inflammation in patients
-who have been given a new treatment for arthritis and reuses inflammation datasets from the [novice Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
+who have been given a new treatment for arthritis and reuses inflammation datasets from the [Software Carpentry Python novice lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
 
-> ## What is the Format of the Data?
+> ## What is the Format of the Patient Inflammation Data?
 > 
-> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trail (a snapshot of one of the data files is below).
+> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trail (a snapshot of one of the data files is shown below).
 >
 > ![Snapshot of the inflammation dataset](../fig/inflammation-dataset.svg){: .image-with-shadow width="300px" }
-> {% comment %}
-> Figure obtained and modified from https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg.
-> {% endcomment %}
+> <p style="text-align: center;">Figure obtained from the <a href="https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg">Software Carpentry Python novice lesson</a></p>
 >
-> Each of the data files uses the popular comma-separated (CSV) format to represent the data, where:
+> Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values) to represent the data, where:
 >
 > - Each row holds inflammation measurements for a single patient (in some arbitrary units of inflammation),
 > - Each column represents a successive day in the trial.
