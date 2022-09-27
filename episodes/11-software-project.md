@@ -65,8 +65,8 @@ anything you like, but it may be easier for future group exercises if everyone u
 > (to be consistent with the code examples and exercises in the course).
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-1. Find the URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
-> > original template repository but rather your own copy, as you should be able to push commits to it later on.
+1. Find the HTTPS URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+> > original template repository but rather your own copy, as you should be able to push commits to it later on. If you have set up a public-private key pair for authentication in your GitHub account and know what you are doing - feel free to use the SSH URL of our software project instead. Otherwise, stick to using HTTPS with password authentication (which will need soon to push changes to our software project to GitHub). 
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 2. Make sure you are located in your home directory in the command line with:
 > > `cd ~`

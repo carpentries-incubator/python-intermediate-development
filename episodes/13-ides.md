@@ -244,7 +244,7 @@ virtual environment. You can also verify this from the command line by listing t
 Export the newly updated virtual environment into `requirements.txt` file.
 >>## Solution
 >>Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
->>but not in `requirements.txt`. First, let's check the list of installed 
+>>but not in `requirements.txt`. First, let's check the list of installed packages:
 >> ~~~
 >> (venv) $ pip3 list
 >> ~~~
@@ -331,7 +331,7 @@ Having configured a virtual environment, we now need to tell PyCharm to use it f
 3. In the new popup window, in the `Script path` field select the folder
    button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
    ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
-4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" in the `Python interpreter` field.
+4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" (i.e. the virtual environment and interpreter you configured earlier in this episode) in the `Python interpreter` field.
 5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation analysis`.
 6. You can optionally configure run parameters and environment variables in the same window - we do not need this at the moment.
 7. Select `Apply` to confirm these settings.

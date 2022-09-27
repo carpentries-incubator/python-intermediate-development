@@ -165,7 +165,8 @@ $ python3 -m venv venv
 ~~~
 {: .language-bash}
 
-If you list the contents of the newly created `venv` directory, you should see something like:
+If you list the contents of the newly created `venv` directory, on a Mac or Linux system 
+(slightly different on Windows as explained below) you should see something like:
 
 ~~~
 $ ls -l venv
