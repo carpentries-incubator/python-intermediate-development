@@ -81,12 +81,14 @@ Once we've decided on those we'll work on (i.e. not Won't Haves), we can (option
 **Milestone** to organise them. Remember, a milestone is a collection of issues to be worked on in a given period 
 (or timebox). We can create a new one by selecting `Issues` on our repository, then `Milestones` to display any 
 existing milestones, then clicking the "New milestone" button to the right.
-![Milestones in GitHub](../fig/github-create-milestone.png){: .image-with-shadow width="1000px"}
+![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
+
+![Create a milestone in GitHub](../fig/github-create-milestone.png){: .image-with-shadow width="1000px"}
 
 We add in a title, a completion date (i.e. the end of this timebox),
-and any description for the milestone. 
+and any description for the milestone.
 
-![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
+![Create a milestone in GitHub](../fig/github-new-milestone-description.png){: .image-with-shadow width="800px"}
 
 Once created, we can view our issues and assign them to our milestone from the `Issues` page or from an individual
 issue page.
