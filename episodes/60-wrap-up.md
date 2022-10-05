@@ -45,11 +45,18 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 - As an intermediate developer, aspects other than technical skills become important, particularly in development teams. We've looked at the importance of good, consistent practices for team working, and the importance of having a self-critical mindset when developing software, and ways to manage feedback effectively and efficiently.
 
 > ## Reflection Exercise: Putting the Pieces Together
-> Reflect on the tools, techniques and practices covered throughout the course and how they fit together in a bigger picture. Make a list 
-> these concepts and try to organise them as a [concept map](https://en.wikipedia.org/wiki/Concept_map) or any other diagram/visual aid of your choice.
+> Reflect on the concepts (e.g. tools, techniques and practices) covered throughout the course and how they fit together in a bigger picture. 
+> 
+> For example, make a list 
+> these concepts and try to organise them on a grid with 'usefulness of a concept' and 'time needed to master a concept' axes, as shown in diagram below. 
+> ![Usefulness versus time to master grid](../fig/course-usefulness-time-to-master.png){: .image-with-shadow width="800px"}
+> 
+> Another way you can organise the concepts is using a [concept map](https://en.wikipedia.org/wiki/Concept_map) (a directed graph depicting suggested relationships between concepts) or any other diagram/visual aid of your choice.
 >> ## Solution
->> Below is one example view of tools and techniques covered in the course. 
+>> Below are some example views of tools and techniques covered in the course using concept maps. Your views 
+>> may differ but that is not to say that either view is right or wrong. This exercise is meant to get you to reflect on what was covered in the course and hopefully to reinforce the ideas and concepts you learned.
 >> ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="800px"}
+>> ![Overview of topics covered in the course based on level of difficulty](../fig/course-concept-map-difficulty.png){: .image-with-shadow width="800px"}
 > {: .solution}
 {: .challenge}
 
