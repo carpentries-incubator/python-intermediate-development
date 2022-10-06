@@ -45,11 +45,11 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 - As an intermediate developer, aspects other than technical skills become important, particularly in development teams. We've looked at the importance of good, consistent practices for team working, and the importance of having a self-critical mindset when developing software, and ways to manage feedback effectively and efficiently.
 
 > ## Reflection Exercise: Putting the Pieces Together
-> Reflect on the concepts (e.g. tools, techniques and practices) covered throughout the course, how they relate to one another, how they fit together in a bigger picture or skill learning pathways and in which order you need to learn them.
+> As a group, reflect on the concepts (e.g. tools, techniques and practices) covered throughout the course, how they relate to one another, how they fit together in a bigger picture or skill learning pathways and in which order you need to learn them.
 >> ## Solution
->> One way to think about these concepts is to make a list and try to organise them along two axes - 'usefulness of a concept' versus 'time needed to master a concept', as shown in diagram below. You then may
->> think in which order you want to learn the skills and how much effort they require - e.g. start with those that are more useful but do not bother with those that are not too useful and take loads of time to master. You
->> likely want to focus on the concepts in the top right corner of the grid below first.
+>> One way to think about these concepts is to make a list and try to organise them along two axes - 'usefulness of a concept' versus 'time needed to master a concept', as shown in the table below (make your own copy of the [template table](https://docs.google.com/document/d/1NdE6PjqxjSsf1K4ofkCoWc2GA3sY2RIsjRg8BghTXas/edit?usp=sharing) for the purpose of this exercise). You then may
+>> think in which order you want to learn the skills and how much effort they require - e.g. start with those that are more useful but, for the time being, hold off those that are not too useful to you and take loads of time to master. You
+>> likely want to focus on the concepts in the top right corner of the table first.
 >> ![Usefulness versus time to master grid](../fig/course-usefulness-time-to-master.png){: .image-with-shadow width="800px"}
 >>
 >> Another way you can organise the concepts is using a [concept map](https://en.wikipedia.org/wiki/Concept_map) (a directed graph depicting suggested relationships between concepts) or any other diagram/visual aid of your choice.
