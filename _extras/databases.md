@@ -199,7 +199,7 @@ class Patient(Base):
 > ## Time is Hard
 >
 > We're using an integer field to store the day on which a measurement was taken.
-> This keeps us consistent with what we had previously as it's essentialy the position of the measurement in the numpy array.
+> This keeps us consistent with what we had previously as it's essentialy the position of the measurement in the Numpy array.
 > It also avoids us having to worry about managing actual date / times.
 >
 > The Python `datetime` module we've used previously in the Academics example would be useful here, and most databases have support for 'date' and 'time' columns, but to reduce the complexity, we'll just use integers here.
@@ -242,7 +242,7 @@ def test_sqlalchemy_observations():
 ~~~
 {: .language-python}
 
-Finally, let's put in a way to convert all of our observations into a numpy array, so we can use our previous analysis code.
+Finally, let's put in a way to convert all of our observations into a Numpy array, so we can use our previous analysis code.
 We'll use the `property` decorator here again, to create a method that we can use as if it was a normal data attribute.
 
 ~~~
@@ -262,7 +262,7 @@ class Patient(Base):
 
     @property
     def values(self):
-        """Convert inflammation data into numpy array."""
+        """Convert inflammation data into Numpy array."""
         last_day = self.observations[-1].day
         values = np.zeros(last_day + 1)
 
@@ -274,7 +274,7 @@ class Patient(Base):
 {: .language-python}
 
 Once again we'll copy-paste the test code and make some changes.
-This time we want to create a few observations for our patient and test that we can turn them into a numpy array.
+This time we want to create a few observations for our patient and test that we can turn them into a Numpy array.
 
 ~~~
 # file: tests/test_models.py
