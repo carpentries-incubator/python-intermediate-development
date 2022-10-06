@@ -40,12 +40,45 @@ It reuses the inflammation datasets from the
 > - Each cell represents an inflammation reading on a given day for a patient (in some arbitrary units of inflammation measurement).
 {: .callout}
 
-The project is not finished and contains some errors. You will be working on your own and in
-collaboration with others to fix and build on top of the existing code during the course.
+The project is not finished and contains some errors. You will be working on your own and in collaboration with others to fix and build on top of the existing code during the course.
 
-To start working on the project, you will first create a copy of the software project template 
-repository from GitHub within your own GitHub account and then obtain a local copy of the project on
-your machine. Let's do this.
+To start working on the project, you will first create a copy of the software project template repository from GitHub within your own GitHub account and then obtain a local copy of the project on your machine. 
+
+
+### Secure Access
+
+In order to send our changes securely with GitHub, we'll need to set up **SSH access** - 
+if you're unfamiliar with it, it's a method of proving your ID that's more secure than a password. It requires a pair of keys, one public that we send to GitHub, one private that remains on our machine.
+
+If you don't already have an SSH key there's full guides on GitHub for how to 
+[Make an SSH Key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) 
+and 
+[Add an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), but we've provided a short summary below.
+If  *do* already have an SSH key, you can use it for GitHub by coping the public key to the clipboard and pasting it into the GitHub settings page.
+
+To generate an SSH key pair, we'll first create a variable to store your GitHub email. Copy this command, substituting the email you signed up to GitHub with for `your_github_email@example.com`:
+~~~
+$ my_gh_email=your_github_email@example.com
+~~~
+{: .language-bash}
+
+Then run the following command to generate a key-pair and display the public half:
+~~~
+$ ssh-keygen -t ed25519 -C $my_gh_email; eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519; cat ~/.ssh/id_ed25519.pub
+~~~
+{: .language-bash}
+
+You'll need to press enter a few times to select default options and set the passphrase to empty. Then, copy the last line of output that starts with `ssh-ed25519` and ends with your email (it may have gone over multiple lines if your terminal isn't wide enough).
+
+![SSH-Output](../fig/setup-SSH-Output.png){:width="50%"}
+
+Finally, go to [your Settings -> SSH keys page and add a new SSH key](https://github.com/settings/ssh/new). Give it a memorable name (e.g. the name of the computer you are working on), paste the key from your clipboard into the box labelled key, then 
+click **Add SSH key** and you're done!
+
+
+## Downloading the Project
+
+Once we've registered our SSH key with GitHub, we can clone the project:
 
 1. Log into your GitHub account. 
 2. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation) in GitHub.
@@ -63,23 +96,25 @@ anything you like, but it may be easier for future group exercises if everyone u
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Exercise: Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer, 
-> (to be consistent with the code examples and exercises in the course).
+> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-1. Find the HTTPS URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
-> > original template repository but rather your own copy, as you should be able to push commits to it later on. If you have set up a public-private key pair for authentication in your GitHub account and know what you are doing - feel free to use the SSH URL of our software project instead. Otherwise, stick to using HTTPS with password authentication (which will need soon to push changes to our software project to GitHub). 
+1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+> > original template repository but rather your own copy, as you should be able to push commits to it later on. Make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back up to GitHub!
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 2. Make sure you are located in your home directory in the command line with:
 > > `cd ~`
 3. From your home directory, do:
-> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
+> > `git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
 > > your copy of the software project and not the template repo.
 4. Navigate into the cloned repository in your command line with:
 > > `cd python-intermediate-inflammation`
 5. List the contents of the directory:
 > > `ls -l`. Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line using 
 > > manual pages, e.g.: `man ls`.
+> >
+> > If you accidentally copied the **HTTPS** URL, then you can easily fix that:
+> > `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`.
 > {: .solution}
 {: .challenge}
 

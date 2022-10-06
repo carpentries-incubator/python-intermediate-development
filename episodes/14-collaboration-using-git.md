@@ -177,24 +177,18 @@ Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
 machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
-GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
-) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
-over HTTPS any more - you either need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security if you want to continue 
-to use HTTPS or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-Git may prompt you to authenticate - enter your GitHub username and the previously generated access token as the 
-password. You can also [enable caching of the credentials](https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html) using command `git config --global credential.helper cache` so your machine remembers the access token and will not ask you to enter it again. 
-
-> ## Account Security
-> When using `git config --global credential.helper cache`, any password or personal access token you enter will be cached for a period of time, a default of 15 minutes. Re-entering a password every 15 minutes can be OK, but for a personal access token it can be inconvenient, and lead to you writing the token down elsewhere. To *permanently* store passwords or tokens, use `stash` instead of `cache`.
->
-> Storing an access token always carries a security risk. One compromise between short cache timescales and permanent stores is to set a time-out on your personal access token when you make it, reducing the risk of it being stolen after you stop working on the project you issued it for.
-{: .callout}
+> ## Authentication Errors
+> 
+> If you get a warning that HTTPS access is deprecated, or a token is required, then you
+> accidentally cloned the repository using HTTPS not SSH. Fortunately, this is an easy fix:
+> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`.
+{: .caution}
 
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally (it is called that
