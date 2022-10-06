@@ -30,7 +30,7 @@ based on what your collaborators are using.
 Here is an overview of the tools we will be using. 
  
 > ## Common Issues & Fixes When Running Tools
-> Check the list of [common issues, fixes & tips](/common-issues/index.html) if you experiencing problems 
+> Check the list of [common issues, fixes & tips](../common-issues) if you experiencing problems 
 running any of the tools you installed - your issue may be solved there.
 {: .callout}
 
@@ -45,7 +45,7 @@ from other Python projects we may work on.
 
 **Note:** *some Windows users experience the issue where Python hangs from Git Bash (i.e. 
 typing `python` causes it to just hang with no error message or output) - 
-[see the solution to this issue](/common-issues/index.html#python-hangs-in-git-bash).*
+[see the solution to this issue](../common-issues/index.html#python-hangs-in-git-bash).*
 
 ### Integrated Development Environment (IDE)
 An IDE integrates a number of tools that we need to develop a software project

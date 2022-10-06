@@ -9,7 +9,7 @@ questions:
 objectives:
 - "Describe how the environment in which software is used may constrain its design."
 - "Identify common components of multi-layer software projects."
-- "Define serialization and deserialization."
+- "Define serialisation and deserialisation."
 - "Store and retrieve structured data using an appropriate format."
 - "Define what is meant by a contract in the context of Object Oriented design."
 - "Explain the benefits of contracts and implement software components which fulfill them."
@@ -24,7 +24,7 @@ keypoints:
 ## Introduction
 
 > ## Follow up from Section 3
-> This episode could be read as a follow up from the end of [Section 3 on software design and development](../30-section3-intro).
+> This episode could be read as a follow up from the end of [Section 3 on software design and development](../36-architecture-revisited/index.html#additional-material).
 {: .callout}
 
 Our patient data system so far can read in some data, process it, and display it to people.
@@ -40,18 +40,18 @@ If we want to bring in this data, modify it somehow, and save it back to a file,
 - Add some views we can use to modify the data
 - Link it all together in the controller
 
-## Serialization and Serializers
+## Serialisation and Serialisers
 
-The process of converting data from an object to and from storable formats is often called **serialization** and **deserialization** and is handled by a **serializer**.
-Serialization is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialization is the opposite.
-We're going to be making a serialiser for our patient data, but since there are many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serializers later and swap between them.
-So let's start by creating a base class to represent the concept of a serializer for our patient data - then we can specialise this to make serializers for different formats by inheriting from this base class.
+The process of converting data from an object to and from storable formats is often called **serialisation** and **deserialisation** and is handled by a **serialiser**.
+Serialisation is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialisation is the opposite.
+We're going to be making a serialiser for our patient data, but since there are many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serialisers later and swap between them.
+So let's start by creating a base class to represent the concept of a serialiser for our patient data - then we can specialise this to make serialisers for different formats by inheriting from this base class.
 
-By creating a base class we provide a contract that any kind of patient serializer must satisfy.
-If we create some alternative serializers for different data formats, we know that we will be able to use them all in exactly the same way.
+By creating a base class we provide a contract that any kind of patient serialiser must satisfy.
+If we create some alternative serialisers for different data formats, we know that we will be able to use them all in exactly the same way.
 This technique is part of an approach called **design by contract**.
 
-We'll call our base class `PatientSerializer`.
+We'll call our base class `PatientSerializer` and put it in file `inflammation/serializers.py`.
 
 ~~~ python
 # file: inflammation/serializers.py
@@ -80,12 +80,12 @@ class PatientSerializer:
 ~~~
 {: .language-python}
 
-Our serializer base class has two pairs of classmethods, one to serialize (save) the data and one to deserialize (load) it.
-We're not actually going to implement any of them quite yet as this is just a template for how our real serializers should look, so we'll raise `NotImplementedError` to make this clear if anyone tries to use this class directly.
-The reason we've used classmethods is that we don't need to be able to pass any data in using the `__init__` method, as we'll be passing the data to be serialized directly to the `save` function.
+Our serialiser base class has two pairs of class methods (denoted by the `@classmethod` decorators), one to serialise (save) the data and one to deserialise (load) it.
+We're not actually going to implement any of them quite yet as this is just a template for how our real serialisers should look, so we'll raise `NotImplementedError` to make this clear if anyone tries to use this class directly.
+The reason we've used class methods is that we don't need to be able to pass any data in using the `__init__` method, as we'll be passing the data to be serialised directly to the `save` function.
 
-There are many different formats we could use to store our data, but a good one is **JSON** (JavaScript Object Notation).
-This format comes originally from JavaScript, but is now one of the most widely used serialization formats for exchange or storage of structured data, used across most common programming languages.
+There are many different formats we could use to store our data, but a good one is [**JSON** (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON).
+This format comes originally from JavaScript, but is now one of the most widely used serialisation formats for exchange or storage of structured data, used across most common programming languages.
 
 Data in JSON format is structured using nested **arrays** (very similar to Python lists) and **objects** (very similar to Python dictionaries).
 For example, we're going to try to use this format to store data about our patients:
@@ -123,8 +123,8 @@ If we wanted to represent this data in CSV format, the most natural way would be
 We'd then need to use a unique identifier to link each observation record to the relevant patient.
 This is how relational databases work, but it would be quite complicated to manage this ourselves with CSVs.
 
-Now if we're going to follow TDD (Test Driven Development), we should write some test code.
-Our JSON serializer should be able to save and load our patient data to and from a JSON file, so for our test we could try these save-load steps and check that the result is the same as the data we started with.
+Now, if we are going to follow [TDD (Test Driven Development)](../35-object-oriented-programming/index.html#test-driven-development), we should write some test code.
+Our JSON serialiser should be able to save and load our patient data to and from a JSON file, so for our test we could try these save-load steps and check that the result is the same as the data we started with.
 Again you might need to change these examples slightly to get them to fit with how you chose to implement your `Patient` class.
 
 ~~~ python
@@ -212,7 +212,7 @@ FAILED tests/test_serializers.py::test_patients_json_serializer - TypeError: Obj
 
 This means that our patient serializer almost works, but we need to write a serializer for our observation model as well!
 
-Since this new serializer isn't a type of `PatientSerializer`, we need to inherit from a new base class which holds the design that's shared between `PatientSerializer` and `ObservationSerializer`.
+Since this new serializer is not a type of `PatientSerializer`, we need to inherit from a new base class which holds the design that is shared between `PatientSerializer` and `ObservationSerializer`.
 Since we don't actually need to save the observation data to a file independently, we won't worry about implementing the `save` and `load` methods for the `Observation` model.
 
 ~~~ python
@@ -290,18 +290,18 @@ class PatientSerializer(Serializer):
 > ## Linking it All Together
 > We've now got some code which we can use to save and load our patient data, but we've not yet linked it up so people can use it.
 >
-> Just like we did with the `display_patient` view in the previous section, try adding some views to work with our patient data using the JSON serializer.
+> Just like we did with the `display_patient` view in [Section 3](../36-architecture-revisited/index.html#mvc-revisited), try adding some views to work with our patient data using the JSON serialiser.
 > When you do this, think about the design of the command line interface - what arguments will you need to get from the user, what output should they receive back?
 {: .challenge}
 
 > ## Equality Testing
 >
-> When we wrote our serializer test, we said we wanted to check that the data coming out was the same as our input data, but we actually compared just parts of the data, rather than just using `assert patients_new == patients`.
+> When we wrote our serialiser test, we said we wanted to check that the data coming out was the same as our input data, but we actually compared just parts of the data, rather than just using `assert patients_new == patients`.
 >
 > The reason for this is that, by default, `==` comparing two instances of a class tests whether they're stored at the same location in memory, rather than just whether they contain the same data.
 >
 > Add some code to the `Patient` and `Observation` classes, so that we get the expected result when we do `assert patients_new == patients`.
-> When you have this comparison working, update the serializer test to use this instead.
+> When you have this comparison working, update the serialiser test to use this instead.
 >
 > **Hint:** The method Python uses to check for equality of two instances of a class is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
 {: .challenge}
@@ -321,7 +321,7 @@ class PatientSerializer(Serializer):
 
 > ## Advanced Challenge: CSV Serialization
 >
-> Try implementing an alternative serializer, using the CSV format instead of JSON.
+> Try implementing an alternative serialiser, using the CSV format instead of JSON.
 >
 > **Hint:** Python also has a module for handling CSVs - see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
 > This module provides a CSV reader and writer which are a bit more flexible, but slower for purely numeric data, than the ones we've seen previously as part of NumPy.
