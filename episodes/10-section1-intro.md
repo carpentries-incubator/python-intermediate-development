@@ -27,14 +27,25 @@ based on what your collaborators are using.
 
 ![Tools needed to collaborate on code development effectively](../fig/section1-overview.png){: .image-with-shadow width="800px" }
 
-Here is an overview of the tools we will be using.
+Here is an overview of the tools we will be using. 
+ 
+> ## Common Issues & Fixes When Running Tools
+> Check the list of [common issues, fixes & tips](/common-issues/index.html) if you experiencing problems 
+running any of the tools you installed - your issue may be solved there.
+{: .callout}
 
-### Command Line & Virtual Development Environment
+### Command Line & Python Virtual Development Environment
 We will use the [command line](https://en.wikipedia.org/wiki/Shell_(computing))
-(also known as the command line shell/prompt/console) to run our code and
-interact with the version control tool Git and software sharing platform GitHub. We will also use command line
+(also known as the command line shell/prompt/console) to run our Python code and
+interact with the version control tool Git and software sharing platform GitHub. 
+We will also use command line
 tools [`venv`](https://docs.python.org/3/library/venv.html) and [`pip`](https://pip.pypa.io/en/stable/)
-to set up a virtual development environment and isolate our software project from other projects we may work on.
+to set up a Python virtual development environment and isolate our software project 
+from other Python projects we may work on.
+
+**Note:** *some Windows users experience the issue where Python hangs from Git Bash (i.e. 
+typing `python` causes it to just hang with no error message or output) - 
+[see the solution to this issue](/common-issues/index.html#python-hangs-in-git-bash).*
 
 ### Integrated Development Environment (IDE)
 An IDE integrates a number of tools that we need to develop a software project
