@@ -57,7 +57,7 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 >> Below are some example views of tools and techniques covered in the course using concept maps. Your views 
 >> may differ but that is not to say that either view is right or wrong. This exercise is meant to get you to reflect on what was covered in the course and hopefully to reinforce the ideas and concepts you learned.
 >> ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="800px"}
->> A different concept map tries to organise concepts/skills based on their level of difficulty (novice, intermediate and advanced, and in-between!) and tries to show which skills are prerequisite for other and in which order you should consider learning skills.
+>> A different concept map tries to organise concepts/skills based on their level of difficulty (novice, intermediate and advanced, and in-between!) and tries to show which skills are prerequisite for others and in which order you should consider learning skills.
 >> ![Overview of topics covered in the course based on level of difficulty](../fig/course-concept-map-difficulty.png){: .image-with-shadow width="800px"}
 > {: .solution}
 {: .challenge}
