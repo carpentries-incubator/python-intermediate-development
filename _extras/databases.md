@@ -15,7 +15,7 @@ keypoints:
 ## Databases
 
 > ## Follow up from Section 3
-> This episode could be read as a follow up from the end of [Section 3 on software design and development](../30-section3-intro).
+> This episode could be read as a follow up from the end of [Section 3 on software design and development](../36-architecture-revisited/index.html#additional-material).
 {: .callout} 
 
 A **database** is an organised collection of data, usually organised in some way to mimic the structure of the entities it represents.
@@ -25,33 +25,33 @@ Relational databases focus on describing the relationships between entities in t
 The key concepts in a relational database are:
 
 Tables
-: Within a database we can have multiple tables - each table usually represents all entities of a single type.
-: e.g. We might have a `patients` table to represent all of our patients.
+- Within a database we can have multiple tables - each table usually represents all entities of a single type.
+- E.g., we might have a `patients` table to represent all of our patients.
 
 Columns / Fields
-: Each table has columns - each column has a name and holds data of a specific type
-: e.g. We might have a `name` column in our `patients` table which holds text data representing the names of our patients.
+- Each table has columns - each column has a name and holds data of a specific type
+- E.g., we might have a `name` column in our `patients` table which holds text data representing the names of our patients.
 
 Rows
-: Each table has rows - each row represents a single entity and has a value for each field.
-: e.g. Each row in our `patients` table represents a single patient - the value of the `name` field in this row is our patient's name.
+- Each table has rows - each row represents a single entity and has a value for each field.
+- E.g., each row in our `patients` table represents a single patient - the value of the `name` field in this row is our patient's name.
 
 Primary Keys
-: Each row has a primary key - this is a unique ID that can be used to select this from from the data.
-: e.g. Each patient might have a `patient_id` which can be used to distinguish two patients with the same name.
+- Each row has a primary key - this is a unique ID that can be used to select this from from the data.
+- E.g., each patient might have a `patient_id` which can be used to distinguish two patients with the same name.
 
 Foreign Keys
-: A relationship between two entities is described using a foreign key - this is a field which points to the primary key of another row / table.
-: e.g. Each patient might have a foreign key field called `doctor` pointing to a row in a `doctors` table representing the doctor responsible for them - i.e. this doctor *has a* patient.
+- A relationship between two entities is described using a foreign key - this is a field which points to the primary key of another row / table.
+- E.g., Each patient might have a foreign key field called `doctor` pointing to a row in a `doctors` table representing the doctor responsible for them - i.e. this doctor *has a* patient.
+
+While relational databases are typically accessed using **SQL queries**, we're going to use a library to help us translate between Python and the database.
+[SQLAlchemy](https://www.sqlalchemy.org/) is a popular Python library which contains an **Object Relational Mapping** (ORM) framework.
 
 > ## SQLAlchemy
 >
 > For more information, see SQLAlchemy's [ORM tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html).
 >
 {: .callout}
-
-While relational databases are typically accessed using **SQL queries**, we're going to use a library to help us translate between Python and the database.
-SQLAlchemy is a popular Python library which contains an **Object Relational Mapping** (ORM) framework.
 
 Our first step is to install SQLAlchemy, then we can create our first **mapping**.
 
@@ -60,7 +60,7 @@ $ pip3 install sqlalchemy
 ```
 {: .language-bash}
 
-A mapping is the core component of an ORM - it's this that describes how to convert between our Python classes and the contents of our database tables.
+A mapping is the core component of an ORM - it describes how to convert between our Python classes and the contents of our database tables.
 Typically, we can take our existing classes and convert them into mappings with a little modification, so we don't have to start from scratch.
 
 ~~~
