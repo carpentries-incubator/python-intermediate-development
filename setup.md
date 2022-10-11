@@ -35,7 +35,6 @@ Git is a program that can be accessed from your command line tool.
 
 - On Windows, it is recommended to use **Git Bash**, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will
   install the Bash command line tool as well as Git.
-  - *For AstraZeneca-managed computers (where you may not have admin permissions), you can obtain Git For Windows package from the AstraZeneca Software Store.*
 - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode)
   and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from
   [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can
@@ -112,9 +111,6 @@ invocations should remain the same regardless of the Python distribution used.
 To download a Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
 
-*For AstraZeneca-managed computers, you can obtain Python 3.9.7 from the AstraZeneca Software Store. 
-Please make sure not to use Anaconda as it is not free for commercial use.*
-
 >## Recommended Python Version
 > We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. version 3.7 onward. 
 > Specifically, we recommend upgrading from Python 2.7 wherever possible; continuing to use it will likely result in difficulty finding supported dependencies or syntax errors).
@@ -158,6 +154,4 @@ We use JetBrains's [PyCharm Python Integrated Development Environment](https://w
 PyCharm can be downloaded from [the JetBrains website](https://www.jetbrains.com/pycharm/download).
 The Community edition is fine, though if you are developing software for the purpose of academic research you may be eligible for a free license for the Professional edition which contains extra features.
 
-*For AstraZeneca-managed computers, PyCharm Community Edition is available from the AZ Software Store.*
-  
 {% include links.md %}

@@ -1,10 +1,13 @@
-# Intermediate Research Software Development
+[![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
+
+# Intermediate Research Software Development Skills In Python
 
 A two day, intermediate-level course in research software engineering and development skills and working as part of a 
 team (using Python as an example language).
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
-self-learning or attending a foundational course. However, their software 
+self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
+However, their software 
 development-related projects are now becoming larger and more complex and they need more 
 intermediate software engineering skills to help them design more robust software code, 
 automate the process of testing and verifying its correctness and support collaborations with others.
@@ -20,11 +23,12 @@ The software project template repository used for this lesson is available at:
 The lesson is using the official [Carpentries lesson template][styles].
 
 ### Lesson Status
-The lesson is currently in the beta status - it has been tested several times with 
-different cohorts and is in a good state to be reused and taught by others.
+The lesson is currently in beta - it has been tested several times with 
+different cohorts by the lesson authors as well as independently by people not involved in the course development
+and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
-If you would like to teach this lesson to your audience and help with beta testing, 
+If you would like to teach this lesson to your audience and help with more beta testing, 
 please let the lesson developers know by opening an [issue][issues] with your workshop details and a 
 label 'pilot'.
 
