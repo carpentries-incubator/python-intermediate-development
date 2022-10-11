@@ -51,14 +51,14 @@ provide you with a solid basis for writing industry-grade code, which relies on 
 >> think in which order you want to learn the skills and how much effort they require - e.g. start with those that are more useful but, for the time being, hold off those that are not too useful to you and take loads of time to master. You will likely want to focus on the concepts in the top right corner of the table first, but 
 >> investing time to master more difficult concepts may pay off in the long run by saving you time and effort
 >> and helping reduce technical debt.
->> ![Usefulness versus time to master grid](../fig/course-usefulness-time-to-master.png){: .image-with-shadow width="800px"}
+>> ![Usefulness versus time to master grid](../fig/wrapup-perceived-usefulness-time.png){: .image-with-shadow width="800px"}
 >>
 >> Another way you can organise the concepts is using a [concept map](https://en.wikipedia.org/wiki/Concept_map) (a directed graph depicting suggested relationships between concepts) or any other diagram/visual aid of your choice.
 >> Below are some example views of tools and techniques covered in the course using concept maps. Your views 
 >> may differ but that is not to say that either view is right or wrong. This exercise is meant to get you to reflect on what was covered in the course and hopefully to reinforce the ideas and concepts you learned.
->> ![Overview of tools and techniques covered in the course](../fig/course-concept-map.png){: .image-with-shadow width="800px"}
+>> ![Overview of tools and techniques covered in the course](../fig/wrapup-concept-map.png){: .image-with-shadow width="800px"}
 >> A different concept map tries to organise concepts/skills based on their level of difficulty (novice, intermediate and advanced, and in-between!) and tries to show which skills are prerequisite for others and in which order you should consider learning skills.
->> ![Overview of topics covered in the course based on level of difficulty](../fig/course-concept-map-difficulty.png){: .image-with-shadow width="800px"}
+>> ![Overview of topics covered in the course based on level of difficulty](../fig/wrapup-concept-map-difficulty-level.png){: .image-with-shadow width="800px"}
 > {: .solution}
 {: .challenge}
 
