@@ -37,7 +37,7 @@ credential cache was not enough and updating to Git 2.29 was needed.
 
 ## Python, `pip`, `venv` & Installing Packages Issues
 
-### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 
+### Issues With Numpy (and Potentially Other Packages) on New M1 Macs 
 
 When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
 
@@ -47,25 +47,25 @@ When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python installed from the AZ Artifact Store
-Python installed from the AZ Artifact Store may not be accessible as `python3` from the command line, but 
-worked fine when invoked `python`.
+### Python 3 not Accessible as 'python3' but 'python'
+Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but 
+works fine when invoked with `python`.
 
-### Installing Packages With `pip` Issue - Proxy Needed
-If you encounter issues when trying to install packages with `pip`, AstraZeneca users may need to use the proxy. 
-This will probably be the case if you are either in the office, or using the Global VPN. In order 
+### Installing Packages With `pip` Issue Over VPN or Protected Networks - Proxy Needed
+If you encounter issues when trying to install packages with `pip` over your organisational network - 
+it may be because your may need to use a proxy provided by your organisation. In order 
 to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
 
-`pip3 install --proxy <AZ-proxy-url> <name of package>`
+`pip3 install --proxy <proxy-url> <name of package>`
 
 To keep these settings permanently, you may want to add the following to your `.zshrc`/`.bashrc` file to avoid 
 having to specify the proxy for each session, and restart your command line terminal:
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-export {http,https,ftp}_proxy='<AZ-proxy-url>'
-export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>'
-export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>, <AZ-proxy-url>
+export {http,https,ftp}_proxy='<proxy-url>'
+export {HTTP,HTTPS,FTP}_PROXY='<proxy-url>'
+export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<proxy-url>, <proxy-url>
 }
 
 unset_proxies() {
@@ -75,10 +75,6 @@ export NO_PROXY=
 }
 ~~~
 {: .language-bash}
-
-### Installing Packages With `pip` - AZ Artifact Store vs. PyPI
-AZ Artifact Store is only used for internal AZ PyPi packages and none of the packages used in the course are
-that so no need to use the AZ Artifact Store for the course at all.
 
 ## PyCharm Issues
  
