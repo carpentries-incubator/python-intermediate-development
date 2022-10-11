@@ -47,7 +47,7 @@ When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python 3 not Accessible as 'python3' but 'python'
+### Python 3 not Accessible as `python3` but `python`
 Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but 
 works fine when invoked with `python`.
 
