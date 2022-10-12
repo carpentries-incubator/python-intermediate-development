@@ -44,11 +44,11 @@ These programs tend to be written in C (which doesn't support Object Oriented Pr
 HPC code is also often written in C++, but C++ code would more commonly follow an Object Oriented style, though it may have procedural sections.
 
 Note that you may sometimes hear people refer to this paradigm as "functional programming" to contrast it with Object Oriented Programming, because it uses functions rather than objects, but this is incorrect.
-Functional Programming is a separate paradigm that places much stronger constraints on the behaviour of a function and structures the code differently as we'll see later.
+Functional Programming is a separate paradigm that places much stronger constraints on the behaviour of a function and structures the code differently as we'll see soon.
 
 ## Functional Programming
 
-Functional Programming, comes from a different family of paradigms, known as the Declarative Family.
+Functional Programming comes from a different family of paradigms - known as the Declarative Family.
 The Declarative Family is a distinct set of paradigms which have a different outlook on what a program is - here code describes *what* data processing should happen.
 What we really care about here is the outcome - how this is achieved is less important.
 
@@ -81,7 +81,8 @@ In our chemistry example, this could be our code for calculating the force betwe
 > You can use it as a procedural language and you can use it in a more object oriented way.
 > It does tend to land more on the object oriented side as all its core data types (strings, integers, floats, booleans, lists, sets, arrays, tuples, dictionaries, files) as well as functions, modules and classes are objects.
 >
-> Since functions in Python are also objects that can be passed around like any other object, Python is also well suited to Functional Programming.
+> Since functions in Python are also objects that can be passed around like any other object, Python is also well suited to functional programming. One of the most popular Python libraries for data manipulation, 
+> [Pandas](https://pandas.pydata.org/) (built on top of NumPy), supports functional programming style as most of its functions on data are not changing the data (no side effects) but producing a new data to reflect the result of the function. 
 {: .callout}
                            
 ## Other Paradigms
