@@ -175,7 +175,7 @@ This process is often referred to as **MapReduce**, particularly when working wi
 The MapReduce style of data processing relies heavily on the composability and parallelisability that we get when using functional programming.
 This name comes from applying or **mapping** an operation to each value, then performing a **reduction** operation which collects the data together to produce a single result.
 
-In Python, we do have the built-in functions `map`, `filter`, and `reduce` - but here we will 
+In Python, we do have the built-in functions `map()`, `filter()`, and `reduce()` - but here we will 
 use Python **comprehensions** instead to achieve the same effect (which is a commonly used and recommended 
 approach). If you're particularly interested in this form of data processing, it might be worth looking up the documentation for these functions.
 
@@ -342,7 +342,7 @@ print(result)
 ~~~
 {: .output}
 
-In these examples above, we've used a list comprehension to effectively build the `map` function ourselves.
+In these examples above, we've used a list comprehension to effectively build the `map()` function ourselves.
 In Python 2, this is exactly how `map` worked - it returned a list of items. In Python 3, it is a little different as the `map()` and `filter()` functions are now generators - they do not return lists 
 but map and filter objects, respectively, which are iterators. These objects can then 
 be passed to functions like `list()` (to create a list), `set()` (to create a set), etc. - but cannot be used 
@@ -536,7 +536,7 @@ print(reduce((lambda a, b: a * b), l))
 
 ## Decorators
 
-In the section on parametrising our unit tests, we have used a **decorator** to modify the behaviour of a function.
+In the [episode on parametrising our unit tests](../22-scaling-up-unit-testing/index.html#parameterising-our-unit-tests), we have used a **decorator** to modify the behaviour of a function.
 Here, we'll discuss decorators in more detail and learn how to write our own.
 
 The important feature of a decorator is that it can take a function, modify it, then return the resulting function.
@@ -659,13 +659,13 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 
 > ## Optional Advanced Exercise: Multiprocessing 
 >
-> **Advanced optional exercise to come back to if you finish early.**
+> **Advanced optional exercise to come back to if you finish this section early.**
 >
 > One of the benefits of functional programming is that, if we have pure functions, when applying / mapping a function to many values in a collection, each application is completely independent of the others.
 > This means that we can take advantage of multiprocessing, without many of the normal problems in synchronisation that this brings.
 >
 > Read through the Python documentation for the [multiprocessing module](https://docs.python.org/3/library/multiprocessing.html), particularly the `Pool.map` method.
-> This function is similar to the `map` function, but distributes the operations across a number of processes.
+> This function is similar to the `map()` function we mentioned in MapReduce model, but distributes the operations across a number of processes.
 >
 > Update one of our examples to make use of multiprocessing.
 > How much of a performance improvement do you get?
@@ -682,7 +682,7 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 > **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
 > One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >
-> Would we get the same benefits from parallel equivalents of the `filter` and `reduce` functions?
+> Would we get the same benefits from parallel equivalents of the `filter()` and `reduce()` functions?
 > Why, or why not?
 >
 > {: .language-bash}
