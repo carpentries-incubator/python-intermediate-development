@@ -113,9 +113,13 @@ The key is to think about which kind of testing should be used to check if the c
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 > 
+> Also make sure you push changes to your new feature branch remotely to your software repository on GitHub.
+> 
 > **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along 
 > with the new code, we will do this in a later episode. Equally, do not merge your changes to the 
 > `develop` branch just yet.**
+> 
+> **Note 2: we have intentionally left this exercise without solution to give you more freedom in implementing it how you see fit. If you are struggling with adding a new view and command line parameter - read on as more code examples will be provided by the end of this section that will give you hints on how to do this.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
