@@ -1,36 +1,23 @@
 ---
 title: "Object Oriented Programming"
-start: false
-teaching: 20
-exercises: 30
+teaching: 30
+exercises: 20
 questions:
-- "How does the structure of a problem affect the structure of our code?"
-- "How can we use common software paradigms to improve the quality of our software?"
+- "How can we use code to describe the structure of data?"
+- "How should the relationships between structures be described?"
 objectives:
-- "Describe some of the major software paradigms we can use to classify programming languages."
+- "Describe the core concepts that define the Object Oriented Paradigm"
+- "Use classes to encapsulate data within a more complex program"
+- "Structure concepts within a program in terms of sets of behaviour"
+- "Identify different types of relationship between concepts within a program"
+- "Structure data within a program using these relationships"
 keypoints:
-- "A software paradigm describes a way of structuring or reasoning about code."
-- "Different programming languages are suited to different paradigms."
-- "Different paradigms are suited to solving different classes of problems."
-- "A single piece of software will often contain instances of multiple paradigms."
+- "Classes allow us to organise data into distinct concepts."
+- "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
+- "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
 
-<<<<<<< HEAD:_episodes/35-object-oriented-programming.md
-=======
-## Introduction
 
-With FizzBuzzer class, we saw an example of where Object Oriented Programming works badly, so where does it work well?
-
-This paradigm is useful when data is structured, often because it represents an entity which exists in the real world.
-This entity has **attributes** which can be measured, and **behaviours** which it can perform.
-An obvious example of an entity with attributes and behaviours is a person.
-
-People have names, heights, weights, etc., all of which might be useful for software to know about in some context.
-In the context of our clinical trial data system, we might be interested in all three of these, but also in their measurements of inflammation.
-
-Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
-
->>>>>>> 70a06d5b2b4f861c29edc5e338f5df13ca980936:_episodes/32-object-oriented.md
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
@@ -236,7 +223,7 @@ The behaviours we may have seen previously include:
 >
 {: .callout}
 
-### Encapsulating Behaviour
+## Encapsulating Behaviour
 
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
@@ -357,9 +344,8 @@ These dunder methods are not usually called directly, but rather provide the imp
 Some we see quite commonly are:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
-- `__getitem__` - accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
+- `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
 - `__len__` - gets the length of an object when we use `len(object)` - usually the number of items it contains
-- `__mod__` - implements the modulo operation `x % y` that returns the remainder of dividing `x` by `y`; internally, Python attempts to call `x.__mod__(y)` 
 
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
@@ -430,9 +416,9 @@ print(obs)
 ~~~
 {: .output}
 
-You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
+You may recognise the `@` syntax from episodes on parameterising unit tests and functional programming - `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
-It is possible to make your own decorators, so we'll be seeing them again in the Functional Programming episode.
+It is also possible to make your own decorators, but we won't cover it here.
 
 ### Relationships Between Classes
 
