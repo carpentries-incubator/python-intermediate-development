@@ -3,18 +3,18 @@ title: "Object Oriented Programming"
 teaching: 30
 exercises: 20
 questions:
-  - "How can we use code to describe the structure of data?"
-  - "How should the relationships between structures be described?"
-  objectives:
-  - "Describe the core concepts that define the Object Oriented Paradigm"
-  - "Use classes to encapsulate data within a more complex program"
-  - "Structure concepts within a program in terms of sets of behaviour"
-  - "Identify different types of relationship between concepts within a program"
-  - "Structure data within a program using these relationships"
+- "How can we use code to describe the structure of data?"
+- "How should the relationships between structures be described?"
+objectives:
+- "Describe the core concepts that define the Object Oriented Paradigm"
+- "Use classes to encapsulate data within a more complex program"
+- "Structure concepts within a program in terms of sets of behaviour"
+- "Identify different types of relationship between concepts within a program"
+- "Structure data within a program using these relationships"
 keypoints:
-  - "Classes allow us to organise data into distinct concepts."
-  - "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
-  - "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
+- "Classes allow us to organise data into distinct concepts."
+- "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
+- "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
 
 
