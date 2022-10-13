@@ -24,13 +24,23 @@ programmer will use them to solve a problem. These approaches group the programm
 Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain 
 strengths and weaknesses when used to solve particular types of problems. Once your software begins to get more 
 complex it's common to use aspects of different paradigms to handle different subtasks. Because of this, it's useful to 
-know about the major paradigms, so you can recognise where it might be useful to switch. We will look into three major 
-paradigms that may be useful to you - **Procedural Programming**, **Functional Programming** and **Object-Oriented Programming**.
+know about the major paradigms, so you can recognise where it might be useful to switch. 
+
+There are two major families that we can group the common programming paradigms into: **Imperative** and **Declarative**.
+An imperative program uses statements that change the program's state - it consists of commands for the computer to 
+perform and focuses on describing **how** a program operates step by step. A declarative program expresses the 
+logic of a computation to describe **what** should be accomplished rather than describing its control flow as a sequence steps.
+
+We will look into three major paradigms from the imperative and declarative families 
+that may be useful to you - **Procedural Programming**, **Functional Programming** and **Object-Oriented Programming**.
+Note, however, that most of the languages can be used with multiple paradigms, 
+and it is common to see multiple paradigms within a single program - so this classification of programming 
+languages based on the paradigm they use isn't as strict.
 
 ## Procedural Programming
 
 Procedural Programming comes from a family of paradigms known as the Imperative Family.
-With paradigms in this family, we think of our code as the instructions for processing data.
+With paradigms in this family, we can think of our code as the instructions for processing data.
 
 Procedural Programming is probably the style you're most familiar with and the one we used 
 up to this point, where we group code into *procedures performing a single task, with exactly one entry and one exit point*.
@@ -67,7 +77,7 @@ By writing our code in a functional style, we also gain the ability to run many 
 
 Object Oriented Programming focuses on the specific characteristics of each object and what each object can do.
 An object has two fundamental parts - properties (characteristics) and behaviours. In Object Oriented Programming, we
-first think about the data and the things that we're modelling - and represent these by objects.
+first think about the data and the things that we're modelling - and represent these by objects. 
 
 For example, if we're writing a simulation for our chemistry research, we're probably going to need to represent atoms and molecules.
 Each of these has a set of properties which we need to know about in order for our code to perform the tasks we want -
@@ -75,6 +85,9 @@ in this case, for example, we often need to know the mass and electric charge of
 So with Object Oriented Programming, we'll have some **object** structure which represents an atom and all of its properties, another structure to represent a molecule, and a relationship between the two (a molecule contains atoms).
 This structure also provides a way for us to associate code with an object, representing any **behaviours** it may have.
 In our chemistry example, this could be our code for calculating the force between a pair of atoms.
+
+Most people would classify Object Oriented Programming as an [extension of the Imperative family of languages](https://www.digitalocean.com/community/tutorials/functional-imperative-object-oriented-programming-comparison)
+(with the extra feature being the objects), but [others disagree](https://stackoverflow.com/questions/38527078/what-is-the-difference-between-imperative-and-object-oriented-programming).
 
 > ## So Which one is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
