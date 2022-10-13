@@ -494,7 +494,7 @@ Now we're using a composition of two custom classes to describe the relationship
 
 The other type of relationship used in object oriented programming is **inheritance**.
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
-If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
+If class `X` inherits from (*is a*) class `Y`, we say that `Y` is the **superclass** or **parent class** of `X`, or `X` is a **subclass** of `Y`.
 
 If we want to extend the previous example to also manage people who aren't patients we can add another class `Person`.
 But `Person` will share some data and behaviour with `Patient` - in this case both have a name and show that name when you print them.
