@@ -19,25 +19,36 @@ View (user interface), and Controller (input/output and data manipulation)."
 patients’ inflammation data and performs basic statistical analysis using Python."
 ---
 
-## Patient Inflammation Study Project
-So, you have joined a software development team that has been working on the [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation) 
-developed in Python and stored on GitHub. The project analyses the data to study the effect of a new 
-treatment for arthritis by analysing the inflammation levels in patients who have been given this treatment. 
-It reuses the inflammation datasets from the 
-[Software Carpentry Python novice lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
+## National River Catchment Research Project
+So, you have joined a software development team that has been working on the [river catchment study project](https://github.com/UoMResearchIT/python-intermediate-rivercatchment) 
+developed in Python and stored on GitHub. The project will involve the analysis of environmental 
+measurement data to improve our understanding of the hydrological, hydrogeological, 
+geomorphological and ecological interactions within permeable catchment systems.
+To help with the development of the analysis software, you will use baseline datasets from the
+[Lowland Catchment Research (LOCAR) Programme](https://catalogue.ceh.ac.uk/documents/db9f6ef9-9512-4f39-aca3-3c55f51a7487).
 
-![Snapshot of the inflammation dataset](../fig/inflammation-study-pipeline.png){: .image-with-shadow width="800px" }
-<p style="text-align: center;">Inflammation study pipeline from the <a href="https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg">Software Carpentry Python novice lesson</a></p>
+![Snapshot of the LOCAR dataset](../fig/locar-study-pipeline.png){: .image-with-shadow width="800px" }
+<p style="text-align: center;">LOCAR study pipeline</p>
 
-> ## What Does Patient Inflammation Data Contain?
+> ## What does the Measurement Data contain?
 > 
-> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trial (a snapshot of one of the data files is shown in diagram above).
+> Each dataset records either rain fall or river water measurements, such as the pH, Temperature
+> or Water Level, from a number of measurement sites within a given river catchment area. 
 > 
-> Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values) to represent the data, where:
+> Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values), 
+> where:
 >
-> - Each row holds inflammation measurements for a single patient,
-> - Each column represents a successive day in the trial,
-> - Each cell represents an inflammation reading on a given day for a patient (in some arbitrary units of inflammation measurement).
+> - The first row contains the column headers
+> - All subsequent rows contain data for a given site, and date and time
+> - The first column gives the site identifier,
+> - The second column gives the site long name,
+> - The third column gives the date and time of the measurement
+> - All subsequent columns contain measurement data
+> 
+> These measurements are given at 15 minute intervals. The data in the git repository are a 
+> subset of the full dataset, for select sites during December 2005. The full dataset covers
+> a wider range of sites, over the years 2002-2007, and is available to download from  the project
+> website linked above. 
 {: .callout}
 
 The project is not finished and contains some errors. You will be working on your own and in
@@ -48,13 +59,13 @@ repository from GitHub within your own GitHub account and then obtain a local co
 your machine. Let's do this.
 
 1. Log into your GitHub account. 
-2. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation) in GitHub.
+2. Go to the [software project template repository](https://github.com/UoMResearchIT/python-intermediate-rivercatchment) in GitHub.
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
 3. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
 Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
-4. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
+4. Make sure to select your personal account and set the name of the project to `python-intermediate-rivercatchment` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
 ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
@@ -73,10 +84,10 @@ anything you like, but it may be easier for future group exercises if everyone u
 2. Make sure you are located in your home directory in the command line with:
 > > `cd ~`
 3. From your home directory, do:
-> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`. Make sure you are cloning 
+> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-rivercatchment`. Make sure you are cloning 
 > > your copy of the software project and not the template repo.
 4. Navigate into the cloned repository in your command line with:
-> > `cd python-intermediate-inflammation`
+> > `cd python-intermediate-rivercatchment`
 5. List the contents of the directory:
 > > `ls -l`. Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line using 
 > > manual pages, e.g.: `man ls`.
@@ -88,72 +99,63 @@ Let’s inspect the content of the software project from the command line. From 
  use the command `ls -l` to get a more detailed list of the contents. You should see something similar to the following.
 
 ~~~
-$ cd ~/python-intermediate-inflammation
+$ cd ~/python-intermediate-rivercatchment
 $ ls -l
 total 24
 -rw-r--r--   1 carpentry  users  1055 20 Apr 15:41 README.md
 drwxr-xr-x  18 carpentry  users   576 20 Apr 15:41 data
-drwxr-xr-x   5 carpentry  users   160 20 Apr 15:41 inflammation
--rw-r--r--   1 carpentry  users  1122 20 Apr 15:41 inflammation-analysis.py
+drwxr-xr-x   5 carpentry  users   160 20 Apr 15:41 catchment
+-rw-r--r--   1 carpentry  users  1122 20 Apr 15:41 catchment-analysis.py
 drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 ~~~
 {: .language-bash}
 
 As can be seen from the above, our software project contains the `README` file (that typically describes the project,
-its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`,
-and three directories - `inflammation`, `data` and `tests`.
+its usage, installation, authors and how to contribute), Python script `catchment-analysis.py`,
+and three directories - `catchment`, `data` and `tests`.
 
-The Python script `inflammation-analysis.py` provides the main
-entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts -
+The Python script `catchment-analysis.py` provides the main
+entry point in the application, and on closer inspection, we can see that the `catchment` directory contains two more Python scripts -
 `views.py` and `models.py`. We will have a more detailed look into these shortly.
 
 ~~~
-$ ls -l inflammation
+$ ls -l catchment
 total 24
--rw-r--r--  1 alex  staff   71 29 Jun 09:59 __init__.py
--rw-r--r--  1 alex  staff  838 29 Jun 09:59 models.py
--rw-r--r--  1 alex  staff  649 25 Jun 13:13 views.py
+-rw-r--r--  1 carpentry  users   71 29 Jun 09:59 __init__.py
+-rw-r--r--  1 carpentry  users  838 29 Jun 09:59 models.py
+-rw-r--r--  1 carpentry  users  649 25 Jun 13:13 views.py
 ~~~
 {: .language-bash}
 
-Directory `data` contains several files with patients’ daily inflammation information (along with some other files):
+Directory `data` contains several files with rain and river data (along with some other files):
 
 ~~~
 $ ls -l data
 total 264
--rw-r--r--  1 alex  staff   5365 25 Jun 13:13 inflammation-01.csv
--rw-r--r--  1 alex  staff   5314 25 Jun 13:13 inflammation-02.csv
--rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-03.csv
--rw-r--r--  1 alex  staff   5367 25 Jun 13:13 inflammation-04.csv
--rw-r--r--  1 alex  staff   5345 25 Jun 13:13 inflammation-05.csv
--rw-r--r--  1 alex  staff   5330 25 Jun 13:13 inflammation-06.csv
--rw-r--r--  1 alex  staff   5342 25 Jun 13:13 inflammation-07.csv
--rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-08.csv
--rw-r--r--  1 alex  staff   5327 25 Jun 13:13 inflammation-09.csv
--rw-r--r--  1 alex  staff   5342 25 Jun 13:13 inflammation-10.csv
--rw-r--r--  1 alex  staff   5127 25 Jun 13:13 inflammation-11.csv
--rw-r--r--  1 alex  staff   5340 25 Jun 13:13 inflammation-12.csv
--rw-r--r--  1 alex  staff  22554 25 Jun 13:13 python-novice-inflammation-data.zip
--rw-r--r--  1 alex  staff     12 25 Jun 13:13 small-01.csv
--rw-r--r--  1 alex  staff     15 25 Jun 13:13 small-02.csv
--rw-r--r--  1 alex  staff     12 25 Jun 13:13 small-03.csv
+-rw-r--r--  1 carpentry  users    1190 25 Jun 13:13 README.md
+-rw-r--r--  1 carpentry  users  243109 25 Jun 13:13 rain_data_2015-12.csv
+-rw-r--r--  1 carpentry  users  721713 25 Jun 13:13 river_data_2015-12.csv
+-rw-r--r--  1 carpentry  users      12 25 Jun 13:13 small-01.csv
+-rw-r--r--  1 carpentry  users      15 25 Jun 13:13 small-02.csv
+-rw-r--r--  1 carpentry  users      12 25 Jun 13:13 small-03.csv
 ~~~
 {: .language-bash}
 
-As [previously mentioned](#what-is-the-format-of-the-data), each of the inflammation data files contains separate trial data for 60 patients over 40 days.
+As [previously mentioned](#what-is-the-format-of-the-data), each of the data 
+files contains measurement data for select sites in December 2005.
 
 > ## Exercise: Have a Peek at the Data
-> Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
+> Which command(s) would you use to list the contents or a first few lines of `data/river_data_2015-12.csv` file?
 > > ## Solution
-> > 1. To list the entire content of a file from the project root do: `cat data/inflammation-01.csv`.
-> > 2. To list the first 5 lines of a file from the project root do: `head -n 5 data/inflammation-01.csv`.
+> > 1. To list the entire content of a file from the project root do: `cat data/river_data_2015-12.csv`.
+> > 2. To list the first 5 lines of a file from the project root do: `head -n 5 data/river_data_2015-12.csv`.
 > >
 > > ~~~
-> 0,0,1,3,2,3,6,4,5,7,2,4,11,11,3,8,8,16,5,13,16,5,8,8,6,9,10,10,9,3,3,5,3,5,4,5,3,3,0,1
-> 0,1,1,2,2,5,1,7,4,2,5,5,4,6,6,4,16,11,14,16,14,14,8,17,4,14,13,7,6,3,7,7,5,6,3,4,2,2,1,1
-> 0,1,1,1,4,1,6,4,6,3,6,5,6,4,14,13,13,9,12,19,9,10,15,10,9,10,10,7,5,6,8,6,6,4,3,5,2,1,1,1
-> 0,0,0,1,4,5,6,3,8,7,9,10,8,6,5,12,15,5,10,5,8,13,18,17,14,9,13,4,10,11,10,8,8,6,5,5,2,0,2,0
-> 0,0,1,0,3,2,5,4,8,2,9,3,3,10,12,9,14,11,13,8,6,18,11,9,13,11,8,5,5,2,8,5,3,5,4,1,3,1,1,0
+> > Site,Site Name,Date,Battery (V),Conductivity 25C continuous (uS/cm),Oxygen dissolved continuous (%satn),pH continuous,Temperature water continuous (C),Water level continuous (mm)
+> > FP15,Frome at Chilfrome,2005-12-01 00:00:00,12.0,374.0,112.6,7.96,7.1,505.1
+> > FP15,Frome at Chilfrome,2005-12-01 00:15:00,12.0,373.0,112.6,7.96,7.1,504.6
+> > FP15,Frome at Chilfrome,2005-12-01 00:30:00,12.0,374.0,112.5,7.96,7.1,504.4
+> > FP15,Frome at Chilfrome,2005-12-01 00:45:00,12.0,374.0,112.5,7.96,7.1,504.4
 > > ~~~
 > >{: .output}
 > {: .solution}
@@ -276,7 +278,7 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 
 #### Our Project's MVC Architecture
 
-Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that
+Our software project uses the MVC architecture. The file `catchment-analysis.py` is the **Controller** module that
 performs basic statistical analysis over patient data and provides the main
 entry point into the application. The **View** and **Model** modules are contained
 in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is

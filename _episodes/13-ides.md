@@ -57,7 +57,7 @@ If you don't have PyCharm running yet, start it up now. You can skip the initial
 selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 
-Select `Open` and find the software project directory `python-intermediate-inflammation` you cloned earlier.
+Select `Open` and find the software project directory `python-intermediate-rivercatchment` you cloned earlier.
 This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm,
 this is the directory they will run from.
 
@@ -71,8 +71,8 @@ typically have a panel for version control, terminal (the command line within Py
 
 ![View of an opened project in PyCharm](../fig/pycharm-open-project.png){: .image-with-shadow width="1000px" }
 
-Select the `inflammation-analysis.py` file in the project navigator on the left so that its contents are
-displayed in the editor window. You may notice a warning about the missing Python interpreter at the top of the editor panel showing `inflammation-analysis.py` file - this is one of the first things you will have to configure for your project before you can do any work. 
+Select the `catchment-analysis.py` file in the project navigator on the left so that its contents are
+displayed in the editor window. You may notice a warning about the missing Python interpreter at the top of the editor panel showing `catchment-analysis.py` file - this is one of the first things you will have to configure for your project before you can do any work. 
 
 ![Missing Python Interpreter Warning in PyCharm](../fig/pycharm-missing-python-interpreter.png){: .image-with-shadow width="800px" } 
 
@@ -87,7 +87,7 @@ for our project from the command line and PyCharm is clever enough to understand
 
 #### Adding a Python Interpreter
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
+2. In the preferences window that appears, select `Project: python-intermediate-rivercatchment` >
    `Python Interpreter` from the left. You'll
    see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
    being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
@@ -101,12 +101,12 @@ for our project from the command line and PyCharm is clever enough to understand
    ![Configuring Python Interpreter in PyCharm](../fig/pycharm-configuring-interpreter.png){: .image-with-shadow width="800px"}
 5. Select `Make available to all projects` checkbox so we can also use this environment for other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should select
-   "Python 3.9 (python-intermediate-inflammation)" or similar (that you've just added) from the `Project Interpreter` drop-down list.
+   "Python 3.9 (python-intermediate-rivercatchment)" or similar (that you've just added) from the `Project Interpreter` drop-down list.
 
 Note that a number of external libraries have magically appeared under the
-"Python 3.9 (python-intermediate-inflammation)" interpreter, including `numpy` and `matplotlib`. PyCharm has recognised
+"Python 3.9 (python-intermediate-rivercatchment)" interpreter, including `numpy` and `matplotlib`. PyCharm has recognised
 the virtual environment we created from the command line using `venv` and has added these libraries
-effectively replicating our virtual environment in PyCharm (referred to as "Python 3.9 (python-intermediate-inflammation)"). 
+effectively replicating our virtual environment in PyCharm (referred to as "Python 3.9 (python-intermediate-rivercatchment)"). 
 
 ![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="800px"}
 
@@ -231,7 +231,7 @@ opportunity to install it from PyCharm in order to see an alternative
 way of doing this and how it propagates to the command line.
 
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
+2. In the preferences window that appears, select `Project: python-intermediate-rivercatchment` >
    `Project Interpreter` from the left.
 3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.
    ![Installing a package in PyCharm](../fig/pycharm-add-library.png){: .image-with-shadow width="800px" }
@@ -329,10 +329,10 @@ Having configured a virtual environment, we now need to tell PyCharm to use it f
 2. Select `Add new run configuration...` then `Python`.
    ![Adding a Run Configuration in PyCharm](../fig/pycharm-add-run-configuration.png){: .image-with-shadow width="800px" }
 3. In the new popup window, in the `Script path` field select the folder
-   button and find and select `inflammation-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
+   button and find and select `catchment-analysis.py`. This tells PyCharm which script to run (i.e. what the main entry point to our application is).
    ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
-4. In the same window, select "Python 3.9 (python-intermediate-inflammation)" (i.e. the virtual environment and interpreter you configured earlier in this episode) in the `Python interpreter` field.
-5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `inflammation analysis`.
+4. In the same window, select "Python 3.9 (python-intermediate-rivercatchment)" (i.e. the virtual environment and interpreter you configured earlier in this episode) in the `Python interpreter` field.
+5. You can give this run configuration a name at the top of the window if you like - e.g. let's name it `catchment analysis`.
 6. You can optionally configure run parameters and environment variables in the same window - we do not need this at the moment.
 7. Select `Apply` to confirm these settings.
 
@@ -418,16 +418,16 @@ You can get a full
 ![Version Control Functionality in PyCharm](../fig/pycharm-version-control.png){: .image-with-shadow width="1000px" }
 
 ### Running Scripts in PyCharm
-We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! To do so, right-click the `inflammation-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'inflammation analysis'` (i.e. the Run Configuration we created earlier).
+We have configured our environment and explored some of the most commonly used PyCharm features and are now ready to run our script from PyCharm! To do so, right-click the `catchment-analysis.py` file in the PyCharm project/file navigator on the left, and select `Run 'catchment analysis'` (i.e. the Run Configuration we created earlier).
 
 ![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="800px" }
 
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
-/Users/alex/work/python-intermediate-inflammation/venv/bin/python /Users/alex/work/python-intermediate-inflammation/inflammation-analysis.py
-usage: inflammation-analysis.py [-h] infiles [infiles ...]
-inflammation-analysis.py: error: the following arguments are required: infiles
+/Users/alex/work/python-intermediate-rivercatchment/venv/bin/python /Users/alex/work/python-intermediate-rivercatchment/catchment-analysis.py
+usage: catchment-analysis.py [-h] infiles [infiles ...]
+catchment-analysis.py: error: the following arguments are required: infiles
 
 Process finished with exit code 2
 ~~~

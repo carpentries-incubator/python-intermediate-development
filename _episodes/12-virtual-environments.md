@@ -30,17 +30,19 @@ and, while we will develop and debug our code using the PyCharm IDE and it is po
 A bonus is that this knowledge is transferable to running code in other programming languages and is independent
 from any IDE you may use in the future.
 
-If you have a little peak into our code (e.g. do `cat inflammation/views.py` from the project root), you will see the
-following two lines somewhere at the top.
+If you have a little peak into our code (e.g. do `cat catchment/views.py` and `cat catchment/models.py` from the project root), you will see the
+some of the following lines somewhere at the top of the code.
 
 ~~~
 from matplotlib import pyplot as plt
 import numpy as np
+import pandas as pd
 ~~~
 {: .language-python}
 
-This means that our code requires two *external libraries* (also called third-party packages or dependencies) -
-`numpy` and `matplotlib`.
+Although not every file has the same lines, taken together these mean that our project requires 
+three *external libraries* (also called third-party packages or dependencies) -
+`numpy`, `pandas`, and `matplotlib`. 
 Python applications often use external libraries that don’t come as part of the standard Python distribution. This means
 that you will have to use a *package manager* tool to install them on your system.
 Applications will also sometimes need a
@@ -224,7 +226,7 @@ You can verify you are using your virtual environment's version of Python by che
 ~~~
 {: .language-bash}
 ~~~
-/home/alex/python-intermediate-inflammation/venv/bin/python3
+/home/alex/python-intermediate-rivercatchment/venv/bin/python3
 ~~~
 {: .output}
 
@@ -261,6 +263,7 @@ To install the latest version of a package with `pip` you use pip's `install` co
 
 ~~~
 (venv) $ pip3 install numpy
+(venv) $ pip3 install pandas
 (venv) $ pip3 install matplotlib
 ~~~
 {: .language-bash}
@@ -268,7 +271,7 @@ To install the latest version of a package with `pip` you use pip's `install` co
 or like this to install multiple packages at once for short:
 
 ~~~
-(venv) $ pip3 install numpy matplotlib
+(venv) $ pip3 install numpy pandas matplotlib
 ~~~
 {: .language-bash} 
 
@@ -321,20 +324,21 @@ To list all packages installed with `pip` (in your current virtual environment):
 ~~~
 Package         Version
 --------------- -------
+contourpy       1.0.5
 cycler          0.11.0
-fonttools       4.28.1
-kiwisolver      1.3.2
-matplotlib      3.5.0
-numpy           1.21.4
-packaging       21.2
-Pillow          8.4.0
-pip             21.1.3
-pyparsing       2.4.7
+fonttools       4.37.4
+kiwisolver      1.4.4
+matplotlib      3.6.1
+numpy           1.23.4
+packaging       21.3
+pandas          1.5.0
+Pillow          9.2.0
+pip             20.2.3
+pyparsing       3.0.9
 python-dateutil 2.8.2
-setuptools      57.0.0
-setuptools-scm  6.3.2
+pytz            2022.4
+setuptools      49.2.1
 six             1.16.0
-tomli           1.2.2
 ~~~
 {: .output}
 
@@ -358,18 +362,19 @@ A common convention is to put this list in a `requirements.txt` file:
 ~~~
 {: .language-bash}
 ~~~
+contourpy==1.0.5
 cycler==0.11.0
-fonttools==4.28.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
-pyparsing==2.4.7
+fonttools==4.37.4
+kiwisolver==1.4.4
+matplotlib==3.6.1
+numpy==1.23.4
+packaging==21.3
+pandas==1.5.0
+Pillow==9.2.0
+pyparsing==3.0.9
 python-dateutil==2.8.2
-setuptools-scm==6.3.2
+pytz==2022.4
 six==1.16.0
-tomli==1.2.2
 ~~~
 {: .output}
 
@@ -398,30 +403,30 @@ via your code sharing platform (e.g. GitHub).
 {: .testimonial}
 
 ## Running Python Scripts From Command Line
-Congratulations! Your environment is now activated and set up to run our `inflammation-analysis.py` script
+Congratulations! Your environment is now activated and set up to run our `catchment-analysis.py` script
 from the command line.
 
-You should already be located in the root of the `python-intermediate-inflammation` directory
+You should already be located in the root of the `python-intermediate-rivercatchment` directory
 (if not, please navigate to it from the command line now). To run the script, type the following command:
 
 ~~~
-(venv) $ python3 inflammation-analysis.py
+(venv) $ python3 catchment-analysis.py
 ~~~
 {: .language-bash}
 
 ~~~
-usage: inflammation-analysis.py [-h] infiles [infiles ...]
-inflammation-analysis.py: error: the following arguments are required: infiles
+usage: catchment-analysis.py [-h] infiles [infiles ...]
+catchment-analysis.py: error: the following arguments are required: infiles
 ~~~
 {: .output}
 
 In the above command, we tell the command line two things:
 
 1. to find a Python interpreter (in this case, the one that was configured via the virtual environment), and
-2. to use it to run our script `inflammation-analysis.py`, which resides in the current directory.
+2. to use it to run our script `catchment-analysis.py`, which resides in the current directory.
 
 As we can see, the Python interpreter ran our script, which threw an error -
-`inflammation-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects
+`catchment-analysis.py: error: the following arguments are required: infiles`. It looks like the script expects
 a list of input files to process, so this is expected behaviour since we don't supply any. We will fix this error in a 
 moment.
 
