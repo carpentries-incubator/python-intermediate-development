@@ -69,24 +69,24 @@ Pylint can also identify **code smells**.
 {: .callout}
 
 Pylint recommendations are given as warnings or errors, and Pylint also scores the code with an overall mark. 
-We can look at a specific file (e.g. `inflammation-analysis.py`), or a module 
-(e.g. `inflammation`). Let's look at our `inflammation` module and code inside it (namely `models.py` and `views.py`). 
+We can look at a specific file (e.g. `catchment-analysis.py`), or a module 
+(e.g. `catchment`). Let's look at our `catchment` module and code inside it (namely `models.py` and `views.py`). 
 From the project root do:
 
 ~~~
-$ pylint inflammation
+$ pylint catchment
 ~~~
 {: .language-bash}
 
 You should see an output similar to the following:
 
 ~~~
-************* Module inflammation.models
-inflammation/models.py:5:82: C0303: Trailing whitespace (trailing-whitespace)
-inflammation/models.py:6:66: C0303: Trailing whitespace (trailing-whitespace)
-inflammation/models.py:34:0: C0305: Trailing newlines (trailing-newlines)
-************* Module inflammation.views
-inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+************* Module catchment.models
+catchment/models.py:5:82: C0303: Trailing whitespace (trailing-whitespace)
+catchment/models.py:6:66: C0303: Trailing whitespace (trailing-whitespace)
+catchment/models.py:34:0: C0305: Trailing newlines (trailing-newlines)
+************* Module catchment.views
+catchment/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
 
 ------------------------------------------------------------------
 Your code has been rated at 8.00/10 (previous run: 8.00/10, +0.00)

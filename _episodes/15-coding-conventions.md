@@ -346,13 +346,13 @@ However, there are some restrictions. Comments that simply restate what the code
 > ~~~
 >  {: .language-bash}
 >
-> Next look at the `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
+> Next look at the `catchment-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
 the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
->> Modify `inflammation-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
->> coding guidelines by underlying them. There are a few things to fix in `inflammation-analysis.py`, for example:
+>> Modify `catchment-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
+>> coding guidelines by underlying them. There are a few things to fix in `catchment-analysis.py`, for example:
 >>
->>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
+>>  1. Line 24 in `catchment-analysis.py` is too long and not very readable. A better style would be to use
 >>  multiple lines and
 >>  hanging indent, with the closing brace `}' aligned either with the first non-whitespace character of the last line of
 >>  list or the first character of the line that starts the multiline construct or simply moved to the end of the
@@ -361,9 +361,9 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      # Using hanging indent, with the closing '}' aligned with the first non-blank character of the previous line
 >>      view_data = {
->>          'average': models.daily_mean(inflammation_data),
->>          'max': models.daily_max(inflammation_data),
->>          'min': models.daily_min(inflammation_data)
+>>          'average': models.daily_mean(catchment_data),
+>>          'max': models.daily_max(catchment_data),
+>>          'min': models.daily_min(catchment_data)
 >>          }
 >>      ~~~
 >>      {: .language-python}
@@ -371,9 +371,9 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      # Using hanging indent with the, closing '}' aligned with the start of the multiline contruct
 >>      view_data = {
->>          'average': models.daily_mean(inflammation_data),
->>          'max': models.daily_max(inflammation_data),
->>          'min': models.daily_min(inflammation_data)
+>>          'average': models.daily_mean(catchment_data),
+>>          'max': models.daily_max(catchment_data),
+>>          'min': models.daily_min(catchment_data)
 >>      }
 >>      ~~~
 >>      {: .language-python}
@@ -381,21 +381,21 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      # Using hanging indent where all the lines of the multiline contruct are indented except the first one
 >>      view_data = {
->>          'average': models.daily_mean(inflammation_data),
->>          'max': models.daily_max(inflammation_data),
->>          'min': models.daily_min(inflammation_data)}
+>>          'average': models.daily_mean(catchment_data),
+>>          'max': models.daily_max(catchment_data),
+>>          'min': models.daily_min(catchment_data)}
 >>      ~~~
 >>      {: .language-python}
 >>
->>  2. Variable 'InFiles' in `inflammation-analysis.py` uses CapitalisedWords naming convention which is recommended for class names but not variable names. By convention, variable names should be in lowercase with optional underscores so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
+>>  2. Variable 'InFiles' in `catchment-analysis.py` uses CapitalisedWords naming convention which is recommended for class names but not variable names. By convention, variable names should be in lowercase with optional underscores so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
 >>
->>  3. There is an extra blank line on line 20 in `inflammation-analysis.py`. Normally, you should not use blank
+>>  3. There is an extra blank line on line 20 in `catchment-analysis.py`. Normally, you should not use blank
 >> lines in the
 >> middle of the code unless you want to separate logical units - in which case only one blank line is used.
 >> Note how PyCharm is warning us by underlying the whole line.
 >>
 >>  4. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
->> `inflammation-analysis.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
+>> `catchment-analysis.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
 >>
 >> Finally, let's add and commit our changes to the feature branch. We will check the status of our working directory first.
 >>
@@ -408,16 +408,16 @@ the discovered inconsistencies and commit them to the feature branch.
 >> Changes not staged for commit:
 >> (use "git add <file>..." to update what will be committed)
 >> (use "git restore <file>..." to discard changes in working directory)
->> modified:   inflammation-analysis.py
+>> modified:   catchment-analysis.py
 >>
 >> no changes added to commit (use "git add" and/or "git commit -a")
 >> ~~~
 >> {: .output}
 >>
 >> Git tells us we are on branch `style-fixes` and that we have unstaged and uncommited
->> changes to `inflammation-analysis.py`. Let's commit them to the local repository.
+>> changes to `catchment-analysis.py`. Let's commit them to the local repository.
 >> ~~~
->> $ git add inflammation-analysis.py
+>> $ git add catchment-analysis.py
 >> $ git commit -m "Code style fixes."
 >> ~~~
 >> {: .language-bash}

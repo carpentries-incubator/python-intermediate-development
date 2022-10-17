@@ -62,15 +62,15 @@ Good practice is to write our tests around the same time we write our code on a 
 Later on, once we've finished writing these tests and are convinced they work properly, we'll merge our `test-suite` branch back into `develop`.
 
 
-## Inflammation Data Analysis
+## Catchment Data Analysis
 
 Let's go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project). Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
 There are a number of datasets in the `data` directory recording inflammation information in patients (each file representing a different trial), and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days when inflammation was measured in patients.
 
-Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (which should be in your home directory `~/python-intermediate-inflammation`), ensure you have your virtual environment activated in your command line terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
+Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (which should be in your home directory `~/python-intermediate-rivercatchment`), ensure you have your virtual environment activated in your command line terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
 ~~~
-$ cd ~/python-intermediate-inflammation
+$ cd ~/python-intermediate-rivercatchment
 $ source venv/bin/activate
 $ python3
 ~~~
@@ -93,7 +93,7 @@ data.shape
 
 The data in this case is two-dimensional - it has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient.
 
-Our patient inflammation application has a number of statistical functions held in `inflammation/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
+Our patient inflammation application has a number of statistical functions held in `catchment/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
 
 ~~~
 def daily_mean(data):
@@ -121,13 +121,13 @@ To show this working with our patient data, we can use the function like this, p
 function in the Python console:
 
 ~~~
-from inflammation.models import daily_mean
+from catchment.models import daily_mean
 
 daily_mean(data[0:4])
 ~~~
 {: .language-python}
 
-Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `inflammation.models.daily_mean()`).
+Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_mean()`).
 
 The above code will return the mean inflammation for each day column across the first four patients (as a 1D NumPy array 
 of shape (40, 0)):
@@ -234,7 +234,7 @@ import numpy.testing as npt
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
-    from inflammation.models import daily_mean
+    from catchment.models import daily_mean
 
     test_input = np.array([[0, 0],
                            [0, 0],
@@ -247,7 +247,7 @@ def test_daily_mean_zeros():
 
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
-    from inflammation.models import daily_mean
+    from catchment.models import daily_mean
 
     test_input = np.array([[1, 2],
                            [3, 4],
@@ -295,14 +295,14 @@ Whether we do this via PyCharm or the command line, the results are exactly the 
 
 ### Writing a Metadata Package Description
 
-Another thing we need to do when automating tests using Pytest is to create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test in the `inflammation` directory.
+Another thing we need to do when automating tests using Pytest is to create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test in the `catchment` directory.
 
-Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
+Create a new file `setup.py` in the root directory of the `python-intermediate-rivercatchment` repository, with the following Python content:
 
 ~~~
 from setuptools import setup, find_packages
 
-setup(name="inflammation-analysis", version='1.0', packages=find_packages())
+setup(name="catchment-analysis", version='1.0', packages=find_packages())
 ~~~
 {: .language-python}
 
@@ -316,11 +316,11 @@ $ pip3 install -e .
 We should see:
 
 ~~~
-Obtaining file:///Users/alex/python-intermediate-inflammation
+Obtaining file:///Users/alex/python-intermediate-rivercatchment
   Preparing metadata (setup.py) ... done
-Installing collected packages: inflammation-analysis
-  Running setup.py develop for inflammation-analysis
-Successfully installed inflammation-analysis-1.0
+Installing collected packages: catchment-analysis
+  Running setup.py develop for catchment-analysis
+Successfully installed catchment-analysis-1.0
 ~~~
 {: .output}
 
@@ -343,7 +343,7 @@ explicitly.
 ~~~
 ============================================== test session starts =====================================================
 platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
-rootdir: /Users/alex/python-intermediate-inflammation
+rootdir: /Users/alex/python-intermediate-rivercatchment
 plugins: anyio-3.3.4
 collected 2 items                               
                                                                         
@@ -362,7 +362,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 
 > ## Exercise: Write Some Unit Tests
 >
-> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `inflammation/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Here are some hints:
+> We already have a couple of test cases in `test/test_models.py` that test the `daily_mean()` function. Looking at `catchment/models.py`, write at least two new test cases that test the `daily_max()` and `daily_min()` functions, adding them to `test/test_models.py`. Here are some hints:
 >
 > - You could choose to format your functions very similarly to `daily_mean()`, defining test input and expected result arrays followed by the equality assertion.
 > - Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
@@ -375,7 +375,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > > ...
 > > def test_daily_max():
 > >     """Test that max function works for an array of positive integers."""
-> >     from inflammation.models import daily_max
+> >     from catchment.models import daily_max
 > >
 > >     test_input = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
@@ -387,7 +387,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >
 > > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
-> >     from inflammation.models import daily_min
+> >     from catchment.models import daily_min
 > >
 > >     test_input = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
@@ -413,7 +413,7 @@ import pytest
 ...
 def test_daily_min_string():
     """Test for TypeError when passing strings"""
-    from inflammation.models import daily_min
+    from catchment.models import daily_min
 
     with pytest.raises(TypeError):
         error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
@@ -431,7 +431,7 @@ $ pip3 freeze --exclude-editable > requirements.txt
 ~~~
 {: .language-bash}
 
-We use `--exclude-editable` here to ensure our locally installed `inflammation-analysis` package is not included in this list of installed packages, since it is not required for running the software, and would cause problems for others reusing this environment.
+We use `--exclude-editable` here to ensure our locally installed `catchment-analysis` package is not included in this list of installed packages, since it is not required for running the software, and would cause problems for others reusing this environment.
 
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 

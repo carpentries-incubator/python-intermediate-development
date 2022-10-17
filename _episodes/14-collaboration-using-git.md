@@ -314,7 +314,7 @@ Switched to branch 'develop'
 If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
 of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let's make a small modification to `inflammation/models.py` in PyCharm, and, say, change the spelling of "2d" to
+Let's make a small modification to `catchment/models.py` in PyCharm, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
 
 If we do:
@@ -329,7 +329,7 @@ $ git status
      (use "git add <file>..." to update what will be committed)
      (use "git checkout -- <file>..." to discard changes in working directory)
 
-   	modified:   inflammation/models.py
+   	modified:   catchment/models.py
 
    no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -339,7 +339,7 @@ Git is telling us that we are on branch `develop` and which tracked files have b
 We can now `add` and `commit` the changes in the usual way.
 
 ~~~
-$ git add inflammation/models.py
+$ git add catchment/models.py
 $ git commit -m "Spelling fix"
 ~~~
 {: .language-bash}
@@ -412,7 +412,7 @@ $ git merge develop
 ~~~
 Updating 05e1ffb..be60389
 Fast-forward
- inflammation/models.py | 6 +++---
+ catchment/models.py | 6 +++---
  1 files changed, 3 insertions(+), 3 deletions(-)
 ~~~
 {: .output}
