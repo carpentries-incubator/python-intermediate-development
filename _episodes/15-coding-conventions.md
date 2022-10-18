@@ -360,20 +360,20 @@ the discovered inconsistencies and commit them to the feature branch.
 >>
 >>      ~~~
 >>      # Using hanging indent, with the closing '}' aligned with the first non-blank character of the previous line
->>      view_data = {
->>          'average': models.daily_mean(catchment_data),
->>          'max': models.daily_max(catchment_data),
->>          'min': models.daily_min(catchment_data)
->>          }
+>>      view_data = {'daily sum': models.daily_total(measurement_data), 
+>>                   'daily average': models.daily_mean(measurement_data), 
+>>                   'daily max': models.daily_max(measurement_data), 
+>>                   'daily min': models.daily_min(measurement_data)}
 >>      ~~~
 >>      {: .language-python}
 >>
 >>      ~~~
 >>      # Using hanging indent with the, closing '}' aligned with the start of the multiline contruct
 >>      view_data = {
->>          'average': models.daily_mean(catchment_data),
->>          'max': models.daily_max(catchment_data),
->>          'min': models.daily_min(catchment_data)
+>>          'daily sum': models.daily_total(measurement_data), 
+>>          'daily average': models.daily_mean(measurement_data), 
+>>          'daily max': models.daily_max(measurement_data), 
+>>          'daily min': models.daily_min(measurement_data)
 >>      }
 >>      ~~~
 >>      {: .language-python}
@@ -381,9 +381,10 @@ the discovered inconsistencies and commit them to the feature branch.
 >>      ~~~
 >>      # Using hanging indent where all the lines of the multiline contruct are indented except the first one
 >>      view_data = {
->>          'average': models.daily_mean(catchment_data),
->>          'max': models.daily_max(catchment_data),
->>          'min': models.daily_min(catchment_data)}
+>>          'daily sum': models.daily_total(measurement_data), 
+>>          'daily average': models.daily_mean(measurement_data), 
+>>          'daily max': models.daily_max(measurement_data), 
+>>          'daily min': models.daily_min(measurement_data)}
 >>      ~~~
 >>      {: .language-python}
 >>
@@ -519,33 +520,47 @@ help(fibonacci)
 > > For example, the improved docstrings for the above functions would contain explanations for parameters and
 > > return values.
 > > ~~~
+> > def daily_total(data):
+> >     """Calculate the daily total of a 2D data array.
+> > 
+> >     :param data: A 2D Pandas data frame with measurement data. 
+> >                  Index must be np.datetime64 compatible format. Columns are measurement sites.
+> >     :returns: A 2D Pandas data frame with total values of the measurements for each day.
+> >     """
+> >     return data.groupby(data.index.date).sum()
+> > ~~~
+> > {: .language-python}
+> > ~~~
 > > def daily_mean(data):
-> >    """Calculate the daily mean of a 2D inflammation data array for each day.
+> >     """Calculate the daily mean of a 2D data array.
 > >
-> >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
-> >    :returns: An array of mean values of measurements for each day.
-> >    """
-> >    return np.mean(data, axis=0)
-> >    ~~~
+> >     :param data: A 2D Pandas data frame with measurement data. 
+> >                  Index must be np.datetime64 compatible format. Columns are measurement sites.
+> >     :returns: A 2D Pandas data frame with mean values of the measurements for each day.
+> >     """
+> >     return data.groupby(data.index.date).mean()
+> > ~~~
 > > {: .language-python}
 > > ~~~
 > > def daily_min(data):
-> >    """Calculate the daily minimum of a 2D inflammation data array for each day.
+> >     """Calculate the daily minimum of a 2D data array.
 > >
-> >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
-> >    :returns: An array of minimum values of measurements for each day.
-> >    """
-> >    return np.min(data, axis=0)
+> >     :param data: A 2D Pandas data frame with measurement data. 
+> >                  Index must be np.datetime64 compatible format. Columns are measurement sites.
+> >     :returns: A 2D Pandas data frame with minimum values of the measurements for each day.
+> >     """
+> >     return data.groupby(data.index.date).min()
 > >~~~
 > > {: .language-python}
 > > ~~~
 > > def daily_max(data):
-> >    """Calculate the daily maximum of a 2D inflammation data array for each day.
+> >     """Calculate the daily maximum of a 2D data array.
 > >
-> >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
-> >    :returns: An array of max values of measurements for each day.
-> >    """
-> >    return np.max(data, axis=0)
+> >     :param data: A 2D Pandas data frame with measurement data. 
+> >                  Index must be np.datetime64 compatible format. Columns are measurement sites.
+> >     :returns: A 2D Pandas data frame with maximum values of the measurements for each day.
+> >     """
+> >     return data.groupby(data.index.date).max()
 > >~~~
 > > {: .language-python}
 >> Once we are happy with modifications, as usual before staging and commit our changes, we check the status of our working directory:
@@ -558,16 +573,16 @@ help(fibonacci)
 >> Changes not staged for commit:
 >> (use "git add <file>..." to update what will be committed)
 >> (use "git restore <file>..." to discard changes in working directory)
->> modified:   inflammation/models.py
+>> modified:   catchment/models.py
 >>
 >> no changes added to commit (use "git add" and/or "git commit -a")
 >> ~~~
 >> {: .output}
 >>
 >> As expected, Git tells us we are on branch `style-fixes` and that we have unstaged and uncommited
->> changes to `inflammation/models.py`. Let's commit them to the local repository.
+>> changes to `catchment/models.py`. Let's commit them to the local repository.
 >> ~~~
->> $ git add inflammation/models.py
+>> $ git add catchment/models.py
 >> $ git commit -m "Docstring improvements."
 >> ~~~
 >> {: .language-bash}
