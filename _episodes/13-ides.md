@@ -129,20 +129,22 @@ of our virtual environment directory `venv`.
 >> ~~~
 Package         Version
 --------------- -------
+contourpy       1.0.5
 cycler          0.11.0
-fonttools       4.28.1
-kiwisolver      1.3.2
-matplotlib      3.5.0
-numpy           1.21.4
-packaging       21.2
-Pillow          8.4.0
-pip             21.1.3
-pyparsing       2.4.7
+fonttools       4.37.4
+kiwisolver      1.4.4
+matplotlib      3.6.1
+numpy           1.23.4
+packaging       21.3
+pandas          1.5.0
+Pillow          9.2.0
+pip             21.3.1
+pyparsing       3.0.9
 python-dateutil 2.8.2
-setuptools      57.0.0
-setuptools-scm  6.3.2
+pytz            2022.5
+setuptools      60.2.0
 six             1.16.0
-tomli           1.2.2
+wheel           0.37.1
 >> ~~~
 >> {: .output}
 >> However, `pip3 list` shows all the packages in the virtual environment - if we want to see only the list of packages that we installed, we can use the `pip3 freeze` command instead:
@@ -151,18 +153,19 @@ tomli           1.2.2
 >> ~~~
 >> {: .language-bash}
 >> ~~~
+contourpy==1.0.5
 cycler==0.11.0
-fonttools==4.28.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
-pyparsing==2.4.7
+fonttools==4.37.4
+kiwisolver==1.4.4
+matplotlib==3.6.1
+numpy==1.23.4
+packaging==21.3
+pandas==1.5.0
+Pillow==9.2.0
+pyparsing==3.0.9
 python-dateutil==2.8.2
-setuptools-scm==6.3.2
+pytz==2022.5
 six==1.16.0
-tomli==1.2.2
 >> ~~~
 >> {: .output}
 >> We see `pip` in `pip3 list` but not in `pip3 freeze` as we did not install it using `pip`. 
@@ -252,25 +255,28 @@ Export the newly updated virtual environment into `requirements.txt` file.
 >> ~~~
 Package         Version
 --------------- -------
-attrs           21.4.0 
-cycler          0.11.0 
-fonttools       4.28.5 
-iniconfig       1.1.1  
-kiwisolver      1.3.2  
-matplotlib      3.5.1  
-numpy           1.22.0 
-packaging       21.3   
-Pillow          9.0.0  
-pip             20.0.2 
-pluggy          1.0.0  
-py              1.11.0 
-pyparsing       3.0.7  
-pytest          6.2.5  
-python-dateutil 2.8.2  
-setuptools      44.0.0 
-six             1.16.0 
-toml            0.10.2 
-tomli           2.0.0  
+attrs           22.1.0
+contourpy       1.0.5
+cycler          0.11.0
+fonttools       4.37.4
+iniconfig       1.1.1
+kiwisolver      1.4.4
+matplotlib      3.6.1
+numpy           1.23.4
+packaging       21.3
+pandas          1.5.0
+Pillow          9.2.0
+pip             21.3.1
+pluggy          1.0.0
+py              1.11.0
+pyparsing       3.0.9
+pytest          7.1.3
+python-dateutil 2.8.2
+pytz            2022.5
+setuptools      60.2.0
+six             1.16.0
+tomli           2.0.1
+wheel           0.37.1
 >> ~~~
 >> {: .output}
 >> We can see the `pytest` library appearing in the listing above. However, if we do:
@@ -279,18 +285,19 @@ tomli           2.0.0
 >>~~~
 >>{: .language-bash}
 >>~~~
+contourpy==1.0.5
 cycler==0.11.0
-fonttools==4.28.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
-pyparsing==2.4.7
+fonttools==4.37.4
+kiwisolver==1.4.4
+matplotlib==3.6.1
+numpy==1.23.4
+packaging==21.3
+pandas==1.5.0
+Pillow==9.2.0
+pyparsing==3.0.9
 python-dateutil==2.8.2
-setuptools-scm==6.3.2
+pytz==2022.5
 six==1.16.0
-tomli==1.2.2
 >>~~~
 >>{: .output}
 >> `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
@@ -300,24 +307,25 @@ tomli==1.2.2
 >>{: .language-bash}   
 >> `pytest` is now present in `requirements.txt`:
 >>~~~
-attrs==21.2.0
+attrs==22.1.0
+contourpy==1.0.5
 cycler==0.11.0
-fonttools==4.28.1
+fonttools==4.37.4
 iniconfig==1.1.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
+kiwisolver==1.4.4
+matplotlib==3.6.1
+numpy==1.23.4
+packaging==21.3
+pandas==1.5.0
+Pillow==9.2.0
 pluggy==1.0.0
 py==1.11.0
-pyparsing==2.4.7
-pytest==6.2.5
+pyparsing==3.0.9
+pytest==7.1.3
 python-dateutil==2.8.2
-setuptools-scm==6.3.2
+pytz==2022.5
 six==1.16.0
-toml==0.10.2
-tomli==1.2.2
+tomli==2.0.1
 >>~~~
 >{: .solution}
 {: .challenge}
