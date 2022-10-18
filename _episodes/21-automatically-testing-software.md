@@ -64,8 +64,9 @@ Later on, once we've finished writing these tests and are convinced they work pr
 
 ## Catchment Data Analysis
 
-Let's go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project). Recall that it is based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis.
-There are a number of datasets in the `data` directory recording inflammation information in patients (each file representing a different trial), and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days when inflammation was measured in patients.
+Let's go back to our [river catchment software project](/11-software-project/index.html#national-river-catchment-research-project). Recall that it is based on a measurement campaign to record and analyse meteorological and hydrological data. 
+
+There are a number of datasets in the `data` directory recording rainfall and hydrological data across three river catchment areas. There is one file for rainfall for all three catchments, and one file for hydrological data for each catchment. Each dataset is stored in comma-separated values (CSV) format. The first row contains the column headers, and each subsequent row holds information for a given site at a given time, as indicated by the values in the `Site` and `Date` columns. The values are a mix of dates, strings, and numbers, making the processing of the data difficult.
 
 Let's take a quick look at the data now from within the Python command line console. Change directory to the repository root (which should be in your home directory `~/python-intermediate-rivercatchment`), ensure you have your virtual environment activated in your command line terminal (particularly if opening a new one), and then start the Python console by invoking the Python interpreter without any parameters, e.g.:
 
@@ -80,64 +81,112 @@ The last command will start the Python console within your shell, which enables 
 interactively. Inside the console enter the following:
 
 ~~~
-import numpy as np
-data = np.loadtxt(fname='data/inflammation-01.csv', delimiter=',')
-data.shape
+import pandas as pd
+pd.read_csv('data/rain_data_2015-12.csv', usecols=['Site', 'Date', 'Rainfall (mm)'])
 ~~~
 {: .language-python}
 
 ~~~
-(60, 40)
+      Site              Date  Rainfall (mm)
+0     FP35  01/12/2005 00:00            0.0
+1     FP35  01/12/2005 00:15            0.0
+2     FP35  01/12/2005 00:30            0.0
+3     FP35  01/12/2005 00:45            0.0
+4     FP35  01/12/2005 01:00            0.0
+    ...               ...            ...
+5761  PL16  31/12/2005 22:45            0.2
+5762  PL16  31/12/2005 23:00            0.0
+5763  PL16  31/12/2005 23:15            0.0
+5764  PL16  31/12/2005 23:30            0.0
+5765  PL16  31/12/2005 23:45            0.0
 ~~~
 {: .output}
 
-The data in this case is two-dimensional - it has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient.
-
-Our patient inflammation application has a number of statistical functions held in `catchment/models.py`: `daily_mean()`, `daily_max()` and `daily_min()`, for calculating the mean average, the maximum, and the minimum values for a given number of rows in our data. For example, the `daily_mean()` function looks like this:
+The data has been read in using the Panda's `read_csv()` function, where the columns to be read have been specified in the list `['Site', 'Date', 'Rainfall (mm)']`. As mentioned above, the `Site` and `Date` columns indicate the location and time of each measurement. The data itself is stored in the one-dimensional `Rainfall (mm)` column. While this format is convenient for data storage, it is not particularly useful for analysing the data, and so we must do some preprocessing of the dataset. Fortunately the code for this has already been prepared for you, in the `read_variable_from_csv()` function, available in the `catchment/models.py` library. To use this enter the following in the python console:
+~~~
+from catchment import models
+dataset = models.read_variable_from_csv('data/rain_data_2015-12.csv')
+dataset.shape
+~~~
+{: .language-python}
+~~~
+(2976, 2)
+~~~
+{: .output}
+The data is now two-dimensional, with 2 columns and 2976 rows of data. We can simply view the data by entering the following in the python console:
+~~~
+dataset
+~~~
+{: .language-python}
 
 ~~~
-def daily_mean(data):
-    """Calculate the daily mean of a 2D inflammation data array for each day.
+                     FP35  PL16
+2005-12-01 00:00:00   0.0   0.0
+2005-12-01 00:15:00   0.0   0.0
+2005-12-01 00:30:00   0.0   0.0
+2005-12-01 00:45:00   0.0   0.0
+2005-12-01 01:00:00   0.0   0.0
+                   ...   ...
+2005-12-31 22:45:00   0.2   0.2
+2005-12-31 23:00:00   0.0   0.0
+2005-12-31 23:15:00   0.2   0.0
+2005-12-31 23:30:00   0.2   0.0
+2005-12-31 23:45:00   0.0   0.0
+~~~
+{: .output}
+Each measurement site, `FP35` and `PL16`, now has it's own column, and the index contains the timestamp for each measurement, stored as a Pandas `DatetimeIndex` object (enter `type(dataset.index)` into the python console to verify this for yourselves). 
 
-    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
-    :returns: An array of mean values of measurements for each day.
+Our catchment study application has a number of statistical functions, also held in `catchment/models.py`: `daily_mean()`, `daily_max()`, `daily_min()`, and `daily_total()`, for calculating the mean average, the maximum, the minimum, and the total values for each day in our data. For example, the `daily_total()` function looks like this:
+
+~~~
+def daily_total(data):
+    """Calculate the daily total of a 2D data array.
+
+    :param data: A 2D Pandas data frame with measurement data.
+                 Index must be np.datetime64 compatible format. Columns are measurement sites.
+    :returns: A 2D Pandas data frame with total values of the measurements for each day.
     """
-    return np.mean(data, axis=0)
+    return data.groupby(data.index.date).sum()
 ~~~
 {: .language-python}
 
-Here, we use NumPy's `np.mean()` function to calculate the mean *vertically* across the data (denoted by `axis=0`), which is then returned from the function. So, if `data` was a NumPy array of three rows like...
+Here, we use the Panda's dataset built-in `groupby()` function, to group the data according to the date (given by the built-in `date()` function, which returns only the dates for each index entry). The total value of each group is calculated using the built-in `sum()` function, and returned from the function. 
 
+So that we can clearly show this working with our measurement data, we will select a small subsample of two hours of measurements from near the start of our dataset, across midnight of the 1st December 2005:
 ~~~
-[[1, 2],
- [3, 4],
- [5, 6]]
+sample_dataset = dataset.iloc[92:100]
+sample_dataset
+~~~
+{: .language-python}
+~~~
+                     FP35  PL16
+2005-12-01 23:00:00   0.0   0.4
+2005-12-01 23:15:00   0.0   0.4
+2005-12-01 23:30:00   0.0   0.4
+2005-12-01 23:45:00   0.0   0.6
+2005-12-02 00:00:00   0.2   0.2
+2005-12-02 00:15:00   0.0   0.4
+2005-12-02 00:30:00   0.0   0.8
+2005-12-02 00:45:00   0.2   0.6
+~~~
+{: .output}
+Note that we use the in-built `iloc()` function to index the Pandas data frame in the same manner we would a NumPy data array. Because Pandas data frames are built on top of NumPy data arrays we can perform many of the same operations on these as we would on NumPy data arrays.
+
+This data can be passed to the function by entering the following lines in the python console:
+~~~
+from catchment.models import daily_total
+
+daily_total(sample_dataset)
 ~~~
 {: .language-python}
 
-...the function would return a 1D NumPy array of `[3, 4]` - each value representing the mean of each column (which are, coincidentally, the same values as the second row in the above data array).
+Note we use a different form of `import` here - only importing the `daily_total` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_total()` or `models.daily_total()`).
 
-To show this working with our patient data, we can use the function like this, passing the first four patient rows to the 
-function in the Python console:
-
+The above code will return the mean rainfall for each day across each hour (labelled according to the day each is in), as another Pandas dataframe:
 ~~~
-from catchment.models import daily_mean
-
-daily_mean(data[0:4])
-~~~
-{: .language-python}
-
-Note we use a different form of `import` here - only importing the `daily_mean` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_mean()`).
-
-The above code will return the mean inflammation for each day column across the first four patients (as a 1D NumPy array 
-of shape (40, 0)):
-
-~~~
-array([ 0.  ,  0.5 ,  1.5 ,  1.75,  2.5 ,  1.75,  3.75,  3.  ,  5.25,
-        6.25,  7.  ,  7.  ,  7.  ,  8.  ,  5.75,  7.75,  8.5 , 11.  ,
-        9.75, 10.25, 15.  ,  8.75,  9.75, 10.  ,  8.  , 10.25,  8.  ,
-        5.5 ,  8.  ,  6.  ,  5.  ,  4.75,  4.75,  4.  ,  3.25,  4.  ,
-        1.75,  2.25,  0.75,  0.75])
+            FP35  PL16
+2005-12-01   0.0   1.8
+2005-12-02   0.4   2.0
 ~~~
 {: .output}
 
