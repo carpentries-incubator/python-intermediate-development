@@ -104,8 +104,8 @@ pd.read_csv('data/rain_data_2015-12.csv', usecols=['Site', 'Date', 'Rainfall (mm
 
 The data has been read in using the Panda's `read_csv()` function, where the columns to be read have been specified in the list `['Site', 'Date', 'Rainfall (mm)']`. As mentioned above, the `Site` and `Date` columns indicate the location and time of each measurement. The data itself is stored in the one-dimensional `Rainfall (mm)` column. While this format is convenient for data storage, it is not particularly useful for analysing the data, and so we must do some preprocessing of the dataset. Fortunately the code for this has already been prepared for you, in the `read_variable_from_csv()` function, available in the `catchment/models.py` library. To use this enter the following in the python console:
 ~~~
-from catchment import models
-dataset = models.read_variable_from_csv('data/rain_data_2015-12.csv')
+import catchment
+dataset = catchment.models.read_variable_from_csv('data/rain_data_2015-12.csv')
 dataset.shape
 ~~~
 {: .language-python}
@@ -180,7 +180,7 @@ daily_total(sample_dataset)
 ~~~
 {: .language-python}
 
-Note we use a different form of `import` here - only importing the `daily_total` function from our `models` instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_total()` or `models.daily_total()`).
+Note we use a different form of `import` here - only importing the `daily_total` function from our `models` module instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_total()`).
 
 The above code will return the mean rainfall for each day across each hour (labelled according to the day each is in), as another Pandas dataframe:
 ~~~
@@ -197,35 +197,88 @@ Let's now look into how we can test each of our application's statistical functi
 
 ## Writing Tests to Verify Correct Behaviour
 
-### One Way to Do It?
+### Testing Basics
 
-One way to test our functions would be to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. So, referring back to our simple `daily_mean()` example above, we could use `[[1, 2], [3, 4], [5, 6]]` as an input to that function and check whether the result equals `[3, 4]`:
+The principle method for testing our functions is to write a series of checks or tests, each executing a function we want to test with known inputs against known valid results, and throw an error if we encounter a result that is incorrect. To help with this process both the NumPy and Pandas libraries provide testing functions, which we will make use of here.
+
+Working with only real data for testing is limiting though, so we will instead create artificial inputs for our tests. For example, we will test the `daily_mean()` function, using `[[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]]` as an input to that function and check whether the result equals `[3.0, 4.0]`:
 
 ~~~
-import numpy.testing as npt
+import pandas as pd
+import pandas.testing as pdt
+from catchment.models import daily_mean
+import datetime
 
-test_input = np.array([[1, 2], [3, 4], [5, 6]])
-test_result = np.array([3, 4])
-npt.assert_array_equal(daily_mean(test_input), test_result)
+test_input = pd.DataFrame(
+                data=[[1.0, 2.0],
+                      [3.0, 4.0],
+                      [5.0, 6.0]],
+                index=[pd.to_datetime('2000-01-01 01:00'),
+                       pd.to_datetime('2000-01-01 02:00'),
+                       pd.to_datetime('2000-01-01 03:00')],
+                columns=['A', 'B']
+)
+test_result = pd.DataFrame(
+                 data=[[3.0, 4.0]],
+                 index=[datetime.date(2000, 1, 1)],
+                 columns=['A', 'B']
+)
+pdt.assert_frame_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy arrays in all cases.
+So we use the `assert_frame_equal()` function - part of Panda's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the frame's shape and elements are the same, as well as the index and column values, and throws an `AssertionError` if they are not (and, it should be noted, returns nothing if they are). In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy-based arrays in all cases. 
 
 We could then add to this with other tests that use and test against other values, and end up with something like:
-
 ~~~
-test_input = np.array([[2, 0], [4, 0]])
-test_result = np.array([2, 0])
-npt.assert_array_equal(daily_mean(test_input), test_result)
+import pandas as pd
+import pandas.testing as pdt
+from catchment.models import daily_mean
+import datetime
 
-test_input = np.array([[0, 0], [0, 0]])
-test_result = np.array([0, 0])
-npt.assert_array_equal(daily_mean(test_input), test_result)
+test_input = pd.DataFrame(
+                data=[[2.0, 0.0],
+                      [4.0, 0.0]],
+                index=[pd.to_datetime('2000-01-01 01:00'),
+                       pd.to_datetime('2000-01-01 02:00')],
+                columns=['A', 'B']
+)
+test_result = pd.DataFrame(
+                 data=[[2.0, 0.0]],
+                 index=[datetime.date(2000, 1, 1)],
+                 columns=['A', 'B']
+)
+pdt.assert_frame_equal(daily_mean(test_input), test_result)
 
-test_input = np.array([[1, 2], [3, 4], [5, 6]])
-test_result = np.array([3, 4])
-npt.assert_array_equal(daily_mean(test_input), test_result)
+test_input = pd.DataFrame(
+                data=[[0.0, 0.0],
+                      [0.0, 0.0]],
+                index=[pd.to_datetime('2000-01-01 01:00'),
+                       pd.to_datetime('2000-01-01 02:00')],
+                columns=['A', 'B']
+)
+test_result = pd.DataFrame(
+                 data=[[0.0, 0.0]],
+                 index=[datetime.date(2000, 1, 1)],
+                 columns=['A', 'B']
+)
+pdt.assert_frame_equal(daily_mean(test_input), test_result)
+
+test_input = pd.DataFrame(
+                data=[[1.0, 2.0],
+                      [3.0, 4.0],
+                      [5.0, 6.0]],
+                index=[pd.to_datetime('2000-01-01 01:00'),
+                       pd.to_datetime('2000-01-01 02:00'),
+                       pd.to_datetime('2000-01-01 03:00')],
+                columns=['A', 'B']
+)
+test_result = pd.DataFrame(
+                 data=[[3.0, 4.0]],
+                 index=[datetime.date(2000, 1, 1)],
+                 columns=['A', 'B']
+)
+pdt.assert_frame_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
@@ -233,27 +286,35 @@ However, if we were to enter these in this order, we'll find we get the followin
 
 ~~~
 ...
-AssertionError:
-Arrays are not equal
+AssertionError: DataFrame.iloc[:, 0] (column name="A") are different
 
-Mismatched elements: 1 / 2 (50%)
-Max absolute difference: 1.
-Max relative difference: 0.5
- x: array([3., 0.])
- y: array([2, 0])
+DataFrame.iloc[:, 0] (column name="A") values are different (100.0 %)
+[index]: [2000-01-01]
+[left]:  [3.0]
+[right]: [2.0]
 ~~~
 {: .output}
 
-This tells us that one element between our generated and expected arrays doesn't match, and shows us the different arrays.
+This tells us that one element between our generated and expected arrays doesn't match, and shows us the different values, and the indices to locate these.
 
 We could put these tests in a separate script to automate the running of these tests. But a Python script halts at the first failed assertion, so the second and third tests aren't run at all. It would be more helpful if we could get data from all of our tests every time they're run, since the more information we have, the faster we're likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our set of tests - known as a **test suite** - includes thirty or forty tests (as it well might for a complex function or library that's widely used), we'd like to know how many passed or failed.
 
 Going back to our failed first test, what was the issue? As it turns out, the test itself was incorrect, and should have read:
 
 ~~~
-test_input = np.array([[2, 0], [4, 0]])
-test_result = np.array([3, 0])
-npt.assert_array_equal(daily_mean(test_input), test_result)
+test_input = pd.DataFrame(
+                data=[[2.0, 0.0],
+                      [4.0, 0.0]],
+                index=[pd.to_datetime('2000-01-01 01:00'),
+                       pd.to_datetime('2000-01-01 02:00')],
+                columns=['A', 'B']
+)
+test_result = pd.DataFrame(
+                 data=[[3.0, 0.0]],
+                 index=[datetime.date(2000, 1, 1)],
+                 columns=['A', 'B']
+)
+pdt.assert_frame_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
@@ -277,44 +338,64 @@ Look at `tests/test_models.py`:
 ~~~
 """Tests for statistics functions within the Model layer."""
 
-import numpy as np
-import numpy.testing as npt
-
+import pandas as pd
+import pandas.testing as pdt
+import datetime
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
     from catchment.models import daily_mean
 
-    test_input = np.array([[0, 0],
-                           [0, 0],
-                           [0, 0]])
-    test_result = np.array([0, 0])
+    test_input = pd.DataFrame(
+                     data=[[0.0, 0.0],
+                           [0.0, 0.0],
+                           [0.0, 0.0]],
+                     index=[pd.to_datetime('2000-01-01 01:00'),
+                            pd.to_datetime('2000-01-01 02:00'),
+                            pd.to_datetime('2000-01-01 03:00')],
+                     columns=['A', 'B']
+    )
+    test_result = pd.DataFrame(
+                     data=[[0.0, 0.0]],
+                     index=[datetime.date(2000, 1, 1)],
+                     columns=['A', 'B']
+    )
 
-    # Need to use NumPy testing functions to compare arrays
-    npt.assert_array_equal(daily_mean(test_input), test_result)
+    # Need to use Pandas testing functions to compare arrays
+    pdt.assert_frame_equal(daily_mean(test_input), test_result)
 
 
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
     from catchment.models import daily_mean
 
-    test_input = np.array([[1, 2],
-                           [3, 4],
-                           [5, 6]])
-    test_result = np.array([3, 4])
+    test_input = pd.DataFrame(
+                     data=[[1.0, 2.0],
+                           [3.0, 4.0],
+                           [5.0, 6.0]],
+                     index=[pd.to_datetime('2000-01-01 01:00'),
+                            pd.to_datetime('2000-01-01 02:00'),
+                            pd.to_datetime('2000-01-01 03:00')],
+                     columns=['A', 'B']
+    )
+    test_result = pd.DataFrame(
+                     data=[[3.0, 4.0]],
+                     index=[datetime.date(2000, 1, 1)],
+                     columns=['A', 'B']
+    )
 
-    # Need to use NumPy testing functions to compare arrays
-    npt.assert_array_equal(daily_mean(test_input), test_result)
+    # Need to use Pandas testing functions to compare arrays
+    pdt.assert_frame_equal(daily_mean(test_input), test_result)
 ...
 ~~~
 {: .language-python}
 
 So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
-- Inputs, e.g. the `test_input` NumPy array
+- Inputs, e.g. the `test_input` Pandas dataframe
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
-- Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_array_equal()` to test its validity
-- Expected outputs, e.g. our `test_result` NumPy array that we test against
+- Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_frame_equal()` to test its validity
+- Expected outputs, e.g. our `test_result` Pandas dataframe that we test against
 
 And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
@@ -426,24 +507,44 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > >     """Test that max function works for an array of positive integers."""
 > >     from catchment.models import daily_max
 > >
-> >     test_input = np.array([[4, 2, 5],
-> >                            [1, 6, 2],
-> >                            [4, 1, 9]])
-> >     test_result = np.array([4, 6, 9])
+> >     test_input = pd.DataFrame(
+> >                       data=[[4, 2, 5],
+> >                             [1, 6, 2],
+> >                             [4, 1, 9]],
+> >                       index=[pd.to_datetime('2000-01-01 01:00'),
+> >                              pd.to_datetime('2000-01-01 02:00'),
+> >                              pd.to_datetime('2000-01-01 03:00')],
+> >                       columns=['A', 'B', 'C']
+> >     )
+> >     test_result = pd.DataFrame(
+> >                       data=[[4, 6, 9]],
+> >                       index=[datetime.date(2000, 1, 1)],
+> >                       columns=['A', 'B', 'C']
+> >     )
 > >
-> >     npt.assert_array_equal(daily_max(test_input), test_result)
+> >     pdt.assert_frame_equal(daily_max(test_input), test_result)
 > >
 > >
 > > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
 > >     from catchment.models import daily_min
 > >
-> >     test_input = np.array([[ 4, -2, 5],
-> >                            [ 1, -6, 2],
-> >                            [-4, -1, 9]])
-> >     test_result = np.array([-4, -6, 2])
+> >     test_input = pd.DataFrame(
+> >                       data=[[ 4, -2, 5],
+> >                             [ 1, -6, 2],
+> >                             [-4, -1, 9]],
+> >                       index=[pd.to_datetime('2000-01-01 01:00'),
+> >                              pd.to_datetime('2000-01-01 02:00'),
+> >                              pd.to_datetime('2000-01-01 03:00')],
+> >                       columns=['A', 'B', 'C']
+> >     )
+> >     test_result = pd.DataFrame(
+> >                       data=[[-4, -6, 2]],
+> >                       index=[datetime.date(2000, 1, 1)],
+> >                       columns=['A', 'B', 'C']
+> >     )
 > >
-> >     npt.assert_array_equal(daily_min(test_input), test_result)
+> >     pdt.assert_frame_equal(daily_min(test_input), test_result)
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -460,12 +561,12 @@ There are some cases where seeing an error is actually the correct behaviour, an
 ~~~
 import pytest
 ...
-def test_daily_min_string():
-    """Test for TypeError when passing strings"""
+def test_daily_min_python_list():
+    """Test for AttributeError when passing a python list"""
     from catchment.models import daily_min
 
-    with pytest.raises(TypeError):
-        error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
+    with pytest.raises(AttributeError):
+        error_expected = daily_min([[3, 4, 7],[-3, 0, 5]])
 ~~~
 {: .language-python}
 
