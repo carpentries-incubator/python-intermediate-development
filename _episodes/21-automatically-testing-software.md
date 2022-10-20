@@ -152,9 +152,9 @@ def daily_total(data):
 
 Here, we use the Panda's dataset built-in `groupby()` function, to group the data according to the date (given by the built-in `date()` function, which returns only the dates for each index entry). The total value of each group is calculated using the built-in `sum()` function, and returned from the function. 
 
-So that we can clearly show this working with our measurement data, we will select a small subsample of two hours of measurements from near the start of our dataset, across midnight of the 1st December 2005:
+So that we can clearly show this working with our measurement data, we will use a small subsample of two hours of measurements from near the start of our dataset, across midnight of the 1st December 2005. This sample has been stored in a separate datafile, and can be loaded in the same manner as the main dataset:
 ~~~
-sample_dataset = dataset.iloc[92:100]
+sample_dataset = catchment.models.read_variable_from_csv('data/rain_data_small.csv')
 sample_dataset
 ~~~
 {: .language-python}
@@ -170,7 +170,6 @@ sample_dataset
 2005-12-02 00:45:00   0.2   0.6
 ~~~
 {: .output}
-Note that we use the in-built `iloc()` function to index the Pandas data frame in the same manner we would a NumPy data array. Because Pandas data frames are built on top of NumPy data arrays we can perform many of the same operations on these as we would on NumPy data arrays.
 
 This data can be passed to the function by entering the following lines in the python console:
 ~~~
