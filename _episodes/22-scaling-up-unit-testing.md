@@ -26,15 +26,34 @@ So instead of writing a separate function for each different test, we can **para
 
 ~~~
 @pytest.mark.parametrize(
-    "test, expected",
+    "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
     [
-        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
-        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
+        (
+            [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]],
+            [pd.to_datetime('2000-01-01 01:00'),
+                pd.to_datetime('2000-01-01 02:00'),
+                pd.to_datetime('2000-01-01 03:00')],
+            ['A', 'B'],
+            [[0.0, 0.0]],
+            [datetime.date(2000, 1, 1)],
+            ['A','B']
+        ),
+        (
+            [[1, 2], [3, 4], [5, 6]],
+            [pd.to_datetime('2000-01-01 01:00'),
+                pd.to_datetime('2000-01-01 02:00'),
+                pd.to_datetime('2000-01-01 03:00')],
+            ['A', 'B'],
+            [[3.0, 4.0]],
+            [datetime.date(2000, 1, 1)],
+            ['A', 'B']
+        ),
     ])
-def test_daily_mean(test, expected):
+def test_daily_mean(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
     """Test mean function works for array of zeroes and positive integers."""
-    from inflammation.models import daily_mean
-    npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
+    from catchment.models import daily_mean
+    pdt.assert_frame_equal(daily_mean(pd.DataFrame(data=test_data, index=test_index, columns=test_columns)),
+                           pd.DataFrame(data=expected_data, index=expected_index, columns=expected_columns))
 ~~~
 {: .language-python}
 
@@ -42,7 +61,7 @@ Here, we use `pytest`'s **mark** capability to add metadata to this specific tes
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
-So our first test will run `daily_mean()` on `[[0, 0], [0, 0], [0, 0]]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3, 4]`.
+So our first test will run `daily_mean()` on `[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]` (our `test` argument), and check to see if it equals `[0.0, 0.0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3.0, 4.0]`.
 
 The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
@@ -51,32 +70,93 @@ The big plusses here are that we don't need to write separate functions for each
 > Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised, adding in new test cases for each of them.
 >
 > > ## Solution
+> > Test function for `daily_max()`
 > > ~~~
 > > ...
 > > @pytest.mark.parametrize(
-> >     "test, expected",
+> >     "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
 > >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [4, 6, 9]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [4, -1, 9]),
+> >         (
+> >             [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                 pd.to_datetime('2000-01-01 02:00'),
+> >                 pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[0.0, 0.0, 0.0]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
+> >         (
+> >             [[4, 2, 5], [1, 6, 2], [4, 1, 9]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                 pd.to_datetime('2000-01-01 02:00'),
+> >                 pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[4, 6, 9]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
+> >         (
+> >             [[4, -2, 5], [1, -6, 2], [-4, -1, 9]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                  pd.to_datetime('2000-01-01 02:00'),
+> >                  pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[4, -1, 9]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
 > >     ])
-> > def test_daily_max(test, expected):
-> >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_max
-> >     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
-> >
-> >
+> > def test_daily_max(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
+> >     """Test max function works for array of zeroes and positive integers."""
+> >     from catchment.models import daily_max
+> >     pdt.assert_frame_equal(daily_max(pd.DataFrame(data=test_data, index=test_index, columns=test_columns)),
+> >                            pd.DataFrame(data=expected_data, index=expected_index, columns=expected_columns))
+> > ...
+> > ~~~
+> > {: .language-python}
+> > and for `daily_min()`
+> > ~~~
+> > ...
 > > @pytest.mark.parametrize(
-> >     "test, expected",
+> >     "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
 > >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [1, 1, 2]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [-4, -6, 2]),
+> >         (
+> >             [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                 pd.to_datetime('2000-01-01 02:00'),
+> >                 pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[0.0, 0.0, 0.0]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
+> >         (
+> >             [[4, 2, 5], [1, 6, 2], [4, 1, 9]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                 pd.to_datetime('2000-01-01 02:00'),
+> >                 pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[1, 1, 2]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
+> >         (
+> >             [[4, -2, 5], [1, -6, 2], [-4, -1, 9]],
+> >             [pd.to_datetime('2000-01-01 01:00'),
+> >                  pd.to_datetime('2000-01-01 02:00'),
+> >                  pd.to_datetime('2000-01-01 03:00')],
+> >             ['A', 'B', 'C'],
+> >             [[-4, -6, 2]],
+> >             [datetime.date(2000, 1, 1)],
+> >             ['A', 'B', 'C']
+> >         ),
 > >     ])
-> > def test_daily_min(test, expected):
-> >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_min
-> >     npt.assert_array_equal(daily_min(np.array(test)), np.array(expected))
+> > def test_daily_min(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
+> >     """Test min function works for array of zeroes and positive integers."""
+> >     from catchment.models import daily_max
+> >     pdt.assert_frame_equal(daily_max(pd.DataFrame(data=test_data, index=test_index, columns=test_columns)),
+> >                            pd.DataFrame(data=expected_data, index=expected_index, columns=expected_columns))
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -105,52 +185,48 @@ A simple way to check the code coverage for a set of tests is to use `pytest` to
 
 ~~~
 $ pip3 install pytest-cov
-$ pytest --cov=inflammation.models tests/test_models.py
+$ pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-bash}
 
 So here, we specify the additional named argument `--cov` to `pytest` specifying the code to analyse for test coverage.
 
 ~~~
-============================= test session starts ==============================
-platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
-rootdir: /Users/alex/python-intermediate-inflammation
-plugins: anyio-3.3.4, cov-3.0.0
-collected 9 items                                                               
-
+...
 tests/test_models.py .........                                            [100%]
 
----------- coverage: platform darwin, python 3.9.6-final-0 -----------
-Name                     Stmts   Miss  Cover
---------------------------------------------
-inflammation/models.py       9      1    89%
---------------------------------------------
-TOTAL                        9      1    89%
+---------- coverage: platform darwin, python 3.9.4-final-0 -----------
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+catchment/models.py      19     10    47%
+-----------------------------------------
+TOTAL                    19     10    47%
 
 ============================== 9 passed in 0.26s ===============================
 ~~~
 {: .output}
 
-Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But which statements are not being tested? The additional argument `--cov-report term-missing` can tell us:
+Here we can see that our tests are doing okay - 47% of statements in `catchment/models.py` have been executed. But which statements are not being tested? The additional argument `--cov-report term-missing` can tell us:
 
 ~~~
-$ pytest --cov=inflammation.models --cov-report term-missing tests/test_models.py
+$ pytest --cov=catchment.models --cov-report term-missing tests/test_models.py
 ~~~
 {: .language-bash}
 
 ~~~
 ...
-Name                     Stmts   Miss  Cover   Missing
-------------------------------------------------------
-inflammation/models.py       9      1    89%   18
-------------------------------------------------------
-TOTAL                        9      1    89%
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+catchment/models.py      19     10    47%   22-35, 44
+---------------------------------------------------
+TOTAL                    19     10    47%
 ...
 ~~~
 {: .output}
 
-So there's still one statement not being tested at line 18, and it turns out it's in the function `load_csv()`. Here 
-we should consider whether or not to write a test for this function, and, in general, any other functions that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
+So there's two groups of statements not being tested. The last is at line 44, which is in the `daily_total()` function, for which we could write tests in the same manner as we have
+for `daily_max()` and `daily_min()`. The other group is at lines 22-35, which is within the `read_variable_from_csv()` function.
+Here we should consider whether or not to write a test for this function, and, in general, any other functions that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
 Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 

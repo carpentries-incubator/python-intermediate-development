@@ -142,7 +142,7 @@ jobs:
 
     - name: Test with PyTest
       run: |
-        pytest --cov=inflammation.models tests/test_models.py
+        pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
