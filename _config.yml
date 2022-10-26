@@ -93,6 +93,7 @@ extras_order:
   - guide
   - common-issues
   - discuss
+  - vscode
   - functional-programming
   - persistence
   - databases
