@@ -638,22 +638,14 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 > How much of a performance improvement do you get?
 > Is this as much as you would expect for the number of cores your CPU has?
 >
-<<<<<<< HEAD:_episodes/34-functional-programming.md
 > **Hint:** To time the execution of a Python script we can use the shell command `time`, or make careful use of the timing decorator we wrote for the exercise above:
-=======
-> **Hint:** To time the execution of a Python script we can use the shell command `time`:
->
->>>>>>> 70a06d5b2b4f861c29edc5e338f5df13ca980936:_episodes/33-functional.md
 > ~~~
 > time python3 my_script.py
 > ~~~
 > {: .language-bash}
 >
-<<<<<<< HEAD:_episodes/34-functional-programming.md
 > **Hint:** There is a computational cost associated with creating the process pool and sharing the work - if the computational task being performed is too small, you will may not see a performance improvement.
 >
-=======
->>>>>>> 70a06d5b2b4f861c29edc5e338f5df13ca980936:_episodes/33-functional.md
 > **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
 > One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >

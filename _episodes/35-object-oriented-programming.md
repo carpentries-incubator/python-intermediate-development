@@ -15,22 +15,6 @@ keypoints:
 - "A single piece of software will often contain instances of multiple paradigms."
 ---
 
-<<<<<<< HEAD:_episodes/35-object-oriented-programming.md
-=======
-## Introduction
-
-With FizzBuzzer class, we saw an example of where Object Oriented Programming works badly, so where does it work well?
-
-This paradigm is useful when data is structured, often because it represents an entity which exists in the real world.
-This entity has **attributes** which can be measured, and **behaviours** which it can perform.
-An obvious example of an entity with attributes and behaviours is a person.
-
-People have names, heights, weights, etc., all of which might be useful for software to know about in some context.
-In the context of our clinical trial data system, we might be interested in all three of these, but also in their measurements of inflammation.
-
-Let's continue to develop this system, using Object Oriented Programming to design a more complete model of our patients.
-
->>>>>>> 70a06d5b2b4f861c29edc5e338f5df13ca980936:_episodes/32-object-oriented.md
 ## Encapsulating Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
