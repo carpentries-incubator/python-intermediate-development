@@ -20,27 +20,60 @@ keypoints:
 One of the main difficulties we encounter when building more complex software is how to structure our data.
 So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to combine data from a range of different sources and with more data than just an array of numbers.
 
-~~~ python
-data = np.array([[1., 2., 3.],
-                 [4., 5., 6.]])
+~~~
+data = pd.DataFrame([[1., 2., 3.], [4., 5., 6.]],
+                     index=['FP35','FP56'])
 ~~~
 {: .language-python}
 
-Using this data structure has the advantage of being able to use NumPy operations to process the data and Matplotlib to plot it, but often we need to have more structure than this.
-For example, we may need to attach more information about the patients and store this alongside our measurements of inflammation.
+Using this data structure has the advantage of being able to use Pandas and NumPy operations to process the data, and Matplotlib to plot it, but often we need to have more structure than this.
 
-We can do this using the Python data structures we're already familiar with, dictionaries and lists.
-For instance, we could attach a name to each of our patients:
+For example, the measurement data we are interested in has a hierarchy of situational information: each data set is recorded by a particular instrument, in a particular measurement site, in a particular catchment area. This structure can be captured using Pandas MultiIndexes, for example:
+~~~
+location_measurement = [
+    ("FP", "FP35", "Rainfall"),
+    ("FP", "FP56", "River Level"),
+    ("PL", "PL23", "River Level"),
+    ("PL", "PL23", "Water pH")
+]
+index_names = ["Catchment", "Site", "Measurement"]
+index = pd.MultiIndex.from_tuples(location_measurement,names=index_names)
 
-~~~ python
-patients = [
+data = [
+    [0., 2., 1.],
+    [30., 29., 34.],
+    [34., 32., 33.],
+    [7.8, 8., 7.9]
+]
+
+pd.DataFrame(data,index=index)
+~~~
+{: .language-python}
+~~~
+                               0     1     2
+Catchment Site Measurement                  
+FP        FP35 Rainfall      0.0   2.0   1.0
+          FP56 River Level  30.0  29.0  34.0
+PL        PL23 River Level  34.0  32.0  33.0
+               Water pH      7.8   8.0   7.9
+~~~
+{: .output}
+
+However, we may need to attach more information about the sites and store this alongside our measurement data. Or we might want to store the data from different sites or instruments at different frequencies. These requirements are more difficult to accomodate within a Pandas DataFrame, and would require the use of extra data structures, or lead to messy data frames. 
+
+Instead, we can do this using the Python data structures we're already familiar with, dictionaries and lists. For instance, we could attach an identifier to the measurements from each site:
+
+~~~
+measurement_data = [
     {
-        'name': 'Alice',
-        'data': [1., 2., 3.],
+        'site': 'FP35',
+        'measurement': 'Rainfall'
+        'data': [0.0, 2.0, 1.0],
     },
     {
-        'name': 'Bob',
-        'data': [4., 5., 6.],
+        'site': 'FP56',
+        'measurement': 'River level'
+        'data': [30.0, 29.0, 34.0],
     },
 ]
 ~~~
@@ -48,17 +81,17 @@ patients = [
 
 > ## Structuring Data
 >
-> Write a function, called `attach_names`, which can be used to attach names to our patient dataset.
+> Write a function, called `attach_sites`, which can be used to attach IDs to our measurement dataset.
 > When used as below, it should produce the expected output.
 >
 > If you're not sure where to begin, think about ways you might be able to effectively loop over two collections at once.
-> Also, don't worry too much about the data type of the `data` value, it can be a Python list, or a NumPy array - either is fine.
+> Also, don't worry too much about the data type of the `data` value, it can be a Python list, a NumPy array, or a Pandas DataFrame - any is fine.
 >
-> ~~~ python
-> data = np.array([[1., 2., 3.],
->                  [4., 5., 6.]])
+> ~~~
+> data = np.array([[34., 32., 33.],
+>                  [7.8, 8.0, 7.9]])
 >
-> output = attach_names(data, ['Alice', 'Bob'])
+> output = attach_information(data, ['PL23', 'PL23'], ['River Level', 'pH'])
 > print(output)
 > ~~~
 > {: .language-python}
@@ -66,12 +99,14 @@ patients = [
 > ~~~
 > [
 >     {
->         'name': 'Alice',
->         'data': [1., 2., 3.],
+>         'site': 'PL23',
+>         'measurement': 'River Level',
+>         'data': [34., 32., 33.],
 >     },
 >     {
->         'name': 'Bob',
->         'data': [4., 5., 6.],
+>         'site': 'PL23',
+>         'measurement': 'pH',
+>         'data': [7.8, 8.0, 7.9],
 >     },
 > ]
 > ~~~
@@ -79,15 +114,17 @@ patients = [
 >
 > > ## Solution
 > >
-> > One possible solution, perhaps the most obvious, is to use the `range` function to index into both lists at the same location:
+> > One possible solution, perhaps the most obvious, is to use the `range` function to index into all three lists at the same location:
 > >
-> > ~~~ python
-> > def attach_names(data, names):
-> >     """Create datastructure containing patient records."""
+> > ~~~
+> > def attach_information(data, sites, measurements):
+> >     """Create datastructure containing data from a range of sites
+> >        and instruments."""
 > >     output = []
 > >
 > >     for i in range(len(data)):
-> >         output.append({'name': names[i],
+> >         output.append({'site': sites[i],
+> >                        'measurement': measurements[i],
 > >                        'data': data[i]})
 > >
 > >     return output
@@ -99,10 +136,10 @@ patients = [
 > >
 > > > ## A Better Solution
 > > >
-> > > What would happen if the `data` and `names` inputs were different lengths?
+> > > What would happen if the `data`, `measurements`, and/or `sites` inputs were different lengths?
 > > >
-> > > If `names` is longer, we'll loop through, until we run out of rows in the `data` input, at which point we'll stop processing the last few names.
-> > > If `data` is longer, we'll loop through, but at some point we'll run out of names - but this time we try to access part of the list that doesn't exist, so we'll get an exception.
+> > > If `sites` or `measurements` is longer, we'll loop through, until we run out of rows in the `data` input, at which point we'll stop processing the last few names.
+> > > If `data` is longer, we'll loop through, but at some point we'll run out of sites or measurements - but this time we try to access part of the list that doesn't exist, so we'll get an exception.
 > > >
 > > > A better solution would be to use the `zip` function, which allows us to iterate over multiple iterables without needing an index variable.
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller, so we won't raise an exception here, but this might not quite be the behaviour we want, so we'll also explicitly `assert` that the inputs should be the same length.
@@ -111,13 +148,15 @@ patients = [
 > > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
 > > >
 > > > ~~~ python
-> > > def attach_names(data, names):
-> > >     """Create datastructure containing patient records."""
+> > > def attach_names(data, sites, measurements):
+> > >     """Create datastructure containing measurement data from a range of sites."""
 > > >     assert len(data) == len(names)
+> > >     assert len(data) == len(measurements)
 > > >     output = []
 > > >
-> > >     for data_row, name in zip(data, names):
-> > >         output.append({'name': name,
+> > >     for data_row, measurement, site in zip(data, measurements, sites):
+> > >         output.append({'site': site,
+> > >                        'measurement': measurement,
 > > >                        'data': data_row})
 > > >
 > > >     return output
@@ -134,41 +173,46 @@ For this reason, in the Object Oriented paradigm, we use **classes** to help wit
 A class is a **template** for a structured piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
 In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data.
 
-With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check it manually.
+With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`site` and `data`) unless we check it manually.
 With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
 
 Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
 
-Let's start with a minimal example of a class representing our patients.
+Let's start with a minimal example of a class representing a measurement site.
 
-~~~ python
-# file: inflammation/models.py
+~~~
+# file: catchment/models.py
 
-class Patient:
+class Site:
     def __init__(self, name):
         self.name = name
-        self.observations = []
+        self.measurements = {}
+~~~
+{: .language-python}
+        
+~~~
+from catchment.models import Site
 
-alice = Patient('Alice')
-print(alice.name)
+FP35 = Site('FP35')
+print(FP35.name)
 ~~~
 {: .language-python}
 
 ~~~
-Alice
+FP35
 ~~~
 {: .output}
 
 Here we've defined a class with one method: `__init__`.
 This method is the **initialiser** method, which is responsible for setting up the initial values and structure of the data inside a new instance of the class - this is very similar to **constructors** in other languages, so the term is often used in Python too.
-The `__init__` method is called every time we create a new instance of the class, as in `Patient('Alice')`.
+The `__init__` method is called every time we create a new instance of the class, as in `Site('FP35')`.
 The argument `self` refers to the instance on which we are calling the method and gets filled in automatically by Python - we don't need to provide a value for this when we call the method.
 
-In our `Patient` initialiser method, we set their name to a value provided, and create a list of inflammation observations, which is currently empty.
+In our `Site` initialiser method, we set the site name to a value provided, and create a dictionary of the measurement datasets at that site, which is currently empty.
 
 You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
 
-~~~ python
+~~~
 my_list = [1, 2, 3]
 my_dict = {1: '1', 2: '2', 3: '3'}
 my_set = {1, 2, 3}
@@ -232,49 +276,60 @@ Using the name `self` isn't strictly necessary, but is a very strong convention 
 When we call a method on an object, the value of `self` is automatically set to this object - hence the name.
 As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
 
-~~~ python
-# file: inflammation/models.py
+~~~
+# file: catchment/models.py
 
-class Patient:
-    """A patient in an inflammation study."""
+class Site:
+    """A measurement site in the study."""
     def __init__(self, name):
         self.name = name
-        self.observations = []
+        self.measurements = {}
 
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1]['day'] + 1
+    def add_measurement(self, measurement_id, data):
+        if measurement_id in self.measurements.keys():
+            self.measurements[measurement_id] = 
+                    pd.concat([self.measurements[measurement_id], data])
+        
+        else:
+            self.measurements[measurement_id] = data
 
-            except IndexError:
-                day = 0
-
-        new_observation = {
-            'day': day,
-            'value': value,
-        }
-
-        self.observations.append(new_observation)
-        return new_observation
-
-alice = Patient('Alice')
-print(alice)
-
-observation = alice.add_observation(3)
-print(observation)
-print(alice.observations)
 ~~~
 {: .language-python}
 
 ~~~
-<__main__.Patient object at 0x7fd7e61b73d0>
-{'day': 0, 'value': 3}
-[{'day': 0, 'value': 3}]
+from catchment.models import Site
+import pandas as pd
+
+FP35 = Site('FP35')
+print(FP35)
+
+rainfall_data = pd.DataFrame(
+    [0.0,2.0,1.0],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3)
+        ]
+    )
+
+FP35.add_measurement('Rainfall',rainfall_data)
+
+print(FP35.measurements.keys())
+print(FP35.measurements['Rainfall'])
+
+~~~
+{: .language-python}
+
+~~~
+<__main__.Site object at 0x7fada93d0820>
+dict_keys(['Rainfall'])
+              0
+2000-01-01  0.0
+2000-01-02  2.0
+2000-01-03  1.0
 ~~~
 {: .output}
 
-Note also how we used `day=None` in the parameter list of the `add_observation` method, then initialise it if the value is indeed `None`.
-This is one of the common ways to handle an optional argument in Python, so we'll see this pattern quite a lot in real projects.
 
 > ## Class and Static Methods
 >
@@ -297,47 +352,43 @@ There are a few special method names that we can use which Python will use to pr
 When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(alice)` returned `<__main__.Patient object at 0x7fd7e61b73d0>`, which is the string represenation of the `alice` object. We 
 may want the print statement to display the object's name instead. We can achieve this by overriding the `__str__` method of our class.
 
-~~~ python
-# file: inflammation/models.py
+~~~
+# file: catchment/models.py
 
-class Patient:
-    """A patient in an inflammation study."""
+class Site:
+    """A measurement site in the study."""
     def __init__(self, name):
         self.name = name
-        self.observations = []
+        self.measurements = {}
 
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1]['day'] + 1
-
-            except IndexError:
-                day = 0
-
-
-        new_observation = {
-            'day': day,
-            'value': value,
-        }
-
-        self.observations.append(new_observation)
-        return new_observation
+    def add_measurement(self, measurement_id, data):
+        if measurement_id in self.measurements.keys():
+            self.measurements[measurement_id] = 
+                    pd.concat([self.measurements[measurement_id], data])
+        
+        else:
+            self.measurements[measurement_id] = data
 
     def __str__(self):
         return self.name
 
-
-alice = Patient('Alice')
-print(alice)
 ~~~
 {: .language-python}
 
 ~~~
-Alice
+from catchment.models import Site
+
+FP35 = Site('FP35')
+print(FP35)
+~~~
+{: .language-python}
+
+~~~
+FP35
 ~~~
 {: .output}
 
-These dunder methods are not usually called directly, but rather provide the implementation of some functionality we can use - we didn't call `alice.__str__()`, but it was called for us when we did `print(alice)`.
+These dunder methods are not usually called directly, but rather provide the implementation of some functionality we can use - we didn't call `FP35.__str__()`, but it was called for us when we did `print(FP35)`.
 Some we see quite commonly are:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
@@ -389,28 +440,61 @@ For a more complete list of these special methods, see the [Special Method Names
 The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 
-~~~ python
-# file: inflammation/models.py
+~~~
+# file: catchment/models.py
 
-class Patient:
+class Site:
     ...
 
     @property
-    def last_observation(self):
-        return self.observations[-1]
+    def all_measurements(self):
+        return pd.concat(
+            [self.measurements[key].rename({0:key}, axis='columns') 
+                               for key in self.measurements.keys()],
+            axis=1)
 
-alice = Patient('Alice')
-
-alice.add_observation(3)
-alice.add_observation(4)
-
-obs = alice.last_observation
-print(obs)
 ~~~
 {: .language-python}
 
 ~~~
-{'day': 1, 'value': 4}
+from catchment.models import Site
+import pandas as pd
+
+PL23 = Site('PL23')
+
+riverlevel_data = pd.DataFrame(
+    [34.0,32.0,33.0,31.0],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3),
+        datetime.date(2000,1,4),
+        ]
+    )
+
+waterph_data = pd.DataFrame(
+    [7.8,8.0,7.9],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3)
+        ]
+    )
+
+PL23.add_measurement('River Level', riverlevel_data)
+PL23.add_measurement('Water pH', waterph_data)
+
+fulldata = PL23.all_measurements
+print(fulldata)
+~~~
+{: .language-python}
+
+~~~
+            River Level  Water pH
+2000-01-01         34.0       7.8
+2000-01-02         32.0       8.0
+2000-01-03         33.0       7.9
+2000-01-04         31.0       NaN
 ~~~
 {: .output}
 
@@ -435,56 +519,105 @@ That time, we used a function which converted temperatures in Celsius to Kelvin 
 
 In the same way, in object oriented programming, we can make things components of other things.
 
-We often use composition where we can say 'x *has a* y' - for example in our inflammation project, we might want to say that a doctor *has* patients or that a patient *has* observations.
+We often use composition where we can say 'x *has a* y' - for example in our catchment study project, we might want to say that a catchment area *has* measurement sites or that a measurement site *has* a collection of measurement sets.
 
-In the case of our example, we're already saying that patients have observations, so we're already using composition here.
-We're currently implementing an observation as a dictionary with a known set of keys though, so maybe we should make an `Observation` class as well.
+In the case of our example, we have said any given measurement site has a collection of measurement sets, so we're already using composition here.
+We're currently implementing the collection of measurement sets as a dictionary with a known set of keys though, so maybe we should make a `MeasurementSet` class as well. This class will contain the Pandas dataframe it replaces, but enable us to now associate extra information and methods with that dataset.
 
-~~~ python
-# file: inflammation/models.py
+~~~ 
+# file: catchment/models.py
 
-class Observation:
-    def __init__(self, day, value):
-        self.day = day
-        self.value = value
-
-    def __str__(self):
-        return str(self.value)
-
-class Patient:
-    """A patient in an inflammation study."""
-    def __init__(self, name):
+class MeasurementSet:
+    def __init__(self, df, name, units):
+        self.df = df
         self.name = name
-        self.observations = []
+        self.units = units
+    
+    def __str__(self):
+        if self.units:
+            return f"{self.name} ({self.units})"
+        else:
+            return self.name
 
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1].day + 1
 
-            except IndexError:
-                day = 0
-
-        new_observation = Observation(day, value)
-
-        self.observations.append(new_observation)
-        return new_observation
-
+class Site:
+    def __init__(self,name):
+        self.name = name
+        self.measurements = {}
+    
+    def add_measurement(self, measurement_id, data, units=None):    
+        if measurement_id in self.measurements.keys():
+            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+    
+        else:
+            self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+    
+    @property
+    def all_measurements(self):
+        return pd.concat(
+            [self.measurements[key].df.rename({0:key}, axis='columns') 
+                               for key in self.measurements.keys()],
+            axis=1)
+    
     def __str__(self):
         return self.name
 
+~~~
+{: .language-python}
 
-alice = Patient('Alice')
-obs = alice.add_observation(3)
 
-print(obs)
+~~~
+from catchment.models import Site
+import pandas as pd
+
+PL23 = Site('PL23')
+
+riverlevel_data = pd.DataFrame(
+    [34.0,32.0,33.0,31.0],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3),
+        datetime.date(2000,1,4),
+        ]
+    )
+
+waterph_data = pd.DataFrame(
+    [7.8,8.0,7.9],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3)
+        ]
+    )
+
+PL23.add_measurement('River Level', riverlevel_data, 'mm')
+PL23.add_measurement('Water pH', waterph_data)
+
+
+print(PL23.measurements['River Level'])
+print(PL23.measurements['Water pH'])
+
+fulldata = PL23.all_measurements
+print(fulldata)
+
 ~~~
 {: .language-python}
 
 ~~~
-3
+River Level (mm)
+Water pH
+            River Level  Water pH
+2000-01-01         34.0       7.8
+2000-01-02         32.0       8.0
+2000-01-03         33.0       7.9
+2000-01-04         31.0       NaN
 ~~~
 {: .output}
+Note that, within the `Site` class, we now access the measurement dataframes by adding `.df` to the end of the `self.measurements[measurement_id]` object. 
+
+Note also how we used `units=None` in the parameter list of the `add_measurement` method, enabling us to still initialise the `MeasurementSet` class even if the end user doesn't supply the measurement unit information. This is one of the common ways to handle an optional argument in Python, so we’ll see this pattern quite a lot in real projects.
+
 
 Now we're using a composition of two custom classes to describe the relationship between two types of entity in the system that we're modelling.
 
@@ -494,73 +627,100 @@ The other type of relationship used in object oriented programming is **inherita
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
 If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
 
-If we want to extend the previous example to also manage people who aren't patients we can add another class `Person`.
-But `Person` will share some data and behaviour with `Patient` - in this case both have a name and show that name when you print them.
-Since we expect all patients to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Patient`.
+If we want to extend the previous example to also manage locations which aren't measurement sites we can add another class `Location`.
+But `Location` will share some data and behaviour with `Site` - in this case both have a name and show that name when you print them.
+Since we expect all sites to be locations, it makes sense to implement the behaviour in `Location` and then reuse it in `Site`.
 
 To write our class in Python, we used the `class` keyword, the name of the class, and then a block of the functions that belong to it.
 If the class **inherits** from another class, we include the parent class name in brackets.
 
 ~~~ python
-# file: inflammation/models.py
+# file: catchment/models.py
 
-class Observation:
-    def __init__(self, day, value):
-        self.day = day
-        self.value = value
-
+class MeasurementSet:
+    def __init__(self, df, name, units):
+        self.df = df
+        self.name = name
+        self.units = units
+    
     def __str__(self):
-        return str(self.value)
+        if self.units:
+            return f"{self.name} ({self.units})"
+        else:
+            return self.name
 
-class Person:
+class Location:
     def __init__(self, name):
         self.name = name
 
     def __str__(self):
         return self.name
 
-class Patient(Person):
-    """A patient in an inflammation study."""
-    def __init__(self, name):
+class Site(Location):
+    def __init__(self,name):
         super().__init__(name)
-        self.observations = []
+        self.measurements = {}
+    
+    def add_measurement(self, measurement_id, data, units=None):    
+        if measurement_id in self.measurements.keys():
+            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+    
+        else:
+            self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+    
+    @property
+    def all_measurements(self):
+        return pd.concat(
+            [self.measurements[key].df.rename({0:key}, axis='columns') 
+                               for key in self.measurements.keys()],
+            axis=1)
 
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1].day + 1
-
-            except IndexError:
-                day = 0
-
-        new_observation = Observation(day, value)
-
-        self.observations.append(new_observation)
-        return new_observation
-
-alice = Patient('Alice')
-print(alice)
-
-obs = alice.add_observation(3)
-print(obs)
-
-bob = Person('Bob')
-print(bob)
-
-obs = bob.add_observation(4)
-print(obs)
 ~~~
 {: .language-python}
 
 ~~~
-Alice
-3
-Bob
-AttributeError: 'Person' object has no attribute 'add_observation'
+from catchment.models import Site
+import pandas as pd
+
+FP23 = Site('FP23')
+
+print(FP23)
+
+riverlevel_data = pd.DataFrame(
+    [34.0,32.0,33.0,31.0],
+    index=[
+        datetime.date(2000,1,1),
+        datetime.date(2000,1,2),
+        datetime.date(2000,1,3),
+        datetime.date(2000,1,4),
+        ]
+    )
+
+FP23.add_measurement('River Level',riverlevel_data,'mm')
+
+print(FP23.measurements['River Level'].df)
+
+PL12 = Location('PL12')
+print(PL12)
+
+PL12.add_measurement('River Level',riverlevel_data,'mm')
+~~~
+{: .language-python}
+
+~~~
+FP23
+               0
+2000-01-01  34.0
+2000-01-02  32.0
+2000-01-03  33.0
+2000-01-04  31.0
+PL12
+...
+AttributeError: 'Location' object has no attribute 'add_measurement'
 ~~~
 {: .output}
 
-As expected, an error is thrown because we cannot add an observation to `bob`, who is a Person but not a Patient.
+As expected, an error is thrown because we cannot add measurement data to `PL12`, which is a Location but not a Site.
 
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
@@ -570,19 +730,19 @@ If we don't define a new `__init__` method for our subclass, Python will look fo
 This is true of all methods - if we call a method which doesn't exist directly on our class, Python will search for it among the parent classes.
 The order in which it does this search is known as the **method resolution order** - a little more on this in the Multiple Inheritance callout below.
 
-The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
-This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Person` must have a name, before we can properly initialise a `Patient` model with their inflammation data.
+The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Location.__init__` requires.
+This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Location` must have a name, before we can properly initialise a `Site` model with the corresponding measurement data.
 
-> ## Exercise: A Model Patient
+> ## Exercise: A Model Site
 >
 > Let's use what we have learnt in this episode and combine it with what we have learnt on 
 > [software requirements](../31-software-requirements/index.html) to formulate and implement a 
 > [few new solution requirements](../31-software-requirements/index.html#exercise-new-solution-requirements)
 > to extend the model layer of our clinical trial system.
 >
-> Let's can start with extending the system such that there must be a `Doctor` class to hold the data representing a single doctor, which:
+> Let's can start with extending the system such that there must be a `Catchment` class to hold the data representing a single catchment, which:
 >   - must have a `name` attribute
->   - must have a list of patients that this doctor is responsible for.
+>   - must have a list of sites that are within this catchment area.
 >
 > In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
