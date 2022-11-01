@@ -92,7 +92,7 @@ Let's now take a step back to the solution requirements we discussed in the prev
   - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
   - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-  - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+  - SR2.1.1 (from UR2.1): generate graphical statistics report on project workstation configuration in under 30 seconds
 
 ## How Should I Test *This*?
 
@@ -106,7 +106,7 @@ The key is to think about which kind of testing should be used to check if the c
 
 > ## Exercise: Implementing Requirements
 > 
-> Pick one of the requirements SR1.1.1 or SR1.1.2 above to implement and create an appropriate feature branch - 
+> Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement and create an appropriate feature branch - 
 > e.g. `add-std-dev` or `add-view`.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?

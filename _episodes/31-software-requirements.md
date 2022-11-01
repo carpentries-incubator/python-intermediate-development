@@ -29,20 +29,18 @@ Requirements can be categorised in many ways, but at a high level a useful way t
 
 Business requirements describe what is needed from the perspective of the organisation, and define the strategic path of the project, e.g. to increase profit margin or market share, or embark on a new research area or collaborative partnership. These are captured in something like a Business Requirements Specification.
 
-For adapting our inflammation software project, example business requirements could include:
+For adapting our catchment software project, example business requirements could include:
 
-- BR1: improving the statistical quality of clinical trial reporting to meet the needs of external audits 
-- BR2: increasing the throughput of trial analyses to meet higher demand during peak periods
+- BR1: improving the statistical quality of data reporting to meet the needs of external audits 
+- BR2: increase the throughput of data analyses to meet higher demand as more more measurement sites are added
 
 > ## Exercise: New Business Requirements
 > Think of a new hypothetical business-level requirements for this software. This can be anything you like, but be sure to keep it at the high-level of the business itself.
 >> ## Solution
->> One hypothetical new business requirement (BR3) could be extending our clinical trial system to
->> keep track of doctors who are being involved in the project.
+>> One hypothetical new business requirement (BR3) could be extending our data system to
+>> keep track of which catchment areas contain each measurement station.
 >> 
->> Another hypothetical new business requirement (BR4) may be adding a new parameter to the treatment and checking if improves 
->> the effect of the drug being tested - e.g. taking it in conjunction with omega-3 fatty acids and/or increasing physical activity 
->> while taking the drug therapy.
+>> Another hypothetical new business requirement (BR4) may be adding correlation tests between measurement sites - e.g. to help establish catchment response to rainfall.
 > {: .solution}
 {: .challenge}
 
@@ -54,7 +52,7 @@ For our inflammation project, they could include things for trial managers such 
 
 - UR1.1 (from BR1): add support for statistical measures in generated trial reports as required by revised auditing standards (standard deviation, ...)
 - UR1.2 (from BR1): add support for producing textual representations of statistics in trial reports as required by revised auditing standards
-- UR2.1 (from BR2): ability to have an individual trial report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
+- UR2.1 (from BR2): ability to have an individual data report processed and generated in under 30 seconds (if we assume it usually takes longer than that)
 
 > ## Exercise: New User Requirements
 >
@@ -62,10 +60,10 @@ For our inflammation project, they could include things for trial managers such 
 > into a number of logical user requirements, ensuring they stay above the level and detail of implementation.
 >> ## Solution
 >> For our business requirement BR3 from the previous exercise, the new user/stakeholder requirements may be the ability to 
->> see all the patients a doctor is being responsible for (UR3.1), and to find out a doctor looking after any individual patient (UR3.2).
+>> see all the measurement sites within a given catchment area (UR3.1), and to find out which catchment area any given measurement site is in (UR3.2).
 >>
 >> For our business requirement BR4 from the previous exercise, the new user/stakeholder requirements may be the ability to 
->> see the the effect of the drug with and without the additional parameters in all reports and graphs (UR4.1).
+>> see the correlations between each measurement site, and data type, in all reports and graphs (UR4.1).
 > {: .solution}
 {: .challenge}
 
@@ -77,7 +75,7 @@ Solution (or product) requirements describe characteristics that a concrete solu
     - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
     - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
 - *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
-    - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
+    - SR2.1.1 (from UR2.1): generate graphical statistics report on a project workstation configuration in under 30 seconds
                           
 > ## Labelling Requirements
 > Note that the naming scheme we used for labelling our requirements is quite arbitrary - you should reference them in a way 
@@ -155,9 +153,9 @@ When considering software requirements, it's *very* tempting to just think about
 >> ## Solution
 >> For our new hypothetical business requirement BR3, new functional solution requirements could be extending 
 >> the clinical trial system to keep track of:
->> - the names of all patients (SR3.1.1) and doctors (SR3.1.2) involved in the trial
->> - the name of the doctor for a particular patient (SR3.1.3)
->> - a group of patients being administered by a particular doctor (SR3.2.1).
+>> - the names and location, or geographic extent, of all measurement sites (SR3.1.1) and catchment areas (SR3.1.2) involved in the project
+>> - the name of the catchment area for a particular measurement site (SR3.1.3)
+>> - a group of measurement sites within a particular catchment area (SR3.2.1).
 > {: .solution}
 {: .challenge}
 
