@@ -156,7 +156,7 @@ Lastly, we define the `step`s that our job will undertake in turn, to set up the
 
 - **Checkout repository for the job:** `uses` indicates that want to use a GitHub Action called `checkout` that does this
 - **Set up Python 3.9:** here we use the `setup-python` Action, indicating that we want Python version 3.9
-- **Install latest version of pip, dependencies, and our inflammation package:** In order to locally install our `inflammation` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
+- **Install latest version of pip, dependencies, and our catchment package:** In order to locally install our `catchment` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
 - **Test with PyTest:** lastly, we run `pytest`, with the same arguments we used manually before
 
 > ## What about other Actions?

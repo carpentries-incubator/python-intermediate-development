@@ -36,39 +36,46 @@ This is where using a **debugger** can be useful.
 
 ## Setting the Scene
 
-Let us add a new function called `patient_normalise()` to our inflammation example to normalise a
-given inflammation data array so that all entries fall between 0 and 1.
+Let us add a new function called `data_normalise()` to our catchment example to normalise
+a given measurement data array so that all entries fall between 0 and 1.
 (Make sure you create a new feature branch for this work off your `develop` branch.) 
-To normalise each patient's inflammation data we need to divide it by the maximum inflammation 
-experienced by that patient. To do so, we can add the following code to `inflammation/models.py`:
+To normalise each set of measurement data we need to divide it by the maximum measurement 
+value taken. To do so, we can add the following code to `catchment/models.py`:
 
 ~~~
-def patient_normalise(data):
-    """Normalise patient data from a 2D inflammation data array."""
-    max = np.max(data, axis=0)
-    return data / max[:, np.newaxis]
+import numpy as np
+...
+def data_normalise(data):
+    """Normalise any given 2D data array"""
+    max = np.array(np.max(data, axis=1))
+    return data / max[np.newaxis, :]
 ~~~
 {: .language-python}
 **Note:** *there are intentional mistakes in the above code, which will be detected by further testing and code 
 style checking below so bear with us for the moment!*
 
-In the code above, we first go row by row and find the maximum inflammation value for each patient and
+For this work we will make use of the NumPy library. Pandas dataframes are built on 
+top of NumPy arrays, which means that we can make use of the NumPy toolkit for 
+manipulating Pandas data if we find that this would be more appropriate than using a 
+Pandas tool.
+
+In the code above, we first go column by column and find the maximum data value for each measurement site and
 store these values in a 1-dimensional NumPy array `max`. We then want to use
-NumPy's element-wise division, to divide each value in every row of inflammation data (belonging to the same patient)
-by the maximum value for that patient stored in the 1D array `max`.
-However, we cannot do that division automatically as `data` is a 2D array (of shape `(60, 40)`) and `max`
-is a 1D array (of shape `(60, )`), which means that their shapes are not compatible.
+NumPy's element-wise division, to divide each value in every column of measurement data (belonging to the same site)
+by the maximum value for that site stored in the 1D array `max`.
+However, we cannot do that division automatically as `data` is a 2D array (of shape `(2976, 2)`) and `max`
+is a 1D array (of shape `(, 2)`), which means that their shapes are not compatible.
 
 ![NumPy arrays of incompatible shapes](../fig/numpy-incompatible-shapes.png){: .image-with-shadow width="800px"}
 
 Hence, to make sure that we can perform this division and get the expected result, we need to convert `max` to be a 
-2D array by using the `newaxis` index operator to insert a new axis into `max`, making it a 2D array of shape `(60, 1)`.
+2D array by using the `newaxis` index operator to insert a new axis into `max`, making it a 2D array of shape `(1, 2)`.
 
 ![NumPy arrays' shapes after adding a new_axis](../fig/numpy-shapes-after-new-axis.png){: .image-with-shadow width="800px"}
 
 Now the division will give us the expected result. Even though the shapes are not identical,
 NumPy's automatic `broadcasting` (adjustment of shapes) will make sure that the shape of the 2D `max` array is now
-"stretched" ("broadcast") to match that of `data` - i.e. `(60, 40)`, and element-wise division can be performed.
+"stretched" ("broadcast") to match that of `data` - i.e. `(2976, 2)`, and element-wise division can be performed.
 
 ![NumPy arrays' shapes after broadcasting](../fig/numpy-shapes-after-broadcasting.png){: .image-with-shadow width="800px"}
 
@@ -85,37 +92,49 @@ Let us now add a new test in `tests/test_models.py` to check that the normalisat
 
 ~~~
 @pytest.mark.parametrize(
-    "test, expected",
+    "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
     [
-        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]])
+        (
+            [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+            [pd.to_datetime('2000-01-01 01:00'),
+                pd.to_datetime('2000-01-01 02:00'),
+                pd.to_datetime('2000-01-01 03:00')],
+            ['A', 'B', 'C'],
+            [[0.14, 0.25, 0.33], [0.57, 0.63, 0.66], [1.0, 1.0, 1.0]],
+            [pd.to_datetime('2000-01-01 01:00'),
+                pd.to_datetime('2000-01-01 02:00'),
+                pd.to_datetime('2000-01-01 03:00')],
+            ['A', 'B', 'C']
+        ),
     ])
-def test_patient_normalise(test, expected):
+def test_normalise(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
     """Test normalisation works for arrays of one and positive integers.
        Assumption that test accuracy of two decimal places is sufficient."""
-    from inflammation.models import patient_normalise
-    npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+    from catchment.models import data_normalise
+    pdt.assert_frame_equal(data_normalise(pd.DataFrame(data=test_data, index=test_index, columns=test_columns)),
+                           pd.DataFrame(data=expected_data, index=expected_index, columns=expected_columns),
+                           atol=1e-2)
 ~~~
 {: .language-python}
 
-Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly and have rounded our expected values up accordingly. Also, we are using the `assert_almost_equal()` Numpy testing function instead of `assert_array_equal()`, since it allows us to test against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
+Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly by setting the absolute tolerance of the tests using `atol=1e-2`, and have rounded our expected values up accordingly. The `assert_frame_equal` Pandas testing function allows the setting of absolute (`atol`) and relative (`rtol`) tolerances to enable testing against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
 
 Run the tests again using `pytest tests/test_models.py` and you will note that the new test is failing, with an error message that does not give many clues as to what went wrong.
 
 ~~~
-E       AssertionError:
-E       Arrays are not almost equal to 2 decimals
-E
-E       Mismatched elements: 6 / 9 (66.7%)
-E       Max absolute difference: 0.57142857
-E       Max relative difference: 1.345
-E        x: array([[0.14, 0.29, 0.43],
-E              [0.5 , 0.62, 0.75],
-E              [0.78, 0.89, 1.  ]])
-E        y: array([[0.33, 0.67, 1.  ],
-E              [0.67, 0.83, 1.  ],
-E              [0.78, 0.89, 1.  ]])
+tests/test_models.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pandas/_libs/testing.pyx:52: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-tests/test_models.py:53: AssertionError
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="A") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="A") values are different (100.0 %)
+E   [index]: [2000-01-01T01:00:00.000000000, 2000-01-01T02:00:00.000000000, 2000-01-01T03:00:00.000000000]
+E   [left]:  [0.3333333333333333, 1.3333333333333333, 2.3333333333333335]
+E   [right]: [0.14, 0.57, 1.0]
 ~~~
 {: .output}
 
@@ -137,7 +156,7 @@ Firstly, to make it easier to track what's going on, we can set up PyCharm to ru
 
 ![Setting up test framework in PyCharm](../fig/pycharm-test-framework.png){: .image-with-shadow width="1000px"}
 
-We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `inflammation-analysis.py` script before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
+We can now run `pytest` over our tests in PyCharm, similarly to how we ran our `catchment-analysis.py` script before. Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`. You'll see the results of the tests appear in PyCharm in a bottom panel. If you scroll down in that panel you should see the failed `test_normalise()` test result looking something like the following:
 
 ![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png){: .image-with-shadow width="1000px"}
 
@@ -145,7 +164,7 @@ We can also run our test functions individually. First, let's check that our PyC
 
 ![Ensuring testing configurations in PyCharm are correct](../fig/pytest-pycharm-check-config.png){: .image-with-shadow width="800px"}
 
-PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `inflammation-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
+PyCharm allows us to configure multiple ways of running our code. Looking at the figure above, the first of these - `catchment-analysis` under `Python` - was configured when we set up how to run our script from within PyCharm. The second - `pytest in test_models.py` under `Python tests` - is our recent test configuration. If you see just these, you're good to go. We don't need any others, so select any others you see and click the `-` button at the top to remove them. This will avoid any confusion when running our tests separately. Click `OK` when done.
 
 > ## Buffered Output
 >
@@ -162,26 +181,26 @@ Now, if you select the green arrow next to a test function in our `test_models.p
 
 ![Running a single test in PyCharm](../fig/pytest-pycharm-run-single-test.png){: .image-with-shadow width="800px"}
 
-Click on the "run" button next to `test_patient_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
+Click on the "run" button next to `test_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
 
 ### Running the Debugger
 
-Now we want to use the debugger to investigate what is happening inside the `patient_normalise` function. To do this we will add a *breakpoint* in the code. A breakpoint will pause execution at that point allowing us to explore the state of the program.
+Now we want to use the debugger to investigate what is happening inside the `data_normalise` function. To do this we will add a *breakpoint* in the code. A breakpoint will pause execution at that point allowing us to explore the state of the program.
 
-To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `patient_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
+To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `data_normalise` function. Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
 
 ![Setting a breakpoint in PyCharm](../fig/pytest-pycharm-set-breakpoint.png){: .image-with-shadow width="600px"}
 
-Now if you select the green arrow next to the `test_patient_normalise` function and instead select `Debug 'pytest in test_model...'`, you will notice that execution will be paused at the `return` statement of `patient_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
+Now if you select the green arrow next to the `test_normalise` function and instead select `Debug 'pytest in test_model...'`, you will notice that execution will be paused at the `return` statement of `data_normalise`. In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
 
 In the debug panel below, in the `Debugger` tab you will be able to see two sections that looks something like the following:
 
 ![Debugging in PyCharm](../fig/pytest-pycharm-debug.png){: .image-with-shadow width="1000px"}
 
 - The `Frames` section on the left, which shows the **call stack** (the chain of functions that have been executed to lead to this point). We can traverse this chain of functions if we wish, to observe the state of each function.
-- The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
+- The `Variables` section on the right, which displays the local and global variables currently in memory. You will be able to see the `data` array that is input to the `data_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
 
-We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[:, np.newaxis]` into the console, and you will be able to see the column vector that we are dividing `data` by in the return line of the function.
+We also have the ability run any Python code we wish at this point to explore the state of the program even further! This is useful if you want to view a particular combination of variables, or perhaps a single element or slice of an array to see what went wrong. Select the `Console` tab in the panel (next to the `Debugger` tab), and you'll be presented with a Python prompt. Try putting in the expression `max[np.newaxis, :]` into the console, and you will be able to see the row vector that we are dividing `data` by in the return line of the function.
 
 ![Debugging in PyCharm](../fig/pytest-pycharm-console.png){: .image-with-shadow width="1000px"}
 
@@ -194,9 +213,9 @@ Now, looking at the `max` variable, we can see that something looks wrong, as th
 ~~~
 {: .language-python}
 
-So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`. You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. Now we have our answer, stop the debugging process by selecting the red square at the top right of the main PyCharm window.
+So the maximum value for each measurement set (column) should be `[7, 8, 9]`, whereas the debugger shows `[3, 6, 9]`. You can see that the latter corresponds exactly to the last row of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`. Now we have our answer, stop the debugging process by selecting the red square at the top right of the main PyCharm window.
 
-So to fix the `patient_normalise` function in `models.py`, change `axis=0` in the first line of the function to `axis=1`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
+So to fix the `data_normalise` function in `models.py`, change `axis=1` in the first line of the function to `axis=0`. With this fix in place, running all the tests again should result in all tests passing. Navigate back to `test_models.py` in PyCharm, right click `test_models.py` and select `Run 'pytest in test_model...'`. You should be rewarded with:
 
 ![All tests in PyCharm are successful](../fig/pytest-pycharm-all-tests-pass.png){: .image-with-shadow width="1000px"}
 
@@ -205,55 +224,103 @@ So to fix the `patient_normalise` function in `models.py`, change `axis=0` in th
 ) offers a good explanation on how axes work when applying NumPy functions to arrays.
 {: .callout}
 
+## NumPy vs Pandas: Reducing Test Complexity
+
+So far we have used Pandas testing functions, because the functions we have been testing
+make use of Pandas Dataframe functionality. However, even though we will be using the 
+`data_normalise` function on Pandas dataframes, the function itself does not actually 
+require Pandas functionality. The test above demonstrates that the `data_normalise` 
+function does not change the input dataframe in any unexpected way; the returned Dataframe 
+has the same indices and columns as the input Dataframe. Because we know this, we can 
+simplify the rest of our tests for this function, by using NumPy arrays and testing 
+functions, instead of the Pandas equivalents. Reducing complexity like this, where you 
+can, helps you understand what is being tested, and avoid possible confusions.
+
+Before we carry on with new tests, we will reproduce the test above using NumPy, so that you can compare the two testing frameworks. Add an `import` statement for `numpy.testing`, and the test `test_numpy_normalise`, as shown below, to your `test_models.py` script. Then run the test to confirm it works as expected.
+~~~
+import numpy.testing as npt
+...
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        (
+            [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+            [[0.14, 0.25, 0.33], [0.57, 0.63, 0.66], [1.0, 1.0, 1.0]]
+        )
+    ])
+def test_numpy_normalise(test, expected):
+    """Test normalisation works for numpy arrays"""
+    from catchment.models import data_normalise
+    npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
+~~~
+{: .language-python}
+
+Note here that we are using the Numpy testing function `npt.assert_almost_equal`, which allows us to set a relevant test accuracy, using `decimal=2`. This is equivalent to the `atol=1e-2` tolerance setting that we used for the equivalent Pandas test `pdt.assert_frame_equal`. Numpy also has a testing function `npt.assert_array_equal`, which tests for exact array matches. The functionality of this test is closely replicated by the default tolerance settings in `pd.assert_frame_equal` (`atol=1e-8` and `rtol=1e-5`), and can be fully replicated by setting the option `check_exact=True` when using this function.  
+
+
+
 ## Corner or Edge Cases
 
-The test case that we have currently written for `patient_normalise` is parameterised with a fairly standard data
+The test case that we have currently written for `data_normalise` is parameterised with a fairly standard data
 array. However, when writing your test cases, it is important to consider parametrising them by unusual or extreme
 values, in order to test all the edge or corner cases that your code could be exposed to in practice.
 Generally speaking, it is at these extreme cases that you will find your code failing, so it's beneficial to test them beforehand.
 
 What is considered an "edge case" for a given component depends on what that component is meant to do.
-In the case of `patient_normalise` function, the goal is to normalise a numeric array of numbers.
+In the case of `data_normalise` function, the goal is to normalise a numeric array of numbers.
 For numerical values, extreme cases could be zeros, very large or small values, not-a-number (`NaN`) or infinity values.
 Since we are specifically considering an *array* of values, an edge case could be that all the numbers of the array are equal.
 
 For all the given edge cases you might come up with, you should also consider their likelihood of occurrence.
-It is often too much effort to exhaustively test a given function against every possible input, so you should prioritise edge cases that are likely to occur. For our `patient_normalise` function, some common edge cases might be the occurrence of zeros,
+It is often too much effort to exhaustively test a given function against every possible input, so you should prioritise edge cases that are likely to occur. For our `data_normalise` function, some common edge cases might be the occurrence of zeros,
 and the case where all the values of the array are the same.
 
 When you are considering edge cases to test for, try also to think about what might break your code.
-For `patient_normalise` we can see that there is a division by the maximum inflammation value for each patient,
+For `data_normalise` we can see that there is a division by the maximum measurement value for each site,
 so this will clearly break if we are dividing by zero here, resulting in `NaN` values in the normalised array.
 
-With all this in mind, let us add a few edge cases to our parametrisation of `test_patient_normalise`.
+With all this in mind, let us add a few edge cases to our parametrisation of `test_numpy_normalise`.
 We will add two extra tests, corresponding to an input array of all 0, and an input array of all 1.
 
 ~~~
 @pytest.mark.parametrize(
     "test, expected",
     [
-        ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0]]),
-        ([[1, 1, 1], [1, 1, 1], [1, 1, 1]], [[1, 1, 1], [1, 1, 1], [1, 1, 1]]),
-        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]]),
+        (
+            [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
+            [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+        ),
+        (
+            [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]],
+            [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
+        ),
+        (
+            [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+            [[0.14, 0.25, 0.33], [0.57, 0.63, 0.66], [1.0, 1.0, 1.0]]
+        )
     ])
+def test_numpy_normalise(test, expected):
+    """Test normalisation works for numpy arrays"""
+    from catchment.models import data_normalise
+    npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
 ~~~
 {: .language-python}
 
 Running the tests now from the command line results in the following assertion error, due to the division by zero as we predicted.
 
 ~~~
-E           AssertionError:
-E           Arrays are not almost equal to 2 decimals
-E
-E           x and y nan location mismatch:
-E            x: array([[nan, nan, nan],
-E                  [nan, nan, nan],
-E                  [nan, nan, nan]])
-E            y: array([[0, 0, 0],
-E                  [0, 0, 0],
-E                  [0, 0, 0]])
+E       AssertionError: 
+E       Arrays are not almost equal to 2 decimals
+E       
+E       x and y nan location mismatch:
+E        x: array([[nan, nan, nan],
+E              [nan, nan, nan],
+E              [nan, nan, nan]])
+E        y: array([[0., 0., 0.],
+E              [0., 0., 0.],
+E              [0., 0., 0.]])
 
-tests/test_models.py:88: AssertionError
+tests/test_models.py:160: AssertionError
 ~~~
 {: .output}
 
@@ -265,24 +332,21 @@ Helpfully, you will also notice that NumPy also provides a run-time warning for 
 ~~~
 {: .output}
 
-How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0. We can also silence the run-time warning using
-[`np.errstate`](https://numpy.org/doc/stable/reference/generated/numpy.errstate.html):
+
+How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0:
 
 ~~~
 ...
-def patient_normalise(data):
+def data_normalise(data):
     """
-    Normalise patient data from a 2D inflammation data array.
+    Normalise any given 2D data array
 
-    NaN values are ignored, and normalised to 0.
-
-    Negative values are rounded to 0.
+    NaN values are replaced with a value of 0
     """
-    max = np.nanmax(data, axis=1)
+    max = np.array(np.max(data, axis=0))
     with np.errstate(invalid='ignore', divide='ignore'):
-        normalised = data / max[:, np.newaxis]
-    normalised[np.isnan(normalised)] = 0
-    normalised[normalised < 0] = 0
+        normalised = data / max[np.newaxis, :]
+    normalised[np.isnan(normalised)] = 0.0
     return normalised
 ...
 ~~~
@@ -290,7 +354,7 @@ def patient_normalise(data):
 
 > ## Exercise: Exploring Tests for Edge Cases
 >
-> Think of some more suitable edge cases to test our `patient_normalise()` function and add them to the parametrised tests. After you have finished remember to commit your changes.
+> Think of some more suitable edge cases to test our `data_normalise()` function and add them to the parametrised tests. Remember to build tests for the functionality we want from the function - it does not matter at the moment if some of the tests fail. After you have finished remember to commit your changes.
 >
 > > ## Possible Solution
 > > ~~~
@@ -311,21 +375,21 @@ def patient_normalise(data):
 > >         ),
 > >         (
 > >             [[1, 2, 3], [4, 5, float('nan')], [7, 8, 9]],
-> >             [[0.33, 0.67, 1], [0.8, 1, 0], [0.78, 0.89, 1]],
+> >             [[0.14, 0.25, 0.33], [0.57, 0.63, 0.0], [1.0, 1.0, 1.0]],
 > >         ),
 > >         (
 > >             [[-1, 2, 3], [4, 5, 6], [7, 8, 9]],
-> >             [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
+> >             [[0.0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
 > >         ),
 > >         (
 > >             [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 > >             [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
 > >         )
 > >     ])
-> > def test_patient_normalise(test, expected):
-> >     """Test normalisation works for arrays of one and positive integers."""
-> >     from inflammation.models import patient_normalise
-> >     npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+> > def test_numpy_normalise(test, expected):
+> >     """Test normalisation works for numpy arrays of one and positive integers."""
+> >     from catchment.models import data_normalise
+> >     npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -337,29 +401,29 @@ def patient_normalise(data):
 
 ## Defensive Programming
 
-In the previous section, we made a few design choices for our `patient_normalise` function:
+In the previous section, we made a few design choices for our `data_normalise` function:
 
-1. We are implicitly converting any `NaN` and negative values to 0,
+1. We are implicitly converting any `NaN`,
 2. Normalising a constant 0 array of inflammation results in an identical array of 0s,
 3. We don't warn the user of any of these situations.
 
-This could have be handled differently. We might decide that we do not want to silently make these changes to the data, but instead to explicitly check that the input data satisfies a given set of assumptions (e.g. no negative values) and raise an error if this is not the case. Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
+This could have be handled differently. We might decide that we do not want to silently make these changes to the data, but instead to explicitly check that the input data satisfies a given set of assumptions (e.g. no strings) and raise an error if this is not the case. Then we can proceed with the normalisation, confident that our normalisation function will work correctly.
 
 Checking that input to a function is valid via a set of preconditions is one of the simplest forms of
 **defensive programming** which is used as a way of avoiding potential errors.
 Preconditions are checked at the beginning of the function to make sure that all assumptions are satisfied.
 These assumptions are often based on the *value* of the arguments, like we have already discussed.
 However, in a dynamic language like Python one of the more common preconditions is to check that the arguments of a
-function are of the correct *type*. Currently there is nothing stopping someone from calling `patient_normalise`
-with a string, a dictionary, or another object that is not an `ndarray`.
+function are of the correct *type*. Currently there is nothing stopping someone from calling `data_normalise`
+with a string, a dictionary, or another object that is not a `pandas.DataFrame` or `numpy.ndarray`.
 
-As an example, let us change the behaviour of the `patient_normalise()` function to raise an error on negative
-inflammation values. Edit the `inflammation/models.py` file, and add a precondition check to the beginning of the `patient_normalise()` function like so:
+As an example, let us change the behaviour of the `data_normalise()` function to raise an error on negative
+inflammation values. Edit the `catchment/models.py` file, and add a precondition check to the beginning of the `data_normalise()` function like so:
 
 ~~~
 ...
     if np.any(data < 0):
-        raise ValueError('Inflammation values should not be negative')
+        raise ValueError('Measurement values should not be negative')
 ...
 ~~~
 {: .language-python}
@@ -384,14 +448,14 @@ library and is used to indicate that the function received an argument of the ri
             None,
         ),
     ])
-def test_patient_normalise(test, expected, expect_raises):
+def test_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers."""
-    from inflammation.models import patient_normalise
+    from catchment.models import data_normalise
     if expect_raises is not None:
         with pytest.raises(expect_raises):
-            npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+            npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
     else:
-        npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+        npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
 ~~~
 {: .language-python}
 
@@ -399,7 +463,7 @@ Be sure to commit your changes so far and push them to GitHub.
 
 > ## Optional Exercise: Add a Precondition to Check the Correct Type and Shape of Data
 >
-> Add preconditions to check that data is an `ndarray` object and that it is of the correct shape.
+> Add preconditions to check that data is a `DataFrame` or `ndarray` object and that it is of the correct shape.
 > Add corresponding tests to check that the function raises the correct exception.
 > You will find the Python function [`isinstance`](https://docs.python.org/3/library/functions.html#isinstance)
 > useful here, as well as the Python exception [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError).
@@ -411,25 +475,25 @@ Be sure to commit your changes so far and push them to GitHub.
 > >
 > > ~~~
 > > ...
-> > def patient_normalise(data):
+> > def data_normalise(data):
 > >     """
-> >     Normalise patient data between 0 and 1 of a 2D inflammation data array.
-> >
-> >     Any NaN values are ignored, and normalised to 0
-> >
+> >     Normalise any given 2D data array
+> >     
+> >     NaN values are replaced with a value of 0
+> >     
 > >     :param data: 2D array of inflammation data
 > >     :type data: ndarray
 > >
 > >     """
-> >     if not isinstance(data, np.ndarray):
-> >         raise TypeError('data input should be ndarray')
+> >     if not isinstance(data, np.ndarray) or not isinstance(data, pd.DataFrame):
+> >         raise TypeError('data input should be DataFrame or ndarray')
 > >     if len(data.shape) != 2:
-> >         raise ValueError('inflammation array should be 2-dimensional')
+> >         raise ValueError('data array should be 2-dimensional')
 > >     if np.any(data < 0):
-> >         raise ValueError('inflammation values should be non-negative')
-> >     max = np.nanmax(data, axis=1)
+> >         raise ValueError('Measurement values should be non-negative')
+> >     max = np.nanmax(data, axis=0)
 > >     with np.errstate(invalid='ignore', divide='ignore'):
-> >         normalised = data / max[:, np.newaxis]
+> >         normalised = data / max[np.newaxis, :]
 > >     normalised[np.isnan(normalised)] = 0
 > >     return normalised
 > > ...
@@ -459,16 +523,16 @@ Be sure to commit your changes so far and push them to GitHub.
 > >             None,
 > >         )
 > >     ])
-> > def test_patient_normalise(test, expected, expect_raises):
+> > def test_data_normalise(test, expected, expect_raises):
 > >     """Test normalisation works for arrays of one and positive integers."""
-> >     from inflammation.models import patient_normalise
+> >     from catchment.models import data_normalise
 > >     if isinstance(test, list):
 > >         test = np.array(test)
 > >     if expect_raises is not None:
 > >         with pytest.raises(expect_raises):
-> >             npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
+> >             npt.assert_almost_equal(data_normalise(test), np.array(expected), decimal=2)
 > >     else:
-> >         npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
+> >         npt.assert_almost_equal(data_normalise(test), np.array(expected), decimal=2)
 > > ...
 > > ~~~
 > >
@@ -484,8 +548,8 @@ If you do the challenge, again, be sure to commit your changes and push them to 
 You should not take it too far by trying to code preconditions for every conceivable eventuality.
 You should aim to strike a balance between making sure you secure your function against incorrect use,
 and writing an overly complicated and expensive function that handles cases that are likely never going to occur.
-For example, it would be sensible to validate the shape of your inflammation data array when it is actually read
-from the csv file (in `load_csv`), and therefore there is no reason to test this again in `patient_normalise`.
+For example, it would be sensible to validate the shape of your measurement data array when it is actually read
+from the csv file (in `load_csv`), and therefore there is no reason to test this again in `data_normalise`.
 You can also decide against adding explicit preconditions in your code, and instead state the assumptions and
 limitations of your code for users of your code in the docstring and rely on them to invoke your code correctly.
 This approach is useful when explicitly checking the precondition is too costly.
@@ -495,28 +559,28 @@ This approach is useful when explicitly checking the precondition is too costly.
 Let's re-run Pylint over our project after having added some more code to it. From the project root do:
 
 ~~~
-$ pylint inflammation
+$ pylint catchment
 ~~~
 {: .language-bash}
 
 You may see something like the following in Pylint's output:
 
 ~~~
-************* Module inflammation.models
+************* Module catchment.models
 ...
-inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
+catchment/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
 ...
 ~~~
 {: .language-bash}
 
-The above output indicates that by using the local variable called `max` it the `patient_normalise` function, 
+The above output indicates that by using the local variable called `max` it the `data_normalise` function, 
 we have redefined a built-in Python function called `max`. This isn't a good idea and may have some undesired 
 effects (e.g. if you redefine a built-in name in a global scope you may cause yourself some trouble 
 which may be difficult to trace).
 
 > ## Exercise: Fix Code Style Errors
 >
-> Rename our local variable `max` to something else (e.g. call it `max_data`), then rerun your tests and 
+> Rename our local variable `max` to something else (e.g. call it `max`), then rerun your tests and 
 > commit these latest changes and 
 > push them to GitHub using our usual feature branch workflow. Make sure your `develop` and `main` branches are up to date.
 {: .challenge}
@@ -529,7 +593,7 @@ For example, to add it to GitHub Actions we can add the following step to our `s
 ...
     - name: Check style with Pylint
       run: |
-        python3 -m pylint --fail-under=0 --reports=y inflammation
+        python3 -m pylint --fail-under=0 --reports=y catchment
 ...
 ~~~
 {: .language-bash}
