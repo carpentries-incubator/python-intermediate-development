@@ -299,6 +299,7 @@ class Site:
 ~~~
 from catchment.models import Site
 import pandas as pd
+import datetime
 
 FP35 = Site('FP35')
 print(FP35)
@@ -459,6 +460,7 @@ class Site:
 ~~~
 from catchment.models import Site
 import pandas as pd
+import datetime
 
 PL23 = Site('PL23')
 
@@ -681,6 +683,7 @@ class Site(Location):
 ~~~
 from catchment.models import Site
 import pandas as pd
+import datetime
 
 FP23 = Site('FP23')
 
@@ -733,20 +736,73 @@ The order in which it does this search is known as the **method resolution order
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Location.__init__` requires.
 This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Location` must have a name, before we can properly initialise a `Site` model with the corresponding measurement data.
 
+> ## Geospatial Data
+>
+> The information that you have been given for the project includes the geographical 
+> locations for the measurement sites, as well as the geospatial extent of the catchment
+> areas. The measurement site locations are listed as single longitude / latitude points,
+> while the catchment areas are defined using shape files (which are the files with 
+> `.shp` suffixes in the data directory). 
+>
+> A colleague has shared some example code with you, using `GeoPandas` to create and work with geographic point and area objects.
+>
+> To read a geographic shape file (which will have a `.shp` suffix) use the `read_file` function:
+> ~~~
+> import geopandas as gpd
+> 
+> area = gpd.read_file('data/catchment_shapefile.shp')
+> type(area)
+> ~~~
+> {: .language-python}
+> ~~~
+> geopandas.geodataframe.GeoDataFrame
+> ~~~
+> {: .output}
+> To create a geographic point object use the `points_from_xy` function, noting that longitude and latitude data is expected to be in list form, and will be returned as an array of points:
+> ~~~
+> import geopandas as gpd
+> longitude = 0
+> latitude = 52
+> points = gpd.points_from_xy([longitude], [latitude], crs='EPSG:4326')
+> type(points)
+> type(points[0])
+> ~~~
+> {: .language-python}
+> ~~~
+> geopandas.array.GeometryArray
+> shapely.geometry.point.Point
+> ~~~
+> {: .output}
+>
+> And to find out if the point is within the area defined by the shapefile you can either use the `within` function that is built into the Point object, or the `contains` function which is built into the GeoDataFrame object:
+> ~~~
+> points.within(area.geometry[0])
+>
+> area.contains(points[0])
+> ~~~
+> {: .language-python}
+> ~~~
+> True
+> True
+> ~~~
+> {: .output}
+{: .callout}
+
+
 > ## Exercise: A Model Site
 >
 > Let's use what we have learnt in this episode and combine it with what we have learnt on 
 > [software requirements](../31-software-requirements/index.html) to formulate and implement a 
 > [few new solution requirements](../31-software-requirements/index.html#exercise-new-solution-requirements)
-> to extend the model layer of our clinical trial system.
+> to extend the model layer of our measurement campaign system.
 >
 > Let's can start with extending the system such that there must be a `Catchment` class to hold the data representing a single catchment, which:
 >   - must have a `name` attribute
->   - must have a list of sites that are within this catchment area.
+>   - must have a dictionary of sites that are within this catchment area.
 >
-> In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a clinical trial, what else might we want to know?
+> In addition to these, try to think of an extra feature you could add to the models which would be useful for managing a dataset like this - imagine we're running a field measurement campaign, what else might we want to know?
 > Try using Test Driven Development for any features you add: write the tests first, then add the feature.
-> The tests have been started for you in `tests/test_patient.py`, but you will probably want to add some more.
+> The tests have been started for you in `tests/test_sites.py`, but you will probably want to add some more.
 >
 > Once you've finished the initial implementation, do you have much duplicated code?
 > Is there anywhere you could make better use of composition or inheritance to improve your implementation?
@@ -757,96 +813,114 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > > One example solution is shown below. You may start by writing some tests (that will initially fail), and then 
 > > develop the code to satisfy the new requirements and pass the tests.
 > > ~~~ python
-> > # file: tests/test_patient.py   
-> > """Tests for the Patient model."""    
+> > # file: tests/test_sites.py   
+> > """Tests for the Site model."""    
 > >
-> > def test_create_patient():
-> >     """Check a patient is created correctly given a name."""
-> >     from inflammation.models import Patient
-> >     name = 'Alice'
-> >     p = Patient(name=name)
+> > def test_create_site():
+> >     """Check a site is created correctly given a name."""
+> >     from catchment.models import Site
+> >     name = 'PL23'
+> >     p = Site(name=name,longitude=None,latitude=None)
 > >     assert p.name == name
 > >
-> > def test_create_doctor():
-> >     """Check a doctor is created correctly given a name."""
-> >     from inflammation.models import Doctor
-> >     name = 'Sheila Wheels'
-> >     doc = Doctor(name=name)
-> >     assert doc.name == name
+> > def test_create_catchment():
+> >     """Check a catchment is created correctly given a name."""
+> >     from catchment.models import Catchment
+> >     name = 'Spain'
+> >     catchment = Catchment(name=name)
+> >     assert catchment.name == name
 > > 
-> > def test_doctor_is_person():
-> >     """Check if a doctor is a person."""
-> >     from inflammation.models import Doctor, Person
-> >     doc = Doctor("Sheila Wheels")
-> >     assert isinstance(doc, Person)
+> > def test_catchment_is_location():
+> >     """Check if a catchment is a location."""
+> >     from catchment.models import Catchment, Location
+> >     catchment = Catchment("Spain")
+> >     assert isinstance(catchment, Location)
 > >
-> > def test_patient_is_person():
-> >     """Check if a patient is a person. """
-> >     from inflammation.models import Patient, Person
-> >     alice = Patient("Alice")
-> >     assert isinstance(alice, Person)
+> > def test_site_is_location():
+> >     """Check if a site is a location."""
+> >     from catchment.models import Site, Location
+> >     PL23 = Site("PL23")
+> >     assert isinstance(PL23, Location)
 > >
-> > def test_patients_added_correctly():
-> >     """Check patients are being added correctly by a doctor. """
-> >     from inflammation.models import Doctor, Patient
-> >     doc = Doctor("Sheila Wheels")
-> >     alice = Patient("Alice")
-> >     doc.add_patient(alice)
-> >     assert doc.patients is not None
-> >     assert len(doc.patients) == 1
+> > def test_sites_added_correctly():
+> >     """Check sites are being added correctly by a catchment. """
+> >     from catchment.models import Catchment, Site
+> >     catchment = Catchment("Spain")
+> >     PL23 = Site("PL23")
+> >     catchment.add_site(PL23)
+> >     assert catchment.sites is not None
+> >     assert len(catchment.sites) == 1
 > >
-> > def test_no_duplicate_patients():
-> >     """Check adding the same patient to the same doctor twice does not result in duplicates. """
-> >     from inflammation.models import Doctor, Patient
-> >     doc = Doctor("Sheila Wheels")
-> >     alice = Patient("Alice")
-> >     doc.add_patient(alice)
-> >     doc.add_patient(alice)
-> >     assert len(doc.patients) == 1   
+> > def test_no_duplicate_sites():
+> >     """Check adding the same site to the same catchment twice does not result in duplicates. """
+> >     from catchment.models import Catchment, Site
+> >     catchment = Catchment("Sheila Wheels")
+> >     PL23 = Site("PL23")
+> >     catchment.add_site(PL23)
+> >     catchment.add_site(PL23)
+> >     assert len(catchment.sites) == 1   
 > > ...
 > > ~~~    
 > > {: .language-python} 
 > > 
 > > ~~~ python
 > > # file: inflammation/models.py
+> > import geopandas as gpd
 > > ...
-> > class Person:
-> >     """A person."""
+> > class Location:
+> >     """A Location."""
 > >     def __init__(self, name):
 > >         self.name = name
 > >
 > >     def __str__(self):
 > >         return self.name
 > >
-> > class Patient(Person):
-> >     """A patient in an inflammation study."""
-> >     def __init__(self, name):
+> > class Site(Location):
+> >     """A measurement site in the study."""
+> >     def __init__(self, name, longitude = None, latitude = None):
 > >         super().__init__(name)
-> >         self.observations = []
+> >         self.measurements = {}
+> >         self.location = gpd.points_from_xy([longitude], [latitude], crs='EPSG:4326')
 > >
-> >     def add_observation(self, value, day=None):
-> >         if day is None:
-> >             try:
-> >                 day = self.observations[-1].day + 1
-> >             except IndexError:
-> >                 day = 0
-> >         new_observation = Observation(day, value)
-> >         self.observations.append(new_observation)
->         return new_observation
+> >    def add_measurement(self, measurement_id, data, units=None):    
+> >        if measurement_id in self.measurements.keys():
+> >            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+> >     
+> >        else:
+> >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+> >    
+> >    @property
+> >    def all_measurements(self):
+> >        return pd.concat(
+> >            [self.measurements[key].df.rename({0:key}, axis='columns') 
+> >                               for key in self.measurements.keys()],
+> >            axis=1)
 > >
-> > class Doctor(Person):
-> >     """A doctor in an inflammation study."""
-> >     def __init__(self, name):
+> >
+> > class Catchment(Location):
+> >     """A catchment area in the study."""
+> >     def __init__(self, name, shapefile = None):
 > >         super().__init__(name)
-> >         self.patients = []
+> >         self.sites = {}
+> >         if shapefile:
+> >             self.area = gpd.read_file(shapefile)
+> >         else:
+> >             self.area = None
 > >
-> >     def add_patient(self, new_patient):
-> >         # A crude check by name if this patient is already looked after
-> >         # by this doctor before adding them
-> >         for patient in self.patients:
-> >             if patient.name == new_patient.name:
+> >
+> >     def add_site(self, new_site):
+> >         # Check to ensure site is within catchment, if catchment area has been defined 
+> >         if self.area and not new_site.location.within(self.area.geometry[0]):
+> >             print(f'{new_site.name} not within {self.name} catchment')
+> >             return        
+> >
+> >         # Basic check to see if the site has already been added to the catchment area 
+> >         for site in self.sites:
+> >             if site == new_site.name:
+> >                 print(f'{new_site.name} has already been added to site list')
 > >                 return
-> >         self.patients.append(new_patient)
+> >
+> >         self.sites[new_site.name] = new_site
 > > ...
 > > ~~~    
 > {: .language-python} 
