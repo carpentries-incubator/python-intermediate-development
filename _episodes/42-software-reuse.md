@@ -76,7 +76,7 @@ In the root of your repository create a replacement `README.md` file. The `.md` 
 Let's start writing `README.md` using a text editor of your choice and add the following line.
 
 ~~~
-# Inflam
+# RiverCatch
 ~~~
 {: .language-markdown}
 
@@ -85,23 +85,23 @@ So here, we're giving our software a name. Ideally something unique, short, snap
 We should also add a short description underneath the title.
 
 ~~~
-# Inflam
-Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
+# RiverCatch
+RiverCatch is a data management system written in Python that manages measurement data collected in river catchment surveys and campaigns.
 ~~~
 {: .language-markdown}
 
 To give readers an idea of the software's capabilities, let's add some key features next:
 
 ~~~
-# Inflam
-Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
+# RiverCatch
+RiverCatch is a data management system written in Python that manages measurement data collected in river catchment surveys and campaigns.
 
 ## Main features
 Here are some key features of Inflam:
 
-- Provide basic statistical analyses over clinical trial data
-- Ability to work on trial data in Comma-Separated Value (CSV) format
-- Generate plots of trial data
+- Provide basic statistical analyses of data
+- Ability to work on measurement data in Comma-Separated Value (CSV) format
+- Generate plots of measurement data
 - Analytical functions and views can be easily extended based on its Model-View-Controller architecture
 ~~~
 {: .language-markdown}
@@ -109,21 +109,23 @@ Here are some key features of Inflam:
 As well as knowing what the software aims to do and its key features, it's very important to specify what other software and related dependencies are needed to use the software (typically called `dependencies` or `prerequisites`):
 
 ~~~
-# Inflam
-Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
+# RiverCatch
+RiverCatch is a data management system written in Python that manages measurement data collected in river catchment surveys and campaigns.
 
 ## Main features
 Here are some key features of Inflam:
 
-- Provide basic statistical analyses over clinical trial data
-- Ability to work on trial data in Comma-Separated Value (CSV) format
-- Generate plots of trial data
+- Provide basic statistical analyses of data
+- Ability to work on measurement data in Comma-Separated Value (CSV) format
+- Generate plots of measurement data
 - Analytical functions and views can be easily extended based on its Model-View-Controller architecture
 
 ## Prerequisites
 Inflam requires the following Python packages:
 
 - [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
+- [Pandas](https://pandas.pydata.org/) - makes use of Panda's dataframes
+- [GeoPandas](https://geopandas.org/) - makes use of GeoPanda's spatial operations
 - [Matplotlib](https://matplotlib.org/stable/index.html) - uses Matplotlib to generate statistical plots
 
 The following optional packages are required to run Inflam's unit tests:
@@ -135,11 +137,11 @@ The following optional packages are required to run Inflam's unit tests:
 
 Here we're making use of Markdown links, with some text describing the link within `[]` followed by the link itself within `()`.
 
-One really neat feature - and a common practice - of using many CI infrastructures is that we can include the status of running recent tests within our README file. Just below the `# Inflam` title on our README.md file, add the following (replacing `<your_github_username>` with your own:
+One really neat feature - and a common practice - of using many CI infrastructures is that we can include the status of running recent tests within our README file. Just below the `# RiverCatch` title on our README.md file, add the following (replacing `<your_github_username>` with your own:
 
 ~~~
-# Inflam
-![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
+# RiverCatch
+![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-catchment/workflows/CI/badge.svg?branch=main)
 ...
 ~~~
 {: .language-markdown}
