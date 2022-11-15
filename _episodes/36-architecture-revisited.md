@@ -21,64 +21,67 @@ We should reuse these established ideas where we can, but we don't need to stick
 
 In this episode we'll be taking our Object Oriented code from the previous episode and integrating it into our existing MVC pattern.
 
-Let's start with adding a view that allows us to see the data for a single patient.
-First, we need to add the code for the view itself and make sure our `Patient` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
-Note that your Patient class may look very different now, so adapt this example to fit what you have.
+Let's start with adding a view that allows us to see the data for a single site.
+First, we need to add the code for the view itself and make sure our `Site` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
+Note that your Site class may look very different now, so adapt this example to fit what you have.
 
 ~~~ python
-# file: inflammation/views.py
+# file: catchment/views.py
 
 ...
 
-def display_patient_record(patient):
-    """Display data for a single patient."""
-    print(patient.name)
-    for obs in patient.observations:
-        print(obs.day, obs.value)
+def display_measurement_record(site):
+    """Display each dataset for a single site."""
+    print(site.name)
+    for measurement in site.measurements:
+        print(site.measurements[measurement].df.rename({0:measurement},axis='columns'))
 ~~~
 {: .language-python}
 
 ~~~ python
-# file: inflammation/models.py
+# file: catchment/models.py
 
 ...
 
-class Observation:
-    def __init__(self, day, value):
-        self.day = day
-        self.value = value
-
+class MeasurementSet:
+    def __init__(self, df, name, units):
+        self.df = df
+        self.name = name
+        self.units = units
+    
     def __str__(self):
-        return self.value
+        if self.units:
+            return f"{self.name} ({self.units})"
+        else:
+            return self.name
 
-class Person:
+class Location:
     def __init__(self, name):
         self.name = name
 
     def __str__(self):
         return self.name
 
-class Patient(Person):
-    """A patient in an inflammation study."""
-    def __init__(self, name, observations=None):
+class Site(Location):
+    def __init__(self,name):
         super().__init__(name)
+        self.measurements = {}
+    
+    def add_measurement(self, measurement_id, data, units=None):    
+        if measurement_id in self.measurements.keys():
+            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+    
+        else:
+            self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+    
+    @property
+    def all_measurements(self):
+        return pd.concat(
+            [self.measurements[key].df.rename({0:key}, axis='columns') 
+                               for key in self.measurements.keys()],
+            axis=1)
 
-        self.observations = []
-        if observations is not None:
-            self.observations = observations
 
-    def add_observation(self, value, day=None):
-        if day is None:
-            try:
-                day = self.observations[-1].day + 1
-
-            except IndexError:
-                day = 0
-
-        new_observation = Observation(value, day)
-
-        self.observations.append(new_observation)
-        return new_observation
 ~~~
 {: .language-python}
 
@@ -86,14 +89,14 @@ Now we need to make sure people can call this view - that means connecting it to
 The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
 
 ~~~
-# file: inflammation-analysis.py
+# file: catchment-analysis.py
 
 #!/usr/bin/env python3
-"""Software for managing patient data in our imaginary hospital."""
+"""Software for managing measurement data for our catchment project."""
 
 import argparse
 
-from inflammation import models, views
+from catchment import models, views
 
 
 def main(args):
