@@ -54,7 +54,7 @@ $ which poetry
 {: .language-bash}
 
 ~~~
-/home/alex/python-intermediate-inflammation/venv/bin/poetry
+/home/<user>/python-intermediate-rivercatchment/venv/bin/poetry
 ~~~
 {: .output}
 
@@ -90,9 +90,9 @@ $ poetry init
 ~~~
 This command will guide you through creating your pyproject.toml config.
 
-Package name [example]:  inflammation
+Package name [example]:  catchment
 Version [0.1.0]: 1.0.0
-Description []:  Analyse patient inflammation data
+Description []:  Analyse river catchment project data
 Author [None, n to skip]: James Graham <J.Graham@software.ac.uk>
 License []:  MIT
 Compatible Python versions [^3.8]: ^3.8
@@ -102,9 +102,9 @@ Would you like to define your development dependencies interactively? (yes/no) [
 Generated file
 
 [tool.poetry]
-name = "inflammation"
+name = "catchment"
 version = "1.0.0"
-description = "Analyse patient inflammation data"
+description = "Analyse river catchment project data"
 authors = ["James Graham <J.Graham@software.ac.uk>"]
 license = "MIT"
 
@@ -122,9 +122,9 @@ Do you confirm generation? (yes/no) [yes] yes
 ~~~
 {: .output}
 
-We've called our package "inflammation" in the setup above, instead of "inflammation-analysis" like we did in our previous `setup.py`.
+We've called our package "catchment" in the setup above, instead of "catchment-analysis" like we did in our previous `setup.py`.
 This is because Poetry will automatically find our code if the name of the distributable package matches the name of our module package.
-If we wanted our distributable package to have a different name, for example "inflammation-analysis", we could do this by explicitly listing the module packages to bundle - see [the Poetry docs on packages](https://python-poetry.org/docs/pyproject/#packages) for how to do this.
+If we wanted our distributable package to have a different name, for example "catchment-analysis", we could do this by explicitly listing the module packages to bundle - see [the Poetry docs on packages](https://python-poetry.org/docs/pyproject/#packages) for how to do this.
 
 ### Project Dependencies
 
@@ -132,7 +132,7 @@ Previously, we looked at using a `requirements.txt` file to define the dependenc
 Here, Poetry takes inspiration from package managers in other languages, particularly NPM (Node Package Manager), often used for JavaScript development.
 
 Tools like Poetry and NPM understand that there are two different types of dependency: runtime dependencies and development dependencies.
-Runtime dependencies are those dependencies that need to be installed for our code to run, like NumPy.
+Runtime dependencies are those dependencies that need to be installed for our code to run, like NumPy and Pandas.
 Development dependencies are dependencies which are an essential part of your development process for a project, but are not required to run it.
 Common examples of developments dependencies are linters and test frameworks, like `pylint` or `pytest`.
 
@@ -142,7 +142,7 @@ Because we've already activated a virtual environment, Poetry will use ours inst
 The `pyproject.toml` file has two separate lists, allowing us to distinguish between runtime and development dependencies.
 
 ~~~
-$ poetry add matplotlib numpy
+$ poetry add matplotlib numpy pandas geopandas
 $ poetry add --dev pylint
 $ poetry install
 ~~~
@@ -162,7 +162,7 @@ Have a look at the `pyproject.toml` file again to see what's changed.
 
 The final preparation we need to do is to make sure that our code is organised in the recommended structure.
 This is the Python module structure - a directory containing an `__init__.py` and our Python source code files.
-Make sure that the name of this Python package (`inflammation` - unless you've renamed it) matches the name of your distributable package in `pyproject.toml` unless you've chosen to explicitly list the module packages.
+Make sure that the name of this Python package (`catchment` - unless you've renamed it) matches the name of your distributable package in `pyproject.toml` unless you've chosen to explicitly list the module packages.
 
 By convention distributable package names use hyphens, whereas module package names use underscores.
 While we could choose to use underscores in a distributable package name, we cannot use hyphens in a module package name, as Python will interpret them as a minus sign in our code when we try to import them.
@@ -181,12 +181,12 @@ This is the file that `pip` uses to distribute and install Python packages, so t
 Now if we gave this wheel file to someone else, they could install it using `pip` - you don't need to run this command yourself, you've already installed it using `poetry install` above.
 
 ~~~
-$ pip3 install dist/inflammation*.whl
+$ pip3 install dist/catchment*.whl
 ~~~
 {: .language-bash}
 
 The star in the line above is a **wildcard**, that means Bash should use any filenames that match that pattern, with any number of characters in place for the star.
-We could also rely on Bash's autocomplete functionality and type `dist/inflammation`, then hit the <kbd>Tab</kbd> key if we've only got one version built.
+We could also rely on Bash's autocomplete functionality and type `dist/catchment`, then hit the <kbd>Tab</kbd> key if we've only got one version built.
 
 After we've been working on our code for a while and want to publish an update, we just need to update the version number in the `pyproject.toml` file (using [SemVer](https://semver.org/) perhaps), then use Poetry to build and publish the new version.
 If we don't increment the version number, people might end up using this version, even though they thought they were using the previous one.
