@@ -51,8 +51,9 @@ To help with the development of the analysis software, you will use baseline dat
 > website linked above. 
 {: .callout}
 
-The project is not finished and contains some errors. You will be working on your own and in
-collaboration with others to fix and build on top of the existing code during the course.
+The project is not finished; it contains some errors and currently can only read the rainfall
+data files. You will be working on your own and in collaboration with others to fix and build 
+on top of the existing code during the course.
 
 To start working on the project, you will first create a copy of the software project template 
 repository from GitHub within your own GitHub account and then obtain a local copy of the project on
@@ -131,13 +132,12 @@ Directory `data` contains several files with rain and river data (along with som
 
 ~~~
 $ ls -l data
-total 264
--rw-r--r--  1 carpentry  users    1190 25 Jun 13:13 README.md
--rw-r--r--  1 carpentry  users  243109 25 Jun 13:13 rain_data_2015-12.csv
--rw-r--r--  1 carpentry  users  721713 25 Jun 13:13 river_data_2015-12.csv
--rw-r--r--  1 carpentry  users      12 25 Jun 13:13 small-01.csv
--rw-r--r--  1 carpentry  users      15 25 Jun 13:13 small-02.csv
--rw-r--r--  1 carpentry  users      12 25 Jun 13:13 small-03.csv
+total 1912
+-rw-r--r--  1 carpentry  users    2874 15 Nov 14:30 LOCAR_Site_Information.csv
+-rw-r--r--  1 carpentry  users    1360 15 Nov 15:41 README.md
+-rw-r--r--  1 carpentry  users  243109 28 Sep 15:30 rain_data_2015-12.csv
+drwxr-xr-x 17 carpentry  users     544 15 Nov 15:36 river_catchments
+-rw-r--r--  1 carpentry  users  721713 28 Sep 15:30 river_data_2015-12.csv
 ~~~
 {: .language-bash}
 
