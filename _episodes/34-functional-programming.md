@@ -109,94 +109,6 @@ Finally, **Parallelisability** - the ability for operations to be performed at t
 If we know that a function is fully pure and we've got a lot of data, we can often improve performance by distributing the computation across multiple processors.
 The output of a pure function depends only on its input, so we'll get the right result regardless of when or where the code runs.
 
-> ## Separating out Time
->
-> The subroutine that reads the CSV files is a pure function, it is given a filename, 
-> and returns a `pandas` dataframe. However it carries out several operations on the data
-> before returning it, and this reduces the testability of the code within this 
-> function. To improve the testability of this code it would be helpful to separate out 
-> complex transformations in the function to their own, pure, function.
->
-> To this end, create a function, called `format_date`, which will read the fresh dataset
-> and return a dataset in which the contents of the `Date` column has been converted to 
-> `pandas` datetime objects. Then replace the equivalent code in the `read_variable_from_csv`
-> function with a call to this new function. 
-> 
-> ~~~
-> # catchment/models.py
->
-> import pandas as pd
-> ...
-> def read_variable_from_csv(filename):
->     """Reads a named variable from a CSV file, and returns a
->     pandas dataframe containing that variable. The CSV file must contain
->     a column of dates, a column of site ID's, and (one or more) columns
->     of data - only one of which will be read.
->     :param filename: Filename of CSV to load
->     :return: 2D array of given variable. Index will be dates,
->              Columns will be the individual sites
->     """
->     with open(filename) as f:
->         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
-> 
->     dataset = dataset.rename({'Date':'OldDate'}, axis='columns')
->     dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
->     dataset = dataset.drop('OldDate', axis='columns')
-> 
->     newdataset = pd.DataFrame(index=dataset['Date'].unique())
-> 
->     for site in dataset['Site'].unique():
->         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall (mm)"]
-> 
->     newdataset = newdataset.sort_index()
-> 
->     return newdataset
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > A solution is given below. Note that we have renamed `dataset` to `ds_internal` within
-> > the function, which helps to ensure that the function is pure.
-> > ~~~
-> > # catchment/models.py
-> >
-> > import pandas as pd
-> > ...
-> > def format_date(dataset):
-> >     """Converts the Date column in the dataset to pandas datetime objects"""
-> >     ds_internal = dataset.rename({'Date':'OldDate'}, axis='columns')
-> >     ds_internal['Date'] = [pd.to_datetime(x,dayfirst=True) for x in ds_internal['OldDate']]
-> >     ds_internal = ds_internal.drop('OldDate', axis='columns')
-> >     return ds_internal
-> > 
-> > def read_variable_from_csv(filename):
-> >     """Reads a named variable from a CSV file, and returns a
-> >     pandas dataframe containing that variable. The CSV file must contain
-> >     a column of dates, a column of site ID's, and (one or more) columns
-> >     of data - only one of which will be read.
-> >     :param filename: Filename of CSV to load
-> >     :return: 2D array of given variable. Index will be dates,
-> >              Columns will be the individual sites
-> >     """
-> >     with open(filename) as f:
-> >         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
-> > 
-> >     dataset = format_date(dataset)
-> > 
-> >     newdataset = pd.DataFrame(index=dataset['Date'].unique())
-> > 
-> >     for site in dataset['Site'].unique():
-> >         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall > (mm)"]
-> > 
-> >     newdataset = newdataset.sort_index()
-> > 
-> >     return newdataset
-> > ~~~
-> > {: .language-python}
-> > Does this make the function more readable to you? And are there any other operations 
-> > within the `read_variable_from_csv` function that you think could be moved to a 
-> > separate pure function, to help with readability and/or testing? 
-> {: .solution}
-{: .challenge}
 
 > ## Everything in Moderation
 >
@@ -379,6 +291,119 @@ Otherwise, we'll probably need to write the reduction operator ourselves - but w
 > {: .output}
 >
 {: .callout}
+
+> ## Comprehensions Applied
+>
+> Within the `read_variable_from_csv` function in the `catchment/models.py` file contains
+> a list comprehension. Can you identify which line of code this is, and work out what it does?
+> > ## Solution
+> >
+> > The list comprehension is this line of code:
+> > ~~~
+> > # catchment/models.py
+> > import pandas as pd
+> > ...
+> > dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
+> > ...
+> > ~~~
+> > {: .language-python}
+> > It iterates over the date strings in the `OldDate` column within the dataframe, 
+> > converts each string to a `pandas` datetime object, and adds these to the dataframe
+> > as the `Date` column.
+> > 
+> {: .solution}
+{: .challenge}
+
+
+> ## Separating out Time
+>
+> The `read_variable_from_csv` function is a pure function, it is given a filename, 
+> and returns a `pandas` dataframe. However it carries out several operations on the data
+> before returning it, and this reduces the testability of the code within this 
+> function. To improve the testability of this code it would be helpful to separate out 
+> complex transformations in the function to their own, pure, function.
+>
+> To this end, create a function, called `format_date`, which will read the fresh dataset
+> and return a dataset in which the contents of the `Date` column has been converted to 
+> `pandas` datetime objects. Then replace the equivalent code in the `read_variable_from_csv`
+> function with a call to this new function. 
+> 
+> ~~~
+> # catchment/models.py
+>
+> import pandas as pd
+> ...
+> def read_variable_from_csv(filename):
+>     """Reads a named variable from a CSV file, and returns a
+>     pandas dataframe containing that variable. The CSV file must contain
+>     a column of dates, a column of site ID's, and (one or more) columns
+>     of data - only one of which will be read.
+>     :param filename: Filename of CSV to load
+>     :return: 2D array of given variable. Index will be dates,
+>              Columns will be the individual sites
+>     """
+>     with open(filename) as f:
+>         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
+> 
+>     dataset = dataset.rename({'Date':'OldDate'}, axis='columns')
+>     dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
+>     dataset = dataset.drop('OldDate', axis='columns')
+> 
+>     newdataset = pd.DataFrame(index=dataset['Date'].unique())
+> 
+>     for site in dataset['Site'].unique():
+>         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall (mm)"]
+> 
+>     newdataset = newdataset.sort_index()
+> 
+>     return newdataset
+> ~~~
+> {: .language-python}
+> > ## Solution
+> > A solution is given below. Note that we have renamed `dataset` to `ds_internal` within
+> > the function, which is not strictly necessary, but helps to ensure that the function is pure.
+> > ~~~
+> > # catchment/models.py
+> >
+> > import pandas as pd
+> > ...
+> > def format_date(dataset):
+> >     """Converts the Date column in the dataset to pandas datetime objects"""
+> >     ds_internal = dataset.rename({'Date':'OldDate'}, axis='columns')
+> >     ds_internal['Date'] = [pd.to_datetime(x,dayfirst=True) for x in ds_internal['OldDate']]
+> >     ds_internal = ds_internal.drop('OldDate', axis='columns')
+> >     return ds_internal
+> > 
+> > def read_variable_from_csv(filename):
+> >     """Reads a named variable from a CSV file, and returns a
+> >     pandas dataframe containing that variable. The CSV file must contain
+> >     a column of dates, a column of site ID's, and (one or more) columns
+> >     of data - only one of which will be read.
+> >     :param filename: Filename of CSV to load
+> >     :return: 2D array of given variable. Index will be dates,
+> >              Columns will be the individual sites
+> >     """
+> >     with open(filename) as f:
+> >         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
+> > 
+> >     dataset = format_date(dataset)
+> > 
+> >     newdataset = pd.DataFrame(index=dataset['Date'].unique())
+> > 
+> >     for site in dataset['Site'].unique():
+> >         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall > (mm)"]
+> > 
+> >     newdataset = newdataset.sort_index()
+> > 
+> >     return newdataset
+> > ~~~
+> > {: .language-python}
+> > Does this make the function more readable to you? And are there any other operations 
+> > within the `read_variable_from_csv` function that you think could be moved to a 
+> > separate pure function, to help with readability and/or testing? 
+> {: .solution}
+{: .challenge}
+
 
 ## Functions as First-Class Objects
 
