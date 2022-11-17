@@ -80,10 +80,10 @@ class Site(Location):
             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
     
     @property
-    def all_measurements(self):
+    def last_measurements(self):
         return pd.concat(
-            [self.measurements[key].series for key in self.measurements.keys()],
-            axis=1)
+            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
+            axis=1).sort_index()
 
 
 ~~~
