@@ -34,7 +34,7 @@ def display_measurement_record(site):
     """Display each dataset for a single site."""
     print(site.name)
     for measurement in site.measurements:
-        print(site.measurements[measurement].df.rename({0:measurement},axis='columns'))
+        print(site.measurements[measurement].series)
 ~~~
 {: .language-python}
 
@@ -44,10 +44,15 @@ def display_measurement_record(site):
 ...
 
 class MeasurementSet:
-    def __init__(self, df, name, units):
-        self.df = df
+    def __init__(self, series, name, units):
+        self.series = series
         self.name = name
         self.units = units
+        self.series.name = self.name
+    
+    def add_measurement(self, data):
+        self.series = pd.concat([self.series,data])
+        self.series.name = self.name
     
     def __str__(self):
         if self.units:
@@ -69,7 +74,7 @@ class Site(Location):
     
     def add_measurement(self, measurement_id, data, units=None):    
         if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+            self.measurements[measurement_id].add_measurement(data)
     
         else:
             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
@@ -77,8 +82,7 @@ class Site(Location):
     @property
     def all_measurements(self):
         return pd.concat(
-            [self.measurements[key].df.rename({0:key}, axis='columns') 
-                               for key in self.measurements.keys()],
+            [self.measurements[key].series for key in self.measurements.keys()],
             axis=1)
 
 
@@ -110,34 +114,34 @@ def main(args):
     if not isinstance(infiles, list):
         infiles = [args.infiles]
 
-    for filename in infiles:
-        inflammation_data = models.load_csv(filename)
+    for filename in in_files:
+        measurement_data = models.read_variable_from_csv(filename)
+
 
         if args.view == 'visualize':
-            view_data = {
-                'average': models.daily_mean(inflammation_data),
-                'max': models.daily_max(inflammation_data),
-                'min': models.daily_min(inflammation_data),
-            }
-
+            view_data = {'daily sum': models.daily_total(measurement_data),
+                         'daily average': models.daily_mean(measurement_data),
+                         'daily max': models.daily_max(measurement_data),
+                         'daily min': models.daily_min(measurement_data)}
+        
             views.visualize(view_data)
 
         elif args.view == 'record':
-            patient_data = inflammation_data[args.patient]
-            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
-            patient = models.Patient('UNKNOWN', observations)
+            measurement_data = measurement_data[args.site]
+            site = models.Site(args.site)
+            site.add_measurement('Rainfall', measurement_data)
 
-            views.display_patient_record(patient)
+            views.display_measurement_record(site)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='A basic patient data management system')
-
+        description='A basic environmental data management system')
+    
     parser.add_argument(
         'infiles',
         nargs='+',
-        help='Input CSV(s) containing inflammation series for each patient')
+        help='Input CSV(s) containing measurement data')
 
     parser.add_argument(
         '--view',
@@ -146,10 +150,10 @@ if __name__ == "__main__":
         help='Which view should be used?')
 
     parser.add_argument(
-        '--patient',
-        type=int,
-        default=0,
-        help='Which patient should be displayed?')
+        '--site',
+        type=str,
+        default=None,
+        help='Which site should be displayed?')
 
     args = parser.parse_args()
 
