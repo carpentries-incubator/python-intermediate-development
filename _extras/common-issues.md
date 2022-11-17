@@ -34,7 +34,24 @@ push a new workflow (when adding the `pytest` action in Section 2) to GitHub:
 The solution is to generate a new token with the correct scope/usage permissions and clear the local 
 credential cache (if that's where the token has been saved). In same cases, simply clearing 
 credential cache was not enough and updating to Git 2.29 was needed.
+ 
+### `Please tell me who you are` Error During First Git Commit
+If you experience the following error during the first Git commit, you may not have configured your identity with 
+Git on your machine:
 
+`fatal: unable to auto-detect email address
+*** Please tell me who you are`
+
+This can be configured from the command line as follows:
+~~~
+$ git config --global user.name "Your Name"
+$ git config --global user.email "name@example.com"
+~~~
+     
+At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so:
+~~~
+$ git config --global core.editor "nano -w"
+~~~
 ## Python, `pip`, `venv` & Installing Packages Issues
 
 ### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 

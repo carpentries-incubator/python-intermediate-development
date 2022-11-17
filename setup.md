@@ -96,6 +96,20 @@ $ git help
 ~~~
 {: .output}
 
+When you use Git on a new computer for the first time, you need to configure a few things:
+
+* your name, 
+* your email address (used to uniquely identify you commit a change),
+* preferred text editor for Git to use (e.g. `nano` or another text editor of your choice),
+* whether you want to use these settings globally (i.e. for every Git project on your machine).
+
+This can be done from the command line as follows:
+~~~
+$ git config --global user.name "Your Name"
+$ git config --global user.email "name@example.com"
+$ git config --global core.editor "nano -w"
+~~~
+
 ### GitHub Account
 For the purposes of the course, you will also need a [GitHub](https://github.com/) account.
 GitHub is a free, online host for Git repositories that you will use during the course to store your code in.
