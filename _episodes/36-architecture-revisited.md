@@ -166,26 +166,27 @@ For the full range of features that we have access to with `argparse` see the [P
 Allowing the user to request a specific view like this is a similar model to that used by the popular Python library Click - if you find yourself needing to build more complex interfaces than this, Click would be a good choice.
 You can find more information in [Click's documentation](https://click.palletsprojects.com/).
 
-For now, we also don't know the names of any of our patients, so we've made it `'UNKNOWN'` until we get more data.
-
 We can now call our program with these extra arguments to see the record for a single patient:
 
 ~~~
-python3 inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
+python3 catchment-analysis.py --view record --site FP35 data/rain_data_2015-12.csv
 ~~~
 {: .language-bash}
 
 ~~~
-UNKNOWN
-0 0.0
-1 0.0
-2 1.0
-3 3.0
-4 1.0
-5 2.0
-6 4.0
-7 7.0
-...
+FP35
+2005-12-01 00:00:00    0.0
+2005-12-01 00:15:00    0.0
+2005-12-01 00:30:00    0.0
+2005-12-01 00:45:00    0.0
+2005-12-01 01:00:00    0.0
+                      ... 
+2005-12-31 22:45:00    0.2
+2005-12-31 23:00:00    0.0
+2005-12-31 23:15:00    0.2
+2005-12-31 23:30:00    0.2
+2005-12-31 23:45:00    0.0
+Name: Rainfall, Length: 2976, dtype: float64
 ~~~
 {: .output}
 
