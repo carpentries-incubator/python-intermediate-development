@@ -287,11 +287,13 @@ class Site:
 
     def add_measurement(self, measurement_id, data):
         if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id] = 
+            self.measurements[measurement_id] = \
                     pd.concat([self.measurements[measurement_id], data])
+            self.measurements[measurement_id].name = measurement_id
         
         else:
             self.measurements[measurement_id] = data
+            self.measurements[measurement_id].name = measurement_id
 
 ~~~
 {: .language-python}
@@ -304,7 +306,7 @@ import datetime
 FP35 = Site('FP35')
 print(FP35)
 
-rainfall_data = pd.DataFrame(
+rainfall_data = pd.Series(
     [0.0,2.0,1.0],
     index=[
         datetime.date(2000,1,1),
@@ -324,12 +326,15 @@ print(FP35.measurements['Rainfall'])
 ~~~
 <__main__.Site object at 0x7fada93d0820>
 dict_keys(['Rainfall'])
-              0
 2000-01-01  0.0
 2000-01-02  2.0
 2000-01-03  1.0
+Name: Rainfall, dtype: float64
 ~~~
 {: .output}
+
+Note here that we have created a `pandas.Series` object, rather than a `pandas.DataFrame` 
+object, to contain our measurement data, and that we are setting the `name` of each series to match the `measurement_id`. DataFrames can be considered to be a collection of series, each containing separate data. Our `Site` object replaces the dataframe for this purpose, later we will show you how to combine the series objects into dataframes again, using the series `name` that we set here.
 
 
 > ## Class and Static Methods
@@ -364,11 +369,13 @@ class Site:
 
     def add_measurement(self, measurement_id, data):
         if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id] = 
+            self.measurements[measurement_id] = \
                     pd.concat([self.measurements[measurement_id], data])
+            self.measurements[measurement_id].name = measurement_id
         
         else:
             self.measurements[measurement_id] = data
+            self.measurements[measurement_id].name = measurement_id
 
     def __str__(self):
         return self.name
@@ -441,6 +448,8 @@ For a more complete list of these special methods, see the [Special Method Names
 The final special type of method we'll introduce is a **property**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 
+For example, we will add a method which will return the last data point in each 
+measurement series, combined into a single dataframe:
 ~~~
 # file: catchment/models.py
 
@@ -448,11 +457,10 @@ class Site:
     ...
 
     @property
-    def all_measurements(self):
+    def last_measurements(self):
         return pd.concat(
-            [self.measurements[key].rename({0:key}, axis='columns') 
-                               for key in self.measurements.keys()],
-            axis=1)
+            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
+            axis=1).sort_index()
 
 ~~~
 {: .language-python}
@@ -464,7 +472,7 @@ import datetime
 
 PL23 = Site('PL23')
 
-riverlevel_data = pd.DataFrame(
+riverlevel_data = pd.Series(
     [34.0,32.0,33.0,31.0],
     index=[
         datetime.date(2000,1,1),
@@ -474,7 +482,7 @@ riverlevel_data = pd.DataFrame(
         ]
     )
 
-waterph_data = pd.DataFrame(
+waterph_data = pd.Series(
     [7.8,8.0,7.9],
     index=[
         datetime.date(2000,1,1),
@@ -486,23 +494,20 @@ waterph_data = pd.DataFrame(
 PL23.add_measurement('River Level', riverlevel_data)
 PL23.add_measurement('Water pH', waterph_data)
 
-fulldata = PL23.all_measurements
-print(fulldata)
+lastdata = PL23.last_measurements
+print(lastdata)
 ~~~
 {: .language-python}
 
 ~~~
             River Level  Water pH
-2000-01-01         34.0       7.8
-2000-01-02         32.0       8.0
-2000-01-03         33.0       7.9
+2000-01-03          NaN       7.9
 2000-01-04         31.0       NaN
 ~~~
 {: .output}
 
 You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
-In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
-It is possible to make your own decorators, so we'll be seeing them again in the Functional Programming episode.
+In this case the `property` decorator is taking the `last_measurements` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 
 ### Relationships Between Classes
 
@@ -524,16 +529,21 @@ In the same way, in object oriented programming, we can make things components o
 We often use composition where we can say 'x *has a* y' - for example in our catchment study project, we might want to say that a catchment area *has* measurement sites or that a measurement site *has* a collection of measurement sets.
 
 In the case of our example, we have said any given measurement site has a collection of measurement sets, so we're already using composition here.
-We're currently implementing the collection of measurement sets as a dictionary with a known set of keys though, so maybe we should make a `MeasurementSet` class as well. This class will contain the Pandas dataframe it replaces, but enable us to now associate extra information and methods with that dataset.
+We're currently implementing the collection of measurement sets as a dictionary with a known set of keys though, so maybe we should make a `MeasurementSet` class as well. This class will contain the Pandas Series it replaces, but enable us to now associate extra information and methods with that dataset.
 
 ~~~ 
 # file: catchment/models.py
 
 class MeasurementSet:
-    def __init__(self, df, name, units):
-        self.df = df
+    def __init__(self, series, name, units):
+        self.series = series
         self.name = name
         self.units = units
+        self.series.name = self.name
+    
+    def add_measurement(self, data):
+        self.series = pd.concat([self.series,data])
+        self.series.name = self.name
     
     def __str__(self):
         if self.units:
@@ -549,17 +559,16 @@ class Site:
     
     def add_measurement(self, measurement_id, data, units=None):    
         if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
-    
+            self.measurements[measurement_id].add_measurement(data)
+        
         else:
             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
     
     @property
-    def all_measurements(self):
+    def last_measurements(self):
         return pd.concat(
-            [self.measurements[key].df.rename({0:key}, axis='columns') 
-                               for key in self.measurements.keys()],
-            axis=1)
+            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
+            axis=1).sort_index()
     
     def __str__(self):
         return self.name
@@ -574,7 +583,7 @@ import pandas as pd
 
 PL23 = Site('PL23')
 
-riverlevel_data = pd.DataFrame(
+riverlevel_data = pd.Series(
     [34.0,32.0,33.0,31.0],
     index=[
         datetime.date(2000,1,1),
@@ -584,7 +593,7 @@ riverlevel_data = pd.DataFrame(
         ]
     )
 
-waterph_data = pd.DataFrame(
+waterph_data = pd.Series(
     [7.8,8.0,7.9],
     index=[
         datetime.date(2000,1,1),
@@ -616,7 +625,7 @@ Water pH
 2000-01-04         31.0       NaN
 ~~~
 {: .output}
-Note that, within the `Site` class, we now access the measurement dataframes by adding `.df` to the end of the `self.measurements[measurement_id]` object. 
+Note that, within the `Site` class, we now access the measurement series by adding `.series` to the end of the `self.measurements[measurement_id]` object. 
 
 Note also how we used `units=None` in the parameter list of the `add_measurement` method, enabling us to still initialise the `MeasurementSet` class even if the end user doesn't supply the measurement unit information. This is one of the common ways to handle an optional argument in Python, so we’ll see this pattern quite a lot in real projects.
 
@@ -640,10 +649,15 @@ If the class **inherits** from another class, we include the parent class name i
 # file: catchment/models.py
 
 class MeasurementSet:
-    def __init__(self, df, name, units):
-        self.df = df
+    def __init__(self, series, name, units):
+        self.series = series
         self.name = name
         self.units = units
+        self.series.name = self.name
+    
+    def add_measurement(self, data):
+        self.series = pd.concat([self.series,data])
+        self.series.name = self.name
     
     def __str__(self):
         if self.units:
@@ -665,17 +679,16 @@ class Site(Location):
     
     def add_measurement(self, measurement_id, data, units=None):    
         if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+            self.measurements[measurement_id].add_measurement(data)
     
         else:
             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
     
     @property
-    def all_measurements(self):
+    def last_measurements(self):
         return pd.concat(
-            [self.measurements[key].df.rename({0:key}, axis='columns') 
-                               for key in self.measurements.keys()],
-            axis=1)
+            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
+            axis=1).sort_index()
 
 ~~~
 {: .language-python}
@@ -689,7 +702,7 @@ FP23 = Site('FP23')
 
 print(FP23)
 
-riverlevel_data = pd.DataFrame(
+riverlevel_data = pd.Series(
     [34.0,32.0,33.0,31.0],
     index=[
         datetime.date(2000,1,1),
@@ -701,7 +714,7 @@ riverlevel_data = pd.DataFrame(
 
 FP23.add_measurement('River Level',riverlevel_data,'mm')
 
-print(FP23.measurements['River Level'].df)
+print(FP23.measurements['River Level'].series)
 
 PL12 = Location('PL12')
 print(PL12)
@@ -712,11 +725,11 @@ PL12.add_measurement('River Level',riverlevel_data,'mm')
 
 ~~~
 FP23
-               0
 2000-01-01  34.0
 2000-01-02  32.0
 2000-01-03  33.0
 2000-01-04  31.0
+name: River Level, dtype: float 64 
 PL12
 ...
 AttributeError: 'Location' object has no attribute 'add_measurement'
@@ -884,7 +897,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >
 > >    def add_measurement(self, measurement_id, data, units=None):    
 > >        if measurement_id in self.measurements.keys():
-> >            self.measurements[measurement_id].df = pd.concat([self.measurements[measurement_id].df, data])
+> >            self.measurements[measurement_id].add_measurement(data)
 > >     
 > >        else:
 > >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
@@ -892,8 +905,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >    @property
 > >    def all_measurements(self):
 > >        return pd.concat(
-> >            [self.measurements[key].df.rename({0:key}, axis='columns') 
-> >                               for key in self.measurements.keys()],
+> >            [self.measurements[key].series for key in self.measurements.keys()],
 > >            axis=1)
 > >
 > >
