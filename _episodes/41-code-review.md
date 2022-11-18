@@ -162,12 +162,12 @@ collaborating in the shared repository model. You will be added as a collaborato
 are going through the material on your own and do not have a collaborator, you can do pull requests on your 
 own repository from one to another branch.
 
-Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from the
-earlier episodes of this section. Your teammate has implemented one of them according to the specification 
+Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from an
+earlier episode. Your team member has implemented one of them according to the specification 
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure the new feature indeed satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
-(acting as the code author) and engage in code review with your teammate (acting as a code reviewer). 
+(acting as the code author) and engage in code review with your team member (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
 in which case the roles will be reversed. 
 
@@ -194,14 +194,14 @@ repositories.
 #### Step 2: Preparing Your Local Environment for a Pull Request
 
 1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
-2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
+2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](../32-software-design/index.html#exercise-implementing-requirements).
 3. Create the appropriate local branch `add-std-dev-tests` or `add-view-tests` (based on the feature you are working on) 
 off the remote feature branch to contain your new code.
 
 #### Step 3: Adding New Code 
 
 > ## Exercise: Implement Tests for a New Feature
-> Look back at the [solution requirements](/31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for
+> Look back at the [solution requirements](../31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
 > 
