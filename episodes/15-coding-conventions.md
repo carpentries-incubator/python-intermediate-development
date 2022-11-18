@@ -579,7 +579,7 @@ changes locally but have not pushed this branch remotely for others to have a lo
 onto the `develop` branch. Let's do that now, namely:
 - push `style-fixes` to GitHub
 - merge `style-fixes` into `develop` (once we are happy with the changes)
-- push updates to `develop` branch to GitHub (to keep our main development branch up to date with the latest developments)
+- push updates to `develop` branch to GitHub (to keep it up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
 Here is a set commands that will achieve the above set of actions (remember to use `git status` often in between other
@@ -601,7 +601,7 @@ you work locally on code on a feature branch,
 test it to make sure it works correctly and as expected, then record your changes using version
 control and share your work with others via a centrally backed-up repository. Other team
 members work on their feature branches in parallel and similarly share their work with colleagues for discussions.
-Different feature branches from around the team get merged onto the main development branch, often in small and quick development cycles. After further testing and verifying that no code has been broken by the new features - the development branch gets merged onto the stable main branch, where new features finally resurface to end-users in
+Different feature branches from around the team get merged onto the development branch, often in small and quick development cycles. After further testing and verifying that no code has been broken by the new features - the development branch gets merged onto the stable main branch, where new features finally resurface to end-users in
 bigger "software release" cycles.
 {: .testimonial}
 

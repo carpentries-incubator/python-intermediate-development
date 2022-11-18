@@ -390,7 +390,7 @@ $ git push origin develop
 {: .language-bash}
 
 ### Merging Into Main Branch
-Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `main` branch.
+Once you have tested your changes on the `develop` branch, you will want to merge them onto the `main` branch.
 To do so, make sure you have all your changes committed and switch to `main`:
 
 ~~~
