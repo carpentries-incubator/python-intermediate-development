@@ -193,10 +193,18 @@ repositories.
 
 #### Step 2: Preparing Your Local Environment for a Pull Request
 
-1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally.
-2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements).
-3. Create the appropriate local branch `add-std-dev-tests` or `add-view-tests` (based on the feature you are working on) 
+1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally outside your software 
+repository's folder. This will create a copy of the repository locally on your machine along with all its (remote) branches.
+2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements) and what is the name of the branch they worked on.
+3. Create the appropriate local branch (e.g. `add-std-dev-tests` or `add-view-tests` based on the feature you will be working on)
 off the remote feature branch to contain your new code.
+    
+    Note that this is the first time we are creating a local branch from an existing remote branch. To create and checkout
+    a new local branch with the same name and tracking an existing remote branch do the following: 
+    ~~~
+    $ git checkout --track origin/<branch-name>
+    ~~~
+    {: .language-bash}
 
 #### Step 3: Adding New Code 
 
