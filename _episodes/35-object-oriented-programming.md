@@ -749,57 +749,6 @@ The order in which it does this search is known as the **method resolution order
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Location.__init__` requires.
 This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Location` must have a name, before we can properly initialise a `Site` model with the corresponding measurement data.
 
-> ## Geospatial Data
->
-> The information that you have been given for the project includes the geographical 
-> locations for the measurement sites, as well as the geospatial extent of the catchment
-> areas. The measurement site locations are listed as single longitude / latitude points,
-> while the catchment areas are defined using shape files (which are the files with 
-> `.shp` suffixes in the data directory). 
->
-> A colleague has shared some example code with you, using `GeoPandas` to create and work with geographic point and area objects.
->
-> To read a geographic shape file (which will have a `.shp` suffix) use the `read_file` function:
-> ~~~
-> import geopandas as gpd
-> 
-> area = gpd.read_file('data/catchment_shapefile.shp')
-> type(area)
-> ~~~
-> {: .language-python}
-> ~~~
-> geopandas.geodataframe.GeoDataFrame
-> ~~~
-> {: .output}
-> To create a geographic point object use the `points_from_xy` function, noting that longitude and latitude data is expected to be in list form, and will be returned as an array of points:
-> ~~~
-> import geopandas as gpd
-> longitude = 0
-> latitude = 52
-> points = gpd.points_from_xy([longitude], [latitude], crs='EPSG:4326')
-> type(points)
-> type(points[0])
-> ~~~
-> {: .language-python}
-> ~~~
-> geopandas.array.GeometryArray
-> shapely.geometry.point.Point
-> ~~~
-> {: .output}
->
-> And to find out if the point is within the area defined by the shapefile you can either use the `within` function that is built into the Point object, or the `contains` function which is built into the GeoDataFrame object:
-> ~~~
-> points.within(area.geometry[0])
->
-> area.contains(points[0])
-> ~~~
-> {: .language-python}
-> ~~~
-> True
-> True
-> ~~~
-> {: .output}
-{: .callout}
 
 
 > ## Exercise: A Model Site
@@ -890,10 +839,9 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >
 > > class Site(Location):
 > >     """A measurement site in the study."""
-> >     def __init__(self, name, longitude = None, latitude = None):
+> >     def __init__(self, name):
 > >         super().__init__(name)
 > >         self.measurements = {}
-> >         self.location = gpd.points_from_xy([longitude], [latitude], crs='EPSG:4326')
 > >
 > >    def add_measurement(self, measurement_id, data, units=None):    
 > >        if measurement_id in self.measurements.keys():
@@ -903,40 +851,39 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
 > >    
 > >    @property
-> >    def all_measurements(self):
+> >    def last_measurements(self):
 > >        return pd.concat(
-> >            [self.measurements[key].series for key in self.measurements.keys()],
-> >            axis=1)
+> >            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
+> >            axis=1).sort_index()
 > >
 > >
 > > class Catchment(Location):
 > >     """A catchment area in the study."""
-> >     def __init__(self, name, shapefile = None):
+> >     def __init__(self, name):
 > >         super().__init__(name)
 > >         self.sites = {}
-> >         if shapefile:
-> >             self.area = gpd.read_file(shapefile)
-> >         else:
-> >             self.area = None
 > >
 > >
 > >     def add_site(self, new_site):
-> >         # Check to ensure site is within catchment, if catchment area has been defined 
-> >         if self.area and not new_site.location.within(self.area.geometry[0]):
-> >             print(f'{new_site.name} not within {self.name} catchment')
-> >             return        
-> >
 > >         # Basic check to see if the site has already been added to the catchment area 
 > >         for site in self.sites:
-> >             if site == new_site.name:
-> >                 print(f'{new_site.name} has already been added to site list')
+> >             if site == new_site:
+> >                 print(f'{new_site} has already been added to site list')
 > >                 return
 > >
-> >         self.sites[new_site.name] = new_site
+> >         self.sites[new_site.name] = Site(new_site)
 > > ...
 > > ~~~    
 > {: .language-python} 
 > {: .solution}
 {: .challenge}
+
+> ## Geospatial Data
+> 
+> Once we have objects for both Sites and Catchments we can make use of the Geopandas
+> library and geospatial data for each Site and Catchment to check the relationships 
+> between these. This is covered in the extra episode on 
+> [Geospatial data with Geopandas](/geopandas).
+{: .callout}
 
 {% include links.md %}

@@ -6,323 +6,572 @@ exercises: 25
 questions:
 - "How can we work with geospatial data?"
 objectives:
-- "Give an overview of the different geospatial objects that can be used"
-- "Explain how geospatial information is shared"
-- "Identify libraries needed for geospatial work"
-- "Explain how Geopandas relates to Pandas"
-- "Demonstrate how find relationships between geospatial objects"
+- "Which python libraries are needed for geospatial work?"
+- "What geospatial object can be used to describe a point location?"
+- "What geospatial object can be used to describe an area?"
+- "What is a Coordinate Reference System?"
+- "How can we transform objects between different coordinate reference systems?"
+- "How can we discover if a location is within a given area?"
 keypoints:
-- "Geospatial libraries are available, and compatible with dataframes"
+- "The GeoPandas library simplifies a lot of work with geospatial objects"
+- "Point objects are useful for point location information"
+- "Polygon objects are useful for area information"
+- "GeoDataFrames are a useful format for storing, and comparing, different geospatial objects"
 ---
 
 ## Introduction
 
 > ## Follow up from Section 3
-> This episode could be read as a follow up from the end of [Section 3 on software design and development](../36-architecture-revisited/index.html#additional-material).
+> This episode could be read as a follow up from the end of [Section 3 on object oriented programming](../35-object-oriented-programming/index.html#geospatial-data).
 {: .callout}
 
-Our patient data system so far can read in some data, process it, and display it to people.
-What's missing?
+We have now seen how object-orientated programming can be used to group our Sites within 
+the relevant Catchments. These relationships can be established using geospatial data,
+which has been collected and documented for the LOCAR project. So in this episode we will
+look at how you can work with this data.
 
-Well, at the moment, if we wanted to add a new patient or perform a new observation, we would have to edit the input CSV file by hand.
-We might not want our staff to have to manage their patients by making changes to the data by hand, but rather provide the ability to do this through the software.
-That way we can perform any necessary validation (e.g. inflammation measurements must be a number) or transformation before the data gets accepted.
+Geospatial data is data which describes features or objects on the Earth's surface. It 
+generally combines location information with attribute information for a given feature. 
+The location information can either latitude and longitude, or grid references in a system 
+such as the British Nation Grid. The attribute information can include descriptors, such 
+as naming a town or village; characteristics, such as identifying a road as a motorway; 
+and associated data, such as emissions data for factory, or measurement data for a 
+research site.
 
-If we want to bring in this data, modify it somehow, and save it back to a file, all using our existing MVC architecture pattern, we'll need to:
+There are two primary forms for geospatial data: vector data and raster data. Raster data 
+is a gridded information, usually an array of equally sized cells. Vector data, which we 
+will be dealing with below, uses points, lines, and polygons to represent features.
 
-- Write some code to perform data import / export (**persistence**)
-- Add some views we can use to modify the data
-- Link it all together in the controller
+We will be using the [GeoPandas](https://geopandas.org/en/stable/index.html) library to work with this geospatial data. This library brings together a number of other python libraries used for working on geometric shapes, cartographic projections, and dataframes, to make working with geospatial data easier.
 
-## Serialisation and Serialisers
+### Setup
 
-The process of converting data from an object to and from storable formats is often called **serialisation** and **deserialisation** and is handled by a **serialiser**.
-Serialisation is the process of exporting our structured data to a usually text-based format for easy storage or transfer, while deserialisation is the opposite.
-We're going to be making a serialiser for our patient data, but since there are many different formats we might eventually want to use to store the data, we'll also make sure it's possible to add alternative serialisers later and swap between them.
-So let's start by creating a base class to represent the concept of a serialiser for our patient data - then we can specialise this to make serialisers for different formats by inheriting from this base class.
+First you will need to install GeoPandas and it's dependencies into your virtual 
+environment. This can be done through Pycharm, or at the command line. 
 
-By creating a base class we provide a contract that any kind of patient serialiser must satisfy.
-If we create some alternative serialisers for different data formats, we know that we will be able to use them all in exactly the same way.
-This technique is part of an approach called **design by contract**.
+On linux or OSX you should install the following 
+packages:
+~~~
+(venv) $ pip3 install shapely pyproj rtree fiona geopandas
+~~~
+{: .language-bash}
+On Windows you will need to replace `fiona` with the `pyogrio` library:
+~~~
+(venv) $ pip3 install shapely pyproj rtree pyogrio geopandas
+~~~
+{: .language-bash}
+More information on installing GeoPandas and it's dependencies is available on their [install page](https://geopandas.org/en/stable/getting_started/install.html).
 
-We'll call our base class `PatientSerializer` and put it in file `inflammation/serializers.py`.
+Once these packages are installed remember to update the project `requirements.txt` file:
+~~~
+(venv) $ pip3 freeze > requirements.txt
+~~~
+{: .language-bash}
 
-~~~ python
-# file: inflammation/serializers.py
 
-from inflammation import models
+## LOCAR Geospatial Data
 
+Geospatial data for both the measurement sites and the three catchments for the LOCAR
+project are included in the project dataset.
 
-class PatientSerializer:
-    model = models.Patient
+### Measurement Sites
 
-    @classmethod
-    def serialize(cls, instances):
-        raise NotImplementedError
+Measurement site information is included in the file `data/LOCAR_Site_Information.csv`. You can use a text editor, or the bash `head` command, to examine the file:
+~~~
+head -5 data/LOCAR_Site_Information.csv
+~~~
+{: .language-bash}
+~~~
+Site Code,Site Name,Easting,Northing,LCWQ ,LCWQ Cont,RNWQ,RNGA,AWST,Latitude,Longitude
+FP01,Bere Stream at Snatford Bridge,385575,92975,x,x,,,,50.736206,-2.205775
+FP02,Bovington Stream at Blindmans Wood,384175,87800,x,x,,,,50.689632,-2.225391
+FP04,CEH Winfrith,384175,87800,,,x,,x,50.689632,-2.225391
+FP06,Devils Brook at Dewlish village,377800,98500,x,x,,,,50.785642,-2.316285
+~~~
+{: .output}
+The site information is organised in a similar manner to the measurement data, with a 
+`Site Code` identifying each Point location, along with a short site description, associated geographic information 
+(both `Easting` and `Northing`, and `Latitude` and `Longitude`), and information about the 
+measurements available at each site. The key for this information is given at the end of 
+the file:
+~~~
+tail -11 data/LOCAR_Site_Information.csv
+~~~
+{: .language-bash}
+~~~
+,,,,,,,,,,
+,,,,,,,,,,
+Notes,,,,,,,,,,
+,,,,,,,,,,
+"If an 'x' appears in a cell, then data exist for that site for the instrument type described below",,,,,,,,,,
+,,,,,,,,,,
+LCWQ,LOCAR water quality sampling site,,,,,,,,,
+LCWQ Cont,LOCAR water quality sampling site for continuously monitered determinands,,,,,,,,,
+RNWQ,Rainwater collector for water quality samples,,,,,,,,,
+RNGA,Rain Gauge,,,,,,,,,
+AWST,Automatic Weather Station,,,,,,,,,
+~~~
+{: .output}
 
-    @classmethod
-    def save(cls, instances, path):
-        raise NotImplementedError
-
-    @classmethod
-    def deserialize(cls, data):
-        raise NotImplementedError
-
-    @classmethod
-    def load(cls, path):
-        raise NotImplementedError
+To load the site information in python we can use the `pandas.read_csv` function, as we do
+for the measurement data. When doing this we make sure to skip the information at the end 
+of the file (using `skipfooter=<number of lines of footer>`). The `Longitude` and 
+`Latitude` information can be used to create geometric Points, using the 
+`geopandas.points_from_xy` function. When we do this we also set the Coordinate Reference 
+System (CRS) which is used by geopandas to ensure consistency between all the geospatial information supplied. In this case the CRS we require is the widely used [EPSG:4236](https://epsg.io/4326).
+~~~
+import pandas as pd
+import geopandas as gpd
+site_locations = pd.read_csv('data/LOCAR_Site_Information.csv', 
+                             skipfooter=11, engine='python', 
+                             usecols = ['Site Code', 'Longitude', 'Latitude'], 
+                             index_col='Site Code')
+site_geometry = gpd.points_from_xy(site_locations['Longitude'],
+                                   site_locations['Latitude'], crs='EPSG:4326')
+site_gdf = gpd.GeoDataFrame(site_locations, geometry=site_geometry)
+site_gdf
+site_gdf.crs
 ~~~
 {: .language-python}
-
-Our serialiser base class has two pairs of class methods (denoted by the `@classmethod` decorators), one to serialise (save) the data and one to deserialise (load) it.
-We're not actually going to implement any of them quite yet as this is just a template for how our real serialisers should look, so we'll raise `NotImplementedError` to make this clear if anyone tries to use this class directly.
-The reason we've used class methods is that we don't need to be able to pass any data in using the `__init__` method, as we'll be passing the data to be serialised directly to the `save` function.
-
-There are many different formats we could use to store our data, but a good one is [**JSON** (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON).
-This format comes originally from JavaScript, but is now one of the most widely used serialisation formats for exchange or storage of structured data, used across most common programming languages.
-
-Data in JSON format is structured using nested **arrays** (very similar to Python lists) and **objects** (very similar to Python dictionaries).
-For example, we're going to try to use this format to store data about our patients:
-
-~~~ json
-[
-    {
-        "name": "Alice",
-        "observations": [
-            {
-                "day": 0,
-                "value": 3
-            },
-            {
-                "day": 1,
-                "value": 4
-            }
-        ]
-    },
-    {
-        "name": "Bob",
-        "observations": [
-            {
-                "day": 0,
-                "value": 10
-            }
-        ]
-    }
-]
 ~~~
-{: .language-json}
-
-Compared to the CSV format, this gives us much more flexibility to describe complex structured data.
-If we wanted to represent this data in CSV format, the most natural way would be to have two separate files: one with each row representing a patient, the other with each row representing an observation.
-We'd then need to use a unique identifier to link each observation record to the relevant patient.
-This is how relational databases work, but it would be quite complicated to manage this ourselves with CSVs.
-
-Now, if we are going to follow [TDD (Test Driven Development)](../35-object-oriented-programming/index.html#test-driven-development), we should write some test code.
-Our JSON serialiser should be able to save and load our patient data to and from a JSON file, so for our test we could try these save-load steps and check that the result is the same as the data we started with.
-Again you might need to change these examples slightly to get them to fit with how you chose to implement your `Patient` class.
-
-~~~ python
-# file: tests/test_serializers.py
-
-from inflammation import models, serializers
-
-def test_patients_json_serializer():
-    # Create some test data
-    patients = [
-        models.Patient('Alice', [models.Observation(i, i + 1) for i in range(3)]),
-        models.Patient('Bob', [models.Observation(i, 2 * i) for i in range(3)]),
-    ]
-
-    # Save and reload the data
-    output_file = 'patients.json'
-    serializers.PatientJSONSerializer.save(patients, output_file)
-    patients_new = serializers.PatientJSONSerializer.load(output_file)
-
-    # Check that we've got the same data back
-    for patient_new, patient in zip(patients_new, patients):
-        assert patient_new.name == patient.name
-
-        for obs_new, obs in zip(patient_new.observations, patient.observations):
-            assert obs_new.day == obs.day
-            assert obs_new.value == obs.value
-~~~
-{: .language-python}
-
-Here we set up some patient data, which we save to a file named `patients.json`.
-We then load the data from this file and check that the results match the input.
-
-With our test, we know what the correct behaviour looks like - now it's time to implement it.
-For this, we'll use one of Python's built-in libraries.
-Among other more complex features, the `json` library provides functions for converting between Python data structures and JSON formatted text files.
-Our test also didn't specify what the structure of our output data should be, so we need to make that decision here  - we'll use the format we used as JSON example earlier.
-
-~~~ python
-# file: inflammation/serializers.py
-
-import json
-
-class PatientSerializer:
-    model = models.Patient
-
-    @classmethod
-    def serialize(cls, instances):
-        return [{
-            'name': instance.name,
-            'observations': instance.observations,
-        } for instance in instances]
-
-    @classmethod
-    def deserialize(cls, data):
-        return [cls.model(**d) for d in data]
-
-
-class PatientJSONSerializer(PatientSerializer):
-    @classmethod
-    def save(cls, instances, path):
-        with open(path, 'w') as jsonfile:
-            json.dump(cls.serialize(instances), jsonfile)
-
-    @classmethod
-    def load(cls, path):
-        with open(path) as jsonfile:
-            data = json.load(jsonfile)
-
-        return cls.deserialize(data)
-~~~
-{: .language-python}
-
-For our `save` / `serialize` methods, since the JSON format is similar to nested Python lists and dictionaries, it makes sense as a first step to convert the data from our `Patient` class into a dictionary - we do this for each patient using a list comprehension.
-Then we can pass this to the `json.dump` function to save it to a file.
-
-As we might expect, the `load` / `deserialize` methods are the opposite of this.
-Here we need to first read the data from our input file, then convert it to instances of our `Patient` class.
-The `**` syntax here may be unfamiliar to you - this is the **dictionary unpacking operator**.
-The dictionary unpacking operator can be used when calling a function (like a class `__init__` method) and passes the items in the dictionary as named arguments to the function.
-The name of each argument passed is the dictionary key, the value of the argument is the dictionary value.
-
-When we run the tests however, we should get an error:
-
-~~~
-FAILED tests/test_serializers.py::test_patients_json_serializer - TypeError: Object of type Observation is not JSON serializable
-~~~
-
-This means that our patient serializer almost works, but we need to write a serializer for our observation model as well!
-
-Since this new serializer is not a type of `PatientSerializer`, we need to inherit from a new base class which holds the design that is shared between `PatientSerializer` and `ObservationSerializer`.
-Since we don't actually need to save the observation data to a file independently, we won't worry about implementing the `save` and `load` methods for the `Observation` model.
-
-~~~ python
-# file: inflammation/serializers.py
-
-from inflammation import models
-
-
-class Serializer:
-    @classmethod
-    def serialize(cls, instances):
-        raise NotImplementedError
-
-    @classmethod
-    def save(cls, instances, path):
-        raise NotImplementedError
-
-    @classmethod
-    def deserialize(cls, data):
-        raise NotImplementedError
-
-    @classmethod
-    def load(cls, path):
-        raise NotImplementedError
-
-
-class ObservationSerializer(Serializer):
-    model = models.Observation
-
-    @classmethod
-    def serialize(cls, instances):
-        return [{
-            'day': instance.day,
-            'value': instance.value,
-        } for instance in instances]
-
-    @classmethod
-    def deserialize(cls, data):
-        return [cls.model(**d) for d in data]
-
+            Latitude  Longitude                   geometry
+Site Code                                                 
+FP01       50.736206  -2.205775  POINT (-2.20578 50.73621)
+FP02       50.689632  -2.225391  POINT (-2.22539 50.68963)
+FP04       50.689632  -2.225391  POINT (-2.22539 50.68963)
 ...
+<Geographic 2D CRS: EPSG:4326>
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+~~~
+{: .output}
+The `geometry` column contains Point objects which describe the location of the site. 
+This is the information that we will use to determine if a site is within a catchment or 
+not (we could, if we wished to, now delete the `Latitude` and `Longitude` columns, and 
+no information would be lost).
+
+> ## British National Grid
+> The original location information is in Easting and Northing. These are coordinate 
+> values for the British National Grid CRS ([EPSG:27700](https://epsg.io/27700)). We can
+> load these instead using the following code:
+> ~~~
+> import pandas as pd
+> import geopandas as gpd
+> site_locations = pd.read_csv('data/LOCAR_Site_Information.csv', 
+>                              skipfooter=11, engine='python', 
+>                              usecols = ['Site Code', 'Easting', 'Northing'], 
+>                              index_col='Site Code')
+> site_geometry = gpd.points_from_xy(site_locations['Easting'],
+>                                    site_locations['Northing'], crs='EPSG:27700')
+> site_gdf = gpd.GeoDataFrame(site_locations, geometry=site_geometry)
+> site_gdf
+> site_gdf.crs
+> ~~~
+> {: .language-python}
+> ~~~
+>            Easting  Northing                       geometry
+> Site Code                                                  
+> FP01        385575     92975   POINT (385575.000 92975.000)
+> FP02        384175     87800   POINT (384175.000 87800.000)
+> FP04        384175     87800   POINT (384175.000 87800.000)
+> ...
+> <Derived Projected CRS: EPSG:27700>
+> Name: OSGB36 / British National Grid
+> Axis Info [cartesian]:
+> - E[east]: Easting (metre)
+> - N[north]: Northing (metre)
+> Area of Use:
+> - name: United Kingdom (UK) - offshore to boundary of UKCS within 49°45'N to 61°N and 9°W to 2°E; onshore Great Britain (England, Wales and Scotland). Isle of Man onshore.
+> - bounds: (-9.0, 49.75, 2.01, 61.01)
+> Coordinate Operation:
+> - name: British National Grid
+> - method: Transverse Mercator
+> Datum: Ordnance Survey of Great Britain 1936
+> - Ellipsoid: Airy 1830
+> - Prime Meridian: Greenwich
+> ~~~
+> {: .output}
+> To demonstrate that these are the same locations, we can use GeoPandas built in 
+> `.to_crs()` function to convert from Eastings and Northings to Longitude and Latitude:
+> ~~~
+> site_gdf_ll = site_gdf.to_crs('EPSG:4326')
+> site_gdf_ll
+> site_gdf_ll.crs
+> ~~~
+> {: .language-python}
+> ~~~
+>            Easting  Northing                   geometry
+> Site Code                                              
+> FP01        385575     92975  POINT (-2.20578 50.73621)
+> FP02        384175     87800  POINT (-2.22539 50.68963)
+> FP04        384175     87800  POINT (-2.22539 50.68963)
+> ...
+> <Geographic 2D CRS: EPSG:4326>
+> Name: WGS 84
+> Axis Info [ellipsoidal]:
+> - Lat[north]: Geodetic latitude (degree)
+> - Lon[east]: Geodetic longitude (degree)
+> Area of Use:
+> - name: World.
+> - bounds: (-180.0, -90.0, 180.0, 90.0)
+> Datum: World Geodetic System 1984 ensemble
+> - Ellipsoid: WGS 84
+> - Prime Meridian: Greenwich
+> ~~~
+> {: .output}
+{: .callout}
+
+### River Catchment Areas
+
+The three catchment areas are defined using vectors that map the boundary of the catchment area, which are provided within the `data/river_catchments` directory. These vectors are stored as shape files (`frome_piddle_catchment.shp`, `pang_lambourn_catchment.shp`, and `tern_catchment.shp`) with associated metadata (the `*.shx`, `*.dbf`, `*.prj` and `.cpg` files) defining information such as the units the vectors are in, and the spheroid that they are mapped onto. 
+
+These shape files can be directly loaded into a GeoDataFrame, using the `.from_file()` in built function, which will load the metadata from the associated files at the same time.
+
+~~~
+import geopandas as gpd
+
+FP_catchment = gpd.GeoDataFrame.from_file('data/river_catchments/frome_piddle_catchment.shp')
+FP_catchment
+FP_catchment.crs
+~~~
+{: .language-python}
+~~~
+  RBD_ID MNCAT_NAME  ...            OPCAT_NAME                                           geometry
+0      8     Dorset  ...  Poole Harbour Rivers  MULTIPOLYGON (((-2.00568 50.72064, -2.00569 50...
+
+[1 rows x 9 columns]
+<Geographic 2D CRS: EPSG:4326>
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+~~~
+{: .output}
+
+In this case the `geometry` column contains a single `MULTIPOLYGON` object, which 
+describes the catchment area. And the CRS is `EPSG:4326`, as for the measurement site 
+data.
+
+Catchments can also be made up of a list of `POLYGON` objects and, due to the integration
+of the Matplotlib libraries into Pandas, and so GeoPandas, can be plotted easily:
+~~~
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+PL_catchment = gpd.GeoDataFrame.from_file('data/river_catchments/pang_lambourn_catchment.shp')
+PL_catchment
+PL_catchment.plot()
+plt.show()
 ~~~
 {: .language-python}
 
-Now we can link this up to the `PatientSerializer` and our test should finally pass.
+~~~
+  RBD_ID                  MNCAT_NAME RBD_NAME  ... version WB_NAME                                           geometry
+0      6             Kennet and Trib   Thames  ...    None    None  POLYGON ((-1.16153 51.29329, -1.16124 51.29311...
+1      6  Thames and Chilterns South   Thames  ...       2    Pang  POLYGON ((-1.27621 51.46040, -1.27687 51.46181...
 
-~~~ python
-# file: inflammation/serializers.py
-...
+[2 rows x 14 columns]
+~~~
+{: .output}
 
-class PatientSerializer(Serializer):
-    model = models.Patient
+![Pang Lambourn Catchment Area](../fig/geopandas-pang-lambourn-catchment.png){: .image-with-shadow width="600px" }
 
-    @classmethod
-    def serialize(cls, instances):
-        return [{
-            'name': instance.name,
-            'observations': ObservationSerializer.serialize(instance.observations),
-        } for instance in instances]
 
-    @classmethod
-    def deserialize(cls, data):
-        instances = []
+## Matching Sites to Catchments
 
-        for item in data:
-            item['observations'] = ObservationSerializer.deserialize(item.pop('observations'))
-            instances.append(cls.model(**item))
+Regardless of the format of the catchment shape file, the process of finding which sites 
+lie within a given catchment is much the same. This is performed using the `sjoin` 
+function, which determines the spatial join of two GeoDataFrames, and is part of `geopandas.tools`.
 
-        return instances
+For example:
+~~~
+import pandas as pd
+import geopandas as gpd
+from geopandas.tools import sjoin
 
-...
+site_locations = pd.read_csv('data/LOCAR_Site_Information.csv', 
+                             skipfooter=11, engine='python', 
+                             usecols = ['Site Code', 'Longitude', 'Latitude'], 
+                             index_col='Site Code')
+site_geometry = gpd.points_from_xy(site_locations['Longitude'],
+                                   site_locations['Latitude'], crs='EPSG:4326')
+site_gdf = gpd.GeoDataFrame(site_locations, geometry=site_geometry)
+
+FP_catchment = gpd.GeoDataFrame.from_file('data/river_catchments/frome_piddle_catchment.shp')
+
+FP_sites = sjoin(site_gdf, FP_catchment)
+
+FP_sites
+
 ~~~
 {: .language-python}
+~~~
+            Latitude  Longitude  ...                                            url            OPCAT_NAME
+Site Code                        ...                                                                     
+FP01       50.736206  -2.205775  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP02       50.689632  -2.225391  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP04       50.689632  -2.225391  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP06       50.785642  -2.316285  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP11       50.681153  -2.189257  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP12       50.713169  -2.414234  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP13       50.682513  -2.436258  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP15       50.790237  -2.582322  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP21       50.687986  -2.124167  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP22       50.740380  -2.254687  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP23       50.766948  -2.400530  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP26       50.797487  -2.523172  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP28       50.842314  -2.503080  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP31       50.776554  -2.576125  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
+FP35       50.807863  -2.608797  ...  /catchment-planning/OperationalCatchment/3367  Poole Harbour Rivers
 
-> ## Linking it All Together
-> We've now got some code which we can use to save and load our patient data, but we've not yet linked it up so people can use it.
+[15 rows x 12 columns]
+~~~
+{: .output}
+
+The `sjoin` function, by default, retains the left index geometry column - which in this case comes from the measurement site GeoDataFrame. An `index_right` column is also created, to help with referencing back to that GeoDataFrame:
+~~~
+PL_catchment = gpd.GeoDataFrame.from_file('data/river_catchments/pang_lambourn_catchment.shp')
+
+PL_sites = sjoin(site_gdf, PL_catchment)
+
+PL_sites['index_right']
+~~~
+{: .language-python} 
+~~~
+Site Code
+PL06    0
+PL09    0
+PL14    0
+PL15    0
+PL11    1
+PL16    1
+PL17    1
+PL18    1
+PL19    1
+PL20    1
+PL29    1
+Name: index_right, dtype: int64
+~~~
+{: .output}
+
+To check if a specific site is within a catchment we can compare only that site, and check 
+the size of the returned GeoDataFrame:
+~~~
+def is_site_within_catchment(site_dataframe, catchment_dataframe):
+    answer_dataframe = sjoin(site_dataframe, catchment_dataframe)
+    if answer_dataframe.size:
+        return True
+    else:
+        return False
+
+is_site_within_catchment(site_gdf.loc[['FP23']],PL_catchment)
+is_site_within_catchment(site_gdf.loc[['FP23']],FP_catchment)
+~~~
+{: .language-python}
+~~~
+False
+True
+~~~
+{: .output}
+Here we are making use of a feature of NumPy, on which Pandas and GeoPandas are built. 
+Empty NumPy arrays will return a `.size` of 0, which equates to False in python.
+
+It is important to note that `sjoin` only works with GeoDataFrames, and so we have to pass
+the `.loc` function a list of index values, even if that list only contains one value, to 
+ensure the correct object is generated:
+~~~
+type(site_gdf.loc['FP23'])
+type(site_gdf.loc[['FP23']])
+~~~
+{: .language-python}
+~~~
+<class 'pandas.core.series.Series'>
+<class 'geopandas.geodataframe.GeoDataFrame'>
+~~~
+{: .output}
+
+
+
+
+> ## Exercise: A Model Site, Continued
 >
-> Just like we did with the `display_patient` view in [Section 3](../36-architecture-revisited/index.html#mvc-revisited), try adding some views to work with our patient data using the JSON serialiser.
-> When you do this, think about the design of the command line interface - what arguments will you need to get from the user, what output should they receive back?
+> We are now going to add to the requirements for out `Site` and `Catchment` classes.
+>
+> For the `Site` class we will now specify:
+>   - must have a `name` attribute
+>   - must have a `location` attribute, containing a GeoDataFrame describing the location
+>   - must have a dictionary of measurements at that site  
+>
+> For the `Catchment` class we will now specify:
+>   - must have a `name` attribute
+>   - must have an `area` attribute, containing a GeoDataFrame describing the area
+>   - must have a dictionary of sites that are within this catchment area
+>
+> Again, try using Test Driven Development for any features you add: write the tests first, in `tests/tests_sites.py`, then add the feature.
+>
+> For the tests, note that `Point` and `Polygon` geometries can be created using the 
+> relevant functions from the `shapely.geometry` library:
+> ~~~
+> import geopandas as gpd
+> from shapely.geometry import Point, Polygon
+>
+> garea = gpd.GeoDataFrame(
+>                 geometry = [Polygon([(0, 10), (10, 10), (10, 0), (0, 0)])],
+>                 crs = 'EPSG:4326')
+> gpoint = gpd.GeoDataFrame(geometry=[Point((5,5))],crs='EPSG:4326')
+> ~~~
+> {: .language-python}
+> This simple polygon has been saved as a shapefile in `data/simple_shapefile/simple.shp`.
+>
+> And note that GeoPandas provides tests for geometries, such as `.geom_equals` and 
+> `.geom_type`, which may be of use to you.
+>
+> > ## Solution
+> > One example solution is shown below. You may start by writing some tests (that will initially fail), and then 
+> > develop the code to satisfy the new requirements and pass the tests.
+> > ~~~ python
+> > # file: tests/test_sites.py   
+> > """Tests for the Site model."""    
+> > import geopandas as gpd
+> > from shapely.geometry import Point
+> > ...
+> > def test_create_site_with_position():
+> >     """Check a site is created correctly given a name."""
+> >     from catchment.models import Site
+> >     name = 'PL23'
+> >     longitude = 5
+> >     latitude = 5
+> >     position = gpd.GeoDataFrame(geometry=[Point((longitude,latitude))],crs='EPSG:4326')
+> >     p = Site(name = name, longitude = longitude, latitude = latitude)
+> >     assert p.location.geom_equals(position)
+> >
+> > def test_create_catchment_with_shapefile():
+> >     """Check a catchment is created correctly given a simple shapefile."""
+> >     from catchment.models import Catchment
+> >     name = 'Pang'
+> >     shapefile = 'data/simple_shapefile/simple.shp'
+> >     position = gpd.GeoDataFrame.read_file(shapefile)
+> >     catchment = Catchment(name=name,shapefile=shapefile)
+> >     assert catchment.area.geom_equals(position)
+> > 
+> > def test_site_in_catchment_added_correctly():
+> >     """Check sites within catchment are being added correctly."""
+> >     from catchment.models import Catchment, Site
+> >     shapefile = 'data/simple_shapefile/simple.shp'
+> >     catchment = Catchment(name='Pang',shapefile=shapefile)
+> >     longitude = 5
+> >     latitude = 5
+> >     PL23 = Site("PL23", longitude=longitude, latitude=latitude)
+> >     catchment.add_site(PL23)
+> >     assert catchment.sites is not None
+> >     assert len(catchment.sites) == 1
+> >
+> > def test_site_outside_catchment_excluded_correctly():
+> >     """Check sites outside catchment are being excluded."""
+> >     from catchment.models import Catchment, Site
+> >     shapefile = 'data/simple_shapefile/simple.shp'
+> >     catchment = Catchment(name='Pang',shapefile=shapefile)
+> >     longitude = -5
+> >     latitude = -5
+> >     PL23 = Site("PL23", longitude=longitude, latitude=latitude)
+> >     catchment.add_site(PL23)
+> >     assert catchment.sites is None
+> > ...
+> > ~~~    
+> > {: .language-python} 
+> > 
+> > Note that, in the example code here, we have chosen to create the GeoDataFrame objects
+> > within the initialisation of the `Site` and `Catchment` objects. You could allow your
+> > users to pass these instead - but in that case you would need more checks to ensure
+> > the right object is passed by the user.
+> > ~~~
+> > # file: catchment/models.py
+> > import geopandas as gpd
+> > from geopandas.tools import sjoin
+> > ...
+> > class Location:
+> >     """A Location."""
+> >     def __init__(self, name):
+> >         self.name = name
+> >
+> >     def __str__(self):
+> >         return self.name
+> >
+> > class Site(Location):
+> >     """A measurement site in the study."""
+> >     def __init__(self, name, longitude = None, latitude = None):
+> >         super().__init__(name)
+> >         self.measurements = {}
+> >         if longitude and latitude:
+> >             self.location = gpd.GeoDataFrame(
+> >                             geometry = gpd.points_from_xy([longitude], [latitude], crs='EPSG:4326')
+> >                             )
+> >
+> >         else:
+> >             self.location = gpd.GeoDataFrame()
+> >
+> >     def add_measurement(self, measurement_id, data, units=None):
+> >         if measurement_id in self.measurements.keys():
+> >             self.measurements[measurement_id].add_measurement(data)
+> >     
+> >         else:
+> >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+> >    
+> >    @property
+> >    def all_measurements(self):
+> >        return pd.concat(
+> >            [self.measurements[key].series for key in self.measurements.keys()],
+> >            axis=1)
+> >
+> >
+> > class Catchment(Location):
+> >     """A catchment area in the study."""
+> >     def __init__(self, name, shapefile = None):
+> >         super().__init__(name)
+> >         self.sites = {}
+> >         if shapefile:
+> >             self.area = gpd.read_file(shapefile)
+> >         else:
+> >             self.area = gpd.GeoDataFrame()
+> >
+> >
+> >     def add_site(self, new_site):
+> >         # Check to ensure site is within catchment, if both the catchment area 
+> >         # and the location have been defined 
+> >         if self.area.size and new_site.location.size and not sjoin(new_site.location,self.area).size:
+> >             print(f'{new_site.name} not within {self.name} catchment')
+> >             return        
+> >
+> >         # Basic check to see if the site has already been added to the catchment area 
+> >         for site in self.sites:
+> >             if site == new_site.name:
+> >                 print(f'{new_site.name} has already been added to site list')
+> >                 return
+> >
+> >         self.sites[new_site.name] = new_site
+> > ...
+> > ~~~    
+> > {: .language-python} 
+> {: .solution}
 {: .challenge}
 
-> ## Equality Testing
->
-> When we wrote our serialiser test, we said we wanted to check that the data coming out was the same as our input data, but we actually compared just parts of the data, rather than just using `assert patients_new == patients`.
->
-> The reason for this is that, by default, `==` comparing two instances of a class tests whether they're stored at the same location in memory, rather than just whether they contain the same data.
->
-> Add some code to the `Patient` and `Observation` classes, so that we get the expected result when we do `assert patients_new == patients`.
-> When you have this comparison working, update the serialiser test to use this instead.
->
-> **Hint:** The method Python uses to check for equality of two instances of a class is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
-{: .challenge}
 
-> ## Advanced Challenge: Abstract Base Classes
->
-> Since our `Serializer` class is designed not to be directly usable and its methods raise `NotImplementedError`, it ideally should be an abstract base class.
-> An abstract base class is one which is intended to be used only by creating subclasses of it and can mark some or all of its methods as requiring implementation in the new subclass.
->
-> Using Python's documentation on the [abc module](https://docs.python.org/3/library/abc.html), convert the `Serializer` class into an ABC.
->
-> **Hint:** The only component that needs to be changed is `Serializer` - this should not require any changes to the other classes.
->
-> **Hint:** The abc module documentation refers to metaclasses - don't worry about these.
-> A metaclass is a template for creating a class (classes are instances of a metaclass), just like a class is a template for creating objects (objects are instances of a class), but this isn't necessary to understand if you're just using them to create your own abstract base classes.
-{: .challenge}
 
-> ## Advanced Challenge: CSV Serialization
->
-> Try implementing an alternative serialiser, using the CSV format instead of JSON.
->
-> **Hint:** Python also has a module for handling CSVs - see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
-> This module provides a CSV reader and writer which are a bit more flexible, but slower for purely numeric data, than the ones we've seen previously as part of NumPy.
->
-> Can you think of any cases when a CSV might not be a suitable format to hold our patient data?
-{: .challenge}
+
+
 
 {% include links.md %}
