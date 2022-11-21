@@ -391,7 +391,7 @@ Otherwise, we'll probably need to write the reduction operator ourselves - but w
 > >     newdataset = pd.DataFrame(index=dataset['Date'].unique())
 > > 
 > >     for site in dataset['Site'].unique():
-> >         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall > (mm)"]
+> >         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall (mm)"]
 > > 
 > >     newdataset = newdataset.sort_index()
 > > 
