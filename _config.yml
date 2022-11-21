@@ -92,12 +92,9 @@ extras_order:
   - figures
   - guide
   - common-issues
-  - discuss
-  - functional-programming
   - persistence
   - databases
   - geopandas
-  - verifying-code-style-linters
   - quiz
 # Files and directories that are not to be copied.
 exclude:
