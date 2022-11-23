@@ -47,7 +47,7 @@ To start working on the project, you will first create a copy of the software pr
 
 ### Secure Access
 
-In order to send our changes securely with GitHub, we'll need to set up **SSH access** - 
+In order to send our changes securely to GitHub, we'll need to set up **SSH access** - 
 if you're unfamiliar with it, it's a method of proving your ID that's more secure than a password. It requires a pair of keys, one public that we send to GitHub, one private that remains on our machine.
 
 If you don't already have an SSH key there's full guides on GitHub for how to 
