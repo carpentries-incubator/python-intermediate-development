@@ -62,7 +62,7 @@ $ my_gh_email=your_github_email@example.com
 ~~~
 {: .language-bash}
 
-Then run the following command to generate a key-pair and display the public half:
+Then run the following command to generate an [Ed25519](https://ed25519.cr.yp.to/) key pair and display the public key part:
 ~~~
 $ ssh-keygen -t ed25519 -C $my_gh_email; eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519; cat ~/.ssh/id_ed25519.pub
 ~~~
