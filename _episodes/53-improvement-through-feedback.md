@@ -52,6 +52,16 @@ It is often not the reality, but estimation should ideally be done by the people
 
 An effective way of helping to make your estimates more accurate is to do it as a team. Other members can ask prudent questions that may not have been considered, and bring in other sanity checks and their own development experience. Just talking things through can help uncover other complexities and pitfalls, and raise crucial questions to clarify ambiguities.
 
+> ## Where to Record Effort Estimates?
+> There is no dedicated place to record the effort estimate on an issue in current GitHub's interface.
+> Therefore, you can agree on a convention within your team on how to record this information -
+> e.g. you can add the effort in person/days in the issue title.
+> Recording estimates within comments on an issue may not be the best idea as it may get lost among other comments.
+> Another place where you can record estimates for your issues is on project boards - there is no default field for this
+> but you can create a custom numeric field and use it to assign effort estimates (note that
+> you cannot sum them yet in the current GitHub's interface).
+{: .callout}
+
 > ## Exercise: Estimate!
 >
 > As a team go through the issues that your partner team has registered with your software repository, and quickly estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then briefly discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
