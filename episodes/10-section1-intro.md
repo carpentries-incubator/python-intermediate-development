@@ -31,7 +31,7 @@ Here is an overview of the tools we will be using.
  
 > ## Setup, Common Issues & Fixes
 > Have you [setup and installed](../setup.html) all the tools and accounts required for this course?
-> Check the list of [common issues, fixes & tips](../common-issues) if you experiencing problems 
+> Check the list of [common issues, fixes & tips](../common-issues/index.html) if you experience any problems 
 running any of the tools you installed - your issue may be solved there.
 {: .callout}
 
