@@ -16,7 +16,7 @@ keypoints:
 - "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
 - "Ask other team members - or do estimation as a team - to help make accurate estimates."
 - "MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully."
-- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
+- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for requirements within a timebox."
 ---
 
 ## Introduction
@@ -71,14 +71,14 @@ To prioritise these requirements we can use a method called **MoSCoW**, a way to
 - *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved.
 - *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development.
 
-In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20%. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
+In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20% for a particular timebox. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
 
-Why is this important? Because it gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves, you have delivered a *successful* project.
+Why is this important? Because it gives you a unique degree of control of your project for each time period. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves for a particular time period, you have still delivered it *successfully*.
 
 ### GitHub's Milestones
 
 Once we've decided on those we'll work on (i.e. not Won't Haves), we can (optionally) use a GitHub's 
-**Milestone** to organise them. Remember, a milestone is a collection of issues to be worked on in a given period 
+**Milestone** to organise them for a particular timebox. Remember, a milestone is a collection of issues to be worked on in a given period 
 (or timebox). We can create a new one by selecting `Issues` on our repository, then `Milestones` to display any 
 existing milestones, then clicking the "New milestone" button to the right.
 ![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
