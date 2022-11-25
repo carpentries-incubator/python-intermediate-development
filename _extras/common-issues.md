@@ -47,6 +47,7 @@ This can be configured from the command line as follows:
 $ git config --global user.name "Your Name"
 $ git config --global user.email "name@example.com"
 ~~~
+{: .language-bash}
      
 At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so:
 ~~~
