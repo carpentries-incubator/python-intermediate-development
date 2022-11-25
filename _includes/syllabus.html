@@ -28,7 +28,7 @@ Days are displayed if at least one episode has 'start = true'.
             {% if multiday %}<td class="col-md-1"></td>{% endif %}
             <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
             <td class="col-md-3"><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></td>
-            <td class="col-md-7">Download software required for the course</td>
+            <td class="col-md-7"><a href="{{ relative_root_path }}{% link setup.md %}">Download and setup software required for the course</a></td>
         </tr>
         {% for lesson_episode in lesson_episodes %}
         {% if site.episode_order %}
