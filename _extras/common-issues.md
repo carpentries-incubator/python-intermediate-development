@@ -98,9 +98,9 @@ having to specify the proxy for each session, and restart your command line term
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-export {http,https,ftp}_proxy='<AZ-proxy-url>:<AZ-proxy-port>'
-export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>:<AZ-proxy-port>'
-export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>:<AZ-proxy-port>, <AZ-proxy-url>:<AZ-proxy-port>
+    export {http,https,ftp}_proxy='<AZ-proxy-url>:<AZ-proxy-port>'
+    export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>:<AZ-proxy-port>'
+    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>:<AZ-proxy-port>, <AZ-proxy-url>:<AZ-proxy-port>
 }
 
 unset_proxies() {
