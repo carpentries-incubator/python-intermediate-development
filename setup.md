@@ -109,6 +109,7 @@ $ git config --global user.name "Your Name"
 $ git config --global user.email "name@example.com"
 $ git config --global core.editor "nano -w"
 ~~~
+{: .language-bash}
 
 ### GitHub Account
 For the purposes of the course, you will also need a [GitHub](https://github.com/) account.
