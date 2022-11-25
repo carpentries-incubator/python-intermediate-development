@@ -49,7 +49,7 @@ which would have to be installed separately. Next, you'll need to modify your ss
 and add the following:
 ~~~
 Host github.com
-    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <AZ-proxy-url>:<AZ-proxy-port> %h %p
+    ProxyCommand corkscrew <AZ-proxy-url> <AZ-proxy-port> %h %p
     TCPKeepAlive yes
     IdentitiesOnly yes
     User git
