@@ -53,6 +53,7 @@ At this point it may also be a good time to configure your favourite text editor
 ~~~
 $ git config --global core.editor "nano -w"
 ~~~
+{: .language-bash}
 ## Python, `pip`, `venv` & Installing Packages Issues
 
 ### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 
