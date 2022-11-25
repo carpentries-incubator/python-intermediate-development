@@ -41,7 +41,7 @@ Even though collaborators have write access to the main
 development and production branches, the best practice of creating feature branches for new developments and 
 when changes need to be made is still followed. This is to enable easier testing of the new code and 
 initiate code review and general discussion about a set of changes before they are merged 
-into the main development branch. This model is more prevalent with teams and organisations 
+into the development branch. This model is more prevalent with teams and organisations 
 collaborating on private projects.
 {: .callout}
  
@@ -125,7 +125,7 @@ Pull requests are fundamental to how teams review and improve code on GitHub (an
 they let you tell others about changes you've pushed to a branch in a repository on GitHub and that your 
 code is ready for review. Once a pull request is opened, you can discuss and review the potential changes with others 
 on the team and add follow-up commits based on the feedback before your changes are merged into 
-the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
+the `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
 moderators to **pull** your changes into the codebase. 
 
 Such changes are normally done on a (feature) branch, to ensure that they are separate and self-contained and 
