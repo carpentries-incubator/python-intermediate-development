@@ -53,8 +53,9 @@ worked fine when invoked `python`.
 
 ### Installing Packages With `pip` Issue - Proxy Needed
 If you encounter issues when trying to install packages with `pip`, AstraZeneca users may need to use the proxy. 
-This will probably be the case if you are either in the office, or using the Global VPN. In order 
-to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
+This will probably be the case if you are either in the office, or using the Global VPN. If you are working from 
+home you may need to unset the proxy. In order to get `pip` to use the proxy, you need to add an additional 
+parameter when installing packages with `pip`:
 
 `pip3 install --proxy <AZ-proxy-url> <name of package>`
 
