@@ -70,8 +70,8 @@ The solution is to generate a new token with the correct scope/usage permissions
 credential cache (if that's where the token has been saved). In same cases, simply clearing 
 credential cache was not enough and updating to Git 2.29 was needed.
  
-### `Please tell me who you are` Error During First Git Commit
-If you experience the following error during the first Git commit, you may not have configured your identity with 
+### `Please tell me who you are` Git Error
+If you experience the following error the first time you do a Git commit, you may not have configured your identity with 
 Git on your machine:
 
 `fatal: unable to auto-detect email address
@@ -83,12 +83,19 @@ $ git config --global user.name "Your Name"
 $ git config --global user.email "name@example.com"
 ~~~
 {: .language-bash}
-     
-At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so:
+
+The option `--global` tells Git to use these settings "globally" (i.e. for every project that uses Git for version control 
+on your machine). If you use different identifies for different projects, then you should not use the 
+`--global` option. Make sure to use the same email address you used to open an account on GitHub that you 
+are using for this course.
+
+At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so. 
+For example, to use the editor `nano` with Git:
 ~~~
 $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
+
 ## Python, `pip`, `venv` & Installing Packages Issues
 
 ### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 
