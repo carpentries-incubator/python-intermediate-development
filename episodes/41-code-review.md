@@ -124,15 +124,16 @@ popularity within the software development community in recent years.
 Pull requests are fundamental to how teams review and improve code on GitHub (and similar code sharing platforms) -
 they let you tell others about changes you've pushed to a branch in a repository on GitHub and that your 
 code is ready for review. Once a pull request is opened, you can discuss and review the potential changes with others 
-on the team and add follow-up commits based on the feedback before your changes are merged into 
-the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
+on the team and add follow-up commits based on the feedback before your changes are merged from your feature branch 
+into the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
 moderators to **pull** your changes into the codebase. 
 
-Such changes are normally done on a (feature) branch, to ensure that they are separate and self-contained and 
-that the default branch only contains "production-ready" work. You create a branch for your work
+Such changes are normally done on a feature branch, to ensure that they are separate and self-contained and 
+that the main branch only contains "production-ready" work and that the `develop` branch contains code that 
+has already been extensively tested. You create a branch for your work
 based on one of the existing branches (typically the `develop` branch but can be any other branch), 
 do some commits on that branch, and, once you are ready to merge your changes, create a pull request to bring 
-the changes back to that branch. In this 
+the changes back to the branch that you started from. In this 
 context, the branch from which you branched off to do your work and where the changes should be applied 
 back to is called the **base branch**, while the feature branch that contains changes you would like to be applied
 is the **head branch**.
@@ -163,11 +164,11 @@ are going through the material on your own and do not have a collaborator, you c
 own repository from one to another branch.
 
 Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from the
-earlier episodes of this section. Your teammate has implemented one of them according to the specification 
+earlier episodes of this section. Your team member has implemented one of them according to the specification 
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure the new feature indeed satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
-(acting as the code author) and engage in code review with your teammate (acting as a code reviewer). 
+(acting as the code author) and engage in code review with your team member who is the repository owner (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
 in which case the roles will be reversed. 
 
@@ -179,43 +180,60 @@ You need to add the other team member(s) as collaborator(s) on your repository
 to enable them to create branches and pull requests. To do so, each repository owner needs to:
 
 1. Head over to Settings section of your software project's repository in GitHub.
-2. Select tab 'Manage access' and click 'Add people' button.
+   ![Accessing settings for a repository in GitHub](../fig/github-settings.png){: .image-with-shadow width="900px"}
+2. Select the vertical tab 'Collaborators' from the left and click the 'Add people' button.
    ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
 3. Add your collaborator(s) by their GitHub username(s), full name(s) or email address(es).
    ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
 4. Collaborator(s) will be notified of your invitation to join your repository based on their notification preferences.
-5. Once they accept the invitation, they will have the "collaborator"-level access to your repository and will show up
-in the list of our collaborators.
+5. Once they accept the invitation, they will have the collaborator-level access to your repository and will show up
+in the list of your collaborators.
 
-See the full details on ["collaborator" permissions for personal repositories](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository).
+See the full details on [collaborator permissions for personal repositories](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository) 
+to understand what collaborators will be able to do within your repository.
 Note that repositories owned by an organisation have a [more granular access control](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github) compared to that of personal
 repositories.
 
 #### Step 2: Preparing Your Local Environment for a Pull Request
 
-1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally outside your software 
-repository's folder. This will create a copy of the repository locally on your machine along with all its (remote) branches.
-2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in the [previous exercise](/32-software-design/index.html#implement-requirements) and what is the name of the branch they worked on.
-3. Create the appropriate local branch (e.g. `add-std-dev-tests` or `add-view-tests` based on the feature you will be working on)
-off the remote feature branch to contain your new code.
-    
-    Note that this is the first time we are creating a local branch from an existing remote branch. To create and checkout
-    a new local branch with the same name and tracking an existing remote branch do the following: 
+1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally (make sure 
+you do it outside your software repository's folder you have been working on so far). 
+This will create a copy of the repository locally on your machine along with all of 
+its (remote) branches.
     ~~~
-    $ git checkout --track origin/<branch-name>
+    $ git clone <remote-repo-url>
+    $ cd <remote-repo-name>
     ~~~
     {: .language-bash}
+2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in 
+the [previous exercise](/32-software-design/index.html#implement-requirements) and what is the name of the branch they worked on. 
+Let's assume the name of the branch was `feature-x` (you will amend the branch name for your case accordingly).
+3. Your task is to add tests for the code on `feature-x` branch. You will do so on a separate branch called `feature-x-tests`, which 
+will branch off `feature-x`. This is to enable you later on to create a pull request from your `feature-x-tests` branch with your changes
+that can then easily be reviewed and compared with `feature-x` by the team member who created it. 
+
+    To do so, branch off a new local branch `feature-x-tests` from the remote `feature-x` branch (making sure you use the 
+    branch names that match your case). Also note that, while we cay "remote" branch `feature-x` - you have actually 
+    obtained it locally on your machine when you cloned the remote repository.
+    ~~~
+    $ git checkout -b feature-x-tests origin/feature-x
+    ~~~
+    {: .language-bash}
+    
+    You are now located in the new (local) `feature-x-tests` branch and are ready to start adding your code.
 
 #### Step 3: Adding New Code 
 
-> ## Exercise: Implement Tests for a New Feature
+> ## Exercise: Implement Tests for the New Feature
 > Look back at the [solution requirements](/31-software-requirements/index.html#solution-requirements) (SR1.1.1 or SR1.2.1) for
 > the feature that was implemented in your shared repository. Implement tests against the appropriate
 > specification in your local feature branch.
 > 
 > *Note: Try not to not fall into the trap of writing the tests to test the existing code/implementation - you should
 > write the tests to make sure the code satisfies the requirements regardless of the actual implementation. You can
-> treat the implementation as a [black box](https://en.wikipedia.org/wiki/Black-box_testing) - a typical approach to software testing - as a way to make sure it is properly tested against its requirements without introducing assumptions into the tests about its implementation.*
+> treat the implementation as a [black box](https://en.wikipedia.org/wiki/Black-box_testing) - a typical approach 
+> to software testing - as a way to make sure it is properly tested against its requirements without introducing 
+> assumptions into the tests about its implementation.*
 {: .challenge}
 
 > ## Testing Based on Requirements
@@ -223,20 +241,36 @@ Tests should test functionality, which stem from the software requirements, rath
 be seen as a reflection of those requirements - checking if the requirements are satisfied.
 {: .callout}
 
+Remember to commit your new code to your branch `feature-x-tests`.
+
+~~~
+$ git add -A
+$ git commit -m "Added tests for feature-x."
+~~~
+{: .language-bash}
+
 #### Step 4: Submitting a Pull Request
 
-When you have finished adding your tests and have committed them, and are ready for the others in the team to review them:
+When you have finished adding your tests and have committed the changes to your local `feature-x-tests`, 
+and are ready for the others in the team to review them, you have to do the following:
 
-1. Push your local feature branch remotely to the shared repository.
-2. Head over to GitHub and locate your branch from the repository home page. 
+1. Push your local feature branch `feature-x-tests` remotely to the shared repository.
+    ~~~
+    $ git push -u feature-x-tests
+    ~~~
+    {: .language-bash}
+2. Head over to the remote repository in GitHub and locate your new (`feature-x-tests`) branch from the dropdown box on 
+the Code tab (you can search for your branch or use the "View all branches" option).
+   ![All repository branches in GitHub](../fig/github-branches.png){: .image-with-shadow width="600px"}
 3. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-4. Select the base and the head branch - e.g. `add-std-dev` and `add-std-dev-tests`, respectively. 
+4. Select the base and the head branch, e.g. `feature-x` and `feature-x-tests`, respectively. Recall that the base branch is 
+where you want your changes to be merged and the head branch contains your changes.
 5. Add a comment describing the nature of the changes, and then submit the pull request.
 6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
 7. At this point, the code review process is initiated.
 
-You will receive a similar pull request from other team members on your repository.
+You should receive a similar pull request from other team members on your repository.
 
 #### Step 5: Code Review
 
