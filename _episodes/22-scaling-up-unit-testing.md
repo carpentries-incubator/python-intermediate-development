@@ -28,8 +28,8 @@ So instead of writing a separate function for each different test, we can **para
 @pytest.mark.parametrize(
     "test, expected",
     [
-        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
-        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
+        ([ [0, 0], [0, 0], [0, 0] ], [0, 0]),
+        ([ [1, 2], [3, 4], [5, 6] ], [3, 4]),
     ])
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
@@ -42,7 +42,7 @@ Here, we use `pytest`'s **mark** capability to add metadata to this specific tes
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
-So our first test will run `daily_mean()` on `[[0, 0], [0, 0], [0, 0]]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3, 4]`.
+So our first test will run `daily_mean()` on `[ [0, 0], [0, 0], [0, 0] ]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[ [1, 2], [3, 4], [5, 6] ]` and check it produces `[3, 4]`.
 
 The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
 
@@ -56,9 +56,9 @@ The big plusses here are that we don't need to write separate functions for each
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [4, 6, 9]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [4, -1, 9]),
+> >         ([ [0, 0, 0], [0, 0, 0], [0, 0, 0] ], [0, 0, 0]),
+> >         ([ [4, 2, 5], [1, 6, 2], [4, 1, 9] ], [4, 6, 9]),
+> >         ([ [4, -2, 5], [1, -6, 2], [-4, -1, 9] ], [4, -1, 9]),
 > >     ])
 > > def test_daily_max(test, expected):
 > >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
@@ -69,9 +69,9 @@ The big plusses here are that we don't need to write separate functions for each
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
-> >         ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]),
-> >         ([[4, 2, 5], [1, 6, 2], [4, 1, 9]], [1, 1, 2]),
-> >         ([[4, -2, 5], [1, -6, 2], [-4, -1, 9]], [-4, -6, 2]),
+> >         ([ [0, 0, 0], [0, 0, 0], [0, 0, 0] ], [0, 0, 0]),
+> >         ([ [4, 2, 5], [1, 6, 2], [4, 1, 9] ], [1, 1, 2]),
+> >         ([ [4, -2, 5], [1, -6, 2], [-4, -1, 9] ], [-4, -6, 2]),
 > >     ])
 > > def test_daily_min(test, expected):
 > >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""

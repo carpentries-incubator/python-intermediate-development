@@ -102,9 +102,10 @@ A few notes before we start.
 Check out this [quiz](../quiz/index.html) to help you test your prior knowledge and determine if this course is for you.
 {: .callout}
 
-> ## Required Software
-Please make sure that you have all the necessary software installed as described in the [Setup](../setup.html) section.
-This section also contains instructions on how to test your setup.
+> ## Setup, Common Issues & Fixes
+> Have you [setup and installed](../setup.html) all the tools and accounts required for this course?
+> Check the list of [common issues, fixes & tips](../common-issues/index.html) if you experience any problems
+running any of the tools you installed - your issue may be solved there.
 {: .callout}
 
 > ## Compulsory and Optional Exercises

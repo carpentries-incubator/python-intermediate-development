@@ -176,11 +176,17 @@ $ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folde
 Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
-machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
-GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+machines. In order to share our work with others, we should push our changes to the remote repository on GitHub. Before we push our changes however, we should first do a `git pull`. This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, we are made aware of any changes made by others, in particular if there are any conflicts between their changes and ours.
+
+~~~
+$ git pull
+~~~
+{: .language-bash}
+
+Now we've ensured our repository is synchronised with the remote one, we can now push our changes. GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
 ) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
 over HTTPS any more - you either need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security if you want to continue 
-to use HTTPS or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
+to use HTTPS, or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
 
 ~~~
 $ git push origin main
@@ -390,7 +396,7 @@ $ git push origin develop
 {: .language-bash}
 
 ### Merging Into Main Branch
-Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `main` branch.
+Once you have tested your changes on the `develop` branch, you will want to merge them onto the `main` branch.
 To do so, make sure you have all your changes committed and switch to `main`:
 
 ~~~

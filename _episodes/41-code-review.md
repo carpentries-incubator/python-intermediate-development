@@ -41,7 +41,7 @@ Even though collaborators have write access to the main
 development and production branches, the best practice of creating feature branches for new developments and 
 when changes need to be made is still followed. This is to enable easier testing of the new code and 
 initiate code review and general discussion about a set of changes before they are merged 
-into the main development branch. This model is more prevalent with teams and organisations 
+into the development branch. This model is more prevalent with teams and organisations 
 collaborating on private projects.
 {: .callout}
  
@@ -125,7 +125,7 @@ Pull requests are fundamental to how teams review and improve code on GitHub (an
 they let you tell others about changes you've pushed to a branch in a repository on GitHub and that your 
 code is ready for review. Once a pull request is opened, you can discuss and review the potential changes with others 
 on the team and add follow-up commits based on the feedback before your changes are merged from your feature branch 
-into the main `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
+into the `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
 moderators to **pull** your changes into the codebase. 
 
 Such changes are normally done on a feature branch, to ensure that they are separate and self-contained and 
@@ -159,16 +159,20 @@ branch.
 ## Code Review and Pull Requests In Action
 
 Let's see this in action - you and your fellow learners are going to be organised in small teams and assume to be 
-collaborating in the shared repository model. You will be added as a collaborator to another team member's repository (which becomes the shared repository in this context) and, likewise, you will add other team members as collaborators on your repository. You can form teams of 2 and work on each other's repositories. If there are 3 members in your group you can go in a round robin fashion (the first team member does a pull request on the second member's repository and receives a pull request on their repository from the third team member). If you 
-are going through the material on your own and do not have a collaborator, you can do pull requests on your 
-own repository from one to another branch.
+collaborating in the shared repository model. You will be added as a collaborator to another team member's repository 
+(which becomes the shared repository in this context) and, likewise, you will add other team members as collaborators 
+on your repository. You can form teams of two and work on each other's repositories. If there are 3 members in 
+your group you can go in a round robin fashion (the first team member does a pull request on the second member's 
+repository and receives a pull request on their repository from the third team member). If you are going through the 
+material on your own and do not have a collaborator, you can do pull requests on your own repository from one to 
+another branch.
 
-Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from the
-earlier episodes of this section. Your team member has implemented one of them according to the specification 
+Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from an
+earlier episode. Your team member has implemented one of them according to the specification 
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure the new feature indeed satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
-(acting as the code author) and engage in code review with your team member who is the repository owner (acting as a code reviewer). 
+(acting as the code author) and engage in code review with your team member (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
 in which case the roles will be reversed. 
 
