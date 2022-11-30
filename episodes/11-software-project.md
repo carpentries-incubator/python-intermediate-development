@@ -53,7 +53,7 @@ If you don't already have an SSH key there's full guides on GitHub for how to
 [Make an SSH Key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) 
 and 
 [Add an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), but we've provided a short summary below.
-If  *do* already have an SSH key, you can use it for GitHub by coping the public key to the clipboard and pasting it into the GitHub settings page.
+If  you *do* already have an SSH key, you can use it for GitHub by coping the public key to the clipboard and pasting it into the GitHub settings page.
 
 To generate an SSH key pair, we'll first create a variable to store your GitHub email. Copy this command, substituting the email you signed up to GitHub with for `your_github_email@example.com`:
 ~~~
