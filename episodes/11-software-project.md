@@ -44,7 +44,6 @@ The project is not finished and contains some errors. You will be working on you
 
 To start working on the project, you will first create a copy of the software project template repository from GitHub within your own GitHub account and then obtain a local copy of the project on your machine. 
 
-
 ### Secure Access
 
 In order to send our changes securely to GitHub, we'll need to set up **SSH access** - 

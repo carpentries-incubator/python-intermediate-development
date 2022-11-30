@@ -65,7 +65,7 @@ For our inflammation project, they could include things for trial managers such 
 >> see all the patients a doctor is being responsible for (UR3.1), and to find out a doctor looking after any individual patient (UR3.2).
 >>
 >> For our business requirement BR4 from the previous exercise, the new user/stakeholder requirements may be the ability to 
->> see the the effect of the drug with and without the additional parameters in all reports and graphs (UR4.1).
+>> see the effect of the drug with and without the additional parameters in all reports and graphs (UR4.1).
 > {: .solution}
 {: .challenge}
 

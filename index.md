@@ -77,4 +77,11 @@ currently undocumented or unstructured
 > - Manage software improvement from feedback through agile techniques
 {: .objectives }
 
+> ## Setup
+> Please make sure that you have all the necessary software and accounts setup ahead of the workshop 
+> as described in the [Setup](../setup.html) section.
+> Also check the list of [common issues, fixes & tips](../common-issues/index.html) if you experience any problems
+running any of the tools you installed - your issue may be solved there.
+{: .callout}
+
 {% include links.md %}
