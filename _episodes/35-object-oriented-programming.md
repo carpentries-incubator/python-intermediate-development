@@ -1,19 +1,22 @@
 ---
 title: "Object Oriented Programming"
-start: false
-teaching: 20
-exercises: 30
+teaching: 30
+exercises: 20
 questions:
-- "How does the structure of a problem affect the structure of our code?"
-- "How can we use common software paradigms to improve the quality of our software?"
+- "How can we use code to describe the structure of data?"
+- "How should the relationships between structures be described?"
 objectives:
-- "Describe some of the major software paradigms we can use to classify programming languages."
+- "Describe the core concepts that define the Object Oriented Paradigm"
+- "Use classes to encapsulate data within a more complex program"
+- "Structure concepts within a program in terms of sets of behaviour"
+- "Identify different types of relationship between concepts within a program"
+- "Structure data within a program using these relationships"
 keypoints:
-- "A software paradigm describes a way of structuring or reasoning about code."
-- "Different programming languages are suited to different paradigms."
-- "Different paradigms are suited to solving different classes of problems."
-- "A single piece of software will often contain instances of multiple paradigms."
+- "Classes allow us to organise data into distinct concepts."
+- "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
+- "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
+
 
 ## Encapsulating Data
 
@@ -220,7 +223,7 @@ The behaviours we may have seen previously include:
 >
 {: .callout}
 
-### Encapsulating Behaviour
+## Encapsulating Behaviour
 
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
@@ -413,9 +416,9 @@ print(obs)
 ~~~
 {: .output}
 
-You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
+You may recognise the `@` syntax from episodes on parameterising unit tests and functional programming - `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_observation` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
-It is possible to make your own decorators, so we'll be seeing them again in the Functional Programming episode.
+It is also possible to make your own decorators, but we won't cover it here.
 
 ### Relationships Between Classes
 
@@ -491,7 +494,7 @@ Now we're using a composition of two custom classes to describe the relationship
 
 The other type of relationship used in object oriented programming is **inheritance**.
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
-If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
+If class `X` inherits from (*is a*) class `Y`, we say that `Y` is the **superclass** or **parent class** of `X`, or `X` is a **subclass** of `Y`.
 
 If we want to extend the previous example to also manage people who aren't patients we can add another class `Person`.
 But `Person` will share some data and behaviour with `Patient` - in this case both have a name and show that name when you print them.

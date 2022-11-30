@@ -33,7 +33,7 @@ Someone who is engineering software, on the other hand takes a wider view:
 - The *lifecycle* of software: from understanding what is needed, to writing the software and using/releasing it, to what happens afterwards.
 - Who will (or may) be involved: software is written for *stakeholders*. This may only be the researcher initially, but there is an understanding that others may become involved later (even if that isn't evident yet). A good rule of thumb is to always assume that code will be read and used by others later on, which includes yourself!
 - Software (or code) is an asset: software inherently contains value - for example, in terms of what it can do, the lessons learned throughout its development, and as an implementation of a research approach (i.e. a particular research algorithm, process, or technical approach).
-- As an asset, it could be reused: again, it may not be evident initially that the software will have use beyond it's initial purpose or project, but there is an assumption that the software - or even just a part of it - could be reused in the future.
+- As an asset, it could be reused: again, it may not be evident initially that the software will have use beyond its initial purpose or project, but there is an assumption that the software - or even just a part of it - could be reused in the future.
 
 ### The Software Development Process
 
