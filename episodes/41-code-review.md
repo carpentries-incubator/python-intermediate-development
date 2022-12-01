@@ -168,13 +168,18 @@ material on your own and do not have a collaborator, you can do pull requests on
 another branch.
 
 Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements) from an
-earlier episode. Your team member has implemented one of them according to the specification 
+earlier episode. Your team member has implemented one of them according to the specification (let's call it `feature-x`)
 but tests are still missing. You are now tasked with implementing tests on top of 
 that existing implementation to make sure the new feature indeed satisfies the requirements. You will propose 
 changes to their repository (the shared repository in this context) via pull request 
 (acting as the code author) and engage in code review with your team member (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
-in which case the roles will be reversed. 
+in which case the roles will be reversed. The following diagram depicts the branches that you should have in the repository.
+
+![Branches for a feature and its tests](../fig/exercise-feature-branch.svg){: .image-with-shadow width="800px"}
+<p style="text-align: center;">
+Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)
+</p>
 
 To achieve this, the following steps are needed.
 
@@ -185,7 +190,7 @@ to enable them to create branches and pull requests. To do so, each repository o
 
 1. Head over to Settings section of your software project's repository in GitHub.
    ![Accessing settings for a repository in GitHub](../fig/github-settings.png){: .image-with-shadow width="900px"}
-2. Select the vertical tab 'Collaborators' from the left and click the 'Add people' button.
+2. Select the **vertical** tab 'Collaborators' from the left and click the 'Add people' button.
    ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
 3. Add your collaborator(s) by their GitHub username(s), full name(s) or email address(es).
    ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
@@ -211,8 +216,8 @@ its (remote) branches.
     {: .language-bash}
 2. Check with the repository owner (your team member) which feature (SR1.1.1 or SR1.2.1) they implemented in 
 the [previous exercise](/32-software-design/index.html#implement-requirements) and what is the name of the branch they worked on. 
-Let's assume the name of the branch was `feature-x` (you will amend the branch name for your case accordingly).
-3. Your task is to add tests for the code on `feature-x` branch. You will do so on a separate branch called `feature-x-tests`, which 
+Let's assume the name of the branch was `feature-x` (you should amend the branch name for your case accordingly).
+3. Your task is to add tests for the code on `feature-x` branch. You should do so on a separate branch called `feature-x-tests`, which 
 will branch off `feature-x`. This is to enable you later on to create a pull request from your `feature-x-tests` branch with your changes
 that can then easily be reviewed and compared with `feature-x` by the team member who created it. 
 
