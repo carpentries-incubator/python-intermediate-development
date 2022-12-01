@@ -126,15 +126,14 @@ GitHub provides full documentation and guides on how to:
 - [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and
 - [add an SSH key to a GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-A short summary of commands is shown below.
+A short summary of commands you need to perform is shown below.
 
 To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash 
 and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub) 
 via the `-C` parameter as shown below. Note that the `ssh-keygen` command can be run with different 
-parameters - e.g. to select a specific public key algorithm and key length; if you do not use them `ssh-keygen` will use 
-default values and generate an RSE key pair for you. It will also prompt you to answer a few questions - e.g. where to save the keys on your machine and 
+parameters - e.g. to select a specific public key algorithm and key length; if you do not use them `ssh-keygen` will generate an [RSE](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.) key pair for you by default. It will also prompt you to answer a few questions - e.g. where to save the keys on your machine and 
 a passphrase to use to protect your private key. Pressing 'Enter' on these prompts 
-will get `ssh-keygen` to use the default key location and set the passphrase to empty.
+will get `ssh-keygen` to use the default key location (within `.ssh` folder in your home directory) and set the passphrase to empty.
 
 ~~~
 $ ssh-keygen -C "your-github-email@example.com"
@@ -164,8 +163,8 @@ The key's randomart image is:
 ~~~
 {: .output}
 
-Next, you need to get the contents of your public key (**not your private key - this is important!**) to copy over to 
-your GitHub account. The `ssh-keygen` command above will let you know where your public key is saved (it should have the 
+Next, you need to copy your public key (**not your private key - this is important!**) over to 
+your GitHub account. The `ssh-keygen` command above will let you know where your public key is saved (the file should have the 
 extension ".pub"), and you can get its contents as, e.g.:
 ~~~
 $ cat /Users/alex/.ssh/id_rsa.pub
