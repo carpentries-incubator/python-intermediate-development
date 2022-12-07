@@ -19,7 +19,60 @@ There are many variants of an MVC-like pattern (such as [Model-View-Presenter](h
 What really matters is that we are making decisions about the architecture of our software that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
-In this episode we'll be taking our Object Oriented code from the previous episode and integrating it into our existing MVC pattern.
+In this episode we'll be taking our Object Oriented code from the previous episode and integrating it into our existing MVC pattern. But first we will explain some features of the Controller (`catchment-analysis.py`) file.
+
+### Controller file structure
+
+You will have noticed already that structure of the `catchment-analysis.py` file follows this pattern:
+~~~
+# import modules
+
+def main():
+    # perform some actions
+
+if __name__ == "__main__":
+    # perform some actions before main()
+    main()
+~~~
+{: .language-python}
+In this pattern the actions performed by the script are contained within the `main` function (which does not need to be called `main`, but using this convention helps others in understanding your code). The `main` function is then called within the `if` statement `__name__ == "__main__"`, after some other actions have been performed (usually the parsing of command-line arguments, which will be explained below). `__name__` is a special dunder variable which is set, along with a number of other special dunder variables, by the python interpreter before the execution of any code in the source file. What value is given by the interpreter to `__name__` is determined by the manner in which it is loaded.
+
+If we run the source file directly using the python interpreter, e.g.:
+~~~
+python catchment-analysis.py
+~~~
+{: .language-bash}
+then the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable:
+~~~
+__name__ = "__main__"
+...
+# rest of your code
+~~~
+{: .language-python}
+
+However, if your source file is imported by another python script, e.g:
+~~~
+import catchment-analysis
+~~~
+{: .language-python}
+then the interpreter will assign the name `"catchment-analysis"` from the import statement to the `__name__` variable:
+~~~
+__name__ = "catchment-analysis"
+...
+# rest of your code
+~~~
+{: .language-python}
+
+Because of this behaviour of the interpreter, we can put any code that should only be executed when running the script directly within the `if __name__ == "__main__":` structure, allowing the rest of the code within the script to be safely imported by another script if we so wish.
+
+While it may not seem very useful to have your controller script importable by another script, there are a number of situations in which you would want to do this:
+- for testing of your code, you can have your testing framework import the main script, and run special test functions which then call the `main` function directly;
+- where you want to not only be able to run your script from the command-line, but also provide a programmer-friendly application programming interface (API) for advanced users.
+
+
+
+
+### Adding a new View 
 
 Let's start with adding a view that allows us to see the data for a single site.
 First, we need to add the code for the view itself and make sure our `Site` class has the necessary data - including the ability to pass a list of measurements to the `__init__` method.
@@ -89,7 +142,12 @@ class Site(Location):
 ~~~
 {: .language-python}
 
+
+
 Now we need to make sure people can call this view - that means connecting it to the controller and ensuring that there's a way to request this view when running the program.
+
+### Adapting the Controller
+
 The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
 
 ~~~
