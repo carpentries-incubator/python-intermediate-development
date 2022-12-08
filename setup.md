@@ -182,7 +182,7 @@ is not wide enough).
 Finally, go to your [GitHub Settings -> SSH keys -> Add New](https://github.com/settings/ssh/new) page to add a new 
 SSH public key. Give your key a memorable name (e.g. the name of the computer you are working on that contains the 
 private key counterpart), paste the public key 
-from your clipboard into the box labelled "Key", then click the "Add SSH key" button.
+from your clipboard into the box labelled "Key" (making sure it does not contain any line breaks), then click the "Add SSH key" button.
 
 > ## What About Passwords?
 > While using passwords over HTTPS for authentication is easier to setup and will allow you *read access* to your repository on GitHub from your machine, 
