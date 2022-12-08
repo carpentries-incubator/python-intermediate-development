@@ -294,8 +294,7 @@ index 4818abb..5b8e7fd 100644
 +
 +## Installation
 +- Clone the repo ``git clone repo``
-+- Install via ``pip install -e .``
-+- Check everything runs by running ``pytest`` in the root directory
++- Check everything runs by running ``python -m pytest`` in the root directory
 +- Hurray 😊
 +
 +## Contributing
