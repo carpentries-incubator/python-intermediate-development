@@ -96,7 +96,7 @@ $ git help
 ~~~
 {: .output}
 
-When you use Git on a new computer for the first time, you need to configure a few things:
+When you use Git on a machine for the first time, you need to configure a few things:
 
 * your name, 
 * your email address (used to uniquely identify you commit a change),
@@ -110,6 +110,8 @@ $ git config --global user.email "name@example.com"
 $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
+
+Make sure to use the same email address you used to open an account on GitHub that you will use for this course (see below).
 
 ### GitHub Account
 For the purposes of the course, you will also need a [GitHub](https://github.com/) account.
