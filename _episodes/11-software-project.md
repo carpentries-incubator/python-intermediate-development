@@ -83,6 +83,7 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
     ~~~
     {: .language-bash}
 Make sure you are cloning your copy of the software project and not the template repository.
+
 4. Navigate into the cloned repository folder in your command line with:
     ~~~
     cd python-intermediate-inflammation
