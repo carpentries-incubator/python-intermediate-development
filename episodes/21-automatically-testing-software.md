@@ -293,52 +293,27 @@ $ pip3 install pytest
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
-### Writing a Metadata Package Description
-
-Another thing we need to do when automating tests using Pytest is to create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test in the `inflammation` directory.
-
-Create a new file `setup.py` in the root directory of the `python-intermediate-inflammation` repository, with the following Python content:
-
-~~~
-from setuptools import setup, find_packages
-
-setup(name="inflammation-analysis", version='1.0', packages=find_packages())
-~~~
-{: .language-python}
-
-Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
-
-~~~
-$ pip3 install -e .
-~~~
-{: .language-bash}
-
-We should see:
-
-~~~
-Obtaining file:///Users/alex/python-intermediate-inflammation
-  Preparing metadata (setup.py) ... done
-Installing collected packages: inflammation-analysis
-  Running setup.py develop for inflammation-analysis
-Successfully installed inflammation-analysis-1.0
-~~~
-{: .output}
-
-This will install our code, as a package, within our virtual environment. We're installing it as a 'development' 
-package (using the `-e` parameter in the above `pip3 install` command), which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change (or edit it - hence the `-e`).
-
 
 ### Running the Tests
 
 Now we can run these tests using `pytest`:
 
 ~~~
-$ pytest tests/test_models.py
+$ python -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we specify the `tests/test_models.py` file to run the tests in that file
-explicitly.
+So here, we use `-m` to invoke the `pytest` installed module, and specify the `tests/test_models.py` file to run the tests in that file
+explicitly. 
+
+> ## Why Run Pytest Using `python -m` and Not `pytest` ?
+>
+> Another way to run `pytest` is via it's own command, so we *could* try to use `pytest tests/test_models.py` on the
+> command line instead, but this would lead to a `ModuleNotFoundError: No module named 'inflammation'`. This is because
+> using the `python -m pytest` method adds the current directory to its list of directories to search for modules,
+> whilst using `pytest` does not - the `inflammation` subdirectory's contents are not 'seen', hence the
+> `ModuleNotFoundError`. There are ways to get around this with [various methods](https://stackoverflow.com/questions/71297697/modulenotfounderror-when-running-a-simple-pytest), but we've used `python -m` for simplicity.
+{: .callout}
 
 ~~~
 ============================================== test session starts =====================================================
@@ -367,7 +342,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > - You could choose to format your functions very similarly to `daily_mean()`, defining test input and expected result arrays followed by the equality assertion.
 > - Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
 >
-> Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
+> Once added, run all the tests again with `python -m pytest tests/test_models.py`, and you should also see your new tests pass.
 >
 > > ## Solution
 > >
@@ -427,11 +402,9 @@ Run all your tests as before.
 Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`:
 
 ~~~
-$ pip3 freeze --exclude-editable > requirements.txt
+$ pip3 freeze > requirements.txt
 ~~~
 {: .language-bash}
-
-We use `--exclude-editable` here to ensure our locally installed `inflammation-analysis` package is not included in this list of installed packages, since it is not required for running the software, and would cause problems for others reusing this environment.
 
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
