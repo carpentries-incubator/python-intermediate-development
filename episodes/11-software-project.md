@@ -86,7 +86,7 @@ Make sure you are cloning your copy of the software project and not the template
 
 4. Navigate into the cloned repository folder in your command line with:
     ~~~
-    cd python-intermediate-inflammation
+    $ cd python-intermediate-inflammation
     ~~~
     {: .language-bash}
 Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
