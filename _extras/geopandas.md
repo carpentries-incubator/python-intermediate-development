@@ -529,7 +529,7 @@ type(site_gdf.loc[['FP23']])
 > >             self.measurements[measurement_id].add_measurement(data)
 > >     
 > >         else:
-> >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+> >             self.measurements[measurement_id] = MeasurementSeries(data, measurement_id, units)
 > >    
 > >    @property
 > >    def all_measurements(self):

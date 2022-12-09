@@ -529,12 +529,12 @@ In the same way, in object oriented programming, we can make things components o
 We often use composition where we can say 'x *has a* y' - for example in our catchment study project, we might want to say that a catchment area *has* measurement sites or that a measurement site *has* a collection of measurement sets.
 
 In the case of our example, we have said any given measurement site has a collection of measurement sets, so we're already using composition here.
-We're currently implementing the collection of measurement sets as a dictionary with a known set of keys though, so maybe we should make a `MeasurementSet` class as well. This class will contain the Pandas Series it replaces, but enable us to now associate extra information and methods with that dataset.
+We're currently implementing the collection of measurement sets as a dictionary with a known set of keys though, so maybe we should make a `MeasurementSeries` class as well. This class will contain the Pandas Series it replaces, but enable us to now associate extra information and methods with that dataset.
 
 ~~~ 
 # file: catchment/models.py
 
-class MeasurementSet:
+class MeasurementSeries:
     def __init__(self, series, name, units):
         self.series = series
         self.name = name
@@ -562,7 +562,7 @@ class Site:
             self.measurements[measurement_id].add_measurement(data)
         
         else:
-            self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+            self.measurements[measurement_id] = MeasurementSeries(data, measurement_id, units)
     
     @property
     def last_measurements(self):
@@ -609,8 +609,8 @@ PL23.add_measurement('Water pH', waterph_data)
 print(PL23.measurements['River Level'])
 print(PL23.measurements['Water pH'])
 
-fulldata = PL23.all_measurements
-print(fulldata)
+lastdata = PL23.last_measurements
+print(lastdata)
 
 ~~~
 {: .language-python}
@@ -619,9 +619,7 @@ print(fulldata)
 River Level (mm)
 Water pH
             River Level  Water pH
-2000-01-01         34.0       7.8
-2000-01-02         32.0       8.0
-2000-01-03         33.0       7.9
+2000-01-03          NaN       7.9
 2000-01-04         31.0       NaN
 ~~~
 {: .output}
@@ -648,7 +646,7 @@ If the class **inherits** from another class, we include the parent class name i
 ~~~ python
 # file: catchment/models.py
 
-class MeasurementSet:
+class MeasurementSeries:
     def __init__(self, series, name, units):
         self.series = series
         self.name = name
@@ -682,7 +680,7 @@ class Site(Location):
             self.measurements[measurement_id].add_measurement(data)
     
         else:
-            self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+            self.measurements[measurement_id] = MeasurementSeries(data, measurement_id, units)
     
     @property
     def last_measurements(self):
@@ -848,7 +846,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >            self.measurements[measurement_id].add_measurement(data)
 > >     
 > >        else:
-> >             self.measurements[measurement_id] = MeasurementSet(data, measurement_id, units)
+> >             self.measurements[measurement_id] = MeasurementSeries(data, measurement_id, units)
 > >    
 > >    @property
 > >    def last_measurements(self):
