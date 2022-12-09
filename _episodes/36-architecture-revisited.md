@@ -187,9 +187,51 @@ optional arguments:
                         Name of measurement data series to use
 ~~~
 {: .output}
-You will note that the `--measurements` argument is still listed as an optional argument, unfortunately this is not something that can be changed when using `argparse`, but in the usage section it is listed without `[]` brackets, indicating that it is an expected argument.
 
-> ## Default argument number and type
+> ## Optional vs Required Arguments, and Argument Groups
+> You will note that the `--measurements` argument is still listed as an optional 
+> argument. This is because the two basic option groups in `argparse` are positional and 
+> optional. In the usage section the `--measurements` option is listed without `[]` brackets, indicating 
+> that it is an expected argument, but still this is not very clear for end users.
+> 
+> To make the help clearer we can add an extra argument group, and assign `--measurements` to this:
+> ~~~
+> ...
+>     req_group = parser.add_argument_group('required arguments')
+> ...
+>     req_group.add_argument(
+>         '-m', '--measurements',
+>         help = 'Name of measurement data series to load',
+>         required = True)
+> ...
+> ~~~
+> {: .language-python}
+> This will return the following help message:
+> ~~~
+> python catchment-analysis.py --help
+> ~~~
+> {: .language-bash} 
+> ~~~
+> usage: catchment-analysis.py [-h] -m MEASUREMENTS infiles [infiles ...]
+> 
+> A basic environmental data management system
+> 
+> positional arguments:
+>   infiles               Input CSV(s) containing measurement data
+> 
+> optional arguments:
+>   -h, --help            show this help message and exit
+> 
+> required arguments:
+>   -m MEASUREMENTS, --measurements MEASUREMENTS
+>                         Name of measurement data series to use
+> ~~~
+> {: .output}
+> This solution is not perfect, because the positional arguments are also required,
+> but it will at least help end users distinguish between optional and required flagged arguments.
+{: .callout}
+
+> ## Default Argument Number and Type
 > `argparse` will, by default, assume that each argument added will take a single value, 
 > and will be a string (`type = str`). If you want to change this for any argument you 
 > should explicitly set `type` and `nargs`.
@@ -390,27 +432,29 @@ def parse_cli_arguments():
     parser = argparse.ArgumentParser(
         description='A basic environmental data management system')
     
-    parser.add_argument(
-        'infiles',
-        nargs='+',
-        help='Input CSV(s) containing measurement data')
+    req_group = parser.add_argument_group('required arguments')
 
     parser.add_argument(
+        'infiles',
+        nargs = '+',
+        help = 'Input CSV(s) containing measurement data')
+
+    req_group.add_argument(
         '-m', '--measurements',
         help = 'Name of measurement data series to load',
         required = True)
 
     parser.add_argument(
         '--view',
-        default='visualize',
-        choices=['visualize', 'record'],
-        help='Which view should be used?')
+        default = 'visualize',
+        choices = ['visualize', 'record'],
+        help = 'Which view should be used?')
 
     parser.add_argument(
         '--site',
-        type=str,
-        default=None,
-        help='Which site should be displayed?')
+        type = str,
+        default = None,
+        help = 'Which site should be displayed?')
     
     args = parser.parse_args()
     
