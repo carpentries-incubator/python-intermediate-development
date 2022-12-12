@@ -35,7 +35,7 @@ and is in a good state to be reused and taught by others.
 ## Teaching the Lesson
 If you would like to teach this lesson to your audience and help with more beta testing, 
 please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
-label ![pilot](https://img.shields.io/badge/-pilot-green.svg).
+label ![pilot](https://img.shields.io/badge/-pilot-brightgreen.svg).
 
 ## Contributing
 
