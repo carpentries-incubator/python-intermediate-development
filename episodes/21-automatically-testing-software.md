@@ -308,7 +308,7 @@ explicitly.
 
 > ## Why Run Pytest Using `python -m` and Not `pytest` ?
 >
-> Another way to run `pytest` is via it's own command, so we *could* try to use `pytest tests/test_models.py` on the
+> Another way to run `pytest` is via its own command, so we *could* try to use `pytest tests/test_models.py` on the
 > command line instead, but this would lead to a `ModuleNotFoundError: No module named 'inflammation'`. This is because
 > using the `python -m pytest` method adds the current directory to its list of directories to search for modules,
 > whilst using `pytest` does not - the `inflammation` subdirectory's contents are not 'seen', hence the
