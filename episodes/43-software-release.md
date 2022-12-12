@@ -207,26 +207,12 @@ Every repository may be configured slightly differently, so we'll leave that to 
 
 ## What if We Need More Control?
 
-Sometimes we need more control over the process of building our distributable package than Poetry allows.
-In these cases, we have to use the method that we've seen already in this course - a `setup.py` file.
-Because this is a Python file, we can use the full power of Python to describe how to setup our project.
-
-One of the common cases where this is particularly useful is if our project has components in different languages.
-For example, to speed up some of the core parts we might write some of our functions in C, then call these from our Python code.
-Using a `setup.py` gives us the flexibility to handle building these components in different ways and bring them together at the end.
-
-> ## Alternative Python Packaging Methods?
-> 
-> In the [unit testing episode](../21-automatically-testing-software/index.html#writing-a-metadata-package-description),
-> you may recall we created a `setup.py` file to represent our inflammation code as a package, so it could be 'found' by 
-> pytest. Using a `setup.py` is part of one older convention to packaging Python, and in this episode we looked at another.
-> 
-> There many ways to distribute Python code in packages, with some degree of flux in terms of which methods are most 
-> popular. For a more comprehensive overview of Python packaging you can see the 
-> [Python docs on packaging](https://packaging.python.org/en/latest/), which contains a helpful guide to the overall
-> [packaging process, or 'flow'](https://packaging.python.org/en/latest/flow/), using the [Twine](https://pypi.org/project/twine/) tool to upload created 
-> packages to PyPI for distribution as an alternative.
-{: .callout}
+Sometimes we need more control over the process of building our distributable package than Poetry allows. 
+There many ways to distribute Python code in packages, with some degree of flux in terms of which methods are most 
+popular. For a more comprehensive overview of Python packaging you can see the 
+[Python docs on packaging](https://packaging.python.org/en/latest/), which contains a helpful guide to the overall
+[packaging process, or 'flow'](https://packaging.python.org/en/latest/flow/), using the 
+[Twine](https://pypi.org/project/twine/) tool to upload created packages to PyPI for distribution as an alternative.
 
 > ## Optional Exercise: Enhancing our Package Metadata
 >
