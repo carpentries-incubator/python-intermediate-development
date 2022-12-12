@@ -105,7 +105,7 @@ A simple way to check the code coverage for a set of tests is to use `pytest` to
 
 ~~~
 $ pip3 install pytest-cov
-$ pytest --cov=inflammation.models tests/test_models.py
+$ python -m pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -134,7 +134,7 @@ TOTAL                        9      1    89%
 Here we can see that our tests are doing very well - 89% of statements in `inflammation/models.py` have been executed. But which statements are not being tested? The additional argument `--cov-report term-missing` can tell us:
 
 ~~~
-$ pytest --cov=inflammation.models --cov-report term-missing tests/test_models.py
+$ python -m pytest --cov=inflammation.models --cov-report term-missing tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -155,7 +155,7 @@ we should consider whether or not to write a test for this function, and, in gen
 Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip3 freeze --exclude-editable > requirements.txt
+$ pip3 freeze > requirements.txt
 $ cat requirements.txt
 ~~~
 {: .language-bash}
