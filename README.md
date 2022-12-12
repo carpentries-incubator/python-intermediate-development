@@ -34,8 +34,8 @@ and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
 If you would like to teach this lesson to your audience and help with more beta testing, 
-please let the lesson developers know by opening an [issue][issues] with your workshop details and a 
-label 'pilot'.
+please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
+label ![pilot](https://img.shields.io/badge/-pilot-green.svg).
 
 ## Contributing
 
@@ -51,7 +51,7 @@ repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
 Look for tags ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg) or
-![help_wanted](https://img.shields.io/badge/-help%20wanted%20issue-green.svg). 
+![help_wanted](https://img.shields.io/badge/-help%20wanted-green.svg). 
 This indicates that the maintainers will welcome pull requests fixing such issues.
 
 ## Maintainer(s)
