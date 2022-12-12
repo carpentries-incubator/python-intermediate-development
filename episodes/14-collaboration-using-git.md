@@ -315,8 +315,8 @@ Switched to branch 'develop'
 {: .callout}
 
 ### Updating Branches
-If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
-of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
+If we start updating and committing files now, the commits will happen on the `develop` branch and will not affect 
+the version of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
 Let's make a small modification to `inflammation/models.py` in PyCharm, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
@@ -392,6 +392,21 @@ branch, each next time we push to it in the usual manner (i.e. without the `-u` 
 $ git push origin develop
 ~~~
 {: .language-bash}
+
+> ## What is the Relationship Between Originating and New Branches?
+>
+> It's natural to think that new branches have a parent/child relationship with their originating branch, but in actual
+> Git terms, branches themselves do not have parents but single commits do. Any commit can have zero parents
+> (a root, or initial, commit), one parent (a regular commit), or multiple parents (a merge commit), and using this 
+> structure, we can build a 'view' of branches from a set of commits and their relationships. A common way to look at it
+> is that Git branches are really only [lightweight, movable pointers to commits](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+> So as a new commit is added to a branch, the branch pointer is moved to the new commit.
+> 
+> What this means is that when you accomplish a merge between two branches, Git is able to determine the common 'commit ancestor' through 
+> the commits in a 'branch', and use that common ancestor to determine which commits need to be merged onto the destination
+> branch. It also means that, in theory, you could merge any branch with any other at any time... although it may not
+> make sense to do so!
+{: .callout}
 
 ### Merging Into Main Branch
 Once you have tested your changes on the `develop` branch, you will want to merge them onto the `main` branch.
