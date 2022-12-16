@@ -4,9 +4,9 @@ teaching: 15
 exercises: 0
 questions:
 - "How can we extend our software within the constraints of the MVC architecture?"
-  objectives:
+objectives:
 - "Extend our software to add a view of a single patient in the study and the software's command line interface to request a specific view."
-  keypoints:
+keypoints:
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change.
   Such components can be as small as a single function, or be a software package in their own right."
 ---
