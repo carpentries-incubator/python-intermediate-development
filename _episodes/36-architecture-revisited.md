@@ -40,7 +40,7 @@ In this pattern the actions performed by the script are contained within the `ma
 
 If we run the source file directly using the python interpreter, e.g.:
 ~~~
-$ python inflammation-analysis.py
+$ python3 inflammation-analysis.py
 ~~~
 {: .language-bash}
 
@@ -112,7 +112,7 @@ This returns an object (that we've called `arg`) containing all the arguments re
 
 The help for the script can be accessed using the `-h` or `--help` optional argument (which `argparse` includes by default):
 ~~~
-python inflammation-analysis.py --help
+$ python3 inflammation-analysis.py --help
 ~~~
 {: .language-bash}
 
