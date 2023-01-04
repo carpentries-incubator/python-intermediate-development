@@ -16,7 +16,7 @@ keypoints:
 - "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
 - "Ask other team members - or do estimation as a team - to help make accurate estimates."
 - "MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully."
-- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for project requirements."
+- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for requirements within a timebox."
 ---
 
 ## Introduction
@@ -52,6 +52,16 @@ It is often not the reality, but estimation should ideally be done by the people
 
 An effective way of helping to make your estimates more accurate is to do it as a team. Other members can ask prudent questions that may not have been considered, and bring in other sanity checks and their own development experience. Just talking things through can help uncover other complexities and pitfalls, and raise crucial questions to clarify ambiguities.
 
+> ## Where to Record Effort Estimates?
+> There is no dedicated place to record the effort estimate on an issue in current GitHub's interface.
+> Therefore, you can agree on a convention within your team on how to record this information -
+> e.g. you can add the effort in person/days in the issue title.
+> Recording estimates within comments on an issue may not be the best idea as it may get lost among other comments.
+> Another place where you can record estimates for your issues is on project boards - there is no default field for this
+> but you can create a custom numeric field and use it to assign effort estimates (note that
+> you cannot sum them yet in the current GitHub's interface).
+{: .callout}
+
 > ## Exercise: Estimate!
 >
 > As a team go through the issues that your partner team has registered with your software repository, and quickly estimate how long each issue will take to resolve in minutes. Do this by blind consensus first, each anonymously submitting an estimate, and then briefly discuss your rationale and decide on a final estimate. Make sure these are honest estimates, and you are able to complete them in the allotted time!
@@ -71,14 +81,14 @@ To prioritise these requirements we can use a method called **MoSCoW**, a way to
 - *Could Have* (CH) - these are desirable but not necessary, and each of these will be included in this timebox if it can be achieved.
 - *Won't Have* (WH) - these are agreed to be out of scope for this timebox, perhaps because they are the least important or not critical for this phase of development.
 
-In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20%. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
+In typical use, the ratio to aim for of requirements to the MH/SH/CH categories is 60%/20%/20% for a particular timebox. Importantly, the division is by the requirement *estimates*, not by number of requirements, so 60% means 60% of the overall estimated effort for requirements are Must Haves.
 
-Why is this important? Because it gives you a unique degree of control of your project. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves, you have delivered a *successful* project.
+Why is this important? Because it gives you a unique degree of control of your project for each time period. It awards you 40% of flexibility with allocating your effort depending on what's critical and how things progress. This effectively forces a tradeoff between the effort available and critical objectives, maintaining a significant safety margin. The idea is that as a project progresses, even if it becomes clear that you are only able to deliver the Must Haves for a particular time period, you have still delivered it *successfully*.
 
 ### GitHub's Milestones
 
 Once we've decided on those we'll work on (i.e. not Won't Haves), we can (optionally) use a GitHub's 
-**Milestone** to organise them. Remember, a milestone is a collection of issues to be worked on in a given period 
+**Milestone** to organise them for a particular timebox. Remember, a milestone is a collection of issues to be worked on in a given period 
 (or timebox). We can create a new one by selecting `Issues` on our repository, then `Milestones` to display any 
 existing milestones, then clicking the "New milestone" button to the right.
 ![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}

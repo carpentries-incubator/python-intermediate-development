@@ -176,25 +176,29 @@ $ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folde
 Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
-machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
-GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+machines. In order to share our work with others, we should push our changes to the remote repository on GitHub. Before we push our changes however, we should first do a `git pull`. This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, we are made aware of any changes made by others, in particular if there are any conflicts between their changes and ours.
+
+~~~
+$ git pull
+~~~
+{: .language-bash}
+
+Now we've ensured our repository is synchronised with the remote one, we can now push our changes. GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
 ) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
 over HTTPS any more - you either need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security if you want to continue 
-to use HTTPS or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
+to use HTTPS, or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-Git may prompt you to authenticate - enter your GitHub username and the previously generated access token as the 
-password. You can also [enable caching of the credentials](https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html) using command `git config --global credential.helper cache` so your machine remembers the access token and will not ask you to enter it again. 
-
-> ## Account Security
-> When using `git config --global credential.helper cache`, any password or personal access token you enter will be cached for a period of time, a default of 15 minutes. Re-entering a password every 15 minutes can be OK, but for a personal access token it can be inconvenient, and lead to you writing the token down elsewhere. To *permanently* store passwords or tokens, use `stash` instead of `cache`.
->
-> Storing an access token always carries a security risk. One compromise between short cache timescales and permanent stores is to set a time-out on your personal access token when you make it, reducing the risk of it being stolen after you stop working on the project you issued it for.
-{: .callout}
+> ## Authentication Errors
+> 
+> If you get a warning that HTTPS access is deprecated, or a token is required, then you
+> accidentally cloned the repository using HTTPS not SSH. Fortunately, this is an easy fix:
+> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`.
+{: .caution}
 
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally (it is called that
@@ -311,8 +315,8 @@ Switched to branch 'develop'
 {: .callout}
 
 ### Updating Branches
-If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
-of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
+If we start updating and committing files now, the commits will happen on the `develop` branch and will not affect 
+the version of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
 Let's make a small modification to `inflammation/models.py` in PyCharm, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
@@ -389,8 +393,23 @@ $ git push origin develop
 ~~~
 {: .language-bash}
 
+> ## What is the Relationship Between Originating and New Branches?
+>
+> It's natural to think that new branches have a parent/child relationship with their originating branch, but in actual
+> Git terms, branches themselves do not have parents but single commits do. Any commit can have zero parents
+> (a root, or initial, commit), one parent (a regular commit), or multiple parents (a merge commit), and using this 
+> structure, we can build a 'view' of branches from a set of commits and their relationships. A common way to look at it
+> is that Git branches are really only [lightweight, movable pointers to commits](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+> So as a new commit is added to a branch, the branch pointer is moved to the new commit.
+> 
+> What this means is that when you accomplish a merge between two branches, Git is able to determine the common 'commit ancestor' through 
+> the commits in a 'branch', and use that common ancestor to determine which commits need to be merged onto the destination
+> branch. It also means that, in theory, you could merge any branch with any other at any time... although it may not
+> make sense to do so!
+{: .callout}
+
 ### Merging Into Main Branch
-Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `main` branch.
+Once you have tested your changes on the `develop` branch, you will want to merge them onto the `main` branch.
 To do so, make sure you have all your changes committed and switch to `main`:
 
 ~~~
