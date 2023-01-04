@@ -109,7 +109,7 @@ patients = [
 > > >
 > > > A better solution would be to use the `zip` function, which allows us to iterate over multiple iterables without needing an index variable.
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller, so we won't raise an exception here, but this might not quite be the behaviour we want, so we'll also explicitly `assert` that the inputs should be the same length.
-> > > Checking that our inputs are valid in this way is known as a **precondition**.
+> > > Checking that our inputs are valid in this way is an example of a precondition, which we introduced conceptually in an earlier episode.
 > > >
 > > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
 > > >

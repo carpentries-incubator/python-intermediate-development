@@ -22,6 +22,41 @@ More details on command line prompt customisation can be found in this [guide](h
 
 ## Git/GitHub Issues
 
+### Accessing GitHub using Git from AZ Networks - Proxy Needed
+When accessing external services and websites (such as GitHub from `git` or to [install Python packages with `pip`](../common-issues/index.html#installing-packages-with-pip-issue---proxy-needed)), AZ users may experience connection errors 
+(e.g. similar to `fatal: unable to access '....': Failed connect to github.com`) or a connection that hangs. This may 
+indicate that they need to configure a proxy server to tunnel SSH traffic through a HTTP proxy. 
+If you are using the AZ network from home via VPN or using the guest AZ wifi network from the office, you may not 
+experience these issues; issues were reported by users of the AZ wifi network from the office.
+
+To get `git` to work through a proxy server in Windows, you'll need `connect.exe` program that comes with GitBash (which
+you should have installed as part of setup, so no additional installation is needed). 
+If installed in the default location, this file should be found at 
+`C:\Program Files\Git\mingw64\bin\connect.exe`. Next, you'll need to modify your ssh config file (typically in `~/.ssh/config`)
+and add the following:
+~~~
+Host github.com
+    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <AZ-proxy-url>:<AZ-proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
+Mac and Linux users can use the [Corkscrew tool](https://github.com/bryanpkc/corkscrew) for tunneling SSH through HTTP proxies, 
+which would have to be installed separately. Next, you'll need to modify your ssh config file (typically in `~/.ssh/config`)
+and add the following:
+~~~
+Host github.com
+    ProxyCommand corkscrew <AZ-proxy-url> <AZ-proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
 ### Creating a GitHub Key Without 'Workflow' Authorisation Scope
 If  learner creates a GitHub authentication token but forgets to check 'workflow' scope (to allow the token to be used to update GitHub Action workflows) they will get the following error when trying to 
 push a new workflow (when adding the `pytest` action in Section 2) to GitHub:
@@ -34,6 +69,32 @@ push a new workflow (when adding the `pytest` action in Section 2) to GitHub:
 The solution is to generate a new token with the correct scope/usage permissions and clear the local 
 credential cache (if that's where the token has been saved). In same cases, simply clearing 
 credential cache was not enough and updating to Git 2.29 was needed.
+ 
+### `Please tell me who you are` Git Error
+If you experience the following error the first time you do a Git commit, you may not have configured your identity with 
+Git on your machine:
+
+`fatal: unable to auto-detect email address
+*** Please tell me who you are`
+
+This can be configured from the command line as follows:
+~~~
+$ git config --global user.name "Your Name"
+$ git config --global user.email "name@example.com"
+~~~
+{: .language-bash}
+
+The option `--global` tells Git to use these settings "globally" (i.e. for every project that uses Git for version control 
+on your machine). If you use different identifies for different projects, then you should not use the 
+`--global` option. Make sure to use the same email address you used to open an account on GitHub that you 
+are using for this course.
+
+At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so. 
+For example, to use the editor `nano` with Git:
+~~~
+$ git config --global core.editor "nano -w"
+~~~
+{: .language-bash}
 
 ## Python, `pip`, `venv` & Installing Packages Issues
 
@@ -47,9 +108,9 @@ When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python installed from the AZ Artifact Store
+### Python Installed from the AZ Artifact Store
 Python installed from the AZ Artifact Store may not be accessible as `python3` from the command line, but 
-worked fine when invoked `python`.
+worked fine when invoked using `python`.
 
 ### Installing Packages With `pip` Issue - Proxy Needed
 If you encounter issues when trying to install packages with `pip`, AstraZeneca users may need to use the proxy. 
@@ -64,9 +125,9 @@ having to specify the proxy for each session, and restart your command line term
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-export {http,https,ftp}_proxy='<AZ-proxy-url>'
-export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>'
-export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>, <AZ-proxy-url>
+    export {http,https,ftp}_proxy='<AZ-proxy-url>:<AZ-proxy-port>'
+    export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>:<AZ-proxy-port>'
+    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>:<AZ-proxy-port>, <AZ-proxy-url>:<AZ-proxy-port>
 }
 
 unset_proxies() {
