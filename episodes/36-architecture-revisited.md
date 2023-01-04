@@ -288,7 +288,7 @@ For now, we also don't know the names of any of our patients, so we've made it `
 We can now call our program with these extra arguments to see the record for a single patient:
 
 ~~~
-python3 inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
+$ python3 inflammation-analysis.py --view record --patient 1 data/inflammation-01.csv
 ~~~
 {: .language-bash}
 
