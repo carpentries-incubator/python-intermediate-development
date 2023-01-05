@@ -22,8 +22,8 @@ More details on command line prompt customisation can be found in this [guide](h
 
 ## Git/GitHub Issues
 
-### Accessing GitHub using Git from AZ Networks - Proxy Needed
-When accessing external services and websites (such as GitHub from `git` or to [install Python packages with `pip`](../common-issues/index.html#installing-packages-with-pip-issue---proxy-needed)), AZ users may experience connection errors 
+### Connection Issues When Accessing GitHub Using Git Over VPN or Protected Networks - Proxy Needed
+When accessing external services and websites (such as GitHub using `git` or to [install Python packages with `pip`](../common-issues/index.html#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)), you may experience connection errors 
 (e.g. similar to `fatal: unable to access '....': Failed connect to github.com`) or a connection that hangs. This may 
 indicate that they need to configure a proxy server to tunnel SSH traffic through a HTTP proxy. 
 If you are using the AZ network from home via VPN or using the guest AZ wifi network from the office, you may not 
@@ -36,7 +36,7 @@ If installed in the default location, this file should be found at
 and add the following:
 ~~~
 Host github.com
-    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <AZ-proxy-url>:<AZ-proxy-port> %h %p
+    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <proxy-server>:<proxy-port> %h %p
     TCPKeepAlive yes
     IdentitiesOnly yes
     User git
@@ -45,11 +45,11 @@ Host github.com
 ~~~
 
 Mac and Linux users can use the [Corkscrew tool](https://github.com/bryanpkc/corkscrew) for tunneling SSH through HTTP proxies, 
-which would have to be installed separately. Next, you'll need to modify your ssh config file (typically in `~/.ssh/config`)
+which would have to be installed separately. Next, you'll need to modify your SSH config file (typically in `~/.ssh/config`)
 and add the following:
 ~~~
 Host github.com
-    ProxyCommand corkscrew <AZ-proxy-url> <AZ-proxy-port> %h %p
+    ProxyCommand corkscrew <proxy-server> <proxy-port> %h %p
     TCPKeepAlive yes
     IdentitiesOnly yes
     User git
@@ -74,8 +74,9 @@ credential cache was not enough and updating to Git 2.29 was needed.
 If you experience the following error the first time you do a Git commit, you may not have configured your identity with 
 Git on your machine:
 
-`fatal: unable to auto-detect email address
-*** Please tell me who you are`
+> fatal: unable to auto-detect email address  
+> fatal: unable to auto-detect email address  
+> *** Please tell me who you are
 
 This can be configured from the command line as follows:
 ~~~
@@ -98,9 +99,9 @@ $ git config --global core.editor "nano -w"
 
 ## Python, `pip`, `venv` & Installing Packages Issues
 
-### Issues with Numpy (and Potentially Other Packages) on New M1 Macs 
+### Issues With Numpy (and Potentially Other Packages) on New M1 Macs 
 
-When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
+When using `numpy` package installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
 
 > ...
 > mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
@@ -108,26 +109,28 @@ When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python Installed from the AZ Artifact Store
-Python installed from the AZ Artifact Store may not be accessible as `python3` from the command line, but 
-worked fine when invoked using `python`.
+### Python 3 not Accessible as `python3` but `python`
+Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but
+works fine when invoked with `python`.
 
-### Installing Packages With `pip` Issue - Proxy Needed
-If you encounter issues when trying to install packages with `pip`, AstraZeneca users may need to use the proxy. 
-This will probably be the case if you are either in the office, or using the Global VPN. If you are working from 
-home you may need to unset the proxy. In order to get `pip` to use the proxy, you need to add an additional 
-parameter when installing packages with `pip`:
+### Connection Issues When Installing Packages With `pip` Over VPN or Protected Networks - Proxy Needed
+If you encounter issues when trying to install packages with `pip` over your organisational network -
+it may be because your may need to [use a proxy](https://stackoverflow.com/questions/30992717/proxy-awareness-with-pip) provided by your organisation. In order
+to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
 
-`pip3 install --proxy <AZ-proxy-url> <name of package>`
+~~~
+$ pip3 install --proxy <proxy-url> <name of package>`
+~~~
+{: .language-bash}
 
 To keep these settings permanently, you may want to add the following to your `.zshrc`/`.bashrc` file to avoid 
 having to specify the proxy for each session, and restart your command line terminal:
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-    export {http,https,ftp}_proxy='<AZ-proxy-url>:<AZ-proxy-port>'
-    export {HTTP,HTTPS,FTP}_PROXY='<AZ-proxy-url>:<AZ-proxy-port>'
-    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<AZ-proxy-url>:<AZ-proxy-port>, <AZ-proxy-url>:<AZ-proxy-port>
+    export {http,https,ftp}_proxy='<proxy-server>:<proxy-port>'
+    export {HTTP,HTTPS,FTP}_PROXY='<proxy-server>:<proxy-port>'
+    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<proxy-server>:<proxy-port>, <proxy-server>:<proxy-port>
 }
 
 unset_proxies() {
@@ -155,7 +158,7 @@ where the flag `-build-dir` was removed but is required by PyCharm to install pa
 - Close PyCharm
 - Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: 
     ~~~
-    $ python -m pip install pip==20.2.4
+    $ python3 -m pip install pip==20.2.4
     ~~~
     {: .language-bash}
 - Restart PyCharm
