@@ -153,7 +153,11 @@ Using PyCharm to add a package to a virtual environment created from the command
 can fail with error `"no such option: –build-dir"`, which appears to be caused by the latest version of `pip` (20.3)
 where the flag `-build-dir` was removed but is required by PyCharm to install packages. A workaround is to:
 - Close PyCharm
-- Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: `python -m pip install pip==20.2.4`
+- Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: 
+    ~~~
+    $ python -m pip install pip==20.2.4
+    ~~~
+    {: .language-bash}
 - Restart PyCharm
 
 See [the issue](https://youtrack.jetbrains.com/issue/PY-45712) for more details. 
