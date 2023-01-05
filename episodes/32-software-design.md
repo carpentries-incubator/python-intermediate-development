@@ -105,8 +105,7 @@ We could also consider writing unit tests for SR2.1.1, ensuring that the system 
 The key is to think about which kind of testing should be used to check if the code satisfies a requirement, but also what you can do to make that code amenable to that type of testing.
 
 > ## Exercise: Implementing Requirements
-> 
-> Pick one of the requirements SR1.1.1 or SR1.1.2 above to implement and create an appropriate feature branch - 
+> Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement and create an appropriate feature branch - 
 > e.g. `add-std-dev` or `add-view` from your most up-to-date `develop` branch.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
