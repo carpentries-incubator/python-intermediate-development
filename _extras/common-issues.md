@@ -23,7 +23,7 @@ More details on command line prompt customisation can be found in this [guide](h
 ## Git/GitHub Issues
 
 ### Connection Issues When Accessing GitHub Using Git Over VPN or Protected Networks - Proxy Needed
-When accessing external services and websites (such as GitHub using `git` or to [install Python packages with `pip`](../common-issues/index.html#installing-packages-with-pip-issue---proxy-needed)), you may experience connection errors 
+When accessing external services and websites (such as GitHub using `git` or to [install Python packages with `pip`](../common-issues/index.html#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)), you may experience connection errors 
 (e.g. similar to `fatal: unable to access '....': Failed connect to github.com`) or a connection that hangs. This may 
 indicate that they need to configure a proxy server user by your organisation to tunnel SSH traffic through a HTTP proxy. 
 
