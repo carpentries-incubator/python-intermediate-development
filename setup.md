@@ -181,7 +181,7 @@ Copy your last line of output that starts with "ssh-rsa" and ends with your emai
 (it may start with a different algorithm name if you did not go for RSA and it may have gone over multiple lines if your command line window
 is not wide enough).
 
-Finally, go to your [GitHub Settings -> SSH keys -> Add New](https://github.com/settings/ssh/new) page to add a new 
+Finally, go to your [GitHub Settings -> SSH and GPG keys -> Add New](https://github.com/settings/ssh/new) page to add a new 
 SSH public key. Give your key a memorable name (e.g. the name of the computer you are working on that contains the 
 private key counterpart), paste the public key 
 from your clipboard into the box labelled "Key" (making sure it does not contain any line breaks), then click the "Add SSH key" button.
