@@ -375,7 +375,7 @@ You will often need code reference information to help you code. PyCharm shows t
 For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), including:
 - Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
 - Quick Type Definition - type definition of variables, fields or any other symbols
-- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../05-coding-conventions/index.html#documentation-strings-aka-docstrings))
+- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../15-coding-conventions/index.html#documentation-strings-aka-docstrings))
 - Parameter Info - the names of parameters in method and function calls
 - Type Info - type of an expression
 
