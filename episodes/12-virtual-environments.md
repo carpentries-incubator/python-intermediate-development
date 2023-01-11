@@ -236,7 +236,7 @@ When you’re done working on your project, you can exit the environment with:
 
 If you've just done the `deactivate`, ensure you reactivate the environment ready for the next part:
 ~~~
-source venv/bin/activate
+$ source venv/bin/activate
 (venv) $
 ~~~
 {: .language-bash}
