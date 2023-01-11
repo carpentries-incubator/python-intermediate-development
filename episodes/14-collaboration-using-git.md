@@ -257,7 +257,7 @@ backed up,
 * if you decide that the feature is not working or is no longer needed - you can easily and safely discard that
 branch without affecting the rest of the code.
 
-Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
+Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
 ![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="700px"}
 <p style="text-align: center;">Git feature branches<br>
