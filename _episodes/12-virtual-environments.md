@@ -348,7 +348,7 @@ collaborators so they can easily 'clone' your software project with all of its d
 can replicate equivalent virtual environments on their machines. `pip` has a handy way of exporting,
 saving and sharing virtual environments.
 
-To export your active environment - use `pip freeze` command to
+To export your active environment - use `pip3 freeze` command to
 produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
