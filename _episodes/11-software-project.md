@@ -300,6 +300,6 @@ contained within the directory `data` - as we have seen already it contains seve
 We will revisit the software architecture and MVC topics once again in later episodes
 when we talk in more detail about software's [business/user/solution requirements](../31-software-requirements/index.html)
 and [software design](../32-software-design/index.html). We now proceed to set up our virtual development environment 
-and start working with the code using a more convenient graphical tool - IDE PyCharm.
+and start working with the code using a more convenient graphical tool - [IDE PyCharm](https://www.jetbrains.com/pycharm/).
 
 {% include links.md %}
