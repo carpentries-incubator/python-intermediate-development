@@ -218,7 +218,7 @@ you are currently using (indicated by its name in round brackets at the start of
 and modify the environment so that running Python will get you the particular
 version of Python configured in your virtual environment.
 
-You can verify you are using your virtual environment's version of Python by checking the path using `which`:
+You can verify you are using your virtual environment's version of Python by checking the path using the command `which`:
 ~~~
 (venv) $ which python3
 ~~~
