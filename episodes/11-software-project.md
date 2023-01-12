@@ -68,33 +68,33 @@ anything you like, but it may be easier for future group exercises if everyone u
 > Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+> > 1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
 original template repository but rather your own copy, as you should be able to push commits to it later on. Also 
 make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
-![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
-2. Make sure you are located in your home directory in the command line with:
-    ~~~
-    $ cd ~
-    ~~~
-    {: .language-bash}
-3. From your home directory in the command line, do:
-    ~~~
-    $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation
-    ~~~
-    {: .language-bash}
-Make sure you are cloning your copy of the software project and not the template repository.
-
-4. Navigate into the cloned repository folder in your command line with:
-    ~~~
-    $ cd python-intermediate-inflammation
-    ~~~
-    {: .language-bash}
-Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
-your project folder in the command line with:
-    ~~~ 
-    $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation
-    ~~~
-    {: .language-bash}
+> > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
+> > 2. Make sure you are located in your home directory in the command line with:
+> >     ~~~
+> >     $ cd ~
+> >     ~~~
+> >     {: .language-bash}
+> > 3. From your home directory in the command line, do:
+> >     ~~~
+> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation
+> >     ~~~
+> >     {: .language-bash}
+> > Make sure you are cloning your copy of the software project and not the template repository.
+> >
+> > 4. Navigate into the cloned repository folder in your command line with:
+> >     ~~~
+> >     $ cd python-intermediate-inflammation
+> >     ~~~
+> >     {: .language-bash}
+> > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
+> > your project folder in the command line with:
+> >     ~~~ 
+> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation
+> >     ~~~
+> >     {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -294,12 +294,12 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that
 performs basic statistical analysis over patient data and provides the main
 entry point into the application. The **View** and **Model** modules are contained
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
+in the files `views.py` and `models.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
 when we talk in more detail about software's [business/user/solution requirements](../31-software-requirements/index.html)
 and [software design](../32-software-design/index.html). We now proceed to set up our virtual development environment 
-and start working with the code using a more convenient graphical tool - IDE PyCharm.
+and start working with the code using a more convenient graphical tool - [IDE PyCharm](https://www.jetbrains.com/pycharm/).
 
 {% include links.md %}
