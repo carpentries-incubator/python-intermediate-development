@@ -259,9 +259,9 @@ branch without affecting the rest of the code.
 
 Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
-![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="700px"}
+![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="800px"}
 <p style="text-align: center;">Git feature branches<br>
-From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
+Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development branch
