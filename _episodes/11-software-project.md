@@ -294,7 +294,7 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that
 performs basic statistical analysis over patient data and provides the main
 entry point into the application. The **View** and **Model** modules are contained
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
+in the files `views.py` and `models.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
