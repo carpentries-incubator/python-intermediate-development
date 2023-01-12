@@ -158,7 +158,7 @@ where the flag `-build-dir` was removed but is required by PyCharm to install pa
 - Close PyCharm
 - Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: 
     ~~~
-    $ python3 -m pip install pip==20.2.4
+    $ pip3 install pip==20.2.4
     ~~~
     {: .language-bash}
 - Restart PyCharm
