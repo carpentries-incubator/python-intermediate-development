@@ -132,7 +132,7 @@ More details on good and bad practices for continuation lines can be found in
 
 ### Maximum Line Length
 All lines should be up to 80 characters long; for lines containing comments or docstrings (to be covered later) the
-line length limit should be 73 - see [this discussion](https://www.google.com/url?q=https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length&sa=D&source=editors&ust=1619088968027000&usg=AOvVaw3jn26Qt-kwog_tJnaMR48x) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
+line length limit should be 73 - see [this discussion](https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
 length of 100. Long lines of code can be broken over multiple lines by wrapping expressions in delimiters, as
 mentioned above (preferred method), or using a backslash (`\`) at the end of the line to indicate
 line continuation (slightly less preferred method).
@@ -529,16 +529,6 @@ help(fibonacci)
 > >    ~~~
 > > {: .language-python}
 > > ~~~
-> > def daily_min(data):
-> >    """Calculate the daily minimum of a 2D inflammation data array for each day.
-> >
-> >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
-> >    :returns: An array of minimum values of measurements for each day.
-> >    """
-> >    return np.min(data, axis=0)
-> >~~~
-> > {: .language-python}
-> > ~~~
 > > def daily_max(data):
 > >    """Calculate the daily maximum of a 2D inflammation data array for each day.
 > >
@@ -546,6 +536,16 @@ help(fibonacci)
 > >    :returns: An array of max values of measurements for each day.
 > >    """
 > >    return np.max(data, axis=0)
+> >~~~
+> > {: .language-python}
+> > ~~~
+> > def daily_min(data):
+> >    """Calculate the daily minimum of a 2D inflammation data array for each day.
+> >
+> >    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
+> >    :returns: An array of minimum values of measurements for each day.
+> >    """
+> >    return np.min(data, axis=0)
 > >~~~
 > > {: .language-python}
 >> Once we are happy with modifications, as usual before staging and commit our changes, we check the status of our working directory:

@@ -106,7 +106,7 @@ In this course, we will use `venv` to create and manage our
 virtual environment (which is the preferred way for Python 3.3+). The upside is that `venv` virtual environments created from the command line are
 also recognised and picked up automatically by PyCharm IDE, as we will see in the next episode.
 
-### Managing Python Packages
+### Managing External Packages
 
 Part of managing your (virtual) working environment involves installing, updating and removing external packages
 on your system. The Python package manager tool `pip` is most commonly used for this - it interacts
@@ -144,7 +144,7 @@ From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons
 
 Let us have a look at how we can create and manage virtual environments from the command line using `venv` and manage packages using `pip`.
 
-### Creating a `venv` Environment
+### Creating Virtual Environments Using `venv`
 Creating a virtual environment with `venv` is done by executing the following command:
 
 ~~~
@@ -156,13 +156,13 @@ where `/path/to/new/virtual/environment` is a path to a directory where you want
 your software project so they are co-located.
 This will create the target directory for the virtual environment (and any parent directories that don’t exist already).
 
-For our project, let's create a virtual environment called `venv` off the project root:
+For our project, let's create a virtual environment called "venv" off the project root:
 ~~~
 $ python3 -m venv venv
 ~~~
 {: .language-bash}
 
-If you list the contents of the newly created `venv` directory, on a Mac or Linux system 
+If you list the contents of the newly created directory "venv", on a Mac or Linux system 
 (slightly different on Windows as explained below) you should see something like:
 
 ~~~
@@ -178,7 +178,7 @@ drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
 ~~~
 {: .output}
 
-So, running the `python3 -m venv venv` command created the target directory called `venv`
+So, running the `python3 -m venv venv` command created the target directory called "venv"
 containing:
 
 - `pyvenv.cfg` configuration file with a home key pointing to the Python installation from which the command was run,
@@ -218,7 +218,7 @@ you are currently using (indicated by its name in round brackets at the start of
 and modify the environment so that running Python will get you the particular
 version of Python configured in your virtual environment.
 
-You can verify you are using your virtual environment's version of Python by checking the path using `which`:
+You can verify you are using your virtual environment's version of Python by checking the path using the command `which`:
 ~~~
 (venv) $ which python3
 ~~~
@@ -236,7 +236,7 @@ When you’re done working on your project, you can exit the environment with:
 
 If you've just done the `deactivate`, ensure you reactivate the environment ready for the next part:
 ~~~
-source venv/bin/activate
+$ source venv/bin/activate
 (venv) $
 ~~~
 {: .language-bash}
@@ -251,9 +251,9 @@ source venv/bin/activate
 Note that, since our software project is being tracked by Git, the newly created virtual environment will show up 
 in version control - we will see how to handle it using Git in one of the subsequent episodes.
 
-### Installing External Libraries in an Environment with `pip`
+### Installing External Packages Using `pip`
 
-We noticed earlier that our code depends on two *external libraries* - `numpy` and `matplotlib`. In order
+We noticed earlier that our code depends on two *external packages/libraries* - `numpy` and `matplotlib`. In order
 for the code to run on your machine, you need to
 install these two dependencies into your virtual environment.
 
@@ -341,14 +341,14 @@ tomli           1.2.2
 To uninstall a package installed in the virtual environment do: `pip3 uninstall package-name`.
 You can also supply a list of packages to uninstall at the same time.
 
-### Exporting/Importing an Environment with `pip`
+### Exporting/Importing Virtual Environments Using `pip`
 
 You are collaborating on a project with a team so, naturally, you will want to share your environment with your
 collaborators so they can easily 'clone' your software project with all of its dependencies and everyone
 can replicate equivalent virtual environments on their machines. `pip` has a handy way of exporting,
 saving and sharing virtual environments.
 
-To export your active environment - use `pip freeze` command to
+To export your active environment - use `pip3 freeze` command to
 produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
