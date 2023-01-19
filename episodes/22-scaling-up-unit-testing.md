@@ -38,13 +38,14 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use `pytest`'s **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
+Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` function is actually a [Python **decorator**](https://www.programiz.com/python-programming/decorator). A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
 So our first test will run `daily_mean()` on `[ [0, 0], [0, 0], [0, 0] ]` (our `test` argument), and check to see if it equals `[0, 0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[ [1, 2], [3, 4], [5, 6] ]` and check it produces `[3, 4]`.
 
-The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
+The big plus here is that we don't need to write separate functions for each of the tests - our test code can remain compact 
+and readable as we write more tests and adding more tests scales better as our code becomes more complex.
 
 > ## Exercise: Write Parameterised Unit Tests
 >
@@ -86,7 +87,7 @@ The big plusses here are that we don't need to write separate functions for each
 
 Try them out!
 
-Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push them to remote yet!):
+Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push them to the remote repository just yet!):
 
 ~~~
 $ git add tests/test_models.py
@@ -95,7 +96,7 @@ $ git commit -m "Add parameterisation mean, min, max test cases"
 {: .language-bash}
 
 
-## Using Code Coverage to Understand How Much of Our Code is Tested
+## Code Coverage - How Much of Our Code is Tested?
 
 Pytest can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
@@ -171,7 +172,7 @@ $ git push origin test-suite
 
 > ## What about Testing Against Indeterminate Output?
 >
-> What if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
+> What if your implementation depends on a degree of random behaviour? This can be desired within a number of applications, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
 >
 > One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. You could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
 >
