@@ -8,7 +8,7 @@ questions:
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
 - "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
-- "Create different branches for code development"
+- "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
 keypoints:
