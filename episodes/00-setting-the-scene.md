@@ -29,14 +29,14 @@ researchers (developers) and users, and more collaborative development effort is
 while ensuring previous development efforts remain functional and maintainable.
 
 This course provides the next step in software development - it teaches some **intermediate software
-engineering skills and best practices** to help you restructure existing and design more robust, 
+engineering skills and best practices** to help you restructure existing code and design more robust, 
 reusable and maintainable code, automate the process of testing and verifying software correctness and 
 support collaborations with others in a way that mimics a typical software development process 
 within a team. 
 
 The course uses a number of different **software development tools and techniques**
 interchangeably as you would in a real life. We had to make some choices about
-topics and tools to teach here - based on ease of installation for the audience, length of the course 
+topics and tools to teach here - based on established best practices, ease of tool installation for the audience, length of the course 
 and other considerations. Tools used here are not mandated though - alternatives exist and 
 we point some of them out along the way. 
 Over time, you will develop a preference for certain tools and programming languages based on your 
