@@ -121,7 +121,7 @@ All exercises contain solutions but, wherever possible, try and work out a solut
 > These are evolving tools and platforms, always adding new features and new visual elements.
 > Screenshots in the lesson may then become out-of-sync, refer to or show content that no longer exists or is different to
 > what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have
-> a big discrepancy with what you see, please [open an issue]({{ repo_url }}/issues/new) describing what you see and how it differs from the lesson
+> a big discrepancy with what you see, please [open an issue]({{ site.github.repository_url }}/issues/new) describing what you see and how it differs from the lesson
 > content. Feel free to add as many screenshots as necessary to clarify the issue.
 {: .callout}
 
