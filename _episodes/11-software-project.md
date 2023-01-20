@@ -3,7 +3,7 @@ title: "Introduction to Our Software Project"
 teaching: 20
 exercises: 10
 questions:
-- "What is the design architecture of our software project?"
+- "What is the design architecture of our example software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
 - "Use Git to obtain a working copy of our software project from GitHub."
