@@ -53,18 +53,18 @@ The course is organised into the following sections:
 ### [Section 1: Setting up Software Environment](../10-section1-intro/index.html)
 In the first section we are going to set up our working environment and familiarise ourselves with various tools and techniques for
 software development in a typical collaborative code development cycle:
+- **Virtual environments** for **isolating a project** from other projects developed on the same machine
+- **Command line** for running code and interacting with the **command line tool Git** for
 - **Integrated Development Environment** for **code development, testing and debugging**,
-- **Command line** for running code and interacting with the **command line tool Git** for 
-**version control** and branching the code out for developing new features in parallel,
+  **Version control** and using code branches to develop new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) 
-for **code backup, sharing and collaborative development**,
-- **Virtual environments** for **isolating a project** from other projects developed on the same machine, and
+for **code backup, sharing and collaborative development**, and
 - **Python code style guidelines** to make sure our code is 
 **documented, readable and consistently formatted**.
 
 ### [Section 2: Verifying Software Correctness at Scale](../20-section2-intro/index.html)
 Once we know our way around different code development tools, techniques and conventions, in this section we learn:
-- how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
+- how to set up a **test framework** and write tests to verify the behaviour of our code is correct, and
 - how to automate and scale testing with **Continuous Integration (CI)** using 
 **GitHub Actions** (a CI service available on GitHub).
  
@@ -77,7 +77,7 @@ as a process of development and its components:
 different way of thinking about, structuring and **implementing** the code.
 
 ### [Section 4: Collaborative Software Development for Reuse](../40-section4-intro/index.html)
-Advancing from the solo code development, in this section you will start working with your fellow learners 
+Advancing from developing code as an individual, in this section you will start working with your fellow learners 
 on a group project (as you would do when collaborating on a software project in a team), and learn:
 
 - how **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
