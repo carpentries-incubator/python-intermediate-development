@@ -6,7 +6,7 @@ teaching: 15
 exercises: 0
 questions:
 - "What are we teaching in this course?"
-- "Why did we pick specific topics to cover?"
+- "What motivated the selection of topics covered in the course?"
 objectives:
 - "Setting the scene and expectations"
 - "Making sure everyone has all the necessary software installed"
