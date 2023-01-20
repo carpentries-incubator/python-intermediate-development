@@ -52,9 +52,10 @@ The solution for this problem is to create a self-contained *virtual
 environment* per project, which contains a particular version of Python installation plus a number of
 additional external libraries.
 
-Virtual environments are not just a feature of Python - all modern programming languages use them to isolate code
-of a specific project and make it easier to develop, run, test and share code with others. In this episode, we learn how
-to set up a virtual environment to develop our code and manage our external dependencies.
+Virtual environments are not just a feature of Python - most modern programming languages use them to isolate libraries
+for a specific project and make it easier to develop, run, test and share code with others. 
+Even languages that don't explicitly have virtual environments have other mechanisms that promote per-project library collections. 
+In this episode, we learn how to set up a virtual environment to develop our code and manage our external dependencies.
 
 ## Virtual Environments
 So what exactly are virtual environments, and why use them?
@@ -156,7 +157,7 @@ where `/path/to/new/virtual/environment` is a path to a directory where you want
 your software project so they are co-located.
 This will create the target directory for the virtual environment (and any parent directories that don’t exist already).
 
-For our project, let's create a virtual environment called "venv" off the project root:
+For our project let's create a virtual environment called "venv". First, ensure you are within the project root directory, then:
 ~~~
 $ python3 -m venv venv
 ~~~
@@ -373,7 +374,8 @@ tomli==1.2.2
 ~~~
 {: .output}
 
-The first of the above commands will create a `requirements.txt` file in your current directory.
+The first of the above commands will create a `requirements.txt` file in your current directory. Yours may look a little different, depending on the version of the packages you have installed, as well as any differences in the packages that they themselves use.
+
 The `requirements.txt` file can then be committed to a version control system (we will see how to do this using Git in 
 one of the following episodes) and
 get shipped as part of your software and shared with collaborators and/or users. They can then replicate your environment and
