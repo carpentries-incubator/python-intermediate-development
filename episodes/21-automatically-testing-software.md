@@ -25,7 +25,7 @@ Being able to demonstrate that a process generates the right results is importan
 
 - Does the code we develop work the way it should do?
 - Can we (and others) verify these assertions for themselves?
-- Perhaps most importantly, to what extent are we confident of the accuracy of results that a software produces?
+- Perhaps most importantly, to what extent are we confident of the accuracy of results that software produces?
 
 If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software is useful for this, but manually testing software can prove an expensive process.
 
@@ -170,7 +170,7 @@ test_input = np.array([[2, 0], [4, 0]])
 test_result = np.array([2, 0])
 npt.assert_array_equal(daily_mean(test_input), test_result)
 
-test_input = np.array([[0, 0], [0, 0]])
+test_input = np.array([[0, 0], [0, 0], [0, 0]])
 test_result = np.array([0, 0])
 npt.assert_array_equal(daily_mean(test_input), test_result)
 
@@ -260,7 +260,7 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-Here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
+Here, although we have specified two of our previous manual tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
 - Inputs, e.g. the `test_input` NumPy array
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
@@ -409,7 +409,7 @@ $ pip3 freeze > requirements.txt
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
 ~~~
-$ git add requirements.txt setup.py tests/test_models.py
+$ git add requirements.txt tests/test_models.py
 $ git commit -m "Add initial test cases for daily_max() and daily_min()"
 $ git push -u origin test-suite
 ~~~
