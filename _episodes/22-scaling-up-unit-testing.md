@@ -3,7 +3,7 @@ title: "Scaling Up Unit Testing"
 teaching: 10
 exercises: 5
 questions:
-- "How do we scale up the number of tests we want to run?"
+- "How can we make it easier to write lots of tests?"
 - "How can we know how much of our code is being tested?"
 objectives:
 - "Use parameterisation to automatically run tests over a set of inputs"
@@ -38,7 +38,7 @@ def test_daily_mean(test, expected):
 ~~~
 {: .language-python}
 
-Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` function is actually a [Python **decorator**](https://www.programiz.com/python-programming/decorator). A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
+Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` function is actually a [Python **decorator**](https://www.programiz.com/python-programming/decorator). A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of these inputs automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
@@ -179,6 +179,8 @@ $ git push origin test-suite
 > Another way is to *control the randomness* during testing to provide results that are deterministic - the same each time. Implementations of randomness in computing languages, including Python, are actually never truly random - they are **pseudorandom**: the sequence of 'random' numbers are typically generated using a mathematical algorithm. A **seed** value is used to initialise an implementation's random number generator, and from that point, the sequence of numbers is actually deterministic. Many implementations just use the system time as the default seed, but you can set your own. By doing so, the generated sequence of numbers is the same, e.g. using Python's `random` library to randomly select a sample of ten numbers from a sequence between 0-99:
 >
 > ~~~
+> import random
+> 
 > random.seed(1)
 > print(random.sample(range(0, 100), 10))
 > random.seed(1)
