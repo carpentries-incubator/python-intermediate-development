@@ -106,14 +106,13 @@ When using `numpy` package installed via `pip` on a command line on a new Apple 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, `pip` is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python 3 not Accessible as `python3` but `python`
-Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but 
-works fine when invoked with `python`.
+### Python 3 Installed but not Found When Using `python3` Command 
+Python 3 installed on some Windows machines may not be accessible using the `python3` command from the command line, but 
+works fine when invoked via the command `python`.
 
 ### Connection Issues When Installing Packages With `pip` Over VPN or Protected Networks - Proxy Needed
 If you encounter issues when trying to install packages with `pip` over your organisational network - 
-it may be because your may need to [use a proxy](https://stackoverflow.com/questions/30992717/proxy-awareness-with-pip) provided by your organisation. In order 
-to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
+it may be because your may need to [use a proxy](https://stackoverflow.com/questions/30992717/proxy-awareness-with-pip) provided by your organisation. In order to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
 
 ~~~
 $ pip3 install --proxy <proxy-url> <name of package>`
@@ -151,7 +150,7 @@ where the flag `-build-dir` was removed but is required by PyCharm to install pa
 - Close PyCharm
 - Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: 
     ~~~
-    $ python3 -m pip install pip==20.2.4
+    $ pip3 install pip==20.2.4
     ~~~
     {: .language-bash}
 - Restart PyCharm

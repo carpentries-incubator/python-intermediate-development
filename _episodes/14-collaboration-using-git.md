@@ -8,7 +8,7 @@ questions:
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
 - "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
-- "Create different branches for code development"
+- "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
 keypoints:
@@ -24,7 +24,7 @@ collaborative code development toolbox - namely, the version control system Git 
 These two will enable us to track changes to our code and share it with others.
 
 You may recall that we have already made some changes to our project locally - we created a virtual
-environment in `venv` directory and exported it to the `requirements.txt` file.
+environment in the directory called "venv" and exported it to the `requirements.txt` file.
 We should now decide which of those changes we want to check in and share with others in our team. This is a typical 
 software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others 
@@ -94,17 +94,17 @@ nothing added to commit but untracked files present (use "git add" to track)
 {: .output}
 
 As expected, Git is telling us that we have some untracked files - `requirements.txt` and directory
-`venv` - present in our working
+"venv" - present in our working
 directory which we have not staged nor committed to our local repository yet.
 You do not want
-to commit the newly created `venv` directory and share it with others because this
+to commit the newly created directory "venv" and share it with others because this
 directory is specific to your machine and setup only (i.e. it contains local paths to libraries on your
 system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
 your team as this file can be used to replicate the virtual environment on your collaborators' systems.
 
 To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root. Our project already has `.gitignore`, but in cases where you do not have
 it - you can simply create it yourself. In our case, we
-want to tell Git to ignore the `venv` directory (and `.venv` as another naming convention for virtual environments)
+want to tell Git to ignore the "venv" directory (and ".venv" as another naming convention for directories containing virtual environmentsß)
 and stop notifying us about it. Edit your `.gitignore`
 file in PyCharm and add a line containing "venv/" and another one containing ".venv/". It does not matter much
 in this case where within the file you add these lines, so let's do it at the end. Your `.gitignore` should look something like this:
@@ -133,7 +133,7 @@ venv/
 
 You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match a pattern (e.g. "*.png" will ignore all PNG files in the current directory).
 
-If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to `venv` folder so it is not warning us about it any more. However, it has now detected a change to
+If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to the "venv" directory so it is not warning us about it any more. However, it has now detected a change to
 `.gitignore` file that needs to be committed.
 
 ~~~
@@ -257,11 +257,11 @@ backed up,
 * if you decide that the feature is not working or is no longer needed - you can easily and safely discard that
 branch without affecting the rest of the code.
 
-Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
+Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
-![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="700px"}
+![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="800px"}
 <p style="text-align: center;">Git feature branches<br>
-From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
+Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development branch
