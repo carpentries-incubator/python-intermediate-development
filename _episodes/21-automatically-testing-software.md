@@ -14,7 +14,7 @@ keypoints:
 - "The three main types of automated tests are **unit tests**, **functional tests** and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
 - "It should be easy to add or change tests, understand and run them, and understand their results."
-- "We can use a unit testing framework like `pytest` to structure and simplify the writing of tests."
+- "We can use a unit testing framework like Pytest to structure and simplify the writing of tests in Python."
 - "We should test for expected errors in our code."
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
@@ -25,9 +25,9 @@ Being able to demonstrate that a process generates the right results is importan
 
 - Does the code we develop work the way it should do?
 - Can we (and others) verify these assertions for themselves?
-- Perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
+- Perhaps most importantly, to what extent are we confident of the accuracy of results that software produces?
 
-If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software are useful for this, but manually testing software can prove an expensive process.
+If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software is useful for this, but manually testing software can prove an expensive process.
 
 Automation can help, and automation where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
@@ -161,7 +161,7 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-So we use the `assert_array_equal()` function - part of Numpy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy arrays in all cases.
+So we use the `assert_array_equal()` function - part of NumPy's testing library - to test that our calculated result is the same as our expected result. This function explicitly checks the array's shape and elements are the same, and throws an `AssertionError` if they are not. In particular, note that we can't just use `==` or other Python equality methods, since these won't work properly with NumPy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values, and end up with something like:
 
@@ -170,7 +170,7 @@ test_input = np.array([[2, 0], [4, 0]])
 test_result = np.array([2, 0])
 npt.assert_array_equal(daily_mean(test_input), test_result)
 
-test_input = np.array([[0, 0], [0, 0]])
+test_input = np.array([[0, 0], [0, 0], [0, 0]])
 test_result = np.array([0, 0])
 npt.assert_array_equal(daily_mean(test_input), test_result)
 
@@ -260,14 +260,14 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
+Here, although we have specified two of our previous manual tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
 - Inputs, e.g. the `test_input` NumPy array
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
 - Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_array_equal()` to test its validity
 - Expected outputs, e.g. our `test_result` NumPy array that we test against
 
-And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
+Also, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
 Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
@@ -277,7 +277,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Installing `pytest`
+### Installing Pytest
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
@@ -294,7 +294,7 @@ $ pip3 install pytest
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
 
-### Running the Tests
+### Running Tests
 
 Now we can run these tests using `pytest`:
 
@@ -303,7 +303,7 @@ $ python -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we use `-m` to invoke the `pytest` installed module, and specify the `tests/test_models.py` file to run the tests in that file
+Here, we use `-m` to invoke the `pytest` installed module, and specify the `tests/test_models.py` file to run the tests in that file
 explicitly. 
 
 > ## Why Run Pytest Using `python -m` and Not `pytest` ?
@@ -409,7 +409,7 @@ $ pip3 freeze > requirements.txt
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
 ~~~
-$ git add requirements.txt setup.py tests/test_models.py
+$ git add requirements.txt tests/test_models.py
 $ git commit -m "Add initial test cases for daily_max() and daily_min()"
 $ git push -u origin test-suite
 ~~~

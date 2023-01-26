@@ -92,7 +92,7 @@ for our project from the command line and PyCharm is clever enough to understand
    see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
    being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Python Interpreter` window will appear.
-4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
+4. Select `Virtualenv Environment` from the list on the left and ensure that `Existing environment` checkbox is
    selected within the popup window. In the `Interpreter` field point to the Python 3 executable inside 
    your virtual environment's `bin` directory (make sure you navigate to it and select it from the 
    file browser rather than just accept the default offered by PyCharm). Note that there is also an option to create a new virtual environment, 
