@@ -65,6 +65,7 @@ anything you like, but it may be easier for future group exercises if everyone u
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Exercise: Obtain the Software Project Locally
+> Make a directory called python-intermediate-inflammation, cd into this folder, run the git init command, then use the clone command.
 > Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
