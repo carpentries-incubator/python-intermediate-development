@@ -8,10 +8,12 @@ questions:
 objectives:
 - "Describe the different types of software requirements."
 - "Explain the difference between functional and non-functional requirements."
+- "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Derive new user and solution requirements from business requirements."
 keypoints:
 - "When writing software used for research, requirements will almost *always* change."
 - "Consider non-functional requirements (*how* the software will behave) as well as functional requirements (*what* the software is supposed to do)."
+- "The environment in which users run our software has an effect on many design choices we might make."
 - "Consider the expected longevity of any code before you write it."
 - "The perspective and language of a particular requirement stakeholder group should be reflected in requirements for that group."
 ---
