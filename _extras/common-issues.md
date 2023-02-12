@@ -22,6 +22,39 @@ More details on command line prompt customisation can be found in this [guide](h
 
 ## Git/GitHub Issues
 
+### Connection Issues When Accessing GitHub Using Git Over VPN or Protected Networks - Proxy Needed
+When accessing external services and websites (such as GitHub using `git` or to [install Python packages with `pip`](../common-issues/index.html#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)), you may experience connection errors 
+(e.g. similar to `fatal: unable to access '....': Failed connect to github.com`) or a connection that hangs. This may 
+indicate that they need to configure a proxy server user by your organisation to tunnel SSH traffic through a HTTP proxy. 
+
+To get `git` to work through a proxy server in Windows, you'll need `connect.exe` program that comes with GitBash (which
+you should have installed as part of setup, so no additional installation is needed). 
+If installed in the default location, this file should be found at 
+`C:\Program Files\Git\mingw64\bin\connect.exe`. Next, you'll need to modify your ssh config file (typically in `~/.ssh/config`)
+and add the following:
+~~~
+Host github.com
+    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <proxy-server>:<proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
+Mac and Linux users can use the [Corkscrew tool](https://github.com/bryanpkc/corkscrew) for tunneling SSH through HTTP proxies, 
+which would have to be installed separately. Next, you'll need to modify your SSH config file (typically in `~/.ssh/config`)
+and add the following:
+~~~
+Host github.com
+    ProxyCommand corkscrew <proxy-server> <proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
 ### Creating a GitHub Key Without 'Workflow' Authorisation Scope
 If  learner creates a GitHub authentication token but forgets to check 'workflow' scope (to allow the token to be used to update GitHub Action workflows) they will get the following error when trying to 
 push a new workflow (when adding the `pytest` action in Section 2) to GitHub:
@@ -34,32 +67,61 @@ push a new workflow (when adding the `pytest` action in Section 2) to GitHub:
 The solution is to generate a new token with the correct scope/usage permissions and clear the local 
 credential cache (if that's where the token has been saved). In same cases, simply clearing 
 credential cache was not enough and updating to Git 2.29 was needed.
+ 
+### `Please tell me who you are` Git Error
+If you experience the following error the first time you do a Git commit, you may not have configured your identity with 
+Git on your machine:
+
+> fatal: unable to auto-detect email address  
+> *** Please tell me who you are
+
+This can be configured from the command line as follows:
+~~~
+$ git config --global user.name "Your Name"
+$ git config --global user.email "name@example.com"
+~~~
+{: .language-bash}
+
+The option `--global` tells Git to use these settings "globally" (i.e. for every project that uses Git for version control 
+on your machine). If you use different identifies for different projects, then you should not use the 
+`--global` option. Make sure to use the same email address you used to open an account on GitHub that you 
+are using for this course.
+
+At this point it may also be a good time to configure your favourite text editor with Git, if you have not already done so. 
+For example, to use the editor `nano` with Git:
+~~~
+$ git config --global core.editor "nano -w"
+~~~
+{: .language-bash}
 
 ## Python, `pip`, `venv` & Installing Packages Issues
 
 ### Issues With Numpy (and Potentially Other Packages) on New M1 Macs 
 
-When using `numpy` installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
+When using `numpy` package installed via `pip` on a command line on a new Apple M1 Mac, you get a failed installation with the error: 
 
 > ...
 > mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
 > ...
  
-Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
+Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, `pip` is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python 3 not Accessible as `python3` but `python`
-Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but 
-works fine when invoked with `python`.
+### Python 3 Installed but not Found When Using `python3` Command 
+Python 3 installed on some Windows machines may not be accessible using the `python3` command from the command line, but 
+works fine when invoked via the command `python`.
 
-### Installing Packages With `pip` Issue Over VPN or Protected Networks - Proxy Needed
+### Connection Issues When Installing Packages With `pip` Over VPN or Protected Networks - Proxy Needed
 If you encounter issues when trying to install packages with `pip` over your organisational network - 
-it may be because your may need to use a proxy provided by your organisation. In order 
-to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
+it may be because your may need to [use a proxy](https://stackoverflow.com/questions/30992717/proxy-awareness-with-pip) provided by your organisation. In order to get `pip` to use the proxy, you need to add an additional parameter when installing packages with `pip`:
 
-`pip3 install --proxy <proxy-url> <name of package>`
+~~~
+$ pip3 install --proxy <proxy-url> <name of package>`
+~~~
+{: .language-bash}
 
 To keep these settings permanently, you may want to add the following to your `.zshrc`/`.bashrc` file to avoid 
 having to specify the proxy for each session, and restart your command line terminal:
+
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
@@ -74,7 +136,6 @@ export {HTTP,HTTPS,FTP}_PROXY=
 export NO_PROXY=
 }
 ~~~
-{: .language-bash}
 
 ## PyCharm Issues
  
@@ -87,7 +148,11 @@ Using PyCharm to add a package to a virtual environment created from the command
 can fail with error `"no such option: –build-dir"`, which appears to be caused by the latest version of `pip` (20.3)
 where the flag `-build-dir` was removed but is required by PyCharm to install packages. A workaround is to:
 - Close PyCharm
-- Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: `python -m pip install pip==20.2.4`
+- Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type: 
+    ~~~
+    $ pip3 install pip==20.2.4
+    ~~~
+    {: .language-bash}
 - Restart PyCharm
 
 See [the issue](https://youtrack.jetbrains.com/issue/PY-45712) for more details. 

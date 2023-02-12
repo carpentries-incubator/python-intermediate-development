@@ -119,7 +119,7 @@ def test_normalise(test_data, test_index, test_columns, expected_data, expected_
 
 Note another assumption made here that a test accuracy of two decimal places is sufficient - so we state this explicitly by setting the absolute tolerance of the tests using `atol=1e-2`, and have rounded our expected values up accordingly. The `assert_frame_equal` Pandas testing function allows the setting of absolute (`atol`) and relative (`rtol`) tolerances to enable testing against values that are *almost* equal: very useful when we have numbers with arbitrary decimal places and are only concerned with a certain degree of precision, like the test case above.
 
-Run the tests again using `pytest tests/test_models.py` and you will note that the new test is failing, with an error message that does not give many clues as to what went wrong.
+Run the tests again using `python -m pytest tests/test_models.py` and you will note that the new test is failing, with an error message that does not give many clues as to what went wrong.
 
 ~~~
 tests/test_models.py:142: 
@@ -262,7 +262,7 @@ Note here that we are using the Numpy testing function `npt.assert_almost_equal`
 ## Corner or Edge Cases
 
 The test case that we have currently written for `data_normalise` is parameterised with a fairly standard data
-array. However, when writing your test cases, it is important to consider parametrising them by unusual or extreme
+array. However, when writing your test cases, it is important to consider parameterising them by unusual or extreme
 values, in order to test all the edge or corner cases that your code could be exposed to in practice.
 Generally speaking, it is at these extreme cases that you will find your code failing, so it's beneficial to test them beforehand.
 
@@ -324,16 +324,8 @@ tests/test_models.py:160: AssertionError
 ~~~
 {: .output}
 
-Helpfully, you will also notice that NumPy also provides a run-time warning for division by zero which you can find near the bottom of the log:
-
-~~~
-  RuntimeWarning: invalid value encountered in true_divide
-    return data / max[:, np.newaxis]
-~~~
-{: .output}
-
-
-How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0:
+How can we fix this? Luckily, there is a NumPy function that is useful here, [`np.isnan()`](https://numpy.org/doc/stable/reference/generated/numpy.isnan.html), which we can use to replace all the NaN's with our desired result, which is 0. We can also silence the run-time warning using
+[`np.errstate`](https://numpy.org/doc/stable/reference/generated/numpy.errstate.html):
 
 ~~~
 ...
@@ -436,7 +428,8 @@ library and is used to indicate that the function received an argument of the ri
 @pytest.mark.parametrize(
     "test, expected, expect_raises",
     [
-        ... # other test cases here, with None for expect_raises
+        ... # previous test cases here, with None for expect_raises, except for the next one - add ValueError 
+        ... # as an expected exception (since it has a negative input value)
         (
             [[-1, 2, 3], [4, 5, 6], [7, 8, 9]],
             [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
@@ -586,8 +579,16 @@ which may be difficult to trace).
 {: .challenge}
 
 It may be hard to remember to run linter tools every now and then. Luckily, we can now add this Pylint execution to our 
-continuous integration builds as on of the extra tasks. 
-For example, to add it to GitHub Actions we can add the following step to our `steps` in `.github/workflows/main.yml`:
+continuous integration builds as one of the extra tasks. Since we're adding an extra feature to our CI workflow, let's start this from a new feature branch from the `develop` branch:
+
+~~~
+$ git checkout develop
+$ git branch pylint-ci
+$ git checkout pylint-ci
+~~~
+{: .language-bash}
+
+Then to add Pylint to our CI workflow, we can add the following step to our `steps` in `.github/workflows/main.yml`:
 
 ~~~
 ...
@@ -650,7 +651,7 @@ since we don't need it anymore.
 Now when we run Pylint we won't be penalised for having a reasonable line length. 
 For some further hints and tips on how to approach using Pylint for a project, see [this article](https://pythonspeed.com/articles/pylint/).
                   
-Before moving on, be sure to commit all you changes and then merge to the `develop` and `main` branches in the usual 
+Before moving on, be sure to commit all your changes and then merge to the `develop` and `main` branches in the usual 
 manner, and push them all to GitHub.
 
 {% include links.md %}

@@ -3,7 +3,7 @@ title: "Scaling Up Unit Testing"
 teaching: 10
 exercises: 5
 questions:
-- "How do we scale up the number of tests we want to run?"
+- "How can we make it easier to write lots of tests?"
 - "How can we know how much of our code is being tested?"
 objectives:
 - "Use parameterisation to automatically run tests over a set of inputs"
@@ -29,24 +29,24 @@ So instead of writing a separate function for each different test, we can **para
     "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
     [
         (
-            [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]],
-            [pd.to_datetime('2000-01-01 01:00'),
+            [ [0.0, 0.0], [0.0, 0.0], [0.0, 0.0] ],
+            [ pd.to_datetime('2000-01-01 01:00'),
                 pd.to_datetime('2000-01-01 02:00'),
-                pd.to_datetime('2000-01-01 03:00')],
-            ['A', 'B'],
-            [[0.0, 0.0]],
-            [datetime.date(2000, 1, 1)],
-            ['A','B']
+                pd.to_datetime('2000-01-01 03:00') ],
+            [ 'A', 'B' ],
+            [ [0.0, 0.0] ],
+            [ datetime.date(2000, 1, 1) ],
+            [ 'A', 'B' ]
         ),
         (
-            [[1, 2], [3, 4], [5, 6]],
-            [pd.to_datetime('2000-01-01 01:00'),
+            [ [1, 2], [3, 4], [5, 6] ],
+            [ pd.to_datetime('2000-01-01 01:00'),
                 pd.to_datetime('2000-01-01 02:00'),
-                pd.to_datetime('2000-01-01 03:00')],
-            ['A', 'B'],
-            [[3.0, 4.0]],
-            [datetime.date(2000, 1, 1)],
-            ['A', 'B']
+                pd.to_datetime('2000-01-01 03:00') ],
+            [ 'A', 'B' ],
+            [ [3.0, 4.0] ],
+            [ datetime.date(2000, 1, 1) ],
+            [ 'A', 'B' ]
         ),
     ])
 def test_daily_mean(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
@@ -57,13 +57,14 @@ def test_daily_mean(test_data, test_index, test_columns, expected_data, expected
 ~~~
 {: .language-python}
 
-Here, we use `pytest`'s **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` is actually a Python **decorator**. A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of them automatically when this test is called.
+Here, we use Pytest's **mark** capability to add metadata to this specific test - in this case, marking that it's a parameterised test. `parameterize()` function is actually a [Python **decorator**](https://www.programiz.com/python-programming/decorator). A decorator, when applied to a function, adds some functionality to it when it is called, and here, what we want to do is specify multiple input and expected output test cases so the function is called over each of these inputs automatically when this test is called.
 
 We specify these as arguments to the `parameterize()` decorator, firstly indicating the names of these arguments that will be passed to the function (`test`, `expected`), and secondly the actual arguments themselves that correspond to each of these names - the input data (the `test` argument), and the expected result (the `expected` argument). In this case, we are passing in two tests to `test_daily_mean()` which will be run sequentially.
 
-So our first test will run `daily_mean()` on `[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]` (our `test` argument), and check to see if it equals `[0.0, 0.0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[[1, 2], [3, 4], [5, 6]]` and check it produces `[3.0, 4.0]`.
+So our first test will run `daily_mean()` on `[ [0.0, 0.0], [0.0, 0.0], [0.0, 0.0] ]` (our `test` argument), and check to see if it equals `[0.0, 0.0]` (our `expected` argument). Similarly, our second test will run `daily_mean()` with `[ [1, 2], [3, 4], [5, 6] ]` and check it produces `[3.0, 4.0]`.
 
-The big plusses here are that we don't need to write separate functions for each of them, which can mean writing our tests scales better as our code becomes more complex and we need to write more tests.
+The big plus here is that we don't need to write separate functions for each of the tests - our test code can remain compact 
+and readable as we write more tests and adding more tests scales better as our code becomes more complex.
 
 > ## Exercise: Write Parameterised Unit Tests
 >
@@ -77,34 +78,34 @@ The big plusses here are that we don't need to write separate functions for each
 > >     "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
 > >     [
 > >         (
-> >             [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                 pd.to_datetime('2000-01-01 02:00'),
-> >                 pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[0.0, 0.0, 0.0]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                 pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [0.0, 0.0, 0.0] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >         (
-> >             [[4, 2, 5], [1, 6, 2], [4, 1, 9]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [4, 2, 5], [1, 6, 2], [4, 1, 9] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                 pd.to_datetime('2000-01-01 02:00'),
-> >                 pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[4, 6, 9]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                 pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [4, 6, 9] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >         (
-> >             [[4, -2, 5], [1, -6, 2], [-4, -1, 9]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [4, -2, 5], [1, -6, 2], [-4, -1, 9] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                  pd.to_datetime('2000-01-01 02:00'),
-> >                  pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[4, -1, 9]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                  pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [4, -1, 9] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >     ])
 > > def test_daily_max(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
@@ -122,34 +123,34 @@ The big plusses here are that we don't need to write separate functions for each
 > >     "test_data, test_index, test_columns, expected_data, expected_index, expected_columns",
 > >     [
 > >         (
-> >             [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                 pd.to_datetime('2000-01-01 02:00'),
-> >                 pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[0.0, 0.0, 0.0]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                 pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [0.0, 0.0, 0.0] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >         (
-> >             [[4, 2, 5], [1, 6, 2], [4, 1, 9]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [4, 2, 5], [1, 6, 2], [4, 1, 9] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                 pd.to_datetime('2000-01-01 02:00'),
-> >                 pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[1, 1, 2]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                 pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [1, 1, 2] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >         (
-> >             [[4, -2, 5], [1, -6, 2], [-4, -1, 9]],
-> >             [pd.to_datetime('2000-01-01 01:00'),
+> >             [ [4, -2, 5], [1, -6, 2], [-4, -1, 9] ],
+> >             [ pd.to_datetime('2000-01-01 01:00'),
 > >                  pd.to_datetime('2000-01-01 02:00'),
-> >                  pd.to_datetime('2000-01-01 03:00')],
-> >             ['A', 'B', 'C'],
-> >             [[-4, -6, 2]],
-> >             [datetime.date(2000, 1, 1)],
-> >             ['A', 'B', 'C']
+> >                  pd.to_datetime('2000-01-01 03:00') ],
+> >             [ 'A', 'B', 'C' ],
+> >             [ [-4, -6, 2] ],
+> >             [ datetime.date(2000, 1, 1) ],
+> >             [ 'A', 'B', 'C' ]
 > >         ),
 > >     ])
 > > def test_daily_min(test_data, test_index, test_columns, expected_data, expected_index, expected_columns):
@@ -166,7 +167,7 @@ The big plusses here are that we don't need to write separate functions for each
 
 Try them out!
 
-Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push them to remote yet!):
+Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch (but don't push them to the remote repository just yet!):
 
 ~~~
 $ git add tests/test_models.py
@@ -175,7 +176,7 @@ $ git commit -m "Add parameterisation mean, min, max test cases"
 {: .language-bash}
 
 
-## Using Code Coverage to Understand How Much of Our Code is Tested
+## Code Coverage - How Much of Our Code is Tested?
 
 Pytest can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works, there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
@@ -185,7 +186,7 @@ A simple way to check the code coverage for a set of tests is to use `pytest` to
 
 ~~~
 $ pip3 install pytest-cov
-$ pytest --cov=catchment.models tests/test_models.py
+$ python -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -209,7 +210,7 @@ TOTAL                    19     10    47%
 Here we can see that our tests are doing okay - 47% of statements in `catchment/models.py` have been executed. But which statements are not being tested? The additional argument `--cov-report term-missing` can tell us:
 
 ~~~
-$ pytest --cov=catchment.models --cov-report term-missing tests/test_models.py
+$ python -m pytest --cov=catchment.models --cov-report term-missing tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -231,7 +232,7 @@ Here we should consider whether or not to write a test for this function, and, i
 Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip3 freeze --exclude-editable > requirements.txt
+$ pip3 freeze > requirements.txt
 $ cat requirements.txt
 ~~~
 {: .language-bash}
@@ -247,13 +248,15 @@ $ git push origin test-suite
 
 > ## What about Testing Against Indeterminate Output?
 >
-> What if your implementation depends on a degree of random behaviour? This can be desired within a number of applications in research, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
+> What if your implementation depends on a degree of random behaviour? This can be desired within a number of applications, particularly in simulations (for example, molecular simulations) or other stochastic behavioural models of complex systems. So how can you test against such systems if the outputs are different when given the same inputs?
 >
 > One way is to *remove the randomness* during testing. For those portions of your code that use a language feature or library to generate a random number, you can instead produce a known sequence of numbers instead when testing, to make the results deterministic and hence easier to test against. You could encapsulate this different behaviour in separate functions, methods, or classes and call the appropriate one depending on whether you are testing or not. This is essentially a type of **mocking**, where you are creating a "mock" version that mimics some behaviour for the purposes of testing.
 >
 > Another way is to *control the randomness* during testing to provide results that are deterministic - the same each time. Implementations of randomness in computing languages, including Python, are actually never truly random - they are **pseudorandom**: the sequence of 'random' numbers are typically generated using a mathematical algorithm. A **seed** value is used to initialise an implementation's random number generator, and from that point, the sequence of numbers is actually deterministic. Many implementations just use the system time as the default seed, but you can set your own. By doing so, the generated sequence of numbers is the same, e.g. using Python's `random` library to randomly select a sample of ten numbers from a sequence between 0-99:
 >
 > ~~~
+> import random
+> 
 > random.seed(1)
 > print(random.sample(range(0, 100), 10))
 > random.seed(1)

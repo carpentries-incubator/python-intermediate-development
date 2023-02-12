@@ -3,7 +3,7 @@ title: "Introduction to Our Software Project"
 teaching: 20
 exercises: 10
 questions:
-- "What is the design architecture of our software project?"
+- "What is the design architecture of our example software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
 - "Use Git to obtain a working copy of our software project from GitHub."
@@ -51,47 +51,63 @@ To help with the development of the analysis software, you will use baseline dat
 > website linked above. 
 {: .callout}
 
-The project is not finished; it contains some errors and currently can only read the rainfall
+The project is not finished. It contains some errors and currently can only read the rainfall
 data files. You will be working on your own and in collaboration with others to fix and build 
 on top of the existing code during the course.
 
-To start working on the project, you will first create a copy of the software project template 
-repository from GitHub within your own GitHub account and then obtain a local copy of the project on
-your machine. Let's do this.
+## Downloading Our Software Project
 
-1. Log into your GitHub account. 
-2. Go to the [software project template repository](https://github.com/UoMResearchIT/python-intermediate-rivercatchment) in GitHub.
+To start working on the project, you will first create a copy of the software project template repository from 
+GitHub within your own GitHub account and then obtain a local copy of that project (from your GitHub) on your machine.
+
+1. Make sure you have a GitHub account and that you have set up your SSH key pair for authentication with GitHub, as 
+explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
+2. Log into your GitHub account. 
+3. Go to the [software project template repository](https://github.com/UoMResearchIT/python-intermediate-rivercatchment) in GitHub.
 ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-3. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
+4. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
 the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
 Note that each participant is creating their own copy to work on. Also,
 we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
-4. Make sure to select your personal account and set the name of the project to `python-intermediate-rivercatchment` (you can call it
+5. Make sure to select your personal account and set the name of the project to `python-intermediate-rivercatchment` (you can call it
 anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
 'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
 ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
-5. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
-6. Locate the copied repository under your own GitHub account.
+6. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
+7. Locate the copied repository under your own GitHub account.
 ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Exercise: Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer, 
-> (to be consistent with the code examples and exercises in the course).
+> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-1. Find the HTTPS URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
-> > original template repository but rather your own copy, as you should be able to push commits to it later on. If you have set up a public-private key pair for authentication in your GitHub account and know what you are doing - feel free to use the SSH URL of our software project instead. Otherwise, stick to using HTTPS with password authentication (which will need soon to push changes to our software project to GitHub). 
+> > 1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+original template repository but rather your own copy, as you should be able to push commits to it later on. Also 
+make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
-2. Make sure you are located in your home directory in the command line with:
-> > `cd ~`
-3. From your home directory, do:
-> > `git clone https://github.com/<YOUR_GITHUB_USERNAME>/python-intermediate-rivercatchment`. Make sure you are cloning 
-> > your copy of the software project and not the template repo.
-4. Navigate into the cloned repository in your command line with:
-> > `cd python-intermediate-rivercatchment`
-5. List the contents of the directory:
-> > `ls -l`. Remember the `-l` flag of the `ls` command and also how to get help for commands in the command line using 
-> > manual pages, e.g.: `man ls`.
+> > 2. Make sure you are located in your home directory in the command line with:
+> >     ~~~
+> >     $ cd ~
+> >     ~~~
+> >     {: .language-bash}
+> > 3. From your home directory in the command line, do:
+> >     ~~~
+> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-rivercatchment
+> >     ~~~
+> >     {: .language-bash}
+> > Make sure you are cloning your copy of the software project and not the template repository.
+> >
+> > 4. Navigate into the cloned repository folder in your command line with:
+> >     ~~~
+> >     $ cd python-intermediate-rivercatchment
+> >     ~~~
+> >     {: .language-bash}
+> > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
+> > your project folder in the command line with:
+> >     ~~~ 
+> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-catchment
+> >     ~~~
+> >     {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -281,12 +297,12 @@ depicts the use of MVC architecture for the [DNA Guide Graphical User Interface 
 Our software project uses the MVC architecture. The file `catchment-analysis.py` is the **Controller** module that
 performs basic statistical analysis over patient data and provides the main
 entry point into the application. The **View** and **Model** modules are contained
-in the files `view.py` and `model.py`, respectively, and are conveniently named. Data underlying the **Model** is
+in the files `views.py` and `models.py`, respectively, and are conveniently named. Data underlying the **Model** is
 contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
 when we talk in more detail about software's [business/user/solution requirements](../31-software-requirements/index.html)
 and [software design](../32-software-design/index.html). We now proceed to set up our virtual development environment 
-and start working with the code using a more convenient graphical tool - IDE PyCharm.
+and start working with the code using a more convenient graphical tool - [IDE PyCharm](https://www.jetbrains.com/pycharm/).
 
 {% include links.md %}

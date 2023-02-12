@@ -85,16 +85,16 @@ In a small application, a multilayer architecture is unlikely to be necessary, w
 
 ## Addressing New Requirements
 
-So far in this episode we've extended our application - designed around an MVC architecture - with a new view to see a patient's data.
-Let's now take a step back to the solution requirements we discussed in the previous episode:
+So, we now want to extend our application - designed around an MVC architecture - with some new functionalities (more statistical processing and a new view to see a patient's data). Let's 
+recall the solution requirements we discussed in the previous episode:
 
-- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
+- *Functional Requirements*:
   - SR1.1.1 (from UR1.1): add standard deviation to data model and include in graph visualisation view
   - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
-- *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
+- *Non-functional Requirements*:
   - SR2.1.1 (from UR2.1): generate graphical statistics report on project workstation configuration in under 30 seconds
 
-## How Should I Test *This*?
+### How Should We Test These Requirements?
 
 Sometimes when we make changes to our code that we plan to test later, we find the way we've implemented that change doesn't lend itself well to how it should be tested. So what should we do?
 
@@ -105,17 +105,20 @@ We could also consider writing unit tests for SR2.1.1, ensuring that the system 
 The key is to think about which kind of testing should be used to check if the code satisfies a requirement, but also what you can do to make that code amenable to that type of testing.
 
 > ## Exercise: Implementing Requirements
-> 
 > Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement and create an appropriate feature branch - 
-> e.g. `add-std-dev` or `add-view`.
+> e.g. `add-std-dev` or `add-view` from your most up-to-date `develop` branch.
 > 
 > One aspect you should consider first is whether the new requirement can be implemented within the existing design. If not, how does the design need to be changed to accommodate the inclusion of this new feature? Also try to ensure that the changes you make are amenable to unit testing: is the code suitably modularised such that the aspect under test can be easily invoked with test input data and its output tested?
 > 
 > If you have time, feel free to implement the other requirement, or invent your own!
 > 
+> Also make sure you push changes to your new feature branch remotely to your software repository on GitHub.
+> 
 > **Note: do not add the tests for the new feature just yet - even though you would normally add the tests along 
 > with the new code, we will do this in a later episode. Equally, do not merge your changes to the 
 > `develop` branch just yet.**
+> 
+> **Note 2: we have intentionally left this exercise without solution to give you more freedom in implementing it how you see fit. If you are struggling with adding a new view and command line parameter - read on as more code examples will be provided by the end of this section that will give you hints on how to do this.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design

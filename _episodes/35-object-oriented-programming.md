@@ -1,19 +1,22 @@
 ---
 title: "Object Oriented Programming"
-start: false
-teaching: 20
-exercises: 30
+teaching: 30
+exercises: 20
 questions:
-- "How does the structure of a problem affect the structure of our code?"
-- "How can we use common software paradigms to improve the quality of our software?"
+- "How can we use code to describe the structure of data?"
+- "How should the relationships between structures be described?"
 objectives:
-- "Describe some of the major software paradigms we can use to classify programming languages."
+- "Describe the core concepts that define the Object Oriented Paradigm"
+- "Use classes to encapsulate data within a more complex program"
+- "Structure concepts within a program in terms of sets of behaviour"
+- "Identify different types of relationship between concepts within a program"
+- "Structure data within a program using these relationships"
 keypoints:
-- "A software paradigm describes a way of structuring or reasoning about code."
-- "Different programming languages are suited to different paradigms."
-- "Different paradigms are suited to solving different classes of problems."
-- "A single piece of software will often contain instances of multiple paradigms."
+- "Classes allow us to organise data into distinct concepts."
+- "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
+- "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
+
 
 ## Encapsulating Data
 
@@ -143,7 +146,7 @@ measurement_data = [
 > > >
 > > > A better solution would be to use the `zip` function, which allows us to iterate over multiple iterables without needing an index variable.
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller, so we won't raise an exception here, but this might not quite be the behaviour we want, so we'll also explicitly `assert` that the inputs should be the same length.
-> > > Checking that our inputs are valid in this way is known as a **precondition**.
+> > > Checking that our inputs are valid in this way is an example of a precondition, which we introduced conceptually in an earlier episode.
 > > >
 > > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
 > > >
@@ -264,7 +267,7 @@ The behaviours we may have seen previously include:
 >
 {: .callout}
 
-### Encapsulating Behaviour
+## Encapsulating Behaviour
 
 Just like the standard Python datastructures, our classes can have behaviour associated with them.
 
@@ -400,9 +403,8 @@ These dunder methods are not usually called directly, but rather provide the imp
 Some we see quite commonly are:
 
 - `__str__` - converts an object into its string representation, used when you call `str(object)` or `print(object)`
-- `__getitem__` - accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
+- `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
 - `__len__` - gets the length of an object when we use `len(object)` - usually the number of items it contains
-- `__mod__` - implements the modulo operation `x % y` that returns the remainder of dividing `x` by `y`; internally, Python attempts to call `x.__mod__(y)` 
 
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
@@ -506,8 +508,9 @@ print(lastdata)
 ~~~
 {: .output}
 
-You may recognise the `@` syntax from our lesson on parameterising unit tests - `property` is another example of a **decorator**.
+You may recognise the `@` syntax from episodes on parameterising unit tests and functional programming - `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_measurements` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
+It is also possible to make your own decorators, but we won't cover it here.
 
 ### Relationships Between Classes
 
@@ -634,7 +637,7 @@ Now we're using a composition of two custom classes to describe the relationship
 
 The other type of relationship used in object oriented programming is **inheritance**.
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.
-If class `Y` inherits from (*is a*) class `X`, we say that `X` is the **superclass** or **parent class** of `Y`, or `Y` is a **subclass** of `X`.
+If class `X` inherits from (*is a*) class `Y`, we say that `Y` is the **superclass** or **parent class** of `X`, or `X` is a **subclass** of `Y`.
 
 If we want to extend the previous example to also manage locations which aren't measurement sites we can add another class `Location`.
 But `Location` will share some data and behaviour with `Site` - in this case both have a name and show that name when you print them.
@@ -747,6 +750,61 @@ The order in which it does this search is known as the **method resolution order
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Location.__init__` requires.
 This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Location` must have a name, before we can properly initialise a `Site` model with the corresponding measurement data.
 
+
+
+> ## Composition vs Inheritance
+>
+> When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
+> For example, it's not obvious whether a photocopier *is a* printer and *is a* scanner, or *has a* printer and *has a* scanner.
+>
+> ~~~ python
+> class Machine:
+>     pass
+>
+> class Printer(Machine):
+>     pass
+>
+> class Scanner(Machine):
+>     pass
+>
+> class Copier(Printer, Scanner):
+>     # Copier `is a` Printer and `is a` Scanner
+>     pass
+> ~~~
+> {: .language-python}
+>
+> ~~~ python
+> class Machine:
+>     pass
+>
+> class Printer(Machine):
+>     pass
+>
+> class Scanner(Machine):
+>     pass
+>
+> class Copier(Machine):
+>     def __init__(self):
+>         # Copier `has a` Printer and `has a` Scanner
+>         self.printer = Printer()
+>         self.scanner = Scanner()
+> ~~~
+> {: .language-python}
+>
+> Both of these would be perfectly valid models and would work for most purposes.
+> However, unless there's something about how you need to use the model which would benefit from using a model based on inheritance, it's usually recommended to opt for **composition over inheritance**.
+> This is a common design principle in the object oriented paradigm and is worth remembering, as it's very common for people to overuse inheritance once they've been introduced to it.
+>
+> For much more detail on this see the [Python Design Patterns guide](https://python-patterns.guide/gang-of-four/composition-over-inheritance/).
+{: .callout}
+
+> ## Multiple Inheritance
+>
+> **Multiple Inheritance** is when a class inherits from more than one direct parent class.
+> It exists in Python, but is often not present in other Object Oriented languages.
+> Although this might seem useful, like in our inheritance-based model of the photocopier above, it's best to avoid it unless you're sure it's the right thing to do, due to the complexity of the inheritance heirarchy.
+> Often using multiple inheritance is a sign you should instead be using composition - again like the photocopier model above.
+{: .callout}
 
 
 > ## Exercise: A Model Site

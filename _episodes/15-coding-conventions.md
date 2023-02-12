@@ -132,7 +132,7 @@ More details on good and bad practices for continuation lines can be found in
 
 ### Maximum Line Length
 All lines should be up to 80 characters long; for lines containing comments or docstrings (to be covered later) the
-line length limit should be 73 - see [this discussion](https://www.google.com/url?q=https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length&sa=D&source=editors&ust=1619088968027000&usg=AOvVaw3jn26Qt-kwog_tJnaMR48x) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
+line length limit should be 73 - see [this discussion](https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length) for reasoning behind these numbers. Some teams strongly prefer a longer line length, and seemed to have settled on the
 length of 100. Long lines of code can be broken over multiple lines by wrapping expressions in delimiters, as
 mentioned above (preferred method), or using a backslash (`\`) at the end of the line to indicate
 line continuation (slightly less preferred method).
@@ -594,7 +594,7 @@ changes locally but have not pushed this branch remotely for others to have a lo
 onto the `develop` branch. Let's do that now, namely:
 - push `style-fixes` to GitHub
 - merge `style-fixes` into `develop` (once we are happy with the changes)
-- push updates to `develop` branch to GitHub (to keep our main development branch up to date with the latest developments)
+- push updates to `develop` branch to GitHub (to keep it up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
 Here is a set commands that will achieve the above set of actions (remember to use `git status` often in between other
@@ -616,7 +616,7 @@ you work locally on code on a feature branch,
 test it to make sure it works correctly and as expected, then record your changes using version
 control and share your work with others via a centrally backed-up repository. Other team
 members work on their feature branches in parallel and similarly share their work with colleagues for discussions.
-Different feature branches from around the team get merged onto the main development branch, often in small and quick development cycles. After further testing and verifying that no code has been broken by the new features - the development branch gets merged onto the stable main branch, where new features finally resurface to end-users in
+Different feature branches from around the team get merged onto the development branch, often in small and quick development cycles. After further testing and verifying that no code has been broken by the new features - the development branch gets merged onto the stable main branch, where new features finally resurface to end-users in
 bigger "software release" cycles.
 {: .testimonial}
 

@@ -7,8 +7,8 @@ questions:
 objectives:
 - "Extend our software to add a view of a single patient in the study and the software's command line interface to request a specific view."
 keypoints:
-- "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
-Such components can be as small as a single function, or be a software package in their own right."
+- "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change.
+  Such components can be as small as a single function, or be a software package in their own right."
 ---
 
 ## MVC Revisited
@@ -380,7 +380,7 @@ Now we need to make sure people can call this view - that means connecting it to
 
 #### Adapting the Controller
 
-The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface the necessary data to drive the new view.
+The changes we need to make here are that the `main` function needs to be able to direct us to the view we've requested - and we need to add to the command line interface - the controller - the necessary data to drive the new view.
 
 As the argument parsing routines are getting more involved, we have moved these into a 
 single function (`parse_cli_arguments`), to make the script more readable.
@@ -489,7 +489,7 @@ Because we used the `parser.error` function, the usage information for the comma
 We can now call our program with these extra arguments to see the record for a single site:
 
 ~~~
-python3 catchment-analysis.py --view record --site FP35 -m 'Rainfall (mm)' data/rain_data_2015-12.csv
+$ python3 catchment-analysis.py --view record --site FP35 -m 'Rainfall (mm)' data/rain_data_2015-12.csv
 ~~~
 {: .language-bash}
 
@@ -517,19 +517,19 @@ You can find more information in [Click's documentation](https://click.palletspr
 
 
 > ## Additional Material
-> 
+>
 > Now we've covered the basics of multi-layer architectures and Object Oriented Programming, and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
-> 
+>
 > Both episodes cover the persistence layer of software architectures and methods of persistently storing data, but take different approaches.
 > The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.
 {: .callout}
-                    
+
 
 ## Towards Collaborative Software Development
 
-Having looked at some theoretical aspects of software design, we are now circling back to 
-implementing our software design and developing our software to satisfy the requirements collaboratively 
-in a team. At an intermediate level of software development, there is a wealth of practices that could be used, and applying suitable design and coding practices is what separates an intermediate developer from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices enough so that progress can be made. 
+Having looked at some theoretical aspects of software design, we are now circling back to
+implementing our software design and developing our software to satisfy the requirements collaboratively
+in a team. At an intermediate level of software development, there is a wealth of practices that could be used, and applying suitable design and coding practices is what separates an intermediate developer from someone who has just started coding. The key for an intermediate developer is to balance these concerns for each software project appropriately, and employ design and development practices enough so that progress can be made.
 
 One practice that should always be considered, and has been shown to be very effective in team-based
 software development, is that of *code review*. Code reviews help to ensure the 'good' coding standards are achieved

@@ -23,7 +23,7 @@ As your code starts to grow and becomes more complex, it will involve many diffe
 facilities for, the software development process. Such clever and useful graphical
 software development applications are called Integrated Development Environments (IDEs).
 
-## Integrated Development Environments (IDEs)
+## Integrated Development Environments
 An IDE normally consists of at least a source code editor, build automation tools and a debugger.
 The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as
 nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
@@ -92,7 +92,7 @@ for our project from the command line and PyCharm is clever enough to understand
    see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is
    being used. These may be blank or set to `<No interpreter>`, or possibly the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we do not want to use in this instance.
 3. Select the cog-like button in the top right, then `Add Local...` (or `Add...` depending on your PyCharm version). An `Add Python Interpreter` window will appear.
-4. Select `Virtualenv` from the list on the left and ensure that `Existing environment` checkbox is
+4. Select `Virtualenv Environment` from the list on the left and ensure that `Existing environment` checkbox is
    selected within the popup window. In the `Interpreter` field point to the Python 3 executable inside 
    your virtual environment's `bin` directory (make sure you navigate to it and select it from the 
    file browser rather than just accept the default offered by PyCharm). Note that there is also an option to create a new virtual environment, 
@@ -118,7 +118,7 @@ action through the following exercise.
 can be found from the command line? Compare that information with the equivalent configuration in PyCharm.
 >
 >Hint: We can use an argument to `pip`, or find the packages directly in a subdirectory
-of our virtual environment directory `venv`.
+of our virtual environment directory "venv".
 >
 >> ## Solution
 >> From the previous episode, you may remember that we can get the list of packages in the current virtual environment using the `pip3 list` command:
@@ -383,7 +383,7 @@ You will often need code reference information to help you code. PyCharm shows t
 For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), including:
 - Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
 - Quick Type Definition - type definition of variables, fields or any other symbols
-- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../05-coding-conventions/index.html#documentation-strings-aka-docstrings))
+- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../15-coding-conventions/index.html#documentation-strings-aka-docstrings))
 - Parameter Info - the names of parameters in method and function calls
 - Type Info - type of an expression
 

@@ -6,7 +6,7 @@ teaching: 15
 exercises: 0
 questions:
 - "What are we teaching in this course?"
-- "Why did we pick specific topics to cover?"
+- "What motivated the selection of topics covered in the course?"
 objectives:
 - "Setting the scene and expectations"
 - "Making sure everyone has all the necessary software installed"
@@ -29,14 +29,14 @@ researchers (developers) and users, and more collaborative development effort is
 while ensuring previous development efforts remain functional and maintainable.
 
 This course provides the next step in software development - it teaches some **intermediate software
-engineering skills and best practices** to help you restructure existing and design more robust, 
+engineering skills and best practices** to help you restructure existing code and design more robust, 
 reusable and maintainable code, automate the process of testing and verifying software correctness and 
 support collaborations with others in a way that mimics a typical software development process 
 within a team. 
 
 The course uses a number of different **software development tools and techniques**
 interchangeably as you would in a real life. We had to make some choices about
-topics and tools to teach here - based on ease of installation for the audience, length of the course 
+topics and tools to teach here - based on established best practices, ease of tool installation for the audience, length of the course 
 and other considerations. Tools used here are not mandated though - alternatives exist and 
 we point some of them out along the way. 
 Over time, you will develop a preference for certain tools and programming languages based on your 
@@ -53,18 +53,18 @@ The course is organised into the following sections:
 ### [Section 1: Setting up Software Environment](../10-section1-intro/index.html)
 In the first section we are going to set up our working environment and familiarise ourselves with various tools and techniques for
 software development in a typical collaborative code development cycle:
+- **Virtual environments** for **isolating a project** from other projects developed on the same machine
+- **Command line** for running code and interacting with the **command line tool Git** for
 - **Integrated Development Environment** for **code development, testing and debugging**,
-- **Command line** for running code and interacting with the **command line tool Git** for 
-**version control** and branching the code out for developing new features in parallel,
+  **Version control** and using code branches to develop new features in parallel,
 - **GitHub** (central and remote source code management platform supporting version control with Git) 
-for **code backup, sharing and collaborative development**,
-- **Virtual environments** for **isolating a project** from other projects developed on the same machine, and
+for **code backup, sharing and collaborative development**, and
 - **Python code style guidelines** to make sure our code is 
 **documented, readable and consistently formatted**.
 
 ### [Section 2: Verifying Software Correctness at Scale](../20-section2-intro/index.html)
 Once we know our way around different code development tools, techniques and conventions, in this section we learn:
-- how to set up a **test framework** and write tests to verify the correct behaviour of the code, and
+- how to set up a **test framework** and write tests to verify the behaviour of our code is correct, and
 - how to automate and scale testing with **Continuous Integration (CI)** using 
 **GitHub Actions** (a CI service available on GitHub).
  
@@ -77,7 +77,7 @@ as a process of development and its components:
 different way of thinking about, structuring and **implementing** the code.
 
 ### [Section 4: Collaborative Software Development for Reuse](../40-section4-intro/index.html)
-Advancing from the solo code development, in this section you will start working with your fellow learners 
+Advancing from developing code as an individual, in this section you will start working with your fellow learners 
 on a group project (as you would do when collaborating on a software project in a team), and learn:
 
 - how **code review** can help improve team software contributions, identify wider codebase issues, and increase codebase knowledge across a team.
@@ -102,9 +102,10 @@ A few notes before we start.
 Check out this [quiz](../quiz/index.html) to help you test your prior knowledge and determine if this course is for you.
 {: .callout}
 
-> ## Required Software
-Please make sure that you have all the necessary software installed as described in the [Setup](../setup.html) section.
-This section also contains instructions on how to test your setup.
+> ## Setup, Common Issues & Fixes
+> Have you [setup and installed](../setup.html) all the tools and accounts required for this course?
+> Check the list of [common issues, fixes & tips](../common-issues/index.html) if you experience any problems
+running any of the tools you installed - your issue may be solved there.
 {: .callout}
 
 > ## Compulsory and Optional Exercises
@@ -120,7 +121,7 @@ All exercises contain solutions but, wherever possible, try and work out a solut
 > These are evolving tools and platforms, always adding new features and new visual elements.
 > Screenshots in the lesson may then become out-of-sync, refer to or show content that no longer exists or is different to
 > what you see on your machine. If during the lesson you find screenshots that no longer match what you see or have
-> a big discrepancy with what you see, please [open an issue]({{ repo_url }}/issues/new) describing what you see and how it differs from the lesson
+> a big discrepancy with what you see, please [open an issue]({{ site.github.repository_url }}/issues/new) describing what you see and how it differs from the lesson
 > content. Feel free to add as many screenshots as necessary to clarify the issue.
 {: .callout}
 

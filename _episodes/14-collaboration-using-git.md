@@ -8,7 +8,7 @@ questions:
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
 - "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
-- "Create different branches for code development"
+- "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
 keypoints:
@@ -24,7 +24,7 @@ collaborative code development toolbox - namely, the version control system Git 
 These two will enable us to track changes to our code and share it with others.
 
 You may recall that we have already made some changes to our project locally - we created a virtual
-environment in `venv` directory and exported it to the `requirements.txt` file.
+environment in the directory called "venv" and exported it to the `requirements.txt` file.
 We should now decide which of those changes we want to check in and share with others in our team. This is a typical 
 software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others 
@@ -94,17 +94,17 @@ nothing added to commit but untracked files present (use "git add" to track)
 {: .output}
 
 As expected, Git is telling us that we have some untracked files - `requirements.txt` and directory
-`venv` - present in our working
+"venv" - present in our working
 directory which we have not staged nor committed to our local repository yet.
 You do not want
-to commit the newly created `venv` directory and share it with others because this
+to commit the newly created directory "venv" and share it with others because this
 directory is specific to your machine and setup only (i.e. it contains local paths to libraries on your
 system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
 your team as this file can be used to replicate the virtual environment on your collaborators' systems.
 
 To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root. Our project already has `.gitignore`, but in cases where you do not have
 it - you can simply create it yourself. In our case, we
-want to tell Git to ignore the `venv` directory (and `.venv` as another naming convention for virtual environments)
+want to tell Git to ignore the "venv" directory (and ".venv" as another naming convention for directories containing virtual environmentsß)
 and stop notifying us about it. Edit your `.gitignore`
 file in PyCharm and add a line containing "venv/" and another one containing ".venv/". It does not matter much
 in this case where within the file you add these lines, so let's do it at the end. Your `.gitignore` should look something like this:
@@ -133,7 +133,7 @@ venv/
 
 You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match a pattern (e.g. "*.png" will ignore all PNG files in the current directory).
 
-If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to `venv` folder so it is not warning us about it any more. However, it has now detected a change to
+If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to the "venv" directory so it is not warning us about it any more. However, it has now detected a change to
 `.gitignore` file that needs to be committed.
 
 ~~~
@@ -176,25 +176,29 @@ $ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folde
 Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
-machines. In order to share our work with others - we should push our changes to the remote repository on GitHub.
-GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+machines. In order to share our work with others, we should push our changes to the remote repository on GitHub. Before we push our changes however, we should first do a `git pull`. This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, we are made aware of any changes made by others, in particular if there are any conflicts between their changes and ours.
+
+~~~
+$ git pull
+~~~
+{: .language-bash}
+
+Now we've ensured our repository is synchronised with the remote one, we can now push our changes. GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
 ) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
 over HTTPS any more - you either need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security if you want to continue 
-to use HTTPS or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
+to use HTTPS, or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-Git may prompt you to authenticate - enter your GitHub username and the previously generated access token as the 
-password. You can also [enable caching of the credentials](https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html) using command `git config --global credential.helper cache` so your machine remembers the access token and will not ask you to enter it again. 
-
-> ## Account Security
-> When using `git config --global credential.helper cache`, any password or personal access token you enter will be cached for a period of time, a default of 15 minutes. Re-entering a password every 15 minutes can be OK, but for a personal access token it can be inconvenient, and lead to you writing the token down elsewhere. To *permanently* store passwords or tokens, use `stash` instead of `cache`.
->
-> Storing an access token always carries a security risk. One compromise between short cache timescales and permanent stores is to set a time-out on your personal access token when you make it, reducing the risk of it being stolen after you stop working on the project you issued it for.
-{: .callout}
+> ## Authentication Errors
+> 
+> If you get a warning that HTTPS access is deprecated, or a token is required, then you
+> accidentally cloned the repository using HTTPS not SSH. Fortunately, this is an easy fix:
+> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`.
+{: .caution}
 
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally (it is called that
@@ -253,11 +257,11 @@ backed up,
 * if you decide that the feature is not working or is no longer needed - you can easily and safely discard that
 branch without affecting the rest of the code.
 
-Branches are commonly used as part of a feature-branch workflow, shown in diagram below.
+Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
-![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="700px"}
+![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="800px"}
 <p style="text-align: center;">Git feature branches<br>
-From <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
+Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
 In the software development workflow, we typically have a main branch which is the version of the code that
 is tested, stable and reliable. Then, we normally have a development branch
@@ -311,8 +315,8 @@ Switched to branch 'develop'
 {: .callout}
 
 ### Updating Branches
-If we start updating files now, the modifications will happen on the `develop` branch and will not affect the version
-of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
+If we start updating and committing files now, the commits will happen on the `develop` branch and will not affect 
+the version of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
 Let's make a small modification to `catchment/models.py` in PyCharm, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
@@ -389,8 +393,23 @@ $ git push origin develop
 ~~~
 {: .language-bash}
 
+> ## What is the Relationship Between Originating and New Branches?
+>
+> It's natural to think that new branches have a parent/child relationship with their originating branch, but in actual
+> Git terms, branches themselves do not have parents but single commits do. Any commit can have zero parents
+> (a root, or initial, commit), one parent (a regular commit), or multiple parents (a merge commit), and using this 
+> structure, we can build a 'view' of branches from a set of commits and their relationships. A common way to look at it
+> is that Git branches are really only [lightweight, movable pointers to commits](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+> So as a new commit is added to a branch, the branch pointer is moved to the new commit.
+> 
+> What this means is that when you accomplish a merge between two branches, Git is able to determine the common 'commit ancestor' through 
+> the commits in a 'branch', and use that common ancestor to determine which commits need to be merged onto the destination
+> branch. It also means that, in theory, you could merge any branch with any other at any time... although it may not
+> make sense to do so!
+{: .callout}
+
 ### Merging Into Main Branch
-Once you have tested your changes on the `develop` branch, you will want to merge them onto the main `main` branch.
+Once you have tested your changes on the `develop` branch, you will want to merge them onto the `main` branch.
 To do so, make sure you have all your changes committed and switch to `main`:
 
 ~~~

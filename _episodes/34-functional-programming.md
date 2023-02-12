@@ -147,37 +147,36 @@ The output of a pure function depends only on its input, so we'll get the right 
 > > In this example solution, we've picked a sample size of one million, and testing that the expected measurements are correct to within two decimal places.
 > > This does seem a little loose, but the stricter we make these criteria the more likely the test will randomly fail.
 > > Even with these values, the test will occasionally fail if you run it enough times.
-> >
 > > ~~~
-> > import unittest
+> >import numpy as np
+> >import numpy.testing as npt
 > >
-> > import numpy as np
-> >
-> > class RandomTest(unittest.TestCase):
-> >     def test_random_numpy(self):
-> >         mean = 5
-> >         sdev = 3
-> >         sample_size = 1000000
-> >
-> >         sample = np.random.normal(mean, sdev, sample_size)
-> >
-> >         self.assertAlmostEqual(mean, np.mean(sample), places=2)
-> >         self.assertAlmostEqual(sdev, np.std(sample), places=2)
+> >def test_random_numpy():
+> >   mean = 5
+> >   sdev = 3
+> >   sample_size = 1000000                    
+> > 
+> >   sample = np.random.normal(mean, sdev, sample_size)
+> >   npt.assert_almost_equal(mean, np.mean(sample), decimal=2)
+> >   npt.assert_almost_equal(sdev, np.std(sample), decimal=2)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
 
 
-### MapReduce in Python - Comprehensions
+### MapReduce in Python Using Comprehensions
 
 Often, when working with data you'll find that you need to apply a transformation to each datapoint, and/or filter the data, before performing some aggregation across the whole dataset.
 This process is often referred to as **MapReduce**, particularly when working within the context of **Big Data** using tools such as Spark or Hadoop.
 The MapReduce style of data processing relies heavily on the composability and parallelisability that we get when using functional programming.
 This name comes from applying or **mapping** an operation to each value, then performing a **reduction** operation which collects the data together to produce a single result.
 
-In Python, we do have the built-in functions `map`, `filter`, but we'll skip over those and go straight to the recommended approach.
-If you're particularly interested in this form of data processing, it might be worth looking up the documentation for these functions, but in general we use **comprehensions** instead.
+In Python, we do have the built-in functions `map()`, `filter()`, and `reduce()` - but here we will 
+use Python **comprehensions** instead to achieve the same effect (which is a commonly used and recommended 
+approach). If you're particularly interested in this form of data processing, it might be worth looking up the documentation for these functions.
+
+**Comprehensions** are an elegant way of creating collections with less code using *for loops*. 
 
 ~~~
 integers = range(5)
@@ -193,8 +192,9 @@ print(double_ints)
 {: .output}
 
 The above example uses a **list comprehension** to double each number in a sequence.
-Notice the similarity between the syntax for a list comprehension and a for loop - in effect, this is a for loop compressed into a single line.
-In this simple case we've got code equivalent to using just a map operation.
+Notice the similarity between the syntax for a list comprehension and a for loop - in effect, 
+this is a for loop compressed into a single line.
+In this simple case, the code above is equivalent to using a map operation on a sequence.
 
 We can also use list comprehensions to filter data, by adding the filter condition to the end:
 
@@ -236,10 +236,13 @@ print(double_even_int_dict)
 ~~~
 {: .output}
 
-These comprehensions cover the map and filter components of MapReduce, but not the reduce component.
-For that we either need to rely on a built in reduction operator, or use the `reduce` function with a custom reduction operator.
+These comprehensions cover the map and filter components of MapReduce, but not the reduce 
+(accumulate/aggregate) component.
+For that we either need to rely on a built in reduction operator, 
+or use the `reduce` function with a custom reduction operator.
 
-In many cases, what we want to do is to sum the values in a collection - for this we have the built in `sum` function:
+In many cases, what we want to do in the reduction component is to sum all 
+the values in a collection - for this we have the built in `sum` function:
 
 ~~~
 l = [1, 2, 3]
@@ -253,44 +256,49 @@ print(sum(l))
 ~~~
 {: .output}
 
-Otherwise, we'll probably need to write the reduction operator ourselves - but we need to cover another topic first.
+Otherwise, we'll probably need to write the reduction operator ourselves - but before we look into this 
+we need to cover another topic first.
 
 
-> ## Generator Expressions
->
-> There's one 'comprehension' left that we've not discussed - **generator expressions**.
-> In Python, a **generator** is a type of **iterable** which we can take values from and loop over, but doesn't actually compute any of the values until we need them.
-> Iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
->
-> The `range` function is an example of a generator - if we created a `range(1000000000)`, but didn't iterate over it, we'd find that it takes almost no time to do.
-> Creating a list containing a similar number of values would take much longer, and could be at risk of running out of memory and failing entirely.
->
-> We can build our own generators using a generator expression.
-> These look much like the comprehensions above, but act like a generator when we use them.
->
-> ~~~
-> squares = (i * i for i in range(10))
->
-> for x in squares:
->     print(x)
-> ~~~
-> {: .language-python}
->
-> ~~~
-> 0
-> 1
-> 4
-> 9
-> 16
-> 25
-> 36
-> 49
-> 64
-> 81
-> ~~~
-> {: .output}
->
-{: .callout}
+### Generator Expressions
+
+There's one 'comprehension' left that we've not discussed - **generator expressions**.
+In Python, a **generator** is a type of **iterable** which we can take values from and loop over, but doesn't actually compute any of the values until we need them.
+Iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
+
+The `range` function is an example of a generator - if we created a `range(1000000000)`, but didn't iterate over it, we'd find that it takes almost no time to do.
+Creating a list containing a similar number of values would take much longer, and could be at risk of running out of memory and failing entirely.
+
+We can build our own generators using a generator expression.
+These look much like the comprehensions above, but act like a generator when we use them. Note the 
+syntax difference for generator expressions - parenthesis are used in place of square or curly brackets.
+
+~~~
+squares_generator = (i * i for i in range(10))
+
+for x in squares_generator:
+    print(x)
+~~~
+{: .language-python}
+
+~~~
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+~~~
+{: .output}
+
+The key difference between generator expressions and comprehensions is that the generator 
+yields one item at a time and generates the item only on demand. On the other hand, for list, set or dictionary comprehensions, Python reserves memory for the whole list, set or dictionary in advance. 
+So, generator expressions are more memory efficient than the comprehensions.
+
 
 > ## Comprehensions Applied
 >
@@ -444,8 +452,13 @@ print(result)
 ~~~
 {: .output}
 
-In these examples above, we've used a list comprehension to effectively build the `map` function ourselves.
-In Python 2, this is exactly how `map` worked - in Python 3 it's a little different as the `map` and `filter` functions are now generators.
+In these examples above, we've used a list comprehension to effectively build the `map()` function ourselves.
+In Python 2, this is exactly how `map` worked - it returned a list of items. In Python 3, it is a little different as the `map()` and `filter()` functions are now generators - they do not return lists 
+but map and filter objects, respectively, which are iterators. These objects can then 
+be passed to functions like `list()` (to create a list), `set()` (to create a set), etc. - but cannot be used 
+as lists or sets directly (e.g. you cannot pass them directly to, say, `print` function) if this is what you are used to in Python 2.
+         
+### Lambda Function
 
 For small functions which we only need in a single place, we can use a **lambda function** or **anonymous function** (so called because we don't give them names) instead.
 These functions use the `lambda` keyword, take a number of arguments and contain a single expression as their body.
@@ -478,14 +491,14 @@ def add_one(x):
 ~~~
 {: .language-python}
 
-These are the fundamental components of the MapReduce style, and can be combined to perform much more complex data processing operations.
+These are the fundamental components of the MapReduce programming model, and can be combined to perform much more complex data processing operations.
 
 ## Reducing MapReduce
 
 Now we've got all the components we need to use MapReduce with reductions that aren't just `sum`.
 Time to make our own reduction operators.
 
-A reduction operator is a function which accepts two values to accumulate the values in the iterable.
+A reduction operator is a function which accepts two values to accumulate (aggregate) the values in the iterable.
 One example would be to calculate the product of a sequence.
 
 When we give this function to `reduce`, it first applies the function to the first two values in the iterable.
@@ -500,6 +513,8 @@ def product(a, b):
     return a * b
 
 print(reduce(product, l))
+
+# The same reduction using a lambda function
 print(reduce((lambda a, b: a * b), l))
 ~~~
 {: .language-python}
@@ -613,11 +628,25 @@ print(reduce((lambda a, b: a * b), l))
 > Which do you prefer?
 > Are there situations when one would be much better than the other?
 >
+> > ## Solution
+> >
+> > ~~~
+> > from functools import reduce
+> >
+> > def sum_of_squares(l):
+> >     integers_generator = (int(x) for x in l if x[0] != '#')
+> >     squares_generator = (x * x for x in integers_generator)
+> >     return reduce(lambda a, b: a + b, squares_generator)
+> > ~~~
+> > {: .language-python}
+> Generators would be better for bigger lists as they would not allocate the memory for the
+> whole list at once and in advance.
+> {: .solution}
 {: .challenge}
 
 ## Decorators
 
-In the section on parametrising our unit tests, we have used a **decorator** to modify the behaviour of a function.
+In the [episode on parametrising our unit tests](../22-scaling-up-unit-testing/index.html#parameterising-our-unit-tests), we have used a **decorator** to modify the behaviour of a function.
 Here, we'll discuss decorators in more detail and learn how to write our own.
 
 The important feature of a decorator is that it can take a function, modify it, then return the resulting function.
@@ -740,13 +769,13 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 
 > ## Optional Advanced Exercise: Multiprocessing 
 >
-> **Advanced optional exercise to come back to if you finish early.**
+> **Advanced optional exercise to come back to if you finish this section early.**
 >
 > One of the benefits of functional programming is that, if we have pure functions, when applying / mapping a function to many values in a collection, each application is completely independent of the others.
 > This means that we can take advantage of multiprocessing, without many of the normal problems in synchronisation that this brings.
 >
 > Read through the Python documentation for the [multiprocessing module](https://docs.python.org/3/library/multiprocessing.html), particularly the `Pool.map` method.
-> This function is similar to the `map` function, but distributes the operations across a number of processes.
+> This function is similar to the `map()` function we mentioned in MapReduce model, but distributes the operations across a number of processes.
 >
 > Update one of our examples to make use of multiprocessing.
 > How much of a performance improvement do you get?
@@ -763,7 +792,7 @@ Both of these syntaxes can be useful in different situations: the `@` syntax is 
 > **Warning:** Multiprocessing can easily have unexpected results when any non-pure functions are used.
 > One common example is that when trying to generate random numbers using some random number generators, we may see the same sequence of numbers generated in each process.
 >
-> Would we get the same benefits from parallel equivalents of the `filter` and `reduce` functions?
+> Would we get the same benefits from parallel equivalents of the `filter()` and `reduce()` functions?
 > Why, or why not?
 >
 > {: .language-bash}

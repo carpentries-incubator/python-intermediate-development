@@ -14,7 +14,7 @@ keypoints:
 - "The three main types of automated tests are **unit tests**, **functional tests** and **regression tests**."
 - "We can write unit tests to verify that functions generate expected output given a set of specific inputs."
 - "It should be easy to add or change tests, understand and run them, and understand their results."
-- "We can use a unit testing framework like `pytest` to structure and simplify the writing of tests."
+- "We can use a unit testing framework like Pytest to structure and simplify the writing of tests in Python."
 - "We should test for expected errors in our code."
 - "Testing program behaviour against both valid and invalid inputs is important and is known as **data validation**."
 ---
@@ -25,9 +25,9 @@ Being able to demonstrate that a process generates the right results is importan
 
 - Does the code we develop work the way it should do?
 - Can we (and others) verify these assertions for themselves?
-- Perhaps most importantly, to what extent are we confident of the accuracy of results that appear in publications?
+- Perhaps most importantly, to what extent are we confident of the accuracy of results that software produces?
 
-If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software are useful for this, but manually testing software can prove an expensive process.
+If we are unable to demonstrate that our software fulfills these criteria, why would anyone use it? Having well-defined tests for our software is useful for this, but manually testing software can prove an expensive process.
 
 Automation can help, and automation where possible is a good thing - it enables us to define a potentially complex process in a repeatable way that is far less prone to error than manual approaches. Once defined, automation can also save us a lot of effort, particularly in the long run. In this episode we'll look into techniques of automated testing to improve the predictability of a software change, make development more productive, and help us produce code that works as expected and produces desired results.
 
@@ -389,14 +389,14 @@ def test_daily_mean_integers():
 ~~~
 {: .language-python}
 
-So here, although we have specified two of our tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
+Here, although we have specified two of our previous manual tests as separate functions, they run the same assertions. Each of these test functions, in a general sense, are called **test cases** - these are a specification of:
 
 - Inputs, e.g. the `test_input` Pandas dataframe
 - Execution conditions - what we need to do to set up the testing environment to run our test, e.g. importing the `daily_mean()` function so we can use it. Note that for clarity of testing environment, we only import the necessary library function we want to test within each test function
 - Testing procedure, e.g. running `daily_mean()` with our `test_input` array and using `assert_frame_equal()` to test its validity
 - Expected outputs, e.g. our `test_result` Pandas dataframe that we test against
 
-And here, we're defining each of these things for a test case we can run independently that requires no manual intervention.
+Also, we're defining each of these things for a test case we can run independently that requires no manual intervention.
 
 Going back to our list of requirements, how easy is it to run these tests? We can do this using a Python package called `pytest`. Pytest is a testing framework that allows you to write test cases using Python. You can use it to test things like Python functions, database operations, or even things like service APIs - essentially anything that has inputs and expected outputs. We'll be using Pytest to write unit tests, but what you learn can scale to more complex functional testing for applications or libraries.
 
@@ -406,7 +406,7 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 {: .callout}
 
 
-### Installing `pytest`
+### Installing Pytest
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
@@ -422,52 +422,27 @@ $ pip3 install pytest
 
 Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
-### Writing a Metadata Package Description
 
-Another thing we need to do when automating tests using Pytest is to create a `setup.py` in the root of our project repository. A `setup.py` file defines metadata about our software, such as its name and current version, and is typically used when writing and distributing Python code as packages. We need this so Pytest is able to locate the Python source files to test in the `catchment` directory.
-
-Create a new file `setup.py` in the root directory of the `python-intermediate-rivercatchment` repository, with the following Python content:
-
-~~~
-from setuptools import setup, find_packages
-
-setup(name="catchment-analysis", version='1.0', packages=find_packages())
-~~~
-{: .language-python}
-
-Next, in the command line we need to install our code as a local package in our environment so Pytest will find it:
-
-~~~
-$ pip3 install -e .
-~~~
-{: .language-bash}
-
-We should see:
-
-~~~
-Obtaining file:///Users/alex/python-intermediate-rivercatchment
-  Preparing metadata (setup.py) ... done
-Installing collected packages: catchment-analysis
-  Running setup.py develop for catchment-analysis
-Successfully installed catchment-analysis-1.0
-~~~
-{: .output}
-
-This will install our code, as a package, within our virtual environment. We're installing it as a 'development' 
-package (using the `-e` parameter in the above `pip3 install` command), which means as we develop and need to test our code we don't need to install it "properly" as a full package each time we make a change (or edit it - hence the `-e`).
-
-
-### Running the Tests
+### Running Tests
 
 Now we can run these tests using `pytest`:
 
 ~~~
-$ pytest tests/test_models.py
+$ python -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-So here, we specify the `tests/test_models.py` file to run the tests in that file
-explicitly.
+Here, we use `-m` to invoke the `pytest` installed module, and specify the `tests/test_models.py` file to run the tests in that file
+explicitly. 
+
+> ## Why Run Pytest Using `python -m` and Not `pytest` ?
+>
+> Another way to run `pytest` is via its own command, so we *could* try to use `pytest tests/test_models.py` on the
+> command line instead, but this would lead to a `ModuleNotFoundError: No module named 'inflammation'`. This is because
+> using the `python -m pytest` method adds the current directory to its list of directories to search for modules,
+> whilst using `pytest` does not - the `inflammation` subdirectory's contents are not 'seen', hence the
+> `ModuleNotFoundError`. There are ways to get around this with [various methods](https://stackoverflow.com/questions/71297697/modulenotfounderror-when-running-a-simple-pytest), but we've used `python -m` for simplicity.
+{: .callout}
 
 ~~~
 ============================================== test session starts =====================================================
@@ -496,7 +471,7 @@ So if we have many tests, we essentially get a report indicating which tests suc
 > - You could choose to format your functions very similarly to `daily_mean()`, defining test input and expected result arrays followed by the equality assertion.
 > - Try to choose cases that are suitably different, and remember that these functions take a 2D array and return a 1D array with each element the result of analysing each *column* of the data.
 >
-> Once added, run all the tests again with `pytest tests/test_models.py`, and you should also see your new tests pass.
+> Once added, run all the tests again with `python -m pytest tests/test_models.py`, and you should also see your new tests pass.
 >
 > > ## Solution
 > >
@@ -576,16 +551,14 @@ Run all your tests as before.
 Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`:
 
 ~~~
-$ pip3 freeze --exclude-editable > requirements.txt
+$ pip3 freeze > requirements.txt
 ~~~
 {: .language-bash}
-
-We use `--exclude-editable` here to ensure our locally installed `catchment-analysis` package is not included in this list of installed packages, since it is not required for running the software, and would cause problems for others reusing this environment.
 
 Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
 
 ~~~
-$ git add requirements.txt setup.py tests/test_models.py
+$ git add requirements.txt tests/test_models.py
 $ git commit -m "Add initial test cases for daily_max() and daily_min()"
 $ git push -u origin test-suite
 ~~~

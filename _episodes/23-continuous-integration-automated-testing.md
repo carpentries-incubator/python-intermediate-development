@@ -3,15 +3,18 @@ title: "Continuous Integration for Automated Testing"
 teaching: 45
 exercises: 0
 questions:
-- "How can I apply automated repository testing to scale with development activity?"
+- "How can I automate the testing of my repository's code in a way that scales well?"
+- "What can I do to make testing across multiple platforms easier?"
 objectives:
 - "Describe the benefits of using Continuous Integration for further automation of testing"
 - "Enable GitHub Actions Continuous Integration for public open source repositories"
 - "Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository"
+- "Use a build matrix to specify combinations of operating systems and Python versions to run tests over"
 keypoints:
 - "Continuous Integration can run tests automatically to verify changes as code develops in our repository."
 - "CI builds are typically triggered by commits pushed to a repository."
 - "We need to write a configuration file to inform a CI service what to do for a build."
+- "We can specify a build matrix to specify multiple platforms and programming language versions to test against"
 - "Builds can be enabled and configured separately for each branch."
 - "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
@@ -132,17 +135,16 @@ jobs:
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: "3.9"
 
     - name: Install Python dependencies
       run: |
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
-        pip3 install -e .
 
     - name: Test with PyTest
       run: |
-        pytest --cov=catchment.models tests/test_models.py
+        python -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
@@ -155,9 +157,9 @@ Next, we define what our build job will do. With `runs-on` we first state which 
 Lastly, we define the `step`s that our job will undertake in turn, to set up the job's environment and run our tests. You can think of the job's environment initially as a blank slate: much like a freshly installed machine (albeit virtual) with very little installed on it, we need to prepare it with what it needs to be able to run our tests. Each of these steps are:
 
 - **Checkout repository for the job:** `uses` indicates that want to use a GitHub Action called `checkout` that does this
-- **Set up Python 3.9:** here we use the `setup-python` Action, indicating that we want Python version 3.9
-- **Install latest version of pip, dependencies, and our catchment package:** In order to locally install our `catchment` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
-- **Test with PyTest:** lastly, we run `pytest`, with the same arguments we used manually before
+- **Set up Python 3.9:** here we use the `setup-python` Action, indicating that we want Python version 3.9. Note we specify the version within quotes, to ensure that this is interpreted as a complete string. Otherwise, if we wanted to test against for example Python 3.10, by specifying `3.10` without the quotes, it would be interpreted as the number `3.1` which - although it's the same number as `3.10` - would be interpreted as the wrong version!
+- **Install latest version of pip, dependencies, and our inflammation package:** In order to locally install our `catchment` package it's good practice to upgrade the version of pip that is present first, then we use pip to install our package dependencies. Once installed, we can use `pip3 install -e .` as before to install our own package. We use `run` here to run theses commands in the CI shell environment
+- **Test with PyTest:** lastly, we run `python -m pytest`, with the same arguments we used manually before
 
 > ## What about other Actions?
 >
@@ -193,18 +195,18 @@ The logs are actually truncated; selecting the arrows next to the entries - whic
 
 ![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="1000px"}
 
-GitHub Actions offers these continuous integration features as a free service with 2000 Actions/minutes a month on as many public repositories that you like. Paid levels are available too.
+GitHub Actions offers these continuous integration features as a completely free service for public repositories, and supplies 2000 build minutes a month on as many private repositories that you like. Paid levels are available too.
 
 
 ## Scaling Up Testing Using Build Matrices
 
 Now we have our CI configured and building, we can use a feature called **build matrices** which really shows the value of using CI to test at scale.
 
-Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.8 or 3.9 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
+Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows, and either have Python version 3.8, 3.9 or 3.10 installed, and we want to support all of these. Assuming we have a suitable test suite, it would take a considerable amount of time to set up testing platforms to run our tests across all these platform combinations. Fortunately, CI can do the hard work for us very easily.
 
 Using a build matrix we can specify testing environments and parameters (such as operating system, Python version, etc.) and new jobs will be created that run our tests for each permutation of these.
 
-Let's see how this is done using GitHub Actions. To support this, we define a `strategy` as a `matrix` of operating systems and Python versions, and using `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values. Then we replace the `runs-on` and `python-version` parameters 
+Let's see how this is done using GitHub Actions. To support this, we define a `strategy` as a `matrix` of operating systems and Python versions within `build`. We then use `matrix.os` and `matrix.python-version` to reference these configuration possibilities instead of using hardcoded values - replacing the `runs-on` and `python-version` parameters 
 to refer to the values from the matrix. So, our `.github/workflows/main.yml` should look like the following:
 
 ~~~
@@ -212,8 +214,7 @@ to refer to the values from the matrix. So, our `.github/workflows/main.yml` sho
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.8, 3.9]
-...
+        python-version: ["3.8", 3.9", "3.10"]
 
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
@@ -235,7 +236,7 @@ to refer to the values from the matrix. So, our `.github/workflows/main.yml` sho
 ~~~
 {: .language-yaml}
 
-The `{% raw %}${{ }}{% endraw %}` are used as a means to reference configuration values from the matrix. This way, every possible permutation of Python versions 3.8 and 3.9 with the Ubuntu, Mac OS and Windows operating systems will be tested and we can expect 6 build jobs in total.
+The `{% raw %}${{ }}{% endraw %}` are used as a means to reference configuration values from the matrix. This way, every possible permutation of Python versions 3.8, 3.9, and 3.10 with the latest versions of Ubuntu, Mac OS and Windows operating systems will be tested and we can expect 9 build jobs in total.
 
 Let's commit and push this change and see what happens:
 
