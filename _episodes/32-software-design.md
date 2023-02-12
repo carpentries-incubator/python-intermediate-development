@@ -85,7 +85,7 @@ In a small application, a multilayer architecture is unlikely to be necessary, w
 
 ## Addressing New Requirements
 
-So, we now want to extend our application - designed around an MVC architecture - with some new functionalities (more statistical processing and a new view to see a patient's data). Let's 
+So, we now want to extend our application - designed around an MVC architecture - with some new functionalities (more statistical processing and a new view to see measurement data). Let's 
 recall the solution requirements we discussed in the previous episode:
 
 - *Functional Requirements*:
