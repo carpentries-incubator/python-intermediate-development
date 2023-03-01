@@ -22,7 +22,6 @@ The requirements of our software are the basis on which the whole project rests 
 However, it's unlikely that we'll be able to determine all of the requirements upfront.
 Especially when working in a research context, requirements are flexible and may change as we develop our software.
 
-
 ## Types of Requirements
 
 Requirements can be categorised in many ways, but at a high level a useful way to split them is into *business requirements*, *user requirements*, and *solution requirements*. Let's take a look at these now.
@@ -75,19 +74,19 @@ For our inflammation project, they could include things for trial managers such 
 
 Solution (or product) requirements describe characteristics that software must have to satisfy the stakeholder requirements. They fall into two key categories:
 
-- *Functional Requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
+- *Functional requirements* focus on functions and features of a solution. For our software, building on our user requirements, e.g.:
     - SR1.1.1 (from UR1.1): add standard deviation to data model and include a graph visualisation view
     - SR1.2.1 (from UR1.2): add a new view to generate a textual representation of statistics, which is invoked by an optional command line argument
-- *Non-functional Requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
+- *Non-functional requirements* focus on *how* the behaviour of a solution is expressed or constrained, e.g. performance, security, usability, or portability. These are also known as *quality of service* requirements. For our project, e.g.:
     - SR2.1.1 (from UR2.1): generate graphical statistics report on clinical workstation configuration in under 30 seconds
                           
 > ## Labelling Requirements
 > Note that the naming scheme we used for labelling our requirements is quite arbitrary - you should reference them in a way 
-> that is consistent and makes sense within your projects and team.
+> that is consistent and makes sense within your project and team.
 {: .callout}
 
 
-## The Importance of Non-functional Requirements
+#### The Importance of Non-functional Requirements
 
 When considering software requirements, it's *very* tempting to just think about the features users need. However, many design choices in a software project quite rightly depend on the users themselves and the environment in which the software is expected to run, and these aspects should be considered as part of the software's non-functional requirements.
 
@@ -171,14 +170,11 @@ When considering software requirements, it's *very* tempting to just think about
 
 ### Long- or Short-Lived Code?
 
-Along with requirements, here's something to consider early on...
-
-You, perhaps with others, may be developing open-source software with the intent that it will live on after your project completes. It could be important to you that your software is adopted and used by other projects as this may help you get future funding. It can make your software more attractive to potential users if they have the confidence that they can fix bugs that arise or add new features they need, if they can be assured that the evolution of the software is not dependant upon the lifetime of your project. The intended longevity and post-project role of software should be reflected in its requirements - particularly within its non-functional requirements - so be sure to consider these aspects.
+Along with requirements, here's something to consider early on. You, perhaps with others, may be developing open-source software with the intent that it will live on after your project completes. It could be important to you that your software is adopted and used by other projects as this may help you get future funding. It can make your software more attractive to potential users if they have the confidence that they can fix bugs that arise or add new features they need, if they can be assured that the evolution of the software is not dependant upon the lifetime of your project. The intended longevity and post-project role of software should be reflected in its requirements - particularly within its non-functional requirements - so be sure to consider these aspects.
 
 On the other hand, you might want to knock together some code to prove a concept or to perform a quick calculation and then just discard it. But can you be sure you'll never want to use it again? Maybe a few months from now you'll realise you need it after all, or you'll have a colleague say "I wish I had a..." and realise you've already made one. A little effort now could save you a lot in the future.
 
-
-### From Requirements to Implementation, via Design
+## From Requirements to Implementation, via Design
 
 In practice, these different types of requirements are sometimes confused and conflated when different classes of stakeholder are discussing them, which is understandable: each group of stakeholder has a different view of *what is required* from a project. The key is to understand the stakeholder's perspective as to how their requirements should be classified and interpreted, and for that to be made explicit. A related misconception is that each of these types are simply requirements specified at different levels of detail. At each level, not only are the perspectives different, but so are the nature of the objectives and the language used to describe them, since they each reflect the perspective and language of their stakeholder group.
 
