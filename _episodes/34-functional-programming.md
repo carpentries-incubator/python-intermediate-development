@@ -10,12 +10,10 @@ objectives:
 - Describe the main characteristics of code that is written in functional programming style
 - Learn how to generate and process data collections efficiently using MapReduce and Python's comprehensions
 keypoints:
-- Functional programming is a programming paradigm where programs are constructed by applying and composing smaller and simple functions into more complex ones (which describe the flow of data within a program as a sequence of data transformations)
-- In functional programming: 
-  - functions are treated as *first-class citizens* - they can be named, passed as arguments, and returned from other functions, just as any other data type; 
-  - functions are *pure* - they do not exhibit *side-effects* (by not affecting anything other than the value they return or anything outside a function).
+- Functional programming is a programming paradigm where programs are constructed by applying and composing smaller and simple functions into more complex ones (which describe the flow of data within a program as a sequence of data transformations).
+- In functional programming, functions tend to be *pure* - they do not exhibit *side-effects* (by not affecting anything other than the value they return or anything outside a function). Functions can also be named, passed as arguments, and returned from other functions, just as any other data type.
 - MapReduce is an instance of a data generation and processing approach, in particular suited for functional programming and handling Big Data within parallel and distributed environments.
-- Python provides comprehensions for lists, dictionaries, sets and generators - a concise and recommended (if not strictly functional) way to generate new data from existing data collections while performing sophisticated mapping, filtering and conditional logic on original dataset's members.
+- Python provides comprehensions for lists, dictionaries, sets and generators - a concise (if not strictly functional) way to generate new data from existing data collections while performing sophisticated mapping, filtering and conditional logic on original dataset's members.
 ---
 
 ## Introduction
@@ -127,9 +125,8 @@ def add_two(x):
 Despite the benefits that pure functions can bring, we should not be trying to use them everywhere. Any software we write needs to interact with the rest of the world somehow, which requires side effects. With pure functions you cannot read any input, write any output, or interact with the rest of the world in any way, so we cannot usually write useful software using just pure functions. Python programs or libraries written in functional style will usually not be as extreme as to completely avoid reading input, writing output, updating the state of internal local variables, etc.; instead, they will provide a functional-appearing interface but may use non-functional features internally. An example of this is the [Python Pandas library](https://pandas.pydata.org/) for data manipulation built on top of NumPy - most of its functions appear pure as they return new data objects instead of changing existing ones.
 {: .callout}
 
-There are other advantageous properties that can be derived from the functional approach to coding. In languages which support functional programming, a function is a *first-class object* like any other object - not only can you compose/chain functions together, but functions can be used as inputs to, passed around or returned as results from other functions (remember, in functional programming *code is data*). This is one of the properties of functional programming that enables us to do data processing efficiently - in particular in the world of Big Data, where code is much smaller than the data, sending 
-the code to where data is located is cheaper and faster than the other way round. Let's see how functional programming lends 
-itself to efficient data processing.
+There are other advantageous properties that can be derived from the functional approach to coding. In languages which support functional programming, a function is a *first-class object* like any other object - not only can you compose/chain functions together, but functions can be used as inputs to, passed around or returned as results from other functions (remember, in functional programming *code is data*). This is why functional programming is suitable for processing data efficiently - in particular in the world of Big Data, where code is much smaller than the data, sending 
+the code to where data is located is cheaper and faster than the other way round. Let's see how we can do data processing using functional programming.
 
 ## MapReduce Data Processing Approach
 
@@ -227,7 +224,8 @@ print(result)
 
 #### Comprehensions for Mapping/Data Generation
 
-Comprehensions in Python are an elegant and concise way of generating new collections of data from existing collections using *for loops*. While not a pure functional concept, comprehensions provide data generation functionality and can be used to achieve the same effect as the built-in "pure functional" function `map()`. They are commonly used and actually recommended as a replacement of `map()` in modern Python. Let's have a look at some examples.
+Another way you can generate new collections of data from existing collections in Python is using *comprehensions*, 
+which are an elegant and concise way of creating data from [iterable objects](https://www.w3schools.com/python/python_iterators.asp) using *for loops*. While not a pure functional concept, comprehensions provide data generation functionality and can be used to achieve the same effect as the built-in "pure functional" function `map()`. They are commonly used and actually recommended as a replacement of `map()` in modern Python. Let's have a look at some examples.
 
 ~~~
 integers = range(5)
@@ -282,7 +280,7 @@ print(double_even_ints)
 > ~~~
 > {: .output}
 >
-> Finally, there’s one last ‘comprehension’ in Python - a generator expression - a type of an iterable object which we can take values from and loop over, but does not actually compute any of the values until we need them. Iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
+> Finally, there’s one last ‘comprehension’ in Python - a *generator expression* - a type of an iterable object which we can take values from and loop over, but does not actually compute any of the values until we need them. Iterable is the generic term for anything we can loop or iterate over - lists, sets and dictionaries are all iterables.
 >
 >The `range` function is an example of a generator - if we created a `range(1000000000)`, but didn’t iterate over it, we’d find that it takes almost no time to do. Creating a list containing a similar number of values would take much longer, and could be at risk of running out of memory.
 >
@@ -303,9 +301,16 @@ print(double_even_ints)
 > {: .output}
 {: .callout}
 
+
+Let's now have a look at reducing the elements of a data collection into a single result.
+
 ### Reducing
 
-`reduce(f, C, initialiser)` accepts a function `f()`, a collection `C` of data items and an optional `initialiser`, and returns a single cumulative value which aggregates (reduces) all the values from the collection. The reduction function first applies the function `f()` to the first two values in the collection (or to the `initialiser` and the first item from `C`). Then for each remaining value in the collection, it takes the result of the previous computation and the next value from the collection as the new arguments to `f()` until we have processed all of the data and reduced it to a single value. For example, if collection `C` has 5 elements, the call `reduce(f, C)` calculates:
+`reduce(f, C, initialiser)` function accepts a function `f()`, a collection `C` of data items and an optional `initialiser`, and returns a single cumulative value which aggregates (reduces) all the values from the collection into a single result. The reduction function first applies the function `f()` to the first two values in the collection (or to the `initialiser`, if present, and the first item from `C`). Then for each remaining value in the collection, it takes the result of the previous computation and the next value from the collection as the new arguments to `f()` until we have processed all of the data and reduced it to a single value. For example, if collection `C` has 5 elements, the call `reduce(f, C)` calculates:
+
+~~~
+f(f(f(f(C[0], C[1]), C[2]), C[3]), C[4])
+~~~
 
 One example of reducing would be to calculate the product of a sequence of numbers.
 
@@ -357,18 +362,18 @@ Note that `reduce()` is not a built-in function like `map()` - you need to impor
 {: .challenge}
 
 ### Putting It All Together
-Let's now put together what we have learned about map and reduce so far. We'll first write a function that calculates the sum of the squares of the values in a list using the MapReduce approach, using a list comprehension to implement the map part.
+Let's now put together what we have learned about map and reduce so far by writing a function that calculates the sum of the squares of the values in a list using the MapReduce approach.
 
 ~~~
 from functools import reduce
 
 def sum_of_squares(l):
-    squares = [x * x for x in l]
+    squares = [x * x for x in l]  # use list comprehension for mapping
     return reduce(lambda a, b: a + b, squares)
 ~~~
 {: .language-python}
 
-We should see the following examples of behaviour when we use it:
+We should see the following behaviour when we use it:
 
 ~~~
 print(sum_of_squares([0]))
@@ -474,7 +479,7 @@ def sum_of_squares(l):
 > >
 > >Note that the `count_above_threshold` function used by `reduce()` was defined within the `daily_above_threshold()` function to limit its scope and clarify its purpose (i.e. it may only be useful as part of `daily_above_threshold()` hence being defined as an inner function).
 > >
-> >The equivalent code Using a lambda expression may look like:
+> >The equivalent code using a lambda expression may look like:
 > >
 > >~~~
 > >from functools import reduce
@@ -494,12 +499,15 @@ def sum_of_squares(l):
 > >    return reduce(lambda a, b: a + 1 if b else a, above_threshold, 0)
 > >~~~
 > >{: .language-python}
+> Where could this be useful? For example, you may want to define the success criteria for a trial if, say, 80% of 
+> patients do not exhibit inflammation in any of the trial days, or some similar metrics.
 >{: .solution}
 {: .challenge}
 
 ## Decorators
 
-As we have seen in the episode on parametrising our unit tests, a decorator can take a function, modify/decorate it, then return the resulting function. This is possible because Python treats functions as first-class objects that can be passed around 
+Finally, we will look at one last aspect of Python where functional programming is coming handy. 
+As we have seen in the [episode on parametrising our unit tests](../22-scaling-up-unit-testing/index.html#parameterising-our-unit-tests), a decorator can take a function, modify/decorate it, then return the resulting function. This is possible because Python treats functions as first-class objects that can be passed around 
 as normal data. Here, we discuss decorators in more detail and learn how to write our own. Let's look at the following code for ways on how to "decorate" functions.
 
 ~~~
