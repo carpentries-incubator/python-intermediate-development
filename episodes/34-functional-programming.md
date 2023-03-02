@@ -139,7 +139,7 @@ This is a simple mapping that takes a list of names and returns a list of the le
 
 ~~~
 name_lengths = map(len, ["Mary", "Isla", "Sam"])
-print name_lengths
+print(list(name_lengths))
 ~~~
 {: .language-python}
 ~~~
@@ -147,11 +147,11 @@ print name_lengths
 ~~~
 {: .output}
 
-This is a mapping that squares every number in the passed collection using anonymous, inlined *lambda* expression (a simple, one-line, mathematical expression representing a function):
+This is a mapping that squares every number in the passed collection using anonymous, inlined *lambda* expression (a simple one-line mathematical expression representing a function):
 
 ~~~
 squares = map(lambda x: x * x, [0, 1, 2, 3, 4])
-print squares
+print(list(squares))
 ~~~
 {: .language-python}
 ~~~
@@ -190,7 +190,7 @@ def add_one(num):
     return num + 1
 
 result = map(add_one, [0, 1, 2])
-print(result)
+print(list(result))
 ~~~
 {: .language-python}
 ~~~
@@ -244,7 +244,7 @@ The above example uses a *list comprehension* to double each number in a sequenc
 ~~~
 integers = range(5)
 double_ints = map(lambda i: 2 * i, integers)
-print(list(double_ints)
+print(list(double_ints))
 ~~~
 {: .language-python}
 ~~~
