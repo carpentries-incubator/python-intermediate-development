@@ -90,6 +90,7 @@ In our chemistry example, this could be our code for calculating the force betwe
                            
 ## Other Paradigms
 
-The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see the Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). We will now have a closer look at Functional and Object Oriented Programming paradigms and how they can affect our architectural design choices.
+The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see the Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). Having mainly used Procedural Programming so far, we will now have a closer look at 
+Functional and Object Oriented Programming paradigms and how they can affect our architectural design choices.
 
 {% include links.md %}
