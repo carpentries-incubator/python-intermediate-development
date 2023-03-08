@@ -59,12 +59,11 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 Current maintainers of this lesson are:
 
 * [Steve Crouch][steve-crouch]
-* [James Graham][james-graham]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
 
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
+A list of all contributors to the lesson can be found in [AUTHORS](AUTHORS).
 
 ## Licence
 
