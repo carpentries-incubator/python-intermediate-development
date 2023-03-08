@@ -141,7 +141,7 @@ patients = [
 ## Classes in Python
 
 Using nested dictionaries and lists should work for some of the simpler cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
-For this reason, in the object oriented paradigm, we use **classes** to help with this data structure.
+For this reason, in the object oriented paradigm, we use **classes** to help with managing this data and the operations we would want to perform on it.
 A class is a **template** (blueprint) for a structured piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
 
 With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`name` and `data`) unless we check it manually.
