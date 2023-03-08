@@ -214,7 +214,7 @@ the initialiser method, we set a patient's name to the value provided, and creat
 the patient (initially empty). Such data is also referred to
 as the attributes of a class and holds the current state of an instance of the class. Attributes are typically
 hidden (encapsulated) internal object details ensuring that access to data is protected from unintended changes. They
-are manipulated internally by the class, which, in addition, exposes certain functionality as public behavior of the class to
+are manipulated internally by the class, which, in addition, can expose certain functionality as public behavior of the class to
 allow other objects to interact with this class' instances.
 
 ## Encapsulating Behaviour
