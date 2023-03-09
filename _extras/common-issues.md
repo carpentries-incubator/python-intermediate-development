@@ -109,9 +109,9 @@ When using `numpy` package installed via `pip` on a command line on a new Apple 
  
 Numpy is a package heavily optimised for performance, and many parts of it are written in C and compiled for specific architectures, such as Intel (x86_64, x86_32, etc.) or Apple's M1 (arm64e). In this instance, pip is obtaining a version of `numpy` with the incorrect compiled binaries, instead of the ones needed for Apple's M1 Mac. One way that was found to work was to install numpy via PyCharm into your environment instead, which seems able to determine the correct packages to download and install.
 
-### Python 3 not Accessible as `python3` but `python`
-Python 3 installed on some Windows machines may not be accessible as `python3` from the command line, but
-works fine when invoked with `python`.
+### Python 3 Installed but not Found When Using `python3` Command
+Python 3 installed on some Windows machines may not be accessible using the `python3` command from the command line, but
+works fine when invoked via the command `python`.
 
 ### Connection Issues When Installing Packages With `pip` Over VPN or Protected Networks - Proxy Needed
 If you encounter issues when trying to install packages with `pip` over your organisational network -
@@ -128,9 +128,9 @@ having to specify the proxy for each session, and restart your command line term
 ~~~
 # call set_proxies to set proxies and unset_proxies to remove them
 set_proxies() {
-    export {http,https,ftp}_proxy='<proxy-server>:<proxy-port>'
-    export {HTTP,HTTPS,FTP}_PROXY='<proxy-server>:<proxy-port>'
-    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<proxy-server>:<proxy-port>, <proxy-server>:<proxy-port>
+    export {http,https,ftp}_proxy='<proxy-url>'
+    export {HTTP,HTTPS,FTP}_PROXY='<proxy-url>'
+    export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<proxy-url>, <proxy-url>
 }
 
 unset_proxies() {
