@@ -30,7 +30,7 @@ software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others 
 via a shared and centrally backed-up repository.
 
-Firstly, let's remind ourselves how to work with Git from the Command Line.
+Firstly, let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 Git is a version control system for tracking changes in computer files and coordinating work on those files among 
