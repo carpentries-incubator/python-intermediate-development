@@ -30,7 +30,7 @@ While we will develop and debug our code using the PyCharm IDE and it is possibl
 A bonus is that this knowledge is transferable to running code in other programming languages and is independent
 from any IDE you may use in the future.
 
-If you have a little peak into our code (e.g. do `cat inflammation/views.py` from the project root), you will see the
+If you have a little peak into our code (e.g. run `cat inflammation/views.py` from the project root), you will see the
 following two lines somewhere at the top.
 
 ~~~
