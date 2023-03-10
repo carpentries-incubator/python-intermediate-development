@@ -44,8 +44,7 @@ This means that our code requires two *external libraries* (also called third-pa
 Python applications often use external libraries that don’t come as part of the standard Python distribution. This means
 that you will have to use a *package manager* tool to install them on your system.
 Applications will also sometimes need a
-specific version of an external library (e.g. because they require that a particular
-bug has been fixed in a newer version of the library), or a specific version of Python interpreter.
+specific version of an external library (e.g. because they were written to work with feature, class, or function that may have been updated in more recent versions), or a specific version of Python interpreter.
 This means that each Python application you work with may require a different setup and a set of dependencies so it
 is important to be able to keep these configurations separate to avoid confusion between projects.
 The solution for this problem is to create a self-contained *virtual
