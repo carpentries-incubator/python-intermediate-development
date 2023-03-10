@@ -11,6 +11,12 @@ keypoints:
   Such components can be as small as a single function, or be a software package in their own right."
 ---
 
+As we have seen, we have different programming paradigms that are suitable for different problems and affect the 
+structure of our code. In programming languages that support multiple paradigms, such as Python, we have the luxury of 
+using elements of different paradigms paradigms and we, as software designers and programmers, can 
+decide how to use those elements in different architectural components of our software. Let's now circle back to the 
+architecture of our software for one final look. 
+
 ## MVC Revisited
 
 We've been developing our software using the **Model-View-Controller** (MVC) architecture so far, but, as we have seen, MVC is just one of the common architectural patterns and is not the only choice we could have made.
@@ -37,7 +43,7 @@ if __name__ == "__main__":
 {: .language-python}
 In this pattern the actions performed by the script are contained within the `main` function (which does not need to be called `main`, but using this convention helps others in understanding your code). The `main` function is then called within the `if` statement `__name__ == "__main__"`, after some other actions have been performed (usually the parsing of command-line arguments, which will be explained below). `__name__` is a special dunder variable which is set, along with a number of other special dunder variables, by the python interpreter before the execution of any code in the source file. What value is given by the interpreter to `__name__` is determined by the manner in which it is loaded.
 
-If we run the source file directly using the python interpreter, e.g.:
+If we run the source file directly using the Python interpreter, e.g.:
 ~~~
 python catchment-analysis.py
 ~~~
@@ -50,7 +56,7 @@ __name__ = "__main__"
 ~~~
 {: .language-python}
 
-However, if your source file is imported by another python script, e.g:
+However, if your source file is imported by another Python script, e.g:
 ~~~
 import catchment-analysis
 ~~~
@@ -69,12 +75,11 @@ While it may not seem very useful to have your controller script importable by a
 - for testing of your code, you can have your testing framework import the main script, and run special test functions which then call the `main` function directly;
 - where you want to not only be able to run your script from the command-line, but also provide a programmer-friendly application programming interface (API) for advanced users.
 
+### Passing Command-line Options to Controller
 
-### Passing Command-line Options
+The standard python library for reading command line arguments passed to a script is [`argparse`](https://docs.python.org/3/library/argparse.html). This module reads arguments passed by the system, and enables the automatic generation of help and usage messages. These include, as we saw at the start of this course, the generation of helpful error messages when users give the program invalid arguments. 
 
-The standard python library for reading command line arguments passed to a script is [argparse](https://docs.python.org/3/library/argparse.html). This module reads arguments passed by the system, and enables the automatic generation of help and usage messages. These include, as we saw at the start of this course, the generation of helpful error messages when users give the program invalid arguments. 
-
-The basic usage of argparse can be seen in the `catchment-analysis.py` script. First we import the library:
+The basic usage of `argparse` can be seen in the `catchment-analysis.py` script. First we import the library:
 ~~~
 import argparse
 ~~~
@@ -97,7 +102,7 @@ parser.add_argument(
 {: .language-python}
 Here we have defined what the argument will be called (`'infiles'`) when it is read in; the number of arguments to be expected (`nargs='+'`, where `'+'` indicates that there should be 1 or more arguments passed); and a help string for the user (`help='Input CSV(s) containing measurement data'`).
 
-As many arguments can be added as you wish, and these can both mandatory (as the one above), or optional. Most of the complexity in using `argparse` is in adding the correct argument options, and we will explain how to do this in more detail below.
+You can add as many arguments as you wish, and these can be either mandatory (as the one above) or optional. Most of the complexity in using `argparse` is in adding the correct argument options, and we will explain how to do this in more detail below.
 
 Finally we parse the arguments passed to the script using:
 ~~~
@@ -123,11 +128,13 @@ optional arguments:
   -h, --help  show this help message and exit
 ~~~
 {: .output}
-The help page starts with the command line usage, illustrating what inputs can be given (any within `[]` brackets are optional). It then lists the **positional** and **optional** arguments, giving as detailed a description of each as you have added to the `add_argument()` command.
+The help page starts with the command line usage, illustrating what inputs can be given (any within `[]` brackets are optional). It then lists the **positional** and **optional** arguments, giving as detailed a description of each as you have added to the `add_argument()` command. 
+Positional arguments are arguments that need to be included in the proper position or order when calling the script.
 
 Note that optional arguments are indicated by `-` or `--`, followed by the argument name. Positional arguments are simply inferred by their position. It is possible to have multiple positional arguments, but usually this is only practical where all (or all but one) positional arguments contains a clearly defined number of elements. If more than one option can have an indeterminate number of entries, then it is better to create them as 'optional' arguments. These can be made a required input though, by setting `required = True` within the `add_argument()` command. 
 
 > ## Positional and Optional Argument Order
+>
 > The usage section of the help page above shows the optional arguments going before the
 > positional arguments. This is the customary way to present options, but is not mandatory. Instead there are two rules which must be followed for these arguments:
 >  1. Positional and optional arguments must each be given all together, and not inter-mixed. For example, the order can be either `optional - positional` or `positional - optional`, but not `optional - positional - optional`.
@@ -518,7 +525,8 @@ You can find more information in [Click's documentation](https://click.palletspr
 
 > ## Additional Material
 >
-> Now we've covered the basics of multi-layer architectures and Object Oriented Programming, and how we can integrate it into our existing MVC code, there are two optional extra episodes which you may find interesting.
+> Now that we've covered the basics of different programming paradigms and how we can integrate them into our 
+> multi-layer architecture, there are two optional extra episodes which you may find interesting.
 >
 > Both episodes cover the persistence layer of software architectures and methods of persistently storing data, but take different approaches.
 > The episode on [persistence with JSON](/persistence) covers some more advanced concepts in Object Oriented Programming, while the episode on [databases](/databases) starts to build towards a true multilayer architecture, which would allow our software to handle much larger quantities of data.

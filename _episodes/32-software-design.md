@@ -3,15 +3,13 @@ title: "Software Architecture and Design"
 teaching: 15
 exercises: 30
 questions:
-- "Where do we start when beginning a new software project?"
+- "What should we consider when designing software?"
 - "How can we make sure the components of our software are reusable?"
 objectives:
-- "Describe some of the different kinds of software and explain how the environment in which software is used constrains its design."
 - "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
 - "Understand the components of multi-layer software architectures."
 keypoints:
 - "Planning software projects in advance can save a lot of effort and reduce 'technical debt' later - even a partial plan is better than no plan at all."
-- "The environment in which users run our software has an effect on many design choices we might make."
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change. 
 Such components can be as small as a single function, or be a software package in their own right."
 - "When writing software used for research, requirements will almost *always* change."
@@ -85,7 +83,7 @@ In a small application, a multilayer architecture is unlikely to be necessary, w
 
 ## Addressing New Requirements
 
-So, we now want to extend our application - designed around an MVC architecture - with some new functionalities (more statistical processing and a new view to see measurement data). Let's 
+So, let's assume we now want to extend our application - designed around an MVC architecture - with some new functionalities (more statistical processing and a new view to see measurement data). Let's 
 recall the solution requirements we discussed in the previous episode:
 
 - *Functional Requirements*:
@@ -118,7 +116,7 @@ The key is to think about which kind of testing should be used to check if the c
 > with the new code, we will do this in a later episode. Equally, do not merge your changes to the 
 > `develop` branch just yet.**
 > 
-> **Note 2: we have intentionally left this exercise without solution to give you more freedom in implementing it how you see fit. If you are struggling with adding a new view and command line parameter - read on as more code examples will be provided by the end of this section that will give you hints on how to do this.**
+> **Note 2: we have intentionally left this exercise without a solution to give you more freedom in implementing it how you see fit. If you are struggling with adding a new view and command line parameter, you may find the standard deviation requirement easier. A later episode in this section will look at how to handle command line parameters in a scalable way.**
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
@@ -138,7 +136,7 @@ Here's another way of looking at it.
 Not following good software design and development practices can lead to accumulated 'technical debt', which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)), is the "cost of additional rework caused by choosing an easy (limited) solution now
 instead of using a better approach that would take longer". So, the pressure to achieve project goals 
 can sometimes lead to quick and easy solutions, which make the software become more messy, more complex, 
-more difficult to understand and maintain. The extra effort required to make 
+and more difficult to understand and maintain. The extra effort required to make 
 changes in the future is the interest paid on the (technical) debt. It's natural for software to accrue some 
 technical debt, but it's important to pay off that debt during a
 maintenance phase - simplifying, clarifying the code, making it easier to understand -

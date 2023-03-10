@@ -6,19 +6,27 @@ questions:
 - "How can we use code to describe the structure of data?"
 - "How should the relationships between structures be described?"
 objectives:
-- "Describe the core concepts that define the Object Oriented Paradigm"
+- "Describe the core concepts that define the object oriented paradigm"
 - "Use classes to encapsulate data within a more complex program"
 - "Structure concepts within a program in terms of sets of behaviour"
 - "Identify different types of relationship between concepts within a program"
 - "Structure data within a program using these relationships"
 keypoints:
+- "Object oriented programming is a programming paradigm based on the concept of classes, which encapsulate data and code."
 - "Classes allow us to organise data into distinct concepts."
 - "By breaking down our data into classes, we can reason about the behaviour of parts of our data."
 - "Relationships between concepts can be described using inheritance (*is a*) and composition (*has a*)."
 ---
+   
+## Introduction
 
+Object oriented programming is a programming paradigm based on the concept of objects, which are data structures that 
+contain (encapsulate) data and code. Data is encapsulated in the form of fields (attributes) of objects, 
+while code is encapsulated in the form of procedures (methods) that manipulate objects' attributes and define "behaviour"
+of objects. So, in object oriented programming, we first think about the data and the things that we’re modelling - and represent these by objects - rather than define the logic of the program, and code becomes a series of interactions 
+between objects. 
 
-## Encapsulating Data
+## Structuring Data
 
 One of the main difficulties we encounter when building more complex software is how to structure our data.
 So far, we've been processing data from a single source and with a simple tabular structure, but it would be useful to be able to combine data from a range of different sources and with more data than just an array of numbers.
@@ -82,7 +90,7 @@ measurement_data = [
 ~~~
 {: .language-python}
 
-> ## Structuring Data
+> ## Exercise: Structuring Data
 >
 > Write a function, called `attach_sites`, which can be used to attach IDs to our measurement dataset.
 > When used as below, it should produce the expected output.
@@ -148,7 +156,7 @@ measurement_data = [
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller, so we won't raise an exception here, but this might not quite be the behaviour we want, so we'll also explicitly `assert` that the inputs should be the same length.
 > > > Checking that our inputs are valid in this way is an example of a precondition, which we introduced conceptually in an earlier episode.
 > > >
-> > > If you've not previously come across this function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
+> > > If you've not previously come across the `zip` function, read [this section](https://docs.python.org/3/library/functions.html#zip) of the Python documentation.
 > > >
 > > > ~~~ python
 > > > def attach_names(data, sites, measurements):
@@ -169,21 +177,57 @@ measurement_data = [
 > {: .solution}
 {: .challenge}
 
-### Classes in Python
+## Classes in Python
 
 Using nested dictionaries and lists should work for some of the simpler cases where we need to handle structured data, but they get quite difficult to manage once the structure becomes a bit more complex.
-For this reason, in the Object Oriented paradigm, we use **classes** to help with this data structure.
-A class is a **template** for a structured piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
-In addition to representing a piece of structured data, a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data.
+For this reason, in the object oriented paradigm, we use **classes** to help with managing this data and the operations we would want to perform on it.
+A class is a **template** (blueprint) for a structured piece of data, so when we create some data using a class, we can be certain that it has the same structure each time.
 
 With our list of dictionaries we had in the example above, we have no real guarantee that each dictionary has the same structure, e.g. the same keys (`site` and `data`) unless we check it manually.
 With a class, if an object is an **instance** of that class (i.e. it was made using that template), we know it will have the structure defined by that class.
 
-Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas.
+Different programming languages make slightly different guarantees about how strictly the structure will match, but in object oriented programming this is one of the core ideas - all objects derived from the same class must follow the same behaviour.
+
+You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
+
+~~~
+my_list = [1, 2, 3]
+my_dict = {1: '1', 2: '2', 3: '3'}
+my_set = {1, 2, 3}
+
+print(type(my_list))
+print(type(my_dict))
+print(type(my_set))
+~~~
+{: .language-python}
+
+~~~
+<class 'list'>
+<class 'dict'>
+<class 'set'>
+~~~
+{: .output}
+
+Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
+
+- They each hold some data (**attributes** or **state**).
+- They also provide some methods describing the behaviours of the data - what can the data do and what can we do to the data?
+
+The behaviours we may have seen previously include:
+
+- Lists can be appended to
+- Lists can be indexed 
+- Lists can be sliced 
+- Key-value pairs can be added to dictionaries
+- The value at a key can be looked up in a dictionary
+- The union of two sets can be found (the set of values present in any of the sets)
+- The intersection of two sets can be found (the set of values present in all of the sets)
+
+## Encapsulating Data
 
 Let's start with a minimal example of a class representing a measurement site.
 
-~~~
+~~~ python
 # file: catchment/models.py
 
 class Site:
@@ -211,73 +255,24 @@ This method is the **initialiser** method, which is responsible for setting up t
 The `__init__` method is called every time we create a new instance of the class, as in `Site('FP35')`.
 The argument `self` refers to the instance on which we are calling the method and gets filled in automatically by Python - we don't need to provide a value for this when we call the method.
 
-In our `Site` initialiser method, we set the site name to a value provided, and create a dictionary of the measurement datasets at that site, which is currently empty.
-
-You may not have realised, but you should already be familiar with some of the classes that come bundled as part of Python, for example:
-
-~~~
-my_list = [1, 2, 3]
-my_dict = {1: '1', 2: '2', 3: '3'}
-my_set = {1, 2, 3}
-
-print(type(my_list))
-print(type(my_dict))
-print(type(my_set))
-~~~
-{: .language-python}
-
-~~~
-<class 'list'>
-<class 'dict'>
-<class 'set'>
-~~~
-{: .output}
-
-Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves:
-
-- They each hold some data (or **state**), as you will have seen before.
-- They also provide some methods describing the behaviours of the data - what can the data do and what can we do to the data?
-
-The behaviours we may have seen previously include:
-
-- Lists can be appended to
-- Lists can be indexed (we’ll get to this later)
-- Lists can be sliced (we won’t get to this)
-- Key-value pairs can be added to dictionaries
-- The value at a key can be looked up in a dictionary
-- The union of two sets can be found (the set of values present in any of the sets)
-- The intersection of two sets can be found (the set of values present in all of the sets)
-
-> ## Test Driven Development
->
-> In yesterday's lesson we learnt how to create **unit tests** to make sure our code is behaving as we intended.
-> **Test Driven Development** (TDD) is an extension of this.
-> If we can define a set of tests for everything our code needs to do, then why not treat those tests as the specification.
->
-> When doing Test Driven Development, we write our tests first and only write enough code to make the tests pass.
-> We tend to do this at the level of individual features - define the feature, write the tests, write the code.
-> The main advantages are:
->
-> - It forces us to think about how our code will be used before we write it
-> - It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
->
-> You may also see this process called **Red, Green, Refactor**: 'Red' for the failing tests, 'Green' for the code that makes them pass, then 'Refactor' (tidy up) the result.
->
-> For the challenges from here on, try to first convert the specification into a unit test, then try writing the code to pass the test.
->
-{: .callout}
+Data encapsulated within our Site class includes the name of the site and a dictionary of measurement datasets. In 
+the initialiser method, we set a site's name to the value provided, and create a dictionary of measurement datasets for
+the site (initially empty). Such data is also referred to
+as the attributes of a class and holds the current state of an instance of the class. Attributes are typically
+hidden (encapsulated) internal object details ensuring that access to data is protected from unintended changes. They
+are manipulated internally by the class, which, in addition, can expose certain functionality as public behavior of the class to
+allow other objects to interact with this class' instances.
 
 ## Encapsulating Behaviour
 
-Just like the standard Python datastructures, our classes can have behaviour associated with them.
+In addition to representing a piece of structured data (e.g. a patient who has a name and a list of inflammation observations), a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data encapsulated in the instances of that class. To define the behaviour of a class we add functions which operate on the data the class contains. These functions are the member functions or methods.
 
-To define the behaviour of a class we can add functions which operate on the data the class contains.
-These functions are the member functions or methods.
-
-Member functions are the same as normal functions (alternatively known as **free functions**), except that they live inside a class and have an extra first parameter `self`.
-Using the name `self` isn't strictly necessary, but is a very strong convention - it's extremely rare to see any other name chosen.
+Methods on classes are the same as normal functions, except that they live inside a class and have an extra first parameter `self`.
+Using the name `self` is not strictly necessary, but is a very strong convention - it is extremely rare to see any other name chosen.
 When we call a method on an object, the value of `self` is automatically set to this object - hence the name.
-As we saw with the `__init__` method previously, we don't need to explicitly provide a value for the `self` argument, this is done for us by Python.
+As we saw with the `__init__` method previously, we do not need to explicitly provide a value for the `self` argument, this is done for us by Python.
+
+Let's add another method on our Site class that adds a new measurement dataset to a Site instance.
 
 ~~~
 # file: catchment/models.py
@@ -350,7 +345,7 @@ object, to contain our measurement data, and that we are setting the `name` of e
 > Static methods have neither `self` nor `cls` so the arguments look like a typical free function.
 > These are the only common exceptions to using `self` for a method's first argument.
 >
-> Both of these method types are created using a **decorator** - for more information see the [classmethod](https://docs.python.org/3/library/functions.html#classmethod) and [staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) sections of the Python documentation.
+> Both of these method types are created using **decorators** - for more information see the [classmethod](https://docs.python.org/3/library/functions.html#classmethod) and [staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) decorator sections of the Python documentation.
 {: .callout}
 
 ### Dunder Methods
@@ -409,7 +404,7 @@ Some we see quite commonly are:
 There are many more described in the Python documentation, but it’s also worth experimenting with built in Python objects to see which methods provide which behaviour.
 For a more complete list of these special methods, see the [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names) section of the Python documentation.
 
-> ## A Basic Class
+> ## Exercise: A Basic Class
 >
 > Implement a class to represent a book.
 > Your class should:
@@ -447,8 +442,8 @@ For a more complete list of these special methods, see the [Special Method Names
 
 ### Properties
 
-The final special type of method we'll introduce is a **property**.
-Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
+The final special type of method we will introduce is a **property**.
+Properties are methods which behave like data - when we want to access them, we do not need to use brackets to call the method manually.
 
 For example, we will add a method which will return the last data point in each 
 measurement series, combined into a single dataframe:
@@ -512,7 +507,7 @@ You may recognise the `@` syntax from episodes on parameterising unit tests and 
 In this case the `property` decorator is taking the `last_measurements` function and modifying its behaviour, so it can be accessed as if it were a normal attribute.
 It is also possible to make your own decorators, but we won't cover it here.
 
-### Relationships Between Classes
+## Relationships Between Classes
 
 We now have a language construct for grouping data and behaviour related to a single conceptual object.
 The next step we need to take is to describe the relationships between the concepts in our code.
@@ -522,7 +517,7 @@ There are two fundamental types of relationship between objects which we need to
 1. Ownership - x **has a** y - this is **composition**
 2. Identity - x **is a** y - this is **inheritance**
 
-#### Composition
+### Composition
 
 You should hopefully have come across the term **composition** already - in the novice Software Carpentry, we use composition of functions to reduce code duplication.
 That time, we used a function which converted temperatures in Celsius to Kelvin as a **component** of another function which converted temperatures in Fahrenheit to Kelvin.
@@ -633,7 +628,7 @@ Note also how we used `units=None` in the parameter list of the `add_measurement
 
 Now we're using a composition of two custom classes to describe the relationship between two types of entity in the system that we're modelling.
 
-#### Inheritance
+### Inheritance
 
 The other type of relationship used in object oriented programming is **inheritance**.
 Inheritance is about data and behaviour shared by classes, because they have some shared identity - 'x *is a* y'.

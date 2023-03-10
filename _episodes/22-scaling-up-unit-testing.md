@@ -277,6 +277,23 @@ $ git push origin test-suite
 > The other thing you can do while keeping the random behaviour, is to *test the output data against expected constraints* of that output. For example, if you know that all data should be within particular ranges, or within a particular statistical distribution type (e.g. normal distribution over time), you can test against that, conducting multiple test runs that take advantage of the randomness to fill the known "space" of expected results. Note that this isn't as precise or complete, and bear in mind this could mean you need to run *a lot* of tests which may take considerable time.
 {: .callout}
 
+## Test Driven Development
+
+In the [previous episode](../21-automatically-testing-software/index.html#what-is-software-testing) we learnt how to create *unit tests* to make sure our code is behaving as we intended.
+**Test Driven Development** (TDD) is an extension of this.
+If we can define a set of tests for everything our code needs to do, then why not treat those tests as the specification.
+
+When doing Test Driven Development, we write our tests first and only write enough code to make the tests pass.
+We tend to do this at the level of individual features - define the feature, write the tests, write the code.
+The main advantages are:
+
+- It forces us to think about how our code will be used before we write it
+- It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
+
+You may also see this process called **Red, Green, Refactor**: 'Red' for the failing tests, 'Green' for the code that makes them pass, then 'Refactor' (tidy up) the result.
+
+For the challenges from here on, try to first convert the specification into a unit test, then try writing the code to pass the test.
+
 ## Limits to Testing
 
 Like any other piece of experimental apparatus, a complex program requires a much higher investment in testing than a simple one. Putting it another way, a small script that is only going to be used once, to produce one figure, probably doesn't need separate testing: its output is either correct or not. A linear algebra library that will be used by thousands of people in twice that number of applications over the course of a decade, on the other hand, definitely does. The key is identify and prioritise against what will most affect the code's ability to generate accurate results.
