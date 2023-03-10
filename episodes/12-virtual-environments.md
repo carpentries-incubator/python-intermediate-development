@@ -196,9 +196,8 @@ A slight downside is that all different virtual environments
 on your machine then use the same name and the current one is determined by the context of the path
 you are currently located in. A (non-conventional) alternative is to
 use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
-that such a directory contains a virtual environment. In our case, we have settled to use the name "venv" since it is 
-not a hidden directory and we want it to be displayed by the command line when listing directory contents (hence, 
-no need for the "." in its name that would, by convention, make it hidden). In the future,
+that such a directory contains a virtual environment. In our case, we have settled to use the name "venv" instead of ".venv" since it is 
+not a hidden directory and we want it to be displayed by the command line when listing directory contents (the "." in its name that would, by convention, make it hidden). In the future,
 you will decide what naming convention works best for you. Here are some references for each of the naming conventions:
 - [The Hitchhiker's Guide to Python](https://docs.python-guide.org/dev/virtualenvs/) notes that "venv" is the general convention used globally
 - [The Python Documentation](https://docs.python.org/3/library/venv.html) indicates that ".venv" is common
