@@ -233,9 +233,9 @@ way of doing this and how it propagates to the command line.
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-inflammation` >
    `Project Interpreter` from the left.
-3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.
+3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.  Once it finishes installing, you can close that window.
    ![Installing a package in PyCharm](../fig/pycharm-add-library.png){: .image-with-shadow width="800px" }
-4. Select `OK` in the `Preferences` window.
+4. Select `OK` in the `Preferences`/`Settings` window.
 
 It may take a few minutes for PyCharm to install it. After it is done, the `pytest` library is added to our
 virtual environment. You can also verify this from the command line by listing the `venv/lib/python3.9/site-packages` subdirectory. Note, however, that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
