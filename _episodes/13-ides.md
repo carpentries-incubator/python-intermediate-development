@@ -25,8 +25,8 @@ software development applications are called Integrated Development Environments
 
 ## Integrated Development Environments
 An IDE normally consists of at least a source code editor, build automation tools and a debugger.
-The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as
-nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
+The boundaries between modern IDEs and other aspects of the broader software development process are often blurred. 
+Nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
 integration for web app development, source code inspection for dependencies and many other useful functionalities. The
 following is a list of the most commonly seen IDE features:
 
