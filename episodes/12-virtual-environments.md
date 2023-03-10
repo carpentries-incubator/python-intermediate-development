@@ -23,7 +23,7 @@ the `requirements.txt` file."
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub and inspected its contents and architecture a bit.
+So far we have cloned our software project from GitHub and inspected its contents and architecture a bit.
 We now want to run our code to see what it does - let's do that from the command line.
 For the most part of the course we will run our code and interact with Git from the command line,
 and, while we will develop and debug our code using the PyCharm IDE and it is possible to use Git from PyCharm too, typing commands in the command line 'forces' you to familiarise yourself and learn it well.
