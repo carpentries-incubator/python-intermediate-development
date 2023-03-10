@@ -46,7 +46,7 @@ that you will have to use a *package manager* tool to install them on your syste
 Applications will also sometimes need a
 specific version of an external library (e.g. because they were written to work with feature, class, or function that may have been updated in more recent versions), or a specific version of Python interpreter.
 This means that each Python application you work with may require a different setup and a set of dependencies so it
-is important to be able to keep these configurations separate to avoid confusion between projects.
+is useful to be able to keep these configurations separate to avoid confusion between projects.
 The solution for this problem is to create a self-contained *virtual
 environment* per project, which contains a particular version of Python installation plus a number of
 additional external libraries.
