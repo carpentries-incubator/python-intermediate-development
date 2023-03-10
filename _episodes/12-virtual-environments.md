@@ -61,9 +61,9 @@ So what exactly are virtual environments, and why use them?
 
 A Python virtual environment is an **isolated working copy** of a specific version of
 Python interpreter together with specific versions of a number of external libraries installed into that
-virtual environment. A virtual environment is simply a *directory with a particular
-structure* which includes links to and enables multiple side-by-side installations of
-different Python interpreters or different versions of the same external library to coexist on your machine and only one to be selected for each of our projects. This allows you to work on a particular
+virtual environment. 
+A virtual environment package manager enables multiple side-by-side installations of different Python interpreters or different versions of the same external library to coexist on your machine. 
+The virtual environment itself is a *directory with a particular structure* which includes links to those python and package versions allows only one to be selected for each of your projects. This allows you to work on a particular
 project without worrying about affecting other projects on your machine.
 
 As more external libraries are added to your Python project over time, you can add them to
