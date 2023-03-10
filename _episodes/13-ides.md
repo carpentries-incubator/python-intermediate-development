@@ -42,7 +42,7 @@ available for Python development; a good overview is available from the
 [Python Project Wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments). In addition to IDEs,
 there are also a number of code editors that have
 Python support. Code editors can be as simple as a text editor with syntax highlighting and code formatting capabilities
-(e.g. GNU EMACS, Vi/Vim, Atom). Most good code editors can also execute code and control a
+(e.g. GNU EMACS, Vi/Vim). Most good code editors can also execute code and control a
 debugger, and some can also interact with a version control system. Compared to an IDE, a good dedicated code
 editor is usually smaller and quicker, but often less feature-rich. You will have to decide which one is the best for
 you - in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/), a free,
