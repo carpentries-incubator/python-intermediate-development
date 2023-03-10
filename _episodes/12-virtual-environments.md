@@ -82,7 +82,7 @@ introduced by the new version of the dependency without affecting the working ve
 a separate virtual environment for your branch to 'isolate' your code while testing the new feature.
 
 You do not have to worry too much about specific versions of external libraries that your project depends on most of the time.
-Virtual environments enable you to always use the latest available version without specifying it explicitly.
+Virtual environments also enable you to always use the latest available version without specifying it explicitly.
 They also enable you to use a specific older version of a package for your project, should you need to.
 
 > ## A Specific Python or Package Version is Only Ever Installed Once
