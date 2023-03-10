@@ -215,7 +215,8 @@ please head to [Python.org](https://www.python.org/downloads/).
 You can
 test your Python installation from the command line with:
 ~~~
-$ python3 --version
+$ python3 --version # on Mac/Linux
+$ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
 ~~~
 {: .language-bash}
 If all is well with your installation, you should see something like:
@@ -227,7 +228,7 @@ Python 3.8.2
 To make sure you are using the standard Python distribution and not some other distribution you may have on your system,
 type the following in your shell:
  ~~~
- $ python3
+ $ python3 # python on Windows
  ~~~
 {: .language-bash}
 This should enter you into a Python console and you should see something like:
