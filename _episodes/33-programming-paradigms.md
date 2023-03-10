@@ -17,10 +17,13 @@ keypoints:
 
 ## Introduction
 
-As you become more experienced in software development, it becomes increasingly important to understand the wider 
-landscape in which you operate - i.e. what software decisions have the people around you made and why?
-There are hundreds (probably thousands) of different programming languages, each with different approaches of how a 
-programmer will use them to solve a problem. These approaches group the programming languages into **paradigms**.
+As you become more experienced in software development it becomes increasingly important to understand the wider 
+landscape in which you operate, particularly in terms of the software decisions the people around you made and why?
+Today, there are a multitude of different programming languages, with each supporting at least one way to approach a 
+problem and structure your code. In many cases, particularly with modern languages, a single language can allow many different 
+structural approaches within your code.
+
+One way to categorise these structural approaches is into **paradigms**.
 Each paradigm represents a slightly different way of thinking about and structuring our code and each has certain 
 strengths and weaknesses when used to solve particular types of problems. Once your software begins to get more 
 complex it's common to use aspects of different paradigms to handle different subtasks. Because of this, it's useful to 
@@ -95,11 +98,12 @@ Most people would classify Object Oriented Programming as an [extension of the I
 > It does tend to land more on the object oriented side as all its core data types (strings, integers, floats, booleans, lists, sets, arrays, tuples, dictionaries, files) as well as functions, modules and classes are objects.
 >
 > Since functions in Python are also objects that can be passed around like any other object, Python is also well suited to functional programming. One of the most popular Python libraries for data manipulation, 
-> [Pandas](https://pandas.pydata.org/) (built on top of NumPy), supports functional programming style as most of its functions on data are not changing the data (no side effects) but producing a new data to reflect the result of the function. 
+> [Pandas](https://pandas.pydata.org/) (built on top of NumPy), supports a functional programming style as most of its functions on data are not changing the data (no side effects) but producing a new data to reflect the result of the function. 
 {: .callout}
                            
 ## Other Paradigms
 
-The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see the Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). We will now have a closer look at Functional and Object Oriented Programming paradigms and how they can affect our architectural design choices.
+The three paradigms introduced here are some of the most common, but there are many others which may be useful for addressing specific classes of problem - for much more information see the Wikipedia's page on [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm). Having mainly used Procedural Programming so far, we will now have a closer look at 
+Functional and Object Oriented Programming paradigms and how they can affect our architectural design choices.
 
 {% include links.md %}
