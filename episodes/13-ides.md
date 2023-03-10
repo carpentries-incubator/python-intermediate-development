@@ -226,7 +226,7 @@ drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
 
 #### Adding an External Library
 We have already added packages `numpy` and `matplotlib` to our virtual environment from the command line
-in the previous episode, so we are up-to-date with all external libraries we require at the moment. However, we will need library `pytest` soon to implement tests for our code so will use this 
+in the previous episode, so we are up-to-date with all external libraries we require at the moment. However, we will need library `pytest` soon to implement tests for our code. We will use this 
 opportunity to install it from PyCharm in order to see an alternative
 way of doing this and how it propagates to the command line.
 
