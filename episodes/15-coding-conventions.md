@@ -66,7 +66,7 @@ Python is a kind of language that uses indentation as a way of grouping statemen
 block of code. Spaces are the recommended indentation method in Python code. The guideline is to use 4 spaces per indentation level -
 so 4 spaces on level one, 8 spaces on level two and so on.
 Many people prefer the use of tabs to spaces to indent the code for many reasons (e.g. additional typing, easy to
-introduce an error by missing a single space character, etc.) and do not follow this guideline. Whether you decide to
+introduce an error by missing a single space character, accessibility for indivuals using screen readers, etc.) and do not follow this guideline. Whether you decide to
 follow this guideline or not, be consistent and follow the style already used in the project.
 
 >## Indentation in Python 2 vs Python 3
