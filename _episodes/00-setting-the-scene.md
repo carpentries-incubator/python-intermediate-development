@@ -98,7 +98,7 @@ A few notes before we start.
 > This is an intermediate-level software development course intended for people who have already been developing code in
 > Python (or other languages) and applying it to their own problems
 > after gaining basic software development skills.
-> So, it is expected for you to have some prerequisite knowledge on the topics covered, as outlined at the [beginning of the lesson](/index.html#prerequisites).
+> So, it is expected for you to have some prerequisite knowledge on the topics covered, as outlined at the [beginning of the lesson](../index.html#prerequisites).
 Check out this [quiz](../quiz/index.html) to help you test your prior knowledge and determine if this course is for you.
 {: .callout}
 
