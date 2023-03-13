@@ -25,8 +25,8 @@ software development applications are called Integrated Development Environments
 
 ## Integrated Development Environments
 An IDE normally consists of at least a source code editor, build automation tools and a debugger.
-The boundaries between modern IDEs and other aspects of the broader software development process are often blurred as
-nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
+The boundaries between modern IDEs and other aspects of the broader software development process are often blurred. 
+Nowadays IDEs also offer version control support, tools to construct graphical user interfaces (GUI) and web browser
 integration for web app development, source code inspection for dependencies and many other useful functionalities. The
 following is a list of the most commonly seen IDE features:
 
@@ -42,7 +42,7 @@ available for Python development; a good overview is available from the
 [Python Project Wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments). In addition to IDEs,
 there are also a number of code editors that have
 Python support. Code editors can be as simple as a text editor with syntax highlighting and code formatting capabilities
-(e.g. GNU EMACS, Vi/Vim, Atom). Most good code editors can also execute code and control a
+(e.g. GNU EMACS, Vi/Vim). Most good code editors can also execute code and control a
 debugger, and some can also interact with a version control system. Compared to an IDE, a good dedicated code
 editor is usually smaller and quicker, but often less feature-rich. You will have to decide which one is the best for
 you - in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/), a free,
@@ -229,16 +229,16 @@ drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
 
 #### Adding an External Library
 We have already added packages `numpy` and `matplotlib` to our virtual environment from the command line
-in the previous episode, so we are up-to-date with all external libraries we require at the moment. However, we will need library `pytest` soon to implement tests for our code so will use this 
+in the previous episode, so we are up-to-date with all external libraries we require at the moment. However, we will need library `pytest` soon to implement tests for our code. We will use this 
 opportunity to install it from PyCharm in order to see an alternative
 way of doing this and how it propagates to the command line.
 
 1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears, select `Project: python-intermediate-rivercatchment` >
    `Project Interpreter` from the left.
-3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.
+3. Select the `+` icon at the top of the window. In the window that appears, search for the name of the library (`pytest`), select it from the list, then select `Install Package`.  Once it finishes installing, you can close that window.
    ![Installing a package in PyCharm](../fig/pycharm-add-library.png){: .image-with-shadow width="800px" }
-4. Select `OK` in the `Preferences` window.
+4. Select `OK` in the `Preferences`/`Settings` window.
 
 It may take a few minutes for PyCharm to install it. After it is done, the `pytest` library is added to our
 virtual environment. You can also verify this from the command line by listing the `venv/lib/python3.9/site-packages` subdirectory. Note, however, that `requirements.txt` is not updated - as we mentioned earlier this is something you have to do manually. Let's do this as an exercise.
@@ -383,7 +383,7 @@ You will often need code reference information to help you code. PyCharm shows t
 For a selected piece of code, you can access various code reference information from the `View` menu (or via various keyboard shortcuts), including:
 - Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
 - Quick Type Definition - type definition of variables, fields or any other symbols
-- Quick Documentation - inline documentation (*docstrings*) for any symbol created in accordance with [PEP-257](../15-coding-conventions/index.html#documentation-strings-aka-docstrings))
+- Quick Documentation - inline documentation ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings) for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/)
 - Parameter Info - the names of parameters in method and function calls
 - Type Info - type of an expression
 

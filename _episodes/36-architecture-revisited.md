@@ -378,7 +378,6 @@ class Site(Location):
             [self.measurements[key].series[-1:] for key in self.measurements.keys()],
             axis=1).sort_index()
 
-
 ~~~
 {: .language-python}
 

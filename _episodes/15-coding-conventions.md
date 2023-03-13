@@ -38,14 +38,14 @@ community, to ensure that everyone contributing to the same project is producing
 While a group of developers may choose to write and agree upon a new style guide unique to each project,
 in practice many programming languages have a single style guide which is
 adopted almost universally by the communities around the world. In Python, although we do have a choice of style guides
-available, the [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used.
+available, the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide is most commonly used.
 PEP here stands for Python Enhancement Proposals; PEPs are design documents for the Python community, typically
 specifications or conventions for how to do something in Python, a description of a new feature in Python, etc.
 
 >## Style consistency
 One of the
 [key insights from Guido van Rossum](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds),
-one of the PEP8 authors, is that code is read much more often than it is
+one of the PEP 8 authors, is that code is read much more often than it is
 written. Style guidelines are intended to improve the readability of code and make it consistent across the
 wide spectrum of Python code. Consistency with the style guide is important. Consistency within a project is more
 important. Consistency within one module or function is the most important. However, know when to be inconsistent --
@@ -56,17 +56,17 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 
 As we have already covered in the [episode on PyCharm IDE](../13-ides/index.html), PyCharm highlights the language constructs
 (reserved words) and syntax errors to help us with coding. PyCharm also gives us recommendations for formatting the code - these recommendations
-are mostly taken from the PEP8 style guide.
+are mostly taken from the PEP 8 style guide.
 
 A full list of style guidelines for this style 
-is available from the [PEP8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
+is available from the [PEP 8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
 
 ### Indentation
 Python is a kind of language that uses indentation as a way of grouping statements that belong to a particular
 block of code. Spaces are the recommended indentation method in Python code. The guideline is to use 4 spaces per indentation level -
 so 4 spaces on level one, 8 spaces on level two and so on.
 Many people prefer the use of tabs to spaces to indent the code for many reasons (e.g. additional typing, easy to
-introduce an error by missing a single space character, etc.) and do not follow this guideline. Whether you decide to
+introduce an error by missing a single space character, accessibility for individuals using screen readers, etc.) and do not follow this guideline. Whether you decide to
 follow this guideline or not, be consistent and follow the style already used in the project.
 
 >## Indentation in Python 2 vs Python 3
@@ -128,7 +128,7 @@ a_long_list2 = [
 {: .language-python}
 
 More details on good and bad practices for continuation lines can be found in
-[PEP8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
+[PEP 8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
 
 ### Maximum Line Length
 All lines should be up to 80 characters long; for lines containing comments or docstrings (to be covered later) the
@@ -473,7 +473,7 @@ the [Sphynx/ReadTheDocs docstring style](https://sphinx-rtd-tutorial.readthedocs
 for the `param`, `raises` and `returns` - other docstring formats exist as well.
 
 > ## Python PEP 257 - Recommendations for Docstrings
-> PEP 257 is another one of Python Enhancement Proposals and this one deals with docstring conventions to
+> [PEP 257](https://peps.python.org/pep-0257/) is another one of Python Enhancement Proposals and this one deals with docstring conventions to
 >standardise how they are used. For example, on the subject of module-level docstrings, PEP 257 says:
 >
 > ~~~

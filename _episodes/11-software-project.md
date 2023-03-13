@@ -92,7 +92,7 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 > >     {: .language-bash}
 > > 3. From your home directory in the command line, do:
 > >     ~~~
-> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-rivercatchment
+> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-rivercatchment.git
 > >     ~~~
 > >     {: .language-bash}
 > > Make sure you are cloning your copy of the software project and not the template repository.
@@ -105,7 +105,7 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 > > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
 > > your project folder in the command line with:
 > >     ~~~ 
-> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-catchment
+> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-catchment.git
 > >     ~~~
 > >     {: .language-bash}
 > {: .solution}

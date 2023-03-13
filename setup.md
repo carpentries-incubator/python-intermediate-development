@@ -6,7 +6,7 @@ You will need the following software installed and working correctly on your sys
 
 > ## Common Issues & Tips
 > If you are having issues installing or running some of the tools below,
-check a list of [common issues](../common-issues) other course participants encountered and some useful tips for using the tools and working through the material.
+check a list of [common issues](./common-issues/index.html) other course participants encountered and some useful tips for using the tools and working through the material.
 {: .callout}
 
 ## Command Line Tool

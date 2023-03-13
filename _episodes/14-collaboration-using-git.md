@@ -197,7 +197,7 @@ $ git push origin main
 > 
 > If you get a warning that HTTPS access is deprecated, or a token is required, then you
 > accidentally cloned the repository using HTTPS not SSH. Fortunately, this is an easy fix:
-> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation`.
+> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git`.
 {: .caution}
 
 In the above command,
