@@ -211,6 +211,7 @@ $ source venv/bin/activate
 ~~~
 {: .language-bash}
 
+(this will be `venv/Scripts/activate` on Windows)
 Activating the virtual environment will change your command line’s prompt to show what virtual environment
 you are currently using (indicated by its name in round brackets at the start of the prompt),
 and modify the environment so that running Python will get you the particular
