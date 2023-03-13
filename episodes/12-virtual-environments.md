@@ -59,12 +59,11 @@ In this episode, we learn how to set up a virtual environment to develop our cod
 ## Virtual Environments
 So what exactly are virtual environments, and why use them?
 
-A Python virtual environment is an **isolated working copy** of a specific version of
-Python interpreter together with specific versions of a number of external libraries installed into that
-virtual environment. 
-A virtual environment package manager enables multiple side-by-side installations of different Python interpreters or different versions of the same external library to coexist on your machine. 
-The virtual environment itself is a *directory with a particular structure* which includes links to those python and package versions allows only one to be selected for each of your projects. This allows you to work on a particular
-project without worrying about affecting other projects on your machine.
+A Python virtual environment helps us create an **isolated working copy** of a software project that uses a specific version 
+of Python interpreter together with specific versions of a number of external libraries installed into that virtual environment. 
+Python virtual environments are implemented as directories with a **particular structure** within software projects, containing 
+links to specified dependencies allowing isolation from other software projects on your machine that may require different 
+versions of Python or external libraries.
 
 As more external libraries are added to your Python project over time, you can add them to
 its specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments
