@@ -84,7 +84,8 @@ Functional computations only rely on the values that are provided as inputs to a
 >     print('Hello', name)
 >
 > def append_item_1(a_list, item):
->     return a_list + [item]
+>     a_list += [item]
+>     return a_list
 >
 > def append_item_2(a_list, item):
 >     result = a_list + [item]
