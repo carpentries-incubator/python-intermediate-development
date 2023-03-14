@@ -203,15 +203,22 @@ you will decide what naming convention works best for you. Here are some referen
 - ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
 {: .callout}
 
-Once you’ve created a virtual environment, you will need to activate it:
+Once you’ve created a virtual environment, you will need to activate it.
 
+On Mac or Linux, it is done as:
 ~~~
 $ source venv/bin/activate
 (venv) $
 ~~~
 {: .language-bash}
 
-(this will be `venv/Scripts/activate` on Windows)
+On Windows, recall that we have `Scripts` directory instead of `bin` and activating a virtual environment is done as:
+~~~
+$ source venv/Scripts/activate
+(venv) $
+~~~
+{: .language-bash}
+
 Activating the virtual environment will change your command line’s prompt to show what virtual environment
 you are currently using (indicated by its name in round brackets at the start of the prompt),
 and modify the environment so that running Python will get you the particular
