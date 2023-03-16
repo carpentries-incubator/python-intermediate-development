@@ -208,7 +208,7 @@ To download a Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
 
 >## Recommended Python Version
-> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/#status-of-python-branches) should work (i.e. version 3.7 onward. 
+> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/versions/#versions) should work (i.e. version 3.7 onward. 
 > Specifically, we recommend upgrading from Python 2.7 wherever possible; continuing to use it will likely result in difficulty finding supported dependencies or syntax errors).
 {: .callout}
 
