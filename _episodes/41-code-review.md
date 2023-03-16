@@ -265,7 +265,7 @@ and are ready for the others in the team to review them, you have to do the foll
 
 1. Push your local feature branch `feature-x-tests` remotely to the shared repository.
     ~~~
-    $ git push -u feature-x-tests
+    $ git push -u origin feature-x-tests
     ~~~
     {: .language-bash}
 2. Head over to the remote repository in GitHub and locate your new (`feature-x-tests`) branch from the dropdown box on 
