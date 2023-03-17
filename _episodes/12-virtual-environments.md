@@ -23,10 +23,10 @@ the `requirements.txt` file."
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub and inspected its contents and architecture a bit.
+So far we have cloned our software project from GitHub and inspected its contents and architecture a bit.
 We now want to run our code to see what it does - let's do that from the command line.
-For the most part of the course we will run our code and interact with Git from the command line,
-and, while we will develop and debug our code using the PyCharm IDE and it is possible to use Git from PyCharm too, typing commands in the command line 'forces' you to familiarise yourself and learn it well.
+For the most part of the course we will run our code and interact with Git from the command line.
+While we will develop and debug our code using the PyCharm IDE and it is possible to use Git from PyCharm too, typing commands in the command line allows you to familiarise yourself and learn it well.
 A bonus is that this knowledge is transferable to running code in other programming languages and is independent
 from any IDE you may use in the future.
 
@@ -46,10 +46,9 @@ three *external libraries* (also called third-party packages or dependencies) -
 Python applications often use external libraries that don’t come as part of the standard Python distribution. This means
 that you will have to use a *package manager* tool to install them on your system.
 Applications will also sometimes need a
-specific version of an external library (e.g. because they require that a particular
-bug has been fixed in a newer version of the library), or a specific version of Python interpreter.
+specific version of an external library (e.g. because they were written to work with feature, class, or function that may have been updated in more recent versions), or a specific version of Python interpreter.
 This means that each Python application you work with may require a different setup and a set of dependencies so it
-is important to be able to keep these configurations separate to avoid confusion between projects.
+is useful to be able to keep these configurations separate to avoid confusion between projects.
 The solution for this problem is to create a self-contained *virtual
 environment* per project, which contains a particular version of Python installation plus a number of
 additional external libraries.
@@ -62,12 +61,11 @@ In this episode, we learn how to set up a virtual environment to develop our cod
 ## Virtual Environments
 So what exactly are virtual environments, and why use them?
 
-A Python virtual environment is an **isolated working copy** of a specific version of
-Python interpreter together with specific versions of a number of external libraries installed into that
-virtual environment. A virtual environment is simply a *directory with a particular
-structure* which includes links to and enables multiple side-by-side installations of
-different Python interpreters or different versions of the same external library to coexist on your machine and only one to be selected for each of our projects. This allows you to work on a particular
-project without worrying about affecting other projects on your machine.
+A Python virtual environment helps us create an **isolated working copy** of a software project that uses a specific version 
+of Python interpreter together with specific versions of a number of external libraries installed into that virtual environment. 
+Python virtual environments are implemented as directories with a **particular structure** within software projects, containing 
+links to specified dependencies allowing isolation from other software projects on your machine that may require different 
+versions of Python or external libraries.
 
 As more external libraries are added to your Python project over time, you can add them to
 its specific virtual environment and avoid a great deal of confusion by having separate (smaller) virtual environments
@@ -85,7 +83,7 @@ introduced by the new version of the dependency without affecting the working ve
 a separate virtual environment for your branch to 'isolate' your code while testing the new feature.
 
 You do not have to worry too much about specific versions of external libraries that your project depends on most of the time.
-Virtual environments enable you to always use the latest available version without specifying it explicitly.
+Virtual environments also enable you to always use the latest available version without specifying it explicitly.
 They also enable you to use a specific older version of a package for your project, should you need to.
 
 > ## A Specific Python or Package Version is Only Ever Installed Once
@@ -199,19 +197,26 @@ A slight downside is that all different virtual environments
 on your machine then use the same name and the current one is determined by the context of the path
 you are currently located in. A (non-conventional) alternative is to
 use your project name for the name of the virtual environment, with the downside that there is nothing to indicate
-that such a directory contains a virtual environment. In our case, we have settled to use the name "venv" since it is 
-not a hidden directory and we want it to be displayed by the command line when listing directory contents (hence, 
-no need for the "." in its name that would, by convention, make it hidden). In the future,
+that such a directory contains a virtual environment. In our case, we have settled to use the name "venv" instead of ".venv" since it is 
+not a hidden directory and we want it to be displayed by the command line when listing directory contents (the "." in its name that would, by convention, make it hidden). In the future,
 you will decide what naming convention works best for you. Here are some references for each of the naming conventions:
 - [The Hitchhiker's Guide to Python](https://docs.python-guide.org/dev/virtualenvs/) notes that "venv" is the general convention used globally
 - [The Python Documentation](https://docs.python.org/3/library/venv.html) indicates that ".venv" is common
 - ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
 {: .callout}
 
-Once you’ve created a virtual environment, you will need to activate it:
+Once you’ve created a virtual environment, you will need to activate it.
 
+On Mac or Linux, it is done as:
 ~~~
 $ source venv/bin/activate
+(venv) $
+~~~
+{: .language-bash}
+
+On Windows, recall that we have `Scripts` directory instead of `bin` and activating a virtual environment is done as:
+~~~
+$ source venv/Scripts/activate
 (venv) $
 ~~~
 {: .language-bash}

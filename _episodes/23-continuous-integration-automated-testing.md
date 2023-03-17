@@ -214,7 +214,7 @@ to refer to the values from the matrix. So, our `.github/workflows/main.yml` sho
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.8", 3.9", "3.10"]
+        python-version: ["3.8", "3.9", "3.10"]
 
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
