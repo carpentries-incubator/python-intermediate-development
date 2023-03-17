@@ -143,7 +143,7 @@ The `pyproject.toml` file has two separate lists, allowing us to distinguish bet
 
 ~~~
 $ poetry add matplotlib numpy
-$ poetry add --dev pylint
+$ poetry add --group dev pylint
 $ poetry install
 ~~~
 {: .language-bash}
