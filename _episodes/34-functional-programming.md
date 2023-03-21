@@ -200,26 +200,26 @@ print(list(result))
 ~~~
 {: .output}
 
-> ## Exercise: Check Inflammation Patient Data Against A Threshold Using Map
-> Write a new function called `daily_above_threshold()` in our inflammation `models.py` that determines whether or not 
-> each daily inflammation value for a given patient exceeds a given threshold.
+> ## Exercise: Check Measurement Data Against A Threshold Using Map
+> Write a new function called `data_above_threshold()` in our catchment `models.py` that determines whether or not 
+> each measurement value for a given site exceeds a given threshold.
 >
-> Given a patient row number in our data, the patient dataset itself, and a given threshold, write the function to use `map()` to generate and return a list of booleans, with each value representing whether or not the daily inflammation value for that patient exceeded the given threshold.
+> Given a site identifier, the measurement dataframe itself, and a given threshold, write the function to use `map()` to generate and return a list of booleans, with each value representing whether or not the measurement values for that given site exceeded the given threshold.
 >
 > Ordinarily we would use Numpy's own `map` feature, but for this exercise, let's try a solution without it.
 > > ## Solution
 > > ~~~
-> > def daily_above_threshold(patient_num, data, threshold):
-> >     """Determine whether or not each daily inflammation value exceeds a given threshold for a given patient.
+> > def daily_above_threshold(site_id, data, threshold):
+> >     """Determine whether or not each data value exceeds a given threshold for a given site.
 > >
-> >     :param patient_num: The patient row number
-> >     :param data: A 2D data array with inflammation data
-> >     :param threshold: An inflammation threshold to check each daily value against
-> >     :returns: A boolean array representing whether or not each patient's daily inflammation exceeded the threshold
+> >     :param site_id: The identifier for the site column
+> >     :param data: A 2D Pandas data frame with measurement data. Columns are measurement sites.
+> >     :param threshold: A threshold value to check against
+> >     :returns: A list of booleans representing whether or not each data point for a given site exceeded the threshold
 > >     """
 > >
-> >     return map(lambda x: x > threshold, data[patient_num])
-> > ~~~         
+> >     return list(map(lambda x: x > threshold, data[site_id]))
+> > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
@@ -303,6 +303,28 @@ print(double_even_ints)
 > {: .output}
 {: .callout}
 
+> ## Exercise: Comprehensions Applied
+>
+> Within the `read_variable_from_csv` function in the `catchment/models.py` file contains
+> a list comprehension. Can you identify which line of code this is, and work out what it does?
+> > ## Solution
+> >
+> > The list comprehension is this line of code:
+> > ~~~
+> > # catchment/models.py
+> > import pandas as pd
+> > ...
+> > dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
+> > ...
+> > ~~~
+> > {: .language-python}
+> > It iterates over the date strings in the `OldDate` column within the dataframe, 
+> > converts each string to a `pandas` datetime object, and adds these to the dataframe
+> > as the `Date` column.
+> > 
+> {: .solution}
+{: .challenge}
+
 
 Let's now have a look at reducing the elements of a data collection into a single result.
 
@@ -361,119 +383,6 @@ Note that `reduce()` is not a built-in function like `map()` - you need to impor
 > > 10   
 > > ~~~
 > > {: .output}
-> {: .solution}
-{: .challenge}
-
-
-> ## Exercise: Comprehensions Applied
->
-> Within the `read_variable_from_csv` function in the `catchment/models.py` file contains
-> a list comprehension. Can you identify which line of code this is, and work out what it does?
-> > ## Solution
-> >
-> > The list comprehension is this line of code:
-> > ~~~
-> > # catchment/models.py
-> > import pandas as pd
-> > ...
-> > dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
-> > ...
-> > ~~~
-> > {: .language-python}
-> > It iterates over the date strings in the `OldDate` column within the dataframe, 
-> > converts each string to a `pandas` datetime object, and adds these to the dataframe
-> > as the `Date` column.
-> > 
-> {: .solution}
-{: .challenge}
-
-
-> ## Exercise: Separating out Time
->
-> The `read_variable_from_csv` function is a pure function, it is given a filename, 
-> and returns a `pandas` dataframe. However it carries out several operations on the data
-> before returning it, and this reduces the testability of the code within this 
-> function. To improve the testability of this code it would be helpful to separate out 
-> complex transformations in the function to their own, pure, function.
->
-> To this end, create a function, called `format_date`, which will read the fresh dataset
-> and return a dataset in which the contents of the `Date` column has been converted to 
-> `pandas` datetime objects. Then replace the equivalent code in the `read_variable_from_csv`
-> function with a call to this new function. 
-> 
-> ~~~
-> # catchment/models.py
->
-> import pandas as pd
-> ...
-> def read_variable_from_csv(filename):
->     """Reads a named variable from a CSV file, and returns a
->     pandas dataframe containing that variable. The CSV file must contain
->     a column of dates, a column of site ID's, and (one or more) columns
->     of data - only one of which will be read.
->     :param filename: Filename of CSV to load
->     :return: 2D array of given variable. Index will be dates,
->              Columns will be the individual sites
->     """
->     with open(filename) as f:
->         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
-> 
->     dataset = dataset.rename({'Date':'OldDate'}, axis='columns')
->     dataset['Date'] = [pd.to_datetime(x,dayfirst=True) for x in dataset['OldDate']]
->     dataset = dataset.drop('OldDate', axis='columns')
-> 
->     newdataset = pd.DataFrame(index=dataset['Date'].unique())
-> 
->     for site in dataset['Site'].unique():
->         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall (mm)"]
-> 
->     newdataset = newdataset.sort_index()
-> 
->     return newdataset
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > A solution is given below. Note that we have renamed `dataset` to `ds_internal` within
-> > the function, which is not strictly necessary, but helps to ensure that the function is pure.
-> > ~~~
-> > # catchment/models.py
-> >
-> > import pandas as pd
-> > ...
-> > def format_date(dataset):
-> >     """Converts the Date column in the dataset to pandas datetime objects"""
-> >     ds_internal = dataset.rename({'Date':'OldDate'}, axis='columns')
-> >     ds_internal['Date'] = [pd.to_datetime(x,dayfirst=True) for x in ds_internal['OldDate']]
-> >     ds_internal = ds_internal.drop('OldDate', axis='columns')
-> >     return ds_internal
-> > 
-> > def read_variable_from_csv(filename):
-> >     """Reads a named variable from a CSV file, and returns a
-> >     pandas dataframe containing that variable. The CSV file must contain
-> >     a column of dates, a column of site ID's, and (one or more) columns
-> >     of data - only one of which will be read.
-> >     :param filename: Filename of CSV to load
-> >     :return: 2D array of given variable. Index will be dates,
-> >              Columns will be the individual sites
-> >     """
-> >     with open(filename) as f:
-> >         dataset = pd.read_csv(f, usecols=['Date', 'Site', 'Rainfall (mm)'])
-> > 
-> >     dataset = format_date(dataset)
-> > 
-> >     newdataset = pd.DataFrame(index=dataset['Date'].unique())
-> > 
-> >     for site in dataset['Site'].unique():
-> >         newdataset[site] = dataset[dataset['Site'] == site].set_index('Date')["Rainfall (mm)"]
-> > 
-> >     newdataset = newdataset.sort_index()
-> > 
-> >     return newdataset
-> > ~~~
-> > {: .language-python}
-> > Does this make the function more readable to you? And are there any other operations 
-> > within the `read_variable_from_csv` function that you think could be moved to a 
-> > separate pure function, to help with readability and/or testing? 
 > {: .solution}
 {: .challenge}
 
@@ -563,8 +472,8 @@ def sum_of_squares(l):
 ~~~
 {: .language-python}
 
->## Exercise: Extend Inflammation Threshold Function Using Reduce
-> Extend the `daily_above_threshold()` function you wrote previously to return a count of the number of days a patient's inflammation is over the threshold. Use `reduce()` over the boolean array that was previously returned to generate the count, then return that value from the function.
+>## Exercise: Extend Data Threshold Function Using Reduce
+> Extend the `data_above_threshold()` function you wrote previously to return a count of the number of data points the measurement data for a given site are over the threshold. Use `reduce()` over the boolean array that was previously returned to generate the count, then return that value from the function.
 >
 > You may choose to define a separate function to pass to `reduce()`, or use an inline lambda expression to do it (which is a bit trickier!).
 >
@@ -575,13 +484,17 @@ def sum_of_squares(l):
 > > ## Solution
 > >Using a separate function:
 > > ~~~
-> >def daily_above_threshold(patient_num, data, threshold):
-> >    """Count how many days a given patient's inflammation exceeds a given threshold.
+> >from functools import reduce
 > >
-> >    :param patient_num: The patient row number
-> >    :param data: A 2D data array with inflammation data
-> >    :param threshold: An inflammation threshold to check each daily value against
-> >    :returns: An integer representing the number of days a patient's inflammation is over a given threshold
+> >...
+> >
+> >def data_above_threshold(site_id, data, threshold):
+> >    """Count how many data points for a given site exceed a given threshold.
+> >
+> >    :param site_id: The identifier for the site column
+> >    :param data: A 2D Pandas data frame with measurement data. Columns are measurement sites.
+> >    :param threshold: A threshold value to check against
+> >    :returns: An integer representing the number of data points over a given threshold
 > >    """
 > >    def count_above_threshold(a, b):
 > >        if b:
@@ -590,13 +503,13 @@ def sum_of_squares(l):
 > >            return a
 > >    
 > >    # Use map to determine if each daily inflammation value exceeds a given threshold for a patient
-> >    above_threshold = map(lambda x: x > threshold, data[patient_num]) 
-> >    # Use reduce to count on how many days inflammation was above the threshold for a patient
+> >    above_threshold = map(lambda x: x > threshold, data[site_id]) 
+> >    # Use reduce to count on how many data points are above a threshold for a site
 > >    return reduce(count_above_threshold, above_threshold, 0)
 > > ~~~
 > > {: .language-python}
 > >
-> >Note that the `count_above_threshold` function used by `reduce()` was defined within the `daily_above_threshold()` function to limit its scope and clarify its purpose (i.e. it may only be useful as part of `daily_above_threshold()` hence being defined as an inner function).
+> >Note that the `count_above_threshold` function used by `reduce()` was defined within the `data_above_threshold()` function to limit its scope and clarify its purpose (i.e. it may only be useful as part of `data_above_threshold()` hence being defined as an inner function).
 > >
 > >The equivalent code using a lambda expression may look like:
 > >
@@ -605,21 +518,20 @@ def sum_of_squares(l):
 > >
 > >...
 > >
-> >def daily_above_threshold(patient_num, data, threshold):
-> >    """Count how many days a given patient's inflammation exceeds a given threshold.
+> >def data_above_threshold(site_id, data, threshold):
+> >    """Count how many data points for a given site exceed a given threshold.
 > >
-> >    :param patient_num: The patient row number
-> >    :param data: A 2D data array with inflammation data
-> >    :param threshold: An inflammation threshold to check each daily value against
-> >    :returns: An integer representing the number of days a patient's inflammation is over a given threshold
+> >    :param site_id: The identifier for the site column
+> >    :param data: A 2D Pandas data frame with measurement data. Columns are measurement sites.
+> >    :param threshold: A threshold value to check against
+> >    :returns: An integer representing the number of data points over a given threshold
 > >    """
 > >
-> >    above_threshold = map(lambda x: x > threshold, data[patient_num])
+> >    above_threshold = map(lambda x: x > threshold, data[site_id])
 > >    return reduce(lambda a, b: a + 1 if b else a, above_threshold, 0)
 > >~~~
 > >{: .language-python}
-> Where could this be useful? For example, you may want to define the success criteria for a trial if, say, 80% of 
-> patients do not exhibit inflammation in any of the trial days, or some similar metrics.
+> Where could this be useful? For example, you could define a period as being particularly wet by saying that 60% of days exceed a given threshold of rain (by combining this function with the `daily_max`), or some similar metrics.
 >{: .solution}
 {: .challenge}
 
