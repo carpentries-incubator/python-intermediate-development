@@ -30,7 +30,7 @@ software development workflow - you work locally on code, test it to make sure
 it works correctly and as expected, then record your changes using version control and share your work with others 
 via a shared and centrally backed-up repository.
 
-Firstly, let's remind ourselves how to work with Git from the Command Line.
+Firstly, let's remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 Git is a version control system for tracking changes in computer files and coordinating work on those files among 
@@ -194,10 +194,15 @@ $ git push origin main
 {: .language-bash}
 
 > ## Authentication Errors
-> 
+>
 > If you get a warning that HTTPS access is deprecated, or a token is required, then you
-> accidentally cloned the repository using HTTPS not SSH. Fortunately, this is an easy fix:
-> `git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git`.
+> accidentally cloned the repository using HTTPS and not SSH. You can fix this from the command line
+> by resetting the remote repository URL setting on your local repo:
+> 
+> ~~~
+> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> ~~~
+> {: .language-bash}
 {: .caution}
 
 In the above command,
