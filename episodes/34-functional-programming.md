@@ -214,12 +214,13 @@ print(list(result))
 > >     :param patient_num: The patient row number
 > >     :param data: A 2D data array with inflammation data
 > >     :param threshold: An inflammation threshold to check each daily value against
-> >     :returns: A boolean array representing whether or not each patient's daily inflammation exceeded the threshold
+> >     :returns: A boolean list representing whether or not each patient's daily inflammation exceeded the threshold
 > >     """
 > >
-> >     return map(lambda x: x > threshold, data[patient_num])
+> >     return list(map(lambda x: x > threshold, data[patient_num]))
 > > ~~~         
 > > {: .language-python}
+> > **Note:** `map()` function returns a map iterator object which needs to be converted to a collection object (such as a list, dictionary, set, tuple) using the corresponding "factory" function (in our case `list()`).
 > {: .solution}
 {: .challenge}
 
