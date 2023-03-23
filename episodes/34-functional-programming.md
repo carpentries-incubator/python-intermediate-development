@@ -220,7 +220,8 @@ print(list(result))
 > >     return list(map(lambda x: x > threshold, data[patient_num]))
 > > ~~~         
 > > {: .language-python}
-> > **Note:** `map()` function returns a map iterator object which needs to be converted to a collection object (such as a list, dictionary, set, tuple) using the corresponding "factory" function (in our case `list()`).
+> >
+> > Note: `map()` function returns a map iterator object which needs to be converted to a collection object (such as a list, dictionary, set, tuple) using the corresponding "factory" function (in our case `list()`).
 > {: .solution}
 {: .challenge}
 
