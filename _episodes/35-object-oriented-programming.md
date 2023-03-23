@@ -265,7 +265,7 @@ allow other objects to interact with this class' instances.
 
 ## Encapsulating Behaviour
 
-In addition to representing a piece of structured data (e.g. a patient who has a name and a list of inflammation observations), a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data encapsulated in the instances of that class. To define the behaviour of a class we add functions which operate on the data the class contains. These functions are the member functions or methods.
+In addition to representing a piece of structured data (e.g. a site which has a name and a dictionary of measurement data), a class can also provide a set of functions, or **methods**, which describe the **behaviours** of the data encapsulated in the instances of that class. To define the behaviour of a class we add functions which operate on the data the class contains. These functions are the member functions or methods.
 
 Methods on classes are the same as normal functions, except that they live inside a class and have an extra first parameter `self`.
 Using the name `self` is not strictly necessary, but is a very strong convention - it is extremely rare to see any other name chosen.
@@ -353,7 +353,7 @@ object, to contain our measurement data, and that we are setting the `name` of e
 Why is the `__init__` method not called `init`?
 There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with a **d**ouble-**under**score, hence the name **dunder method**.
 
-When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(alice)` returned `<__main__.Patient object at 0x7fd7e61b73d0>`, which is the string represenation of the `alice` object. We 
+When writing your own Python classes, you'll almost always want to write an `__init__` method, but there are a few other common ones you might need sometimes. You may have noticed in the code above that the method `print(FP35)` returned `<__main__.Site object at 0x7fada93d0820>`, which is the string represenation of the `FP35` object. We 
 may want the print statement to display the object's name instead. We can achieve this by overriding the `__str__` method of our class.
 
 ~~~
@@ -877,7 +877,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > > {: .language-python} 
 > > 
 > > ~~~ python
-> > # file: inflammation/models.py
+> > # file: catchment/models.py
 > > import geopandas as gpd
 > > ...
 > > class Location:
@@ -934,7 +934,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > Once we have objects for both Sites and Catchments we can make use of the Geopandas
 > library and geospatial data for each Site and Catchment to check the relationships 
 > between these. This is covered in the extra episode on 
-> [Geospatial data with Geopandas](/geopandas).
+> [Geospatial data with Geopandas](../geopandas/index.html).
 {: .callout}
 
 {% include links.md %}
