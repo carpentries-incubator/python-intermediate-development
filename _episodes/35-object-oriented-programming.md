@@ -287,7 +287,6 @@ class Site:
         if measurement_id in self.measurements.keys():
             self.measurements[measurement_id] = \
                     pd.concat([self.measurements[measurement_id], data])
-            self.measurements[measurement_id].name = measurement_id
         
         else:
             self.measurements[measurement_id] = data
@@ -369,7 +368,6 @@ class Site:
         if measurement_id in self.measurements.keys():
             self.measurements[measurement_id] = \
                     pd.concat([self.measurements[measurement_id], data])
-            self.measurements[measurement_id].name = measurement_id
         
         else:
             self.measurements[measurement_id] = data
