@@ -104,8 +104,8 @@ pd.read_csv('data/rain_data_2015-12.csv', usecols=['Site', 'Date', 'Rainfall (mm
 
 The data has been read in using the Panda's `read_csv()` function, where the columns to be read have been specified in the list `['Site', 'Date', 'Rainfall (mm)']`. As mentioned above, the `Site` and `Date` columns indicate the location and time of each measurement. The data itself is stored in the one-dimensional `Rainfall (mm)` column. While this format is convenient for data storage, it is not particularly useful for analysing the data, and so we must do some preprocessing of the dataset. Fortunately the code for this has already been prepared for you, in the `read_variable_from_csv()` function, available in the `catchment/models.py` library. To use this enter the following in the python console:
 ~~~
-import catchment
-dataset = catchment.models.read_variable_from_csv('data/rain_data_2015-12.csv')
+from catchment import models
+dataset = models.read_variable_from_csv('data/rain_data_2015-12.csv')
 dataset.shape
 ~~~
 {: .language-python}
@@ -154,7 +154,7 @@ Here, we use the Panda's dataset built-in `groupby()` function, to group the dat
 
 So that we can clearly show this working with our measurement data, we will use a small subsample of two hours of measurements from near the start of our dataset, across midnight of the 1st December 2005. This sample has been stored in a separate datafile, and can be loaded in the same manner as the main dataset:
 ~~~
-sample_dataset = catchment.models.read_variable_from_csv('data/rain_data_small.csv')
+sample_dataset = models.read_variable_from_csv('data/rain_data_small.csv')
 sample_dataset
 ~~~
 {: .language-python}
@@ -179,7 +179,7 @@ daily_total(sample_dataset)
 ~~~
 {: .language-python}
 
-Note we use a different form of `import` here - only importing the `daily_total` function from our `models` module instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `catchment.models.daily_total()`).
+Note we use a different form of `import` here - only importing the `daily_total` function from our `models` module instead of everything. This also has the effect that we can refer to the function using only its name, without needing to include the module name too (i.e. `models.daily_total()`).
 
 The above code will return the mean rainfall for each day across each hour (labelled according to the day each is in), as another Pandas dataframe:
 ~~~
