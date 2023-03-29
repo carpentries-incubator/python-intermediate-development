@@ -8,7 +8,6 @@ questions:
 - "What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?"
 objectives:
 - "Understand the code review process and employ it to improve the quality of code."
-- "Understand the process and best practices for preparing Python code for reuse by others."
 keypoints:
 - "Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
@@ -27,13 +26,6 @@ in particular, the value of this type of activity within a team,
 and how this can fit within various ways of team working.
 We'll see how GitHub can support code review activities via pull requests,
 and how we can do these ourselves making use of best practices.
-
-After that, we'll look at some general principles of software maintainability and the benefits that writing maintainable
-code can give you. There will also be some practice at identifying problems with existing code, and some general, established practices you can apply when writing new code or to the code you've already written.
-We'll also look at how we can package software for release and distribution, using **Poetry** to manage our Python dependencies and produce a code package we can use with a Python package indexing service to illustrate these principles.
-
-![Software design and architecture](../fig/section4-overview.png){: .image-with-shadow width="800px" }
-
 
 {% include links.md %}
 
