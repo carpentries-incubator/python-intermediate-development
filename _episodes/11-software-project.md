@@ -6,7 +6,7 @@ questions:
 - "What is the design architecture of our example software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
-- "Use Git to obtain a working copy of our software project from GitHub."
+- "Use Git to obtain a working copy of our software project from BitBucket."
 - "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
@@ -44,34 +44,18 @@ The project is not finished and contains some errors. You will be working on you
 
 ## Downloading Our Software Project
 
-To start working on the project, you will first create a copy of the software project template repository from 
-GitHub within your own GitHub account and then obtain a local copy of that project (from your GitHub) on your machine.
-
-1. Make sure you have a GitHub account and that you have set up your SSH key pair for authentication with GitHub, as 
-explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
-2. Log into your GitHub account. 
-3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation) in GitHub.
-![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-4. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
-the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
-Note that each participant is creating their own copy to work on. Also,
-we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
-5. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
-anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
-'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
-![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
-6. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
-7. Locate the copied repository under your own GitHub account.
-![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
+To start working on the project, you will first create a fork of the software project repository from 
+BitBucket within your own BitBucket account and then obtain a local copy of that project (from your BitBucket) on your machine.
+If you have not forked this repository yet: https://bitbucket.org/svenvanderburg1/python-intermediate-inflammation/src/main/
+please do so now!
 
 > ## Exercise: Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
+> Using the command line, clone the copied repository from your BitBucket account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-> > 1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
+> > 1. Find the SSH URL of the software project repository to clone from your BitBucket account. Make sure you do not clone the
 original template repository but rather your own copy, as you should be able to push commits to it later on. Also 
-make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
-> > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
+make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to BitBucket!
 > > 2. Make sure you are located in your home directory in the command line with:
 > >     ~~~
 > >     $ cd ~
@@ -79,7 +63,7 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 > >     {: .language-bash}
 > > 3. From your home directory in the command line, do:
 > >     ~~~
-> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> >     $ git clone <YOUR_REPO_URL>
 > >     ~~~
 > >     {: .language-bash}
 > > Make sure you are cloning your copy of the software project and not the template repository.
@@ -92,7 +76,7 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 > > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
 > > your project folder in the command line with:
 > >     ~~~ 
-> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> >     $ git remote set-url origin <YOUR_REPO_URL>
 > >     ~~~
 > >     {: .language-bash}
 > {: .solution}
