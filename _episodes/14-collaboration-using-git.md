@@ -1,5 +1,5 @@
 ---
-title: "Collaborative Software Development Using Git and GitHub"
+title: "Collaborative Software Development Using Git and BitBucket"
 start: false
 teaching: 35
 exercises: 0
@@ -7,7 +7,7 @@ questions:
 - "What are Git branches and why are they useful for code development?"
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
-- "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
+- "Commit changes in a software project to a local repository and publish them in a remote repository on BitBucket"
 - "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
@@ -17,18 +17,7 @@ keypoints:
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub and used command line tools to configure a virtual 
-environment for our project and run our code. We have also familiarised ourselves with PyCharm - a graphical tool we
-will use for code development, testing and debugging. We are now going to start using another set of tools from the 
-collaborative code development toolbox - namely, the version control system Git and code sharing platform GitHub.
-These two will enable us to track changes to our code and share it with others.
-
-You may recall that we have already made some changes to our project locally - we created a virtual
-environment in the directory called "venv" and exported it to the `requirements.txt` file.
-We should now decide which of those changes we want to check in and share with others in our team. This is a typical 
-software development workflow - you work locally on code, test it to make sure
-it works correctly and as expected, then record your changes using version control and share your work with others 
-via a shared and centrally backed-up repository.
+Here we will learn how to use the feature branch workflow to effectively collaborate with a team on a software project.
 
 Firstly, let's remind ourselves how to work with Git from the command line.
 
@@ -58,7 +47,7 @@ directory and staging area at any moment (i.e. what changes is Git tracking), ru
 - **local repository** - stored within the `.git` directory of your project, this is where Git wraps together all your 
 changes from the staging area and puts them using the `git commit` command. Each commit is a new, permanent snapshot 
 (checkpoint, record) of your project in time, which you can share or revert back to.
-- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on GitHub, 
+- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on BitBucket, GitHub, 
 GitLab or somewhere else). While your project is nicely version-controlled in your local repository, and you have
 snapshots of its versions from the past, if your machine crashes - you still may lose all your work.
 Working with a remote
@@ -72,70 +61,10 @@ Software development lifecycle with Git from <a href="https://www.pngwing.com/en
 </p>
 
 ## Checking-in Changes to Our Project
-Let's check-in the changes we have done to our project so far. The first thing to do upon navigating into our software project's directory root is to check the current status of
-our local working directory and repository.
+First make sure that you have some changes in your project. 
+Update the `README.md` file, for example add a small description of how users can run your program.
 
-~~~
-$ git status
-~~~
-{: .language-bash}
-
-~~~
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	requirements.txt
-	venv/
-
-nothing added to commit but untracked files present (use "git add" to track)
-~~~
-{: .output}
-
-As expected, Git is telling us that we have some untracked files - `requirements.txt` and directory
-"venv" - present in our working
-directory which we have not staged nor committed to our local repository yet.
-You do not want
-to commit the newly created directory "venv" and share it with others because this
-directory is specific to your machine and setup only (i.e. it contains local paths to libraries on your
-system that most likely would not work on any other machine). You do, however, want to share `requirements.txt` with
-your team as this file can be used to replicate the virtual environment on your collaborators' systems.
-
-To tell Git to intentionally ignore and not track certain files and directories, you need to specify them in the `.gitignore` text file in the project root. Our project already has `.gitignore`, but in cases where you do not have
-it - you can simply create it yourself. In our case, we
-want to tell Git to ignore the "venv" directory (and ".venv" as another naming convention for directories containing virtual environmentsß)
-and stop notifying us about it. Edit your `.gitignore`
-file in PyCharm and add a line containing "venv/" and another one containing ".venv/". It does not matter much
-in this case where within the file you add these lines, so let's do it at the end. Your `.gitignore` should look something like this:
-
-~~~
-# IDEs
-.vscode/
-.idea/
-
-# Intermediate Coverage file
-.coverage
-
-# Output files
-*.png
-
-# Python runtime
-*.pyc
-*.egg-info
-.pytest_cache
-
-# Virtual environments
-venv/
-.venv/
-~~~
-{: .output}
-
-You may notice that we are already not tracking certain files and directories with useful comments about what exactly we are ignoring. You may also notice that each line in `.ignore` is actually a pattern, so you can ignore multiple files that match a pattern (e.g. "*.png" will ignore all PNG files in the current directory).
-
-If you run the `git status` command now, you will notice that Git has cleverly understood that you want to ignore changes to the "venv" directory so it is not warning us about it any more. However, it has now detected a change to
-`.gitignore` file that needs to be committed.
-
+Check the status:
 ~~~
 $ git status
 ~~~
@@ -148,45 +77,46 @@ Your branch is up to date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	modified:   .gitignore
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	requirements.txt
+	modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-To commit the changes `.gitignore` and `requirements.txt` to the local repository, we first have to add these files to 
+As expected, Git is telling us that we have some changes present in our working
+directory which we have not staged nor committed to our local repository yet.
+
+To commit the changes in `README.md` to the local repository, we first have to add these files to 
 staging area to prepare them for committing. We can do that at the same time as:
 
 ~~~
-$ git add .gitignore requirements.txt
+$ git add README.md
 ~~~
 {: .language-bash}
 
 Now we can commit them to the local repository with:
 
 ~~~
-$ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folder."
+$ git commit -m "Initial commit of README.md."
 ~~~
 {: .language-bash}
 
 Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
-machines. In order to share our work with others, we should push our changes to the remote repository on GitHub. Before we push our changes however, we should first do a `git pull`. This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, we are made aware of any changes made by others, in particular if there are any conflicts between their changes and ours.
+machines. In order to share our work with others, we should push our changes to the remote repository on BitBucket. 
+Before we push our changes however, we should first do a `git pull`. 
+This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. 
+This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, 
+we are made aware of any changes made by others, in particular if there are any conflicts between their changes and ours.
 
 ~~~
 $ git pull
 ~~~
 {: .language-bash}
 
-Now we've ensured our repository is synchronised with the remote one, we can now push our changes. GitHub has recently [strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
-) accessing GitHub from the command line over HTTPS. This means you cannot use passwords for authentication 
-over HTTPS any more - you either need to [set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html) for additional security if you want to continue 
-to use HTTPS, or switch to use private and public key pair over SSH before you can push remotely the changes you made locally. So, when you run the command below:
+Now we've ensured our repository is synchronised with the remote one, we can now push our changes.
+So, when you run the command below:
 
 ~~~
 $ git push origin main
@@ -200,7 +130,7 @@ $ git push origin main
 > by resetting the remote repository URL setting on your local repo:
 > 
 > ~~~
-> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> $ git remote set-url origin <YOUR_PROJECT_SSH_URL>
 > ~~~
 > {: .language-bash}
 {: .caution}
@@ -214,7 +144,7 @@ main (and currently only) development branch.
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between any two or more copies of the same repository - 
 > the ones that are not located on your machine are "Git remotes" for you. In practice,
-> though, it is easiest to agree with your collaborators to use one copy as a central hub (such as GitHub or GitLab), where everyone pushes their
+> though, it is easiest to agree with your collaborators to use one copy as a central hub (such as BitBucket), where everyone pushes their
 > changes to. This also avoid risks associated with keeping the "central copy" on someone’s laptop. 
 > You can have more than one remote configured
 > for your local repository, each of which generally is either read-only or read/write for you. Collaborating
@@ -250,7 +180,7 @@ for some minor changes, the best practice is to use a new branch for each separa
 unit/piece of work you want to
 add to the project. This unit of work is also often called a *feature* and the branch where you develop it is called a
 *feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix"). If we keep making changes
-and pushing them directly to `main` branch on GitHub, then anyone who downloads our software from there will get all of our
+and pushing them directly to `main` branch on BitBucket, then anyone who downloads our software from there will get all of our
 work in progress - whether or not it's ready to use! So, working on a separate branch for each feature you are adding is
 good for several reasons:
 
@@ -323,7 +253,7 @@ Switched to branch 'develop'
 If we start updating and committing files now, the commits will happen on the `develop` branch and will not affect 
 the version of the code in `main`. We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let's make a small modification to `inflammation/models.py` in PyCharm, and, say, change the spelling of "2d" to
+Let's make a small modification to `inflammation/models.py`, and, say, change the spelling of "2d" to
 "2D" in docstrings for functions `daily_mean()`, `daily_max()` and `daily_min()`.
 
 If we do:
@@ -360,11 +290,8 @@ $ git commit -m "Spelling fix"
 {: .callout}
 
 ### Pushing New Branch Remotely
-We push the contents of the `develop` branch to GitHub in the same way as we pushed the `main` branch. However, as we have
-just created this branch locally, it still does not exist in our remote repository. You can check that in GitHub by
-listing all branches.
-
-![Software project's main branch](../fig/software-project-main-branch.png){: .image-with-shadow width="700px"}
+We push the contents of the `develop` branch to BitBucket in the same way as we pushed the `main` branch. However, as we have
+just created this branch locally, it still does not exist in our remote repository.
 
 To push a new local branch remotely for the first time, you could use the `-u` switch and the name of the branch you
 are creating and pushing to:
@@ -382,12 +309,8 @@ $ git push -u origin develop
 >to explicitly state this information in commands.
 {: .callout}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too. From the `< > Code` tab in your
-repository in GitHub, click the branch dropdown menu (currently showing the default branch `main`). You should
-see your `develop` branch in the list too.
-
-![Software project's develop branch](../fig/software-project-develop-branch.png){: .image-with-shadow width="700px"}
-
+Let's confirm that the new branch `develop` now exist remotely on BitBucket too. Click 'Branches' in the left navigation bar:
+![img.png](../fig/branches-bitbucket.png)
 Now the others can check out the `develop` branch too and continue to develop code on it.
 
 After the initial push of the new
@@ -455,7 +378,7 @@ git push origin main
 > ## All Branches Are Equal
 > In Git, all branches are equal - there is nothing special about the `main` branch. It is called
 > that by convention and is created by default, but it can also be called something else. A good example is
-> `gh-pages` branch which is the main branch for website projects hosted on GitHub (rather than `main`, which can
+> `gh-pages` branch which is the main branch for website projects hosted on BitBucket (rather than `main`, which can
 > be safely deleted for such projects).
 {: .callout}
 
