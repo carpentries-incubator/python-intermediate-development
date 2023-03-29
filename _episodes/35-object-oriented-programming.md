@@ -831,7 +831,7 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > >     """Check a site is created correctly given a name."""
 > >     from catchment.models import Site
 > >     name = 'PL23'
-> >     p = Site(name=name,longitude=None,latitude=None)
+> >     p = Site(name=name)
 > >     assert p.name == name
 > >
 > > def test_create_catchment():
@@ -876,7 +876,6 @@ This is quite a common pattern, particularly for `__init__` methods, where we ne
 > > 
 > > ~~~ python
 > > # file: catchment/models.py
-> > import geopandas as gpd
 > > ...
 > > class Location:
 > >     """A Location."""
