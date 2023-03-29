@@ -161,7 +161,7 @@ measurement_data = [
 > > > ~~~ python
 > > > def attach_names(data, sites, measurements):
 > > >     """Create datastructure containing measurement data from a range of sites."""
-> > >     assert len(data) == len(names)
+> > >     assert len(data) == len(sites)
 > > >     assert len(data) == len(measurements)
 > > >     output = []
 > > >
