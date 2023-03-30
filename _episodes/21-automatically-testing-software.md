@@ -281,8 +281,8 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 
 If you have already installed `pytest` package in your virtual environment, you can skip this step. Otherwise, 
 as we have seen, we have a couple of options for installing external libraries:
-1. via PyCharm (see ["Adding an External Library"](../13-ides/index.html#adding-an-external-library) section in ["Integrated Software Development Environments"](../13-ides/index.html) episode), or 
-2. via the command line (see ["Installing External Libraries in an Environment With `pip`"](../12-virtual-environments/index.html#installing-packages-in-an-environment-with-pip) section in ["Virtual Environments For Software Development"](../12-virtual-environments/index.html) episode).
+1. via your integrated development environment (IDE), or 
+2. via the command line.
 
 To do it via the command line - exit the Python console first (either with `Ctrl-D` or by typing `exit()`), then do:
 
@@ -291,7 +291,7 @@ $ pip3 install pytest
 ~~~
 {: .language-bash}
 
-Whether we do this via PyCharm or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
+Whether we do this via IDE or the command line, the results are exactly the same: our virtual environment will now have the `pytest` package installed for use.
 
 
 ### Running Tests
@@ -399,14 +399,14 @@ Note that you need to import the `pytest` library at the top of our `test_models
 
 Run all your tests as before.
 
-Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`:
+Since we've installed `pytest` to our environment, we should also regenerate our `requirements.txt`. This process might differ depending on the virtual Python environment that you use.
 
 ~~~
 $ pip3 freeze > requirements.txt
 ~~~
 {: .language-bash}
 
-Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to GitHub:
+Finally, let's commit our new `test_models.py` file, `requirements.txt` file, and test cases to our `test-suite` branch, and push this new branch and all its commits to Bitbucket:
 
 ~~~
 $ git add requirements.txt tests/test_models.py
