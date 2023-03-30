@@ -14,7 +14,7 @@ keypoints:
 
 ## Verifying Code Style Using Linters
 
-We've seen how we can use PyCharm to help us format our Python code in a consistent style. 
+Editors or integrated development environments (IDEs) can help us format our Python code in a consistent style. 
 This aids reusability, since consistent-looking code is easier to modify since it's easier to read and understand.
 We can also use tools, called [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29), to identify consistency issues in a report-style.
 Linters analyse source code to identify and report on stylistic and even programming errors. Let's look at a very well 
@@ -43,16 +43,11 @@ pylint 2.13.3
 ~~~
 {: .output}
 
-We should also update our `requirements.txt` with this new addition:
-
-~~~
-$ pip3 freeze > requirements.txt
-~~~
-{: .language-bash}
+Don't forget to update your virtual Python environment with this package, if you use one.
 
 Pylint is a command-line tool that can help our code in many ways:
 
-- **Check PEP8 compliance:** whilst in-IDE context-sensitive highlighting such as that provided via PyCharm helps us stay consistent with PEP8 as we write code, this tool provides a full report
+- **Check PEP8 compliance:** whilst in-IDE context-sensitive highlighting helps us stay consistent with PEP8 as we write code, this tool provides a full report
 - **Perform basic error detection:** Pylint can look for certain Python type errors
 - **Check variable naming conventions**: Pylint often goes beyond PEP8 to include other common conventions, such as naming variables outside of functions in upper case
 - **Customisation**: you can specify which errors and conventions you wish to check for, and those you wish to ignore
@@ -145,10 +140,10 @@ improve your code, they won't find everything that may be wrong with it.
 > resolved these issues.
 {: .challenge}
 
-Make sure you commit and push `requirements.txt` and any file with further code style improvements you did and 
+Make sure you commit and push your list of packages and any file with further code style improvements you did and 
 merge onto your development and main branches.
 ~~~
-$ git add requirements.txt
+$ git add requirements.txt  # Depending on your virtual Python environment this file could have a different name
 $ git commit -m "Added Pylint library"
 $ git push origin style-fixes
 $ git checkout develop
@@ -165,7 +160,6 @@ $ git push origin main
 > with your code are detected, if any.
 {: .challenge}
 
-It is possible to automate these kind of code checks with GitHub's Continuous Integration service GitHub Actions - 
-we will come back to automated linting in the episode on ["Diagnosing Issues and Improving Robustness"](../24-diagnosing-issues-improving-robustness/index.html).
+It is possible to automate these kind of code checks with Bitbucket's Continuous Integration service Bitbucket Pipelines.
 
 {% include links.md %}
