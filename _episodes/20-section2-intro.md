@@ -24,7 +24,6 @@ In this section we will:
 
 - Make use of a **test framework** called Pytest, a free and open source Python library to help us structure and run automated tests.
 - Design, write and run **unit tests** using Pytest to verify the correct behaviour of code and identify faults, making use of test **parameterisation** to increase the number of different test cases we can run.
-- Automatically run a set of unit tests using **GitHub Actions** - a **Continuous Integration** infrastructure that allows us to automate tasks when things happen to our code, such as running those tests when a new commit is made to a code repository.
-- Use PyCharm's integrated **debugger** to help us locate a fault in our code while it is running, and then fix it.
+- Automatically run a set of unit tests using **Bitbucket Pipelines** - a **Continuous Integration** infrastructure that allows us to automate tasks when things happen to our code, such as running those tests when a new commit is made to a code repository.
 
 {% include links.md %}
