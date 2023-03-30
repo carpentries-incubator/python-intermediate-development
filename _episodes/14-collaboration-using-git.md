@@ -1,5 +1,5 @@
 ---
-title: "Collaborative Software Development Using Git and BitBucket"
+title: "Collaborative Software Development Using Git and Bitbucket"
 start: false
 teaching: 35
 exercises: 0
@@ -7,7 +7,7 @@ questions:
 - "What are Git branches and why are they useful for code development?"
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
-- "Commit changes in a software project to a local repository and publish them in a remote repository on BitBucket"
+- "Commit changes in a software project to a local repository and publish them in a remote repository on Bitbucket"
 - "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
@@ -47,7 +47,7 @@ directory and staging area at any moment (i.e. what changes is Git tracking), ru
 - **local repository** - stored within the `.git` directory of your project, this is where Git wraps together all your 
 changes from the staging area and puts them using the `git commit` command. Each commit is a new, permanent snapshot 
 (checkpoint, record) of your project in time, which you can share or revert back to.
-- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on BitBucket, GitHub, 
+- **remote repository** - this is a version of your project that is hosted somewhere on the Internet (e.g. on Bitbucket, GitHub, 
 GitLab or somewhere else). While your project is nicely version-controlled in your local repository, and you have
 snapshots of its versions from the past, if your machine crashes - you still may lose all your work.
 Working with a remote
@@ -104,7 +104,7 @@ $ git commit -m "Initial commit of README.md."
 Remember to use meaningful messages for your commits.
 
 So far we have been working in isolation - all the changes we have done are still only stored locally on our individual
-machines. In order to share our work with others, we should push our changes to the remote repository on BitBucket. 
+machines. In order to share our work with others, we should push our changes to the remote repository on Bitbucket. 
 Before we push our changes however, we should first do a `git pull`. 
 This is considered best practice, since any changes made to the repository - notably by other people - may impact the changes we are about to push. 
 This could occur, for example, by two collaborators making different changes to the same lines in a file. By pulling first, 
@@ -144,7 +144,7 @@ main (and currently only) development branch.
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between any two or more copies of the same repository - 
 > the ones that are not located on your machine are "Git remotes" for you. In practice,
-> though, it is easiest to agree with your collaborators to use one copy as a central hub (such as BitBucket), where everyone pushes their
+> though, it is easiest to agree with your collaborators to use one copy as a central hub (such as Bitbucket), where everyone pushes their
 > changes to. This also avoid risks associated with keeping the "central copy" on someone’s laptop. 
 > You can have more than one remote configured
 > for your local repository, each of which generally is either read-only or read/write for you. Collaborating
@@ -180,7 +180,7 @@ for some minor changes, the best practice is to use a new branch for each separa
 unit/piece of work you want to
 add to the project. This unit of work is also often called a *feature* and the branch where you develop it is called a
 *feature branch*. Each feature branch should have its own meaningful name - indicating its purpose (e.g. "issue23-fix"). If we keep making changes
-and pushing them directly to `main` branch on BitBucket, then anyone who downloads our software from there will get all of our
+and pushing them directly to `main` branch on Bitbucket, then anyone who downloads our software from there will get all of our
 work in progress - whether or not it's ready to use! So, working on a separate branch for each feature you are adding is
 good for several reasons:
 
@@ -290,7 +290,7 @@ $ git commit -m "Spelling fix"
 {: .callout}
 
 ### Pushing New Branch Remotely
-We push the contents of the `develop` branch to BitBucket in the same way as we pushed the `main` branch. However, as we have
+We push the contents of the `develop` branch to Bitbucket in the same way as we pushed the `main` branch. However, as we have
 just created this branch locally, it still does not exist in our remote repository.
 
 To push a new local branch remotely for the first time, you could use the `-u` switch and the name of the branch you
@@ -309,7 +309,7 @@ $ git push -u origin develop
 >to explicitly state this information in commands.
 {: .callout}
 
-Let's confirm that the new branch `develop` now exist remotely on BitBucket too. Click 'Branches' in the left navigation bar:
+Let's confirm that the new branch `develop` now exist remotely on Bitbucket too. Click 'Branches' in the left navigation bar:
 ![img.png](../fig/branches-bitbucket.png)
 Now the others can check out the `develop` branch too and continue to develop code on it.
 
@@ -378,7 +378,7 @@ git push origin main
 > ## All Branches Are Equal
 > In Git, all branches are equal - there is nothing special about the `main` branch. It is called
 > that by convention and is created by default, but it can also be called something else. A good example is
-> `gh-pages` branch which is the main branch for website projects hosted on BitBucket (rather than `main`, which can
+> `gh-pages` branch which is the main branch for website projects hosted on Bitbucket (rather than `main`, which can
 > be safely deleted for such projects).
 {: .callout}
 

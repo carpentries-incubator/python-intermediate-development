@@ -6,7 +6,7 @@ questions:
 - "What is the design architecture of our example software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
-- "Use Git to obtain a working copy of our software project from BitBucket."
+- "Use Git to obtain a working copy of our software project from Bitbucket."
 - "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
@@ -45,17 +45,17 @@ The project is not finished and contains some errors. You will be working on you
 ## Downloading Our Software Project
 
 To start working on the project, you will first create a fork of the software project repository from 
-BitBucket within your own BitBucket account and then obtain a local copy of that project (from your BitBucket) on your machine.
+Bitbucket within your own Bitbucket account and then obtain a local copy of that project (from your Bitbucket) on your machine.
 If you have not forked this repository yet: https://bitbucket.org/svenvanderburg1/python-intermediate-inflammation/src/main/
 please do so now!
 
 > ## Exercise: Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your BitBucket account into the home directory on your computer using SSH.
+> Using the command line, clone the copied repository from your Bitbucket account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-> > 1. Find the SSH URL of the software project repository to clone from your BitBucket account. Make sure you do not clone the
+> > 1. Find the SSH URL of the software project repository to clone from your Bitbucket account. Make sure you do not clone the
 original template repository but rather your own copy, as you should be able to push commits to it later on. Also 
-make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to BitBucket!
+make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to Bitbucket!
 > > 2. Make sure you are located in your home directory in the command line with:
 > >     ~~~
 > >     $ cd ~
