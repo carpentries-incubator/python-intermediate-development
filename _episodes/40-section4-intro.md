@@ -24,7 +24,7 @@ the ‘good’ coding standards are achieved and maintained within a team, as we
 We'll thus look at the benefits of reviewing code,
 in particular, the value of this type of activity within a team,
 and how this can fit within various ways of team working.
-We'll see how GitHub can support code review activities via pull requests,
+We'll see how Bitbucket can support code review activities via pull requests,
 and how we can do these ourselves making use of best practices.
 
 {% include links.md %}
