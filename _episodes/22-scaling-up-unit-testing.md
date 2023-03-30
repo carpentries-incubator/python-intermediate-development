@@ -153,7 +153,7 @@ TOTAL                        9      1    89%
 So there's still one statement not being tested at line 18, and it turns out it's in the function `load_csv()`. Here 
 we should consider whether or not to write a test for this function, and, in general, any other functions that may not be tested. Of course, if there are hundreds or thousands of lines that are not covered it may not be feasible to write tests for them all. But we should prioritise the ones for which we write tests, considering how often they're used, how complex they are, and importantly, the extent to which they affect our program's results.
 
-Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it:
+Again, we should also update our `requirements.txt` file with our latest package environment, which now also includes `pytest-cov`, and commit it. Depending on your virtual Python environment this process could be different.
 
 ~~~
 $ pip3 freeze > requirements.txt
@@ -161,7 +161,7 @@ $ cat requirements.txt
 ~~~
 {: .language-bash}
 
-You'll notice `pytest-cov` and `coverage` have been added. Let's commit this file and push our new branch to GitHub:
+You'll notice `pytest-cov` and `coverage` have been added. Let's commit this file and push our new branch to Bitbucket:
 
 ~~~
 $ git add requirements.txt
