@@ -56,9 +56,10 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 
 Editors or integrated development environments (IDEs) usually highlight the language constructs
 (reserved words) and syntax errors to help us with coding. If they do not have that functionality out-of-the-box,
-you can often install helper programs, so-called "linters", like [pycodestyle](https://pypi.org/project/pycodestyle/),
+you can often install helper programs, so-called "linters", like [pylint](https://pypi.org/project/pylint/),
 or run them independently from the command line. They can also give us recommendations for formatting the
-code - these recommendations are mostly taken from the PEP 8 style guide.
+code - these recommendations are mostly taken from the PEP 8 style guide. We will discuss linting tools
+like `pylint` in more detail later.
 
 A full list of style guidelines for this style 
 is available from the [PEP 8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
@@ -362,7 +363,7 @@ However, there are some restrictions. Comments that simply restate what the code
 > the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
 >> Ideally, modify `inflammation-analysis.py` with an editor that helpfully marks inconsistencies with
->> coding guidelines by underlying them. You can also use `pycodestyle` from the command line.
+>> coding guidelines by underlying them. You can also use `pylint` from the command line.
 >> There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
 >>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
