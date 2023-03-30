@@ -54,9 +54,11 @@ Look at other examples and decide what looks best. And don't hesitate to ask!
 >
 {: .callout}
 
-As we have already covered in the [episode on PyCharm IDE](../13-ides/index.html), PyCharm highlights the language constructs
-(reserved words) and syntax errors to help us with coding. PyCharm also gives us recommendations for formatting the code - these recommendations
-are mostly taken from the PEP 8 style guide.
+Editors or integrated development environments (IDEs) usually highlight the language constructs
+(reserved words) and syntax errors to help us with coding. If they do not have that functionality out-of-the-box,
+you can often install helper programs, so-called "linters", like [pycodestyle](https://pypi.org/project/pycodestyle/),
+or run them independently from the command line. They can also give us recommendations for formatting the
+code - these recommendations are mostly taken from the PEP 8 style guide.
 
 A full list of style guidelines for this style 
 is available from the [PEP 8 website](https://www.python.org/dev/peps/pep-0008/); here we highlight a few.
@@ -75,18 +77,13 @@ follow this guideline or not, be consistent and follow the style already used in
 > Whichever you choose, be consistent throughout the project.
 {: .callout}
 
-PyCharm has built-in support for converting tab indentation to spaces "under the hood" for Python code in order to
-conform to PEP8. So, you can type a tab character and PyCharm will automatically convert it to 4 spaces. You can control
-the amount of spaces that PyCharm uses to replace one tab character or you can decide to keep the tab character
-altogether and prevent automatic conversion. You can modify these settings in PyCharm's
-`Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux) or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
-
-![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
+Some editors have built-in support for converting tab indentation to spaces "under the hood" for Python code in order to
+conform to PEP8. So, you can type a tab character and they will automatically convert it to 4 spaces. You can control
+the amount of spaces used to replace one tab character or you can decide to keep the tab character
+altogether and prevent automatic conversion.
 
 You can also tell the editor to show non-printable characters if you are ever unsure what character exactly is
-being used by selecting `View`>`Active Editor`>`Show whitespace`.
-
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="1000px"}
+being used.
 
 There are more complex rules on indenting single units of code that continue over several lines, e.g. function,
 list or dictionary definitions can all take more than one line. The preferred way of wrapping such long lines is by
@@ -254,7 +251,22 @@ default value for an unannotated function parameter
 ### String Quotes
 In Python, single-quoted strings and double-quoted strings are the same. PEP8 does not make a recommendation for this
 apart from picking one rule and consistently sticking to it. When a string contains single or double quote characters,
-use the other one to avoid backslashes in the string as it improves readability.
+use the other one to avoid backslashes in the string as it improves readability. You have no choice to escape quotes
+if your string uses both, though.
+
+~~~
+# Escaping quotes makes this is harder to read:
+cocktail = 'Planter\'s Punch'
+mlk_quote = "\"I have a dream\", he said."
+
+# This is easier to read:
+cocktail = "Planter's Punch"
+mlk_quote = '"I have a dream", he said.'
+
+# For mixed characters, you need to escape one of quote types.
+mixed = 'It\'s a so-called "cat".'
+~~~
+{: .language-python}
 
 ### Naming Conventions
 There are a lot of different naming styles in use, including:
@@ -346,11 +358,12 @@ However, there are some restrictions. Comments that simply restate what the code
 > ~~~
 >  {: .language-bash}
 >
-> Next look at the `inflammation-analysis.py` file in PyCharm and identify where the above guidelines have not been followed. Fix
-the discovered inconsistencies and commit them to the feature branch.
+> Next look at the `inflammation-analysis.py` file and identify where the above guidelines have not been followed. Fix
+> the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
->> Modify `inflammation-analysis.py` from PyCharm, which is helpfully marking inconsistencies with
->> coding guidelines by underlying them. There are a few things to fix in `inflammation-analysis.py`, for example:
+>> Ideally, modify `inflammation-analysis.py` with an editor that helpfully marks inconsistencies with
+>> coding guidelines by underlying them. You can also use `pycodestyle` from the command line.
+>> There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
 >>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable. A better style would be to use
 >>  multiple lines and
@@ -392,10 +405,9 @@ the discovered inconsistencies and commit them to the feature branch.
 >>  3. There is an extra blank line on line 20 in `inflammation-analysis.py`. Normally, you should not use blank
 >> lines in the
 >> middle of the code unless you want to separate logical units - in which case only one blank line is used.
->> Note how PyCharm is warning us by underlying the whole line.
 >>
 >>  4. Only one blank line after the end of definition of function `main` and the rest of the code on line 30 in
->> `inflammation-analysis.py` - should be two blank lines. Note how PyCharm is warning us by underlying the whole line.
+>> `inflammation-analysis.py` - should be two blank lines. Your editor might have pointed this out to you.
 >>
 >> Finally, let's add and commit our changes to the feature branch. We will check the status of our working directory first.
 >>
@@ -505,7 +517,7 @@ The docstring for a function or a module is returned when
 calling the `help` function and passing its name - for example from the interactive Python console/terminal available
 from the command line or when rendering code documentation online 
 (e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
-PyCharm also displays the docstring for a function/module in a little help popup window when using tab-completion.
+Some editors also display the docstring for a function/module in a little help popup window when using tab-completion.
 
 ~~~
 help(fibonacci)
@@ -513,7 +525,7 @@ help(fibonacci)
  {: .language-python}
 
 > ## Exercise: Fix the Docstrings
-> Look into `models.py` in PyCharm and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. 
+> Look into `models.py` and improve docstrings for functions `daily_mean` ,`daily_min`, `daily_max`. 
 > Commit those changes to feature branch `style-fixes`.
 > > ## Solution
 > > For example, the improved docstrings for the above functions would contain explanations for parameters and
@@ -577,9 +589,9 @@ help(fibonacci)
 In the previous exercises, we made some code improvements on feature branch `style-fixes`. We have committed our
 changes locally but have not pushed this branch remotely for others to have a look at our code before we merge it
 onto the `develop` branch. Let's do that now, namely:
-- push `style-fixes` to GitHub
+- push `style-fixes` to Bitbucket
 - merge `style-fixes` into `develop` (once we are happy with the changes)
-- push updates to `develop` branch to GitHub (to keep it up to date with the latest developments)
+- push updates to `develop` branch to Bitbucket (to keep it up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
 Here is a set commands that will achieve the above set of actions (remember to use `git status` often in between other
