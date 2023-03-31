@@ -7,7 +7,7 @@ questions:
 - "What is code review and how it can improve the quality of code?"
 objectives:
 - "Describe commonly used code review techniques."
-- "Understand how to do a pull request via GitHub to engage in code review with a team and contribute to a shared code repository."
+- "Understand how to do a pull request via Bitbucket to engage in code review with a team and contribute to a shared code repository."
 keypoints:
 - "Code review is a team software quality assurance practice where team members look at parts of the codebase in order to improve their code's readability, understandability, quality and maintainability."
 - "It is important to agree on a set of best practices and establish a code review process in a team to help to 
@@ -116,13 +116,13 @@ of other functionalities too, such as metrics (e.g. inspection rate, defect rate
 
 Each of the above techniques have their pros and cons and varying degrees practicality - 
 it is up to the team to decide which ones are most suitable for the project and when to use them.
-We will have a look at the **tool-assisted code review process** using GitHub's built-in code review tool - **pull requests**. It is a lightweight tool, included with GitHub's core service for free and has gained 
+We will have a look at the **tool-assisted code review process** using Bitbucket's built-in code review tool - **pull requests**. It is a lightweight tool, included with Bitbucket's core service for free and has gained 
 popularity within the software development community in recent years.
 
-## Code Reviews via GitHub's Pull Requests
+## Code Reviews via Bitbucket's Pull Requests
 
-Pull requests are fundamental to how teams review and improve code on GitHub (and similar code sharing platforms) -
-they let you tell others about changes you've pushed to a branch in a repository on GitHub and that your 
+Pull requests (also sometimes called 'merge requests') are fundamental to how teams review and improve code on Bitbucket (and similar code sharing platforms) -
+they let you tell others about changes you've pushed to a branch in a repository on Bitbucket and that your 
 code is ready for review. Once a pull request is opened, you can discuss and review the potential changes with others 
 on the team and add follow-up commits based on the feedback before your changes are merged from your feature branch 
 into the `develop` branch. The name 'pull request' suggests you are **requesting** the codebase 
@@ -135,10 +135,10 @@ based on one of the existing branches (typically the `develop` branch but can be
 do some commits on that branch, and, once you are ready to merge your changes, create a pull request to bring 
 the changes back to the branch that you started from. In this 
 context, the branch from which you branched off to do your work and where the changes should be applied 
-back to is called the **base branch**, while the feature branch that contains changes you would like to be applied
-is the **head branch**.
+back to is called the **destination branch**, while the feature branch that contains changes you would like to be applied
+is the **source branch**.
  
-How you create your feature branches and open pull requests in GitHub will depend on your collaborative code 
+How you create your feature branches and open pull requests in Bitbucket will depend on your collaborative code 
 development model:
 
 - In the shared repository model, in order to create a feature branch and open a 
@@ -153,7 +153,7 @@ the subsequent pull request, even though you can submit pull requests from any b
 with a feature branch, you can push follow-up commits as a response to feedback and update your proposed changes within
 a self-contained bundle. 
 The only difference in creating a pull request between the two models is how you create the feature branch. 
-In either model, once you are ready to merge your changes in - you will need to specify the base branch and the head
+In either model, once you are ready to merge your changes in - you will need to specify the destination branch and the source
 branch. 
    
 ## Code Review and Pull Requests In Action
@@ -174,12 +174,12 @@ that existing implementation to make sure the new feature indeed satisfies the r
 changes to their repository (the shared repository in this context) via pull request 
 (acting as the code author) and engage in code review with your team member (acting as a code reviewer). 
 Similarly, you will receive a pull request on your repository from another team member, 
-in which case the roles will be reversed. The following diagram depicts the branches that you should have in the repository.
+in which case the roles will be reversed. {% comment %} TODO The following diagram depicts the branches that you should have in the repository.
 
 ![Branches for a feature and its tests](../fig/exercise-feature-branch.svg){: .image-with-shadow width="800px"}
 <p style="text-align: center;">
 Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)
-</p>
+</p> {% endcomment %}
 
 To achieve this, the following steps are needed.
 
@@ -188,6 +188,14 @@ To achieve this, the following steps are needed.
 You need to add the other team member(s) as collaborator(s) on your repository 
 to enable them to create branches and pull requests. To do so, each repository owner needs to:
 
+1. Head over to **Repository Settings** section of your software project's repository in Bitbucket.
+2. Select **User and group access**.
+3. Click on **Add members**.
+4. Enter your collaborator's email address that they used to sign up with Bitbucket.
+5. Give your collaborator **Read** access and click on **Confirm**.
+6. Your collaborator will receive an email to confirm the invitation. They need to click on the **Accept my invitation** link in the email, and then **Accept invitation** in Bitbucket.
+
+{% comment %}
 1. Head over to Settings section of your software project's repository in GitHub.
    ![Accessing settings for a repository in GitHub](../fig/github-settings.png){: .image-with-shadow width="900px"}
 2. Select the **vertical** tab 'Collaborators' from the left and click the 'Add people' button.
@@ -197,15 +205,14 @@ to enable them to create branches and pull requests. To do so, each repository o
 4. Collaborator(s) will be notified of your invitation to join your repository based on their notification preferences.
 5. Once they accept the invitation, they will have the collaborator-level access to your repository and will show up
 in the list of your collaborators.
+{% endcomment %}
 
-See the full details on [collaborator permissions for personal repositories](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository) 
+See the full details on [grant repository access to users and groups](https://support.atlassian.com/bitbucket-cloud/docs/grant-repository-access-to-users-and-groups/) 
 to understand what collaborators will be able to do within your repository.
-Note that repositories owned by an organisation have a [more granular access control](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github) compared to that of personal
-repositories.
 
 #### Step 2: Preparing Your Local Environment for a Pull Request
 
-1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally (make sure 
+1. Obtain the Bitbucket URL of the shared repository you will be working on and clone it locally (make sure 
 you do it outside your software repository's folder you have been working on so far). 
 This will create a copy of the repository locally on your machine along with all of 
 its (remote) branches.
@@ -240,7 +247,7 @@ that can then easily be reviewed and compared with `feature-x` by the team membe
 > 
 > *Note: Try not to not fall into the trap of writing the tests to test the existing code/implementation - you should
 > write the tests to make sure the code satisfies the requirements regardless of the actual implementation. You can
-> treat the implementation as a [black box](https://en.wikipedia.org/wiki/Black-box_testing) - a typical approach 
+> treat the implementation as a [closed box](https://en.wikipedia.org/wiki/Black-box_testing) - a typical approach 
 > to software testing - as a way to make sure it is properly tested against its requirements without introducing 
 > assumptions into the tests about its implementation.*
 {: .challenge}
@@ -268,6 +275,19 @@ and are ready for the others in the team to review them, you have to do the foll
     $ git push -u origin feature-x-tests
     ~~~
     {: .language-bash}
+2. From the top menu of Bitbucket, select **Create** -> **Pull request**
+3. Select the *source*- and the *destination branch*, e.g. `feature-x` and `feature-x-tests`, respectively. Recall that the *destination branch* is 
+where you want your changes to be merged and the *source branch* contains your changes.
+4. Add a description of the nature of the changes, and then create the pull request.
+5. Your collaborator can find the pull request in the left menu under **Pull requests**.
+6. At this point, the code review process is initiated.
+
+{% comment %}
+1. Push your local feature branch `feature-x-tests` remotely to the shared repository.
+    ~~~
+    $ git push -u origin feature-x-tests
+    ~~~
+    {: .language-bash}
 2. Head over to the remote repository in GitHub and locate your new (`feature-x-tests`) branch from the dropdown box on 
 the Code tab (you can search for your branch or use the "View all branches" option).
    ![All repository branches in GitHub](../fig/github-branches.png){: .image-with-shadow width="600px"}
@@ -278,6 +298,7 @@ where you want your changes to be merged and the head branch contains your chang
 5. Add a comment describing the nature of the changes, and then submit the pull request.
 6. Repository moderator and other collaborators on the repository (code reviewers) will be notified of your pull request by GitHub.
 7. At this point, the code review process is initiated.
+{% endcomment %}
 
 You should receive a similar pull request from other team members on your repository.
 
@@ -294,7 +315,9 @@ Perform the above actions on the pull request you received, this time acting as 
 
 1. Once the moderator approves your changes, either one of you can merge onto the base branch. Typically, it is 
 the responsibility of the code's author to do the merge but this may differ from team to team.
+{% comment %}
    ![Merging a pull request in GitHub](../fig/github-merge-pull-request.png){: .image-with-shadow width="900px"}
+{% endcomment %}
 2. Delete the merged branch to reduce the clutter in the repository.
 
 Repeat the above actions for the pull request you received.
@@ -317,7 +340,7 @@ that the team decides on this process and sticks to it. Here are some examples o
    - comments and documentation - are there clear and useful comments that explain complex designs well and focus 
 on the "why/because" rather than the "what/how"? 
 2. Do not review code too quickly and do not review for too long in one sitting. According to
-[“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) - the first hour of review 
+[“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://archive.org/details/bestkeptsecretso00jaso) - the first hour of review 
 matters the most as detection of defects significantly drops after this period. [Studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) 
 also show that you should not review more than 400 lines of code at a time. Conducting more frequent shorter reviews 
 seems to be more effective.
@@ -339,15 +362,10 @@ tool-assisted process is recommended.
    as to what a "large pull request" is but be aware that it is not exact science.
    - don't force push to a pull request as it changes the repository history
          and can corrupt your pull request for other collaborators
-   - use pull request states in GitHub effectively (based on your team's code review process) - e.g. in GitHub 
-   you can open a 
-   pull request in a `DRAFT` state to show progress or request early feedback; `READY FOR REVIEW` when you are ready 
-   for feedback; `CHANGES REQUESTED` to let the author know they need to fix the requested changes or discuss more; 
-   `APPROVED` to let the author they can merge their pull request.
 
 > ## Exercise: Code Review in Your Own Working Environment
 > 
-> At the start of this episode we briefly looked at a number of techniques for doing code review, and as an example, went on to see how we can use GitHub Pull Requests to review team member code changes. Finally, we also looked at some best practices for doing code reviews in general.
+> At the start of this episode we briefly looked at a number of techniques for doing code review, and as an example, went on to see how we can use Bitbucket Pull Requests to review team member code changes. Finally, we also looked at some best practices for doing code reviews in general.
 > 
 > Now think about how you typically develop code, and how you might institute code review practices within your own working environment. Write down briefly for your own reference (perhaps using bullet points) some answers to the following questions:
 > 
