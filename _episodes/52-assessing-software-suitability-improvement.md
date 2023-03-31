@@ -43,7 +43,7 @@ software against suitability criteria will help you adopt the same attitude when
 >
 > 1. As a team, briefly decide who will assess which aspect of the repository, e.g. its documentation, tests, codebase, etc.
 > 2. Obtain the URL for the repository you will assess from the shared notes document, in the section labelled 'Decide on your Group's Repository' - see the last column which indicates which team's repository you are assessing.
-> 3. Conduct the assessment and register any issues you find on the other team's software repository on GitHub.
+> 3. Conduct the assessment and register any issues you find on the other team's software repository on Bitbucket.
 > 4. Be meticulous in your assessment and register as many issues as you can!
 {: .challenge}
 
@@ -53,7 +53,7 @@ software against suitability criteria will help you adopt the same attitude when
 > Within your collaborations and projects, what should you do to support other users? Here are some key aspects to consider:
 >
 > - Provide contact information: so users know what to do and how to get in contact if they run into problems
-> - Manage your support: an issue tracker - like the one in GitHub - is essential to track and manage issues
+> - Manage your support: an issue tracker - like the one in Bitbucket - is essential to track and manage issues
 > - Manage expectations: let users know the level of support you offer, in terms of when they can expect responses to queries, the scope of support (e.g. which platforms, types of releases, etc.), the types of support (e.g. bug resolution, helping develop tailored solutions), and expectations for support in the future (e.g. when project funding runs out)
 >
 > All of this requires effort, and you can't do everything. It's therefore important to agree and be clear on how the software will be supported from the outset, whether it's within the context of a single laboratory, project, or other collaboration, or across an entire community.
