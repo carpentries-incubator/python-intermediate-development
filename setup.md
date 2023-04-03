@@ -110,91 +110,16 @@ $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
 
-Make sure to use the same email address you used to open an account on GitHub that you will use for this course (see below).
+Make sure to use the same email address you used to open an account on Bitbucket that you will use for this course.
 
-### GitHub Account
-GitHub is a free, online host for Git repositories that you will use during the course to store your code in so 
-you will need to open a free [GitHub](https://github.com/) account unless you don't already have one.
-
-### Secure Access To GitHub Using Git From Command Line
-In order to access GitHub using Git from your machine securely, you need to set up a way of authenticating yourself 
-with GitHub through Git. The recommended way to do that for this course is to set up 
+### Secure Access To Bitbucket Using Git From Command Line
+In order to access Bitbucket using Git from your machine securely, you need to set up a way of authenticating yourself 
+with Bitbucket through Git. The recommended way to do that for this course is to set up 
 [*SSH authentication*](https://www.ssh.com/academy/ssh/public-key-authentication) - a 
 method of authentication that is more secure than sending [*passwords over HTTPS*](https://security.stackexchange.com/questions/110415/is-it-ok-to-send-plain-text-password-over-https) and which requires a pair of keys - one public that you 
-upload to your GitHub account, and one private that remains on your machine. 
+upload to your Bitbucket account, and one private that remains on your machine. 
 
-GitHub provides full documentation and guides on how to:
-- [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and
-- [add an SSH key to a GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
-
-A short summary of the commands you need to perform is shown below.
-
-To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash 
-and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub) 
-via the `-C` parameter as shown below. Note that the `ssh-keygen` command can be run with different 
-parameters - e.g. to select a specific public key algorithm and key length; if you do not use them `ssh-keygen` will generate an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.) key pair for you by default. It will also prompt you to answer a few questions - e.g. where to save the keys on your machine and 
-a passphrase to use to protect your private key. Pressing 'Enter' on these prompts 
-will get `ssh-keygen` to use the default key location (within `.ssh` folder in your home directory) and set the passphrase to empty.
-
-~~~
-$ ssh-keygen -C "your-github-email@example.com"
-~~~
-{: .language-bash}
-~~~
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/alex/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /Users/alex/.ssh/id_rsa
-Your public key has been saved in /Users/alex/.ssh/id_rsa.pub
-The key fingerprint is:
-SHA256:pR53Y9KcYlZZ+A/ZM85Y1N/9TE7xeTdJ5G/5Gvt/b+M your-github-email@example.com
-The key's randomart image is:
-+---[RSA 3072]----+
-|             .o..|
-|            .o.+.|
-|          . o.o+O|
-|         o + .+B&|
-|        S * B =OX|
-|       . = = o +*|
-|        .     . .|
-|               =o|
-|              +EO|
-+----[SHA256]-----+
-~~~
-{: .output}
-
-Next, you need to copy your public key (**not your private key - this is important!**) over to 
-your GitHub account. The `ssh-keygen` command above will let you know where your public key is saved (the file should have the 
-extension ".pub"), and you can get its contents as, e.g.:
-~~~
-$ cat /Users/alex/.ssh/id_rsa.pub
-~~~
-{: .language-bash}
-~~~
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOTBh3oZ3IzFJ2bGa1TxqDA3r+BVso48hrMJElLNafkEfSQXwxdst4mfiki/sQ/HeBBaoGEhZYMOwXbPAl4oJsVc0sXDZKPr+Da7wzuhnLVlEqfy+H9Pis99aCgivWI9MJktfSHd9bczyrGFLedSuD6BtBLeL/lgh7kIsKGAfpm0ZVnkDPSssqC9/TKJpyFXyf8yRA6t3GaFPDLylNiU16Xeu82Ntjsx5CqhnUG5lDFrJeERc7ShAZY6YMhp28DEe3SC/X/3/ZITXuHjCJqO82u0NJ5W+r2ZmD87Nqt5//jXJy0OpP0aQjVRlGTOWYUck117Ow9wyfhri9sKDpUOchD20pc287V2E5f6/df3kPrsEF284Y+lwoPyF/ei0qNaJsDpLaf/JL5hIwc9NO3KkVpWS7dH0cNsFpt+uLaai7QFFEg4hdJF2SdgkPmyobquoICzN5LPEskibHAtU2jDDg6tuOWbgQoyz6nYWVOdDCyjhPHCkVrznDi9NSQyP0UQ8= your-github-email@example.com
-~~~
-{: .output}
-
-Copy your last line of output that starts with "ssh-rsa" and ends with your email address 
-(it may start with a different algorithm name if you did not go for RSA and it may have gone over multiple lines if your command line window
-is not wide enough).
-
-Finally, go to your [GitHub Settings -> SSH and GPG keys -> Add New](https://github.com/settings/ssh/new) page to add a new 
-SSH public key. Give your key a memorable name (e.g. the name of the computer you are working on that contains the 
-private key counterpart), paste the public key 
-from your clipboard into the box labelled "Key" (making sure it does not contain any line breaks), then click the "Add SSH key" button.
-
-> ## What About Passwords?
-> While using passwords over HTTPS for authentication is easier to setup and will allow you *read access* to your repository on GitHub from your machine, 
-it alone is not sufficient any more to allow you to send changes or *write* to your remote repository on GitHub. This is because, 
-on 13 August 2021, GitHub has [strengthened security requirements for all authenticated Git operations](https://github.blog/changelog/2021-08-12-git-password-authentication-is-shutting-down/). This means you would need to use a 
-personal access token instead of your password for added security each time you need to authenticate yourself to 
-GitHub from the command line (e.g. when you want to push your local changes to your code repository on GitHub).
-While using
-SSH key pair for authentication may seem complex, once set up, it is actually more convenient than keeping track of/caching
-your access token.
-{: .callout}
+Bitbucket provides full documentation and guides on how to [generate an SSH key and add the key to your Bitbucket account](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/).
 
 ## Python Distribution
 The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/)
