@@ -213,6 +213,7 @@ we'll use the format we used as JSON example earlier.
 # file: inflammation/serializers.py
 
 import json
+from inflammation import models
 
 class PatientSerializer:
     model = models.Patient
