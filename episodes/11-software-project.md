@@ -20,58 +20,90 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Patient Inflammation Study Project
-So, you have joined a software development team that has been working on the [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation) 
-developed in Python and stored on GitHub. The project analyses the data to study the effect of a new 
-treatment for arthritis by analysing the inflammation levels in patients who have been given this treatment. 
-It reuses the inflammation datasets from the 
+So, you have joined a software development team that has been working on the
+[patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+developed in Python and stored on GitHub.
+The project analyses the data to study the effect of a new treatment for arthritis
+by analysing the inflammation levels in patients who have been given this treatment.
+It reuses the inflammation datasets from the
 [Software Carpentry Python novice lesson](https://swcarpentry.github.io/python-novice-inflammation/index.html).
 
 ![Snapshot of the inflammation dataset](../fig/inflammation-study-pipeline.png){: .image-with-shadow width="800px" }
 <p style="text-align: center;">Inflammation study pipeline from the <a href="https://swcarpentry.github.io/python-novice-inflammation/fig/lesson-overview.svg">Software Carpentry Python novice lesson</a></p>
 
 > ## What Does Patient Inflammation Data Contain?
-> 
-> Each dataset records inflammation measurements from a separate clinical trial of the drug, and each dataset contains information for 60 patients, who had their inflammation levels recorded for 40 days whilst participating in the trial (a snapshot of one of the data files is shown in diagram above).
-> 
-> Each of the data files uses the popular [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values) to represent the data, where:
+>
+> Each dataset records inflammation measurements from a separate clinical trial of the drug,
+> and each dataset contains information for 60 patients,
+> who had their inflammation levels recorded for 40 days whilst participating in the trial
+> (a snapshot of one of the data files is shown in diagram above).
+>
+> Each of the data files uses the popular
+> [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values)
+> to represent the data, where:
 >
 > - Each row holds inflammation measurements for a single patient,
 > - Each column represents a successive day in the trial,
-> - Each cell represents an inflammation reading on a given day for a patient (in some arbitrary units of inflammation measurement).
+> - Each cell represents an inflammation reading on a given day for a patient
+>   (in some arbitrary units of inflammation measurement).
 {: .callout}
 
-The project is not finished and contains some errors. You will be working on your own and in collaboration with others to fix and build on top of the existing code during the course.
+The project is not finished and contains some errors.
+You will be working on your own and in collaboration with others
+to fix and build on top of the existing code during the course.
 
 ## Downloading Our Software Project
 
-To start working on the project, you will first create a copy of the software project template repository from 
-GitHub within your own GitHub account and then obtain a local copy of that project (from your GitHub) on your machine.
+To start working on the project, you will first
+create a copy of the software project template repository
+from GitHub within your own GitHub account
+and then obtain a local copy of that project (from your GitHub) on your machine.
 
-1. Make sure you have a GitHub account and that you have set up your SSH key pair for authentication with GitHub, as 
-explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
-2. Log into your GitHub account. 
-3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation) in GitHub.
-![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
-4. Click the `Use this template` button towards the top right of the template repository's GitHub page to create a **copy** of
-the repository under your GitHub account (you will need to be signed into GitHub to see the `Use this template` button). 
-Note that each participant is creating their own copy to work on. Also,
-we are not forking the directory but creating a copy (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
-5. Make sure to select your personal account and set the name of the project to `python-intermediate-inflammation` (you can call it
-anything you like, but it may be easier for future group exercises if everyone uses the same name). Also set the new repository's visibility to
-'Public' - so it can be seen by others and by third-party Continuous Integration (CI) services (to be covered later on in the course).
-![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
-6. Click the `Create repository from template` button and wait for GitHub to import the copy of the repository under your account.
+1. Make sure you have a GitHub account
+   and that you have set up your SSH key pair for authentication with GitHub,
+   as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
+2. Log into your GitHub account.
+3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+   in GitHub.
+
+   ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
+
+4. Click the `Use this template` button
+   towards the top right of the template repository's GitHub page to create
+   a **copy** of the repository under your GitHub account
+   (you will need to be signed into GitHub to see the `Use this template` button).
+   Note that each participant is creating their own copy to work on.
+   Also, we are not forking the directory but creating a copy
+   (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
+5. Make sure to select your personal account
+   and set the name of the project to `python-intermediate-inflammation`
+   (you can call it anything you like,
+   but it may be easier for future group exercises if everyone uses the same name).
+   Also set the new repository's visibility to 'Public' -
+   so it can be seen by others and by third-party Continuous Integration (CI) services
+   (to be covered later on in the course).
+
+   ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
+
+6. Click the `Create repository from template` button
+   and wait for GitHub to import the copy of the repository under your account.
 7. Locate the copied repository under your own GitHub account.
-![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
+
+   ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
 
 > ## Exercise: Obtain the Software Project Locally
-> Using the command line, clone the copied repository from your GitHub account into the home directory on your computer using SSH.
+> Using the command line, clone the copied repository
+> from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
-> > 1. Find the SSH URL of the software project repository to clone from your GitHub account. Make sure you do not clone the
-original template repository but rather your own copy, as you should be able to push commits to it later on. Also 
-make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
+> > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
+> > Make sure you do not clone the original template repository but rather your own copy,
+> > as you should be able to push commits to it later on.
+> > Also make sure you select the **SSH tab** and not the **HTTPS** one -
+> > you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
+> >
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
+> >
 > > 2. Make sure you are located in your home directory in the command line with:
 > >     ~~~
 > >     $ cd ~
@@ -82,16 +114,16 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 > >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
 > >     ~~~
 > >     {: .language-bash}
-> > Make sure you are cloning your copy of the software project and not the template repository.
+> >    Make sure you are cloning your copy of the software project and not the template repository.
 > >
 > > 4. Navigate into the cloned repository folder in your command line with:
 > >     ~~~
 > >     $ cd python-intermediate-inflammation
 > >     ~~~
 > >     {: .language-bash}
-> > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one, you can easily fix that from
-> > your project folder in the command line with:
-> >     ~~~ 
+> > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one,
+> > you can easily fix that from your project folder in the command line with:
+> >     ~~~
 > >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
 > >     ~~~
 > >     {: .language-bash}
@@ -99,8 +131,10 @@ make sure you select the **SSH tab** and not the **HTTPS** one - you'll be able 
 {: .challenge}
 
 ### Our Software Project Structure
-Let’s inspect the content of the software project from the command line. From the root directory of the project, you can
- use the command `ls -l` to get a more detailed list of the contents. You should see something similar to the following.
+Let’s inspect the content of the software project from the command line.
+From the root directory of the project,
+you can use the command `ls -l` to get a more detailed list of the contents.
+You should see something similar to the following.
 
 ~~~
 $ cd ~/python-intermediate-inflammation
@@ -114,13 +148,18 @@ drwxr-xr-x   4 carpentry  users   128 20 Apr 15:41 tests
 ~~~
 {: .language-bash}
 
-As can be seen from the above, our software project contains the `README` file (that typically describes the project,
-its usage, installation, authors and how to contribute), Python script `inflammation-analysis.py`,
-and three directories - `inflammation`, `data` and `tests`.
+As can be seen from the above, our software project contains the `README` file
+(that typically describes the project, its usage, installation, authors and how to contribute),
+Python script `inflammation-analysis.py`,
+and three directories -
+`inflammation`, `data` and `tests`.
 
-The Python script `inflammation-analysis.py` provides the main
-entry point in the application, and on closer inspection, we can see that the `inflammation` directory contains two more Python scripts -
-`views.py` and `models.py`. We will have a more detailed look into these shortly.
+The Python script `inflammation-analysis.py` provides
+the main entry point in the application,
+and on closer inspection,
+we can see that the `inflammation` directory contains two more Python scripts -
+`views.py` and `models.py`.
+We will have a more detailed look into these shortly.
 
 ~~~
 $ ls -l inflammation
@@ -131,7 +170,8 @@ total 24
 ~~~
 {: .language-bash}
 
-Directory `data` contains several files with patients’ daily inflammation information (along with some other files):
+Directory `data` contains several files with patients’ daily inflammation information
+(along with some other files):
 
 ~~~
 $ ls -l data
@@ -155,7 +195,8 @@ total 264
 ~~~
 {: .language-bash}
 
-As [previously mentioned](#what-is-the-format-of-the-data), each of the inflammation data files contains separate trial data for 60 patients over 40 days.
+As [previously mentioned](#what-is-the-format-of-the-data),
+each of the inflammation data files contains separate trial data for 60 patients over 40 days.
 
 > ## Exercise: Have a Peek at the Data
 > Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
@@ -174,132 +215,182 @@ As [previously mentioned](#what-is-the-format-of-the-data), each of the inflamma
 > {: .solution}
 {: .challenge}
 
-Directory `tests` contains several tests that have been implemented already. We will be adding more tests
-during the course as our code grows.
+Directory `tests` contains several tests that have been implemented already.
+We will be adding more tests during the course as our code grows.
 
-An important thing to note here is that the structure of the project
-is not arbitrary. One of the big differences between novice and intermediate software development is
-planning the structure of your code. This structure includes software components and behavioural interactions between
-them (including how these components are laid out in a directory and file structure).
-A novice will often make up the structure of their code as they go along. However, for more advanced software development,
+An important thing to note here is that the structure of the project is not arbitrary.
+One of the big differences between novice and intermediate software development is
+planning the structure of your code.
+This structure includes software components and behavioural interactions between them
+(including how these components are laid out in a directory and file structure).
+A novice will often make up the structure of their code as they go along.
+However, for more advanced software development,
 we need to plan this structure - called a *software architecture* - beforehand.
 
-Let's have a more detailed look
-into what a software architecture is and which architecture is used by our software project before we
-start adding more code to it.
+Let's have a more detailed look into what a software architecture is
+and which architecture is used by our software project
+before we start adding more code to it.
 
 ## Software Architecture
-A software architecture is the fundamental structure of a software system that is decided at the beginning of
-project development based on its requirements and cannot be changed that easily once implemented. It refers to a "bigger picture" of
-a software system that describes high-level components (modules) of the system and how they interact.
+A software architecture is the fundamental structure of a software system
+that is decided at the beginning of project development
+based on its requirements and cannot be changed that easily once implemented.
+It refers to a "bigger picture" of a software system
+that describes high-level components (modules) of the system
+and how they interact.
 
-In software design and development, large systems or programs are often decomposed into a set of smaller
-modules each with a subset of functionality. Typical examples of modules in programming are software libraries;
-some software libraries, such as `numpy` and `matplotlib` in Python, are bigger modules that contain several
-smaller sub-modules. Another example of modules are classes in object-oriented programming languages.
+In software design and development,
+large systems or programs are often decomposed into a set of smaller modules
+each with a subset of functionality.
+Typical examples of modules in programming are software libraries;
+some software libraries, such as `numpy` and `matplotlib` in Python,
+are bigger modules that contain several smaller sub-modules.
+Another example of modules are classes in object-oriented programming languages.
 
 > ## Programming Modules and Interfaces
-> Although modules are self-contained and independent elements to a large extent (they can depend on other modules),
-> there are well-defined ways of how they interact with one another. These rules of
-> interaction are called **programming interfaces** - they define how other modules (clients)
-> can use a particular module. Typically, an interface to a module includes rules on how a module can take input from
-> and how it gives output back to its clients. A client can be a human, in which case we also call these user
-> interfaces. Even smaller functional units such as functions/methods have clearly defined interfaces - a
-> function/method’s definition (also known as a *signature*) states what parameters it can take as input and what
-> it returns as an output.
+> Although modules are self-contained and independent elements to a large extent
+> (they can depend on other modules),
+> there are well-defined ways of how they interact with one another.
+> These rules of interaction are called **programming interfaces** -
+> they define how other modules (clients) can use a particular module.
+> Typically, an interface to a module includes
+> rules on how a module can take input from
+> and how it gives output back to its clients.
+> A client can be a human, in which case we also call these user interfaces.
+> Even smaller functional units such as functions/methods have clearly defined interfaces -
+> a function/method’s definition
+> (also known as a *signature*)
+> states what parameters it can take as input and what it returns as an output.
 >
 {: .callout}
 
-There are various software architectures around defining different ways of dividing the code into smaller modules
-with well defined roles, for example:
+There are various software architectures around defining different ways of
+dividing the code into smaller modules with well defined roles, for example:
 
-- [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), which we will look into in detail and use for our software project,
-- [Service-oriented architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture), which separates code into distinct services,
-accessible over a network by consumers (users or other services) that communicate with each other by passing data in a well-defined, shared format (protocol),
-- [Client-server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), where clients request content or service from a server, initiating communication sessions with servers, which await incoming requests (e.g. email, network printing, the Internet),
-- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture), is a type of architecture in which presentation, application processing and data management functions are split into distinct layers and may even be physically separated to run on separate machines - some more detail on this later in the course.
+- [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller),
+  which we will look into in detail and use for our software project,
+- [Service-oriented architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture),
+  which separates code into distinct services,
+  accessible over a network by consumers (users or other services)
+  that communicate with each other by passing data in a well-defined, shared format (protocol),
+- [Client-server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model),
+  where clients request content or service from a server,
+  initiating communication sessions with servers,
+  which await incoming requests (e.g. email, network printing, the Internet),
+- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture),
+  is a type of architecture in which presentation,
+  application processing
+  and data management functions
+  are split into distinct layers and may even be physically separated to run on separate machines -
+  some more detail on this later in the course.
 
 ### Model-View-Controller (MVC) Architecture
-MVC architecture divides the related program
-logic into three interconnected modules:
+MVC architecture divides the related program logic
+into three interconnected modules:
 
 - **Model** (data)
 - **View** (client interface),  and
 - **Controller** (processes that handle input/output and manipulate the data).
 
-**Model** represents the data used by a program and also contains operations/rules for manipulating and changing the data
-in the model.
-This may be a database, a file, a single data object or a series of objects - for example a table representing
-patients' data.
+**Model** represents the data used by a program and also contains operations/rules
+for manipulating and changing the data in the model.
+This may be a database, a file, a single data object or a series of objects -
+for example a table representing patients' data.
 
-**View** is the means of displaying data to users/clients within an application (i.e. provides visualisation of the
-state of the model).
-For example, displaying a window with input fields and buttons (Graphical User Interface, GUI) or textual options
-within a command line (Command Line Interface, CLI) are examples of Views.
-They include anything that the user can see from the application. While building GUIs is not the topic of this course,
+**View** is the means of displaying data to users/clients within an application
+(i.e. provides visualisation of the state of the model).
+For example, displaying a window with input fields and buttons (Graphical User Interface, GUI)
+or textual options within a command line (Command Line Interface, CLI) are examples of Views.
+They include anything that the user can see from the application.
+While building GUIs is not the topic of this course,
 we will cover building CLIs in Python in later episodes.
 
-**Controller** manipulates both the **Model** and the **View**. It accepts input from the **View** and performs the corresponding
-action on the **Model** (changing the state of the model) and then updates the **View** accordingly. For example, on user
-request, **Controller** updates a picture on a user's GitHub profile and then modifies the **View** by displaying the
-updated profile back to the user.
+**Controller** manipulates both the **Model** and the **View**.
+It accepts input from the **View**
+and performs the corresponding action on the **Model** (changing the state of the model)
+and then updates the **View** accordingly.
+For example, on user request,
+**Controller** updates a picture on a user's GitHub profile
+and then modifies the **View** by displaying the updated profile back to the user.
 
 #### MVC Examples
 
-MVC architecture can be applied in scientific applications in the following manner. Model comprises those parts of the application that deal with some type of
-scientific processing or manipulation of the data, e.g. numerical algorithm, simulation, DNA. View is
-a visualisation, or format, of the output, e.g. graphical plot, diagram, chart, data table, file.
-Controller is the part that ties the scientific processing and output parts together, mediating input and passing
-it to the model or view, e.g. command line options, mouse clicks, input files. For example, the diagram below
-depicts the use of MVC architecture for the [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
+MVC architecture can be applied in scientific applications in the following manner.
+Model comprises those parts of the application that deal with
+some type of scientific processing or manipulation of the data,
+e.g. numerical algorithm, simulation, DNA.
+View is a visualisation, or format, of the output,
+e.g. graphical plot, diagram, chart, data table, file.
+Controller is the part that ties the scientific processing and output parts together,
+mediating input and passing it to the model or view,
+e.g. command line options, mouse clicks, input files.
+For example, the diagram below depicts the use of MVC architecture for the
+[DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
 ![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
 {% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
 
 > ## Exercise: MVC Application Examples From your Work
-> Think of some other examples from your work or life where MVC architecture may be suitable or have a discussion
-> with your fellow learners.
+> Think of some other examples from your work or life
+> where MVC architecture may be suitable
+> or have a discussion with your fellow learners.
 > > ## Solution
 > > MVC architecture is a popular choice when designing web and mobile applications.
 > > Users interact with a web/mobile application by sending various requests to it.
-> > Forms to collect users inputs/requests together with the info returned and displayed to the user as a
-> > result represent the View. Requests are processed by the Controller, which interacts with the Model to retrieve or
-> > update the underlying data.
+> > Forms to collect users inputs/requests
+> > together with the info returned and displayed to the user as a result represent the View.
+> > Requests are processed by the Controller,
+> > which interacts with the Model to retrieve or update the underlying data.
 > > For example, a user may request to view its profile.
-> > The Controller retrieves the account information for the user from the Model and passes it to
-> > the View for rendering. The user may further interact with the application by asking it to update its personal information.
-> > Controller verifies the correctness of the information (e.g. the password satisfies certain criteria,
-> > postal address and phone number are in the correct format, etc.) and
-> > passes it to the Model for permanent storage. The View is then updated accordingly and the user sees its updated profile details.
+> > The Controller retrieves the account information for the user from the Model
+> > and passes it to the View for rendering.
+> > The user may further interact with the application
+> > by asking it to update its personal information.
+> > Controller verifies the correctness of the information
+> > (e.g. the password satisfies certain criteria,
+> > postal address and phone number are in the correct format, etc.)
+> > and passes it to the Model for permanent storage.
+> > The View is then updated accordingly and the user sees its updated profile details.
 > >
-> > Note that not everything fits into the MVC architecture but it is still good to think
-> > about how things could be split into smaller units.
-> > For a few more examples, have a look at this short [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
+> > Note that not everything fits into the MVC architecture
+> > but it is still good to think about how things could be split into smaller units.
+> > For a few more examples, have a look at this short
+> > [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
 > {: .solution}
 {: .challenge}
 
 > ## Separation of Concerns
-> Separation of concerns is important when designing software architectures in order to reduce the code's complexity.
-> Note, however, there are limits to everything - and MVC architecture is no exception. Controller often transcends
-> into Model and View and a clear separation is sometimes difficult to maintain. For example, the Command Line Interface
-> provides both the View (what user sees and how they interact with the command line) and the Controller
-> (invoking of a command)
-> aspects of a CLI application. In Web applications, Controller often manipulates the data (received from the Model)
+> Separation of concerns is important when designing software architectures
+> in order to reduce the code's complexity.
+> Note, however, there are limits to everything -
+> and MVC architecture is no exception.
+> Controller often transcends into Model and View
+> and a clear separation is sometimes difficult to maintain.
+> For example, the Command Line Interface provides both the View
+> (what user sees and how they interact with the command line)
+> and the Controller (invoking of a command) aspects of a CLI application.
+> In Web applications, Controller often manipulates the data (received from the Model)
 > before displaying it to the user or passing it from the user to the Model.
 >
 {: .callout}
 
 #### Our Project's MVC Architecture
 
-Our software project uses the MVC architecture. The file `inflammation-analysis.py` is the **Controller** module that
-performs basic statistical analysis over patient data and provides the main
-entry point into the application. The **View** and **Model** modules are contained
-in the files `views.py` and `models.py`, respectively, and are conveniently named. Data underlying the **Model** is
-contained within the directory `data` - as we have seen already it contains several files with patients’ daily inflammation information.
+Our software project uses the MVC architecture.
+The file `inflammation-analysis.py` is the **Controller** module
+that performs basic statistical analysis over patient data
+and provides the main entry point into the application.
+The **View** and **Model** modules are contained in the files `views.py` and `models.py`, respectively,
+and are conveniently named.
+Data underlying the **Model** is contained within the directory `data` -
+as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
-when we talk in more detail about software's [business/user/solution requirements](../31-software-requirements/index.html)
-and [software design](../32-software-design/index.html). We now proceed to set up our virtual development environment 
-and start working with the code using a more convenient graphical tool - [IDE PyCharm](https://www.jetbrains.com/pycharm/).
+when we talk in more detail about software's
+[business/user/solution requirements](../31-software-requirements/index.html)
+and [software design](../32-software-design/index.html).
+We now proceed to set up our virtual development environment
+and start working with the code using a more convenient graphical tool -
+[IDE PyCharm](https://www.jetbrains.com/pycharm/).
 
 {% include links.md %}
