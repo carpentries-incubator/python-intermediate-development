@@ -26,7 +26,21 @@ There should be a button with a histogram on the Jupyter notebook toolbar
 Click the button, or press `Alt-r` to launch the RISE presentation view.
 Use spacebar to advance slides. Presenter view with `t`.
 
-When the slides need to link to the course content, they assume the pages are hosted locally at `0.0.0.0:4000`. This is the default location where `make docker-serve` puts the website if you have build locally from this repo. The decision was made to link locally rather than too the live website to allow for local modifications of the content.
+When the slides need to link to the course content, they assume the pages are hosted locally at
+`0.0.0.0:4000`. This is the default location where `make docker-serve` puts the website if you have
+build locally from this repo. The decision was made to link locally rather than too the live website
+to allow for local modifications of the content.
+
+## Slide Export
+
+If you want to have the slides in HTML format for portability or printing, then please used the
+following bash command:
+
+```bash
+jupytext --from md:markdown --to notebook --output - <markdown_slide_file> | jupyter nbconvert --stdin --to slides --embed-images --output <html_output_filename>
+```
+
+To do this for all slides, use the bash script `slides/slies_to_html.bash`.
 
 ## Screen Arrangement for Remote Delivery
 
