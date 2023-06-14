@@ -40,7 +40,7 @@ following bash command:
 jupytext --from md:markdown --to notebook --output - <markdown_slide_file> | jupyter nbconvert --stdin --to slides --embed-images --output <html_output_filename>
 ```
 
-To do this for all slides, use the bash script `slides/slies_to_html.bash`.
+To do this for all slides, use the bash script `slides/slides_to_html.bash`.
 
 ## Screen Arrangement for Remote Delivery
 
