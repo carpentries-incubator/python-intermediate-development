@@ -88,7 +88,93 @@ There is value we get from following some sort of process:
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Software Requirements
 
+- How can we capture and organise what is required for software to function as intended?
+  - With software requirements of course!
+  - They are the linchpin of ensuring our software does what it is supposed to do
+- We will look at 3 types:
+  1. business requirements: the why
+  2. user requirements: the who and what
+  3. solution requirements: the how
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout: Reading and Exercises
+
+Read from the top of the "Software Requirements" page and do the exercises as you go.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+If you are using a shared document, you could have sections for each of the
+requirement types and get learners to write their suggestions in their.
+Afterwards, you could go through some of the suggestions and see whether there
+is agreement about whether they have been categorised correctly.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 5 Minute Break ☕
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Software Architecture and Design
+
+... or _Understanding what architecture and design mean for software,_ \
+_and how to incorporate requirements into an existing design/architecture_
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+The extended subtitle is necessary to make it clear that this section is both explaining what architecture and design are and how requirements feed into the process of designing and architecting our software.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+> **Software design** is the process by which an agent creates a specification of a software artifact intended to accomplish goals, using a set of primitive components and subject to constraints. Software design may refer to either "all the activity involved in conceptualizing, framing, implementing, commissioning, and ultimately modifying complex systems" or "the activity following requirements specification and before programming, as ... [in] a stylized software engineering process." 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+- Part of the software development process
+- Be careful: the _process_ of designing software **VERSUS** _a design_ of some software (sometimes called a _design model_)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- We don't want to get bogged down in definitions, but it is good to know the difference between software design and software architecture
+- Read definition of software design and subsequent points
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+> **Software architecture** refers to the fundamental structures of a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations. The architecture of a software system is a metaphor, analogous to the architecture of a building. It functions as a blueprint for the system and the developing project, laying out the tasks necessary to be executed by the design teams.
+
+- This can be thought of as a particular sub-category of the design model that becomes more important the larger your software project gets
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Software architecture tends to be a much higher level view with little detail about specific implementation, focussing rather on abstrated components and how they will interact
+  - a software degin model will be much lower level and refer to particular modules and classes
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Some Thoughts about Software Design
+
+- Requirements collections is the important prerequisite since they determine some of your design constraints; other design constraints will exist, however.
+- Draw it out!
+    - Use diagrams and schematics to try and visualise what a software programme/system will look like
+    - It doesn't have to be fancy; just having something is far better than nothing
+    - Seeing the connections between software components can usually help you further refine the design
+- Design it twice
+    - The more designs you consider, the higher the chance you will move towards a better one
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Also, emphasise the point from the course content: it is good to not get too caught up in the details of whether you are implementing an MVC architecture
+  - this is probably not an architecture that most would see or implement in research software
+  - but the point of separating the "model" from the "view" (i.e. plotting) is definitely something worthwhile
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout: Reading and Exercises
+
+Read from the heading "Software Architecture" near the top of the "Software Architecture and Design" page.
+
+For the "Exercise: Implementing Requirements", \
+🚨 **make sure you read the notes at the bottom in bold font** 🚨
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -122,161 +208,7 @@ There is value we get from following some sort of process:
   - it borrows elements from OO, functional, and procedural paradigms
   - you can write programs that are a mix of these paradigms, or more strictly stick to one, it is up to you (which can be both a good and bad thing)
   - more likely, you will write something where Python objects (so OO) are treated like data which is processed in a functional style
-- It is pretty hard to get a grasp of these concepts without practical concrete examples, so let's move along to the exercise on this page.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout Exercise: 🖉 1, 2, Fizz, 4, Buzz ... FizzBuzz
-
-Start from this section heading and go to the end of the page.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Send learners off to do exercises:
-- If learners need time to read through the content about paradigms (based on questions above), then give an additional 10 minutes to do that
-- Allow about 5 minutes for the FizzBuzz exercise
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### FizzBuzz across Paradigms and Languages
-
-#### R (declarative, functional)
-```r
-xx <- x <- 1:100
-xx[x %% 3 == 0] <- "Fizz"
-xx[x %% 5 == 0] <- "Buzz"
-xx[x %% 15 == 0] <- "FizzBuzz"
-xx
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-#### C (imperative, procedural)
-```cpp
-#include<stdio.h>
- 
-int main (void)
-{
-    int i;
-    for (i = 1; i <= 100; i++)
-    {
-        if (!(i % 15))
-            printf ("FizzBuzz");
-        else if (!(i % 3))
-            printf ("Fizz");
-        else if (!(i % 5))
-            printf ("Buzz");
-        else
-            printf ("%d", i);
- 
-        printf("\n");
-    }
-    return 0;
-}
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- The R example isn't strictly functional, but it gets the point across about a very _declarative_ approach to computing (and elegant and concise)
-  - no need for bulky `if` and `for` statements
-  - the Python version of this doesn't quite get the elegance and clarity that this one does
-- It is also worth noting that a lot of numpy syntax can become quite declarative and functional in its style.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Object Oriented Programming
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- the idea behind object-oriented programming to bundle data and methods together to represent objects
-  - this can be very intuitive, because we are used to working with objects in real life, and sometimes our software objects correspond quite closely to a real world object
-- the more technical term for this is encapsulation, but not overly important to know that
-- at the end of the day, we are again trying to create a well-defined _interface_ for how to interact with these objects / software components
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Decorators
-
-Decorators are _syntactic sugar_ for the case where we want to wrap a function with another function:
-
-```python
-def my_decorator(func):
-    def wrapper():
-        print("Before wrapped function")
-        func()
-        print("After wrapped function")
-    return wrapper
-
-# we can replace this
-def my_function():
-    print("Whee!")
-    
-my_function = my_decorator(my_function)
-my_function()
-
-# with this
-@my_decorator
-def my_function():
-    print("Whee!")
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Start from the Top
-
-Start reading from the top of this page all the way to the end. Complete exercises as you go.
-
-- It is fine to skip the **🖉 Structuring Data** exercise and just read it. Bottom line is that you can achieve a lot with built in data types, so don't jump to more advanced techniques if they aren't needed.
-- A note about the Book/Library exercises: create separate files from the existing ones
-  1. put a `library.py` under `models/`, and a `test_library.py` under `tests/`
-  2. or put both of these files under a separate directory `library/` at the top level of the repo
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Set learners into breakout rooms for 45 minutes with instructions on slide
-- Please take the note about Test Driven Development on board as much as possible: write a test for the feature before implementing the feature.
-<!-- TODO this doesn't seem to be the right place to have a discussion about TDD, but it is where the course brings it up. Think about where to put this in the future. -->
-- Post-exercise comment: there will probably be the temptation to inherit from the builtin `list` class when implementing `Library`. 
-  - Subclassing from builtin types is generally a bad idea for a host of complex reasons. 
-  - The most easily comprehensible is that by inheriting a builtin type, you inherit a lot of behaviour that you might not intend to have for your new class. 
-  - On the flip side, it is also quite restrictive. Is a Library really just a list? We might decide to add other functionality, like opening hours, later on. How does that data fit into the definition of a list? Well, it doesn't. 
-  - If you really want to inherit from something here, then the better approach is to use the `collections.abc` (abstract base class) module in Python and pick something from there that gets you closer to your desired functionality.
-- A note about inheritance vs composition is probably worthwhile
-  - Inheritance tends to be quite abused and IMO should not be used as often as it is; it leads to very complex hierarchies of classes that make it difficult to determine where something is actually defined
-  - Composition tends to lead to better outcomes in my experience
-- If anyone asks about Doctor OO implementation, some additional feature ideas
-  - using the `dataclass` decorator offers a lot of advantages for these classes
-  - adding an age to patients could be helpful (fairly simple)
-  - a date range (or start date) for a patient's observations
-  - a Study class that is a list of Doctors (perhaps too much)
-  - a CSV reader of patient data (and preferably groups of patients data)
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Class vs Static Methods
-
-One common use case for class methods is to create alternate _constructors_ for a class:
-
-```python
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
-
-    @classmethod
-    def from_diameter(cls, diameter):
-        return cls(radius=diameter / 2)
-```
-
-Then, we can create `Circle` objects using either the radius or diameter:
-
-```python
-circle_1 = Circle(radius=1)
-circle_2 = Circle.from_diameter(radius=2)
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 5 Minute Break ☕
+  - we will see how to use Python in these different styles in the next two sections
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -291,20 +223,15 @@ circle_2 = Circle.from_diameter(radius=2)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Start from the Top "What is a Function?"
+### Breakout: Start from the Top
 
-Start from the top of this page and read through, completing any exercises along the way. Like with the Book/Library exercise previously, it is recommended to put your new code into separate files/modules.
+Start from the top of this page and read through, completing any exercises along the way. It is recommended to put your new code that is unrelated to the inflammation project into separate files/modules.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Send learners into breakout rooms for about 40 minutes
 - Post-exercise comments
-- Invariably, the question will come up of when to use functional vs OO programming, and are the two mutually exclusive (i.e. do you have to use one or the other)
-  - as mentioned previously, it is unlikely you will do purely OO or functional programming, especially if you are using Python
-  - the two are certainly not mutually exclusive
 - Testability is a huge point that should be emphasised. Even if you aren't following a strict functional style, it is likely that incorporating parts of this style into your code will make it more testable.
-- Ask if anyone was able to get the `Pool.map` implementation to actually be quicker
-  - this could be a nice opportunity to talk about profiling, but likely not enough time
 - Next slide for comment about the `reduce` function
 <!-- #endregion -->
 
@@ -360,34 +287,41 @@ sum_of_squares(to_integer(remove_comments(sequence)))
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 10 Minute Break ☕
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Software Design
-
-> **Software design** is the process by which an agent creates a specification of a software artifact intended to accomplish goals, using a set of primitive components and subject to constraints. Software design may refer to either "all the activity involved in conceptualizing, framing, implementing, commissioning, and ultimately modifying complex systems" or "the activity following requirements specification and before programming, as ... [in] a stylized software engineering process." 
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
-- Part of the software development process
-- Be careful: the _process_ of designing software **VERSUS** _a design_ of some software (sometimes called a _design model_)
+## Object Oriented Programming
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- We don't want to get bogged down in definitions, but it is good to know the difference between software design and architecture
-- Read definition of software design and subsequent points
+- the idea behind object-oriented programming to bundle data and methods together to represent objects
+  - this can be very intuitive, because we are used to working with objects in real life, and sometimes our software objects correspond quite closely to a real world object
+- the more technical term for this is encapsulation, but not overly important to know that
+- at the end of the day, we are again trying to create a well-defined _interface_ for how to interact with these objects / software components
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-> **Software architecture** refers to the fundamental structures of a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations. The architecture of a software system is a metaphor, analogous to the architecture of a building. It functions as a blueprint for the system and the developing project, laying out the tasks necessary to be executed by the design teams.
+### Decorators
 
-- This can be thought of as a particular sub-category of the design model that becomes more important the larger your software project gets
-<!-- #endregion -->
+Decorators are _syntactic sugar_ for the case where we want to wrap a function with another function:
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Software architecture tends to be a much higher level view with little detail about specific implementation, focussing rather on abstrated components and how they will interact
-  - a software degin model will be much lower level and refer to particular modules and classes
+```python
+def my_decorator(func):
+    def wrapper():
+        print("Before wrapped function")
+        func()
+        print("After wrapped function")
+    return wrapper
+
+# we can replace this
+def my_function():
+    print("Whee!")
+    
+my_function = my_decorator(my_function)
+my_function()
+
+# with this
+@my_decorator
+def my_function():
+    print("Whee!")
+```
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -395,29 +329,64 @@ sum_of_squares(to_integer(remove_comments(sequence)))
 
 Start reading from the top of this page all the way to the end. Complete exercises as you go.
 
-For the **🖉 Types of Software** exercise, please take 5 minutes at the beginning of the session to write down answers to the questions in the shared document, and share your answers with your group.
+- It is fine to skip the **🖉 Structuring Data** exercise and just read it. Bottom line is that you can achieve a lot with built in data types, so don't jump to more advanced techniques if they aren't needed.
+- A note about the Book/Library exercises: create separate files from the existing ones
+  1. put a `library.py` under `models/`, and a `test_library.py` under `tests/`
+  2. or put both of these files under a separate directory `library/` at the top level of the repo
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Send learners into breakout rooms for about 35 minutes
+- Set learners into breakout rooms for 45 minutes with instructions on slide
+- Please take the note about Test Driven Development on board as much as possible: write a test for the feature before implementing the feature.
+<!-- TODO this doesn't seem to be the right place to have a discussion about TDD, but it is where the course brings it up. Think about where to put this in the future. -->
+- Invariably, the question will come up of when to use functional vs OO programming, and are the two mutually exclusive (i.e. do you have to use one or the other)
+  - as mentioned previously, it is unlikely you will do purely OO or functional programming, especially if you are using Python
+  - the two are certainly not mutually exclusive
+- Post-exercise comment: there will probably be the temptation to inherit from the builtin `list` class when implementing `Library`. 
+  - Subclassing from builtin types is generally a bad idea for a host of complex reasons. 
+  - The most easily comprehensible is that by inheriting a builtin type, you inherit a lot of behaviour that you might not intend to have for your new class. 
+  - On the flip side, it is also quite restrictive. Is a Library really just a list? We might decide to add other functionality, like opening hours, later on. How does that data fit into the definition of a list? Well, it doesn't. 
+  - If you really want to inherit from something here, then the better approach is to use the `collections.abc` (abstract base class) module in Python and pick something from there that gets you closer to your desired functionality.
+- A note about inheritance vs composition is probably worthwhile
+  - Inheritance tends to be quite abused and IMO should not be used as often as it is; it leads to very complex hierarchies of classes that make it difficult to determine where something is actually defined
+  - Composition tends to lead to better outcomes in my experience
+- If anyone asks about Doctor OO implementation, some additional feature ideas
+  - using the `dataclass` decorator offers a lot of advantages for these classes
+  - adding an age to patients could be helpful (fairly simple)
+  - a date range (or start date) for a patient's observations
+  - a Study class that is a list of Doctors (perhaps too much)
+  - a CSV reader of patient data (and preferably groups of patients data)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Some More Thoughts about Software Design
+### Class vs Static Methods
 
-- Requirements collections is the important prerequisite since they determine the design constraints; the questions you ask to collect requirements are similar to the exercise **🖉 Types of Software**, but there can be many more
-- Draw it out!
-    - Use diagrams and schematics to try and visualise what a software programme/system will look like
-    - It doesn't have to be fancy; just having something is far better than nothing
-    - Seeing the connections between software components can usually help you further refine the design
-- Design it twice
-    - The more designs you consider, the higher the chance you will move towards a better one
+One common use case for class methods is to create alternate _constructors_ for a class:
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @classmethod
+    def from_diameter(cls, diameter):
+        return cls(radius=diameter / 2)
+```
+
+Then, we can create `Circle` objects using either the radius or diameter:
+
+```python
+circle_1 = Circle(radius=1)
+circle_2 = Circle.from_diameter(radius=2)
+```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Also, emphasise the point from the course content: it is good to not get too caught up in the details of whether you are implementing an MVC architecture
-  - this is probably not an architecture that most would see or implement in research software
-  - but the point of separating the "model" from the "view" (i.e. plotting) is definitely something worthwhile
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 5 Minute Break ☕
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

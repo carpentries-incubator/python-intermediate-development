@@ -225,7 +225,7 @@ Please post your answers in the shared document.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Software Architecture
 
-**Theory covered later in Section 3: Software Design**
+**Theory covered later in Section 3: Software Architecture and Design**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
