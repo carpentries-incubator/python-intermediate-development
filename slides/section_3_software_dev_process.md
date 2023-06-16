@@ -1,5 +1,6 @@
 ---
 jupyter:
+  celltoolbar: Slideshow
   jupytext:
     formats: ipynb,md
     notebook_metadata_filter: rise,celltoolbar
@@ -14,11 +15,10 @@ jupyter:
     name: python3
   rise:
     theme: solarized
-  celltoolbar: Slideshow
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Section 3: Software Architecture and Design
+# Section 3: Software Development as a Process
 
 </br>
 </br>
@@ -26,10 +26,69 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- There is a lot bundled in here
-- We are again going to step up a level and look at the overall architecture of programs and how the different components interact. In contrast to our earlier discussion about architecture, we will be getting a bit more hands-on this time around now that we have had some experience with our project.
-- We will be looking at some important design paradigms like Object Oriented and Functional Programming
-- We will also look at tying up the MVA implementation of our example project
+- There is a lot bundled in here! Make it clear this will be a challenging section
+- We are going to step up a level and look at the overall process of developing software
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Writing Code versus Engineering Software
+
+- Software is _not_ just a tool for answering a research question
+- Writing code is only concerned with the implementation of software
+- Sofware Engineering views software in a holistic manner
+  - Software has a _lifecycle_ ♻
+  - Software has stakeholders 👥
+  - Software is an asset with its own inherent value 💵
+  - Software can be reused 🔁
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Software is _not_ just a tool for answering a research question
+  - Software is shared frequently between researchers and _reused_ after publication
+  - Therefore, we need to be concerned with more than just the implementation, i.e. "writing code"
+- Sofware Engineering views software in a holistic manner
+  - Software has a _lifecycle_: more on the next slide
+  - Software has stakeholders: it might just be you the researcher now, but invariably other people will be involved in using or developing the code eventually
+  - Software is an asset with its own inherent value: algorithms it contains and what those can do, encoded knowledge of lessons learned along the way, etc.
+  - Software can be reused: like with stakeholders, it is hard to predict how the software will be used in the future, and we want to make it easy for reuse to happen
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Software Development Lifecycle
+
+<center><img src="../fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
+
+<a href="https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg">Cliffydcw</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+The typical stages of a software development process can be categorised as follows:
+
+- Requirements gathering (coming up next): the process of identifying and recording the exact requirements for a software project before it begins. This helps maintain a clear direction throughout development, and sets clear targets for what the software needs to do.
+- Design (later in this section): where the requirements are translated into an overall design for the software. It covers what will be the basic software ‘components’ and how they’ll fit together, as well as the tools and technologies that will be used, which will together address the requirements identified in the first stage. Designs are quite dependent on what programming paradigm is used, something we will explore also in a later section.
+- Implementation (throughout this course): the software is developed according to the design, implementing the solution that meets the requirements set out in the requirements gathering stage.
+- Testing (done in section 2): the software is tested with the intent to discover and rectify any defects, and also to ensure that the software meets its defined requirements, i.e. does it actually do what it should do reliably?
+- Deployment (not shown on this figure): where the software is deployed or in some way released, and used for its intended purpose within its intended environment.
+- Maintenance/evolution: where updates are made to the software to ensure it remains fit for purpose, which typically involves fixing any further discovered issues and evolving it to meet new or changing requirements.
+
+The process of following these stages, particularly when undertaken in this order, is referred to as the waterfall model of software development.
+Each stage’s outputs flow into the next stage sequentially.
+As the cyclic nature of the image suggests, this linear process is not the only, nor necessarily the best, 
+way to think about the SDLC.
+
+There is value we get from following some sort of process:
+
+- Stage gating: a quality gate at the end of each stage, where stakeholders review the stage’s outcomes to decide if that stage has completed successfully before proceeding to the next one, or if the next stage is not warranted at all. For example, it may be discovered during requirements collection, design, or implementation that development of the software isn’t practical or even required.
+- Predictability: each stage is given attention in a logical sequence; the next stage should not begin until prior stages have completed. Returning to a prior stage is possible and may be needed, but may prove expensive, particularly if an implementation has already been attempted. However, at least this is an explicit and planned action.
+- Transparency: essentially, each stage generates output(s) into subsequent stages, which presents opportunities for them to be published as part of an open development process.
+- It saves time: a well-known result from empirical software engineering studies is that it becomes exponentially more expensive to fix mistakes in future stages. For example, if a mistake takes 1 hour to fix in requirements, it may take 5 times that during design, and perhaps as much as 20 times that to fix if discovered during testing.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Software Requirements
+
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
