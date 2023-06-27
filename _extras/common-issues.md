@@ -86,7 +86,7 @@ they will get the following error when trying to push a new workflow
 ~~~
 ! [remote rejected] test-suite -> test-suite (refusing to allow an OAuth App to create or update workflow `.github/workflows/main.yml` without `workflow` scope`
 ~~~
-{: .language-bash}
+{: .error}
 
 The solution is to generate a new token with the correct scope/usage permissions
 and clear the local credential cache (if that's where the token has been saved).
@@ -96,8 +96,11 @@ In same cases, simply clearing credential cache was not enough and updating to G
 If you experience the following error the first time you do a Git commit,
 you may not have configured your identity with Git on your machine:
 
-> fatal: unable to auto-detect email address
-> *** Please tell me who you are
+~~~
+fatal: unable to auto-detect email address
+*** Please tell me who you are
+~~~
+{: .error}
 
 This can be configured from the command line as follows:
 
@@ -129,9 +132,12 @@ $ git config --global core.editor "nano -w"
 When using `numpy` package installed via `pip` on a command line on a new Apple M1 Mac,
 you get a failed installation with the error:
 
-> ...
-> mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
-> ...
+~~~
+...
+mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
+...
+~~~
+{: .error}
 
 Numpy is a package heavily optimised for performance,
 and many parts of it are written in C and compiled for specific architectures,
