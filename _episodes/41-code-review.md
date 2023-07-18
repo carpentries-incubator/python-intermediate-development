@@ -24,8 +24,11 @@ so in this episode we'll be looking at how to manage the process of team softwar
 code by engaging in code review process with other team members.
 
 > ## Collaborative Code Development Models
-> The way your team provides contributions to the shared codebase depends on the type of development model you use in your project. 
+
+The way your team provides contributions to the shared codebase depends on the type of development model you use in your project. 
+
 Two commonly used models are:
+
 - **fork and pull model** - where anyone can **fork** an existing repository (to create their copy of the project linked to 
 the source) and push changes to their personal fork. 
 A contributor can work independently on their own fork as they 
@@ -39,10 +42,12 @@ external collaborator on a project rather than a core team member.
 - **shared repository model** - where collaborators are granted push access to a single shared code repository. 
 Even though collaborators have write access to the main 
 development and production branches, the best practice of creating feature branches for new developments and 
-when changes need to be made is still followed. This is to enable easier testing of the new code and 
+when changes need to be made is still followed.
+This is to enable easier testing of the new code and 
 initiate code review and general discussion about a set of changes before they are merged 
-into the development branch. This model is more prevalent with teams and organisations 
-collaborating on private projects.
+into the development branch. 
+This model is more prevalent with teams and organisations collaborating on private projects.
+
 {: .callout}
  
 Regardless of the collaborative code development model you and your collaborators use - code reviews are one of the 
