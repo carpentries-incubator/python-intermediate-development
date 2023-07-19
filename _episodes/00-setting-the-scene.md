@@ -40,11 +40,11 @@ mimics a typical software development process within a team.
 
 The course uses a number of different **software development tools and techniques**
 interchangeably as you would in a real life.
-We had to make some choices about topics and tools to teach here -
+We had to make some choices about topics and tools to teach here,
 based on established best practices,
 ease of tool installation for the audience,
 length of the course and other considerations.
-Tools used here are not mandated though -
+Tools used here are not mandated though: 
 alternatives exist and we point some of them out along the way.
 Over time, you will develop a preference for certain tools and programming languages
 based on your personal taste
@@ -52,8 +52,7 @@ or based on what is commonly used by your group, collaborators or community.
 However, the topics covered should give you a solid foundation for working on software development
 in a team and producing high quality software that is easier to develop
 and sustain in the future by yourself and others.
-Skills and tools taught here,
-while Python-specific,
+Skills and tools taught here, while Python-specific,
 are transferable to other similar tools and programming languages.
 
 The course is organised into the following sections:
