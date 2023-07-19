@@ -55,7 +55,7 @@ jupyter:
   - Manual testing
   - Automated testing
     - Unit tests
-    - Funcitonal or integration tests
+    - Functional or integration tests
     - Regression tests
 <!-- #endregion -->
 
