@@ -405,6 +405,26 @@ Going back to our list of requirements, how easy is it to run these tests? We ca
 > Other unit testing frameworks exist for Python, including Nose2 and Unittest, and the approach to unit testing can be translated to other languages as well, e.g. FRUIT for Fortran, JUnit for Java (the original unit testing framework), Catch for C++, etc.
 {: .callout}
 
+> ## Why Use pytest over unittest?
+>
+> We could alternatively use another Python unit test framework, [unittest](https://docs.python.org/3/library/unittest.html),
+> which has the advantage of being installed by default as part of Python. This is certainly a solid and established 
+> option, however [pytest has many distinct advantages](https://realpython.com/pytest-python-testing/#what-makes-pytest-so-useful), 
+> particularly for learning, including:
+> 
+> - unittest requires additional knowledge of object-oriented frameworks (covered later in the course) 
+> to write unit tests, whereas in pytest these are written in simpler functions so is easier to learn
+> - Being written using simpler functions, pytest's scripts are more concise and contain less boilerplate, and thus are
+> easier to read
+> - pytest output, particularly in regard to test failure output, is generally considered more helpful and readable
+> - pytest has a vast ecosystem of plugins available if ever you need additional testing functionality
+> - unittest-style unit tests can be run from pytest out of the box!
+>
+> A common challenge, particularly at the intermediate level, is the selection of a suitable tool from many alternatives
+> for a given task. Once you've become accustomed to object-oriented programming you may find unittest a better fit
+> for a particular project or team, so you may want to revisit it at a later date!
+{: .callout}
+
 
 ### Installing Pytest
 
