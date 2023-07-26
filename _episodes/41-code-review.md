@@ -66,6 +66,8 @@ and improve our code by engaging in code review process with other team members.
 > Tick the check box saying require pull requests. This will ensure all changes to the
 > branch are done via a pull request.
 >
+> ![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
+>
 > It is recomended to also tick `Require approvals` and `Require status checks before merging`.
 > The first means someone besides the person who raised the pull request will need to approve the change.
 > The second ensures that CI has run succesfully before allowing the changes to be made.
