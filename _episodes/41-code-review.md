@@ -58,6 +58,8 @@ It also helps to keep the main branch stable, making it easier for other develop
 
 To protect the main branch in GitHub, go to the repository settings, select `Branches`. Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`). Tick the check box saying require pull requests. This will ensure all changes to the branch are done via a pull request. 
 
+![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
+
 It is recomended to also tick `Require approvals` and `Require status checks before merging`. The first means someone besides the person who raised the pull request will need to approve the change. The second ensures that CI has run succesfully before allowing the changes to be made. 
 
 See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule). 
