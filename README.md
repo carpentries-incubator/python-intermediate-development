@@ -58,8 +58,8 @@ Current maintainers of this lesson (in alphabetical order) are:
 
 * [Matthew Bluteau][matthew-bluteau]
 * [Steve Crouch][steve-crouch]
-* [Doug Lowe][doug-lowe]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
+* [Doug Lowe][doug-lowe]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
