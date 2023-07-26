@@ -30,29 +30,35 @@ and improve our code by engaging in code review process with other team members.
 > the type of development model you use in your project.
 > Two commonly used models are:
 >
-> - **fork and pull model** -
->   where anyone can **fork** an existing repository
->   (to create their copy of the project linked to the source)
->   and push changes to their personal fork.
->   A contributor can work independently on their own fork as they do not need
->   permissions on the source repository to push modifications to a fork they own.
->   The changes from contributors can then be **pulled** into the source repository
->   by the project maintainer on request and after a code review process.
->   This model is popular with open source projects as it
->   reduces the start up costs for new contributors
->   and allows them to work independently without upfront coordination
->   with source project maintainers.
->   So, for example, you may use this model when you are an external collaborator on a project
->   rather than a core team member.
-> - **shared repository model** -
->   where collaborators are granted push access to a single shared code repository.
->   Even though collaborators have write access to the main development and production branches,
->   the best practice of creating feature branches for new developments
->   and when changes need to be made is still followed.
->   This is to enable easier testing of the new code
->   and initiate code review and general discussion about a set of changes
->   before they are merged into the development branch.
->   This model is more prevalent with teams and organisations collaborating on private projects.
+>  * Fork and pull model
+>  * Shared repository model
+>
+> ### Fork and Pull Model
+>
+> Where anyone can **fork** an existing repository
+> (to create their copy of the project linked to the source)
+> and push changes to their personal fork.
+> A contributor can work independently on their own fork as they do not need
+> permissions on the source repository to push modifications to a fork they own.
+> The changes from contributors can then be **pulled** into the source repository
+> by the project maintainer on request and after a code review process.
+> This model is popular with open source projects as it
+> reduces the start up costs for new contributors
+> and allows them to work independently without upfront coordination
+> with source project maintainers.
+> So, for example, you may use this model when you are an external collaborator on a project
+> rather than a core team member.
+>
+> ### Shared Repository Model
+>
+> Where collaborators are granted push access to a single shared code repository.
+> Even though collaborators have write access to the main development and production branches,
+> the best practice of creating feature branches for new developments
+> and when changes need to be made is still followed.
+> This is to enable easier testing of the new code
+> and initiate code review and general discussion about a set of changes
+> before they are merged into the development branch.
+> This model is more prevalent with teams and organisations collaborating on private projects.
 {: .callout}
 
 Regardless of the collaborative code development model you and your collaborators use -
