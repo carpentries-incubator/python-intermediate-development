@@ -100,5 +100,5 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [styles]: https://github.com/carpentries/styles/
 [ssi]: https://software.ac.uk/
 [matthew-bluteau]: https://github.com/bielsnohr
-[doug-lowe][https://github.com/douglowe]
-[kamilla-kopec-harding][https://github.com/kkh451]
+[doug-lowe]: https://github.com/douglowe
+[kamilla-kopec-harding]: https://github.com/kkh451
