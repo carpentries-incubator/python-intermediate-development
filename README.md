@@ -77,6 +77,10 @@ under the [MIT licence][mit-license]. For more information, see [LICENSE.md](LIC
 
 To cite this lesson, please consult with [CITATION](CITATION).
 
+## Contact
+
+To get in touch with the lesson maintainers, send an email to [python-inter-inflammation@lists.carpentries.org](mailto:python-inter-inflammation@lists.carpentries.org).
+
 ## Acknowledgements
 
 Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the [UK's Software Sustainability Institute][ssi] via the [EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/S021779/1).
