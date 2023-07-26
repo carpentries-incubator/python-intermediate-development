@@ -62,6 +62,7 @@ Current maintainers of this lesson (in alphabetical order) are:
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
+* [Sam Mangham][sam-mangham]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
@@ -104,3 +105,4 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matthew-bluteau]: https://github.com/bielsnohr
 [doug-lowe]: https://github.com/douglowe
 [kamilla-kopec-harding]: https://github.com/kkh451
+[sam-mangham]: https://github.com/smangham
