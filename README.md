@@ -25,8 +25,6 @@ process in a team, starting from an existing piece of software.
 The software project template repository used for this lesson is available at:
 <https://github.com/carpentries-incubator/python-intermediate-inflammation>.
 
-The lesson is using the official [Carpentries lesson template][styles].
-
 ### Lesson Status
 The lesson is currently in beta - it has been tested several times with 
 different cohorts by the lesson authors as well as independently by people not involved in the course development
@@ -56,9 +54,12 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 
 ## Maintainer(s)
 
-Current maintainers of this lesson are:
+Current maintainers of this lesson (in alphabetical order) are:
 
+* [Matthew Bluteau][matthew-bluteau]
 * [Steve Crouch][steve-crouch]
+* [Kamilla Kopec-Harding][kamilla-kopec-harding]
+* [Doug Lowe][doug-lowe]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
@@ -75,6 +76,10 @@ under the [MIT licence][mit-license]. For more information, see [LICENSE.md](LIC
 ## Citation
 
 To cite this lesson, please consult with [CITATION](CITATION).
+
+## Contact
+
+To get in touch with the lesson maintainers, send an email to [python-inter-inflammation@lists.carpentries.org](mailto:python-inter-inflammation@lists.carpentries.org).
 
 ## Acknowledgements
 
@@ -94,3 +99,6 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [mit-license]: https://opensource.org/licenses/MIT
 [styles]: https://github.com/carpentries/styles/
 [ssi]: https://software.ac.uk/
+[matthew-bluteau]: https://github.com/bielsnohr
+[doug-lowe]: https://github.com/douglowe
+[kamilla-kopec-harding]: https://github.com/kkh451
