@@ -48,13 +48,19 @@ external collaborator on a project rather than a core team member.
 ### Shared Repository Model
 
 Where collaborators are granted push access to a single shared code repository. 
-Even though collaborators have write access to the main 
-development and production branches, the best practice of creating feature branches for new developments and 
-when changes need to be made is still followed.
+By default, collaborators have write access to the main branch. 
+However, best practises is to create feature branches for new developments, and protect the main branch. 
 This is to enable easier testing of the new code and 
 initiate code review and general discussion about a set of changes before they are merged 
 into the development branch. 
 This model is more prevalent with teams and organisations collaborating on private projects.
+It also helps to keep the main branch stable, making it easier for other developers to work on the code. 
+
+To protect the main branch in GitHub, go to the repository settings, select `Branches`. Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`). Tick the check box saying require pull requests. This will ensure all changes to the branch are done via a pull request. 
+
+It is recomended to also tick `Require approvals` and `Require status checks before merging`. The first means someone besides the person who raised the pull request will need to approve the change. The second ensures that CI has run succesfully before allowing the changes to be made. 
+
+See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule). 
 
 {: .callout}
  
