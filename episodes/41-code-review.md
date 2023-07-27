@@ -277,7 +277,7 @@ Explain principle of checking for suitable tests
 >>
 >> In looking at the test you hopefully noticed that the test for numpy arrays is currently
 >> spuriously passing as it does not use the return value from the function in the assert.
-
+>>
 >> You may have spotted that the function actually computes the variance rather than
 >> the standard deviation. Perhaps that is even what made you think to add the test
 >> for some data where the variance and standard deviation are different.
