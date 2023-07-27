@@ -27,7 +27,7 @@ and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
 
-The lesson has 5 sections that can be delivered (approximately) over 5 half-days. The lesson is suitable either for 
+The lesson has 5 sections; each section can be delivered or worked through in self-learning mode over a half a day to a day depending on the pace (we would recommend setting aside 1 day per section to make sure the delivery is not rushed). The lesson is suitable either for 
 standard instructor-led delivery or for self-learning with some guidance from instructors who can provide help 
 and answer questions (synchronously or asynchrounously) as learners go through the course. Initially, in sections 1-3 
 of the lesson, learners are working on a software project and going though exercises on their own. In sections 4 and 5,
