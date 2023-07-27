@@ -229,7 +229,7 @@ Outline the kinds of things you are looking for in a code review:
 >> **Is the code readable**
 >>
 >> * Unclear function name `s_dev` - uses an uncommon abbreviation increasing mental load
->>    when reading code that calls this function
+>>    when reading code that calls this function, prefer `standard_deviation`.
 >> * Variable `number` not clear what it contains - prefer buiness name like `mean` or `mean_of_data`
 >>
 >> **Is the code minimal**
