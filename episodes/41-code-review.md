@@ -65,32 +65,6 @@ and something you should adopt in your development process too.
 where one or several people from the team (different from the code's author)
 check the software by viewing parts of its source code.
 
-> ## Group Exercise: Advantages of Code Review
-> Discuss as a group: what do you think are the reasons behind, and advantages of, code review?
-> > ## Solution
-> > The purposes of code review include:
-> > - improving internal code readability, understandability, quality and maintainability
-> > - checking for coding standards compliance, code uniformity and consistency
-> > - checking for test coverage and detecting bugs and code defects early
-> > - detecting performance problems and identifying code optimisation points
-> > - finding alternative/better solutions.
-> >
-> > An effective code review prevents errors from creeping into your software
-> > by improving code quality at an early stage of the software development process.
-> > It helps with learning, i.e. sharing knowledge about the codebase,
-> > solution approaches,
-> > expectations regarding quality,
-> > coding standards, etc.
-> > Developers use code review feedback from more senior developers
-> > to improve their own coding practices and expertise.
-> > Finally, it helps increase the sense of collective code ownership and responsibility,
-> > which in turn helps increase the "bus factor"
-> > and reduce the risk resulting from information and capabilities
-> > being held by a single person "responsible" for a certain part of the codebase
-> > and not being shared among team members.
-> {: .solution}
-{: .challenge}
-
 Code review is one of the most useful team code development practices -
 someone checks your design or code for errors, they get to learn from your solution,
 having to explain code to someone else clarifies
@@ -109,49 +83,6 @@ Since the cost of bug fixes grows in orders of magnitude throughout the software
 it is far more efficient to find and fix defects
 as close as possible to the point where they were introduced.
 
-There are several **code review techniques** with various degree of formality
-and the use of a technical infrastructure, including:
-
-- **Over-the-shoulder code review**
-  is the most common and informal of code review techniques and involves
-  one or more team members standing over the code author's shoulder
-  while the author walks the reviewers through a set of code changes.
-- **Email pass-around code review**
-  is another form of lightweight code review where the code author
-  packages up a set of changes and files and sends them over to reviewers via email.
-  Reviewers examine the files and differences against the code base,
-  ask questions and discuss with the author and other developers,
-  and suggest changes over email.
-  The difficult part of this process is the manual collection the files under review
-  and noting differences.
-- **Pair programming**
-  is a code development process that incorporates continuous code review -
-  two developers sit together at a computer,
-  but only one of them actively codes whereas the other provides real-time feedback.
-  It is a great way to inspect new code and train developers,
-  especially if an experienced team member walks a younger developer through the new code,
-  providing explanations and suggestions through a conversation.
-  It is conducted in-person and synchronously but it can be time-consuming
-  as the reviewer cannot do any other work during the pair programming period.
-- **Fagan code inspection**
-  is a formal and heavyweight process of finding defects in specifications or designs
-  during various phases of the software development process.
-  There are several roles taken by different team members in a Fagan inspection
-  and each inspection is a formal 7-step process with a predefined entry and exit criteria.
-  See [Fagan inspection](https://en.wikipedia.org/wiki/Fagan_inspection)
-  for full details on this method.
-- **Tool-assisted code review**
-  process uses a specialised tool to facilitate the process of code review,
-  which typically helps with the following tasks:
-  (1) collecting and displaying the updated files and highlighting what has changed,
-  (2) facilitating a conversation between team members (reviewers and developers), and
-  (3) allowing code administrators and product managers
-  a certain control and overview of the code development workflow.
-  Modern tools may provide a handful of other functionalities too, such as metrics
-  (e.g. inspection rate, defect rate, defect density).
-
-Each of the above techniques have their pros and cons and varying degrees practicality -
-it is up to the team to decide which ones are most suitable for the project and when to use them.
 We will have a look at the **tool-assisted code review process**
 using GitHub's built-in code review tool - **pull requests**.
 It is a lightweight tool, included with GitHub's core service for free
@@ -245,106 +176,8 @@ The following diagram depicts the branches that you should have in the repositor
 Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)
 </p>
 
-To achieve this, the following steps are needed.
 
-#### Step 1: Adding Collaborators to a Shared Repository
-
-You need to add the other team member(s) as collaborator(s) on your repository
-to enable them to create branches and pull requests.
-To do so, each repository owner needs to:
-
-1. Head over to Settings section of your software project's repository in GitHub.
-   ![Accessing settings for a repository in GitHub](../fig/github-settings.png){: .image-with-shadow width="900px"}
-2. Select the **vertical** tab 'Collaborators' from the left and click the 'Add people' button.
-   ![Managing access to a repository in GitHub](../fig/github-manage-access.png){: .image-with-shadow width="900px"}
-3. Add your collaborator(s) by their GitHub username(s), full name(s) or email address(es).
-   ![Adding collaborators to a repository in GitHub](../fig/github-add-collaborators.png){: .image-with-shadow width="900px"}
-4. Collaborator(s) will be notified of your invitation to join your repository
-   based on their notification preferences.
-5. Once they accept the invitation, they will have the collaborator-level access to your repository
-   and will show up in the list of your collaborators.
-
-See the full details on
-[collaborator permissions for personal repositories](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)
-to understand what collaborators will be able to do within your repository.
-Note that repositories owned by an organisation have a
-[more granular access control](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github)
-compared to that of personal repositories.
-
-#### Step 2: Preparing Your Local Environment for a Pull Request
-
-1. Obtain the GitHub URL of the shared repository you will be working on and clone it locally
-   (make sure you do it outside your software repository's folder you have been working on so far).
-   This will create a copy of the repository locally on your machine
-   along with all of its (remote) branches.
-   ~~~
-   $ git clone <remote-repo-url>
-   $ cd <remote-repo-name>
-   ~~~
-   {: .language-bash}
-2. Check with the repository owner (your team member)
-   which feature (SR1.1.1 or SR1.2.1) they implemented in the
-   [previous exercise](/32-software-design/index.html#implement-requirements)
-   and what is the name of the branch they worked on.
-   Let's assume the name of the branch was `feature-x`
-   (you should amend the branch name for your case accordingly).
-3. Your task is to add tests for the code on `feature-x` branch.
-   You should do so on a separate branch called `feature-x-tests`,
-   which will branch off `feature-x`.
-   This is to enable you later on to create a pull request
-   from your `feature-x-tests` branch with your changes
-   that can then easily be reviewed and compared with `feature-x`
-   by the team member who created it.
-
-   To do so, branch off a new local branch `feature-x-tests` from the remote `feature-x` branch
-   (making sure you use the branch names that match your case).
-   Also note that, while we say "remote" branch `feature-x` -
-   you have actually obtained it locally on your machine when you cloned the remote repository.
-   ~~~
-   $ git checkout -b feature-x-tests origin/feature-x
-   ~~~
-   {: .language-bash}
-
-   You are now located in the new (local) `feature-x-tests` branch
-   and are ready to start adding your code.
-
-#### Step 3: Adding New Code
-
-> ## Exercise: Implement Tests for the New Feature
-> Look back at the
-> [solution requirements](/31-software-requirements/index.html#solution-requirements)
-> (SR1.1.1 or SR1.2.1)
-> for the feature that was implemented in your shared repository.
-> Implement tests against the appropriate specification in your local feature branch.
->
-> *Note: Try not to not fall into the trap of
-> writing the tests to test the existing code/implementation -
-> you should write the tests to make sure the code satisfies the requirements
-> regardless of the actual implementation.
-> You can treat the implementation as a
-> [black box](https://en.wikipedia.org/wiki/Black-box_testing) -
-> a typical approach to software testing -
-> as a way to make sure it is properly tested against its requirements
-> without introducing assumptions into the tests about its implementation.*
-{: .challenge}
-
-> ## Testing Based on Requirements
-> Tests should test functionality,
-> which stem from the software requirements,
-> rather than an implementation.
-> Tests can be seen as a reflection of those requirements -
-> checking if the requirements are satisfied.
-{: .callout}
-
-Remember to commit your new code to your branch `feature-x-tests`.
-
-~~~
-$ git add -A
-$ git commit -m "Added tests for feature-x."
-~~~
-{: .language-bash}
-
-#### Step 4: Submitting a Pull Request
+### Raising a pull request
 
 When you have finished adding your tests
 and committed the changes to your local `feature-x-tests`,
@@ -373,17 +206,44 @@ you have to do the following:
 
 You should receive a similar pull request from other team members on your repository.
 
-#### Step 5: Code Review
+### Things to look for in a code review
 
-1. The repository moderator/code reviewers reviews your changes
-   and provides feedback to you in the form of comments.
-2. Respond to their comments and do any subsequent commits,
-   as requested by reviewers.
-3. It may take a few rounds of exchanging comments and discussions until
-   the team is ready to accept your changes.
+Outline the kinds of things you are looking for in a code review:
 
-Perform the above actions on the pull request you received,
-this time acting as the moderator/code reviewer.
+* Readable
+* Minimal
+* Clean structure
+* Documentation
+
+#### Exercise: review some code
+
+Points the attendee to review code looking for these things
+
+#### Solution
+
+Highlights the kind of problems they should have found
+
+### Making sure code is valid
+
+Explain principle of checking for suitable tests
+
+#### Exercise: review the code for suitable tests
+
+#### Solution
+
+List of tests, highlighting the ones that are missing
+
+### What not to look for
+
+Covering what is a poor use of time to look for in reviews
+
+### Responding to review comments
+
+Technical explanation of how to respond to comments, also etiquette.
+
+### Exercise: responding and addressing comments
+
+Get people to address review comments, perhaps with dialogue
 
 #### Step 6: Closing a Pull Request
 
@@ -464,6 +324,18 @@ and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-
      `CHANGES REQUESTED` to let the author know
      they need to fix the requested changes or discuss more;
      `APPROVED` to let the author they can merge their pull request.
+
+## Making code easy to review
+
+Info on how to make code easier for others to review
+
+## Empathy in review comments
+
+Info on importance of empathy
+
+## Designing a review process
+
+Considerations on how to design an effective code review process for your team.
 
 > ## Exercise: Code Review in Your Own Working Environment
 >
