@@ -215,23 +215,27 @@ Outline the kinds of things you are looking for in a code review:
 * Clean structure
 * Documentation
 
-#### Exercise: review some code
-
-Points the attendee to review code looking for these things
-
-#### Solution
-
-Highlights the kind of problems they should have found
+> ## Exercise: review some code
+>
+> Points the attendee to review code looking for these things
+>
+>> ## Solution
+>>
+>> Highlights the kind of problems they should have found
+> {: .solution}
+{: .challenge}
 
 ### Making sure code is valid
 
 Explain principle of checking for suitable tests
 
-#### Exercise: review the code for suitable tests
-
-#### Solution
-
-List of tests, highlighting the ones that are missing
+> ## Exercise: review the code for suitable tests
+>
+>> ## Solution
+>>
+>> List of tests, highlighting the ones that are missing
+> {: .solution}
+{: .challenge}
 
 ### What not to look for
 
@@ -241,9 +245,10 @@ Covering what is a poor use of time to look for in reviews
 
 Technical explanation of how to respond to comments, also etiquette.
 
-### Exercise: responding and addressing comments
-
-Get people to address review comments, perhaps with dialogue
+> ## Exercise: responding and addressing comments
+>
+> Get people to address review comments, perhaps with dialogue
+{: .challenge}
 
 #### Step 6: Closing a Pull Request
 
