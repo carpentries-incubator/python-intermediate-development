@@ -349,7 +349,7 @@ test in the PR for.
 >> the standard deviation. Perhaps that is even what made you think to add the test
 >> for some data where the variance and standard deviation are different.
 >> In more complex examples, it is often easier to spot code that looks like it could  be wrong
->> and think of a test that will exercise it. This saves embarassement if the code turns out
+>> and think of a test that will exercise it. This saves embarrassment if the code turns out
 >> to be right, means you have the missing test written if it is wrong, and is often quicker
 >> than trying to execute the code in your head to find out if it is correct.
 >>
