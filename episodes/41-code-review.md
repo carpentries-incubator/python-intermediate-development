@@ -298,7 +298,26 @@ of this PR. Ideally provide an idea (e.g. better variable name).
 
 ### Making sure code is valid
 
-Explain principle of checking for suitable tests
+The other key thing you want to verify in code review is that the code is correct and
+well tested. One approach to do this is to build up a list of tests you expect to see
+(and the results you'd expect them to have), and then verify that all these tests are
+present and correct.
+
+Start by listing out all the tests you'd expect to see based on the specification.
+
+As you are going through the code, add to this list with any more tests you think
+of, making sure to add tests for:
+
+* All paths through the code.
+* Making each if statement be evaluated as `True` and `False`.
+* All loops are exercised with empty, single and multi-element sequences.
+* Edge cases that you spot.
+* Any code that you're not sure how it behaves under certain circumstances.
+
+Once you have built the list, go through the tests in the PR. Make sure
+the tests test what you expect (so inspect them closely!). Add a comment
+to the PR for any tests that are on your list that you can't find a suitable
+test in the PR for.
 
 > ## Exercise: review the code for suitable tests
 >
@@ -382,8 +401,6 @@ Here are some examples of best practices for you to consider
 Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)
 and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
 
-1. Decide the focus of your code review process, e.g., consider some of the following:
-   - tests - does the code have automated tests?
 2. Do not review code too quickly and do not review for too long in one sitting.
    According to
    [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) -
