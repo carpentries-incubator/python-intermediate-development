@@ -217,9 +217,10 @@ Outline the kinds of things you are looking for in a code review:
 
 > ## Exercise: review some code
 >
-> Go back to the pull request you created, and review the code, looking for the kinds
-> of problems that we have just discussed. There are examples of all the 4 main areas
-> in the pull request, so try to make at least one suggestion for each area.
+> Pick someone else in the group and go to the pull request they created.
+> Review the code, looking for the kinds of problems that we have just discussed.
+> There are examples of all the 4 main areas in the pull request,
+> so try to make at least one suggestion for each area.
 >
 >> ## Solution
 >>
@@ -299,7 +300,15 @@ Technical explanation of how to respond to comments, also etiquette.
 
 > ## Exercise: responding and addressing comments
 >
-> Get people to address review comments, perhaps with dialogue
+> Look at the PR that you created on your repo, that should now have someone elses comments
+> on it.
+> For each comment, either reply explaining why you don't think the change is necessary
+> or make the change and push a commit fixing it. You can reply to the comment indicating you
+> have done it.
+>
+> At the same time, people will be addressing your comments. If you're happy that your
+> comment has been suitably addressed, you can mark it as resolved. Once you're happy they
+> have all been addressed, you can approve the PR.
 {: .challenge}
 
 #### Step 6: Closing a Pull Request
