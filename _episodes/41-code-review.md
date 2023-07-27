@@ -254,9 +254,38 @@ Explain principle of checking for suitable tests
 
 > ## Exercise: review the code for suitable tests
 >
+> Remind yourself of the specification of UR1.1.1 and write a list of
+> tests you'd expect to see for this feature. Review the code again and
+> expand this list to include any other edge cases the code makes you think
+> of. Finally, go through the tests in the PR and work out which tests are present.
+> Request changes for any tests that you think are missing.
+>
 >> ## Solution
 >>
->> List of tests, highlighting the ones that are missing
+>> Your list might include the following:
+>>
+>> 1. Standard deviation for one patient with multiple observations.
+>> 2. Standard deviation for two patients.
+>> 3. Graph includes a standard deviation graph.
+>> 4. Standard deviation function should raise an error if given empty data.
+>> 5. Computing standard deviation where deviation is different from variance.
+>> 6. Standard deviation function should give correct result given negative inputs.
+>> 7. Function should work with numpy arrays
+>>
+>> Looking at the tests in the PR, you might be content that tests for 1, 4 and 7 are present
+>> so you would request changes to add tests 2, 3, 5 and 6.
+>>
+>> In looking at the test you hopefully noticed that the test for numpy arrays is currently
+>> spuriously passing as it does not use the return value from the function in the assert.
+
+>> You may have spotted that the function actually computes the variance rather than
+>> the standard deviation. Perhaps that is even what made you think to add the test
+>> for some data where the variance and standard deviation are different.
+>> In more complex examples, it is often easier to spot code that looks like it could  be wrong
+>> and think of a test that will exercise it. This saves embarassement if the code turns out
+>> to be right, means you have the missing test written if it is wrong, and is often quicker
+>> than trying to execute the code in your head to find out if it is correct.
+>>
 > {: .solution}
 {: .challenge}
 
