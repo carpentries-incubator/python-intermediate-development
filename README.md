@@ -21,7 +21,7 @@ automate the process of testing and verifying its correctness and support collab
 
 ### Lesson Status
 
-The lesson is currently in beta - it has been over 10 times times with 
+The lesson is currently in beta - it has been run over 10 times times with 
 different cohorts by the lesson authors as well as independently by people not directly involved in the lesson development
 and is in a good state to be reused and taught by others.
 
