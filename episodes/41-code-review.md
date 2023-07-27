@@ -208,12 +208,59 @@ You should receive a similar pull request from other team members on your reposi
 
 ### Things to look for in a code review
 
-Outline the kinds of things you are looking for in a code review:
+Reviewing code effectively takes practise. However, here is some guidance on the
+kinds of things you should be looking for when reviewing a piece of code.
 
-* Readable
-* Minimal
-* Clean structure
-* Documentation
+Start by understanding what the code _should_ do, by reading the specification/user requriement,
+the pull request description and talking to the developer.
+
+Once you're happy, start reading the code (skip any tests for now). You're
+going to be assessing the code in 4 key areas:
+
+* Is the code readable
+* Is the code a minimal change
+* Is the structure of the code clear
+* Is there appropriate and up-to-date documentation
+
+#### Is the code readable
+
+Think about do the names of the variables, do they [follow guidelines for good
+names?](../15-coding-conventions/index.html#l#naming-conventions)
+
+Do you understand what conditions in if statements are for?
+
+#### Is the code a minimal change
+
+Does the code reimplement anything that already exists, either
+elsewhere in the codebase or in a library you know about?
+
+Does the code implement something that isn't on the ticket?
+
+#### Is the structure of the code clear
+
+Do functions do just one thing? Have appropriate design
+patterns been used (e.g. separating out the model logic from
+any view considerations)?
+
+#### Is there appropriate and up-to-date documentation
+
+If functionality has changed, has corresponding documentation been
+updated. If new functions have been added, do they have appropriate
+levels of documentation. Does the documentation make sense?
+
+Are there clear and useful comments that explain complex designs
+and focus on the "why/because" rather than the "what/how"?
+
+### Effective comments
+
+Make sure your comments are specific and actionable.
+
+Try to be as specific as you can, rather than "this code is unclear"
+prefer, "I don't understand what values this variable can hold".
+
+Make it clear in the comment if you want something to change as part
+of this PR. Ideally provide an idea (e.g. better variable name).
+
 
 > ## Exercise: review some code
 >
@@ -336,16 +383,7 @@ Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term
 and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
 
 1. Decide the focus of your code review process, e.g., consider some of the following:
-   - code design and functionality -
-     does the code fit in the overall design and does it do what was intended?
-   - code understandability and complexity -
-     is the code readable and would another developer be able to understand it?
    - tests - does the code have automated tests?
-   - naming - are names used for variables and functions descriptive,
-     do they follow naming conventions?
-   - comments and documentation -
-     are there clear and useful comments that explain complex designs well
-     and focus on the "why/because" rather than the "what/how"?
 2. Do not review code too quickly and do not review for too long in one sitting.
    According to
    [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) -
@@ -359,8 +397,6 @@ and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-
    e.g. reserve them for critical portions of code and avoid nit-picking on small details.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
-4. Communicate clearly and effectively -
-   when reviewing code, be explicit about the action you request from the author.
 5. Foster a positive feedback culture:
    - give feedback about the code, not about the author
    - accept that there are multiple correct solutions to a problem
