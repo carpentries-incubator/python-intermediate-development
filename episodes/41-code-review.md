@@ -217,11 +217,34 @@ Outline the kinds of things you are looking for in a code review:
 
 > ## Exercise: review some code
 >
-> Points the attendee to review code looking for these things
+> Go back to the pull request you created, and review the code, looking for the kinds
+> of problems that we have just discussed. There are examples of all the 4 main areas
+> in the pull request, so try to make at least one suggestion for each area.
 >
 >> ## Solution
 >>
->> Highlights the kind of problems they should have found
+>> Here are some of the things you might have found were wrong with the code:
+>>
+>> **Is the code readable**
+>>
+>> * Unclear function name `s_dev` - uses an uncommon abbreviation increasing mental load
+>>    when reading code that calls this function
+>> * Variable `number` not clear what it contains - prefer buiness name like `mean` or `mean_of_data`
+>>
+>> **Is the code minimal**
+>>
+>> * Could have used `np.std` to compute standard deviation of data without having to reimplement
+>>   from scratch.
+>>
+>> **Does the code have a clean structure**
+>>
+>> * Have the function return the data, rather than having the graph name (a view layer consideration)
+>>    leak into the model code.
+>>
+>> **Is the documentation up to date and correct**
+>>
+>> * The docs say it returns the standard deviation, but it actually returns a dictionary containing
+>>    the standard deviation.
 > {: .solution}
 {: .challenge}
 
