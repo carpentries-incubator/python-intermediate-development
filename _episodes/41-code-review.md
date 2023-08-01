@@ -482,7 +482,27 @@ and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-
 
 ## Making code easy to review
 
-Info on how to make code easier for others to review
+There are a few things you can do when raising a pull request to make it
+as easy as possible for the reviewer to review your code:
+
+The most important thing to keep in mind is how long your pull request is. Smaller
+changes, that just make one small improvement, will be much quicker and easier to
+review. There is no golden rule, but 100 - 500 lines is a good size. More than
+1000 lines is almost certainly too big.
+
+Even within a single review, try to keep each commit to be making one logical change.
+This can help if your review would otherwise be too large. In particular, if you've
+reformatted, refactored and changed the behavior of the code make sure each of these
+is in a separate commit (i.e reformat the code, commit, refactor the code, commit, alter
+the behavior of the code, commit).
+
+Make sure you write a clear description of the content and purpose of the change.
+This should be provided as the pull request description.
+This should provide the context that reading the code will make more sense.
+
+It is also a good idea to review your code yourself. In doing this you will spot
+the more obvious issues with your code, allowing your reviewer to focus on the
+things you cannot spot.
 
 ## Empathy in review comments
 
