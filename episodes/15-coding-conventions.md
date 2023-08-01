@@ -330,7 +330,7 @@ Some things to be wary of when naming things in the code:
 
 - Avoid any names that could cause confusion (e.g. lower case `l` is
   hard to distinguish from a `1` (one)).
-- Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
+- Avoid using non-ASCII (e.g. Unicode) characters for identifiers
 - If your audience is international and English is the common language,
   try to use English words for identifiers and comments whenever possible
   but try to avoid abbreviations/local slang as they may not be understood by everyone.
