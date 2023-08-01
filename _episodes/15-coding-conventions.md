@@ -338,7 +338,7 @@ Some things to be wary of when naming things in the code:
   Also consider sticking with either ‘American’ or 'British' English spellings
   and try not to mix the two.
 
-> ## Function, Variable, Class, Module, Package Naming
+> ## Function, Variable, Class, Module, Package Naming in Python
 >
 > - Function and variable names should be lowercase,
 >   with words separated by underscores as necessary to improve readability.
