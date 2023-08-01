@@ -71,8 +71,8 @@ so it's worth taking a bit of time looking into this file format.
 [YAML](https://www.commonwl.org/user_guide/yaml/)
 (a recursive acronym which stands for "YAML Ain't Markup Language")
 is a language designed to be human readable.
-The three basic things you need to know about YAML to get started with GitHub Actions are
-key-value pairs, arrays, and maps.
+The four basic things you need to know about YAML to get started with GitHub Actions are
+key-value pairs, arrays, maps and multi-line strings.
 
 So firstly, YAML files are essentially made up of **key-value** pairs,
 in the form `key: value`, for example:
