@@ -341,6 +341,9 @@ Some things to be wary of when naming things in the code:
 > ## Function, Variable, Class, Module, Package Naming in Python
 >
 > - Function and variable names should use lower_case_with_underscores
+> - Avoid single character names in almost all instances.
+> - Variable names should tell you what they store, and not just the type (e.g. `name_of_patient` is better than `string`)
+> - Function names should tell you what the function does.
 > - Class names should use the CapitalisedWords convention.
 > - Modules should have short, all-lowercase names.
 >   Underscores can be used in the module name if it improves readability.
