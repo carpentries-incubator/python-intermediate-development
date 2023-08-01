@@ -328,12 +328,8 @@ Failing that, just pick one, document it and stick to it.
 
 Some things to be wary of when naming things in the code:
 
-- Avoid using the characters 'l' (lowercase letter L),
-  'O' (uppercase letter o),
-  or 'I' (uppercase letter i)
-  as single character variable names.
-  In some fonts, these characters are indistinguishable from the numerals one and zero.
-  When tempted to use 'l', use 'L' instead.
+- Avoid any names that could cause confusion (e.g. lower case `l` is
+  hard to distinguish from a `1` (one)).
 - Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
 - If your audience is international and English is the common language,
   try to use English words for identifiers and comments whenever possible
