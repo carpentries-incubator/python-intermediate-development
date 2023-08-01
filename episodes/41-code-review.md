@@ -450,10 +450,6 @@ and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-
    e.g. reserve them for critical portions of code and avoid nit-picking on small details.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
-5. Foster a positive feedback culture:
-   - give feedback about the code, not about the author
-   - accept that there are multiple correct solutions to a problem
-   - sandwich criticism with positive comments and praise
 7. Utilise multiple code review techniques -
    use email,
    pair programming,
@@ -506,7 +502,22 @@ things you cannot spot.
 
 ## Empathy in review comments
 
-Info on importance of empathy
+Code is written by humans (mostly!), and code review is a form of communication. As such
+empathy is really important for effective reviewing.
+
+When reviewing code, it can be sometimes frustrating when code is confusing, particularly
+as it will be implemented differently to how you would have done it. However, it is important
+as a reviewer to be compassionate to the person whose code you are reviewing. Specifically:
+
+* Identify positives in code as and when you find them (particularly if it is an improvement on
+something you've previously fed back on in a previous review).
+* Remember different doesn't mean better - only request changes if the code is wrong or hard to understand.
+* Limit the number of non-critical suggestions to a few - you are aiming for better rather than perfect.
+* Ask questions to understand why something has been done a certain way rather than assuming you
+know a better way.
+* If a conversation is taking place on a review and hasn't been resolved by a
+single back-and-forth exchange, then schedule a conversation to discuss instead
+(recording the result on the PR).
 
 ## Designing a review process
 
