@@ -382,7 +382,23 @@ raise a PR after this one has been merged fixing the thing you spotted.
 
 ### Responding to review comments
 
-Technical explanation of how to respond to comments, also etiquette.
+When you receive comments on your review, there are a few different things that you will want
+to do.
+
+With some, you will understand and agree with what the reviewer is saying. With these comments,
+you should make the change to your code on your branch. Once you've made the change you can
+commit it. It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
+you have addressed it.
+
+TODO: screenshot of adding a emoji reaction.
+
+With some, the comment might not make total sense. You can reply to comments for clarification.
+
+TODO: screenshot of adding a comment.
+
+However, if you disagree, or are really lost on what they are driving it, it will be best to
+talk to them in person. Discussions done on code reviews can often feel quite adversarial -
+discussing what the best solution is in person can often defuse this.
 
 > ## Exercise: responding and addressing comments
 >
