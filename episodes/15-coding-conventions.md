@@ -321,7 +321,11 @@ e.g HTTPServerError)
 - Capitalised_Words_With_Underscores
 
 As with other style guide recommendations - consistency is key.
-Pick one and stick to it, or follow the one already established if joining a project mid-way.
+Follow the one already established in the project, if there is one.
+If there isn't, follow any standard language style (such as
+[PEP8](https://www.python.org/dev/peps/pep-0008/) for Python).
+Failing that, just pick one, document it and stick to it.
+
 Some things to be wary of when naming things in the code:
 
 - Avoid using the characters 'l' (lowercase letter L),
