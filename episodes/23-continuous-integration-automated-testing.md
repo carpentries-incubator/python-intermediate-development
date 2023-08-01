@@ -143,6 +143,20 @@ first_scaled_by:
 
 So here we have a YAML array of our two mountaineers,
 each with additional keys offering more information.
+
+GitHub Actions also makes use of `|` symbol to indicate a multi-line string
+that preserves new lines. For example:
+
+~~~
+shakespeare_couplet: |
+  Good night, good night. Parting is such sweet sorrow
+  That I shall say good night till it be morrow.
+~~~
+{: .language-yaml}
+
+They key `shakespeare_couplet` would hold the full two line string,
+preserving the new line after sorrow.
+
 As we'll see shortly, GitHub Actions workflows will use all of these.
 
 ### Defining Our Workflow
