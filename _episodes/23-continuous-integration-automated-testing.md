@@ -94,8 +94,8 @@ like this:
 
 ~~~
 first_scaled_by:
-  - Hans Meyer
-  - Ludwig Purtscheller
+- Hans Meyer
+- Ludwig Purtscheller
 ~~~
 {: .language-yaml}
 
@@ -132,12 +132,12 @@ Let's say we want to add more detail to our list of initial ascenders:
 ~~~
 ...
 first_scaled_by:
-  - name: Hans Meyer
-    date_of_birth: 22-03-1858
-    nationality: German
-  - name: Ludwig Purtscheller
-    date_of_birth: 22-03-1858
-    nationality: Austrian
+- name: Hans Meyer
+  date_of_birth: 22-03-1858
+  nationality: German
+- name: Ludwig Purtscheller
+  date_of_birth: 22-03-1858
+  nationality: Austrian
 ~~~
 {: .language-yaml}
 
