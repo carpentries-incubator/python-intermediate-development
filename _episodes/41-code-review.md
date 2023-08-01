@@ -521,7 +521,26 @@ single back-and-forth exchange, then schedule a conversation to discuss instead
 
 ## Designing a review process
 
-Considerations on how to design an effective code review process for your team.
+To maximize the benefit of a code review it needs a process that is followed by everyone
+involved, and that everyone believes that process provides value.
+
+One way to foster this is to design the process as a team. When you're doing this you
+should consider:
+
+* Do all changes need to go through code review
+* What technologies will you use to manage the review process
+* How quickly do you expect someone to review the code once you've raised a PR?
+* How long should be spent reviewing code?
+* What kind of issues are (and aren't) appropriate to raise in a PR?
+* How will someone know when they are expected to take action (e.g. review a PR).
+
+Once you've introduced a review process, you should monitor (either formally or
+informally) how well it is working.
+
+It is important that reviews are processed quickly, to avoid costly context switching.
+We recommend aiming for 3 hours to get a first review, with the PR being merged the same
+day in most cases. If you are regularly missing these targets, then you should review
+where things are getting stuck and work out what you can do to move things along.
 
 > ## Exercise: Code Review in Your Own Working Environment
 >
