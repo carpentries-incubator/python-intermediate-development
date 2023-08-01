@@ -316,7 +316,7 @@ There are a lot of different naming styles in use, including:
 - b (single lowercase letter)
 - B (single uppercase letter)
 - lowercase
-- lower_case_with_underscores
+- lower_case_with_underscores (or snake_case)
 - UPPERCASE
 - UPPER_CASE_WITH_UNDERSCORES
 - CapitalisedWords (or PascalCase) (note: when using acronyms in CapitalisedWords, capitalise all the letters of the acronym,
