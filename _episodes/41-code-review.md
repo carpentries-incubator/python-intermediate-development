@@ -358,7 +358,27 @@ test in the PR for.
 
 ### What not to look for
 
-Covering what is a poor use of time to look for in reviews
+The overriding priority for reviewing code should be making sure progress is being made -
+don't let perfect be the enemy of good here. Further, research has shown that the first hour
+of reviewing code is the most effective, with diminishing returns after that.
+
+To that end, here are a few things you shouldn't be trying to spot when reviewing:
+
+#### Linting issues, or anything else that an automated tool can spot
+
+Get the CI to do this - this will save the reviewer time, be more accurate
+and avoid needless conflict.
+
+#### Bugs
+
+It is easier to make sure there are sufficient tests - you are not an accurate
+computer simulator anyway.
+
+#### Issues that pre-date the change
+
+You may spot something that the reviewer didn't introduce and think they could
+fix it while in the area, but this can be a rabbit hole. A better approach would be to
+raise a PR after this one has been merged fixing the thing you spotted.
 
 ### Responding to review comments
 
