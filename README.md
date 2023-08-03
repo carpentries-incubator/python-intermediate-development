@@ -34,8 +34,10 @@ of the lesson, learners are working on a software project and going though exerc
 In sections 4 and 5,
 they are grouped and work in teams, as they would when collaborating on a team software project development.
 
-The lesson has 5 sections; each section can be delivered or worked through in self-learning mode over a half a day to a day 
-depending on the pace (we would recommend setting aside 1 day per section to make sure the delivery is not rushed). 
+The lesson has 5 sections; 
+each section can be delivered or worked through in self-learning mode over a half a day to a day, 
+depending on the pace.
+We would recommend setting aside one day per section to make sure the delivery is not rushed. 
 
 If you would like to teach this lesson to your audience and help with more beta testing, 
 please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
