@@ -54,25 +54,11 @@ and improve our code by engaging in code review process with other team members.
 > In this model, collaborators are granted push access to a single shared code repository.
 > By default, collaborators have write access to the main branch.
 > However, it is best practice to create feature branches for new developments,
-> and protect the main branch.
-> This is to enable easier testing of the new code
-> and initiate code review and general discussion about a set of changes
-> before they are merged into the development branch.
+> and protect the main branch. See our [recommended GitHub settings](../github-repo-settings#protecting-the-main-branch)
+> for how to do this.
+> While it requires more upfront coordination, it is easier to share each others
+> work, so it works well for more stable teams.
 > This model is more prevalent with teams and organizations collaborating on private projects.
-> It also helps to keep the main branch stable, making it easier for other developers to work on the code.
->
-> To protect the main branch in GitHub, go to the repository settings, select `Branches`.
-> Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`).
-> Tick the check box saying require pull requests. This will ensure all changes to the
-> branch are done via a pull request.
->
-> ![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
->
-> It is recommended to also tick `Require approvals` and `Require status checks before merging`.
-> The first means someone besides the person who raised the pull request will need to approve the change.
-> The second ensures that CI has run successWfully before allowing the changes to be made.
->
-> See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 {: .callout}
 
 Regardless of the collaborative code development model you and your collaborators use -
