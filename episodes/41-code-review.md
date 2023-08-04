@@ -427,8 +427,6 @@ Repeat the above actions for the pull request on your repository.
 
 ## Best Practice for Code Review
 
-   Try using automated checks and linters when possible,
-   e.g. for consistent usage of certain terminology across the code and code styles.
 9. From a more technical perspective:
 
 ## Making code easy to review
