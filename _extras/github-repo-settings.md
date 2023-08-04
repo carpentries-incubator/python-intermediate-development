@@ -1,24 +1,8 @@
 ---
-title: "Additional Material: GitHub Repo Settings"
-layout: episode
-teaching: 5
-exercises: 5
-questions:
-- "What are the recommend settings for a GitHub repository?"
-- "How can we prevent inadvertent pushes to main that don't go through code review?"
-objectives:
-- "How to set up branch protection on the main branch"
-keypoints:
-- "Setting branch protection ensures everyone is following the same process."
+title: "Additional Material: Protecting the Main Branch on a Shared GitHub Repository"
 ---
 
 ## Introduction
-
-Here outlines some recommendations for how a GitHub repository should be configured.
-These are particularly important when working on a shared repository (as described in
-the [code review episode](../41-code-review#collaborative-code-development-models)).
-
-## Protecting the main branch
 
 By default, any collaborator can push to any branch on a shared repository.
 It is possible to prevent this by "protecting" the main branch.
@@ -30,7 +14,7 @@ This has a number of advantages:
 * Ensures everyone follows a code review process.
 * Ensures all changes are checked by continuous integration.
 
-### How to protect the main branch
+## How to protect the main branch
 
 To protect the main branch in GitHub, go to the repository settings, select `Branches`.
 Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`).
