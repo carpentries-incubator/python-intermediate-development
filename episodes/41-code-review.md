@@ -53,12 +53,12 @@ and improve our code by engaging in code review process with other team members.
 >
 > In this model, collaborators are granted push access to a single shared code repository.
 > By default, collaborators have write access to the main branch.
-> However, best practises is to create feature branches for new developments,
+> However, it is best practice to create feature branches for new developments,
 > and protect the main branch.
 > This is to enable easier testing of the new code
 > and initiate code review and general discussion about a set of changes
 > before they are merged into the development branch.
-> This model is more prevalent with teams and organisations collaborating on private projects.
+> This model is more prevalent with teams and organizations collaborating on private projects.
 > It also helps to keep the main branch stable, making it easier for other developers to work on the code.
 >
 > To protect the main branch in GitHub, go to the repository settings, select `Branches`.
@@ -68,9 +68,9 @@ and improve our code by engaging in code review process with other team members.
 >
 > ![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
 >
-> It is recomended to also tick `Require approvals` and `Require status checks before merging`.
+> It is recommended to also tick `Require approvals` and `Require status checks before merging`.
 > The first means someone besides the person who raised the pull request will need to approve the change.
-> The second ensures that CI has run succesfully before allowing the changes to be made.
+> The second ensures that CI has run successWfully before allowing the changes to be made.
 >
 > See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 {: .callout}
