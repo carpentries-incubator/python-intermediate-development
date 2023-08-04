@@ -83,6 +83,14 @@ Since the cost of bug fixes grows in orders of magnitude throughout the software
 it is far more efficient to find and fix defects
 as close as possible to the point where they were introduced.
 
+There are several **code review techniques** with various degree of formality
+and the use of a technical infrastructure, including:
+
+ - Over-the-shoulder code review
+ - Pair programming
+ - [Fagan code inspection]((https://en.wikipedia.org/wiki/Fagan_inspection))
+ - Tool assisted code review
+
 We will have a look at the **tool-assisted code review process**
 using GitHub's built-in code review tool - **pull requests**.
 It is a lightweight tool, included with GitHub's core service for free
