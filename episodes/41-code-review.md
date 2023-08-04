@@ -425,10 +425,6 @@ discussing what the best solution is in person can often defuse this.
 
 Repeat the above actions for the pull request on your repository.
 
-## Best Practice for Code Review
-
-9. From a more technical perspective:
-
 ## Making code easy to review
 
 There are a few things you can do when raising a pull request to make it
