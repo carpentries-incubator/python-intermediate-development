@@ -73,7 +73,6 @@ and improve our code by engaging in code review process with other team members.
 > The second ensures that CI has run succesfully before allowing the changes to be made.
 >
 > See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
-
 {: .callout}
 
 Regardless of the collaborative code development model you and your collaborators use -
