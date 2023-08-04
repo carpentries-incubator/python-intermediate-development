@@ -179,34 +179,30 @@ Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/work
 </p>
 
 
-### Raising a pull request
+### Raising a pull request for your fictional colleague
 
-When you have finished adding your tests
-and committed the changes to your local `feature-x-tests`,
-and are ready for the others in the team to review them,
-you have to do the following:
-
-1. Push your local feature branch `feature-x-tests` remotely to the shared repository.
-   ~~~
-   $ git push -u origin feature-x-tests
-   ~~~
-   {: .language-bash}
-2. Head over to the remote repository in GitHub
-   and locate your new (`feature-x-tests`) branch from the dropdown box on the Code tab
+1. Head over to the remote repository in GitHub
+   and locate your colleagues (`std-dev`) branch from the dropdown box on the Code tab
    (you can search for your branch or use the "View all branches" option).
    ![All repository branches in GitHub](../fig/github-branches.png){: .image-with-shadow width="600px"}
-3. Open a pull request by clicking "Compare & pull request" button.
+2. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-4. Select the base and the head branch, e.g. `feature-x` and `feature-x-tests`, respectively.
+3. Select the base and the head branch, e.g. `main` and `std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
    and the head branch contains your changes.
-5. Add a comment describing the nature of the changes,
+4. Add a comment describing the nature of the changes,
    and then submit the pull request.
-6. Repository moderator and other collaborators on the repository (code reviewers)
+5. Repository moderator and other collaborators on the repository (code reviewers)
    will be notified of your pull request by GitHub.
-7. At this point, the code review process is initiated.
+6. At this point, the code review process is initiated.
 
-You should receive a similar pull request from other team members on your repository.
+Find someone else to swap repositories with (i.e. you will review the pull request
+they just raised on their repository). If there are an odd number, three people could
+go round robin (i.e. person A reviews code on person Bs repo, who reviews code on
+person C's repository, who reviews the code on person A's repository).
+
+If you are completing the course on your own, you will switch to being the reviewer
+of the pull request you just opened.
 
 ### Things to look for in a code review
 
