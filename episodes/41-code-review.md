@@ -430,13 +430,6 @@ Repeat the above actions for the pull request on your repository.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
 9. From a more technical perspective:
-   - use pull request states in GitHub effectively (based on your team's code review process) -
-     e.g. in GitHub you can open a pull request in a `DRAFT` state
-     to show progress or request early feedback;
-     `READY FOR REVIEW` when you are ready for feedback;
-     `CHANGES REQUESTED` to let the author know
-     they need to fix the requested changes or discuss more;
-     `APPROVED` to let the author they can merge their pull request.
 
 ## Making code easy to review
 
@@ -499,6 +492,13 @@ should consider:
 * How long should be spent reviewing code?
 * What kind of issues are (and aren't) appropriate to raise in a PR?
 * How will someone know when they are expected to take action (e.g. review a PR).
+
+You could also consider using pull request states in GitHub:
+ - Open a pull request in a `DRAFT` state to show progress or request early feedback;
+ - `READY FOR REVIEW` when you are ready for feedback
+ - `CHANGES REQUESTED` to let the author know
+     they need to fix the requested changes or discuss more;
+ - `APPROVED` to let the author they can merge their pull request.
 
 Once you've introduced a review process, you should monitor (either formally or
 informally) how well it is working.
