@@ -427,9 +427,6 @@ Repeat the above actions for the pull request on your repository.
 
 ## Best Practice for Code Review
 
-3. Decide on the level of depth for code reviews
-   to maintain the balance between the creation time and time spent reviewing code -
-   e.g. reserve them for critical portions of code and avoid nit-picking on small details.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
 9. From a more technical perspective:
