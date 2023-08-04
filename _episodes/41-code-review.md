@@ -393,11 +393,11 @@ you should make the change to your code on your branch. Once you've made the cha
 commit it. It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
 you have addressed it.
 
-TODO: screenshot of adding a emoji reaction.
+![Adding a emoji reaction to a review comment](../fig/github-add-emoji.png)
 
 With some, the comment might not make total sense. You can reply to comments for clarification.
 
-TODO: screenshot of adding a comment.
+![Responding to a review comment](../fig/github-respond-to-review-comment.png)
 
 However, if you disagree, or are really lost on what they are driving it, it will be best to
 talk to them in person. Discussions done on code reviews can often feel quite adversarial -
