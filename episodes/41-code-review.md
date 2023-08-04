@@ -427,13 +427,6 @@ Repeat the above actions for the pull request on your repository.
 
 ## Best Practice for Code Review
 
-There are multiple perspectives to a code review process -
-from general practices to technical details relating to different roles involved in the process.
-Here are some examples of best practices for you to consider
-(also check these useful code review blogs from [
-Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)
-and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
-
 3. Decide on the level of depth for code reviews
    to maintain the balance between the creation time and time spent reviewing code -
    e.g. reserve them for critical portions of code and avoid nit-picking on small details.
@@ -547,5 +540,15 @@ where things are getting stuck and work out what you can do to move things along
 >   - Who would ideally be involved?
 >   - Any particular practices you would use?
 {: .challenge}
+
+## Other reading
+
+There are multiple perspectives to a code review process -
+from general practices to technical details relating to different roles involved in the process.
+We have discussed the main points, but do check these useful code review blogs from [
+Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)
+and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/).
+
+The key thing is to try it, and iterate the process until it works well for your team.
 
 {% include links.md %}
