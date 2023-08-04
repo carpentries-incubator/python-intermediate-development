@@ -152,31 +152,25 @@ you will need to specify the base branch and the head branch.
 ## Code Review and Pull Requests In Action
 
 Let's see this in action -
-you and your fellow learners are going to be organised in small teams
-and assume to be collaborating in the shared repository model.
-You will be added as a collaborator to another team member's repository
-(which becomes the shared repository in this context)
-and, likewise, you will add other team members as collaborators on your repository.
-You can form teams of two and work on each other's repositories.
-If there are 3 members in your group you can go in a round robin fashion
-(the first team member does a pull request on the second member's repository
-and receives a pull request on their repository from the third team member).
-If you are going through the material on your own and do not have a collaborator,
-you can do pull requests on your own repository from one to another branch.
+you are going to act as a reviewer on a change to the codebase raised by a
+fictional colleague on one of your course mates' repository.
+Once this is done, you will then take on the role of the fictional colleague
+and respond to the review on your repository.
+If you are completing this course by yourself, you can raise the review on
+your own repository, review it there and finally respond to your own review
+comments. This is actually a very sensible thing to do in general - looking
+at your own code in a review window will allow you to spot mistakes you
+didn't see before!
 
-Recall [solution requirements SR1.1.1 and SR1.2.1](../31-software-requirements/index.html#solution-requirements)
+Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
-Your team member has implemented one of them according to the specification
-(let's call it `feature-x`)
-but tests are still missing.
-You are now tasked with implementing tests on top of that existing implementation
-to make sure the new feature indeed satisfies the requirements.
-You will propose changes to their repository
-(the shared repository in this context)
-via pull request (acting as the code author)
-and engage in code review with your team member (acting as a code reviewer).
-Similarly, you will receive a pull request on your repository from another team member,
-in which case the roles will be reversed.
+Your fictional colleague has implemented it according to the specification
+and pushed it to a branch `std-dev`.
+You will turn this branch into a pull request for your fictional colleague on your
+repository.
+You will then engage in code review for the change (acting as a code reviewer) on
+a course mates repository.
+Once complete, you will respond to the pull request on your repository from another team member,.
 The following diagram depicts the branches that you should have in the repository.
 
 ![Branches for a feature and its tests](../fig/exercise-feature-branch.svg){: .image-with-shadow width="800px"}
