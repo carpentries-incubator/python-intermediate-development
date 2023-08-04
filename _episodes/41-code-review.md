@@ -92,7 +92,7 @@ and the use of a technical infrastructure, including:
  - Tool assisted code review
 
 It is worth trying multiple code review techniques to see what works
-best for your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficent.
+best for you and your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficient.
 We will use GitHub's built-in code review tool - **pull requests**.
 It is a lightweight tool, included with GitHub's core service for free
 and has gained popularity within the software development community in recent years.
@@ -154,7 +154,7 @@ you will need to specify the base branch and the head branch.
 
 Let's see this in action -
 you are going to act as a reviewer on a change to the codebase raised by a
-fictional colleague on one of your course mates' repository.
+fictional colleague on one of your course mate's repository.
 Once this is done, you will then take on the role of the fictional colleague
 and respond to the review on your repository.
 If you are completing this course by yourself, you can raise the review on
@@ -170,8 +170,8 @@ and pushed it to a branch `std-dev`.
 You will turn this branch into a pull request for your fictional colleague on your
 repository.
 You will then engage in code review for the change (acting as a code reviewer) on
-a course mates repository.
-Once complete, you will respond to the pull request on your repository from another team member,.
+a course mate's repository.
+Once complete, you will respond to the pull request on your repository from another team member.
 The following diagram depicts the branches that you should have in the repository.
 
 ![Branches for a feature and its tests](../fig/exercise-feature-branch.svg){: .image-with-shadow width="800px"}
@@ -207,13 +207,14 @@ of the pull request you just opened.
 
 ### Things to look for in a code review
 
-Reviewing code effectively takes practise. However, here is some guidance on the
+Reviewing code effectively takes practice. However, here is some guidance on the
 kinds of things you should be looking for when reviewing a piece of code.
 
-Start by understanding what the code _should_ do, by reading the specification/user requriement,
-the pull request description and talking to the developer.
+Start by understanding what the code _should_ do, by reading the specification/user requirements,
+the pull request description and talking to the developer. In this case, understand what SR1.1.1
+means.
 
-Once you're happy, start reading the code (skip any tests for now). You're
+Once you're happy, start reading the code (skip the test code for now). You're
 going to be assessing the code in 4 key areas:
 
 * Is the code readable
@@ -226,7 +227,9 @@ going to be assessing the code in 4 key areas:
 Think about do the names of the variables, do they [follow guidelines for good
 names?](../15-coding-conventions/index.html#l#naming-conventions)
 
-Do you understand what conditions in if statements are for?
+Do you understand what conditions in each if statements are for?
+
+Do the function names match the behavior of the function.
 
 #### Is the code a minimal change
 
@@ -241,29 +244,35 @@ Do functions do just one thing? Have appropriate design
 patterns been used (e.g. separating out the model logic from
 any view considerations)?
 
+However, if you finding yourself suggesting a full redesign,
+then this is best done in person. Ideally big design questions
+would be addressed before code is written. If that hasn't happened,
+it is normally better to iterate on an imperfect architecture
+rather than throwing it away and starting again, but this will
+depend on the code in question.
+
 #### Is there appropriate and up-to-date documentation
 
 If functionality has changed, has corresponding documentation been
-updated. If new functions have been added, do they have appropriate
-levels of documentation. Does the documentation make sense?
+updated? If new functions have been added, do they have appropriate
+levels of documentation? Does the documentation make sense?
 
 Are there clear and useful comments that explain complex designs
 and focus on the "why/because" rather than the "what/how"?
 
-### Effective comments
+### Effective review comments
 
-Make sure your comments are specific and actionable.
+Make sure your review comments are specific and actionable.
 
 Try to be as specific as you can, rather than "this code is unclear"
 prefer, "I don't understand what values this variable can hold".
 
 Make it clear in the comment if you want something to change as part
-of this PR. Ideally provide an idea (e.g. better variable name).
-
+of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 
 > ## Exercise: review some code
 >
-> Pick someone else in the group and go to the pull request they created.
+> Pick someone else in the group and go to the pull request they created on their repo.
 > Review the code, looking for the kinds of problems that we have just discussed.
 > There are examples of all the 4 main areas in the pull request,
 > so try to make at least one suggestion for each area.
@@ -276,7 +285,7 @@ of this PR. Ideally provide an idea (e.g. better variable name).
 >>
 >> * Unclear function name `s_dev` - uses an uncommon abbreviation increasing mental load
 >>    when reading code that calls this function, prefer `standard_deviation`.
->> * Variable `number` not clear what it contains - prefer buiness name like `mean` or `mean_of_data`
+>> * Variable `number` not clear what it contains - prefer business name like `mean` or `mean_of_data`
 >>
 >> **Is the code minimal**
 >>
@@ -286,7 +295,7 @@ of this PR. Ideally provide an idea (e.g. better variable name).
 >> **Does the code have a clean structure**
 >>
 >> * Have the function return the data, rather than having the graph name (a view layer consideration)
->>    leak into the model code.
+>>   leak into the model code.
 >>
 >> **Is the documentation up to date and correct**
 >>
@@ -308,10 +317,10 @@ As you are going through the code, add to this list with any more tests you thin
 of, making sure to add tests for:
 
 * All paths through the code.
-* Making each if statement be evaluated as `True` and `False`.
+* Making each `if` statement be evaluated as `True` and `False`.
 * All loops are exercised with empty, single and multi-element sequences.
 * Edge cases that you spot.
-* Any code that you're not sure how it behaves under certain circumstances.
+* Any circumstances that you're not sure how certain code would behave.
 
 Once you have built the list, go through the tests in the PR. Make sure
 the tests test what you expect (so inspect them closely!). Add a comment
@@ -447,7 +456,7 @@ the behavior of the code, commit).
 
 Make sure you write a clear description of the content and purpose of the change.
 This should be provided as the pull request description.
-This should provide the context that reading the code will make more sense.
+This should provide the context needed to read the code.
 
 It is also a good idea to review your code yourself. In doing this you will spot
 the more obvious issues with your code, allowing your reviewer to focus on the
@@ -456,26 +465,26 @@ things you cannot spot.
 ## Empathy in review comments
 
 Code is written by humans (mostly!), and code review is a form of communication. As such
-empathy is really important for effective reviewing.
+empathy is important for effective reviewing.
 
 When reviewing code, it can be sometimes frustrating when code is confusing, particularly
 as it will be implemented differently to how you would have done it. However, it is important
 as a reviewer to be compassionate to the person whose code you are reviewing. Specifically:
 
 * Identify positives in code as and when you find them (particularly if it is an improvement on
-something you've previously fed back on in a previous review).
+  something you've previously fed back on in a previous review).
 * Remember different doesn't mean better - only request changes if the code is wrong or hard to understand.
-* Limit the number of non-critical suggestions to a few - you are aiming for better rather than perfect.
+* Only provide a few non-critical suggestions - you are aiming for better rather than perfect.
 * Ask questions to understand why something has been done a certain way rather than assuming you
-know a better way.
+  know a better way.
 * If a conversation is taking place on a review and hasn't been resolved by a
-single back-and-forth exchange, then schedule a conversation to discuss instead
-(recording the result on the PR).
+  single back-and-forth exchange, then schedule a conversation to discuss instead
+  (recording the results of the discussion in the PR).
 
 ## Designing a review process
 
-To maximize the benefit of a code review it needs a process that is followed by everyone
-involved, and that everyone believes that process provides value.
+To be effective, code review needs to be a process that is followed by everyone
+developing the code. Everyone should believe that process provides value.
 
 One way to foster this is to design the process as a team. When you're doing this you
 should consider:
