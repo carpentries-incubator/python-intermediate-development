@@ -430,8 +430,6 @@ Repeat the above actions for the pull request on your repository.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
 9. From a more technical perspective:
-   - don't force push to a pull request as it changes the repository history
-     and can corrupt your pull request for other collaborators
    - use pull request states in GitHub effectively (based on your team's code review process) -
      e.g. in GitHub you can open a pull request in a `DRAFT` state
      to show progress or request early feedback;
