@@ -25,55 +25,54 @@ Software is often designed and built as part of a team,
 so in this episode we'll be looking at how to manage the process of team software development
 and improve our code by engaging in code review process with other team members.
 
-> ## Collaborative Code Development Models
-> The way your team provides contributions to the shared codebase depends on
-> the type of development model you use in your project.
-> Two commonly used models are:
->
->  * Fork and pull model
->  * Shared repository model
->
-> ### Fork and Pull Model
->
-> In this model, anyone can **fork** an existing repository
-> (to create their copy of the project linked to the source)
-> and push changes to their personal fork.
-> A contributor can work independently on their own fork as they do not need
-> permissions on the source repository to push modifications to a fork they own.
-> The changes from contributors can then be **pulled** into the source repository
-> by the project maintainer on request and after a code review process.
-> This model is popular with open source projects as it
-> reduces the start up costs for new contributors
-> and allows them to work independently without upfront coordination
-> with source project maintainers.
-> So, for example, you may use this model when you are an external collaborator on a project
-> rather than a core team member.
->
-> ### Shared Repository Model
->
-> In this model, collaborators are granted push access to a single shared code repository.
-> By default, collaborators have write access to the main branch.
-> However, it is best practice to create feature branches for new developments,
-> and protect the main branch.
-> This is to enable easier testing of the new code
-> and initiate code review and general discussion about a set of changes
-> before they are merged into the development branch.
-> This model is more prevalent with teams and organizations collaborating on private projects.
-> It also helps to keep the main branch stable, making it easier for other developers to work on the code.
->
-> To protect the main branch in GitHub, go to the repository settings, select `Branches`.
-> Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`).
-> Tick the check box saying require pull requests. This will ensure all changes to the
-> branch are done via a pull request.
->
-> ![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
->
-> It is recommended to also tick `Require approvals` and `Require status checks before merging`.
-> The first means someone besides the person who raised the pull request will need to approve the change.
-> The second ensures that CI has run successWfully before allowing the changes to be made.
->
-> See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
-{: .callout}
+## Collaborative Code Development Models
+The way your team provides contributions to the shared codebase depends on
+the type of development model you use in your project.
+Two commonly used models are:
+
+ * Fork and pull model
+ * Shared repository model
+
+### Fork and Pull Model
+
+In this model, anyone can **fork** an existing repository
+(to create their copy of the project linked to the source)
+and push changes to their personal fork.
+A contributor can work independently on their own fork as they do not need
+permissions on the source repository to push modifications to a fork they own.
+The changes from contributors can then be **pulled** into the source repository
+by the project maintainer on request and after a code review process.
+This model is popular with open source projects as it
+reduces the start up costs for new contributors
+and allows them to work independently without upfront coordination
+with source project maintainers.
+So, for example, you may use this model when you are an external collaborator on a project
+rather than a core team member.
+
+### Shared Repository Model
+
+In this model, collaborators are granted push access to a single shared code repository.
+By default, collaborators have write access to the main branch.
+However, it is best practice to create feature branches for new developments,
+and protect the main branch.
+This is to enable easier testing of the new code
+and initiate code review and general discussion about a set of changes
+before they are merged into the development branch.
+This model is more prevalent with teams and organizations collaborating on private projects.
+It also helps to keep the main branch stable, making it easier for other developers to work on the code.
+
+To protect the main branch in GitHub, go to the repository settings, select `Branches`.
+Click `Add Rule`. Type in the name of your main branch (e.g. `main` and/or `develop`).
+Tick the check box saying require pull requests. This will ensure all changes to the
+branch are done via a pull request.
+
+![GitHub add a branch protection rule settings screen with recommended settings enabled for a branch called main](../fig/github-branch-protection-settings.png)
+
+It is recommended to also tick `Require approvals` and `Require status checks before merging`.
+The first means someone besides the person who raised the pull request will need to approve the change.
+The second ensures that CI has run successWfully before allowing the changes to be made.
+
+See [GitHubs documentation for more information about protecting branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
 Regardless of the collaborative code development model you and your collaborators use -
 code reviews are one of the widely accepted best practices for software development in teams
