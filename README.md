@@ -29,10 +29,10 @@ and is in a good state to be reused and taught by others.
 
 The lesson is suitable for both instructor-led teaching or guided self-learning where instructors provide help 
 and answer questions (synchronously or asynchrounously) as learners go through the course on their own. 
-Initially, in sections 1-3 
-of the lesson, learners are working on a software project and going though exercises individually.
-In sections 4 and 5,
-they are grouped and work in teams, as they would when collaborating on a team software project development.
+Initially, in sections 1-3 of the lesson, 
+learners are working on a software project and going though exercises individually.
+In sections 4 and 5, they are grouped and work in teams,
+as they would when collaborating on a team software project development.
 
 The lesson has 5 sections; 
 each section can be delivered or worked through in self-learning mode over a half a day to a day, 
