@@ -93,7 +93,7 @@ extras_order:
   - guide
   - common-issues
   - discuss
-  - github-repo-settings
+  - protect-main-branch
   - vscode
   - functional-programming
   - persistence

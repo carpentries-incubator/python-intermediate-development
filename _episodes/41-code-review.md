@@ -54,7 +54,7 @@ and improve our code by engaging in code review process with other team members.
 > In this model, collaborators are granted push access to a single shared code repository.
 > By default, collaborators have write access to the main branch.
 > However, it is best practice to create feature branches for new developments,
-> and protect the main branch. See the extra on [protecting the main branch](../github-repo-settings)
+> and protect the main branch. See the extra on [protecting the main branch](../protect-main-branch)
 > for how to do this.
 > While it requires more upfront coordination, it is easier to share each others
 > work, so it works well for more stable teams.
