@@ -358,8 +358,10 @@ test in the PR for.
 ### What not to look for
 
 The overriding priority for reviewing code should be making sure progress is being made -
-don't let perfect be the enemy of good here. Further, research has shown that the first hour
-of reviewing code is the most effective, with diminishing returns after that.
+don't let perfect be the enemy of good here.
+According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
+it has been shown that the first hour of reviewing code is the most effective,
+with diminishing returns after that.
 
 To that end, here are a few things you shouldn't be trying to spot when reviewing:
 
@@ -432,14 +434,6 @@ Here are some examples of best practices for you to consider
 Swarmia](https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/?utm_term=code%20review&utm_campaign=Code+review+best+practices&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=14940336179&hsa_grp=131344939434&hsa_ad=552679672005&hsa_src=g&hsa_tgt=kwd-17740433&hsa_kw=code%20review&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7_nhMMyE7aeSzosRRqZ52vafBOyMrpL4Ypru0PHWK4Rl8QLIhkeA0aAsxqEALw_wcB)
 and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)):
 
-2. Do not review code too quickly and do not review for too long in one sitting.
-   According to
-   [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676) -
-   the first hour of review matters the most as
-   detection of defects significantly drops after this period.
-   [Studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/)
-   also show that you should not review more than 400 lines of code at a time.
-   Conducting more frequent shorter reviews seems to be more effective.
 3. Decide on the level of depth for code reviews
    to maintain the balance between the creation time and time spent reviewing code -
    e.g. reserve them for critical portions of code and avoid nit-picking on small details.
@@ -469,8 +463,9 @@ as easy as possible for the reviewer to review your code:
 
 The most important thing to keep in mind is how long your pull request is. Smaller
 changes, that just make one small improvement, will be much quicker and easier to
-review. There is no golden rule, but 100 - 500 lines is a good size. More than
-1000 lines is almost certainly too big.
+review. There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/)
+show that you should not review more than 400 lines of code at a time so this is
+a reasonable target to aim for. More than 1000 lines is almost certainly too big.
 
 Even within a single review, try to keep each commit to be making one logical change.
 This can help if your review would otherwise be too large. In particular, if you've
