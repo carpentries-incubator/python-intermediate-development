@@ -278,7 +278,7 @@ of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 >>
 >> * Unclear function name `s_dev` - uses an uncommon abbreviation increasing mental load
 >>    when reading code that calls this function, prefer `standard_deviation`.
->> * Variable `number` not clear what it contains - prefer business name like `mean` or `mean_of_data`
+>> * Variable `number` not clear what it contains --- prefer business-logic name like `mean` or `mean_of_data`
 >>
 >> **Is the code minimal**
 >>
