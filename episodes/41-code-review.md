@@ -432,20 +432,20 @@ Repeat the above actions for the pull request on your repository.
 There are a few things you can do when raising a pull request to make it
 as easy as possible for the reviewer to review your code:
 
-The most important thing to keep in mind is how long your pull request is. Smaller
-changes, that just make one small improvement, will be much quicker and easier to
-review. There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/)
-show that you should not review more than 400 lines of code at a time so this is
-a reasonable target to aim for.
+The most important thing to keep in mind is how long your pull request is.
+Smaller changes, that just make one small improvement, will be much quicker and easier to
+review.
+There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) show that you should not review more
+than 400 lines of code at a time so this is a reasonable target to aim for.
 You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0)
 and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html)
 as to what a "large pull request" is but be aware that it is not exact science.
 
 Even within a single review, try to keep each commit to be making one logical change.
-This can help if your review would otherwise be too large. In particular, if you've
-reformatted, refactored and changed the behavior of the code make sure each of these
-is in a separate commit (i.e reformat the code, commit, refactor the code, commit, alter
-the behavior of the code, commit).
+This can help if your review would otherwise be too large.
+In particular, if you've reformatted, refactored and changed the behavior of the
+code make sure each of these is in a separate commit
+(i.e reformat the code, commit, refactor the code, commit, alter the behavior of the code, commit).
 
 Make sure you write a clear description of the content and purpose of the change.
 This should be provided as the pull request description.
@@ -461,8 +461,10 @@ Code is written by humans (mostly!), and code review is a form of communication.
 empathy is important for effective reviewing.
 
 When reviewing code, it can be sometimes frustrating when code is confusing, particularly
-as it will be implemented differently to how you would have done it. However, it is important
-as a reviewer to be compassionate to the person whose code you are reviewing. Specifically:
+as it will be implemented differently to how you would have done it.
+However, it is important as a reviewer to be compassionate to the
+person whose code you are reviewing.
+Specifically:
 
 * Identify positives in code as and when you find them (particularly if it is an improvement on
   something you've previously fed back on in a previous review).
