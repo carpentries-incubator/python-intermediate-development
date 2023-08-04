@@ -35,7 +35,7 @@ and improve our code by engaging in code review process with other team members.
 >
 > ### Fork and Pull Model
 >
-> Where anyone can **fork** an existing repository
+> In this model, anyone can **fork** an existing repository
 > (to create their copy of the project linked to the source)
 > and push changes to their personal fork.
 > A contributor can work independently on their own fork as they do not need
@@ -51,7 +51,7 @@ and improve our code by engaging in code review process with other team members.
 >
 > ### Shared Repository Model
 >
-> Where collaborators are granted push access to a single shared code repository.
+> In this model, collaborators are granted push access to a single shared code repository.
 > By default, collaborators have write access to the main branch.
 > However, best practises is to create feature branches for new developments,
 > and protect the main branch.
