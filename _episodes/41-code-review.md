@@ -166,7 +166,7 @@ didn't see before!
 Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
 Your fictional colleague has implemented it according to the specification
-and pushed it to a branch `std-dev`.
+and pushed it to a branch `feature-std-dev`.
 You will turn this branch into a pull request for your fictional colleague on your
 repository.
 You will then engage in code review for the change (acting as a code reviewer) on
@@ -176,12 +176,12 @@ Once complete, you will respond to the pull request on your repository from anot
 ### Raising a pull request for your fictional colleague
 
 1. Head over to the remote repository in GitHub
-   and locate your colleagues (`std-dev`) branch from the dropdown box on the Code tab
+   and locate your colleagues (`feature-std-dev`) branch from the dropdown box on the Code tab
    (you can search for your branch or use the "View all branches" option).
    ![All repository branches in GitHub](../fig/github-branches.png){: .image-with-shadow width="600px"}
 2. Open a pull request by clicking "Compare & pull request" button.
    ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-3. Select the base and the head branch, e.g. `main` and `std-dev`, respectively.
+3. Select the base and the head branch, e.g. `main` and `feature-std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
    and the head branch contains your changes.
 4. Add a comment describing the nature of the changes,
