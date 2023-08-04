@@ -513,27 +513,17 @@ where things are getting stuck and work out what you can do to move things along
 
 > ## Exercise: Code Review in Your Own Working Environment
 >
-> At the start of this episode we briefly looked at a number of techniques for doing code review,
-> and as an example,
-> went on to see how we can use GitHub Pull Requests to review team member code changes.
-> Finally, we also looked at some best practices for doing code reviews in general.
+> In this episode we have looked at how to use a tool driven code review process
+> using GitHub pull requests. We've also looked at some best practices for doing
+> code reviews in general.
 >
 > Now think about how you typically develop code,
 > and how you might institute code review practices within your own working environment.
-> Write down briefly for your own reference (perhaps using bullet points)
-> some answers to the following questions:
+> Write down a process for a tool assisted code review, answering the questions
+> above.
 >
-> - Which 2 or 3 key circumstances would code review be most useful for you and your colleagues?
-> - Referring to the first section of this episode above,
->   which type of code review would be most useful for each circumstance
->   (and would work best within your own working environment)?
-> - Taking one of these circumstances where code review would be most beneficial,
->   how would you organise such a code review, e.g.:
->   - Which aspects of the codebase would be the most useful to cover?
->   - How often would you do them?
->   - How long would the activity take?
->   - Who would ideally be involved?
->   - Any particular practices you would use?
+> Once complete, discuss with the rest of the class what challenges you think
+> you'd face in implementing this process in your own working environment.
 {: .challenge}
 
 ## Other reading
