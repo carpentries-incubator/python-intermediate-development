@@ -432,10 +432,6 @@ Repeat the above actions for the pull request on your repository.
 9. From a more technical perspective:
    - use a feature branch for pull requests as you can push follow-up commits
      if you need to update your proposed changes
-   - avoid large pull requests as they are more difficult to review.
-     You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0)
-     and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html)
-     as to what a "large pull request" is but be aware that it is not exact science.
    - don't force push to a pull request as it changes the repository history
      and can corrupt your pull request for other collaborators
    - use pull request states in GitHub effectively (based on your team's code review process) -
@@ -455,7 +451,10 @@ The most important thing to keep in mind is how long your pull request is. Small
 changes, that just make one small improvement, will be much quicker and easier to
 review. There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/)
 show that you should not review more than 400 lines of code at a time so this is
-a reasonable target to aim for. More than 1000 lines is almost certainly too big.
+a reasonable target to aim for.
+You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0)
+and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html)
+as to what a "large pull request" is but be aware that it is not exact science.
 
 Even within a single review, try to keep each commit to be making one logical change.
 This can help if your review would otherwise be too large. In particular, if you've
