@@ -91,8 +91,9 @@ and the use of a technical infrastructure, including:
  - [Fagan code inspection]((https://en.wikipedia.org/wiki/Fagan_inspection))
  - Tool assisted code review
 
-We will have a look at the **tool-assisted code review process**
-using GitHub's built-in code review tool - **pull requests**.
+It is worth trying multiple code review techniques to see what works
+best for your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficent.
+We will use GitHub's built-in code review tool - **pull requests**.
 It is a lightweight tool, included with GitHub's core service for free
 and has gained popularity within the software development community in recent years.
 
@@ -446,15 +447,6 @@ and [Smartbear](https://smartbear.com/learn/code-review/best-practices-for-peer-
    e.g. reserve them for critical portions of code and avoid nit-picking on small details.
    Try using automated checks and linters when possible,
    e.g. for consistent usage of certain terminology across the code and code styles.
-7. Utilise multiple code review techniques -
-   use email,
-   pair programming,
-   over-the-shoulder,
-   team discussions and
-   tool-assisted or
-   any combination that works for your team.
-   However, for the most effective and efficient code reviews,
-   tool-assisted process is recommended.
 9. From a more technical perspective:
    - use a feature branch for pull requests as you can push follow-up commits
      if you need to update your proposed changes
