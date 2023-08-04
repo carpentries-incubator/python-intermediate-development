@@ -33,7 +33,7 @@ and improve our code by engaging in code review process with other team members.
 >  * Fork and pull model
 >  * Shared repository model
 >
-> ### Fork and Pull Model
+> **Fork and Pull Model**
 >
 > In this model, anyone can **fork** an existing repository
 > (to create their copy of the project linked to the source)
@@ -49,7 +49,7 @@ and improve our code by engaging in code review process with other team members.
 > So, for example, you may use this model when you are an external collaborator on a project
 > rather than a core team member.
 >
-> ### Shared Repository Model
+> **Shared Repository Model**
 >
 > In this model, collaborators are granted push access to a single shared code repository.
 > By default, collaborators have write access to the main branch.
