@@ -411,18 +411,16 @@ discussing what the best solution is in person can often defuse this.
 > have all been addressed, you can approve the PR.
 {: .challenge}
 
-#### Step 6: Closing a Pull Request
+### Closing a Pull Request
 
-1. Once the moderator approves your changes, either one of you can merge onto the base branch.
+1. Once the reviewer approves your changes, the person whose repository it is can
+   merge onto the base branch.
    Typically, it is the responsibility of the code's author to do the merge
    but this may differ from team to team.
    ![Merging a pull request in GitHub](../fig/github-merge-pull-request.png){: .image-with-shadow width="900px"}
 2. Delete the merged branch to reduce the clutter in the repository.
 
-Repeat the above actions for the pull request you received.
-
-If the work on the feature branch is completed and it is sufficiently tested,
-the feature branch can now be merged into the `develop` branch.
+Repeat the above actions for the pull request on your repository.
 
 ## Best Practice for Code Review
 
