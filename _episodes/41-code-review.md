@@ -238,13 +238,6 @@ Do functions do just one thing? Have appropriate design
 patterns been used (e.g. separating out the model logic from
 any view considerations)?
 
-However, if you finding yourself suggesting a full redesign,
-then this is best done in person. Ideally big design questions
-would be addressed before code is written. If that hasn't happened,
-it is normally better to iterate on an imperfect architecture
-rather than throwing it away and starting again, but this will
-depend on the code in question.
-
 #### Is there appropriate and up-to-date documentation
 
 If functionality has changed, has corresponding documentation been
@@ -385,6 +378,20 @@ computer simulator anyway.
 You may spot something that the reviewer didn't introduce and think they could
 fix it while in the area, but this can be a rabbit hole. A better approach would be to
 raise a PR after this one has been merged fixing the thing you spotted.
+
+#### Architecture re-writes
+
+You might come across code that you think is poorly structured.
+A code review is a poor place to raise this.
+Ideally big design questions would be addressed before code is written.
+If that hasn't happened, you have two options - throw the code out to
+re-design it, or iterate on what the PR is suggesting.
+
+If you decide a re-write is necessary, this is best done as an in
+person discussion, where the various merits can be discussed and a
+decision made.
+
+In either case, don't try to do large re-design's in review comments.
 
 ### Responding to review comments
 
