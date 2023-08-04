@@ -200,12 +200,13 @@ of the pull request you just opened.
 
 ### Things to look for in a code review
 
-Reviewing code effectively takes practice. However, here is some guidance on the
-kinds of things you should be looking for when reviewing a piece of code.
+Reviewing code effectively takes practice.
+However, here is some guidance on the kinds of things you should
+be looking for when reviewing a piece of code.
 
 Start by understanding what the code _should_ do, by reading the specification/user requirements,
-the pull request description and talking to the developer. In this case, understand what SR1.1.1
-means.
+the pull request description and talking to the developer.
+In this case, understand what SR1.1.1 means.
 
 Once you're happy, start reading the code (skip the test code for now). You're
 going to be assessing the code in 4 key areas:
@@ -300,9 +301,10 @@ of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 ### Making sure code is valid
 
 The other key thing you want to verify in code review is that the code is correct and
-well tested. One approach to do this is to build up a list of tests you expect to see
-(and the results you'd expect them to have), and then verify that all these tests are
-present and correct.
+well tested.
+One approach to do this is to build up a list of tests you expect to see
+(and the results you'd expect them to have),
+and then verify that all these tests are present and correct.
 
 Start by listing out all the tests you'd expect to see based on the specification.
 
@@ -311,7 +313,7 @@ of, making sure to add tests for:
 
 * All paths through the code.
 * Making each `if` statement be evaluated as `True` and `False`.
-* All loops are exercised with empty, single and multi-element sequences.
+* Executing loops with empty, single and multi-element sequences.
 * Edge cases that you spot.
 * Any circumstances that you're not sure how certain code would behave.
 
@@ -323,9 +325,10 @@ test in the PR for.
 > ## Exercise: review the code for suitable tests
 >
 > Remind yourself of the specification of UR1.1.1 and write a list of
-> tests you'd expect to see for this feature. Review the code again and
-> expand this list to include any other edge cases the code makes you think
-> of. Finally, go through the tests in the PR and work out which tests are present.
+> tests you'd expect to see for this feature.
+> Review the code again and expand this list to include any other
+> edge cases the code makes you think of.
+> Finally, go through the tests in the PR and work out which tests are present.
 > Request changes for any tests that you think are missing.
 >
 >> ## Solution
@@ -365,7 +368,7 @@ According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https:/
 it has been shown that the first hour of reviewing code is the most effective,
 with diminishing returns after that.
 
-To that end, here are a few things you shouldn't be trying to spot when reviewing:
+To that end, here are a few things you *shouldn't* be trying to spot when reviewing:
 
 #### Linting issues, or anything else that an automated tool can spot
 
@@ -385,12 +388,13 @@ raise a PR after this one has been merged fixing the thing you spotted.
 
 ### Responding to review comments
 
-When you receive comments on your review, there are a few different things that you will want
-to do.
+When you receive comments on your review,
+there are a few different things that you will want to do.
 
-With some, you will understand and agree with what the reviewer is saying. With these comments,
-you should make the change to your code on your branch. Once you've made the change you can
-commit it. It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
+With some, you will understand and agree with what the reviewer is saying.
+With these comments, you should make the change to your code on your branch.
+Once you've made the change you can commit it.
+It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
 you have addressed it.
 
 ![Adding a emoji reaction to a review comment](../fig/github-add-emoji.png)
@@ -451,14 +455,14 @@ Make sure you write a clear description of the content and purpose of the change
 This should be provided as the pull request description.
 This should provide the context needed to read the code.
 
-It is also a good idea to review your code yourself. In doing this you will spot
-the more obvious issues with your code, allowing your reviewer to focus on the
-things you cannot spot.
+It is also a good idea to review your code yourself.
+In doing this you will spot the more obvious issues with your code,
+allowing your reviewer to focus on the  things you cannot spot.
 
 ## Empathy in review comments
 
-Code is written by humans (mostly!), and code review is a form of communication. As such
-empathy is important for effective reviewing.
+Code is written by humans (mostly!), and code review is a form of communication.
+As such empathy is important for effective reviewing.
 
 When reviewing code, it can be sometimes frustrating when code is confusing, particularly
 as it will be implemented differently to how you would have done it.
@@ -481,8 +485,8 @@ Specifically:
 To be effective, code review needs to be a process that is followed by everyone
 developing the code. Everyone should believe that process provides value.
 
-One way to foster this is to design the process as a team. When you're doing this you
-should consider:
+One way to foster this is to design the process as a team.
+When you're doing this you should consider:
 
 * Do all changes need to go through code review
 * What technologies will you use to manage the review process
