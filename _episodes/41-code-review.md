@@ -172,13 +172,6 @@ repository.
 You will then engage in code review for the change (acting as a code reviewer) on
 a course mate's repository.
 Once complete, you will respond to the pull request on your repository from another team member.
-The following diagram depicts the branches that you should have in the repository.
-
-![Branches for a feature and its tests](../fig/exercise-feature-branch.svg){: .image-with-shadow width="800px"}
-<p style="text-align: center;">
-Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)
-</p>
-
 
 ### Raising a pull request for your fictional colleague
 
