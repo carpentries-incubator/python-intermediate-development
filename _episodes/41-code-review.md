@@ -175,20 +175,19 @@ Once complete, you will respond to the pull request on your repository from anot
 
 ### Raising a pull request for your fictional colleague
 
-1. Head over to the remote repository in GitHub
-   and locate your colleagues (`feature-std-dev`) branch from the dropdown box on the Code tab
-   (you can search for your branch or use the "View all branches" option).
-   ![All repository branches in GitHub](../fig/github-branches.png){: .image-with-shadow width="600px"}
-2. Open a pull request by clicking "Compare & pull request" button.
-   ![Submitting a pull request in GitHub](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
-3. Select the base and the head branch, e.g. `main` and `feature-std-dev`, respectively.
+1. Head over to your remote repository in GitHub.
+2. Navigate to the pull requests tab
+3. Create a new pull request by clicking the green `New pull request` button.
+   ![GitHub pull requests tab](../fig/github-pull-request-tab.png){: .image-with-shadow width="900px"}
+4. Select the base and the head branch, e.g. `main` and `feature-std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
    and the head branch contains your changes.
-4. Add a comment describing the nature of the changes,
-   and then submit the pull request.
-5. Repository moderator and other collaborators on the repository (code reviewers)
-   will be notified of your pull request by GitHub.
-6. At this point, the code review process is initiated.
+5. Click `Create pull request` to open the request
+   ![Creating a new pull request.](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
+6. Add a comment describing the nature of the changes,
+   and then submit the pull request by clicking `Create pull request`.
+![Submitting a pull request.](../fig/github-submit-pullrequest.png){: .image-with-shadow width="900px"}
+7. At this point, the code review process is initiated.
 
 Find someone else to swap repositories with (i.e. you will review the pull request
 they just raised on their repository). If there are an odd number, three people could
@@ -206,7 +205,7 @@ be looking for when reviewing a piece of code.
 
 Start by understanding what the code _should_ do, by reading the specification/user requirements,
 the pull request description and talking to the developer.
-In this case, understand what SR1.1.1 means.
+In this case, understand what [SR1.1.1](../31-software-requirements/index.html#solution-requirements) means.
 
 Once you're happy, start reading the code (skip the test code for now). You're
 going to be assessing the code in 4 key areas:
@@ -317,7 +316,7 @@ test in the PR for.
 
 > ## Exercise: review the code for suitable tests
 >
-> Remind yourself of the specification of UR1.1.1 and write a list of
+> Remind yourself of the specification of SR1.1.1 and write a list of
 > tests you'd expect to see for this feature.
 > Review the code again and expand this list to include any other
 > edge cases the code makes you think of.
