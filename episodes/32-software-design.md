@@ -25,6 +25,12 @@ Such components can be as small as a single function, or be a software package i
 
 * Introduce the idea of an abstraction
 
+> ## Group Exercise: Think about examples of good and bad code
+> Try to come up with examples of code that has been hard to understand - why?
+>
+> Try to come up with examples of code that was easy to understand and modify - why?
+{: .challenge}
+
 ## Refactoring
 
 * Define refactoring
@@ -33,5 +39,17 @@ Such components can be as small as a single function, or be a software package i
 ## The code for this episode
 
 * Introduce the code that will be used for this episode
+
+> ## Group Exercise: What is bad about this code?
+> What about this code makes it hard to understand?
+> What makes this code hard to change?
+>> ## Solution
+>> * Everything is in a single function
+>> * If I want to use the data without using the graph I'd have to change it
+>> * It is always analysing a fixed set of data
+>> * It seems hard to write tests for it
+>> * It doesn't have any tests
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
