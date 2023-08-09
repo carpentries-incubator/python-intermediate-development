@@ -1,0 +1,15 @@
+---
+title: "Refactoring functions to do just one thing"
+teaching: 0
+exercises: 0
+questions:
+- "How do you refactor code without breaking it?"
+- "How do you write code that is easy to test?"
+objectives:
+- "Understand how to refactor functions to be easier to test"
+- "Be able to write regressions tests to avoid breaking existing code"
+- "Understand what a pure function is."
+keypoints:
+- "By refactoring code into pure functions that act on data makes code easier to test."
+- "Making tests before you refactor gives you confidence that your refactoring hasn't broken anything"
+---

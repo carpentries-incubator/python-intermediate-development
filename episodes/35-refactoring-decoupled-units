@@ -1,0 +1,15 @@
+---
+title: "Using classes to de-couple code."
+teaching: 0
+exercises: 0
+questions:
+- "What is de-coupled code?"
+- "When is it useful to use classes to structure code?"
+objectives:
+- "Understand the object-oriented principle of polymorphism and interfaces."
+- "Be able to introduce appropriate abstractions to simplify code."
+- "Understand what decoupled code is, and why you would want it."
+keypoints:
+- "By using interfaces, code can become more decoupled."
+- "Decoupled code is easier to test, and easier to maintain."
+---
