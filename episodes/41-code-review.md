@@ -252,6 +252,35 @@ prefer, "I don't understand what values this variable can hold".
 Make it clear in the comment if you want something to change as part
 of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 
+## Adding a review comment
+
+To add comments to a review, you need to open up the pull request.
+Then go to the `Files changed` tab.
+![The files changed tab of a pull request](../fig/github-pull-request-files-changed.png){: .image-with-shadow }
+When you find a line that you want to add a comment to, click on the
+plus (+) icon next to line.
+![Adding a review comment to a pull request](../fig/github-pull-request-add-comment.png){: .image-with-shadow }
+You can also add comments referring to multiple lines by clicking the plus and
+dragging down over the relevant lines.
+
+If you want to make a concrete suggestion, such as renaming a variable, you
+can click the `Add a suggestion button` (which looks like a document with a plus and a minus in it).
+This will populate the comment with the existing code, and you can edit it to be
+what you think the code should be.
+![Adding a suggestion to a pull request](../fig/github-pull-request-add-suggestion.png){: .image-with-shadow }
+GitHub will then provide a button for the author to apply your change directly.
+
+Write your comment in the box, and then click `Start review`.
+This will save your comment, but not publish it yet.
+
+You can use `Add single comment` to immediately post a comment.
+However, it is best to batch the comments into a single review, so that the author
+knows when you have finished adding comments
+(and avoid spamming their email with notifications).
+
+Continue adding comments in this way, using the `Add review comment` button
+on subsequent comments.
+
 > ## Exercise: review some code
 >
 > Pair up in the group and go to the pull request they created on their repo.
@@ -265,6 +294,8 @@ of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 > Review the code, looking for the kinds of problems that we have just discussed.
 > There are examples of all the 4 main areas in the pull request,
 > so try to make at least one suggestion for each area.
+>
+> Don't submit your review just yet.
 >
 >> ## Solution
 >>
