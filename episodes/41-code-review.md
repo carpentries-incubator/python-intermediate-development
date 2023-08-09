@@ -343,10 +343,41 @@ of, making sure to add tests for:
 * Edge cases that you spot.
 * Any circumstances that you're not sure how certain code would behave.
 
-Once you have built the list, go through the tests in the PR. Make sure
-the tests test what you expect (so inspect them closely!). Add a comment
-to the PR for any tests that are on your list that you can't find a suitable
-test in the PR for.
+Once you have built the list, go through the tests in the pull request. Make sure
+the tests test what you expect (so inspect them closely!).
+
+## Finishing a review
+
+Once you have a list of tests you want the author to add, it is time to
+submit your review.
+
+To do this, click the `Finish your review` button at the top of the Files
+changed tab.
+
+![Using the finishing your review dialog](../fig/github-submit-pr-review.png)
+
+In the comment box, you can add any comments that aren't
+associated with a specific line.
+For example, you can put the list of tests that you want to see
+added here.
+
+Next you will select to one of `Comment`, `Approve` or `Request changes`.
+
+You should use the `Approve` if you would be happy for the code to
+go in with no further changes.
+
+You should select `Request changes` to communicate to the author that
+they should address your comments before you will approve it.
+
+You can use `Comment` if you don't want to express a decision on
+whether the code should be accepted. For example, if you've been asked
+to look at a specific part of the code, or if you are part way through
+a review, but wanted to share some comments sooner.
+
+Finally, you can press `Submit review`.
+This will publish all the comments you've made on the review and
+let the author know that the review is complete and it is their
+turn for action.
 
 > ## Exercise: review the code for suitable tests
 >
@@ -354,8 +385,10 @@ test in the PR for.
 > tests you'd expect to see for this feature.
 > Review the code again and expand this list to include any other
 > edge cases the code makes you think of.
-> Finally, go through the tests in the PR and work out which tests are present.
-> Request changes for any tests that you think are missing.
+> Go through the tests in the pull request and work out which tests are present.
+>
+> Once you are happy, you can submit your review.
+> Select `Request changes` to let the author know they need to address your comments.
 >
 >> ## Solution
 >>
