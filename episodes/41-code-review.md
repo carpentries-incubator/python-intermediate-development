@@ -93,7 +93,7 @@ and the use of a technical infrastructure, including:
 
 It is worth trying multiple code review techniques to see what works
 best for you and your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficient.
-We will use GitHub's built-in code review tool - **pull requests**.
+We will use GitHub's built-in code review tool - **pull requests**, or PRs.
 It is a lightweight tool, included with GitHub's core service for free
 and has gained popularity within the software development community in recent years.
 
