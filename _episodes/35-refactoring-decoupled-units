@@ -13,3 +13,26 @@ keypoints:
 - "By using interfaces, code can become more decoupled."
 - "Decoupled code is easier to test, and easier to maintain."
 ---
+
+## Introduction
+
+* What is coupled and decoupled code
+* Why decoupled code is better
+
+## Polymorphism
+
+* Introduce what a class is
+* Introduce what an interface is
+* Introduce what polymorphism is
+* Explain how we can use polymorphism to introduce abstractions
+
+## How polymorphism is useful
+
+* Introduce the idea of using a different implementation
+  without changing the code
+* Explain how to test code that uses an interface
+
+## Object Oriented Programming
+
+* Polymorphism is a tool from object oriented programming
+* Outline some other tools from OOP that might be useful

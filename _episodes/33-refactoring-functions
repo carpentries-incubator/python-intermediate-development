@@ -13,3 +13,25 @@ keypoints:
 - "By refactoring code into pure functions that act on data makes code easier to test."
 - "Making tests before you refactor gives you confidence that your refactoring hasn't broken anything"
 ---
+
+## Introduction
+
+* What is going to happen in this episode - learn good code design by refactoring some poorly
+  structured code.
+
+## Writing tests before refactoring
+
+* Explain the benefits of writing tests before refactoring
+* Explain techniques for writing tests for hard to test, existing code
+
+## Pure functions
+
+* Explain what a pure function is
+* Explain the benefits of pure functions for testing
+
+## Functional Programming
+
+* Introduce that pure functions are a concept from functional programming
+* Mention tools and techniques Python has for functional programming
+
+{% include links.md %}

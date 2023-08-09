@@ -1,15 +1,31 @@
 ---
-title: "Refactoring functions to do just one thing"
+title: "Architecting code to separate responsibilities"
 teaching: 0
 exercises: 0
 questions:
-- "How do you refactor code without breaking it?"
-- "How do you write code that is easy to test?"
+- "What is the point of the MVC architecture"
+- "How should code be structured"
 objectives:
-- "Understand how to refactor functions to be easier to test"
-- "Be able to write regressions tests to avoid breaking existing code"
-- "Understand what a pure function is."
+- "Understand the MVC pattern and how to apply it."
+- "Understand the benefits of using patterns"
 keypoints:
-- "By refactoring code into pure functions that act on data makes code easier to test."
-- "Making tests before you refactor gives you confidence that your refactoring hasn't broken anything"
+- "By splitting up the "view" code from "model" code, you allow easier re-use of code."
+- "Using coding patterns can be useful inspirations for how to structure your code."
 ---
+
+## Introduction
+
+* Refamiliarise with MVC
+
+## Separating out considerations
+
+* Talk about model and view as distinct parts of the code
+* Model should be made up of pure functions as discussed
+
+## Programming patterns
+
+* Talk about how MVC is one pattern
+* Mention a couple of others than might be useful
+* Talk about how patterns can be useful for designing architecture
+
+{% include links.md %}
