@@ -498,14 +498,13 @@ discussing what the best solution is in person can often defuse this.
 
 ## Closing a Pull Request
 
-1. Once the reviewer approves your changes, the person whose repository it is can
+1. Once the reviewer approves the changes, the person whose repository it is can
    merge onto the base branch.
    Typically, it is the responsibility of the code's author to do the merge
    but this may differ from team to team.
+   In our case, you will merge the changes on the PR on your repository.
    ![Merging a pull request in GitHub](../fig/github-merge-pull-request.png){: .image-with-shadow width="900px"}
 2. Delete the merged branch to reduce the clutter in the repository.
-
-Repeat the above actions for the pull request on your repository.
 
 ## Making code easy to review
 
