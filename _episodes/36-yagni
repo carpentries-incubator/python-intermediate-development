@@ -20,6 +20,16 @@ keypoints:
 
 * Talk about box diagrams
 
+> ## Exercise: Design a high-level architecture
+> Consider implementing a new feature
+> TODO: suggest a more complex feature
+> Using boxes and lines sketch out an architecture for the code.
+> Discuss with your team
+>> ## Solution
+>> An example design for the hypothetical problem.
+> {: .solution}
+{: .challenge}
+
 ## An abstraction too far
 
 * Drawbacks of abstraction
@@ -28,6 +38,13 @@ keypoints:
 ## You Ain't Gonna Need It
 
 * Introduce and explain YAGNI principle
+
+> ## Exercise: Applying to real world examples
+> Thinking about the examples of good and bad code you identified at the start of the episode.
+> Identify what kind of principles were and weren't being followed
+> Identify some refactorings that could be performed that would improve the code
+> Discuss the ideas as a group.
+{: .challenge}
 
 ## Conclusion
 
