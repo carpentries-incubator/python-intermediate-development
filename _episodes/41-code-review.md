@@ -192,7 +192,7 @@ Once complete, you will respond to the pull request on your repository from anot
 We will now discuss what to look for in a code review,
 before practising this on this fictional change.
 
-### Things to look for in a code review
+## Things to look for in a code review
 
 Reviewing code effectively takes practice.
 However, here is some guidance on the kinds of things you should
@@ -210,7 +210,7 @@ going to be assessing the code in 4 key areas:
 * Is the structure of the code clear
 * Is there appropriate and up-to-date documentation
 
-#### Is the code readable
+### Is the code readable
 
 Think about do the names of the variables, do they [follow guidelines for good
 names?](../15-coding-conventions/index.html#l#naming-conventions)
@@ -219,20 +219,20 @@ Do you understand what conditions in each if statements are for?
 
 Do the function names match the behavior of the function.
 
-#### Is the code a minimal change
+### Is the code a minimal change
 
 Does the code reimplement anything that already exists, either
 elsewhere in the codebase or in a library you know about?
 
 Does the code implement something that isn't on the ticket?
 
-#### Is the structure of the code clear
+### Is the structure of the code clear
 
 Do functions do just one thing? Have appropriate design
 patterns been used (e.g. separating out the model logic from
 any view considerations)?
 
-#### Is there appropriate and up-to-date documentation
+### Is there appropriate and up-to-date documentation
 
 If functionality has changed, has corresponding documentation been
 updated? If new functions have been added, do they have appropriate
@@ -241,7 +241,7 @@ levels of documentation? Does the documentation make sense?
 Are there clear and useful comments that explain complex designs
 and focus on the "why/because" rather than the "what/how"?
 
-### Effective review comments
+## Effective review comments
 
 Make sure your review comments are specific and actionable.
 
@@ -292,7 +292,7 @@ of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 > {: .solution}
 {: .challenge}
 
-### Making sure code is valid
+## Making sure code is valid
 
 The other key thing you want to verify in code review is that the code is correct and
 well tested.
@@ -354,7 +354,7 @@ test in the PR for.
 > {: .solution}
 {: .challenge}
 
-### What not to look for
+## What not to look for
 
 The overriding priority for reviewing code should be making sure progress is being made -
 don't let perfect be the enemy of good here.
@@ -364,23 +364,23 @@ with diminishing returns after that.
 
 To that end, here are a few things you *shouldn't* be trying to spot when reviewing:
 
-#### Linting issues, or anything else that an automated tool can spot
+### Linting issues, or anything else that an automated tool can spot
 
 Get the CI to do this - this will save the reviewer time, be more accurate
 and avoid needless conflict.
 
-#### Bugs
+### Bugs
 
 It is easier to make sure there are sufficient tests - you are not an accurate
 computer simulator anyway.
 
-#### Issues that pre-date the change
+### Issues that pre-date the change
 
 You may spot something that the reviewer didn't introduce and think they could
 fix it while in the area, but this can be a rabbit hole. A better approach would be to
 raise a PR after this one has been merged fixing the thing you spotted.
 
-#### Architecture re-writes
+### Architecture re-writes
 
 You might come across code that you think is poorly structured.
 A code review is a poor place to raise this.
@@ -394,7 +394,7 @@ decision made.
 
 In either case, don't try to do large re-design's in review comments.
 
-### Responding to review comments
+## Responding to review comments
 
 When you receive comments on your review,
 there are a few different things that you will want to do.
@@ -428,7 +428,7 @@ discussing what the best solution is in person can often defuse this.
 > have all been addressed, you can approve the PR.
 {: .challenge}
 
-### Closing a Pull Request
+## Closing a Pull Request
 
 1. Once the reviewer approves your changes, the person whose repository it is can
    merge onto the base branch.
