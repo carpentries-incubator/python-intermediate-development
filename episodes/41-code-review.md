@@ -1,7 +1,7 @@
 ---
 title: "Developing Software In a Team: Code Review"
-teaching: 15
-exercises: 30
+teaching: 30
+exercises: 40
 questions:
 - "How do we develop software in a team?"
 - "What is code review and how it can improve the quality of code?"
