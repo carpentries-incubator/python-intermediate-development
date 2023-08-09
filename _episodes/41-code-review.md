@@ -558,7 +558,8 @@ Specifically:
 ## Designing a review process
 
 To be effective, code review needs to be a process that is followed by everyone
-developing the code. Everyone should believe that process provides value.
+developing the code.
+Everyone should believe that process provides value.
 
 One way to foster this is to design the process as a team.
 When you're doing this you should consider:
