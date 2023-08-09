@@ -492,6 +492,8 @@ discussing what the best solution is in person can often defuse this.
 > At the same time, people will be addressing your comments. If you're happy that your
 > comment has been suitably addressed, you can mark it as resolved.
 > Once you're happy they have all been addressed, you can approve the PR.
+> To approve a PR, submit a new review and this time select `Approve`.
+> This tells the author you are happy for them to merge the pull request.
 {: .challenge}
 
 ## Closing a Pull Request
