@@ -11,3 +11,25 @@ keypoints:
 - "YAGNI - you ain't gonna need it - don't create abstractions that aren't useful."
 - "The best code is simple to understand and test, not the most clever or uses advanced language features."
 ---
+
+## Introduction
+
+* Talk about the bigger picture of design having seen some techniques
+
+## Architecting larger changes
+
+* Talk about box diagrams
+
+## An abstraction too far
+
+* Drawbacks of abstraction
+* Example showing too complex abstractions
+
+## You Ain't Gonna Need It
+
+* Introduce and explain YAGNI principle
+
+## Conclusion
+
+* Take care to think about software with the appropriate priorities and things will get better.
+* Tips for getting better at architecture
