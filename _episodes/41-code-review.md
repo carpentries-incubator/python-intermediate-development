@@ -515,10 +515,10 @@ The most important thing to keep in mind is how long your pull request is.
 Smaller changes, that just make one small improvement, will be much quicker and easier to
 review.
 There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) show that you should not review more
-than 400 lines of code at a time so this is a reasonable target to aim for.
+than 400 lines of code at a time, so this is a reasonable target to aim for.
 You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0)
 and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html)
-as to what a "large pull request" is but be aware that it is not exact science.
+as to what a "large pull request" is but be aware that it is not an exact science.
 
 Even within a single review, try to keep each commit to be making one logical change.
 This can help if your review would otherwise be too large.
@@ -530,14 +530,15 @@ Make sure you write a clear description of the content and purpose of the change
 This should be provided as the pull request description.
 This should provide the context needed to read the code.
 
-It is also a good idea to review your code yourself.
+It is also a good idea to review your code yourself,
+before requesting a review.
 In doing this you will spot the more obvious issues with your code,
 allowing your reviewer to focus on the  things you cannot spot.
 
 ## Empathy in review comments
 
 Code is written by humans (mostly!), and code review is a form of communication.
-As such empathy is important for effective reviewing.
+As such, empathy is important for effective reviewing.
 
 When reviewing code, it can be sometimes frustrating when code is confusing, particularly
 as it will be implemented differently to how you would have done it.
@@ -559,7 +560,7 @@ Specifically:
 
 To be effective, code review needs to be a process that is followed by everyone
 developing the code.
-Everyone should believe that process provides value.
+Everyone should believe that the process provides value.
 
 One way to foster this is to design the process as a team.
 When you're doing this you should consider:
