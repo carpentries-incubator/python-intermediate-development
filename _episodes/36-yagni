@@ -1,0 +1,13 @@
+---
+title: "When to abstract, and when not to."
+teaching: 0
+exercises: 0
+questions:
+- "How to tell what is and isn't an appropriate abstraction"
+objectives:
+- "Understand how to determine correct abstractions. "
+- "How to design large changes to the codebase."
+keypoints:
+- "YAGNI - you ain't gonna need it - don't create abstractions that aren't useful."
+- "The best code is simple to understand and test, not the most clever or uses advanced language features."
+---
