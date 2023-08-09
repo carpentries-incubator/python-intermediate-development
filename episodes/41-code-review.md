@@ -189,13 +189,8 @@ Once complete, you will respond to the pull request on your repository from anot
 ![Submitting a pull request.](../fig/github-submit-pullrequest.png){: .image-with-shadow width="900px"}
 7. At this point, the code review process is initiated.
 
-Find someone else to swap repositories with (i.e. you will review the pull request
-they just raised on their repository). If there are an odd number, three people could
-go round robin (i.e. person A reviews code on person Bs repo, who reviews code on
-person C's repository, who reviews the code on person A's repository).
-
-If you are completing the course on your own, you will switch to being the reviewer
-of the pull request you just opened.
+We will now discuss what to look for in a code review,
+before practising this on this fictional change.
 
 ### Things to look for in a code review
 
@@ -258,7 +253,14 @@ of this PR. Ideally provide a concrete suggestion (e.g. better variable name).
 
 > ## Exercise: review some code
 >
-> Pick someone else in the group and go to the pull request they created on their repo.
+> Pair up in the group and go to the pull request they created on their repo.
+> If there are an odd number of people in your group, three people can go in a round robin fashion
+> (the first team member will review the pull request on the second member’s repository
+> and receives comments on the pull request on their repository from
+> the third team member).
+> If you are going through the material on your own and do not have a collaborator,
+> you can be the reviewer on the pull requests on your own repository.
+>
 > Review the code, looking for the kinds of problems that we have just discussed.
 > There are examples of all the 4 main areas in the pull request,
 > so try to make at least one suggestion for each area.
