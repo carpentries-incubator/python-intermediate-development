@@ -122,7 +122,7 @@ create a pull request to bring the changes back to the branch that you started f
 In this context, the branch from which you branched off to do your work
 and where the changes should be applied back to
 is called the **base branch**,
-while the feature branch that contains changes you would like to be applied is the **head branch**.
+while the feature branch that contains changes you would like to be applied is the **compare branch**.
 
 How you create your feature branches and open pull requests in GitHub will depend on
 your collaborative code development model:
@@ -148,7 +148,7 @@ and update your proposed changes within a self-contained bundle.
 The only difference in creating a pull request between the two models is
 how you create the feature branch.
 In either model, once you are ready to merge your changes in -
-you will need to specify the base branch and the head branch.
+you will need to specify the base branch and the compare branch.
 
 ## Code Review and Pull Requests In Action
 
@@ -179,9 +179,9 @@ Once complete, you will respond to the pull request on your repository from anot
 2. Navigate to the pull requests tab
 3. Create a new pull request by clicking the green `New pull request` button.
    ![GitHub pull requests tab](../fig/github-pull-request-tab.png){: .image-with-shadow width="900px"}
-4. Select the base and the head branch, e.g. `main` and `feature-std-dev`, respectively.
+4. Select the base and the compare branch, e.g. `main` and `feature-std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
-   and the head branch contains your changes.
+   and the compare branch contains your changes.
 5. Click `Create pull request` to open the request
    ![Creating a new pull request.](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
 6. Add a comment describing the nature of the changes,
