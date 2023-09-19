@@ -235,8 +235,11 @@ Does the code implement something that isn't on the ticket?
 
 ### Is the structure of the code clear
 
-Do functions do just one thing? Is the code using the right level of modularity? Is the code consistent with the
-structure of the rest of the code?
+Do functions do just one thing?
+
+Is the code using the right level of modularity?
+
+Is the code consistent with the structure of the rest of the code?
 
 ### Is there appropriate and up-to-date documentation
 
