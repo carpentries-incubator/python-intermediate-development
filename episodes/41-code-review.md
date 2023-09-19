@@ -86,10 +86,16 @@ as close as possible to the point where they were introduced.
 There are several **code review techniques** with various degree of formality
 and the use of a technical infrastructure, including:
 
- - Over-the-shoulder code review
- - Pair programming
- - [Fagan code inspection]((https://en.wikipedia.org/wiki/Fagan_inspection))
- - Tool assisted code review
+ - [Over-the-shoulder code review](https://about.gitlab.com/topics/version-control/what-is-code-review/#Over-the-shoulder%20reviews) -
+     have one developer talk the other developer through the changes whilst sat at the same machine.
+ - [Pair programming](https://about.gitlab.com/topics/version-control/what-is-code-review/#Pair%20programming) -
+     have two developers work on the code at the same time.
+ - [Formal code inspection](https://en.wikipedia.org/wiki/Fagan_inspection) -
+     have up to 6 partipants go through a formalised process to inspect the code for defects.
+ - [Tool assisted code review](https://about.gitlab.com/topics/version-control/what-is-code-review/#Tool-assisted%20reviews) -
+     have a developer uses tools such as GitHub to review the code independently and give feedback.
+
+You can read more about these techniques in [Five Types of Review](https://www.khoury.northeastern.edu/home/lieber/courses/cs4500/f07/lectures/code-review-types.pdf)
 
 It is worth trying multiple code review techniques to see what works
 best for you and your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficient.
