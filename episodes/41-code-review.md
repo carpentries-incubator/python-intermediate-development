@@ -244,8 +244,12 @@ Is the code consistent with the structure of the rest of the code?
 ### Is there appropriate and up-to-date documentation
 
 If functionality has changed, has corresponding documentation been
-updated? If new functions have been added, do they have appropriate
-levels of documentation? Does the documentation make sense?
+updated?
+
+If new functions have been added, do they have appropriate
+levels of documentation?
+
+Does the documentation make sense?
 
 Are there clear and useful comments that explain complex designs
 and focus on the "why/because" rather than the "what/how"?
