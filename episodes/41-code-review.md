@@ -596,17 +596,43 @@ where things are getting stuck and work out what you can do to move things along
 
 > ## Exercise: Code Review in Your Own Working Environment
 >
-> In this episode we have looked at how to use a tool driven code review process
+> In this episode we have looked at why and how to use a tool driven code review process
 > using GitHub pull requests. We've also looked at some best practices for doing
 > code reviews in general.
 >
-> Now think about how you typically develop code,
-> and how you might institute code review practices within your own working environment.
+> Now think about how you typically develop code.
+> What benefits do you think you would see for introducing a code review process in
+> your work environment.
+> How you might institute code review practices within your environment.
 > Write down a process for a tool assisted code review, answering the questions
 > above.
 >
-> Once complete, discuss with the rest of the class what challenges you think
-> you'd face in implementing this process in your own working environment.
+> Once complete, discuss with the rest of the class what are the advantages of
+> a code review process and
+> what challenges you think you'd face in implementing this process in your own working environment.
+> > ## Solution
+> > The purposes of code review include:
+> > - improving internal code readability, understandability, quality and maintainability
+> > - checking for coding standards compliance, code uniformity and consistency
+> > - checking for test coverage and detecting bugs and code defects early
+> > - detecting performance problems and identifying code optimisation points
+> > - finding alternative/better solutions.
+> > - sharing knowledge of the code, and of coding standards and expectations of quality
+> >
+> > Finally, it helps increase the sense of collective code ownership and responsibility,
+> > which in turn helps increase the "bus factor"
+> > and reduce the risk resulting from information and capabilities
+> > being held by a single person "responsible" for a certain part of the codebase
+> > and not being shared among team members.
+> >
+> > Challenges you might face introducing a code review process:
+> > - Complaints that it is a waste of time
+> > - Creating a negative atmosphere where people are overly critical of each others work, or are defensive of their own
+> > - Perfectionism leading to slower development
+> > - People not sharing code to avoid the review process
+> >
+> > Make sure to monitor whether these are happening, and adjust the process accordingly.
+> {: .solution}
 {: .challenge}
 
 ## Other reading
