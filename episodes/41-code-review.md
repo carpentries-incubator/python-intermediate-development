@@ -98,7 +98,8 @@ and the use of a technical infrastructure, including:
 You can read more about these techniques in [Five Types of Review](https://www.khoury.northeastern.edu/home/lieber/courses/cs4500/f07/lectures/code-review-types.pdf)
 
 It is worth trying multiple code review techniques to see what works
-best for you and your team. We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficient.
+best for you and your team.
+We will have a look at the **tool-assisted code review process**, which is likely to be the most effective and efficient.
 We will use GitHub's built-in code review tool - **pull requests**, or PRs.
 It is a lightweight tool, included with GitHub's core service for free
 and has gained popularity within the software development community in recent years.
