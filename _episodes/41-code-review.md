@@ -180,6 +180,8 @@ didn't see before!
 Here is an outline of the process of a tool based code review that we will be following:
 
 ```mermaid
+%% Must disable useMaxWidth to have the diagram centre
+%%{init: { 'sequence': {'useMaxWidth':false} } }%%
 sequenceDiagram
     participant A as Author
     participant R as Reviewer
