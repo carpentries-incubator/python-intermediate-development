@@ -292,16 +292,15 @@ knows when you have finished adding comments
 Continue adding comments in this way, using the `Add review comment` button
 on subsequent comments.
 
-#### Effective review comments
-
-Make sure your review comments are specific and actionable.
-
-Try to be as specific as you can, rather than "this code is unclear"
-prefer, "I don't understand what values this variable can hold".
-
-Make it clear in the comment if you want something to change as part
-of this pull request.
-Ideally provide a concrete suggestion (e.g. better variable name).
+> ## Effective review comments
+>
+> * Make sure your review comments are specific and actionable.
+> * Try to be as specific as you can, rather than "this code is unclear"
+> prefer, "I don't understand what values this variable can hold".
+> * Make it clear in the comment if you want something to change as part
+> of this pull request.
+> * Ideally provide a concrete suggestion (e.g. better variable name).
+{: .callout}
 
 > ## Exercise: review some code
 >
