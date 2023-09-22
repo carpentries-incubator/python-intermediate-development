@@ -12,6 +12,7 @@ keypoints:
 - "Code review is a team software quality assurance practice where team members look at parts of the codebase in order to improve their code's readability, understandability, quality and maintainability."
 - "It is important to agree on a set of best practices and establish a code review process in a team to help to
 sustain a good, stable and maintainable code for many years."
+layout: lesson_mermaid
 ---
 
 ## Introduction
@@ -178,7 +179,21 @@ didn't see before!
 
 Here is an outline of the process of a tool based code review that we will be following:
 
-![Code review timeline](../fig/code-review-timeline.png){: width="560px"}
+```mermaid
+sequenceDiagram
+    participant A as Author
+    participant R as Reviewer
+    A->>A: Write some code
+    A->>R: Raise a pull request
+    R->>R: Add comments to a review
+    R->>A: Submit a review
+    loop Until approved
+        A->>R: Address or respond to review comments
+        R->>A: Clarify or resolve comments
+    end
+    R->>A: Approve pull request
+    A->>A: Merge pull request
+```
 
 Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
