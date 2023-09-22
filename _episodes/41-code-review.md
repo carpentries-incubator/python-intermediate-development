@@ -172,7 +172,7 @@ didn't see before!
 
 Here is an outline of the process of a tool based code review that we will be following:
 
-![Code review timeline](../fig/code-review-timeline.png){: height="500px"}
+![Code review timeline](../fig/code-review-timeline.png){: width="560px"}
 
 Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
