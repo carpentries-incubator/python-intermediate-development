@@ -11,4 +11,5 @@ sequenceDiagram
         A->>R: Address or respond to review comments
         R->>A: Clarify or resolve comments
     end
+    R->>A: Approve pull request
     A->>A: Merge pull request
