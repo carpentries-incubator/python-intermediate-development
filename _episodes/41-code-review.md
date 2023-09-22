@@ -384,13 +384,11 @@ added here.
 
 Next you will select to one of `Comment`, `Approve` or `Request changes`.
 
-You should use the `Approve` if you would be happy for the code to
+* Use `Approve` if you would be happy for the code to
 go in with no further changes.
-
-You should select `Request changes` to communicate to the author that
+* Use `Request changes` to communicate to the author that
 they should address your comments before you will approve it.
-
-You can use `Comment` if you don't want to express a decision on
+* Use `Comment` if you don't want to express a decision on
 whether the code should be accepted. For example, if you've been asked
 to look at a specific part of the code, or if you are part way through
 a review, but wanted to share some comments sooner.
