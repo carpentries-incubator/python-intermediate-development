@@ -440,45 +440,22 @@ turn for action.
 > {: .solution}
 {: .challenge}
 
-## What not to look for
-
-The overriding priority for reviewing code should be making sure progress is being made -
-don't let perfect be the enemy of good here.
-According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
-it has been shown that the first hour of reviewing code is the most effective,
-with diminishing returns after that.
-
-To that end, here are a few things you *shouldn't* be trying to spot when reviewing:
-
-### Linting issues, or anything else that an automated tool can spot
-
-Get the CI to do this - this will save the reviewer time, be more accurate
-and avoid needless conflict.
-
-### Bugs
-
-It is easier to make sure there are sufficient tests - you are not an accurate
-computer simulator anyway.
-
-### Issues that pre-date the change
-
-You may spot something that the reviewer didn't introduce and think they could
-fix it while in the area, but this can be a rabbit hole. A better approach would be to
-raise a PR after this one has been merged fixing the thing you spotted.
-
-### Architecture re-writes
-
-You might come across code that you think is poorly structured.
-A code review is a poor place to raise this.
-Ideally big design questions would be addressed before code is written.
-If that hasn't happened, you have two options - throw the code out to
-re-design it, or iterate on what the PR is suggesting.
-
-If you decide a re-write is necessary, this is best done as an in
-person discussion, where the various merits can be discussed and a
-decision made.
-
-In either case, don't try to do large re-design's in review comments.
+> ## What *not* to look for in a code review
+>
+> The overriding priority for reviewing code should be making sure progress is being made -
+> don't let perfect be the enemy of good here.
+> According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
+> it has been shown that the first hour of reviewing code is the most effective,
+> with diminishing returns after that.
+>
+> To that end, here are a few things you *shouldn't* be trying to spot when reviewing:
+>
+> * Linting issues, or anything else that an automated tool can spot - get CI to do it.
+> * Bugs - instead make sure there are tests for all cases.
+> * Issues that pre-date the change - raise a PR fixing these issues separately to avoid heading down a rabbit hole.
+> * Architecture re-writes - try to have design discussions upfront,
+      or else have a meeting to decide whether the code needs to be rewritten.
+{: .callout}
 
 ## Responding to review comments
 
