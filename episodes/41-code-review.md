@@ -498,6 +498,11 @@ discussing what the best solution is in person can often defuse this.
 There are a few things you can do when raising a pull request to make it
 as easy as possible for the reviewer to review your code:
 
+* Keep the changes **small**.
+* Keep each commit as **one logical change**.
+* Provide a **clear description** of the change.
+* **Review your code yourself**, before requesting a review.
+
 The most important thing to keep in mind is how long your pull request is.
 Smaller changes, that just make one small improvement, will be much quicker and easier to
 review.
