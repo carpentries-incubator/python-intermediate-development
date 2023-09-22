@@ -170,6 +170,10 @@ comments. This is actually a very sensible thing to do in general - looking
 at your own code in a review window will allow you to spot mistakes you
 didn't see before!
 
+Here is an outline of the process of a tool based code review that we will be following:
+
+![Code review timeline](../fig/code-review-timeline.png){: height="500px"}
+
 Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
 Your fictional colleague has implemented it according to the specification
@@ -199,7 +203,12 @@ Once complete, you will respond to the pull request on your repository from anot
 We will now discuss what to look for in a code review,
 before practising this on this fictional change.
 
-## Things to look for in a code review
+## Reviewing a pull request
+
+Once a review has been raised it is over to the reviewer to review the code
+and submit a review.
+
+### Things to look for in a code review
 
 Reviewing code effectively takes practice.
 However, here is some guidance on the kinds of things you should
@@ -359,7 +368,7 @@ of, making sure to add tests for:
 Once you have built the list, go through the tests in the pull request. Make sure
 the tests test what you expect (so inspect them closely!).
 
-## Finishing a review
+## Submit a review
 
 Once you have a list of tests you want the author to add, it is time to
 submit your review.
@@ -508,7 +517,7 @@ discussing what the best solution is in person can often defuse this.
 > This tells the author you are happy for them to merge the pull request.
 {: .challenge}
 
-## Closing a Pull Request
+## Approve a pull request
 
 1. Once the reviewer approves the changes, the person whose repository it is can
    merge onto the base branch.
