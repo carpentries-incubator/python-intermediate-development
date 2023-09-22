@@ -228,39 +228,31 @@ going to be assessing the code in 4 key areas:
 
 **Is the code readable**
 
-Think about do the names of the variables, do they [follow guidelines for good
+* Think about do the names of the variables, do they [follow guidelines for good
 names?](../15-coding-conventions/index.html#l#naming-conventions)
-
-Do you understand what conditions in each if statements are for?
-
-Do the function names match the behavior of the function.
+* Do you understand what conditions in each if statements are for?
+* Do the function names match the behavior of the function.
 
 **Is the code a minimal change**
 
-Does the code reimplement anything that already exists, either
+* Does the code reimplement anything that already exists, either
 elsewhere in the codebase or in a library you know about?
-
-Does the code implement something that isn't on the ticket?
+* Does the code implement something that isn't on the ticket?
 
 **Is the structure of the code clear**
 
-Do functions do just one thing?
-
-Is the code using the right level of modularity?
-
-Is the code consistent with the structure of the rest of the code?
+* Do functions do just one thing?
+* Is the code using the right level of modularity?
+* Is the code consistent with the structure of the rest of the code?
 
 **Is there appropriate and up-to-date documentation**
 
-If functionality has changed, has corresponding documentation been
+* If functionality has changed, has corresponding documentation been
 updated?
-
-If new functions have been added, do they have appropriate
+* If new functions have been added, do they have appropriate
 levels of documentation?
-
-Does the documentation make sense?
-
-Are there clear and useful comments that explain complex designs
+* Does the documentation make sense?
+* Are there clear and useful comments that explain complex designs
 and focus on the "why/because" rather than the "what/how"?
 
 ### Adding a review comment
