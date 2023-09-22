@@ -7,8 +7,10 @@ either let the maintainers know or make sure you use your own fork of the lesson
 
 # Intermediate Research Software Development Skills In Python
 
-A two day, intermediate-level course in research software engineering and development skills and working as part of a 
-team (using Python as an example language).
+An intermediate-level course in research software engineering and development skills and working as part of a 
+team (using Python as an example language). This lesson teaches intermediate-level software development 
+skills in a way that mimics a typical software development 
+process in a team, starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
 self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
@@ -17,20 +19,26 @@ development-related projects are now becoming larger and more complex and they n
 intermediate software engineering skills to help them design more robust software code, 
 automate the process of testing and verifying its correctness and support collaborations with others.
 
-## About the Lesson
-
-This lesson teaches intermediate-level software development skills in a way that mimics a typical software development 
-process in a team, starting from an existing piece of software.
-
-The software project template repository used for this lesson is available at:
-<https://github.com/carpentries-incubator/python-intermediate-inflammation>.
-
 ### Lesson Status
-The lesson is currently in beta - it has been tested several times with 
-different cohorts by the lesson authors as well as independently by people not involved in the course development
+
+The lesson is currently in beta - it has been run over 10 times times with 
+different cohorts by the lesson authors as well as independently by people not directly involved in the lesson development
 and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
+
+The lesson is suitable for both instructor-led teaching or guided self-learning where instructors provide help 
+and answer questions (synchronously or asynchrounously) as learners go through the course on their own. 
+Initially, in sections 1-3 of the lesson, 
+learners are working on a software project and going though exercises individually.
+In sections 4 and 5, they are grouped and work in teams,
+as they would when collaborating on a team software project development.
+
+The lesson has 5 sections; 
+each section can be delivered or worked through in self-learning mode over a half a day to a day, 
+depending on the pace.
+We would recommend setting aside one day per section to make sure the delivery is not rushed. 
+
 If you would like to teach this lesson to your audience and help with more beta testing, 
 please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
 label ![pilot](https://shields.io/badge/-pilot-31E930).
@@ -60,6 +68,7 @@ Current maintainers of this lesson (in alphabetical order) are:
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
+* [Sam Mangham][sam-mangham]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
@@ -102,3 +111,4 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matthew-bluteau]: https://github.com/bielsnohr
 [doug-lowe]: https://github.com/douglowe
 [kamilla-kopec-harding]: https://github.com/kkh451
+[sam-mangham]: https://github.com/smangham

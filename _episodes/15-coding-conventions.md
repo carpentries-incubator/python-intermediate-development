@@ -313,11 +313,7 @@ use the other one to avoid backslashes in the string as it improves readability.
 ### Naming Conventions
 There are a lot of different naming styles in use, including:
 
-- b (single lowercase letter)
-- B (single uppercase letter)
-- lowercase
-- lower_case_with_underscores
-- UPPERCASE
+- lower_case_with_underscores (or snake_case)
 - UPPER_CASE_WITH_UNDERSCORES
 - CapitalisedWords (or PascalCase) (note: when using acronyms in CapitalisedWords, capitalise all the letters of the acronym,
 e.g HTTPServerError)
@@ -325,27 +321,31 @@ e.g HTTPServerError)
 - Capitalised_Words_With_Underscores
 
 As with other style guide recommendations - consistency is key.
-Pick one and stick to it, or follow the one already established if joining a project mid-way.
+Follow the one already established in the project, if there is one.
+If there isn't, follow any standard language style (such as
+[PEP8](https://www.python.org/dev/peps/pep-0008/) for Python).
+Failing that, just pick one, document it and stick to it.
+
 Some things to be wary of when naming things in the code:
 
-- Avoid using the characters 'l' (lowercase letter L),
-  'O' (uppercase letter o),
-  or 'I' (uppercase letter i)
-  as single character variable names.
-  In some fonts, these characters are indistinguishable from the numerals one and zero.
-  When tempted to use 'l', use 'L' instead.
-- Avoid using non-ASCII (e.g. UNICODE) characters for identifiers
+- Avoid any names that could cause confusion (e.g. lower case `l` is
+  hard to distinguish from a `1` (one), 'O' (uppercase o) from a '0' (zero),
+ 'I' (uppercase i) from 'l' (lowercase L)).
+- Avoid using non-ASCII (e.g. Unicode) characters for identifiers as these
+  can trip up software that does not support Unicode.
 - If your audience is international and English is the common language,
   try to use English words for identifiers and comments whenever possible
   but try to avoid abbreviations/local slang as they may not be understood by everyone.
   Also consider sticking with either ‘American’ or 'British' English spellings
   and try not to mix the two.
 
-> ## Function, Variable, Class, Module, Package Naming
+> ## Function, Variable, Class, Module, Package Naming in Python
 >
-> - Function and variable names should be lowercase,
->   with words separated by underscores as necessary to improve readability.
-> - Class names should normally use the CapitalisedWords convention.
+> - Function and variable names should use lower_case_with_underscores
+> - Avoid single character names in almost all instances.
+> - Variable names should tell you what they store, and not just the type (e.g. `name_of_patient` is better than `string`)
+> - Function names should tell you what the function does.
+> - Class names should use the CapitalisedWords convention.
 > - Modules should have short, all-lowercase names.
 >   Underscores can be used in the module name if it improves readability.
 > - Packages should also have short, all-lowercase names,

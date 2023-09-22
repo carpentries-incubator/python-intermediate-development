@@ -1,139 +1,133 @@
-# Contributing
-
-[The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]) are open source projects,
-and we welcome contributions of all kinds:
-new lessons,
-fixes to existing material,
-bug reports,
-and reviews of proposed changes are all welcome.
+# Contributing Guidelines
 
 ## Contributor Agreement
 
-By contributing,
-you agree that we may redistribute your work under [our license](LICENSE.md).
-In exchange,
-we will address your issues and/or assess your change proposal as promptly as we can,
-and help you become a member of our community.
-Everyone involved in [The Carpentries][c-site]
-agrees to abide by our [code of conduct](CODE_OF_CONDUCT.md).
+By contributing to this project, you agree that we may redistribute your work under the 
+[Creative Commons Attribution 4.0 International Public License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) as specified by the project’s [licence file](LICENSE.md).
+
+## Code of Conduct
+
+When contributing to this project you are expected to abide by The Carpentries 
+[Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html#code-of-conduct-summary-view). 
+
+## Contact Us
+
+To get in touch with the lesson maintainers, send an email to [python-inter-inflammation@lists.carpentries.org][email].
 
 ## How to Contribute
 
-The easiest way to get started is to file an issue
-to tell us about a spelling mistake,
-some awkward wording,
-or a factual error.
-This is a good way to introduce yourself
-and to meet some of our community members.
+You will need a [GitHub account][github-join] to contribute to this project, and can do so in a variety of ways, including:
 
-1.  If you do not have a [GitHub][github] account,
-    you can [send us comments by email][email].
-    However,
-    we will be able to respond more quickly if you use one of the other methods described below.
+* Reporting problems and suggesting changes to the lesson material or project documentation (e.g. [README](README.md),
+contributing guidelines, etc.) via project issues,
+* Commenting, voting and participating in discussions on existing issues or proposed changes and pull requests,
+* Contributing changes to the lesson material via pull requests.
 
-2.  If you have a [GitHub][github] account,
-    or are willing to [create one][github-join],
-    but do not know how to use Git,
-    you can report problems or suggest improvements by [creating an issue][issues].
-    This allows us to assign the item to someone
-    and to respond to it in a threaded discussion.
+### Markdown Source Files
 
-3.  If you are comfortable with Git,
-    and would like to add or change material,
-    you can submit a pull request (PR).
-    Instructions for doing this are [included below](#using-github).
+The source files for the lesson (as well as most of the lesson project files) are written in [Markdown](https://github.github.com/gfm/). 
+Markdown is quite a flexible markup language, and we suggest to follow some guidelines on Markdown format to make editing 
+these files easier.
 
-## Where to Contribute
+Regular prose should not exceed 100 characters per line. This helps avoid line wrapping 
+in editors which can make comparing changes in the source code difficult. 
 
-1.  If you wish to change this lesson,
-    please work in <https://github.com/swcarpentry/FIXME>,
-    which can be viewed at <https://swcarpentry.github.io/FIXME>.
+Please attempt to follow [semantic line breaks](https://sembr.org/) when editing or adding 
+prose in the explanatory portions of the lesson. Don’t worry about this when editing code examples. 
+Briefly, semantic line breaks means:
 
-2.  If you wish to change the example lesson,
-    please work in <https://github.com/carpentries/lesson-example>,
-    which documents the format of our lessons
-    and can be viewed at <https://carpentries.github.io/lesson-example>.
+* Create a newline after a sentence (punctuated with a ‘.’, ‘!’, or ‘?’)
+* Create a newline after an independent clause (punctuated with comma, semi-colon, colon or em dash)
+* Create a newline to satisfy line length guides (100 characters in our case).
 
-3.  If you wish to change the template used for workshop websites,
-    please work in <https://github.com/carpentries/workshop-template>.
-    The home page of that repository explains how to set up workshop websites,
-    while the extra pages in <https://carpentries.github.io/workshop-template>
-    provide more background on our design choices.
+### Lesson Template
 
-4.  If you wish to change CSS style files, tools,
-    or HTML boilerplate for lessons or workshops stored in `_includes` or `_layouts`,
-    please work in <https://github.com/carpentries/styles>.
+The lesson is developed using The [Carpentries Jekyll lesson template](https://github.com/carpentries/styles/) and 
+you should be familiar with it before making bigger contributions (as you will likely need to install and render 
+your branch of the lesson locally to test your proposed changes). You can check out the 
+[lesson example guide](https://carpentries.github.io/lesson-example) and the [corresponding lesson template source repository](https://github.com/carpentries/styles/) 
+to familiarise yourself with the lesson template and file structure before making a pull request with substantial changes. 
 
-## What to Contribute
+### Reporting Problems and Suggesting Changes via Issues
 
-There are many ways to contribute,
-from writing new exercises and improving existing ones
-to updating or filling in the documentation
-and submitting [bug reports][issues]
-about things that don't work, aren't clear, or are missing.
-If you are looking for ideas, please see the 'Issues' tab for
-a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues], 
-[Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
+If you notice a problem with the lesson material or want to suggest a change or start a conversation on a 
+lesson-related topic - you can do so by creating a new issue on the [project’s issues page](https://github.com/carpentries-incubator/python-intermediate-development/issues). 
+Before opening a new issue, check the list of opened issues first to see if there is already an existing 
+report/discussion on the same subject. If so, consider adding your thoughts to the existing issue instead 
+of starting a new one.
 
-Comments on issues and reviews of pull requests are just as welcome:
-we are smarter together than we are on our own.
-Reviews from novices and newcomers are particularly valuable:
-it's easy for people who have been using these lessons for a while
-to forget how impenetrable some of this material can be,
-so fresh eyes are always welcome.
+While we welcome suggestions on how to extend the material, due to its size we may not be able to accommodate 
+all such requests. You should, however, feel free to create your own [fork of the material](https://github.com/carpentries-incubator/python-intermediate-development/fork) 
+and make any requested changes there and create a pull request to bring your changes back into 
+the main material to be considered by the lesson maintainers. 
 
-## What *Not* to Contribute
 
-Our lessons already contain more material than we can cover in a typical workshop,
-so we are usually *not* looking for more concepts or tools to add to them.
-As a rule,
-if you want to introduce a new idea,
-you must (a) estimate how long it will take to teach
-and (b) explain what you would take out to make room for it.
-The first encourages contributors to be honest about requirements;
-the second, to think hard about priorities.
+### Commenting and Voting
 
-We are also not looking for exercises or other material that only run on one platform.
-Our workshops typically contain a mixture of Windows, macOS, and Linux users;
-in order to be usable,
-our lessons must run equally well on all three.
+We welcome people to comment and vote on any issues, discussions or pull requests that they feel are important - 
+this is an opportunity to explain your point of view and discuss why certain changes are needed.
 
-## Using GitHub
+Voting is done by leaving a reaction (👍 for +1, 👎 for -1) on an issue or pull request. Votes on issues may be 
+used when prioritising work, and votes on pull requests may be taken into account by the project maintainers 
+when deciding whether to accept it.
 
-If you choose to contribute via GitHub, you may want to look at
-[How to Contribute to an Open Source Project on GitHub][how-contribute].
-To manage changes, we follow [GitHub flow][github-flow].
-Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
-The maintainers are community volunteers and have final say over what gets merged into the lesson.
-To use the web interface for contributing to a lesson:
+### Contributions to Lesson Material via Pull Requests
 
-1.  Fork the originating repository to your GitHub profile.
-2.  Within your version of the forked repository, move to the `gh-pages` branch and
-create a new branch for each significant change being made.
-3.  Navigate to the file(s) you wish to change within the new branches and make revisions as required.
-4.  Commit all changed files within the appropriate branches.
-5.  Create individual pull requests from each of your changed branches
-to the `gh-pages` branch within the originating repository.
-6.  If you receive feedback, make changes using your issue-specific branches of the forked
-repository and the pull requests will update automatically.
-7.  Repeat as needed until all feedback has been addressed.
+Changes to the lesson can only be done via pull requests from branches of the material:
 
-When starting work, please make sure your clone of the originating `gh-pages` branch is up-to-date
-before creating your own revision-specific branch(es) from there.
-Additionally, please only work from your newly-created branch(es) and *not*
-your clone of the originating `gh-pages` branch.
-Lastly, published copies of all the lessons are available in the `gh-pages` branch of the originating
-repository for reference while revising.
+* We welcome pull requests that address[ identified and reported issues/problems](https://github.com/carpentries-incubator/python-intermediate-development/issues)
+with the lesson, e.g. look for issues labelled “help wanted” or “good first issue” (for novice contributors).
+* Try to group suggested changes into pull requests logically, e.g. if you are fixing a number of typos in the
+lesson we suggest grouping them together in a single pull request.
+* Pull requests that add a lot of new material or a new episode to the lesson without discussing this first with
+the lesson [maintainers](mailto:python-intermediate-inflammation@lists.carpentries.org) are discouraged. 
+* Before starting the work, make sure there is a related issue open (so you can reference it in your pull
+request and use it for discussions). You can also put a comment on the relevant issue saying that you intend
+to address the issue so that any duplication of effort is avoided.
 
-## Other Resources
+#### Automated Pull Requests for Changes via GitHub Interface
 
-General discussion of [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
-happens on the [discussion mailing list][discuss-list],
-which everyone is welcome to join.
-You can also [reach us by email][email].
+Small changes can be made directly using the GitHub user interface. Simply open the relevant file on 
+the [gh-pages branch](https://github.com/carpentries-incubator/python-intermediate-development), 
+click the pencil icon to edit, make your change, and click the "Propose changes" button - GitHub 
+will automatically create a fork (a separate copy of the lesson repository under your GitHub account), a 
+feature branch from the **gh-pages branch** and a pull request for you.
 
-[email]: mailto:admin@software-carpentry.org
+#### Manual Pull Requests from a Forked Repository
+
+If you are not making a change via the GitHub’s interface - you will have to manually create a 
+[fork](https://github.com/carpentries-incubator/python-intermediate-development/fork) from the 
+lesson repository and a feature branch (to contain your changes) from the **gh-pages branch**. 
+
+If you are working locally on your machine, make sure that your local feature branch is pushed 
+to your remote fork on GitHub. From the GitHub interface of your fork, select your feature branch, 
+click the 'Pull Request' button and fill out the pull request form. In the description/comment 
+section if the form, make sure to include:
+
+* a brief summary of what changes were made
+* why the changes were made, with links to any relevant issues or discussions
+
+Your pull request should trigger a notification for the repository’s maintainers, and a member 
+of the team will review your pull request in a timely manner. Check in from time to time, 
+or wait for notifications of any reviewer comments or build failures.
+
+If you need to make additional code changes (e.g. in response to reviewers’ comments), 
+just push them to your feature branch on your fork and GitHub will update the open pull request automatically.
+
+
+## Credit
+
+We maintain a list of contributors to this project under the [AUTHORS file](https://github.com/carpentries-incubator/python-intermediate-development/blob/gh-pages/AUTHORS) in the project root. If you make a pull request that gets accepted and merged, or contribute significantly to a discussion around one of the issues in the project, and would like to be recognised on this list - please append your name, email address and affiliation to the end of this file and create a new pull request with these changes.
+
+
+## Thank You
+
+Thank you for considering contributing to this project!
+
+[github]: https://github.com
+[github-flow]: https://guides.github.com/introduction/flow/
+[github-join]: https://github.com/join
+[email]: mailto:python-inter-inflammation@lists.carpentries.org
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
