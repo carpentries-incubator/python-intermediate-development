@@ -69,7 +69,7 @@ is considered to be a Contributor to the project.
 Maintainers are responsible for ensuring that all such contributions are credited,
 e.g. on the curriculum site and/or when (and if) a release of the curriculum is made to Zenodo.
 
-Contributors of more singificant changed to the lesson may be invited by the Maintainers to add themselves to the 
+Contributors of more significant changes to the lesson may be invited by the Maintainers to add themselves to the 
 Authors list.
 
 ## Maintainer Meetings
