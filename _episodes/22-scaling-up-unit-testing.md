@@ -389,6 +389,8 @@ The main advantages are:
 
 - It forces us to think about how our code will be used before we write it
 - It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
+- It forces us to test that the tests _fail_ before we've implemented the code, meaning we
+   don't inadvertently forget to add the correct asserts.
 
 You may also see this process called **Red, Green, Refactor**:
 'Red' for the failing tests,

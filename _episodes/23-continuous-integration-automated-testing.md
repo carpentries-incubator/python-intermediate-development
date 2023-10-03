@@ -71,8 +71,8 @@ so it's worth taking a bit of time looking into this file format.
 [YAML](https://www.commonwl.org/user_guide/yaml/)
 (a recursive acronym which stands for "YAML Ain't Markup Language")
 is a language designed to be human readable.
-The three basic things you need to know about YAML to get started with GitHub Actions are
-key-value pairs, arrays, and maps.
+A few basic things you need to know about YAML to get started with GitHub Actions are
+key-value pairs, arrays, maps and multi-line strings.
 
 So firstly, YAML files are essentially made up of **key-value** pairs,
 in the form `key: value`, for example:
@@ -94,8 +94,8 @@ like this:
 
 ~~~
 first_scaled_by:
-  - Hans Meyer
-  - Ludwig Purtscheller
+- Hans Meyer
+- Ludwig Purtscheller
 ~~~
 {: .language-yaml}
 
@@ -132,17 +132,31 @@ Let's say we want to add more detail to our list of initial ascenders:
 ~~~
 ...
 first_scaled_by:
-  - name: Hans Meyer
-    date_of_birth: 22-03-1858
-    nationality: German
-  - name: Ludwig Purtscheller
-    date_of_birth: 22-03-1858
-    nationality: Austrian
+- name: Hans Meyer
+  date_of_birth: 22-03-1858
+  nationality: German
+- name: Ludwig Purtscheller
+  date_of_birth: 22-03-1858
+  nationality: Austrian
 ~~~
 {: .language-yaml}
 
 So here we have a YAML array of our two mountaineers,
 each with additional keys offering more information.
+
+GitHub Actions also makes use of `|` symbol to indicate a multi-line string
+that preserves new lines. For example:
+
+~~~
+shakespeare_couplet: |
+  Good night, good night. Parting is such sweet sorrow
+  That I shall say good night till it be morrow.
+~~~
+{: .language-yaml}
+
+They key `shakespeare_couplet` would hold the full two line string,
+preserving the new line after sorrow.
+
 As we'll see shortly, GitHub Actions workflows will use all of these.
 
 ### Defining Our Workflow
