@@ -80,10 +80,10 @@ discuss outstanding issues and pull requests
 and co-work on the project where necessary.
 
 ### Meeting schedule
-See [README.md](./README.md) for details of the current Maintainer meeting schedule.
+The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Wednesday each month. The meetings alternate between operations meetings and co-working sprints.
 
 ### Meeting agenda
-The agenda for Maintainer meetings will be prepared as a collaborative document,
+The [agenda for Maintainer meetings](https://docs.google.com/document/d/1-SvoY_2GvlQgJnu8zfr6VnU7sev_iWZAIwBUywNSfWE/edit#) will be prepared as a collaborative document,
 with (at least) sections to record the following information:
 
 * lists of Maintainers attending and absent from the meeting
