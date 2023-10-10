@@ -12,7 +12,7 @@ keypoints:
 - "Code review is a team software quality assurance practice where team members look at parts of the codebase in order to improve their code's readability, understandability, quality and maintainability."
 - "It is important to agree on a set of best practices and establish a code review process in a team to help to
 sustain a good, stable and maintainable code for many years."
-layout: lesson_mermaid
+layout: episode_mermaid
 ---
 
 ## Introduction
