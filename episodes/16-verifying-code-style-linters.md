@@ -91,8 +91,8 @@ Pylint can also identify **code smells**.
 Pylint recommendations are given as warnings or errors,
 and Pylint also scores the code with an overall mark.
 We can look at a specific file (e.g. `inflammation-analysis.py`),
-or a module (e.g. `inflammation`).
-Let's look at our `inflammation` module and code inside it (namely `models.py` and `views.py`).
+or a package (e.g. `inflammation`).
+Let's look at our `inflammation` package and code inside it (namely `models.py` and `views.py`).
 From the project root do:
 
 ~~~
