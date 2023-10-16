@@ -1,4 +1,4 @@
----
+x---
 title: "Managing a Collaborative Software Project"
 teaching: 15
 exercises: 30
@@ -377,9 +377,10 @@ Let's create a Project in GitHub to plan the first release of our code.
 
    ![Coverting a task to issue](../fig/github-convert-task-to-issue.png){: .image-with-shadow width="1000px"}
 
-7.  In addition to creating new tasks as notes and converting them to issues - you can add an 
-existing issue or pull request (from any repository visible to you) as a task on a column by 
-pasting its URL into the `Add item` field and pressing the `Enter` key.
+7.  In addition to creating new tasks as notes and converting them to issues -
+you can add an existing issue or pull request (from any repository visible to you)
+as a task on a column by pasting its URL into the `Add item` field
+and pressing the `Enter` key.
 8. You can drag a task/card from `Todo` to `In Progress` column to indicate that you are working on it
    or to the `Done` column to indicate that it has been completed.
    Issues and pull requests on cards will automatically be moved to the `Done` column for you
