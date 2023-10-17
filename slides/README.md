@@ -47,7 +47,8 @@ To do this for all slides, use the bash script `slides/slides_to_html.bash`.
 - Screen 1
   - if there is a size difference in your screens, this should be the largest one
   - shared with participants
-  - web browser with jupyter-notebook for current section open, `alt-r` to get presentation view, then `t` to get presenter view window which should be put on screen 2
+  - web browser with jupyter-notebook for current section open, `alt-r` to get presentation view,
+  then `t` to get presenter view window which should be put on screen 2
     - tab with course content page
     - tab with GitHub repo of example project
   - PyCharm with example project open

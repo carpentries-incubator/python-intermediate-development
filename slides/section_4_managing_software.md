@@ -1,5 +1,6 @@
 ---
 jupyter:
+  celltoolbar: Slideshow
   jupytext:
     notebook_metadata_filter: rise,celltoolbar
     text_representation:
@@ -13,7 +14,6 @@ jupyter:
     name: python3
   rise:
     theme: solarized
-  celltoolbar: Slideshow
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->

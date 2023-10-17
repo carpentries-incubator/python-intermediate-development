@@ -1,5 +1,6 @@
 ---
 jupyter:
+  celltoolbar: Slideshow
   jupytext:
     notebook_metadata_filter: rise,celltoolbar
     text_representation:
@@ -13,7 +14,6 @@ jupyter:
     name: python3
   rise:
     theme: solarized
-  celltoolbar: Slideshow
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -64,7 +64,7 @@ jupyter:
   - Manual testing: an important part of exploratory research
   - Automated testing: codify the expected behaviour of our software such that verification can happen repeatedly without user inspection
     - Unit tests: tests for small function units of our code (i.e functions, class methods, class objects)
-    - Funcitonal or integration tests: work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result.
+    - Functional or integration tests: work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result.
     - Regression tests: compare the current output of your code (usually an end-to-end result) to make sure it matches previous output that you don't want to change
 - there was a question that came in about drift in regression tests, and the short answer with how to deal with this is first determining whether the output you are tracking is actually an invariant (or something close to an invariant)
   - If not, then you will necessarily need to allow for relative proximity, but then you might question whether this is a good long term output to base your regression test on.

@@ -377,7 +377,7 @@ Then, we can create `Circle` objects using either the radius or diameter:
 
 ```python
 circle_1 = Circle(radius=1)
-circle_2 = Circle.from_diameter(radius=2)
+circle_2 = Circle.from_diameter(diameter=2)
 ```
 <!-- #endregion -->
 
