@@ -1,4 +1,4 @@
-x---
+---
 title: "Managing a Collaborative Software Project"
 teaching: 15
 exercises: 30
