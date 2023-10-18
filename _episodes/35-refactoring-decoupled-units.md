@@ -410,14 +410,17 @@ One downside of OOP is ending up with very large classes that contain complex me
 As they are methods on the class, it can be hard to know up front what side effects it causes to the class.
 This can make maintenance hard.
 
-Grouping data together into logical structures (such as three numbers into a vector) is a vital step in writing
-readable and maintainable code.
-However, when using classes in this way it is best for them to be immutable (can't be changed)
-It is worth noting that you can use classes to group data together - a very useful feature that you should be using everywhere
- - does not you can't be practising functional programming:
+> ## Classes and functional programming
+> Using classes is compatible with functional programming.
+> In fact, grouping data into logical structures (such as three numbers into a vector)
+> is a vital step in writing readable and maintainable code with any approach.
+> However, when writing in a functional style, classes should be immutable.
+> That is, the methods they provide are read-only.
+> If you require the class to be different, you'd create a new instance
+> with the new values.
+> (that is, the functions should not modify the state of the class).
+{: .callout}
 
-You can still have classes, and these classes might have read-only methods on (such as the `get_area` we defined for shapes)
-but then still have your complex logic operate on
 
 Don't use features for the sake of using features.
 Code should be as simple as it can be, but not any simpler.
