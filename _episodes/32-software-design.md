@@ -119,6 +119,8 @@ In it, if the user adds `--full-data-analysis` then the program will scan the di
 of one of the provided files, compare standard deviations across the data by day and
 plot a graph.
 
+The main body of it exists in `inflammation/compute_data.py` in a function called `analyse_data`.
+
 We are going to be refactoring and extending this over the remainder of this episode.
 
 > ## Group Exercise: What is bad about this code?
