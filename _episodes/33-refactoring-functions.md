@@ -60,7 +60,18 @@ you're not changing the important behaviour you have to make some small tweaks t
 the tests at all.
 
 > ## Exercise: Write regression tests before refactoring
-> Write a regression test to verify we don't break the code when refactoring
+> Write a regression test to verify we don't break the code when refactoring.
+> You will need to modify `analyse_data` to not create a graph and instead
+> return the data.
+>
+> Don't forget you can use the `numpy.testing` function `assert_array_equal` to
+> compare arrays of floating point numbers.
+>
+>> ## Hint
+>> You might find it helpful to assert the result, observe the test failing
+>> and copy and paste the correct result into the test.
+> {: .solution}
+>
 >> ## Solution
 >> One approach we can take is to:
 >>  * comment out the visualize (as this will cause our test to hang)
@@ -85,13 +96,12 @@ the tests at all.
 >>     npt.assert_array_almost_equal(result, expected_output)
 >> ```
 >>
->> This isn't a good test:
+>> Note - this isn't a good test:
 >> * It isn't at all obvious why these numbers are correct.
 >> * It doesn't test edge cases.
 >> * If the files change, the test will start failing.
 >>
 >> However, it allows us to guarantee we don't accidentally change the analysis output.
->> * See this commit: https://github.com/thomaskileyukaea/python-intermediate-inflammation/commit/5000b6122e576d91c2acbc437184e00893483fdd
 > {: .solution}
 {: .challenge}
 
