@@ -57,6 +57,23 @@ We will look at:
  * How to take code that is in a bad shape and improve it.
  * Best practises to write code in ways that facilitate achieving these goals.
 
+### Cognitive Load
+
+When we are trying to understand a piece of code, in our heads we are storing
+what the different variables mean and what the lines of code will do.
+**Cognitive load** is a way of thinking about how much information we have to store in our
+heads to understand a piece of code.
+
+The higher the cognitive load, the harder it is to understand the code.
+If it is too high, we might have to create diagrams to help us hold it all in our head
+or we might just decide we can't understand it.
+
+There are lots of ways to keep cognitive load down:
+
+* Good variable and function names
+* Simple control flow
+* Having each function do just one thing
+
 ## Abstractions
 
 An **abstraction**, at its most basic level, is a technique to hide the details
@@ -78,8 +95,12 @@ Instead, you just need to understand how variables work in Python.
 In large projects it is vital to come up with good abstractions.
 A good abstraction makes code easier to read, as the reader doesn't need to understand
 all the details of the project to understand one part.
+An abstraction lowers the cognitive load of a bit of code,
+as there is less to understand at once.
+
 A good abstraction makes code easier to test, as it can be tested in isolation
 from everything else.
+
 Finally, a good abstraction makes code easier to adapt, as the details of
 how a subsystem *used* to work are hidden from the user, so when they change,
 the user doesn't need to know.
