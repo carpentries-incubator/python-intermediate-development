@@ -117,14 +117,21 @@ Further, it should not cause any **side effects**, such as writing to a file or 
 
 You should try and have as much of the complex, analytical and mathematical code in pure functions.
 
-Maybe something about cognitive load here? And maybe drop other two advantages til later.
+By eliminating dependency on external things such as global state, we
+reduce the cognitive load to understand the function.
+The reader only needs to concern themselves with the input
+parameters of the function and the code itself, rather than
+the overall context the function is operating in.
+
+Similarly, a function that *calls* a pure function is also easier
+to understand.
+Since the function won't have any side effects, the reader needs to
+only understand what the function returns, which will probably
+be clear from the context in which the function is called.
 
 Pure functions have a number of advantages:
 
 * They are easy to test: you feed in inputs and get fixed outputs
-* They are easy to understand: when you are reading them you have all
-  the information they depend on, you don't need to know what is likely to be in
-  a database, or what the state of a global variable is likely to be.
 * They are easy to re-use: because they always behave the same, you can always use them
 
 Some parts of a program are inevitably impure.
