@@ -137,7 +137,7 @@ to when the original author intended.
 
 Some parts of a program are inevitably impure.
 Programs need to read input from the user, or write to a database.
-Well designed programs separate complex logic from the necessary "glue" code that interacts with users and systems.
+Well designed programs separate complex logic from the necessary impure "glue" code that interacts with users and systems.
 This way, you have easy-to-test, easy-to-read code that contains the complex logic.
 And you have really simple code that just reads data from a file, or gathers user input etc,
 that is maybe harder to test, but is so simple that it only needs a handful of tests anyway.
