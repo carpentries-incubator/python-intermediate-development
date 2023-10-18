@@ -84,8 +84,8 @@ You can then **construct** a class elsewhere in your code by doing the following
 my_class = MyClass()
 ```
 
-When you construct a class in this ways, its **construtor** is called. It is possible
-to pass in values to the constructor that configure the class:
+When you construct a class in this ways, the classes **construtor** is called.
+It is possible to pass in values to the constructor that configure the class:
 
 ```python
 class Circle:
