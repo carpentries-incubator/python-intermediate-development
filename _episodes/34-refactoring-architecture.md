@@ -41,6 +41,7 @@ are easily isolated from the more complex logic.
 
 The key thing to take away from MVC is the distinction between model code and view code.
 
+> ## What about the controller
 > The view and the controller tend to be more tightly coupled and it isn't always sensible
 > to draw a thick line dividing these two. Depending on how the user interacts with the software
 > this distinction may not be possible (the code that specifies there is a button on the screen,
