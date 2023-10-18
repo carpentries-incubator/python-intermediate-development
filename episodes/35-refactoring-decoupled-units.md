@@ -138,11 +138,14 @@ Classes have a number of uses.
 {: .callout}
 
 > ## Exercise: Use a class to configure loading
-> Put your function as a member method of a class, separating out the configuration
-> of where to load the files from in the constructor, from where it actually loads the data.
+> Put the `load_inflammation_data` function we wrote in the last exercise as a member method
+> of a new class called `CSVDataSource`.
+> Put the configuration of where to load the files in the classes constructor.
 > Once this is done, you can construct this class outside the the statistical analysis
-> and pass it in.
+> and pass the instance in to `analyse_data`.
 >> ## Solution
+>> You should have created a class that looks something like this:
+>>
 >> ```python
 >> class CSVDataSource:
 >>   """
@@ -150,7 +153,6 @@ Classes have a number of uses.
 >>   """
 >>   def __init__(self, dir_path):
 >>     self.dir_path = dir_path
->>     super().__init__()
 >>
 >>   def load_inflammation_data(self):
 >>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
@@ -159,8 +161,7 @@ Classes have a number of uses.
 >>     data = map(models.load_csv, data_file_paths)
 >>     return list(data)
 >> ```
->> We can now pass an instance of this class into the the statistical analysis function,
->> constructing the object in the controller code.
+>> We can now pass an instance of this class into the the statistical analysis function.
 >> This means that should we want to re-use the analysis it wouldn't be fixed to reading
 >> from a directory of CSVs.
 >> We have "decoupled" the reading of the data from the statistical analysis.
