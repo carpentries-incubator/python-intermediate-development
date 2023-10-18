@@ -41,6 +41,12 @@ Writing code that meets these requirements is hard and takes practise.
 Further, in most contexts you will already have a piece of code that breaks
 some (or maybe all!) of these principles.
 
+> ## Group Exercise: Think about examples of good and bad code
+> Try to come up with examples of code that has been hard to understand - why?
+>
+> Try to come up with examples of code that was easy to understand and modify - why?
+{: .challenge}
+
 In this episode we will explore techniques and processes that can help you
 continuously improve the quality of code so, over time, it tends towards more
 maintainable code.
@@ -81,12 +87,6 @@ the user doesn't need to know.
 In this episode we are going to look at some code and introduce various
 different kinds of abstraction.
 However, fundamentally any abstraction should be serving these goals.
-
-> ## Group Exercise: Think about examples of good and bad code
-> Try to come up with examples of code that has been hard to understand - why?
->
-> Try to come up with examples of code that was easy to understand and modify - why?
-{: .challenge}
 
 ## Refactoring
 
