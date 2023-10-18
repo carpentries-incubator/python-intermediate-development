@@ -46,7 +46,7 @@ The key thing to take away from MVC is the distinction between model code and vi
 > this distinction may not be possible (the code that specifies there is a button on the screen,
 > might be the same code that specifies what that button does). In fact, the original proposer
 > of MVC groups the views and the controller into a single element, called the tool. Other modern
-> architectures like Model-ViewModel-View do away with the controller and instead separate out the
+> architectures like Model-View-Presenter do away with the controller and instead separate out the
 > layout code from a programmable view of the UI.
 {: .callout}
 
