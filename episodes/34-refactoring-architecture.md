@@ -120,8 +120,8 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 
 ## Programming patterns
 
-MVC is a **programming pattern**, which is a template for structuring code.
-Patterns are useful starting point for how to design your software.
+MVC is a **programming pattern**. Programming patterns are templates for structuring code.
+Patterns are a useful starting point for how to design your software.
 They also work as a common vocabulary for discussing software designs with
 other developers.
 
