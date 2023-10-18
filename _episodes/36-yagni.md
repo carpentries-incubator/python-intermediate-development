@@ -53,28 +53,9 @@ the kinds of information different parts of the system will need.
 > the software automatically pulls it down and updates the analysis.
 > The new result should be added to a database with a timestamp.
 > An email should then be sent to a group email notifying them of the change."*
->
-> TODO: this doesn't generate a very interesting diagram
->
 >> ## Solution
->> An example design for the hypothetical problem. (TODO: incomplete)
->> ```mermaid
-graph TD
-    A[(GDrive Folder)]
-    B[(Database)]
-    C[GDrive Monitor]
-    C -- Checks periodically--> A
-    D[Download inflammation data]
-    C -- Trigger update --> D
-    E[Parse inflammation data]
-    D --> E
-    F[Perform analysis]
-    E --> F
-    G[Upload analysis]
-    F --> G
-    G --> B
-    H[Notify users]
->> ```
+>>
+>> ![Diagram showing proposed architecture of the problem](../fig/example-architecture-diagram.svg)
 > {: .solution}
 {: .challenge}
 
