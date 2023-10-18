@@ -128,6 +128,15 @@ Classes have a number of uses.
 * Encapsulating behaviour - such as a class representing a UI state, modifying some value will automatically
   force the relevant portion of the UI to be updated.
 
+> ## Maintaining Invariants
+> Maintaining invariants can be a really powerful tool in debugging.
+> Without invariants, you can find bugs where some data is in an invalid
+> state, but the problem only appears when you try to use the data.
+> This makes it hard to track down the cause of the bug.
+> By using classes to maintain invariants, you can force the issue
+> to appear when the invalid data is set, that is, the source of the bug.
+{: .callout}
+
 > ## Exercise: Use a class to configure loading
 > Put your function as a member method of a class, separating out the configuration
 > of where to load the files from in the constructor, from where it actually loads the data.
