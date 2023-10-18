@@ -59,8 +59,12 @@ For example, perhaps the UI always presents dates as "Monday 24th July 2023", bu
 would still store this using a `Date` rather than just that string.
 
 > ## Exercise: Identify model and view parts of the code
-> Looking at the code as it is, what parts should be considered "model" code
-> and what parts should be considered "view" code?
+> Looking at the code inside `compute_data.py`,
+>
+> * What parts should be considered **model** code
+> * What parts should be considered **view** code?
+> * What parts should be considered **controller** code?
+>
 >> ## Solution
 >> * The computation of the standard deviation is **model** code
 >> * Reading the data from the CSV is also **model** code.
