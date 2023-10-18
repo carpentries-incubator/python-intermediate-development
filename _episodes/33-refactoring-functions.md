@@ -178,7 +178,6 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 >>    # views.visualize(graph_data)
 >>    return daily_standard_deviation
 >>```
->> * See this commit: https://github.com/thomaskileyukaea/python-intermediate-inflammation/commit/4899b35aed854bdd67ef61cba6e50b3eeada0334
 > {: .solution}
 {: .challenge}
 
