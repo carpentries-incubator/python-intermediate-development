@@ -131,7 +131,6 @@ be clear from the context in which the function is called.
 
 Pure functions have a number of advantages:
 
-* They are easy to test: you feed in inputs and get fixed outputs
 * They are easy to re-use: because they always behave the same, you can always use them
 
 Some parts of a program are inevitably impure.
@@ -185,10 +184,16 @@ Now we have a pure function for the analysis, we can write tests that cover
 all the things we would like tests to cover without depending on the data
 existing in CSVs.
 
-This will make tests easier to write, but it will also make them easier to read.
-The reader will not have to open up a CSV file to understand why the test is correct.
+This is another advantage of pure functions - they are very well suited to automated testing.
 
-It will also make the tests easier to maintain.
+They are **easier to write** -
+we construct input and assert the output
+without having to think about making sure the global state is correct before or after.
+
+Perhaps more important, they are **easier to read** -
+the reader will not have to open up a CSV file to understand why the test is correct.
+
+It will also make the tests **easier to maintain**.
 If at some point the data format is changed from CSV to JSON, the bulk of the tests
 won't need to be updated.
 
