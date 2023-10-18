@@ -383,9 +383,9 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 Using classes, particularly when using polymorphism, are techniques that come from
 **object oriented programming** (frequently abbreviated to OOP).
 As with functional programming different programming languages will provide features to enable you
-to write object oriented programming.
+to write object oriented code.
 For example, in Python you can create classes, and use polymorphism to call the
-correct method on an instance (e.g when we called `get_area` on a shape, the appropriate `get_area` was called.)
+correct method on an instance (e.g when we called `get_area` on a shape, the appropriate `get_area` was called).
 
 Object oriented programming also includes **information hiding**.
 In this, certain fields might be marked private to a class,
@@ -393,10 +393,12 @@ preventing them from being modified at will.
 
 This can be used to maintain invariants of a class (such as insisting that a circles radius is always non-negative).
 
-There is also inheritance, which allows classes to specialise the behaviour of other classes by **inheriting** from
+There is also inheritance, which allows classes to specialise
+the behaviour of other classes by **inheriting** from
 another class and **overriding** certain methods.
 
-As with functional programming, there are times when object oriented programming is well suited, and times where it is not.
+As with functional programming, there are times when
+object oriented programming is well suited, and times where it is not.
 
 Good uses:
 
