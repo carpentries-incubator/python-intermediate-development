@@ -172,6 +172,9 @@ For example, if you want `pylint` and `black`, simply execute this on the comman
 pip3 install pylint black
 ~~~
 
+They will now each be available to run as command line applications,
+and you will find the details of how to run `pylint` in the lesson material.
+
 ## Running Tests
 
 In addition VSCode also allows you to run tests from a dedicated test viewer.
