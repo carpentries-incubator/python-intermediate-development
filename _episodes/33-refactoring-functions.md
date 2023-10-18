@@ -46,18 +46,18 @@ The tricks to get around this trap are:
 
 The best tests are ones that test single bits of code rigorously.
 However, with this code it isn't possible to do that.
+
 Instead we will make minimal changes to the code to make it a bit testable,
 for example returning the data instead of visualising it.
-We will also simply observe what the outcome is, rather than trying to
-test the outcome is correct.
-If the behaviour is currently broken, then we don't want to inadvertently fix it.
+
+We will make the asserts verify whatever the outcome is currently,
+rather than worrying whether that is correct.
+These tests are to verify the behaviour doesn't *change* rather than to check the current behaviour is correct.
 
 As with everything in this episode, there isn't a hard and fast rule.
 Refactoring doesn't change behaviour, but sometimes to make it possible to verify
 you're not changing the important behaviour you have to make some small tweaks to write
 the tests at all.
-
-* Explain techniques for writing tests for hard to test, existing code
 
 > ## Exercise: Write regression tests before refactoring
 > Write a regression test to verify we don't break the code when refactoring
