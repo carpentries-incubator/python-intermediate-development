@@ -308,6 +308,7 @@ That is, we have decoupled the job of loading the data from the job of analysing
 > Finally, at run time provide an instance of the new implementation if the user hasn't
 > put any files on the path.
 >> ## Solution
+>> You should have created a class that looks something like:
 >> ```python
 >> class UserProvidSpecificFilesDataSource(InflammationDataSource):
 >>   def load_inflammation_data(self):
@@ -325,6 +326,17 @@ That is, we have decoupled the job of loading the data from the job of analysing
 >>     data = map(models.load_csv, paths)
 >>     return list(data)
 >> ```
+>> Additionally, in the controller will need to select the appropriate DataSource to
+>> provide to the analysis:
+>>```python
+>> if len(InFiles) == 0:
+>>   data_source = UserProvidSpecificFilesDataSource()
+>> else:
+>>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> data_result = analyse_data(data_source)
+>>```
+>> As you have seen, all these changes were made without modifying
+>> the analysis code itself.
 > {: .solution}
 {: .challenge}
 
