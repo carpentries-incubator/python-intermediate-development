@@ -127,16 +127,17 @@ What you will be able to do at the end that should help your work:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-There are four main sections of the course, each roughly to be covered in one of the four sessions.
+There are five main sections of the course, each roughly to be covered in one of the 6 sessions.
 
 1. Setting up Software Environment: **PyCharm or VSCode** for editing, testing and debugging, **GitHub** for collaborative development, **virtual environments** for dependency isolation, and **Python code style**.
-2. Verifying Software Correctness at Scale: how to set up a **test framework** and automate and scale testing with **Continuous Integration (CI)**
-3. Designing Software Architecture: an exploration of different **software design paradigms** and their advantages and disadvantages
-4. Managing and Improving Software: learn how to **collaborate** on code through a group project covering **issue tracking** and **software support**
+2. Ensuring Software Correctness at Scale: how to set up a **test framework** and automate and scale testing with **Continuous Integration (CI)**
+3. Software Development as a Process: an exploration of different **software design paradigms** and their advantages and disadvantages
+4. Collaborative Software Development for Reuse: how do we start **collaborating** on a software project through processes like **code review**
+5. Managing and Improving Software: move beyond the mechanics of _just_ collaborative software development and towards the maintenance and prioritisation of the evolution of our project through things like **issue tracking** and **software support**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Section 1: Environment For Collaborative Code Development
+## Section 1: Setting Up The Environment For Collaborative Code Development
 
 ![](../fig/section1-overview.png)
 <!-- #endregion -->
@@ -316,7 +317,16 @@ Read through and follow along until the end of the episode page.
 - remember they should clear their status and use the green check when they are done
 - Checks at the end of the breakout
   1. Did everyone get the error when trying to run the `inflammation-analysis.py` script?
-  2. A comment about exporting/importing an environment
+  1. Consider running some quizzes (i.e. formative assessment). Question suggestions:
+     - Which statements are true?
+       1. Virtual environments created by `venv` are a completely new and distinct entire Python installation (i.e. the interpreter, standard library, and third party dependencies all installed in an isolated folder)
+       1. Virtual environments help keep dependencies required by different projects separate
+       1. A `requirements.txt` file is used by `venv` as a list of the dependencies that it will install
+       1. `pip` is a tool to download and install Python packages in whatever your current environment is
+       1. all of the above
+       1. a and c
+       1. b and d
+  1. A comment about exporting/importing an environment
       - I think there are actually two scenarios here:
       1. If you are providing a python application (i.e. building and deploying something) or doing a project that is a scientific analysis, then it is fine to pin your dependencies as detailed here in a `requirements.txt`
       2. If you are providing a reusable library (i.e. one that might be called from someone else's code or another library) then pinning can be overly restrictive and cause issues for package managers, and it is considered bad practice to pin your dependencies like this
@@ -349,7 +359,7 @@ pip install -r requirements.txt  # great reason to have this file
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Dependency Management in Other Languages
 
-- Each will have its own way of handling this, and it will also depend on _where_ you are doing your development
+- Each language will have its own way of handling this, and it will also depend on _where_ you are doing your development
 - The _coverall_ option these days is to develop in a Docker container (or relevant analogue)
   - The `Dockerfile` codifies the dependencies and setup for your project
 - If you are on a cluster, then you might be familiar with the `module` command
@@ -394,7 +404,7 @@ Start from this heading and continue to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Send learners into breakout rooms to read through and try out content from "Using the PyCharm IDE" (~ 30mins, but could be less, so poll helpers after 20 minutes to get a status check from the rooms)
+- Send learners into breakout rooms to read through and try out content from "Using the PyCharm IDE" (~ 30mins, but could be less, so poll helpers after 20 minutes to get a status check from the rooms, or ask directly if in person)
   - Remind to use status green check when done (or red x if having trouble)
   - Encourage learners to try out the features that are being discussed and don't worry about making modifications to their code since it is under version control it will be easy to reset any changes
   - Reinforce that we won't be using the version control interface of PyCharm, but it is a perfectly useable feature, and again this comes down to preference
@@ -432,8 +442,8 @@ Start from this heading and go until the "Git Branches" heading.
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Get learners to independently go through the section "Checking-in Changes to Our Project" (~ 10 minutes)
   - stop before the "Git Branches" Section
-  - note that SSH keys are also an equally valid (and now equally convenient) form of authentication with GitHub
-  - for the token, this seems to be the only resource that is actually needed: https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html (put this in shared document)
+  - note that SSH keys are now the recommended form of authentication with GitHub for this course, as explained in the Setup section
+  - if someone decides they want to do token authentication, this seems to be the only resource that is actually needed: https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html (put this in shared document)
   - Remind learners that they will need to copy the access token somewhere on their computer; if they use a password manager, consider making a new entry for this token; also, there are instructions to cache their token with the git cli, and that will make this more convenient since they will not need to enter the token with every git operation that communicates with GitHub
 <!-- #endregion -->
 
