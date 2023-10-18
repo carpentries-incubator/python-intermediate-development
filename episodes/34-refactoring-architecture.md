@@ -54,8 +54,9 @@ The key thing to take away from MVC is the distinction between model code and vi
 The view code might be hard to test, or use libraries to draw the UI, but should
 not contain any complex logic, and is really just a presentation layer on top of the model.
 
-The model, conversely, should operate quite agonistically of how a specific tool might interact with it.
-For example, perhaps there currently is no way
+The model, conversely, should not really care how the data is displayed.
+For example, perhaps the UI always presents dates as "Monday 24th July 2023", but the model
+would still store this using a `Date` rather than just that string.
 
 > ## Exercise: Identify model and view parts of the code
 > Looking at the code as it is, what parts should be considered "model" code
