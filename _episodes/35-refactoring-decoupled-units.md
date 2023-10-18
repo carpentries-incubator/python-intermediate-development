@@ -107,10 +107,12 @@ Classes can also have methods defined on them.
 Like constructors, they have an special `self` parameter that must come first.
 
 ```python
+import math
+
 class Circle:
   ...
   def get_area(self):
-    return Math.PI * self.radius * self.radius
+    return math.pi * self.radius * self.radius
 ...
 print(my_circle.get_area())
 ```
