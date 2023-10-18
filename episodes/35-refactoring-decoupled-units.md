@@ -124,8 +124,9 @@ Then the method can access the **member variable** `radius`.
 Classes have a number of uses.
 
 * Encapsulating data - such as grouping three numbers together into a Vector class
-* Maintaining invariants - TODO an example here would be good
-* Encapsulating behaviour - such as a class that csha
+* Maintaining invariants - perhaps when storing a file path it only makes sense for that to resolve to a valid file - by storing the string in a class with a method for setting it (a **setter**), that method can validate the new value before updating the value.
+* Encapsulating behaviour - such as a class representing a UI state, modifying some value will automatically
+  force the relevant portion of the UI to be updated.
 
 > ## Exercise: Use a class to configure loading
 > Put your function as a member method of a class, separating out the configuration
