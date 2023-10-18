@@ -113,7 +113,7 @@ A **pure function** is a function that works like a mathematical function.
 That is, it takes in some inputs as parameters, and it produces an output.
 That output should always be the same for the same input.
 That is, it does not depend on any information not present in the inputs (such as global variables, databases, the time of day etc.)
-Further, it should not cause any **side effects" such as writing to a file or changing a global variable.
+Further, it should not cause any **side effects**, such as writing to a file or changing a global variable.
 
 You should try and have as much of the complex, analytical and mathematical code in pure functions.
 
