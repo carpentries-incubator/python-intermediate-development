@@ -62,10 +62,10 @@ would still store this using a `Date` rather than just that string.
 > Looking at the code as it is, what parts should be considered "model" code
 > and what parts should be considered "view" code?
 >> ## Solution
->> * The computation of the standard deviation is model code
->> * Reading the data is also model code.
->> * The display of the output as a graph is the view code.
->> * The controller is the logic that processes what flags the user has provided.
+>> * The computation of the standard deviation is **model** code
+>> * Reading the data from the CSV is also **model** code.
+>> * The display of the output as a graph is the **view** code.
+>> * The logic that processes the supplied flats is the **controller**.
 > {: .solution}
 {: .challenge}
 
