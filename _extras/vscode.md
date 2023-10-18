@@ -28,7 +28,6 @@ Click "Install" to install the extension, you may be asked to also reload the wi
 
 You are now ready to code!
 
-
 ## Using the VSCode IDE
 
 Let's open our project in VSCode now
@@ -63,7 +62,8 @@ click "Yes":
 ![use_env](../fig/use_env.png)
 
 ---
-**Troubleshooting**
+
+#### Troubleshooting Setting the Interpreter
 
 If the prompt did not appear, you can manually set the interpreter.
 Firstly navigate to the location of the `python` binary within the virtual environment
@@ -94,7 +94,6 @@ Right click the file you created and select `Delete` to remove it.
 
 Any terminal you now open will start with the virtual environment already activated.
 
-
 ### Adding Dependencies
 
 For this workshop you will need to
@@ -109,7 +108,7 @@ pip install numpy matplotlib pytest
 
 ---
 
-**Troubleshooting**
+#### Troubleshooting Dependencies
 
 If you are having issues with `pip` it may be your version is too old.
 Pip will usually inform you via a warning if a newer version is available,
@@ -124,7 +123,6 @@ before installing packages.
 
 ---
 
-
 ## Running Scripts in VSCode
 
 To run a script in VSCode,
@@ -134,6 +132,9 @@ or use the keyboard shortcut `CTRL-ALT-N`.
 
 ![run_code](../fig/play.png)
 
+## Adding a Linter in VSCode
+
+In [the episode on coding style](../_episodes/15-coding-conventions.md) and [the subsequent episode on linters](../_episodes/)
 
 ## Running Tests
 
