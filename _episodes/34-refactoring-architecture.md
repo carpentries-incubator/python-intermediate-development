@@ -70,8 +70,8 @@ would still store this using a `Date` rather than just that string.
 {: .challenge}
 
 Within the model there is further separation that makes sense.
-For example, as discussed, separating out the code that interacts with file systems from
-the calculations is sensible.
+For example, as we did in the last episode, separating out the impure code that interacts with file systems from
+the pure calculations is helps with readability and testability.
 Nevertheless, the MVC approach is a great starting point when thinking about how you should structure your code.
 
 > ## Exercise: Split out the model code from the view code
