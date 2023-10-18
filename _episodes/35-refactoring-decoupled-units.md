@@ -360,7 +360,7 @@ Then we specify a method that we want to behave a specific way.
 Now whenever you call `mock_version.method_to_mock()` the return value will be `42`.
 
 
-> ## Exercise: Test using a mock or dummy implemenation
+> ## Exercise: Test using a mock or dummy implementation
 > Create a mock for the `InflammationDataSource` that returns some fixed data to test
 > the `analyse_data` method.
 > Use this mock in a test.
