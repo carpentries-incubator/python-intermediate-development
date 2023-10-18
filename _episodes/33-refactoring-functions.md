@@ -53,6 +53,8 @@ for example returning the data instead of visualising it.
 We will make the asserts verify whatever the outcome is currently,
 rather than worrying whether that is correct.
 These tests are to verify the behaviour doesn't *change* rather than to check the current behaviour is correct.
+This kind of testing is called **regression testing** as we are testing for
+regressions in existing behaviour.
 
 As with everything in this episode, there isn't a hard and fast rule.
 Refactoring doesn't change behaviour, but sometimes to make it possible to verify
