@@ -325,7 +325,7 @@ Read through and follow along until the end of the episode page.
        1. `pip` is a tool to download and install Python packages in whatever your current environment is
        1. all of the above
        1. a and c
-       1. b and d
+       1. b and d (correct answer)
   1. A comment about exporting/importing an environment
       - I think there are actually two scenarios here:
       1. If you are providing a python application (i.e. building and deploying something) or doing a project that is a scientific analysis, then it is fine to pin your dependencies as detailed here in a `requirements.txt`
@@ -476,6 +476,10 @@ Continue from this heading to the end of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Get learners to go through the remainder of the content from "Creating Branches" onwards (~ 15 minutes)
+- Once everyone is complete, consider running a quiz.
+  - You are working on a software project that has a main and develop branch. Feature branches are supposed to be created off of the develop branch, but you mistakenly create your feature branch off of the main branch. You don't realise this until you have already committed some changes, and now you are freaking out because you think you might have affected the code on the main branch. Is this worry valid?
+    1. yes
+    1. no (correct answer)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -503,7 +507,7 @@ Continue from this heading to the end of the page.
   - the important point is this: make sure whatever sytle you choose that it is consistent **within** a project, and if possible also across related projects
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "fragment"} -->
 ### Style in Different Languages and Tools
 
 - Python: PEP8
@@ -520,6 +524,7 @@ Continue from this heading to the end of the page.
 - Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this won't exist, so choose what seems best)
   - In Python, this is PEP8
     - In PyCharm, adherance to PEP8 will automatically be checked and violations flagged for fixing (demonstrate this live)
+    - VSCode can do the same thing with an extension. See the "Extras" section.
   - It is worth mentioning that at a project level, not everyone will be using the same IDE, so it is better to use an independent tool called a linter that will enforce these style requirements
     - `black` is a popular but harsh and opinionated tool that can take some getting used to
     - `flake8` and `pylint` a bit more conventional -> PyCharm can be modified to use one of these directly (outside of the scope of this course)
@@ -560,7 +565,38 @@ Functions:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## 🕓 End of Section 1 🕓
+## Verifying Code Style Using Linters
 
-Please fill out the end-of-section survey!
+- A direct continuation of the previous lesson about coding conventions and style.
+- Linters help us enforce some aspects of these.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Linting vs Formatting
+
+- In Python, formatting is effectively reduced to how the whitespace and newlines are arranged around the actual text of your source code
+  - It is much easier to automate and enforce complete consistency for this subset of style. One could say "black or white", hence where the formatting tool `black` gets its name.
+- But there are other aspects of _style_ that are not formatting, e.g. naming of variables from the previous section
+  - This is where linting comes in
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout Exercise
+
+Read from the top of the page to the bottom, completing exercises as you go.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Check in on students' status to see how they are making progress.
+- A quick quiz idea:
+  - Your IDE is telling you that your Python source file has a number of issues with indentation and line length. These problems fall under:
+    1. linting
+    1. formatting
+    1. style
+    1. all of the above
+    1. a and c (correct answer)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## 🕓 End of Section 1 🕓
 <!-- #endregion -->
