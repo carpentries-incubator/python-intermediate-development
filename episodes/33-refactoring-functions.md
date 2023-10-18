@@ -129,9 +129,11 @@ Since the function won't have any side effects, the reader needs to
 only understand what the function returns, which will probably
 be clear from the context in which the function is called.
 
-Pure functions have a number of advantages:
-
-* They are easy to re-use: because they always behave the same, you can always use them
+This property also makes them easier to re-use as the caller
+only needs to understand what parameters to provide, rather
+than anything else that might need to be configured
+or side effects for calling it at a time that is different
+to when the original author intended.
 
 Some parts of a program are inevitably impure.
 Programs need to read input from the user, or write to a database.
