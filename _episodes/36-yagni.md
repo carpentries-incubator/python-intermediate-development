@@ -16,7 +16,7 @@ keypoints:
 
 ## Introduction
 
-In this episode we have explored a range of techniques for architecting code:
+In this section we have explored a range of techniques for architecting code:
 
  * Using pure functions assembled into pipelines to perform analysis
  * Using established patterns to discuss design
