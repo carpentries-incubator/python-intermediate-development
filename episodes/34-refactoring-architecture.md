@@ -79,8 +79,9 @@ the pure calculations is helps with readability and testability.
 Nevertheless, the MVC approach is a great starting point when thinking about how you should structure your code.
 
 > ## Exercise: Split out the model code from the view code
-> Refactor the code to have the model code separated from
-> the view code.
+> Refactor `analyse_data` such the *view* code we identified in the last
+> exercise is removed from the function, so the function contains only
+> *model* code, and the *view* code is moved elsewhere.
 >> ## Solution
 >> The idea here is to have `analyse_data` to not have any "view" considerations.
 >> That is, it should just compute and return the data.
@@ -110,7 +111,10 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >>     views.visualize(graph_data)
 >>     return
 >> ```
->> See commit: https://github.com/thomaskileyukaea/python-intermediate-inflammation/commit/97fd04b747a6491c2590f34384eed44e83a8e73c
+>> You might notice this is more-or-less the change we did to write our
+>> regression test.
+>> This demonstrates that splitting up model code from view code can
+>> immediately make your code much more testable.
 > {: .solution}
 {: .challenge}
 
