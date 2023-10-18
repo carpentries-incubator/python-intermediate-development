@@ -129,12 +129,18 @@ We are going to be refactoring and extending this over the remainder of this epi
 > Think about the kinds of changes you might want to make to it, and what would
 > make making those changes challenging.
 >> ## Solution
+>> You may have found others, but here are some of the things that make the code
+>> hard to read, test and maintain:
+>>
 >> * Everything is in a single function - reading it you have to understand how the file loading
 works at the same time as the analysis itself.
 >> * If I want to use the data without using the graph I'd have to change it
 >> * It is always analysing a fixed set of data
 >> * It seems hard to write tests for it as it always analyses a fixed set of files
 >> * It doesn't have any tests
+>>
+>> Keep the list you created - at the end of this section we will revisit this
+>> and check that we have learnt ways to address the problems we found.
 > {: .solution}
 {: .challenge}
 
