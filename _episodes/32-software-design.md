@@ -155,7 +155,7 @@ We are going to be refactoring and extending this over the remainder of this epi
 >>
 >> * Everything is in a single function - reading it you have to understand how the file loading
 works at the same time as the analysis itself.
->> * If I want to use the data without using the graph I'd have to change it
+>> * If you want to use the data without using the graph you'd have to change it
 >> * It is always analysing a fixed set of data
 >> * It seems hard to write tests for it as it always analyses a fixed set of files
 >> * It doesn't have any tests
