@@ -105,7 +105,7 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >> if args.full_data_analysis:
 >>   _, extension = os.path.splitext(InFiles[0])
 >>   if extension == '.json':
->>     data_source = JSONDataSource()
+>>     data_source = JSONDataSource(os.path.dirname(InFiles[0]))
 >>   elif extension == '.csv':
 >>     data_source = CSVDataSource(os.path.dirname(InFiles[0]))
 >>   else:

@@ -315,7 +315,7 @@ That is, we have decoupled the job of loading the data from the job of analysing
 >>```python
 >> _, extension = os.path.splitext(InFiles[0])
 >> if extension == '.json':
->>   data_source = JSONDataSource()
+>>   data_source = JSONDataSource(os.path.dirname(InFiles[0]))
 >> elif extension == '.csv':
 >>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
 >> else:
