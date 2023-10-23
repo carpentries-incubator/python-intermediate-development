@@ -362,8 +362,12 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 > Create a mock for to provide as the `data_source` that returns some fixed data to test
 > the `analyse_data` method.
 > Use this mock in a test.
+>
+> Don't forget you will need to import `Mock` from the `unittest.mock` package.
 >> ## Solution
 >> ```python
+>> from unittest.mock import Mock
+>>
 >> def test_compute_data_mock_source():
 >>   from inflammation.compute_data import analyse_data
 >>   data_source = Mock()
