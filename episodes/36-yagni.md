@@ -1,7 +1,7 @@
 ---
 title: "When to abstract, and when not to."
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 25
 questions:
 - "How to tell what is and isn't an appropriate abstraction."
 - "How to design larger solutions."
