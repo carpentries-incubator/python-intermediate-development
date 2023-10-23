@@ -122,10 +122,11 @@ unchanged, but the code itself is easier to read, test and extend.
 
 When faced with a old piece of code that is hard to work with, that you need to modify, a good process to follow is:
 
-1. Refactor the code in such a way that the new change will slot in cleanly.
-2. Make the desired change, which now fits in easily.
+1. Have tests that verify the current behaviour
+2. Refactor the code in such a way that the new change will slot in cleanly.
+3. Make the desired change, which now fits in easily.
 
-Notice, after step 1, the *behaviour* of the code should be totally identical.
+Notice, after step 2, the *behaviour* of the code should be totally identical.
 This allows you to test rigorously that the refactoring hasn't changed/broken anything
 *before* making the intended change.
 
