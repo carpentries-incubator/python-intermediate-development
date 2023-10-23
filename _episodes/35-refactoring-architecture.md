@@ -19,16 +19,16 @@ keypoints:
 
 ## Introduction
 
-Model-View-Controller (MVC) is a way of separating out different portions of a typical
+Model-View-Controller (MVC) is a way of separating out different responsibilities of a typical
 application. Specifically we have:
 
-* The **model** which contains the internal data representations for the program, and the valid
-  operations that can be performed on it.
+* The **model** which is responsible for the internal data representations for the program,
+  and the valid operations that can be performed on it.
 * The **view** is responsible for how this data is presented to the user (e.g. through a GUI or
   by writing out to a file)
-* The **controller** defines how the model can be interacted with.
+* The **controller** is responsible for how the model can be interacted with.
 
-Separating out these different sections into different parts of the code will make
+Separating out these different responsibilities into different parts of the code will make
 the code much more maintainable.
 For example, if the view code is kept away from the model code, then testing the model code
 can be done without having to worry about how it will be presented.
@@ -39,7 +39,7 @@ just one thing.
 It also helps with maintainability - if the UI requirements change, these changes
 are easily isolated from the more complex logic.
 
-## Separating out considerations
+## Separating out responsibilities
 
 The key thing to take away from MVC is the distinction between model code and view code.
 
