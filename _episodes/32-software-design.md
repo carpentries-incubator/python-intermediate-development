@@ -1,7 +1,7 @@
 ---
 title: "Software Architecture and Design"
-teaching: 0
-exercises: 0
+teaching: 25
+exercises: 20
 questions:
 - "What should we consider when designing software?"
 - "What goals should we have when structuring our code?"

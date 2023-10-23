@@ -1,7 +1,7 @@
 ---
 title: "Refactoring functions to do just one thing"
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 20
 questions:
 - "How do you refactor code without breaking it?"
 - "How do you write code that is easy to test?"

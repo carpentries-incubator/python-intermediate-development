@@ -1,7 +1,7 @@
 ---
 title: "Using classes to de-couple code."
-teaching: 0
-exercises: 0
+teaching: 35
+exercises: 55
 questions:
 - "What is de-coupled code?"
 - "When is it useful to use classes to structure code?"

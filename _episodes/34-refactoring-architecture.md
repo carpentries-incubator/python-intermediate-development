@@ -1,7 +1,7 @@
 ---
 title: "Architecting code to separate responsibilities"
-teaching: 0
-exercises: 0
+teaching: 4
+exercises: 25
 questions:
 - "What is the point of the MVC architecture"
 - "How should code be structured"
