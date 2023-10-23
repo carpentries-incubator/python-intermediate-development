@@ -153,12 +153,11 @@ We are going to be refactoring and extending this over the remainder of this epi
 >> You may have found others, but here are some of the things that make the code
 >> hard to read, test and maintain:
 >>
->> * Everything is in a single function - reading it you have to understand how the file loading
+>> * **Hard to read:** Everything is in a single function - reading it you have to understand how the file loading
 works at the same time as the analysis itself.
->> * If you want to use the data without using the graph you'd have to change it
->> * It is always analysing a fixed set of data
->> * It seems hard to write tests for it as it always analyses a fixed set of files
->> * It doesn't have any tests
+>> * **Hard to modify:** If you want to use the data without using the graph you'd have to change it
+>> * **Hard to modify or test:** It is always analysing a fixed set of data stored on the disk
+>> * **Hard to modify:** It doesn't have any tests meaning changes might break something
 >>
 >> Keep the list you created - at the end of this section we will revisit this
 >> and check that we have learnt ways to address the problems we found.
