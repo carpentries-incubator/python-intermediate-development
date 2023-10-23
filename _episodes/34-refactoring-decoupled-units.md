@@ -54,8 +54,8 @@ then it becomes easier for these parts to change independently.
 >> This can then be used in the analysis.
 >> ```python
 >> def analyse_data(data_dir):
->> ...
 >>   data = load_inflammation_data(data_dir)
+>>   daily_standard_deviation = compute_standard_deviation_by_data(data)
 >> ...
 >> ```
 >> This is now easier to understand, as we don't need to understand the the file loading
@@ -158,8 +158,9 @@ Then the method can access the **member variable** `radius`.
 >> We have "decoupled" the reading of the data from the statistical analysis.
 >> ```python
 >> def analyse_data(data_source):
->>   ...
 >>   data = data_source.load_inflammation_data()
+>>   daily_standard_deviation = compute_standard_deviation_by_data(data)
+>>   ...
 >> ```
 >>
 >> In the controller, you might have something like:
