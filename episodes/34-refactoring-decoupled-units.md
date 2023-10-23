@@ -304,7 +304,7 @@ to the relevant class.
 As we saw with the `Circle` and `Square` examples, we can use interfaces and polymorphism
 to provide different implementations of the same interface.
 
-For example, we could replace our `CSVReader` with a class that reads a totally different format,
+For example, we could replace our `CSVDataSource` with a class that reads a totally different format,
 or reads from an external service.
 All of these can be added in without changing the analysis.
 Further - if we want to write a new analysis, we can support any of these data sources
@@ -352,7 +352,7 @@ That is, we have decoupled the job of loading the data from the job of analysing
 We can use this abstraction to also make testing more straight forward.
 Instead of having our tests use real file system data, we can instead provide
 a mock or dummy implementation of the `InflammationDataSource` that just returns some example data.
-Separately, we can test the file parsing class `CSVReader` without having to understand
+Separately, we can test the file parsing class `CSVDataSource` without having to understand
 the specifics of the statistical analysis.
 
 An convenient way to do this in Python is using Mocks.
