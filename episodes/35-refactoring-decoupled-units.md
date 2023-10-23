@@ -350,6 +350,8 @@ An convenient way to do this in Python is using Mocks.
 These are a whole topic to themselves - but a basic mock can be constructed using a couple of lines of code:
 
 ```python
+from unittest.mock import Mock
+
 mock_version = Mock()
 mock_version.method_to_mock.return_value = 42
 ```
