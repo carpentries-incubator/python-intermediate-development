@@ -1,6 +1,6 @@
 ---
 title: "Using classes to de-couple code."
-teaching: 35
+teaching: 30
 exercises: 55
 questions:
 - "What is de-coupled code?"
@@ -64,19 +64,22 @@ then it becomes easier for these parts to change independently.
 > {: .solution}
 {: .challenge}
 
-## Using classes to encapsulate data and behaviours
+Even with this change, the file loading is coupled with the data analysis.
+For example, if we wave to support reading JSON files or CSV files
+we would have to pass into `analyse_data` some kind of flag indicating what we want.
 
-Abstractedly, we can talk about units of code, where we are thinking of the unit doing one "thing".
-In practise, in Python there are three ways we can create defined units of code.
-The first is functions, which we have used.
-The next level up is **classes**.
-Finally, there are also modules and packages, which we won't cover.
+Instead, we would like to decouple the consideration of what data to load
+from the `analyse_data`` function entirely.
+
+One way we can do this is to use a language feature called a **class**.
+
+## Using Python Classes
 
 A class is a way of grouping together data with some specific methods.
 In Python, you can declare a class as follows:
 
 ```python
-class MyClass:
+class Circle:
   pass
 ```
 
@@ -85,7 +88,7 @@ They are typically named using `UpperCase`.
 You can then **construct** a class elsewhere in your code by doing the following:
 
 ```python
-my_class = MyClass()
+my_circle = Circle()
 ```
 
 When you construct a class in this ways, the classes **construtor** is called.
@@ -124,22 +127,6 @@ print(my_circle.get_area())
 Here the instance of the class, `my_circle` will be automatically
 passed in as the first parameter when calling `get_area`.
 Then the method can access the **member variable** `radius`.
-
-Classes have a number of uses.
-
-* Encapsulating data - such as grouping three numbers together into a Vector class
-* Maintaining invariants - perhaps when storing a file path it only makes sense for that to resolve to a valid file - by storing the string in a class with a method for setting it (a **setter**), that method can validate the new value before updating the value.
-* Encapsulating behaviour - such as a class representing a UI state, modifying some value will automatically
-  force the relevant portion of the UI to be updated.
-
-> ## Maintaining Invariants
-> Maintaining invariants can be a really powerful tool in debugging.
-> Without invariants, you can find bugs where some data is in an invalid
-> state, but the problem only appears when you try to use the data.
-> This makes it hard to track down the cause of the bug.
-> By using classes to maintain invariants, you can force the issue
-> to appear when the invalid data is set, that is, the source of the bug.
-{: .callout}
 
 > ## Exercise: Use a class to configure loading
 > Put the `load_inflammation_data` function we wrote in the last exercise as a member method
