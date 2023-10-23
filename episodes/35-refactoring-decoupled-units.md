@@ -33,6 +33,10 @@ allows for more maintainable code:
 * Loose coupled code tends to be easier to maintain, as changes can be isolated
   from other parts of the code.
 
+Introducing **abstractions** is a way to decouple code.
+If one part of the code only uses another part through an appropriate abstraction
+then it becomes easier for these parts to change independently.
+
 > ## Exercise: Decouple the file loading from the computation
 > Currently the function is hard coded to load all the files in a directory
 > Decouple this into a separate function that returns all the files to load
