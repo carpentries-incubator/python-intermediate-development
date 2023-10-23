@@ -177,9 +177,27 @@ Classes have a number of uses.
 >> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
 >> data_result = analyse_data(data_source)
 >> ```
->> Note in all these refactorings the behaviour is unchanged,
->> so we can still run our original tests to ensure we've not
->> broken anything.
+>> While the behaviour is unchanged, how we call `analyse_data` has changed.
+>> We must update our regression test to match this, to ensure we haven't broken the code:
+>> ```python
+>> ...
+>> def test_compute_data():
+>>     from inflammation.compute_data import analyse_data
+>>     path = Path.cwd() / "../data"
+>>     data_source = CSVDataSource(path)
+>>     result = analyse_data(data_source)
+>>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211
+>>     ...
+>> ```
+>> If this was a more complex refactoring, we could introduce an indirection to keep
+>> the interface the same:
+>> ```python
+>> def analyse_data(dir_path):
+>>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>>   return analyse_data_from_source(data_source)
+>> ```
+>> This can be a really useful intermediate step if `analyse_data` is called
+>> from lots of different places.
 > {: .solution}
 {: .challenge}
 
