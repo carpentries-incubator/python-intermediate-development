@@ -344,6 +344,21 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 
 
 > ## Exercise: Test using a mock or dummy implementation
+> Complete this test for analyse_data, using a mock object in place of the
+> `data_source`:
+> ```python
+> from unittest.mock import Mock
+>
+> def test_compute_data_mock_source():
+>   from inflammation.compute_data import analyse_data
+>   data_source = Mock()
+>
+>   # TODO: configure data_source mock
+>
+>   result = analyse_data(data_source)
+>
+>   # TODO: add assert on the contents of result
+> ```
 > Create a mock for to provide as the `data_source` that returns some fixed data to test
 > the `analyse_data` method.
 > Use this mock in a test.
