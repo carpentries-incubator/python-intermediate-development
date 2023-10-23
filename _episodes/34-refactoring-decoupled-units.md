@@ -316,12 +316,15 @@ That is, we have decoupled the job of loading the data from the job of analysing
 > {: .solution}
 {: .challenge}
 
+## Testing using Mock Objects
+
 We can use this abstraction to also make testing more straight forward.
 Instead of having our tests use real file system data, we can instead provide
-a mock or dummy implementation instead of one of the DataSource classes.
+a mock or dummy implementation instead of one of the real classes.
+Providing what we substitute conforms to the same interface, the code we are testing will work
+just the same.
 This dummy implementation could just returns some fixed example data.
-Separately, we can test the file parsing class `CSVDataSource` without having to understand
-the specifics of the statistical analysis.
+
 
 An convenient way to do this in Python is using Python's [mock object library](https://docs.python.org/3/library/unittest.mock.html).
 These are a whole topic to themselves -
