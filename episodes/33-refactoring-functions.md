@@ -204,7 +204,7 @@ won't need to be updated.
 > Add tests that check for when there is only one file with multiple rows, multiple files with one row
 > and any other cases you can think of that should be tested.
 >> ## Solution
->> You might hev throught of more tests, but we can easily extend the test by parameterizing
+>> You might have thought of more tests, but we can easily extend the test by parametrizing
 >> with more inputs and expected outputs:
 >> ```python
 >>@pytest.mark.parametrize('data,expected_output', [
