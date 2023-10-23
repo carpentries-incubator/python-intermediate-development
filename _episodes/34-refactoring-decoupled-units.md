@@ -167,7 +167,7 @@ Then the method can access the **member variable** `radius`.
 >>
 >> ```python
 >> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->> data_result = analyse_data(data_source)
+>> analyse_data(data_source)
 >> ```
 >> While the behaviour is unchanged, how we call `analyse_data` has changed.
 >> We must update our regression test to match this, to ensure we haven't broken the code:
@@ -303,7 +303,7 @@ That is, we have decoupled the job of loading the data from the job of analysing
 >>   data_source = UserProvidSpecificFilesDataSource()
 >> else:
 >>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->> data_result = analyse_data(data_source)
+>> analyse_data(data_source)
 >>```
 >> As you have seen, all these changes were made without modifying
 >> the analysis code itself.
