@@ -83,10 +83,11 @@ the tests at all.
 >>
 >> ```python
 >> import numpy.testing as npt
+>> from pathlib import Path
 >>
 >> def test_compute_data():
 >>     from inflammation.compute_data import analyse_data
->>     path = 'data/'
+>>     path = Path.cwd() / "../data"
 >>     result = analyse_data(path)
 >>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211
 >> ,0.25104719,0.22330897,0.89680503,0.21573875,1.24235548,0.63042094
