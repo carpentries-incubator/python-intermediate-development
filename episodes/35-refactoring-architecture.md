@@ -94,10 +94,7 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >>     Gets all the inflammation csvs within a directory, works out the mean
 >>     inflammation value for each day across all datasets, then graphs the
 >>     standard deviation of these means."""
->>     data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
->>     if len(data_file_paths) == 0:
->>         raise ValueError(f"No inflammation csv's found in path {data_dir}")
->>     data = map(models.load_csv, data_file_paths)
+>>     data = data_source.load_inflammation_data()
 >>     daily_standard_deviation = compute_standard_deviation_by_data(data)
 >>
 >>     return daily_standard_deviation
@@ -106,12 +103,16 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >>
 >> ```python
 >> if args.full_data_analysis:
->>     data_result = analyse_data(os.path.dirname(InFiles[0]))
->>     graph_data = {
->>         'standard deviation by day': data_result,
->>     }
->>     views.visualize(graph_data)
->>     return
+>>   if len(InFiles) == 0:
+>>     data_source = UserProvidSpecificFilesDataSource()
+>>   else:
+>>     data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>>   data_result = analyse_data(data_source)
+>>   graph_data = {
+>>     'standard deviation by day': data_result,
+>>   }
+>>   views.visualize(graph_data)
+>>   return
 >> ```
 >> You might notice this is more-or-less the change we did to write our
 >> regression test.
