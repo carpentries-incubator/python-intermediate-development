@@ -61,6 +61,8 @@ then it becomes easier for these parts to change independently.
 >> This is now easier to understand, as we don't need to understand the the file loading
 >> to read the statistical analysis, and we don't have to understand the statistical analysis
 >> when reading the data loading.
+>> Ensure you re-run our regression test to check this refactoring has not
+>> changed the output of `analyse_data`.
 > {: .solution}
 {: .challenge}
 

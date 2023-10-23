@@ -194,6 +194,8 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 >>    # views.visualize(graph_data)
 >>    return daily_standard_deviation
 >>```
+>> Ensure you re-run our regression test to check this refactoring has not
+>> changed the output of `analyse_data`.
 > {: .solution}
 {: .challenge}
 

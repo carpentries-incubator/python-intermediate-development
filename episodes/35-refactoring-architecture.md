@@ -121,6 +121,8 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >> regression test.
 >> This demonstrates that splitting up model code from view code can
 >> immediately make your code much more testable.
+>> Ensure you re-run our regression test to check this refactoring has not
+>> changed the output of `analyse_data`.
 > {: .solution}
 {: .challenge}
 
