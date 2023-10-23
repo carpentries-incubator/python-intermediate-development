@@ -152,7 +152,7 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 >> You can move all of the code that does the analysis into a separate function that
 >> might look something like this:
 >> ```python
->> def compute_standard_deviation_by_data(all_loaded_data):
+>> def compute_standard_deviation_by_day(all_loaded_data):
 >>     means_by_day = map(models.daily_mean, all_loaded_data)
 >>     means_by_day_matrix = np.stack(list(means_by_day))
 >>
@@ -171,7 +171,7 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 >>    if len(data_file_paths) == 0:
 >>        raise ValueError(f"No inflammation csv's found in path {data_dir}")
 >>    data = map(models.load_csv, data_file_paths)
->>    daily_standard_deviation = compute_standard_deviation_by_data(data)
+>>    daily_standard_deviation = compute_standard_deviation_by_day(data)
 >>
 >>    graph_data = {
 >>        'standard deviation by day': daily_standard_deviation,
@@ -213,7 +213,7 @@ won't need to be updated.
 >>    ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
 >>],
 >>ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
->>def test_compute_standard_deviation_by_data(data, expected_output):
+>>def test_compute_standard_deviation_by_day(data, expected_output):
 >>    from inflammation.compute_data import compute_standard_deviation_by_data
 >>
 >>    result = compute_standard_deviation_by_data(data)
