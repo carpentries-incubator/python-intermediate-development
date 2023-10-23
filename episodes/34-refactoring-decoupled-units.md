@@ -1,7 +1,7 @@
 ---
 title: "Using classes to de-couple code."
 teaching: 30
-exercises: 55
+exercises: 45
 questions:
 - "What is de-coupled code?"
 - "When is it useful to use classes to structure code?"
@@ -200,93 +200,53 @@ These allow separate systems to communicate with each other - such as a making a
 to Google Maps to find the latitude and longitude of an address.
 
 However, there are internal interfaces within our software that dictate how
-different units of the system interact with each other.
+different parts of the system interact with each other.
 Even if these aren't thought out or documented, they still exist!
 
-For example, there is an interface for how the statistical analysis in `analyse_data`
-uses the class `CSVDataSource` - the method `load_inflammation_data`, how it should be called
-and what it will return.
+For example, our `Circle` class implicitly has an interface:
+you can call `get_area` on it and it will return a number representing its area.
 
-Interfaces are important to get right - a messy interface will force tighter coupling between
-two units in the system.
-Unfortunately, it would be an entire course to cover everything to consider in interface design.
-
-In addition to the abstract notion of an interface, many programming languages
-support creating interfaces as a special kind of class.
-Python doesn't support this explicitly, but we can still use this feature with
-regular classes.
-An interface class will define some methods, but not provide an implementation:
-
-```python
-class Shape:
-  def get_area():
-    raise NotImplementedError
-```
-
-> ## Exercise: Define an interface for your class
-> As discussed, there is an interface between the CSVDataSource and the analysis.
-> Write an interface(that is, a class that defines some empty methods) called `InflammationDataSource`
-> that makes this interface explicit.
-> Document the format the data will be returned in.
+> ## Exercise: Identify the interface between `CSVDataSource` and `analyse_data`
+> What is the interface that CSVDataSource has with `analyse_data`.
+> Think about what functions `analyse_data` needs to be able to call,
+> what parameters they need and what it will return.
 >> ## Solution
->> ```python
->> class InflammationDataSource:
->>     """
->>     An interface for providing a series of inflammation data.
->>     """
+>> The interface is the `load_inflammation_data` method.
 >>
->>     def load_inflammation_data(self):
->>         """
->>         Loads the data and returns it as a list, where each entry corresponds to one file,
->>         and each entry is a 2D array with patients inflammation by day.
->>         :returns: A list where each entry is a 2D array of patient inflammation results by day
->>         """
->>         raise NotImplementedError
->> ```
-> {: .solution}
-{: .challenge}
-
-An interface on its own is not useful - it cannot be instantiated.
-The next step is to create a class that **implements** the interface.
-That is, create a class that inherits from the interface and then provide
-implementations of all the methods on the interface.
-To return to our `Shape` interface, we can write classes that implement this
-interface, with different implementations:
-
-```python
-class Circle(Shape):
-  ...
-  def get_area(self):
-    return math.pi * self.radius * self.radius
-
-class Rectangle(Shape):
-  ...
-  def get_area(self):
-    return self.width * self.height
-```
-
-As you can see, by putting `ShapeInterface`` in brackets after the class
-we are saying a `Circle` **is a** `Shape`.
-
-> ## Exercise: Implement the interface
-> Modify the existing class to implement the interface.
-> Ensure the method matches up exactly to the interface.
->> ## Solution
->> We can create a class that implements `load_inflammation_data`.
->> We can lift the code into this new class.
+>> It takes no parameters.
 >>
->> ```python
->> class CSVDataSource(InflammationDataSource):
->> ```
+>> It returns a list where each entry is a 2D array of patient inflammation results by day
+>> Any object we pass into `analyse_data` must conform to this interface.
 > {: .solution}
 {: .challenge}
 
 ## Polymorphism
 
-Where this gets useful is by using a concept called **polymorphism**
-which is a fancy way of saying we can use an instance of a class and treat
-it as a `Shape`, without worrying about whether it is a `Circle` or a `Rectangle`.
+It is possible to design multiple classes that each conform to the same interface.
 
+For example, we could provide a `Rectangle` class:
+
+```python
+class Rectangle(Shape):
+  def __init__(self, width, height):
+    self.width = width
+    self.height = height
+  def get_area(self):
+    return self.width * self.height
+```
+
+Like `Circle`, this class provides a `get_area` method.
+The method takes the same number of parameters (none), and returns a number.
+However, the implementation is different.
+
+When classes share an interface, then we can use an instance of a class without
+knowing what specific class is being used.
+When we do this, it is called **polymorphism**.
+
+Here is an example where we create a list of shapes (either Circles or Rectangles)
+and can then find the total area.
+Note how we call `get_area` and Python is able to call the appropriate `get_area`
+for each of the shapes.
 
 ```python
 my_circle = Circle(radius=10)
@@ -301,8 +261,8 @@ to the relevant class.
 
 ### How polymorphism is useful
 
-As we saw with the `Circle` and `Square` examples, we can use interfaces and polymorphism
-to provide different implementations of the same interface.
+As we saw with the `Circle` and `Square` examples, we can use common interfaces and polymorphism
+to abstract away the details of the implementation from the caller.
 
 For example, we could replace our `CSVDataSource` with a class that reads a totally different format,
 or reads from an external service.
@@ -313,13 +273,13 @@ That is, we have decoupled the job of loading the data from the job of analysing
 
 > ## Exercise: Introduce an alternative implementation of DataSource
 > Create another class that repeatedly asks the user for paths to CSVs to analyse.
-> It should inherit from the interface and implement the `load_inflammation_data` method.
+> It should implement the `load_inflammation_data` method.
 > Finally, at run time provide an instance of the new implementation if the user hasn't
 > put any files on the path.
 >> ## Solution
 >> You should have created a class that looks something like:
 >> ```python
->> class UserProvidSpecificFilesDataSource(InflammationDataSource):
+>> class UserProvidSpecificFilesDataSource:
 >>   def load_inflammation_data(self):
 >>     paths = []
 >>     while(True):
@@ -351,12 +311,14 @@ That is, we have decoupled the job of loading the data from the job of analysing
 
 We can use this abstraction to also make testing more straight forward.
 Instead of having our tests use real file system data, we can instead provide
-a mock or dummy implementation of the `InflammationDataSource` that just returns some example data.
+a mock or dummy implementation instead of one of the DataSource classes.
+This dummy implementation could just returns some fixed example data.
 Separately, we can test the file parsing class `CSVDataSource` without having to understand
 the specifics of the statistical analysis.
 
-An convenient way to do this in Python is using Mocks.
-These are a whole topic to themselves - but a basic mock can be constructed using a couple of lines of code:
+An convenient way to do this in Python is using Python's [mock object library](https://docs.python.org/3/library/unittest.mock.html).
+These are a whole topic to themselves -
+but a basic mock can be constructed using a couple of lines of code:
 
 ```python
 from unittest.mock import Mock
@@ -372,7 +334,7 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 
 
 > ## Exercise: Test using a mock or dummy implementation
-> Create a mock for the `InflammationDataSource` that returns some fixed data to test
+> Create a mock for to provide as the `data_source` that returns some fixed data to test
 > the `analyse_data` method.
 > Use this mock in a test.
 >> ## Solution
