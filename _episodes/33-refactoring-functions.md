@@ -197,6 +197,8 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 > {: .solution}
 {: .challenge}
 
+### Testing Pure Functions
+
 Now we have a pure function for the analysis, we can write tests that cover
 all the things we would like tests to cover without depending on the data
 existing in CSVs.
