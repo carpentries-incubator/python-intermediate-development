@@ -103,11 +103,14 @@ Nevertheless, the MVC approach is a great starting point when thinking about how
 >>
 >> ```python
 >> if args.full_data_analysis:
->>   if len(InFiles) == 0:
->>     data_source = UserProvidSpecificFilesDataSource()
->>   else:
+>>   _, extension = os.path.splitext(InFiles[0])
+>>   if extension == '.json':
+>>     data_source = JSONDataSource()
+>>   elif extension == '.csv':
 >>     data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->>   data_result = analyse_data(data_source)
+>>   else:
+>>     raise ValueError(f'Unsupported file format: {extension}')
+>>   analyse_data(data_source)
 >>   graph_data = {
 >>     'standard deviation by day': data_result,
 >>   }
