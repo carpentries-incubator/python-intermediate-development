@@ -62,15 +62,25 @@ you're not changing the important behaviour you have to make some small tweaks t
 the tests at all.
 
 > ## Exercise: Write regression tests before refactoring
-> Write a regression test to verify we don't break the code when refactoring.
+> Add a new test file called `test_compute_data.py` in the tests folder.
+> Add and complete this regression test to verify the current output of `analyse_data`
+> is unchanged by the refactorings we are going to do:
+> ```python
+> def test_analyse_data():
+>     from inflammation.compute_data import analyse_data
+>     path = Path.cwd() / "../data"
+>     result = analyse_data(path)
+>
+>     # TODO: add an assert for the value of result
+> ```
+> Use `assert_array_almost_equal` from the `numpy.testing` library to
+> compare arrays of floating point numbers.
+>
 > You will need to modify `analyse_data` to not create a graph and instead
 > return the data.
 >
-> Don't forget you can use the `numpy.testing` function `assert_array_equal` to
-> compare arrays of floating point numbers.
->
 >> ## Hint
->> You might find it helpful to assert the result, observe the test failing
+>> You might find it helpful to assert the results equal some made up array, observe the test failing
 >> and copy and paste the correct result into the test.
 > {: .solution}
 >
