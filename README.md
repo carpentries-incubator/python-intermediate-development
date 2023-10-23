@@ -68,7 +68,6 @@ Current maintainers of this lesson (in alphabetical order) are:
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
-* [Sam Mangham][sam-mangham]
 * [Aleksandra Nenadic][aleksandra-nenadic]
 
 The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Wednesday each month. The meetings alternate between operations meetings and co-working sprints.
