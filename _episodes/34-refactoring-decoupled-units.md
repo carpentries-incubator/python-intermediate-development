@@ -196,15 +196,6 @@ Then the method can access the **member variable** `radius`.
 >>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211
 >>     ...
 >> ```
->> If this was a more complex refactoring, we could introduce an indirection to keep
->> the interface the same:
->> ```python
->> def analyse_data(dir_path):
->>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->>   return analyse_data_from_source(data_source)
->> ```
->> This can be a really useful intermediate step if `analyse_data` is called
->> from lots of different places.
 > {: .solution}
 {: .challenge}
 
