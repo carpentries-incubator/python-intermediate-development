@@ -167,8 +167,8 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 >> You can move all of the code that does the analysis into a separate function that
 >> might look something like this:
 >> ```python
->> def compute_standard_deviation_by_day(all_loaded_data):
->>     means_by_day = map(models.daily_mean, all_loaded_data)
+>> def compute_standard_deviation_by_day(data):
+>>     means_by_day = map(models.daily_mean, data)
 >>     means_by_day_matrix = np.stack(list(means_by_day))
 >>
 >>     daily_standard_deviation = np.std(means_by_day_matrix, axis=0)
