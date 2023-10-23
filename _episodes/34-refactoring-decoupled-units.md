@@ -134,6 +134,21 @@ Then the method can access the **member variable** `radius`.
 > Put the configuration of where to load the files in the classes constructor.
 > Once this is done, you can construct this class outside the the statistical analysis
 > and pass the instance in to `analyse_data`.
+>> ## Hint
+>> When we have completed the refactoring, the code in the `analyse_data` function
+>> should look like:
+>> ```python
+>> def analyse_data(data_source):
+>>   data = data_source.load_inflammation_data()
+>>   daily_standard_deviation = compute_standard_deviation_by_data(data)
+>>   ...
+>> ```
+>> The controller code should look like:
+>> ```python
+>> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> analyse_data(data_source)
+>> ```
+> {: .solution}
 >> ## Solution
 >> You should have created a class that looks something like this:
 >>
