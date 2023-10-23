@@ -155,7 +155,12 @@ that is maybe harder to test, but is so simple that it only needs a handful of t
 
 > ## Exercise: Refactor the function into a pure function
 > Refactor the `analyse_data` function into a pure function with the logic, and an impure function that handles the input and output.
-> The pure function should take in the data, and return the analysis results.
+> The pure function should take in the data, and return the analysis results:
+> ```python
+> def compute_standard_deviation_by_day(data):
+>   # TODO
+>   return daily_standard_deviation
+> ```
 > The "glue" function should maintain the behaviour of the original `analyse_data`
 > but delegate all the calculations to the new pure function.
 >> ## Solution
