@@ -85,7 +85,7 @@ the tests at all.
 >> import numpy.testing as npt
 >> from pathlib import Path
 >>
->> def test_compute_data():
+>> def test_analyse_data():
 >>     from inflammation.compute_data import analyse_data
 >>     path = Path.cwd() / "../data"
 >>     result = analyse_data(path)
