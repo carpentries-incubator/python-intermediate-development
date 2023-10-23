@@ -159,7 +159,8 @@ works at the same time as the analysis itself.
 >> * **Hard to modify or test:** It is always analysing a fixed set of data stored on the disk
 >> * **Hard to modify:** It doesn't have any tests meaning changes might break something
 >>
->> Keep the list you created - at the end of this section we will revisit this
+>> Keep the list you have created.
+>> At the end of this section we will revisit this
 >> and check that we have learnt ways to address the problems we found.
 > {: .solution}
 {: .challenge}
