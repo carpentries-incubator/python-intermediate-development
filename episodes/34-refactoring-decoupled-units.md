@@ -279,36 +279,47 @@ for free with no further work.
 That is, we have decoupled the job of loading the data from the job of analysing the data.
 
 > ## Exercise: Introduce an alternative implementation of DataSource
-> Create another class that repeatedly asks the user for paths to CSVs to analyse.
+> Create another class that supports loading JSON instead of CSV.
+> There is a function in `models.py` that loads from JSON in the following format:
+> ```json
+> [
+>   {
+>     "observations": [0, 1]
+>   },
+>   {
+>     "observations": [0, 2]
+>   }
+> ]
+> ```
 > It should implement the `load_inflammation_data` method.
-> Finally, at run time provide an instance of the new implementation if the user hasn't
-> put any files on the path.
+> Finally, at run time construct an appropriate instance based on the file extension.
 >> ## Solution
 >> You should have created a class that looks something like:
 >> ```python
->> class UserProvidSpecificFilesDataSource:
->>   def load_inflammation_data(self):
->>     paths = []
->>     while(True):
->>       input_string = input('Enter path to CSV or press enter to process paths collected: ')
->>       if(len(input_string) == 0):
->>         print(f'Finished entering input - will process {len(paths)} CSVs')
->>         break
->>       if os.path.exists(input_string):
->>         paths.append(input_string)
->>       else:
->>         print(f'Path {input_string} does not exist, please enter a valid path')
+>> class JSONDataSource:
+>>   """
+>>   Loads all the inflammation JSON's within a specified folder.
+>>   """
+>>   def __init__(self, dir_path):
+>>     self.dir_path = dir_path
 >>
->>     data = map(models.load_csv, paths)
+>>   def load_inflammation_data(self):
+>>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.json'))
+>>     if len(data_file_paths) == 0:
+>>       raise ValueError(f"No inflammation JSON's found in path {self.dir_path}")
+>>     data = map(models.load_json, data_file_paths)
 >>     return list(data)
 >> ```
 >> Additionally, in the controller will need to select the appropriate DataSource to
 >> provide to the analysis:
 >>```python
->> if len(InFiles) == 0:
->>   data_source = UserProvidSpecificFilesDataSource()
->> else:
+>> _, extension = os.path.splitext(InFiles[0])
+>> if extension == '.json':
+>>   data_source = JSONDataSource()
+>> elif extension == '.csv':
 >>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> else:
+>>   raise ValueError(f'Unsupported file format: {extension}')
 >> analyse_data(data_source)
 >>```
 >> As you have seen, all these changes were made without modifying
