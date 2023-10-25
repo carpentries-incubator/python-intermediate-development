@@ -113,4 +113,3 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matthew-bluteau]: https://github.com/bielsnohr
 [doug-lowe]: https://github.com/douglowe
 [kamilla-kopec-harding]: https://github.com/kkh451
-[sam-mangham]: https://github.com/smangham
