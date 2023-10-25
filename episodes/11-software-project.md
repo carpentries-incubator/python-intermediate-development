@@ -54,8 +54,7 @@ to fix and build on top of the existing code during the course.
 
 ## Downloading Our Software Project
 
-To start working on the project, you will first
-create a copy of the software project template repository
+To start working on the project, you will first create a fork of the software project repository
 from GitHub within your own GitHub account
 and then obtain a local copy of that project (from your GitHub) on your machine.
 
@@ -69,7 +68,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    ![Software project fork repository in GitHub](../fig/fork-repository.png){: .image-with-shadow width="800px" }
 
 4. Click the `Fork` button
-   towards the top right of the template repository's GitHub page to create
+   towards the top right of the repository's GitHub page to create
    a **fork** of the repository under your GitHub account
    (you will need to be signed into GitHub for the `Fork` button to work).
    Note that each participant is creating their own fork to work on.
@@ -101,7 +100,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
-> > Make sure you do not clone the original template repository but rather your own copy,
+> > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
 > > Also make sure you select the **SSH tab** and not the **HTTPS** one -
 > > you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
@@ -118,7 +117,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
 > >     ~~~
 > >     {: .language-bash}
-> >    Make sure you are cloning your copy of the software project and not the template repository.
+> >    Make sure you are cloning your fork of the software project and not the original repository.
 > >
 > > 4. Navigate into the cloned repository folder in your command line with:
 > >     ~~~
