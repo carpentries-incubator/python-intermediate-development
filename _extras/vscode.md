@@ -28,7 +28,6 @@ Click "Install" to install the extension, you may be asked to also reload the wi
 
 You are now ready to code!
 
-
 ## Using the VSCode IDE
 
 Let's open our project in VSCode now
@@ -63,7 +62,8 @@ click "Yes":
 ![use_env](../fig/use_env.png)
 
 ---
-**Troubleshooting**
+
+#### Troubleshooting Setting the Interpreter
 
 If the prompt did not appear, you can manually set the interpreter.
 Firstly navigate to the location of the `python` binary within the virtual environment
@@ -71,7 +71,7 @@ using the file browser side bar (see below),
 this will be located at `<virtual environment directory>/bin/python`.
 Right click on the binary and select `Copy Path`.
 
-Then using the keyboard shortcut `CTRL-SHIFT-P` to bring up the action menu,
+Then using the keyboard shortcut `CTRL-SHIFT-P` to bring up the command palette,
 and searching for `Python: Select Interpreter`,
 clicking `Enter interpreter path...`
 and pasting the address followed by Enter.
@@ -94,7 +94,6 @@ Right click the file you created and select `Delete` to remove it.
 
 Any terminal you now open will start with the virtual environment already activated.
 
-
 ### Adding Dependencies
 
 For this workshop you will need to
@@ -109,7 +108,7 @@ pip install numpy matplotlib pytest
 
 ---
 
-**Troubleshooting**
+#### Troubleshooting Dependencies
 
 If you are having issues with `pip` it may be your version is too old.
 Pip will usually inform you via a warning if a newer version is available,
@@ -124,7 +123,6 @@ before installing packages.
 
 ---
 
-
 ## Running Scripts in VSCode
 
 To run a script in VSCode,
@@ -134,6 +132,48 @@ or use the keyboard shortcut `CTRL-ALT-N`.
 
 ![run_code](../fig/play.png)
 
+## Adding a Linter in VSCode
+
+In [the episode on coding style]({{ page.root }}{% link _episodes/15-coding-conventions.md %})
+and [the subsequent episode on linters]({{ page.root }}{% link _episodes/16-verifying-code-style-linters.md %}),
+you are asked to use an automatic feature in PyCharm
+that picks up linting issues with the source code.
+Because it is language agnostic, VSCode does not have a linter for Python built into it.
+Instead, you will need to install an extension to get linting hints.
+Get to the "Extensions" side pane by one of these actions:
+
+1. Bring up the command palette with `CTRL-SHFT-P`, search for `View: Show Extensions`
+1. Use the direct keyboard shortcut `CTRL-SHFT-X`
+1. Click on the "Extensions" logo on the left side panel
+   (it looks like three connected blocks with a fourth block floating separately)
+
+Type pylint into the search bar, and then click on `Install` in the result that comes up.
+The application window should look something like this:
+
+![VSCode Extensions Installation](../fig/vscode-install-linter-extension-annotated.png)
+
+Once installed, warnings should automatically populate the "Problems" panel
+at the bottom of your window.
+You can bring up the "Problems" panel with the shortcut `CTRL-SHFT-M`.
+Your application window will look something like this:
+
+![VSCode Problems Panel](../fig/vscode-linter-problems-pane-annotated.png)
+
+There are other Python linters available, like `flake8`.
+Similarly, there are formatters like `black`.
+All are available as extensions which you can get by repeating the steps above
+but searching for the different names in the "Extensions" pane.
+
+We also recommend that you install these linters and formatters in your virtual environment,
+since then you will be able to run them from the command line as well.
+For example, if you want `pylint` and `black`, simply execute this on the command line:
+
+~~~bash
+pip3 install pylint black
+~~~
+
+They will now each be available to run as command line applications,
+and you will find the details of how to run `pylint` in the lesson material.
 
 ## Running Tests
 
