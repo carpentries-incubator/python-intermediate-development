@@ -131,15 +131,10 @@ within the context of the typical software development process:
 - How requirements inform and drive the **design of software**,
   the importance, role, and examples of **software architecture**,
   and the ways we can describe a software design.
-- **Implementation choices** in terms of **programming paradigms**,
-  looking at **procedural**, **functional**, and **object oriented** paradigms of development.
-  Modern software will often contain instances of multiple paradigms,
-  so it is worthwhile being familiar with them and knowing when
-  to switch in order to make better code.
-- How you can (and should) assess and update a software's architecture when
-  requirements change and complexity increases -
-  is the architecture still fit for purpose,
-  or are modifications and extensions becoming increasingly difficult to make?
+- How to improve existing code to be more readable, maintainable and testable.
+- Consider different strategies for writing well designed code, including
+  using **pure functions**, **classes** and **abstractions**.
+- How to create, asses and improve software design.
 
 
 {% include links.md %}
