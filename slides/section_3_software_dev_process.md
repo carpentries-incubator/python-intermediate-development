@@ -73,7 +73,7 @@ The typical stages of a software development process can be categorised as follo
 
 The process of following these stages, particularly when undertaken in this order, is referred to as the waterfall model of software development.
 Each stage’s outputs flow into the next stage sequentially.
-As the cyclic nature of the image suggests, this linear process is not the only, nor necessarily the best, 
+As the cyclic nature of the image suggests, this linear process is not the only, nor necessarily the best,
 way to think about the SDLC.
 
 There is value we get from following some sort of process:
@@ -406,7 +406,7 @@ with open("patient_serialized.json", "w") as fp:
 ```
 
 ```python slideshow={"slide_type": "fragment"}
-! cat patient_serialized.json 
+! cat patient_serialized.json
 ```
 
 ```python slideshow={"slide_type": "fragment"}
