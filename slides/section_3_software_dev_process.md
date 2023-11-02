@@ -297,112 +297,177 @@ Hard to modify: It doesn’t have any tests meaning changes might break somethin
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Programming Paradigms
-
-<center><img src="../fig/paradigms.png" width="70%"></center>
-
-> Modified from _Davis, Daniel. 2013. “Modelled on Software Engineering: Flexible Parametric Models in the Practice of Architecture.” PhD dissertation, RMIT University._
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- This section is going to be a bit of theory before we get back to more concrete programming, but it is important to have a conceptual view of the options available to us when solving problems, because the language we choose will have an influence upon this.
-- Different languages apply different programming paradigms, which give us different tools for how we can structure and design our code.
-- The primary divide is between _Imperative_ and _Declarative_ languages
-- Poll the learners with stickies or Zoom reactions with the question: "Have you heard the terms _paradigm_, _declarative_, and _imperative_ before in relation to programming?"
-  - If a large number have, then ask the follow up: "Do you have a good grasp of the meaning of these terms and the practical differences between imperative and declarative programming?"
-  - If the majority answer in the affirmative, it is fine to skip to the FizzBuzz exercise
-  - Otherwise, give a brief description of imperative vs declarative, and then get the group to read through the section.
-- Imperative: grammatically, an imperative statement is an order or instruction
-  - e.g. "get me a soda", "got to the shop", "do this important task"
-  - this can readily be applied to our relationship to a computer through a programming language, in which we give it instructions
-  - e.g. "for all the elements in this list, add the value of each to this sum", "if the value is greater than 10, add it to the sum", etc.
-  - This is likely the paradigm of programming we are all most familiar with
-- Declarative: grammatically, a declarative sentence is a statement of fact or opinion. It is a description.
-  - e.g. "the quick brown fox jumps over the lazy dog", "I don't understand functional programming"
-  - it is less obvious how this can be used when interacting with computers
-  - The idea of applying a declarative paradigm in programming is that we describe _what_ we want the program to do, rather than _how_ it should do it
-  - implementation details (i.e. the _how_) are left to lower level features of the language
-  - if anyone has every used a query language like SQL before, this will make a lot more sense
-- It is worth a note that Python is a multi-paradigm language
-  - it borrows elements from OO, functional, and procedural paradigms
-  - you can write programs that are a mix of these paradigms, or more strictly stick to one, it is up to you (which can be both a good and bad thing)
-  - more likely, you will write something where Python objects (so OO) are treated like data which is processed in a functional style
-  - we will see how to use Python in these different styles in the next two sections
+## ☕ 5 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Refactoring Functions to do Just One Thing
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Introduction
+
+Functions that just do one thing are:
+
+* Easier to test
+* Easier to read
+* Easier to re-use
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+We identified last episode that the code has a function that does many more than one thing
+Hard to understand - high cognitive load
+Hard to test as mixed lots of different things together
+Hard to reuse as was very fixed in its behaviour.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Test Before Refactoring
+
+* Write tests *before* refactoring to ensure we don't change behaviour.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Writing Tests for Code that is Hard to Test
+
+What can we do?
+
+* Test at a higher level, with coarser accuracy
+* Write "hacky" temporary tests
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Think of hacky tests like scaffolding - we will use them to ensure we can do the work safely,
+but we will remove them in the end.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Exercise: Write a Regression Test for Analyse Data Before Refactoring
+
+Add a new test file called `test_compute_data.py`` in the tests folder.
+Complete the regression test to verify the current output of analyse_data is unchanged by the refactorings we are going to do.
+
+Time: 10min
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Hint: You might find it helpful to assert the results equal some made up array, observe the test failing and copy and paste the correct result into the test.
+
+When talking about the solution:
+
+ * We will have to remove it as we modified the code to get it working
+ * Is not a good test - not obvious it is correct
+ * Brittle - changing the files will break the tests
+<!-- #endregion -->
+
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Pure Functions
+
+A **pure function** takes in some inputs as parameters, and it produces a consistent output.
+
+That is, just like a mathematical function.
+
+The output does not depend on externalities.
+
+There will be no side effects from running the function
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Externalities like what is in a database or the time of day
+Side effects like modifying a global variable or writing a file
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Pure Functions
+
+Pure functions have a number of advantages for maintainable code:
+
+ * Easier to read as don't need to know calling context
+ * Easier to reuse as don't need to worry about invisible dependencies
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Refactor Code into a Pure Function
+
+Refactor the analyse_data function into a pure function with the logic, and an impure function that handles the input and output. The pure function should take in the data, and return the analysis results:
+
+```python
+def compute_standard_deviation_by_day(data):
+  # TODO
+  return daily_standard_deviation
+```
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Testing Pure Functions
+
+Pure functions are also easier to test
+
+ * Easier to write as can create the input as we need it
+ * Easier to read as don't need to read any external files
+ * Easier to maintain - tests won't need to change if the file format changes
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Can focus on making sure we get all edge cases without real world considerations
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Write Test Cases for the Pure Function
+
+Now we have refactored our a pure function, we can more easily write comprehensive tests. Add tests that check for when there is only one file with multiple rows, multiple files with one row and any other cases you can think of that should be tested.
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Functional Programming
+
+Pure functions are a concept from an approach to programming called **functional programming**.
+
+Python, and other languages, provide features that make it easier to write "functional" code:
+
+ * `map` / `filter` / `reduce` can be used to chain pure functions together into pipelines
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- We have undoubtedly all written functions during our time programming, but this doesn't mean we have done "functional" style programming, so let's look at what that involves
-- The functional style will probably seem quite foreign, and it might not be obvious why it is useful initially
-  - This is just a taster, but I encourage you to stick with it and read further into the functional style if you are interested
+If there is time - do some live coding to show imperative code, then transform into a pipeline:
 
-<!-- #endregion -->
+ * Sequence of numbers
+ * Remove all the odd numbers
+ * Square all the numbers
+ * Add them together
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Start from the Top
 
-Start from the top of this page and read through, completing any exercises along the way. It is recommended to put your new code that is unrelated to the inflammation project into separate files/modules.
-<!-- #endregion -->
+```
+def is_even(number):
+  return number % 2 == 0
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Send learners into breakout rooms for about 40 minutes
-- Post-exercise comments
-- Testability is a huge point that should be emphasised. Even if you aren't following a strict functional style, it is likely that incorporating parts of this style into your code will make it more testable.
-- Next slide for comment about the `reduce` function
-<!-- #endregion -->
+numbers = range(1, 100)
+total = 0
+for number in numbers:
+  if is_even(number):
+    squared = number ** 2
+    total += squared
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-#### The `reduce` function
-
-A `for` loop under the hood: https://github.com/python/cpython/blob/3.10/Lib/functools.py#L237
-
-```python
-def reduce(function, sequence):
-    # some argument checking
-    # ...
-    it = iterator(sequence)
-    for element in it:
-        value = function(value, element)
-    return value
+evens = filter(is_even, numbers)
+squared_evens = map(lambda number: number ** 2, evens)
+total = reduce(lambda number, total: total + number, squared_evens)
+# OR sum(squared_evens)
 ```
 
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- In Python's case, there is very literally a procedural underpinning to some of its functional attributes
-  - but this is not the case for all languages
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Alternate Sum of Squares
-
-```python
-from functools import reduce
-
-
-def sum_of_squares(sequence):
-    squares = [x * x for x in sequence]
-    return reduce(lambda a, b: a + b, squares)
-
-
-def to_integer(sequence):
-    return [int(x) for x in sequence]
-
-
-def remove_comments(sequence):
-    return [x for x in sequence if x[0] != "#"]
-
-sequence = ['#100', '1', '2', '4']
-sum_of_squares(to_integer(remove_comments(sequence)))
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- This is closer to what actual purely function languages do: they chain together a sequence of function calls
-- And example of what this looks like in another language can be seen here: https://bielsnohr.github.io/2023/02/18/elm-advent-of-code-2022.html#array-handling
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
