@@ -26,10 +26,9 @@ There should be a button with a histogram on the Jupyter notebook toolbar
 Click the button, or press `Alt-r` to launch the RISE presentation view.
 Use spacebar to advance slides. Presenter view with `t`.
 
-When the slides need to link to the course content, they assume the pages are hosted locally at
-`0.0.0.0:4000`. This is the default location where `make docker-serve` puts the website if you have
-build locally from this repo. The decision was made to link locally rather than too the live website
-to allow for local modifications of the content.
+Saving the slides from the Jupyter interface should only save to the markdown source file.
+If you find you have ended up with some `.ipynb` files in the `slides/` directory,
+then you have done something wrong. Don't check those `.ipynb` files into version control.
 
 ## Slide Export
 
