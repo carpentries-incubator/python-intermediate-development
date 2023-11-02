@@ -116,65 +116,184 @@ is agreement about whether they have been categorised correctly.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Software Architecture and Design
-
-... or _Understanding what architecture and design mean for software,_ \
-_and how to incorporate requirements into an existing design/architecture_
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-The extended subtitle is necessary to make it clear that this section is both explaining what architecture and design are and how requirements feed into the process of designing and architecting our software.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-> **Software design** is the process by which an agent creates a specification of a software artifact intended to accomplish goals, using a set of primitive components and subject to constraints. Software design may refer to either "all the activity involved in conceptualizing, framing, implementing, commissioning, and ultimately modifying complex systems" or "the activity following requirements specification and before programming, as ... [in] a stylized software engineering process." 
-<!-- #endregion -->
+## Maintainable Code
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
-- Part of the software development process
-- Be careful: the _process_ of designing software **VERSUS** _a design_ of some software (sometimes called a _design model_)
-<!-- #endregion -->
+Software Architecture and Design is about writing *maintainable code*.
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- We don't want to get bogged down in definitions, but it is good to know the difference between software design and software architecture
-- Read definition of software design and subsequent points
+ * Easy to read
+ * Testable
+ * Adaptable
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-> **Software architecture** refers to the fundamental structures of a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations. The architecture of a software system is a metaphor, analogous to the architecture of a building. It functions as a blueprint for the system and the developing project, laying out the tasks necessary to be executed by the design teams.
+## Maintainable Code
 
-- This can be thought of as a particular sub-category of the design model that becomes more important the larger your software project gets
-<!-- #endregion -->
+Maintainable code is vital as projects grow
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Software architecture tends to be a much higher level view with little detail about specific implementation, focussing rather on abstrated components and how they will interact
-  - a software degin model will be much lower level and refer to particular modules and classes
-<!-- #endregion -->
+ * More people being involved
+ * Adding new features
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Some Thoughts about Software Design
-
-- Requirements collections is the important prerequisite since they determine some of your design constraints; other design constraints will exist, however.
-- Draw it out!
-    - Use diagrams and schematics to try and visualise what a software programme/system will look like
-    - It doesn't have to be fancy; just having something is far better than nothing
-    - Seeing the connections between software components can usually help you further refine the design
-- Design it twice
-    - The more designs you consider, the higher the chance you will move towards a better one
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Also, emphasise the point from the course content: it is good to not get too caught up in the details of whether you are implementing an MVC architecture
-  - this is probably not an architecture that most would see or implement in research software
-  - but the point of separating the "model" from the "view" (i.e. plotting) is definitely something worthwhile
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Reading and Exercises
 
-Read from the heading "Software Architecture" near the top of the "Software Architecture and Design" page.
+## Exercise:
 
-For the "Exercise: Implementing Requirements", \
-🚨 **make sure you read the notes at the bottom in bold font** 🚨
+Try to come up with examples of code that has been hard to understand - why?
+
+Try to come up with examples of code that was easy to understand and modify - why?
+
+Time: 5min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+After 5 min spend 5-15 min discussing examples the group has come up with
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Cognitive Load
+
+For code to be readable, readers have to be able to understand what the code does.
+
+Cognitive load - the amount a reader has to remember at once
+
+There is a limit (and it is low!)
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Cognitive Load
+
+Reduce cognitive load for a bit of code by:
+
+ * Good variable names
+ * Simple control flow
+ * Functions doing one thing
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Good variable names - give examples
+Simple control flow - explain means not lots of nesting if statement
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Abstractions
+
+An **abstraction** hides the details of one part of a system from another.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Give some examples of abstractions
+Maybe ask for people to think of ideas of abstractions in the real world?
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Abstractions
+
+Help to make code easier - as don't have to understand details all at once.
+
+Lowers cognitive load for each part.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Refactoring
+
+**Refactoring** is modifying code, such that:
+
+ * external behaviour unchanged,
+ * code itself is easier to read / test / extend.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Refactoring
+
+Refactoring is vital for improving code quality.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Often working on existing software - refactoring is how we improve it
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Refactoring Loop
+
+When making a change to a piece of software, do the following:
+
+* Automated tests verify current behaviour
+* Refactor code (so new change slots in cleanly)
+* Re-run tests to ensure nothing is broken
+* Make the desired change, which now fits in easily.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Refactoring
+
+Rest of section we will learn how to refactor an existing piece of code
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Refactoring Exercise
+
+Look at `inflammation/compute_data.py`
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Bring up the code
+
+Explain the feature:
+In it, if the user adds --full-data-analysis then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
+
+The main body of it exists in inflammation/compute_data.py in a function called analyse_data.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Exercise: why isn't this code maintainable?
+
+How is this code hard to maintain?
+
+Maintainable code should be:
+
+ * Easy to read
+ * Easy to test
+ * Easy to extend or modify
+
+Time: 5min
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Solution:
+Hard to read: Everything is in a single function - reading it you have to understand how the file loading works at the same time as the analysis itself.
+Hard to modify: If you want to use the data without using the graph you’d have to change it
+Hard to modify or test: It is always analysing a fixed set of data stored on the disk
+Hard to modify: It doesn’t have any tests meaning changes might break something
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Key Points
+
+> "Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do."
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -313,7 +432,7 @@ def my_decorator(func):
 # we can replace this
 def my_function():
     print("Whee!")
-    
+
 my_function = my_decorator(my_function)
 my_function()
 
@@ -342,10 +461,10 @@ Start reading from the top of this page all the way to the end. Complete exercis
 - Invariably, the question will come up of when to use functional vs OO programming, and are the two mutually exclusive (i.e. do you have to use one or the other)
   - as mentioned previously, it is unlikely you will do purely OO or functional programming, especially if you are using Python
   - the two are certainly not mutually exclusive
-- Post-exercise comment: there will probably be the temptation to inherit from the builtin `list` class when implementing `Library`. 
-  - Subclassing from builtin types is generally a bad idea for a host of complex reasons. 
-  - The most easily comprehensible is that by inheriting a builtin type, you inherit a lot of behaviour that you might not intend to have for your new class. 
-  - On the flip side, it is also quite restrictive. Is a Library really just a list? We might decide to add other functionality, like opening hours, later on. How does that data fit into the definition of a list? Well, it doesn't. 
+- Post-exercise comment: there will probably be the temptation to inherit from the builtin `list` class when implementing `Library`.
+  - Subclassing from builtin types is generally a bad idea for a host of complex reasons.
+  - The most easily comprehensible is that by inheriting a builtin type, you inherit a lot of behaviour that you might not intend to have for your new class.
+  - On the flip side, it is also quite restrictive. Is a Library really just a list? We might decide to add other functionality, like opening hours, later on. How does that data fit into the definition of a list? Well, it doesn't.
   - If you really want to inherit from something here, then the better approach is to use the `collections.abc` (abstract base class) module in Python and pick something from there that gets you closer to your desired functionality.
 - A note about inheritance vs composition is probably worthwhile
   - Inheritance tends to be quite abused and IMO should not be used as often as it is; it leads to very complex hierarchies of classes that make it difficult to determine where something is actually defined
