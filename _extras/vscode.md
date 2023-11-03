@@ -16,13 +16,13 @@ VS Code can be used to develop code in many programming languages, provided the 
 For this course we will require the extensions for Python. To install extensions click the icon highlighted below 
 in the VS Code sidebar:
 
-![Visual Code application window with the Extensions button highlighted](../fig/vs-code-extensions.png){: .image-with-shadow width="800px" }
+![VS Code application window with the Extensions button highlighted](../fig/vs-code-extensions.png){: .image-with-shadow width="800px" }
 
 In the search box, type "python" and select the Intellisense Python extension by Microsoft, 
 then click the "Install" button to install the extension. You may be asked to reload the VS Code IDE for the changes 
 to take effect.
 
-![Visul Code application with the list of extensions found by search term "python"](../fig/vs-code-python-extension.png){: .image-with-shadow width="800px" }
+![VS Code application with the list of extensions found by search term "python"](../fig/vs-code-python-extension.png){: .image-with-shadow width="800px" }
 
 ## Using the VS Code IDE
 
@@ -75,7 +75,7 @@ If everything is setup correctly, when you select a Python file in the file expl
 the interpreter and virtual environment stated in the information bar at the bottom of VS Code, e.g., 
 something similar to the following:
 
-![Visual Code bottom bar indicator of the virtual environment](../fig/vs-code-virtual-env-indicator.png)
+![VS Code bottom bar indicator of the virtual environment](../fig/vs-code-virtual-env-indicator.png)
 
 Any terminal you now open will start with the activated virtual environment.
 
