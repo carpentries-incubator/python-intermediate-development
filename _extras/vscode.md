@@ -16,29 +16,30 @@ VS Code can be used to develop code in many programming languages, provided the 
 For this course we will require the extensions for Python. To install extensions click the icon highlighted below 
 in the VS Code sidebar:
 
-![extensions_icon](../fig/vs-code-extensions.png)
+![Visual Code application window with the Extensions button highlighted](../fig/vs-code-extensions.png){: .image-with-shadow width="800px" }
 
-In the search box, type "python" and select the Intellisense Python extension by Microsoft.
-Click "Install" to install the extension. You may be asked to reload the VS Code IDE for the changes to take effect.
+In the search box, type "python" and select the Intellisense Python extension by Microsoft, 
+then click the "Install" button to install the extension. You may be asked to reload the VS Code IDE for the changes 
+to take effect.
 
-![ext_python](../fig/vs-code-python-extension.png)
+![Visul Code application with the list of extensions found by search term "python"](../fig/vs-code-python-extension.png){: .image-with-shadow width="800px" }
 
 ## Using the VS Code IDE
 
-Let's open our project in VS Code and familiarise ourselves with some commonly used features needed for this course.
+Let's open our software project in VS Code and familiarise ourselves with some commonly used features needed for this course.
 
 ### Opening a Software Project
 
-Select `File` > `Open Folder` and navigate to the directory where you saved the 
-[software project `python-intermediate-inflammation`](../11-software-project/index.html#downloading-our-software-project),
+Select `File` > `Open Folder` from the top-level menu and navigate to the directory where you saved the 
+[`python-intermediate-inflammation` project](../11-software-project/index.html#downloading-our-software-project),
 which we are using in this course.
 
 ### Configuring a Virtual Environment in VS Code
 
 As in the episode on
 [virtual environments for software development]({{ page.root }}{% link _episodes/12-virtual-environments.md %}),
-we now want to create a virtual environment we can work in.
-Go to `Terminal` > `New Terminal` to open a new terminal session within the project directory,
+we'd want to create a virtual environment for our project to work in (unless you have already done so earlier in the course).
+From the top menu, select `Terminal` > `New Terminal` to open a new terminal (command line) session within the project directory,
 and run the following command to create a new environment:
 
 ~~~
@@ -50,7 +51,7 @@ This will create a new folder called `venv` within your project root.
 VS Code will notice the new environment and ask if you want to use it as the default Python interpreter for this project - 
 click "Yes".
 
-![use_env](../fig/use_env.png)
+![VS Code popup window asking which Python interpreter to use for the current project](../fig/use_env.png)
 
 ---
 
@@ -71,11 +72,12 @@ new one, if you do not have it, by right-clicking on the file explorer sidebar, 
 with the extension `.py`).
 
 If everything is setup correctly, when you select a Python file in the file explorer you should see
-the interpreter and virtual environment stated in the information bar at the bottom of VS Code, e.g.:
+the interpreter and virtual environment stated in the information bar at the bottom of VS Code, e.g., 
+something similar to the following:
 
-![indicator](../fig/vs-code-virtual-env-indicator.png)
+![Visual Code bottom bar indicator of the virtual environment](../fig/vs-code-virtual-env-indicator.png)
 
-Any terminal you now open will start with the virtual environment already activated.
+Any terminal you now open will start with the activated virtual environment.
 
 ### Adding Dependencies
 
@@ -110,7 +112,7 @@ To run a Python script in VS Code, open the script by clicking on it,
 and then either click the Play icon in the top right corner,
 or use the keyboard shortcut `CTRL-ALT-N`.
 
-![run_code](../fig/vs-code-run-script.png)
+![VS Code application window with highlighted Run button](../fig/vs-code-run-script.png){: .image-with-shadow width="800px" }
 
 ## Adding a Linter in VS Code
 
@@ -129,12 +131,12 @@ Get to the "Extensions" side pane by one of these actions:
 In the Extensions panel, type "pylint" into the search bar. Select Pylint from the result panel 
 that comes up and then the `Install` button:
 
-![VS Code Extensions Installation](../fig/vs-code-install-linter-extension.png)
+![VS Code Extensions Panel showing searching for pylint extension](../fig/vs-code-install-linter-extension.png){: .image-with-shadow width="800px" }
 
 Once installed, Pylint warnings about your code should automatically populate the "Problems" panel
 at the bottom of VS Code window, as shown below. You can also bring up the "Problems" panel using the keyboard shortcut `CTRL-SHFT-M`.
 
-![VS Code Problems Panel](../fig/vs-code-linter-problems-pane-annotated.png)
+![VS Code Problems Panel](../fig/vs-code-linter-problems-pane-annotated.png){: .image-with-shadow width="800px" }
 
 There are other Python linters available, such as [Flake8](https://flake8.pycqa.org/en/latest/), 
 and Python code formatters, such as [Black](https://pypi.org/project/black/).
@@ -154,18 +156,18 @@ and you will find the details of how to run `pylint` in the lesson material (`bl
 ## Running Tests
 
 VS Code also allows you to run tests from a dedicated test viewer.
-Clicking the laboratory flask icon in the sidebar allows you to set up test exploration:
+Clicking the "laboratory flask" button in the sidebar allows you to set up test exploration:
 
-![test_explore](../fig/vs-code-test-explorer.png)
+![VS Code application window for setting up test framework](../fig/vs-code-test-explorer.png){: .image-with-shadow width="800px" }
 
 Click `Configure Python Tests`,
 select `pytest` as the test framework,
 and the `tests` directory as the directory for searching.
 
 You should now be able to run tests individually
-using the test browser (available from the top leve menu `View` > `Testing`) and selecting the test of interest.
+using the test browser (available from the top level menu `View` > `Testing`) and selecting the test of interest.
 
-![test_demo](../fig/vs-code-run-test.png)
+![VS Code application window for running tests](../fig/vs-code-run-test.png){: .image-with-shadow width="800px" }
 
 ### Running Code in Debug Mode
 
