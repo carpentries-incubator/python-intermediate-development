@@ -471,138 +471,245 @@ total = reduce(lambda number, total: total + number, squared_evens)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Object Oriented Programming
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- the idea behind object-oriented programming to bundle data and methods together to represent objects
-  - this can be very intuitive, because we are used to working with objects in real life, and sometimes our software objects correspond quite closely to a real world object
-- the more technical term for this is encapsulation, but not overly important to know that
-- at the end of the day, we are again trying to create a well-defined _interface_ for how to interact with these objects / software components
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Decorators
-
-Decorators are _syntactic sugar_ for the case where we want to wrap a function with another function:
-
-```python
-def my_decorator(func):
-    def wrapper():
-        print("Before wrapped function")
-        func()
-        print("After wrapped function")
-    return wrapper
-
-# we can replace this
-def my_function():
-    print("Whee!")
-
-my_function = my_decorator(my_function)
-my_function()
-
-# with this
-@my_decorator
-def my_function():
-    print("Whee!")
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Start from the Top
-
-Start reading from the top of this page all the way to the end. Complete exercises as you go.
-
-- It is fine to skip the **🖉 Structuring Data** exercise and just read it. Bottom line is that you can achieve a lot with built in data types, so don't jump to more advanced techniques if they aren't needed.
-- A note about the Book/Library exercises: create separate files from the existing ones
-  1. put a `library.py` under `models/`, and a `test_library.py` under `tests/`
-  2. or put both of these files under a separate directory `library/` at the top level of the repo
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-- Set learners into breakout rooms for 45 minutes with instructions on slide
-- Please take the note about Test Driven Development on board as much as possible: write a test for the feature before implementing the feature.
-<!-- TODO this doesn't seem to be the right place to have a discussion about TDD, but it is where the course brings it up. Think about where to put this in the future. -->
-- Invariably, the question will come up of when to use functional vs OO programming, and are the two mutually exclusive (i.e. do you have to use one or the other)
-  - as mentioned previously, it is unlikely you will do purely OO or functional programming, especially if you are using Python
-  - the two are certainly not mutually exclusive
-- Post-exercise comment: there will probably be the temptation to inherit from the builtin `list` class when implementing `Library`.
-  - Subclassing from builtin types is generally a bad idea for a host of complex reasons.
-  - The most easily comprehensible is that by inheriting a builtin type, you inherit a lot of behaviour that you might not intend to have for your new class.
-  - On the flip side, it is also quite restrictive. Is a Library really just a list? We might decide to add other functionality, like opening hours, later on. How does that data fit into the definition of a list? Well, it doesn't.
-  - If you really want to inherit from something here, then the better approach is to use the `collections.abc` (abstract base class) module in Python and pick something from there that gets you closer to your desired functionality.
-- A note about inheritance vs composition is probably worthwhile
-  - Inheritance tends to be quite abused and IMO should not be used as often as it is; it leads to very complex hierarchies of classes that make it difficult to determine where something is actually defined
-  - Composition tends to lead to better outcomes in my experience
-- If anyone asks about Doctor OO implementation, some additional feature ideas
-  - using the `dataclass` decorator offers a lot of advantages for these classes
-  - adding an age to patients could be helpful (fairly simple)
-  - a date range (or start date) for a patient's observations
-  - a Study class that is a list of Doctors (perhaps too much)
-  - a CSV reader of patient data (and preferably groups of patients data)
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Class vs Static Methods
-
-One common use case for class methods is to create alternate _constructors_ for a class:
-
-```python
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
-
-    @classmethod
-    def from_diameter(cls, diameter):
-        return cls(radius=diameter / 2)
-```
-
-Then, we can create `Circle` objects using either the radius or diameter:
-
-```python
-circle_1 = Circle(radius=1)
-circle_2 = Circle.from_diameter(diameter=2)
-```
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## ☕ 5 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 10 Minute Break ☕
+## Using Classes to Decouple Code
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Persistence
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Decoupled Code
+
+When thinking about code, we tend to think of it in distinct parts or **units**.
+
+Two units are **decoupled** if changes in one can be made independently of the other
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- not much intro needed, other than the fact that reading and writing data is an important step for your code (even if not the most exciting)
+E.g we have the part that loads a file and the part that draws a graph
+Or the part that the user interacts with and the part that does the calculations
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "subslide"}
-import json
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Decoupled Code
 
-patient = {"name": "Alice", "observations": [1, 6, 8, 0, 5]}
-with open("patient_serialized.json", "w") as fp:
-    json.dump(patient, fp)
-```
+Abstractions allow decoupling code
 
-```python slideshow={"slide_type": "fragment"}
-! cat patient_serialized.json
-```
+<!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-with open("patient_serialized.json", "r") as fp:
-    patient_deserialized = json.load(fp)
-print(patient_deserialized)
-```
+<!-- #region slideshow={"slide_type": "notes"} -->
+When we have a suitable abstraction, we don't need to worry about the inner workings of the other part
+For example break of a car, the details of how to slow down are abstracted, so when we change how
+breaking works, we don't need to retrain the driver.
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Start from the Top
+### Exercise: Decouple the File Loading from the Computation
 
-Start reading from the top of this page all the way to the end. Complete exercises as you go.
+Currently the function is hard coded to load all the files in a directory.
+
+Decouple this into a separate function that returns all the files to load
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Python Classes
+
+A **class** is a Python feature that allows grouping methods with some data.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Do some live coding, ending with:
+
+```
+class Circle:
+  def __init__(self, radius):
+    self.radius = radius
+
+  def get_area(self):
+    return math.pi * self.radius * self.radius
+
+my_circle = Circle(10)
+print(my_circle.get_area())
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: Use a Class to Configure Loading
+
+Put the `load_inflammation_data` function we wrote in the last exercise as a member method of a new class called `CSVDataSource`.
+
+Put the configuration of where to load the files in the classes constructor.
+
+Once this is done, you can construct this class outside the the statistical analysis and pass the instance in to analyse_data.
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Interfaces
+
+**Interfaces** describe how different parts of the code interact with each other.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+For example, the interface of the breaking system in a car, is the break pedal.
+The user can push the pedal harder or softer to get more or less breaking.
+The interface of our circle class is the user can call get_area to get the 2D area of the circle
+as a number.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Interfaces
+
+Question: what is the interface for CSVDataSource
+
+```
+class CSVDataSource:
+  """
+  Loads all the inflammation csvs within a specified folder.
+  """
+  def __init__(self, dir_path):
+    self.dir_path = dir_path
+
+  def load_inflammation_data(self):
+    data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
+    if len(data_file_paths) == 0:
+      raise ValueError(f"No inflammation csv's found in path {self.dir_path}")
+    data = map(models.load_csv, data_file_paths)
+    return list(data)
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Suggest discuss in groups for 1min.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Common Interfaces
+
+If we have two classes that share the same interface, we can use the interface without knowing which class we have
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Easiest shown with an example, lets do more live coding:
+
+```
+class Rectangle(Shape):
+  def __init__(self, width, height):
+    self.width = width
+    self.height = height
+  def get_area(self):
+    return self.width * self.height
+
+my_circle = Circle(radius=10)
+my_rectangle = Rectangle(width=5, height=3)
+my_shapes = [my_circle, my_rectangle]
+total_area = sum(shape.get_area() for shape in my_shapes)
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Polymorphism
+
+Using an interface to call different methods is a technique known as **polymorphism**.
+
+A form of abstraction - we've abstracted what kind of shape we have.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: Introduce an alternative implementation of DataSource
+
+Polymorphism is very useful - suppose we want to read JSON.
+
+Write a class that has the same interface as `CSVDataSource` that
+loads from JSON.
+
+There is a function in models.py that loads from JSON.
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Mocks
+
+Another use of polymorphism is **mocking** in tests.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+
+Lets live code a mock shape:
+
+```
+from unittest.mock import Mock
+
+def test_sum_shapes():
+
+  mock_shape1 = Mock()
+  mock_shape1.get_area().return_value = 10
+
+  mock_shape2 = Mock()
+  mock_shape2.get_area().return_value = 13
+  my_shapes = [mock_shape1, mock_shape2]
+  total_area = sum(shape.get_area() for shape in my_shapes)
+
+  assert total_area = 23
+```
+
+Easier to read this test as don't need to understand how
+get_area might work for a real shape.
+Focus on testing what we're testing
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Exercise: Test Using a Mock Implementation
+
+Complete the exercise to write a mock data source for `analyse_data`.
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Object Oriented Programming
+
+These are techniques from **object oriented programming**.
+
+There is a lot more that we won't go into:
+
+* Inheritance
+* Information hiding
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## A note on Data Classes
+
+Regardless of doing Object Oriented Programming or Functional Programming
+
+**Grouping data into logical classes is vital for writing maintainable code.**
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
