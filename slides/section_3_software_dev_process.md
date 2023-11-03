@@ -471,7 +471,7 @@ total = reduce(lambda number, total: total + number, squared_evens)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 5 Minute Break ☕
+## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
