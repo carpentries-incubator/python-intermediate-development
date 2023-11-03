@@ -60,7 +60,7 @@ a good overview is available from the
 In addition to IDEs, there are also a number of code editors that have Python support.
 Code editors can be as simple as a text editor
 with syntax highlighting and code formatting capabilities
-(e.g. GNU EMACS, Vi/Vim).
+(e.g., GNU EMACS, Vi/Vim).
 Most good code editors can also execute code and control a debugger,
 and some can also interact with a version control system.
 Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
@@ -70,7 +70,13 @@ in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pych
 a free, open source Python IDE.
 Some popular alternatives include
 free and open source IDE [Spyder](https://www.spyder-ide.org/)
-and Microsoft's free [Visual Studio Code](https://code.visualstudio.com/).
+and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
+
+> ## Using VS Code for This Course 
+> If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../vscode/index.html)
+> to help you set up. The instructions for PyCharm in the course will not apply to you verbatim but there 
+> is an equivalent functionality in VS Code for each of the actions we ask you to do in PyCharm.
+{: .callout}
 
 ## Using the PyCharm IDE
 
