@@ -713,6 +713,132 @@ Regardless of doing Object Oriented Programming or Functional Programming
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Architecting Code to Separate Responsibilities
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Model-View-Controller
+
+Reminder - this program is using the MVC Architecture:
+
+* Model - Internal data of the program, and operations that can be performed on it
+* View - How the data is presented to the user
+* Controller - Responsible for how the user interacts with the system
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout: Read and do the exercise
+
+Read the section **Separating Out Responsibilities**.
+
+Complete the exercise.
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Suggest discussing answer to the exercise as a table.
+Once time is up, ask one table to share their answer and any questions
+Then do the other exercise
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout Exercise:  Split out the model code from the view code
+
+Refactor `analyse_data` such the view code we identified in the last exercise is removed from the function, so the function contains only model code, and the view code is moved elsewhere.
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Programming Patterns
+
+* MVC is a programming pattern
+* Others exist - like the visitor pattern
+* Useful for discussion and ideas - not a complete solution
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+
+Next slide if it feels like we've got loads of time.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Breakout Exercise:  Read about a random pattern on the website and share it with the group
+
+Go to the website linked and pick a random pattern, see if you can understand what it is doing
+and why you'd want to use it.
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Architecting larger changes
+
+* Use diagrams of boxes and lines to sketch out how code will be structured
+* Useful for larger changes, new code, or even understanding complex projects
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Exercise: Design a high-level architecture
+
+Sketch out a design for a new feature requested by a user
+
+> “I want there to be a Google Drive folder that when I upload new inflammation data to the software automatically pulls it down and updates the analysis. The new result should be added to a database with a timestamp. An email should then be sent to a group email notifying them of the change.”
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+
+At end of time, share diagrams, discussion.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Breakout: Read to end of page
+
+Read til the end, including the exercise on real world examples
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+
+At end of time, reconvene to discuss real world examples as a group.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Conclusion
+
+Good software architecture and design is a **huge** topic.
+
+Practise makes perfect:
+
+ * Spot signs things could be improved - like duplication
+ * Think about why things are working or not working
+ * Don't design for an imagined future
+ * Keep refactoring as you go
+
+<!-- #endregion -->
+
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## 🕓 End of Section 3 🕓
 
 Please fill out the end-of-section survey!
