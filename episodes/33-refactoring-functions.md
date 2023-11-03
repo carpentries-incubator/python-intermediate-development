@@ -1,5 +1,5 @@
 ---
-title: "Refactoring functions to do just one thing"
+title: "Refactoring Functions to Do Just One Thing"
 teaching: 30
 exercises: 20
 questions:
