@@ -1,5 +1,5 @@
 ---
-title: "Using classes to de-couple code."
+title: "Using Classes to De-Couple Code"
 teaching: 30
 exercises: 45
 questions:

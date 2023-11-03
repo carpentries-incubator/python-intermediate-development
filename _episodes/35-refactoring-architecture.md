@@ -1,5 +1,5 @@
 ---
-title: "Architecting code to separate responsibilities"
+title: "Architecting Code to Separate Responsibilities"
 teaching: 15
 exercises: 50
 questions:
