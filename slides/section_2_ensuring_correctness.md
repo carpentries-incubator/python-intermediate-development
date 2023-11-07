@@ -79,9 +79,19 @@ Start from this section heading and go to the end of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Breakout rooms from the page section "Set Up a New Feature Branch for Writing Tests" (~45 minutes) until the end of the page
-- status check
-- comments from content
-  - FRUIT doesn't look very active, so I would recommend pFUnit for Fortran instead.
+- status check and any questions
+- potential quiz questions: 
+  - what is the correct order of these different types of tests if they should be in ascending order of scope (i.e. the amount of the codebase they cover) (answer: 3)
+    1. end-to-end, functional/integration, unit
+    2. functional/integration, unit, end-to-end
+    3. unit, functional/integration, end-to-end
+    4. unit, end-to-end, functional/integration
+  - automated testing of our code is important because (select all that apply, answer: 4)
+    1. it can quickly help anyone verify that the code is working the way that the developer intended it to
+    2. it provides an harness in which we can make changes to the code and be more sure that these changes do not alter behaviour of the code that shouldn't change
+    3. it reduces the overhead of new developers trying to determine if the code works on their machine
+    4. all of the above
+    5. none of the above
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -109,16 +119,18 @@ Start from this section heading and go to the end of the page.
 
 Go through the whole content of this page starting from this section heading. In the last 5-7 minutes, please think about the question:
 
-_Where can and might the input data and corresponding expected results come from for your code?_
+_Where can and might the input data and corresponding expected results come from for code you use in your usual work?_
 
-Record answers in the shared document. Feel free to discuss with your peers.
+Please discuss with your peers. Record answers in the shared document if you can.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - send learners into breakout rooms for ~ 20 minutes
   - before sending, make sure they are clear on the discussion question
+  - with about 5 minutes left, remind the groups to have a little discussion about their test data
   - status check
 - check answers to question in shared document and briefly summarise
+  - example answer: You are working on an old plasma magnetohydrodynamics code that has been extensively tested against experiments. You have been tasked with adding some functionality to that code, but you want to make sure that you don't change the key results of the code. You take some inputs for well known runs of the code that have been verified against experiment and save the outputs. You then use the outputs to compare against when you run the code in a test suite with those original inputs. This is basically creating some regression tests for the code, using results that you know are correct because of extensive experimental validation of the code in the past.
 - comments about the limits of testing:
   - there are some good points there about getting value from testing
   - what most researchers think: 
@@ -162,11 +174,11 @@ Follow along from this section heading to the bottom of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - breakout rooms (for ~ 45 mins) from this section heading to the bottom of the page
-- status check
+- status check: consider using a poll to see how many people have a green check on their repo
 - comments
-  - GitLab has very similar functionality and there are plenty of resources on our internal GitLab about this (add link?)
-  - you might notice that there is a slight discrepancy between the version numbers of Python that are used in the matrix
-    - don't worry about this too much, and just extend the Python version for the testing matrix to cover 3.9 as well
+  - GitLab has very similar functionality and it is common for institutions to host their own GitLab instance internally. These instances will have their own documentation, and it is worthwhile to check if the RSE group or IT services have any guides to using these resources.
+  - Because the supported Python versions are constantly changing, the numbers above might be a little out of date, or inconsistent.
+    - don't worry about this too much, but if you want to show the current supported Python versions, this site is very useful: https://devguide.python.org/versions/
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
