@@ -21,7 +21,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 
 ## Patient Inflammation Study Project
 So, you have joined a software development team that has been working on the
-[patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+[patient inflammation study project](https://github.com/ukaea-rse-training/python-intermediate-inflammation)
 developed in Python and stored on GitHub.
 The project analyses the data to study the effect of a new treatment for arthritis
 by analysing the inflammation levels in patients who have been given this treatment.
@@ -62,7 +62,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    and that you have set up your SSH key pair for authentication with GitHub,
    as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
 2. Log into your GitHub account.
-3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+3. Go to the [software project repository](https://github.com/ukaea-rse-training/python-intermediate-inflammation)
    in GitHub.
 
    ![Software project fork repository in GitHub](../fig/fork-repository.png){: .image-with-shadow width="800px" }
