@@ -347,7 +347,7 @@ but we will remove them in the end.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Exercise: Write a Regression Test for Analyse Data Before Refactoring
 
-Add a new test file called `test_compute_data.py`` in the tests folder.
+Add a new test file called `test_compute_data.py` in the tests folder.
 Complete the regression test to verify the current output of analyse_data is unchanged by the refactorings we are going to do.
 
 Time: 10min
@@ -572,7 +572,7 @@ as a number.
 
 Question: what is the interface for CSVDataSource
 
-```
+```python
 class CSVDataSource:
   """
   Loads all the inflammation csvs within a specified folder.
@@ -840,6 +840,4 @@ Practise makes perfect:
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 🕓 End of Section 3 🕓
-
-Please fill out the end-of-section survey!
 <!-- #endregion -->
