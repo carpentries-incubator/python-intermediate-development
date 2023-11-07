@@ -113,8 +113,11 @@ sequenceDiagram
     Local Repository->>+Staging Area:git merge
     Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout/merge)
 -->
+<!--
+SVG of the diagram can be downloaded from:
 [![](https://mermaid.ink/img/pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9?type=png)](https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9)
-![Development lifecycle with Git](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
+-->
+![Development lifecycle with Git, containing Git commands add, commit, push, fetch, checkout, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
 
 ## Checking-in Changes to Our Project
 Let's check-in the changes we have done to our project so far.
