@@ -96,12 +96,6 @@ such as:
   your local copy (using `git fetch` or `git pull`) to keep the two in sync 
   in order to collaborate (with a bonus that your work also gets backed up to another machine).
 
-![Development lifecycle with Git](../fig/git-lifecycle.png){: .image-with-shadow width="600px"}
-<p style="text-align: center;">
-Software development lifecycle with Git from <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a>
-{%comment%}<br>(licenced for non-commercial reuse){%endcomment%}
-</p>
-
 <!--
 Created with https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9
 sequenceDiagram
@@ -118,6 +112,9 @@ SVG of the diagram can be downloaded from:
 [![](https://mermaid.ink/img/pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9?type=png)](https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9)
 -->
 ![Development lifecycle with Git, containing Git commands add, commit, push, fetch, checkout, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
+<p style="text-align: center;">
+Software development lifecycle with Git
+</p>
 
 ## Checking-in Changes to Our Project
 Let's check-in the changes we have done to our project so far.
