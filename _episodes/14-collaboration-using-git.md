@@ -57,11 +57,11 @@ Git has several important characteristics:
   so even if you make a mistake you can revert to a point before it.
 
 The diagram below shows a typical software development lifecycle with Git
-and the commonly used commands to interact
-with different parts of Git infrastructure,
+(starting from making changes locally) and the commonly used commands to interact
+with different parts of the Git infrastructure,
 such as:
 - **working directory** -
-  a directory (including any subdirectories) where your project files live
+  a local directory (including any subdirectories) where your project files live
   and where you are currently working.
   It is also known as the “untracked” area of Git.
   Any changes to files will be marked by Git in the working directory.
@@ -72,32 +72,50 @@ such as:
 - **staging area (index)** -
   once you tell Git to start tracking changes to files
   (with `git add filename` command),
-  Git saves those changes in the staging area.
+  Git saves those changes in the staging area on your local machine.
   Each subsequent change to the same file needs to be followed by another `git add filename` command
   to tell Git to update it in the staging area.
   To see what is in your working directory and staging area at any moment
   (i.e. what changes is Git tracking),
   run the command `git status`.
 - **local repository** -
-  stored within the `.git` directory of your project,
+  stored within the `.git` directory of your project locally,
   this is where Git wraps together all your changes from the staging area
   and puts them using the `git commit` command.
   Each commit is a new, permanent snapshot (checkpoint, record) of your project in time,
-  which you can share or revert back to.
+  which you can share or revert to.
 - **remote repository** -
   this is a version of your project that is hosted somewhere on the Internet
-  (e.g. on GitHub, GitLab or somewhere else).
+  (e.g., on GitHub, GitLab or somewhere else).
   While your project is nicely version-controlled in your local repository,
   and you have snapshots of its versions from the past,
-  if your machine crashes - you still may lose all your work.
-  Working with a remote repository involves pushing your changes
-  and pulling other people's changes to keep your local repository in sync
-  in order to collaborate with others and to backup your work on a different machine.
+  if your machine crashes - you still may lose all your work. Furthermore, you cannot
+  share or collaborate on this local work with others easily.
+  Working with a remote repository involves pushing your local changes remotely 
+  (using `git push`) and pulling other people's changes from a remote repository to 
+  your local copy (using `git fetch` or `git pull`) to keep the two in sync 
+  in order to collaborate (with a bonus that your work also gets backed up to another machine).
+  Note that a common best practice when collaborating with others on a shared repository 
+  is to always do a `git pull` before a `git push`, to ensure you have any latest changes before you push your own.
 
-![Development lifecycle with Git](../fig/git-lifecycle.png){: .image-with-shadow width="600px"}
+<!--
+Created with https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9
+sequenceDiagram
+    Working Directory->>+Staging Area: git add
+    Staging Area->>+Local Repository: git commit
+    Local Repository->>+Remote Repository: git push
+    Remote Repository->>+Local Repository: git fetch
+    Local Repository->>+Staging Area:git checkout
+    Local Repository->>+Staging Area:git merge
+    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout/merge)
+-->
+<!--
+SVG of the diagram can be downloaded from:
+[![](https://mermaid.ink/img/pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9?type=png)](https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9)
+-->
+![Development lifecycle with Git, containing Git commands add, commit, push, fetch, checkout, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
 <p style="text-align: center;">
-Software development lifecycle with Git from <a href="https://www.pngwing.com/en/free-png-sazxf" target="_blank">PNGWing</a>
-{%comment%}<br>(licenced for non-commercial reuse){%endcomment%}
+Software development lifecycle with Git
 </p>
 
 ## Checking-in Changes to Our Project
