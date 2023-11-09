@@ -13,10 +13,20 @@ Hanging issues with trying to run Python 3 in Git Bash on Windows
 The solution appears to be to use `winpty` -
 a Windows software package providing an interface similar to a Unix pty-master
 for communicating with Windows command line tools.
-Inside the shell type `alias python='winpty python.exe'`.
+Inside the shell type:
+
+~~~
+$ alias python="winpty python.exe"
+~~~
+{: .language-bash}
+
 This alias will be valid for the duration of the shell session.
 For a more permanent solution, from the shell do:
-`echo "alias python='winpty python.exe'" >> ~/.bashrc`
+~~~
+$ echo "alias python='winpty python.exe'" >> ~/.bashrc
+~~~
+{: .language-bash}
+
 (and from there on remember to invoke Python as `python`
 or whatever command you aliased it to).
 Read more details on the issue at
