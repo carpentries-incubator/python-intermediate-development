@@ -18,6 +18,7 @@ Please let us know about:
 - Inconsistencies or errors in the material
 - Missing references or links to external resources
 - How material can be reworded to avoid confusion
+- Problems with building or rendering the lesson material locally, with a concise step-by-step procedure to replicate the issue
 - Any other issues
 
 </details>
