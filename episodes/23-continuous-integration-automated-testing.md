@@ -421,7 +421,7 @@ involving multiple commits,
 on a separate feature branch until it's ready to be escalated to the `develop` branch:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 $ git merge test-suite
 ~~~
 {: .language-bash}

@@ -105,9 +105,9 @@ sequenceDiagram
     Staging Area->>+Local Repository: git commit
     Local Repository->>+Remote Repository: git push
     Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Staging Area:git checkout
+    Local Repository->>+Staging Area:git checkout / git switch
     Local Repository->>+Staging Area:git merge
-    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout/merge)
+    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout / switch / merge)
 -->
 <!--
 SVG of the diagram can be downloaded from:
@@ -416,10 +416,10 @@ $ git branch
 
 The `*` indicates the currently active branch.
 So how do we switch to our new branch?
-We use the `git checkout` command with the name of the branch:
+We use the `git switch` command with the name of the branch:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 ~~~
 {: .language-bash}
 
@@ -432,7 +432,7 @@ Switched to branch 'develop'
 > A shortcut to create a new branch and immediately switch to it:
 >
 > ~~~
-> $ git checkout -b develop
+> $ git switch -c develop
 > ~~~
 > {: .language-bash}
 >
@@ -496,14 +496,14 @@ You can check that in GitHub by listing all branches.
 ![Software project's main branch](../fig/software-project-main-branch.png){: .image-with-shadow width="700px"}
 
 To push a new local branch remotely for the first time,
-you could use the `-u` switch and the name of the branch you are creating and pushing to:
+you could use the `-u` flag and the name of the branch you are creating and pushing to:
 
 ~~~
 $ git push -u origin develop
 ~~~
 {: .language-bash}
 
-> ## Git Push With `-u` Switch
+> ## Git Push With `-u` Flag
 > Using the `-u` switch with the `git push` command is a handy shortcut for:
 > (1) creating the new remote branch and
 > (2) setting your local branch to automatically track the remote one at the same time.
@@ -558,10 +558,10 @@ $ git push origin develop
 ### Merging Into Main Branch
 Once you have tested your changes on the `develop` branch,
 you will want to merge them onto the `main` branch.
-To do so, make sure you have all your changes committed and switch to `main`:
+To do so, make sure you have committed all your changes on the `develop` branch and then switch to `main`:
 
 ~~~
-$ git checkout main
+$ git switch main
 ~~~
 {: .language-bash}
 

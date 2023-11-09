@@ -348,7 +348,7 @@ and if you're doing this work on a feature branch also ensure you merge it into 
 e.g.:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 $ git merge my-feature-branch
 ~~~
 {: .language-bash}
@@ -358,7 +358,7 @@ and are confident it works as expected on `develop`,
 we can merge our `develop` branch into `main`:
 
 ~~~
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push
 ~~~

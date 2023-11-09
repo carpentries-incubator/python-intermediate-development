@@ -307,7 +307,7 @@ compared to that of personal repositories.
    Also note that, while we say "remote" branch `feature-x` -
    you have actually obtained it locally on your machine when you cloned the remote repository.
    ~~~
-   $ git checkout -b feature-x-tests origin/feature-x
+   $ git switch -c feature-x-tests origin/feature-x
    ~~~
    {: .language-bash}
 
