@@ -95,6 +95,8 @@ such as:
   (using `git push`) and pulling other people's changes from a remote repository to 
   your local copy (using `git fetch` or `git pull`) to keep the two in sync 
   in order to collaborate (with a bonus that your work also gets backed up to another machine).
+  Note that a common best practice when collaborating with others on a shared repository 
+  is to always do a `git pull` before a `git push`, to ensure you have any latest changes before you push your own.
 
 <!--
 Created with https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9
