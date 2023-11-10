@@ -2,7 +2,7 @@
 
 Some quick information about how to use the slides when delivering the course.
 
-The slides themselves are written in Jupyter notebooks which has the built-in capability to produce slides. At the moment, the final HTML is not stored, so you need to have Jupyter installed. A virtual environment with a subsequent `pip` command is recommended:
+The slides themselves are written in Jupyter notebooks, which have the built-in capability to produce slides. At the moment, the final HTML version of slides is not included, so you need to have Jupyter installed in order to render them. A virtual environment with a subsequent `pip` command is recommended to "run" the slides:
 
 ```bash
 python3 -m venv .venv  # it is important to use the dot prefix if you are creating this at the top level of this repo
