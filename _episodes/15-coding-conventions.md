@@ -438,7 +438,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >> which is helpfully marking inconsistencies with coding guidelines by underlying them.
 >> There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
->>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable.
+>>  1. Line 30 in `inflammation-analysis.py` is too long and not very readable.
 >>     A better style would be to use multiple lines and hanging indent,
 >>     with the closing brace `}' aligned either with
 >>     the first non-whitespace character of the last line of list
@@ -487,7 +487,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     Note how PyCharm is warning us by underlying the whole line.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
->>     and the rest of the code on line 30 in `inflammation-analysis.py` -
+>>     and the rest of the code on line 33 in `inflammation-analysis.py` -
 >>     should be two blank lines.
 >>     Note how PyCharm is warning us by underlying the whole line.
 >>
