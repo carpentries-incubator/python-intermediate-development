@@ -269,7 +269,7 @@ sufficiently well to make their own changes to it,
 including external developers, other members in your team and a future version of yourself too.
 This may include documentation that covers the software's architecture,
 including its different components and how they fit together,
-API (Application Programmer Interface) documentation
+API (Application Programming Interface) documentation
 that describes the interface points designed into your software for other developers to use,
 e.g. for a software library,
 or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
