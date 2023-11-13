@@ -425,7 +425,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >
 > ~~~
 > $ git switch develop
-> $ git switch -b style-fixes
+> $ git switch -c style-fixes
 > ~~~
 >  {: .language-bash}
 >
