@@ -27,7 +27,7 @@ Let's look at a very well used one of these called `pylint`.
 First, let's ensure we are on the `style-fixes` branch once again.
 
 ~~~
-$ git checkout style-fixes
+$ git switch style-fixes
 ~~~
 {: .language-bash}
 
@@ -183,10 +183,10 @@ and merge onto your development and main branches.
 $ git add requirements.txt
 $ git commit -m "Added Pylint library"
 $ git push origin style-fixes
-$ git checkout develop
+$ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push origin main
 ~~~

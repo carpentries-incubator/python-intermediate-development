@@ -88,9 +88,9 @@ And then, we'll create a new feature branch called `test-suite` off the `develop
 a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 $ git branch test-suite
-$ git checkout test-suite
+$ git switch test-suite
 ~~~
 {: .language-bash}
 
