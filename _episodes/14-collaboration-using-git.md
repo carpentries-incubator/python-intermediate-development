@@ -107,7 +107,7 @@ sequenceDiagram
     Remote Repository->>+Local Repository: git fetch
     Local Repository->>+Staging Area:git checkout / git switch
     Local Repository->>+Staging Area:git merge
-    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout / switch / merge)
+    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git merge/rebase)
 -->
 <!--
 SVG of the diagram can be downloaded from:
