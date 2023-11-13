@@ -424,8 +424,8 @@ because an incorrect comment causes more confusion than no comment at all.
 > and switch to it (from the project root):
 >
 > ~~~
-> $ git checkout develop
-> $ git checkout -b style-fixes
+> $ git switch develop
+> $ git switch -c style-fixes
 > ~~~
 >  {: .language-bash}
 >
@@ -727,10 +727,10 @@ to double check which branch you are on and its status):
 
 ~~~
 $ git push -u origin style-fixes
-$ git checkout develop
+$ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push origin main
 ~~~

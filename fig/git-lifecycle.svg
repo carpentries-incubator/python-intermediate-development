@@ -557,7 +557,7 @@
      text-anchor="middle"
      y="438"
      x="379"
-     id="text160">git pull (shortcut for git fetch followed by git checkout/merge)</text>
+     id="text160">git pull (shortcut for git fetch followed by git merge/rebase)</text>
   <line
      style="fill:none"
      marker-end="url(#arrowhead)"
