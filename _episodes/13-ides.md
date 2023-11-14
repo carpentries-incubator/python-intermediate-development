@@ -7,13 +7,13 @@ questions:
 - "What are Integrated Development Environments (IDEs)?"
 - "What are the advantages of using IDEs for software development?"
 objectives:
-- "Set up a (virtual) development environment in PyCharm"
-- "Use PyCharm to run a Python script"
+- "Set up a (virtual) development environment in Visual Studio Code (VS Code)"
+- "Use VS Code to run a Python script"
 
 keypoints:
 - "An IDE is an application that provides a comprehensive set of facilities for software development, including
 syntax highlighting, code search and completion, version control, testing and debugging."
-- "PyCharm recognises virtual environments configured from the command line using `venv` and `pip`."
+- "VS Code recognises virtual environments configured from the command line using `venv` and `pip`."
 ---
 
 ## Introduction
@@ -66,116 +66,87 @@ and some can also interact with a version control system.
 Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
 but often less feature-rich.
 You will have to decide which one is the best for you -
-in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/),
+in this course we will learn how to use [VS Code](https://code.visualstudio.com/),
 a free, open source Python IDE.
 Some popular alternatives include
 free and open source IDE [Spyder](https://www.spyder-ide.org/)
-and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
+and JetBrain's free [PyCharm](https://www.jetbrains.com/pycharm/). 
 
 > ## Using VS Code for This Course 
-> If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../vscode/index.html)
-> to help you set up. The instructions for PyCharm in the course will not apply to you verbatim but there 
-> is an equivalent functionality in VS Code for each of the actions we ask you to do in PyCharm.
+> If you want to use PyCharm as your IDE for this course, there is a separate [extras episode](../pycharm/NEEDS UPDATING.html)
+> to help you set up. The instructions for VS Code in the course will not apply to you verbatim but there 
+> is an equivalent functionality in PyCharm for each of the actions we ask you to do in VS Code.
 {: .callout}
 
-## Using the PyCharm IDE
+## Using the VS Code IDE
 
-Let's open our project in PyCharm now and familiarise ourselves with some commonly used features.
+Let's open our project in VS Code now and familiarise ourselves with some commonly used features.
 
 ### Opening a Software Project
-If you don't have PyCharm running yet, start it up now.
-You can skip the initial configuration steps which just go through
-selecting a theme and other aspects.
-You should be presented with a dialog box that asks you what you want to do,
-e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
+If you don't have VS Code running yet, start it up now.
+An interactive `Welcome` page will appear, which allows you to configure your development environment's themes and other 
+aspects, but can skip these steps for now, by clicking on `Mark Done` near the bottom of that page.
+The `Welcome` will now ask you what you want to do,
+e.g. open a `New File`, `Open File` to select an existing one, `Open Folder` or `Clone a Git Repository`.
 
-Select `Open` and find the software project directory
+Select `Open Folder` and find the software project directory
 `python-intermediate-rivercatchment` you cloned earlier.
-This directory is now the current working directory for PyCharm,
-so when we run scripts from PyCharm, this is the directory they will run from.
+This directory is now the current working directory for VS Code,
+so when we run scripts from VS Code, this is the directory they will run from.
+VS Code may ask you: `Do you trust the authors of the files in this folder?`, select `Yes, I trust the authors`.
 
-PyCharm will show you a *'Tip of the Day'* window which you can safely ignore and close for now.
-You may also get a warning *'No Python interpreter configured for the project'* -
-we [will deal with this](#configuring-pycharm-with-anaconda)
-shortly after we familiarise ourselves with the PyCharm environment.
-You will notice the IDE shows you a project/file navigator window on the left hand side,
-to traverse and select the files (and any subdirectories) within the working directory,
-and an editor window on the right.
-At the bottom, you would typically have a panel for version control,
-terminal (the command line within PyCharm) and a TODO list.
+You will notice several tabs placed on a vertical panel on the left hand side. The top (default) tab is the `Explorer` view and 
+this opens a project/file navigator window which can be used to traverse and select the files (and any subdirectories) 
+within the working directory, and selected files are opened in
+an editor window on the right.
+The bottom tab on that panel is for adding new `Extensions` to VS Code. We will add the Python extension for VS Code. Click on the 
+Extensions tab and in the search edit box, type Python and select the `Python` extension, as shown in the following figure, and click the blue `install` button.
 
-![View of an opened project in PyCharm](../fig/pycharm-open-project.png){: .image-with-shadow width="1000px" }
+![View of selecting the Python Extension for VS Code](../fig/vs-code-python-extension.png){: .image-with-shadow width="1000px" }
 
-Select the `catchment-analysis.py` file in the project navigator on the left
-so that its contents are displayed in the editor window.
-You may notice a warning about the missing Python interpreter
-at the top of the editor panel showing `catchment-analysis.py` file - 
-this is one of the first things you will have to configure for your project 
-before you can do any work. 
+At the bottom of the screen, you have a status bar which shows the current Git branch, and typically the Virtual Environment 
+being used by our project, but we haven't set the latter yet, we'll do that soon.  
+Along the top, the menu bar has a variety of options, for example opening a terminal 
+(the command line within VS Code). We will be using some of these in our upcoming episodes.
 
-![Missing Python Interpreter Warning in PyCharm](../fig/pycharm-missing-python-interpreter.png){: .image-with-shadow width="800px" }
+You can close the `Welcome` and any other open documents in the main editor window and then click on the `Explorer' tab on the left hand side. 
+Use this view to navigate to the catchment-analysis.py file, and select that, so that its contents are displayed in the editor window. 
 
-You may take the shortcut and click on one of the offered options above
-but we want to take you through the whole process of setting up your environment in PyCharm
-as this is important conceptually.
+![View of an opened project in VS Code](../fig/vs-code-open-project.png){: .image-with-shadow width="1000px" }
 
-### Configuring a Virtual Environment in PyCharm
-Before you can run the code from PyCharm,
-you need to explicitly specify the path to the Python interpreter on your system.
-The same goes for any dependencies your code may have -
-you need to tell PyCharm where to find them -
-much like we did from the command line in the previous episode.
-Luckily for us, we have already set up a virtual environment for our project
-from the command line
-and PyCharm is clever enough to understand it.
+You may have noticed that the virtual environment (`venv`) that we created previously (held in the `./venv` folder in our project directory) 
+is now showing on the bottom status bar, on the right hand side. If this is the case, it shows that VS Code is using that environment as the interpreter.
+In many cases, VS Code will have been able to locate this environment automatically, and add it as the most likely option (as it is located within the current project directory).
+To select an interpeter for the current project from scratch, 
+1. Press CTRL-SHIFT-P to bring up the VS Code command palette
+2. search for `select interpreter`
+3. This will display a drop-down list of options, select `+ Enter interpreter path...` 
+4. Click on `Find...` and enter the path to the `python` binary file held in the `./venv/bin/` directory. 
 
-#### Adding a Python Interpreter
-1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears, 
-   select `Project: python-intermediate-rivercatchment` > `Python Interpreter` from the left.
-   You'll see a number of Python packages displayed as a list, and importantly above that,
-   the current Python interpreter that is being used.
-   These may be blank or set to `<No interpreter>`,
-   or possibly the default version of Python installed on your system,
-   e.g. `Python 2.7 /usr/bin/python2.7`,
-   which we do not want to use in this instance.
-3. Select the cog-like button in the top right, then `Add...` 
-   (or `Add Local...` depending on your PyCharm version).
-   An `Add Python Interpreter` window will appear.
-4. Select `Virtualenv Environment` from the list on the left
-   and ensure that `Existing environment` checkbox is selected within the popup window.
-   In the `Interpreter` field point to the Python 3 executable inside 
-   your virtual environment's `bin` directory
-   (make sure you navigate to it and select it from the file browser rather than
-   just accept the default offered by PyCharm).
-   Note that there is also an option to create a new virtual environment, 
-   but we are not using that option as we want to reuse the one we created
-   from the command line in the previous episode.
-   ![Configuring Python Interpreter in PyCharm](../fig/pycharm-configuring-interpreter.png){: .image-with-shadow width="800px"}
-5. Select `Make available to all projects` checkbox
-   so we can also use this environment for other projects if we wish.
-6. Select `OK` in the `Add Python Interpreter` window.
-   Back in the `Preferences` window, you should select "Python 3.9 (python-intermediate-rivercatchment)"
-   or similar (that you've just added) from the `Project Interpreter` drop-down list.
+![Updating the virtual environment in VS Code](../fig/vs-code-select-virtual-env.png){: .image-with-shadow width="800px" }
 
-Note that a number of external libraries have magically appeared under the
-"Python 3.9 (python-intermediate-rivercatchment)" interpreter,
+To make working with Python virtual environments easier in VS Code, we will install another extension called `Python Environment Manager`.  
+Click on the Extensions tab and in the search edit box, type `Python Environment Manager`, select the correct extension, and click the blue `install` button.
+A new tab will appear at the bottom of the vertical bar, as shown below:
+
+![Using the Python Environment Manager in VS Code](../fig/vs-code-virtual-env-mgr.png){: .image-with-shadow width="800px" } 
+
+You can navigate around the current venv environment or look at alternatives, either within the current workspace or gloabl environments.
+Note that a number of external libraries have magically appeared under our current venv environment
 including `numpy` and `matplotlib`.
-PyCharm has recognised the virtual environment we created from the command line using `venv`
-and has added these libraries effectively replicating our virtual environment in PyCharm
-(referred to as "Python 3.9 (python-intermediate-rivercatchment)"). 
-
-![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="800px"}
+VS Code has recognised the virtual environment we created from the command line using `venv`
+and has added these libraries effectively replicating our virtual environment in VS Code
+(referred to as "venv"). 
 
 Also note that, although the names are not the same -
 this is one and the same virtual environment
-and changes done to it in PyCharm will propagate to the command line and vice versa.
+and changes done to it in VS Code will propagate to the command line and vice versa.
 Let's see this in action through the following exercise.
 
-> ## Exercise: Compare External Libraries in the Command Line and PyCharm
+> ## Exercise: Compare External Libraries in the Command Line and VS Code
 > Can you recall two places where information about our project's dependencies
 > can be found from the command line?
-> Compare that information with the equivalent configuration in PyCharm.
+> Compare that information with the equivalent configuration in VS Code.
 >
 > Hint: We can use an argument to `pip`,
 > or find the packages directly in a subdirectory of our virtual environment directory "venv".
@@ -288,7 +259,7 @@ drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
 >>
 >> Finally, if you look at both the contents of
 >> `venv/lib/python3.11/site-packages` and `requirements.txt`
->> and compare that with the packages shown in PyCharm's Python Interpreter Configuration -
+>> and compare that with the packages shown in VS Code's Python Interpreter Configuration -
 >> you will see that they all contain equivalent information.
 > {: .solution}
 {: .challenge}
@@ -298,21 +269,20 @@ We have already added packages `numpy` and `matplotlib` to our virtual environme
 from the command line in the previous episode,
 so we are up-to-date with all external libraries we require at the moment.
 However, we will need library `pytest` soon to implement tests for our code.
-We will use this opportunity to install it from PyCharm in order to see
+We will use this opportunity to install it from VS Code in order to see
 an alternative way of doing this and how it propagates to the command line.
 
-1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears,
-   select `Project: python-intermediate-rivercatchment` > `Project Interpreter` from the left.
-3. Select the `+` icon at the top of the window.
-   In the window that appears, search for the name of the library (`pytest`),
+1. Select the Python tab on the left hand side vertical bar, as we did earlier.
+2. Under our `venv` environment, hover over `Packages`
+3. Select the magnifying glass icon (Install Package) 
+4. In the window that appears, search for the name of the library (`pytest`),
    select it from the list,
    then select `Install Package`.
    Once it finishes installing, you can close that window.
-   ![Installing a package in PyCharm](../fig/pycharm-add-library.png){: .image-with-shadow width="800px" }
+   ![Installing a package in VS Code](../fig/vs-code-add-library.png){: .image-with-shadow width="800px" }
 4. Select `OK` in the `Preferences`/`Settings` window.
 
-It may take a few minutes for PyCharm to install it.
+It may take a few minutes for VS Code to install it.
 After it is done, the `pytest` library is added to our virtual environment.
 You can also verify this from the command line by
 listing the `venv/lib/python3.11/site-packages` subdirectory.
@@ -408,52 +378,44 @@ Let's do this as an exercise.
 {: .challenge}
 
 #### Adding a Run Configuration for Our Project
-Having configured a virtual environment, we now need to tell PyCharm to use it for our project.
-This is done by creating and adding a **Run Configuration** to a project. 
-Run Configurations in PyCharm are named sets of startup properties
-that define which main Python script to execute and what (optional) 
-runtime parameters/environment variables (i.e. additional configuration options) to pass 
-and use on top of virtual environments.
+Currently, if you click on the run button (see below) the current file that is open in the editor window will be run by the interpreter.
 
-1. To add a new Run Configuration for a project -
-   select `Run` > `Edit Configurations...` from the top menu.
-2. Select `Add new run configuration...` then `Python`.
-   ![Adding a Run Configuration in PyCharm](../fig/pycharm-add-run-configuration.png){: .image-with-shadow width="800px" }
-3. In the new popup window, in the `Script path` field select the folder button
-   and find and select `catchment-analysis.py`.
-   This tells PyCharm which script to run (i.e. what the main entry point to our application is).
-   ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
-4. In the same window, select "Python 3.9 (python-intermediate-rivercatchment)"
-   (i.e. the virtual environment and interpreter you configured earlier in this episode)
-   in the `Python interpreter` field.
-5. You can give this run configuration a name at the top of the window if you like -
-   e.g. let's name it `catchment analysis`.
-6. You can optionally configure run parameters and environment variables in the same window -
-   we do not need this at the moment.
-7. Select `Apply` to confirm these settings.
+![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-> ## Virtual Environments & Run Configurations in PyCharm
->
-> We configured the Python interpreter to use for our project by pointing PyCharm
-> to the virtual environment we created from the command line
-> (which encapsulates a Python interpreter and external libraries our code needs to run).
-> Recall that you can create several virtual environments based on the same Python interpreter
-> but with different external libraries -
-> this is helpful when you need to develop different types of applications.
-> For example, you can create one virtual environment
-> based on Python 3.11 to develop Django Web applications
-> and another virtual environment
-> based on the same Python 3.11 to work with scientific libraries.
->
-> Run Configurations provided by PyCharm are one extra layer on top of virtual environments - 
-> you can vary a run configuration each time your code is executed and 
-> you can have separate configurations for running, debugging and testing your code.
-{: .callout}
+This will do for now, while we are only running the catchment-analysis.py script, but what if we want to run different configurations.
+Click on the `Run and Debug` tab, on the left hand side vertical bar and at the top of the `Run and Debug` panel, 
+click on the `Settings` cog symbol. This will open the launch.json file in the editor window. In that file, enter the following
+configurations:
+
+```
+"configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "catchment-analysis",
+            "justMyCode": true
+        }
+    ]
+
+```
+Notice that when you click on the Run symbol at the top of the `Run and Debug` panel, there is now a drop-down list with
+two choices, run `Python: Current File` or `Python: Module`, with the latter being set to run the catchment-analysis.py script as a module.
+You can set further configurations, and add arguments to be input when running the scripts, but we will leave that for now.
+
 
 Now you know how to configure and manipulate your environment in both tools
-(command line and PyCharm),
+(command line and VS Code),
 which is a useful parallel to be aware of.
-Let's have a look at some other features afforded to us by PyCharm.
+Let's have a look at some other features afforded to us by VS Code.
 
 ### Syntax Highlighting
 The first thing you may notice is that code is displayed using different colours.
@@ -463,11 +425,11 @@ It also makes syntax errors visually distinct.
 Highlighting does not affect the meaning of the code itself -
 it's intended only for humans to make reading code and finding errors easier.
 
-![Syntax Highlighting Functionality in PyCharm](../fig/pycharm-syntax-highlighting.png){: .image-with-shadow width="1000px" }
+![Syntax Highlighting Functionality in VS Code](../fig/vs-code-syntax-highlighting.png){: .image-with-shadow width="1000px" }
 
 ### Code Completion
 As you start typing code,
-PyCharm will offer to complete some of the code for you in the form of an auto completion popup.
+VS Code will offer to complete some of the code for you in the form of an auto completion popup.
 This is a context-aware code completion feature
 that speeds up the process of coding
 (e.g. reducing typos and other common mistakes)
@@ -477,34 +439,21 @@ parameters of functions,
 hints related to syntax errors,
 etc.
 
-![Code Completion Functionality in PyCharm](../fig/pycharm-code-completion.png){: .image-with-shadow width="600px" }
+![Code Completion Functionality in VS Code](../fig/vs-code-code-completion.png){: .image-with-shadow width="600px" }
 
 ### Code Definition & Documentation References
 You will often need code reference information to help you code.
-PyCharm shows this useful information,
+VS Code shows this useful information,
 such as definitions of symbols
 (e.g. functions, parameters, classes, fields, and methods)
 and documentation references by means of quick popups and inline tooltips.
 
 For a selected piece of code,
-you can access various code reference information from the `View` menu
-(or via various keyboard shortcuts),
-including:
+you can access various code reference information from the `Go` menu
+(keyboard shortcuts can also be added for these options).
 
-- Quick Definition -
-  where and how symbols (functions, parameters, classes, fields, and methods) are defined
-- Quick Type Definition -
-  type definition of variables, fields or any other symbols
-- Quick Documentation -
-  inline documentation ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings)
-  for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/))
-- Parameter Info -
-  the names and expected types of parameters in method and function calls.
-  Use this when cursor is on the argument of a function call.
-- Type Info -
-  type of an expression
 
-![Code References Functionality in PyCharm](../fig/pycharm-code-reference.png){: .image-with-shadow width="1000px" }
+![Code References Functionality in VS Code](../fig/vs-code-code-reference.png){: .image-with-shadow width="1000px" }
 
 ### Code Search
 You can search for a text string within a project,
@@ -514,39 +463,38 @@ include/exclude certain files from your search, find usages and occurrences.
 To find a search string in the whole project:
 
 1. From the main menu,
-   select `Edit | Find | Find in Path ...`
-   (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
-2. Type your search string in the search field of the popup.
+   select `Edit | Find in Files ...`
+2. Type your search string in the search field of the search panel.
    Alternatively, in the editor, highlight the string you want to find
    and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows).
-   PyCharm places the highlighted string into the search field of the popup.
+   VS Code places the highlighted string into the search field of the search panel.
 
-    ![Code Search Functionality in PyCharm](../fig/pycharm-code-search.png){: .image-with-shadow width="800px" }
-    If you need, specify the additional options in the popup.
-    PyCharm will list the search strings and all the files that contain them.
+    ![Code Search Functionality in VS Code](../fig/vs-code-code-search.png){: .image-with-shadow width="800px" }
+    VS Code will list the search strings and all the files that contain them. You can also group the files by folder/sub-folder names.
+    
 3. Check the results in the preview area of the dialog where you can replace the search string
    or select another string,
    or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again
    to start a new search.
-4. To see the list of occurrences in a separate panel,
-   click the `Open in Find Window` button in the bottom right corner.
-   The find panel will appear at the bottom of the main window;
+4. To see the list of occurrences in a separate tab,
+   click the `Open New Search Editor` button at the top of the serach panel.
+   The new find panel will appear as a new tab in te editor window;
    use this panel and its options to group the results, preview them,
    and work with them further.
 
     ![Code Search Functionality in PyCharm](../fig/pycharm-find-panel.png){: .image-with-shadow width="1000px" }
 
 ### Version Control
-PyCharm supports a directory-based versioning model,
+VS Code supports a directory-based versioning model,
 which means that each project directory can be associated with a different version control system.
-Our project was already under Git version control and PyCharm recognised it.
-It is also possible to add an unversioned project directory to version control directly from PyCharm.
+Our project was already under Git version control and VS Code recognised it.
+It is also possible to add an unversioned project directory to version control directly from VS Code.
 
 During this course,
 we will do all our version control commands from the command line
-but it is worth noting that PyCharm supports a comprehensive subset of Git commands
-(i.e. it is possible to perform a set of common Git commands from PyCharm but not all).
-A very useful version control feature in PyCharm is
+but it is worth noting that VS Code supports a comprehensive subset of Git commands
+(i.e. it is possible to perform a set of common Git commands from VS Code but not all).
+A very useful version control feature in VS Code is
 graphically comparing changes you made locally to a file
 with the version of the file in a repository,
 a different commit version
@@ -554,19 +502,18 @@ or a version in a different branch -
 this is something that cannot be done equally well from the text-based command line.
 
 You can get a full
-[documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html)
+[documentation on VS Code's built-in version control support](https://code.visualstudio.com/docs/sourcecontrol/overview)
 online.
 
-![Version Control Functionality in PyCharm](../fig/pycharm-version-control.png){: .image-with-shadow width="1000px" }
+![Version Control Functionality in VS Code](../fig/vs-code-version-control.png){: .image-with-shadow width="1000px" }
 
-### Running Scripts in PyCharm
-We have configured our environment and explored some of the most commonly used PyCharm features
-and are now ready to run our script from PyCharm!
-To do so, right-click the `catchment-analysis.py` file
-in the PyCharm project/file navigator on the left,
-and select `Run 'catchment analysis'` (i.e. the Run Configuration we created earlier).
-
-![Running a script from PyCharm](../fig/pycharm-run-script.png){: .image-with-shadow width="800px" }
+### Running Scripts in VS Code
+We have configured our environment and explored some of the most commonly used VS Code features
+and are now ready to run our script from VS Code!
+To do so, select the `catchment-analysis.py` file
+in the VS Code project/file explorer,
+and select `Run`. Or you can slect the `Run and Debug` tab and then select the `Run: Python Module` configuration 
+that we created earlier.
 
 The script will run in a terminal window at the bottom of the IDE window and display something like:
 
@@ -582,7 +529,7 @@ Process finished with exit code 2
 This is the same error we got when running the script from the command line.
 We will get back to this error shortly -
 for now, the good thing is that we managed to set up our project for development
-both from the command line and PyCharm and are getting the same outputs.
+both from the command line and VS Code and are getting the same outputs.
 Before we move on to fixing errors and writing more code,
 let's have a look at the last set of tools for collaborative code development
 which we will be using in this course - Git and GitHub.
