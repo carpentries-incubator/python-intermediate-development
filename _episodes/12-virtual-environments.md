@@ -28,8 +28,8 @@ We now want to run our code to see what it does -
 let's do that from the command line.
 For the most part of the course we will run our code
 and interact with Git from the command line.
-While we will develop and debug our code using the PyCharm IDE
-and it is possible to use Git from PyCharm too,
+While we will develop and debug our code using the Visual Studio Code (VS Code) IDE
+and it is possible to use Git from VS Code too,
 typing commands in the command line allows you to familiarise yourself and learn it well.
 A bonus is that this knowledge is transferable to running code in other programming languages
 and is independent from any IDE you may use in the future.
@@ -142,7 +142,7 @@ and it may be a matter of personal preference which one you go for.
 In this course, we will use `venv` to create and manage our virtual environment
 (which is the preferred way for Python 3.3+).
 The upside is that `venv` virtual environments created from the command line are
-also recognised and picked up automatically by PyCharm IDE,
+also recognised and picked up automatically by VS Code IDE,
 as we will see in the next episode.
 
 ### Managing External Packages
