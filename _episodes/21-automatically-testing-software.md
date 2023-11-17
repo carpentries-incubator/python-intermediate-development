@@ -584,7 +584,7 @@ but what you learn can scale to more complex functional testing for applications
 If you have already installed `pytest` package in your virtual environment,
 you can skip this step.
 Otherwise, as we have seen, we have a couple of options for installing external libraries:
-1. via PyCharm
+1. via VS Code
    (see ["Adding an External Library"](../13-ides/index.html#adding-an-external-library) section
    in ["Integrated Software Development Environments"](../13-ides/index.html) episode),
    or
@@ -601,7 +601,7 @@ $ python3 -m pip install pytest
 ~~~
 {: .language-bash}
 
-Whether we do this via PyCharm or the command line,
+Whether we do this via VS Code or the command line,
 the results are exactly the same:
 our virtual environment will now have the `pytest` package installed for use.
 
