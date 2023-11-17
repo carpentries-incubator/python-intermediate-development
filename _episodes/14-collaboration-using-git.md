@@ -19,7 +19,7 @@ keypoints:
 ## Introduction
 So far we have checked out our software project from GitHub
 and used command line tools to configure a virtual environment for our project and run our code.
-We have also familiarised ourselves with PyCharm -
+We have also familiarised ourselves with VS Code -
 a graphical tool we will use for code development, testing and debugging.
 We are now going to start using another set of tools
 from the collaborative code development toolbox -
@@ -161,7 +161,7 @@ you can simply create it yourself.
 In our case, we want to tell Git to ignore the "venv" directory
 (and ".venv" as another naming convention for directories containing virtual environments)
 and stop notifying us about it.
-Edit your `.gitignore` file in PyCharm
+Edit your `.gitignore` file in VS Code
 and add a line containing "venv/" and another one containing ".venv/".
 It does not matter much in this case where within the file you add these lines,
 so let's do it at the end.
@@ -437,7 +437,7 @@ the commits will happen on the `develop` branch
 and will not affect the version of the code in `main`.
 We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let's make a small modification to `catchment/models.py` in PyCharm,
+Let's make a small modification to `catchment/models.py` in VS Code,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and
