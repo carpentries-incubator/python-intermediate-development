@@ -280,7 +280,7 @@ when you run `git clone remote_url` command to replicate a remote repository loc
 > You should revisit the [instructions 
 > on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
 > and can fix this from the command line by
-> resetting the remote repository URL setting on your local repository:
+> changing the remote repository's HTTPS URL to its SSH equivalent:
 >
 > ~~~
 > $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
