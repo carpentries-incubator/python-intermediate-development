@@ -44,7 +44,9 @@ will help you adopt the same attitude when assessing your own software for futur
 > Time: 5 mins
 >
 > 1. Decide as a team on one of your repositories that will represent your group.
->    You can do this any way you wish.
+>    You can do this any way you wish,
+>    but if you are having trouble then a pseudo-random number might help:
+>    `python -c "import numpy as np; print(np.random.randint(low=1, high=<size_group_plus_1>))"`
 > 2. Add the URL of the repository to
 >    the section of the shared notes labelled 'Decide on your Group's Repository',
 >    next to your team's name.

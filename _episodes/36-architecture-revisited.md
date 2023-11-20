@@ -276,8 +276,10 @@ class Patient(Person):
         super().__init__(name)
 
         self.observations = []
+        ### MODIFIED START ###
         if observations is not None:
             self.observations = observations
+        ### MODIFIED END ###
 
     def add_observation(self, value, day=None):
         if day is None:
@@ -327,6 +329,7 @@ def main(args):
     for filename in infiles:
         inflammation_data = models.load_csv(filename)
 
+        ### MODIFIED START ###
         if args.view == 'visualize':
             view_data = {
                 'average': models.daily_mean(inflammation_data),
@@ -342,6 +345,7 @@ def main(args):
             patient = models.Patient('UNKNOWN', observations)
 
             views.display_patient_record(patient)
+        ### MODIFIED END ###
 
 
 if __name__ == "__main__":
@@ -353,6 +357,7 @@ if __name__ == "__main__":
         nargs='+',
         help='Input CSV(s) containing inflammation series for each patient')
 
+    ### MODIFIED START ###
     parser.add_argument(
         '--view',
         default='visualize',
@@ -364,6 +369,7 @@ if __name__ == "__main__":
         type=int,
         default=0,
         help='Which patient should be displayed?')
+    ### MODIFIED END ###
 
     args = parser.parse_args()
 

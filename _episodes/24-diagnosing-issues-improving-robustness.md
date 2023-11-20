@@ -710,9 +710,7 @@ Since we're adding an extra feature to our CI workflow,
 let's start this from a new feature branch from the `develop` branch:
 
 ~~~
-$ git checkout develop
-$ git branch pylint-ci
-$ git checkout pylint-ci
+$ git switch -c pylint-ci develop # note a shorthand for creating a branch from another and switching to it
 ~~~
 {: .language-bash}
 
