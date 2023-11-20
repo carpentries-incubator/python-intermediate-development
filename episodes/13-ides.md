@@ -109,7 +109,7 @@ terminal (the command line within PyCharm) and a TODO list.
 Select the `inflammation-analysis.py` file in the project navigator on the left
 so that its contents are displayed in the editor window.
 You may notice a warning about the missing Python interpreter
-at the top of the editor panelshowing `inflammation-analysis.py` file -
+at the top of the editor panel showing `inflammation-analysis.py` file -
 this is one of the first things you will have to configure for your project
 before you can do any work.
 
