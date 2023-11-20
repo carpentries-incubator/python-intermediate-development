@@ -226,6 +226,10 @@ $ python3 --version # on Mac/Linux
 $ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
 ~~~
 {: .language-bash}
+
+If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may 
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../common-issues/index.html#python-hangs-in-git-bash).
+
 If all is well with your installation, you should see something like:
 ~~~       
 Python 3.8.2
