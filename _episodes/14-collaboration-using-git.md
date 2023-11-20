@@ -272,7 +272,7 @@ In the above command,
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
 
-> ## GitHub Authentication Error
+> ## GitHub Authentication/Authorisation Error
 >
 > If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
 > you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
