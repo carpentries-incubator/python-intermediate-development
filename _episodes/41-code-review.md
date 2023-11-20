@@ -323,7 +323,7 @@ compared to that of personal repositories.
 > for the feature that was implemented in your shared repository.
 > Implement tests against the appropriate specification in your local feature branch.
 >
-> *Note: Try not to not fall into the trap of
+> ***Note:** Try not to not fall into the trap of
 > writing the tests to test the existing code/implementation -
 > you should write the tests to make sure the code satisfies the requirements
 > regardless of the actual implementation.

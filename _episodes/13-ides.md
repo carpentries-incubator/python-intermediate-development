@@ -130,7 +130,7 @@ from the command line
 and PyCharm is clever enough to understand it.
 
 #### Adding a Python Interpreter
-1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
+1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears,
    select `Project: python-intermediate-inflammation` > `Python Interpreter` from the left.
    You'll see a number of Python packages displayed as a list, and importantly above that,
@@ -139,8 +139,8 @@ and PyCharm is clever enough to understand it.
    or possibly the default version of Python installed on your system,
    e.g. `Python 2.7 /usr/bin/python2.7`,
    which we do not want to use in this instance.
-3. Select the cog-like button in the top right, then `Add Local...`
-   (or `Add...` depending on your PyCharm version).
+3. Select the cog-like button in the top right, then `Add...`
+   (or `Add Local...` depending on your PyCharm version).
    An `Add Python Interpreter` window will appear.
 4. Select `Virtualenv Environment` from the list on the left
    and ensure that `Existing environment` checkbox is selected within the popup window.
@@ -155,15 +155,15 @@ and PyCharm is clever enough to understand it.
 5. Select `Make available to all projects` checkbox
    so we can also use this environment for other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window.
-   Back in the `Preferences` window, you should select "Python 3.9 (python-intermediate-inflammation)"
+   Back in the `Preferences` window, you should select "Python 3.11 (python-intermediate-inflammation)"
    or similar (that you've just added) from the `Project Interpreter` drop-down list.
 
 Note that a number of external libraries have magically appeared under the
-"Python 3.9 (python-intermediate-inflammation)" interpreter,
+"Python 3.11 (python-intermediate-inflammation)" interpreter,
 including `numpy` and `matplotlib`.
 PyCharm has recognised the virtual environment we created from the command line using `venv`
 and has added these libraries effectively replicating our virtual environment in PyCharm
-(referred to as "Python 3.9 (python-intermediate-inflammation)").
+(referred to as "Python 3.11 (python-intermediate-inflammation)").
 
 ![Packages Currently Installed in a Virtual Environment in PyCharm](../fig/pycharm-installed-packages.png){: .image-with-shadow width="800px"}
 
@@ -189,22 +189,21 @@ Let's see this in action through the following exercise.
 >> ~~~
 >> {: .language-bash}
 >> ~~~
->> Package         Version
->> --------------- -------
->> cycler          0.11.0
->> fonttools       4.28.1
->> kiwisolver      1.3.2
->> matplotlib      3.5.0
->> numpy           1.21.4
->> packaging       21.2
->> Pillow          8.4.0
->> pip             21.1.3
->> pyparsing       2.4.7
->> python-dateutil 2.8.2
->> setuptools      57.0.0
->> setuptools-scm  6.3.2
->> six             1.16.0
->> tomli           1.2.2
+Package         Version
+--------------- -------
+contourpy       1.2.0
+cycler          0.12.1
+fonttools       4.45.0
+kiwisolver      1.4.5
+matplotlib      3.8.2
+numpy           1.26.2
+packaging       23.2
+Pillow          10.1.0
+pip             23.0.1
+pyparsing       3.1.1
+python-dateutil 2.8.2
+setuptools      67.6.1
+six             1.16.0
 >> ~~~
 >> {: .output}
 >> However, `pip3 list` shows all the packages in the virtual environment -
@@ -215,18 +214,17 @@ Let's see this in action through the following exercise.
 >> ~~~
 >> {: .language-bash}
 >> ~~~
->> cycler==0.11.0
->> fonttools==4.28.1
->> kiwisolver==1.3.2
->> matplotlib==3.5.0
->> numpy==1.21.4
->> packaging==21.2
->> Pillow==8.4.0
->> pyparsing==2.4.7
->> python-dateutil==2.8.2
->> setuptools-scm==6.3.2
->> six==1.16.0
->> tomli==1.2.2
+contourpy==1.2.0
+cycler==0.12.1
+fonttools==4.45.0
+kiwisolver==1.4.5
+matplotlib==3.8.2
+numpy==1.26.2
+packaging==23.2
+Pillow==10.1.0
+pyparsing==3.1.1
+python-dateutil==2.8.2
+six==1.16.0
 >> ~~~
 >> {: .output}
 >> We see `pip` in `pip3 list` but not in `pip3 freeze` as we did not install it using `pip`.
@@ -241,52 +239,49 @@ Let's see this in action through the following exercise.
 >>
 >> If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
 >> ~~~
->> (venv) $ ls -l venv/lib/python3.9/site-packages
+>> (venv) $ ls -l venv/lib/python3.11/site-packages
 >> ~~~
 >> {: .language-bash}
 >>
 >> ~~~
->> total 1088
->> drwxr-xr-x  103 alex  staff    3296 17 Nov 11:55 PIL
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 Pillow-8.4.0.dist-info
->> drwxr-xr-x    6 alex  staff     192 17 Nov 11:55 __pycache__
->> drwxr-xr-x    5 alex  staff     160 17 Nov 11:53 _distutils_hack
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 cycler-0.11.0.dist-info
->> -rw-r--r--    1 alex  staff   14519 17 Nov 11:55 cycler.py
->> drwxr-xr-x   14 alex  staff     448 17 Nov 11:55 dateutil
->> -rw-r--r--    1 alex  staff     152 17 Nov 11:53 distutils-precedence.pth
->> drwxr-xr-x   31 alex  staff     992 17 Nov 11:55 fontTools
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 fonttools-4.28.1.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 kiwisolver-1.3.2.dist-info
->> -rwxr-xr-x    1 alex  staff  216968 17 Nov 11:55 kiwisolver.cpython-39-darwin.so
->> drwxr-xr-x   92 alex  staff    2944 17 Nov 11:55 matplotlib
->> -rw-r--r--    1 alex  staff     569 17 Nov 11:55 matplotlib-3.5.0-py3.9-nspkg.pth
->> drwxr-xr-x   20 alex  staff     640 17 Nov 11:55 matplotlib-3.5.0.dist-info
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 mpl_toolkits
->> drwxr-xr-x   39 alex  staff    1248 17 Nov 11:55 numpy
->> drwxr-xr-x   11 alex  staff     352 17 Nov 11:55 numpy-1.21.4.dist-info
->> drwxr-xr-x   15 alex  staff     480 17 Nov 11:55 packaging
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 packaging-21.2.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:53 pip
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:53 pip-21.1.3.dist-info
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:53 pkg_resources
->> -rw-r--r--    1 alex  staff      90 17 Nov 11:55 pylab.py
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 pyparsing-2.4.7.dist-info
->> -rw-r--r--    1 alex  staff  273365 17 Nov 11:55 pyparsing.py
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 python_dateutil-2.8.2.dist-info
->> drwxr-xr-x   41 alex  staff    1312 17 Nov 11:53 setuptools
->> drwxr-xr-x   11 alex  staff     352 17 Nov 11:53 setuptools-57.0.0.dist-info
->> drwxr-xr-x   19 alex  staff     608 17 Nov 11:55 setuptools_scm
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 setuptools_scm-6.3.2.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 six-1.16.0.dist-info
->> -rw-r--r--    1 alex  staff   34549 17 Nov 11:55 six.py
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 tomli
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
+total 88
+drwxr-xr-x  105 alex  staff   3360 20 Nov 15:34 PIL
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 Pillow-10.1.0.dist-info
+drwxr-xr-x    4 alex  staff    128 20 Nov 15:34 __pycache__
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:32 _distutils_hack
+drwxr-xr-x   16 alex  staff    512 20 Nov 15:34 contourpy
+drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 contourpy-1.2.0.dist-info
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 cycler
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 cycler-0.12.1.dist-info
+drwxr-xr-x   14 alex  staff    448 20 Nov 15:34 dateutil
+-rw-r--r--    1 alex  staff    151 20 Nov 15:32 distutils-precedence.pth
+drwxr-xr-x   33 alex  staff   1056 20 Nov 15:34 fontTools
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 fonttools-4.45.0.dist-info
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver-1.4.5.dist-info
+drwxr-xr-x  150 alex  staff   4800 20 Nov 15:34 matplotlib
+drwxr-xr-x   20 alex  staff    640 20 Nov 15:34 matplotlib-3.8.2.dist-info
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 mpl_toolkits
+drwxr-xr-x   43 alex  staff   1376 20 Nov 15:34 numpy
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 numpy-1.26.2.dist-info
+drwxr-xr-x   18 alex  staff    576 20 Nov 15:34 packaging
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 packaging-23.2.dist-info
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:32 pip
+drwxr-xr-x   10 alex  staff    320 20 Nov 15:33 pip-23.0.1.dist-info
+drwxr-xr-x    6 alex  staff    192 20 Nov 15:32 pkg_resources
+-rw-r--r--    1 alex  staff     90 20 Nov 15:34 pylab.py
+drwxr-xr-x   15 alex  staff    480 20 Nov 15:34 pyparsing
+drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 pyparsing-3.1.1.dist-info
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 python_dateutil-2.8.2.dist-info
+drwxr-xr-x   49 alex  staff   1568 20 Nov 15:32 setuptools
+drwxr-xr-x   10 alex  staff    320 20 Nov 15:32 setuptools-67.6.1.dist-info
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
+-rw-r--r--    1 alex  staff  34549 20 Nov 15:34 six.py
 >> ~~~
 >> {: .output}
 >>
 >> Finally, if you look at both the contents of
->> `venv/lib/python3.9/site-packages` and `requirements.txt`
+>> `venv/lib/python3.11/site-packages` and `requirements.txt`
 >> and compare that with the packages shown in PyCharm's Python Interpreter Configuration -
 >> you will see that they all contain equivalent information.
 > {: .solution}
@@ -300,7 +295,7 @@ However, we will need library `pytest` soon to implement tests for our code.
 We will use this opportunity to install it from PyCharm in order to see
 an alternative way of doing this and how it propagates to the command line.
 
-1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
+1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears,
    select `Project: python-intermediate-inflammation` > `Project Interpreter` from the left.
 3. Select the `+` icon at the top of the window.
@@ -314,7 +309,7 @@ an alternative way of doing this and how it propagates to the command line.
 It may take a few minutes for PyCharm to install it.
 After it is done, the `pytest` library is added to our virtual environment.
 You can also verify this from the command line by
-listing the `venv/lib/python3.9/site-packages` subdirectory.
+listing the `venv/lib/python3.11/site-packages` subdirectory.
 Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
 Let's do this as an exercise.
@@ -329,27 +324,24 @@ Let's do this as an exercise.
 >> ~~~
 >> {: .language-bash}
 >> ~~~
->> Package         Version
->> --------------- -------
->> attrs           21.4.0
->> cycler          0.11.0
->> fonttools       4.28.5
->> iniconfig       1.1.1
->> kiwisolver      1.3.2
->> matplotlib      3.5.1
->> numpy           1.22.0
->> packaging       21.3
->> Pillow          9.0.0
->> pip             20.0.2
->> pluggy          1.0.0
->> py              1.11.0
->> pyparsing       3.0.7
->> pytest          6.2.5
->> python-dateutil 2.8.2
->> setuptools      44.0.0
->> six             1.16.0
->> toml            0.10.2
->> tomli           2.0.0
+Package         Version
+--------------- -------
+contourpy       1.2.0
+cycler          0.12.1
+fonttools       4.45.0
+iniconfig       2.0.0
+kiwisolver      1.4.5
+matplotlib      3.8.2
+numpy           1.26.2
+packaging       23.2
+Pillow          10.1.0
+pip             23.0.1
+pluggy          1.3.0
+pyparsing       3.1.1
+pytest          7.4.3
+python-dateutil 2.8.2
+setuptools      67.6.1
+six             1.16.0
 >> ~~~
 >> {: .output}
 >> We can see the `pytest` library appearing in the listing above. However, if we do:
@@ -358,18 +350,17 @@ Let's do this as an exercise.
 >> ~~~
 >> {: .language-bash}
 >> ~~~
->> cycler==0.11.0
->> fonttools==4.28.1
->> kiwisolver==1.3.2
->> matplotlib==3.5.0
->> numpy==1.21.4
->> packaging==21.2
->> Pillow==8.4.0
->> pyparsing==2.4.7
->> python-dateutil==2.8.2
->> setuptools-scm==6.3.2
->> six==1.16.0
->> tomli==1.2.2
+contourpy==1.2.0
+cycler==0.12.1
+fonttools==4.45.0
+kiwisolver==1.4.5
+matplotlib==3.8.2
+numpy==1.26.2
+packaging==23.2
+Pillow==10.1.0
+pyparsing==3.1.1
+python-dateutil==2.8.2
+six==1.16.0
 >> ~~~
 >> {: .output}
 >> `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
@@ -379,24 +370,20 @@ Let's do this as an exercise.
 >> {: .language-bash}
 >> `pytest` is now present in `requirements.txt`:
 >> ~~~
->> attrs==21.2.0
->> cycler==0.11.0
->> fonttools==4.28.1
->> iniconfig==1.1.1
->> kiwisolver==1.3.2
->> matplotlib==3.5.0
->> numpy==1.21.4
->> packaging==21.2
->> Pillow==8.4.0
->> pluggy==1.0.0
->> py==1.11.0
->> pyparsing==2.4.7
->> pytest==6.2.5
->> python-dateutil==2.8.2
->> setuptools-scm==6.3.2
->> six==1.16.0
->> toml==0.10.2
->> tomli==1.2.2
+contourpy==1.2.0
+cycler==0.12.1
+fonttools==4.45.0
+iniconfig==2.0.0
+kiwisolver==1.4.5
+matplotlib==3.8.2
+numpy==1.26.2
+packaging==23.2
+Pillow==10.1.0
+pluggy==1.3.0
+pyparsing==3.1.1
+pytest==7.4.3
+python-dateutil==2.8.2
+six==1.16.0
 >> ~~~
 > {: .solution}
 {: .challenge}
@@ -413,7 +400,7 @@ This is done by adding a **Run Configuration** to a project:
    and find and select `inflammation-analysis.py`.
    This tells PyCharm which script to run (i.e. what the main entry point to our application is).
    ![Run Configuration Popup in PyCharm](../fig/pycharm-run-configuration-popup.png){: .image-with-shadow width="800px" }
-4. In the same window, select "Python 3.9 (python-intermediate-inflammation)"
+4. In the same window, select "Python 3.11 (python-intermediate-inflammation)"
    (i.e. the virtual environment and interpreter you configured earlier in this episode)
    in the `Python interpreter` field.
 5. You can give this run configuration a name at the top of the window if you like -
@@ -431,9 +418,9 @@ This is done by adding a **Run Configuration** to a project:
 > but with different external libraries -
 > this is helpful when you need to develop different types of applications.
 > For example, you can create one virtual environment
-> based on Python 3.9 to develop Django Web applications
+> based on Python 3.11 to develop Django Web applications
 > and another virtual environment
-> based on the same Python 3.9 to work with scientific libraries.
+> based on the same Python 3.11 to work with scientific libraries.
 >
 > **Run Configurations** in PyCharm are named sets of startup properties
 > that define what to execute and what parameters
@@ -490,7 +477,7 @@ including:
   type definition of variables, fields or any other symbols
 - Quick Documentation -
   inline documentation ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings)
-  for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/)
+  for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/))
 - Parameter Info -
   the names and expected types of parameters in method and function calls.
   Use this when cursor is on the argument of a function call.

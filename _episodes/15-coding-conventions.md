@@ -628,7 +628,7 @@ The docstring for a function or a module
 is returned when calling the `help` function and passing its name -
 for example from the interactive Python console/terminal available from the command line
 or when rendering code documentation online
-(e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
+(e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
 PyCharm also displays the docstring for a function/module
 in a little help popup window when using tab-completion.
 
