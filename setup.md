@@ -201,22 +201,26 @@ your access token.
 {: .callout}
 
 ## Python Distribution
-The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/)
-and is using `venv` for virtual environments and `pip` for package management.
+The material has been developed using the standard Python distribution version 3.8
+and has been tested with Python versions up to 3.11. The course is using `venv` for virtual 
+environment management and `pip` for package management.
 The material has not been extensively tested with other Python distributions and package managers,
 but most sections are expected to work with some modifications.
 For example, package installation and virtual environments would need to be managed differently, but Python script
 invocations should remain the same regardless of the Python distribution used.
 
-To download a Python distribution for your operating system,
+To download the latest Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
 If you are on Linux,
 it is likely that the system Python already installed will satisfy the requirements of this course.
 Check its version using the commands below.
 
 >## Recommended Python Version
-> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/versions/#versions) should work (i.e. version 3.7 onward. 
-> Specifically, we recommend upgrading from Python 2.7 wherever possible; continuing to use it will likely result in difficulty finding supported dependencies or syntax errors).
+> We recommend using the latest Python version but any [supported version](https://devguide.python.org/versions/#versions) 
+> should work. 
+> Specifically, we recommend upgrading from Python 2.7 wherever possible; 
+> continuing to use it will likely result in difficulty finding supported dependencies or 
+> syntax errors.
 {: .callout}
 
 You can
@@ -232,7 +236,7 @@ need to create an alias for the python executable `python.exe`, as explained in 
 
 If all is well with your installation, you should see something like:
 ~~~       
-Python 3.8.2
+Python 3.11.4
 ~~~
 {: .output}
 
@@ -244,9 +248,8 @@ type the following in your shell:
 {: .language-bash}
 This should enter you into a Python console and you should see something like:
  ~~~
-Python 3.8.2 (default, Jun  8 2021, 11:59:35) 
-[Clang 12.0.5 (clang-1205.0.22.11)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
+Python 3.11.4 (main, Jun 20 2023, 17:23:00) [Clang 14.0.3 (clang-1403.0.22.14.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information. 
 >>> 
  ~~~
 {: .language-bash}

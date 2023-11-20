@@ -448,7 +448,7 @@ Let's make a small modification to `inflammation/models.py` in PyCharm,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and
-`daily_min()`.
+`daily_min()` to see updating branches in action.
 
 If we do:
 

@@ -149,7 +149,7 @@ that is used by Pytest and using that, we can find this out:
 
 ~~~
 $ pip3 install pytest-cov
-$ python -m pytest --cov=inflammation.models tests/test_models.py
+$ python3 -m pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -158,14 +158,14 @@ specifying the code to analyse for test coverage.
 
 ~~~
 ============================= test session starts ==============================
-platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
-rootdir: /Users/alex/python-intermediate-inflammation
-plugins: anyio-3.3.4, cov-3.0.0
-collected 9 items
+platform darwin -- Python 3.11.4, pytest-7.4.3, pluggy-1.3.0
+rootdir: /Users/alex/work/SSI/training/lessons/python-intermediate-inflammation
+plugins: cov-4.1.0
+collected 9 items                                                               
 
 tests/test_models.py .........                                            [100%]
 
----------- coverage: platform darwin, python 3.9.6-final-0 -----------
+---------- coverage: platform darwin, python 3.11.4-final-0 ----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
 inflammation/models.py       9      1    89%
@@ -182,7 +182,7 @@ But which statements are not being tested?
 The additional argument `--cov-report term-missing` can tell us:
 
 ~~~
-$ python -m pytest --cov=inflammation.models --cov-report term-missing tests/test_models.py
+$ python3 -m pytest --cov=inflammation.models --cov-report term-missing tests/test_models.py
 ~~~
 {: .language-bash}
 

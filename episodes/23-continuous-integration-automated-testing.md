@@ -175,7 +175,7 @@ This directory is used specifically for GitHub Actions,
 allowing us to specify any number of workflows that can be run under a variety of conditions,
 which is also written using YAML.
 So let's add a new YAML file called `main.yml`
-(note it's extension is `.yml` without the `a`)
+(note its extension is `.yml` without the `a`)
 within the new `.github/workflows` directory:
 
 ~~~
@@ -200,10 +200,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.9
+    - name: Set up Python 3.11
       uses: actions/setup-python@v2
       with:
-        python-version: "3.9"
+        python-version: "3.11"
 
     - name: Install Python dependencies
       run: |
@@ -212,11 +212,11 @@ jobs:
 
     - name: Test with PyTest
       run: |
-        python -m pytest --cov=inflammation.models tests/test_models.py
+        python3 -m pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
-**Note:** *be sure to create this file as `main.yml`
+***Note**: be sure to create this file as `main.yml`
 within the newly created `.github/workflows` directory,
 or it won't work!*
 
@@ -240,8 +240,8 @@ Each of these steps are:
 
 - **Checkout repository for the job:**
   `uses` indicates that want to use a GitHub Action called `checkout` that does this
-- **Set up Python 3.9:**
-  here we use the `setup-python` Action, indicating that we want Python version 3.9.
+- **Set up Python version:**
+  here we use the `setup-python` Action, indicating that we want Python version 3.11.
   Note we specify the version within quotes,
   to ensure that this is interpreted as a complete string.
   Otherwise, if we wanted to test against for example Python 3.10,
@@ -255,7 +255,7 @@ Each of these steps are:
   then we use pip to install our package dependencies.
   Once installed, we can use `pip3 install -e .` as before to install our own package.
   We use `run` here to run theses commands in the CI shell environment
-- **Test with PyTest:** lastly, we run `python -m pytest`,
+- **Test with PyTest:** lastly, we run `python3 -m pytest`,
   with the same arguments we used manually before
 
 > ## What about other Actions?
@@ -339,7 +339,7 @@ we can use a feature called **build matrices**
 which really shows the value of using CI to test at scale.
 
 Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows,
-and either have Python version 3.8, 3.9 or 3.10 installed,
+and either have Python version 3.10 or 3.11 installed,
 and we want to support all of these.
 Assuming we have a suitable test suite,
 it would take a considerable amount of time to set up testing platforms
@@ -364,7 +364,7 @@ So, our `.github/workflows/main.yml` should look like the following:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.10", "3.11"]
 
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
@@ -388,9 +388,9 @@ So, our `.github/workflows/main.yml` should look like the following:
 
 The `{% raw %}${{ }}{% endraw %}` are used
 as a means to reference configuration values from the matrix.
-This way, every possible permutation of Python versions 3.8, 3.9, and 3.10
+This way, every possible permutation of Python versions 3.10 and 3.11
 with the latest versions of Ubuntu, Mac OS and Windows operating systems
-will be tested and we can expect 9 build jobs in total.
+will be tested and we can expect 6 build jobs in total.
 
 Let's commit and push this change and see what happens:
 
