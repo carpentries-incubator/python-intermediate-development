@@ -259,41 +259,34 @@ $ git pull
 {: .language-bash}
 
 Now we've ensured our repository is synchronised with the remote one,
-we can now push our changes.
-GitHub has recently
-[strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)
-accessing GitHub from the command line over HTTPS.
-This means you cannot use passwords for authentication over HTTPS any more -
-you either need to
-[set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
-for additional security if you want to continue to use HTTPS,
-or switch to use private and public key pair over SSH
-before you can push remotely the changes you made locally.
-So, when you run the command below:
+we can now push our changes:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-> ## Authentication Errors
->
-> If you get a warning that HTTPS access is deprecated, or a token is required,
-> then you accidentally cloned the repository using HTTPS and not SSH.
-> You can fix this from the command line by
-> resetting the remote repository URL setting on your local repo:
->
-> ~~~
-> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
-> ~~~
-> {: .language-bash}
-{: .caution}
-
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally
 (it is called that by convention and set up automatically by Git
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
+
+> ## GitHub Authentication Error
+>
+> If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
+> you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
+> then you have accidentally cloned the repository using HTTPS and not SSH.
+> You should revisit the [instructions 
+> on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
+> and can fix this from the command line by
+> resetting the remote repository URL setting on your local repository:
+>
+> ~~~
+> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> ~~~
+> {: .language-bash}
+{: .callout}
 
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between
