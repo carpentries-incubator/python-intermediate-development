@@ -88,9 +88,9 @@ And then, we'll create a new feature branch called `test-suite` off the `develop
 a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 $ git branch test-suite
-$ git checkout test-suite
+$ git switch test-suite
 ~~~
 {: .language-bash}
 
@@ -413,9 +413,9 @@ but what you learn can scale to more complex functional testing for applications
 > Other unit testing frameworks exist for Python,
 > including Nose2 and Unittest,
 > and the approach to unit testing can be translated to other languages as well,
-> e.g. FRUIT for Fortran,
+> e.g. pFUnit for Fortran,
 > JUnit for Java (the original unit testing framework),
-> Catch for C++, etc.
+> Catch or gtest for C++, etc.
 {: .callout}
 
 > ## Why Use pytest over unittest?
@@ -516,7 +516,9 @@ Notice the `..` after our test script:
   The error is included in the output so we can see what went wrong.
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed.
-Going back to our list of requirements, do we think these results are easy to understand?
+Going back to our list of requirements (the bullets under [Using a Testing
+Framework](#using-a-testing-framework)),
+do we think these results are easy to understand?
 
 > ## Exercise: Write Some Unit Tests
 >
