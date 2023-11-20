@@ -276,7 +276,7 @@ when you run `git clone remote_url` command to replicate a remote repository loc
 >
 > If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
 > you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
-> then you have accidentally cloned the repository using HTTPS and not SSH.
+> then you have cloned the repository using HTTPS and not SSH.
 > You should revisit the [instructions 
 > on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
 > and can fix this from the command line by
