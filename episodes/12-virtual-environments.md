@@ -196,6 +196,17 @@ From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons
 Let us have a look at how we can create and manage virtual environments from the command line
 using `venv` and manage packages using `pip`.
 
+> ## Making Sure You Can Invoke Python
+> You can test your Python installation from the command line with:
+> ~~~
+> $ python3 --version # on Mac/Linux
+> $ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
+> ~~~
+> {: .language-bash}
+> If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may 
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../common-issues/index.html#python-hangs-in-git-bash).
+{: .prereq}
+
 ### Creating Virtual Environments Using `venv`
 Creating a virtual environment with `venv` is done by executing the following command:
 
