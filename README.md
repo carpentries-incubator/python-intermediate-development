@@ -1,16 +1,12 @@
-[![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
-
 ```
 Note that the lesson material can change at any point - if you are planning a workshop using this material, 
 either let the maintainers know or make sure you use your own fork of the lesson.
 ```
 
-# Intermediate Research Software Development Skills In Python
+# Intermediate Research Software Development Skills In Python for Earth Sciences
 
-An intermediate-level course in research software engineering and development skills and working as part of a 
-team (using Python as an example language). This lesson teaches intermediate-level software development 
-skills in a way that mimics a typical software development 
-process in a team, starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
+This lesson teaches intermediate-level course in research software engineering and development skills and collaborating as part of a 
+team (using Python as an example language) to Earth scientists using analysis of river catchment data as an example project.
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
 self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
@@ -21,7 +17,7 @@ automate the process of testing and verifying its correctness and support collab
 
 ### Lesson Status
 
-The lesson is currently in beta - it has been run over 10 times times with 
+The lesson is currently in beta - it has been tested extensively with 
 different cohorts by the lesson authors as well as independently by people not directly involved in the lesson development
 and is in a good state to be reused and taught by others.
 
@@ -40,7 +36,7 @@ depending on the pace.
 We would recommend setting aside one day per section to make sure the delivery is not rushed. 
 
 If you would like to teach this lesson to your audience and help with more beta testing, 
-please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
+please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development-earth-sciences/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
 label ![pilot](https://shields.io/badge/-pilot-31E930).
 
 ## Contributing
@@ -64,12 +60,7 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 
 Current maintainers of this lesson (in alphabetical order) are:
 
-* [Matthew Bluteau][matthew-bluteau]
-* [Steve Crouch][steve-crouch]
-* [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
-* [Sam Mangham][sam-mangham]
-* [Aleksandra Nenadic][aleksandra-nenadic]
 
 ## Authors
 
@@ -88,11 +79,11 @@ To cite this lesson, please consult with [CITATION](CITATION).
 
 ## Contact
 
-To get in touch with the lesson maintainers, send an email to [python-inter-inflammation@lists.carpentries.org](mailto:python-inter-inflammation@lists.carpentries.org).
+To get in touch with the lesson maintainers, send an email to [Doug Lowe](mailto:Douglas.Lowe@manchester.ac.uk).
 
 ## Acknowledgements
 
-Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the [UK's Software Sustainability Institute][ssi] via the [EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/S021779/1).
+Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were supported by the [UK's Software Sustainability Institute][ssi] via the [EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/S021779/1). 
 
 [swc-lessons]: https://software-carpentry.org/lessons/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
@@ -111,4 +102,3 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matthew-bluteau]: https://github.com/bielsnohr
 [doug-lowe]: https://github.com/douglowe
 [kamilla-kopec-harding]: https://github.com/kkh451
-[sam-mangham]: https://github.com/smangham
