@@ -85,7 +85,8 @@ To get in touch with the lesson maintainers, send an email to [Doug Lowe](mailto
 
 ## Acknowledgements
 
-The development of this lesson has been supported with [NERC grant NE/Y003616/1](https://gotw.nerc.ac.uk/list_full.asp?pcode=NE%2FY003616%2F1&classtype=&cookieConsent=A). 
+The development of this lesson has been supported by the [NERC grant NE/Y003616/1](https://gotw.nerc.ac.uk/list_full.asp?pcode=NE%2FY003616%2F1&classtype=&cookieConsent=A) 
+and the [NERC grant NE/X009181/1](https://gotw.nerc.ac.uk/list_full.asp?pcode=NE%2FX009181%2F1). 
 The original lesson this lesson is based on was supported by the [UK's Software Sustainability Institute][ssi] via the [EPSRC, BBSRC, ESRC, NERC, AHRC, STFC and MRC grant EP/S021779/1](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/S021779/1). 
 
 [swc-lessons]: https://software-carpentry.org/lessons/
