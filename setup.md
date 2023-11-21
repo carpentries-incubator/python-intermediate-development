@@ -201,7 +201,7 @@ your access token.
 {: .callout}
 
 ## Python Distribution
-The material has been developed using the standard Python distribution version 3.8
+The material has been tested using the standard Python distribution version 3.11
 and has been tested with Python versions up to 3.11. The course is using `venv` for virtual 
 environment management and `pip` for package management.
 The material has not been extensively tested with other Python distributions and package managers,
