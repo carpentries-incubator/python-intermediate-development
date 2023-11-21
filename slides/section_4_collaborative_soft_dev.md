@@ -40,6 +40,77 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Developing Software in a Team: Code Review
+
+Two main ways to collaborate with git:
+
+1. Fork and Pull Model
+2. Shared Repository Model
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+TODO make a nice mermaid diagram for this
+
+- In the absence of a nice diagram, draw something on the whiteboard for the above
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Code Review
+
+> Code review (n.): a software quality assurance practice where one or several people from the team, different from the code’s author, check the software by viewing parts of its source code, making comments, and rejecting or approving those changes
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Up until now, we have been merging code into our main branches individually
+  - This is generally not how things are done in teams
+  - Instead, there is a gate check before anything gets merged into the main or develop branch of a repo
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Lots of benefits:
+
+1. 👥 Knowledge sharing: improve redundancy in the team.
+2. 🧠 Explanation improves understanding and rationale. Better decisions are made.
+3. ❌ Reduce errors in code. Between 60 and 90% of errors can be caught by rigourous code review (Fagan, 1979).
+   - Errors caught earlier are 10 to 100 times less expensive or time-consuming to fix.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Types of Code Review
+
+1. Over-the-shoulder review
+2. Pair programming
+3. Formal code inspection
+4. **Asynchronous, tool-assisted review ←**
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- There are a variety of different code review techniques
+  - Briefly explain each
+- We will be using **asynchronous, tool-assisted review** because it is currently the most common form in software development, especially with the rise of interfaces like GitHub and GitLab
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Code Review Exercise Steps
+
+<center><img src="https://mermaid.ink/img/pako:eNptkstOwzAQRX_FmnWo0pfTZFEpgm03qRASysbUU2opsYM9Li1V_h3nAaVAVo7PnXttz1xgZyRCBg7fPOodPijxakVdaha-RlhSO9UITSxnwrHc08HYv7DoYIFHhe844vxuvc4z9mQVIXOmRtYlXVmRsUIoh0ywxlcVs90BHA2CYhDkUoaqukZNjpEJUttnXEUhYetfakW_WGVMwx41qYqJprHmiHIAP-KDu0XnmLGh1DVGyy5jcPmOvVaNcfeVsGp_HqtMdcRfWtTy5nz5kP_PLccn2qB9vcUQQY22FkqGzlw6cQl0wBpLyMJS4l74ikqIBqS0oo5cwvqrj_1_Cd7hRpyelKRD2NmLymHL2lK3IUJ4Mtuz3kFG1mMEvpGCvgZgFEcQ-gvZBU6QzeN0ksScp8vlkvNFzCM4Qzad87Cbrng6Xy0SvuSzNoIPY4JDPFnFs8VqmvKEz-Jknix6u-cejvYoFRm7GYawn8X2E-o50Ms?type=png"></center>
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+TODO the source of the png is online from mermaid.ink editor. We should figure a way to incorporate mermaid into these slides directly.
+
+- Walk through the steps of the code review process
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: Raising a pull request for your fictional colleague
+
+Go through the steps described under heading. Stop when you reach **Reviewing a pull request**
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Preparing Software for Reuse and Release
 <!-- #endregion -->
 
@@ -78,7 +149,7 @@ Start from the top of this episode page and go to the end.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 5 Minute Break ☕
+## ☕ Break Time ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
