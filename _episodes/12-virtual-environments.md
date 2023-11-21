@@ -18,7 +18,7 @@ keypoints:
 - "`pip` allows you to declare all dependencies for a project in a separate
 file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment."
 - "Use `pip3 freeze > requirements.txt` to take snapshot of your project's dependencies."
-- "Use `pip3 install -r requirements.txt` to replicatefpython3 -m someone else's virtual environment on your machine from
+- "Use `pip3 install -r requirements.txt` to replicate someone else's virtual environment on your machine from
 the `requirements.txt` file."
 ---
 
