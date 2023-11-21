@@ -1,0 +1,22 @@
+---
+layout: episode
+---
+{{ content }}
+<script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+<!--Below styling is required to centre the SVG -->
+<style>
+    .language-mermaid>svg {
+        background-color: white;
+        width: 100%;
+        margin: auto;
+    }
+</style>

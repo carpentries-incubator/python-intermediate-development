@@ -8,7 +8,7 @@ This course aims to teach a **core set** of established,
 intermediate-level software development skills
 and best practices for working as part of a team in a research environment
 using Python as an example programming language
-(see detailed [learning objectives](/index.html#learning-objectives-for-the-workshop) below).
+(see detailed [learning objectives](index.html#learning-objectives-for-the-workshop) below).
 The core set of skills we teach is not a comprehensive set of all-encompassing skills,
 but a selective set of tried-and-tested collaborative development skills
 that forms a firm foundation for continuing on your learning journey.
@@ -68,7 +68,7 @@ This course is for you if:
    In this case, we suggest you revisit the course
    after you have been programming for at least 6 months
  - You are well familiar with the
-   [learning objectives of the course](/index.html#learning-objectives-for-the-workshop)
+   [learning objectives of the course](index.html#learning-objectives-for-the-workshop)
    and those of individual episodes
  - The software you write is fully documented and well architected
 
