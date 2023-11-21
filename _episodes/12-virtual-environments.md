@@ -220,6 +220,18 @@ conventionally within your software project so they are co-located.
 This will create the target directory for the virtual environment
 (and any parent directories that don’t exist already).
 
+> ## What is `-m` Flag in `python3` Command??
+> The Python `-m` flag means "module" and tells the Python interpreter to treat what follows `-m` 
+> as the name of a module and not as a single, executable program with the same name. Some modules 
+> (such as `venv` or `pip`) have main entry points and the `-m` flag can be used to invoke them 
+> on the command line via the `python` command. The main difference between running such modules as 
+> standalone programs (e.g. executing "venv" by running the `venv` command directly) 
+> versus using `python3 -m` command seems to be that with latter you are in full control of 
+> which Python module will be invoked (the one that came with your environment's Python interpreter vs. 
+> some other version you may have on your system). This makes it a more reliable way to set things 
+> up correctly and avoid issues that could prove difficult to trace and debug.
+{: .callout}
+
 For our project let's create a virtual environment called "venv".
 First, ensure you are within the project root directory, then:
 
