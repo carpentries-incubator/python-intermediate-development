@@ -58,9 +58,9 @@ def patient_normalise(data):
 ~~~
 {: .language-python}
 
-**Note:** *there are intentional mistakes in the above code,
+***Note:** there are intentional mistakes in the above code,
 which will be detected by further testing and code style checking below
-so bear with us for the moment!*
+so bear with us for the moment.*
 
 In the code above, we first go row by row
 and find the maximum inflammation value for each patient

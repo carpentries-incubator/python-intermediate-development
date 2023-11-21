@@ -95,14 +95,14 @@ def factorial(n):
 ~~~
 {: .language-python}
 
-Note: You may have noticed that both functions in the above code examples have the same signature
+***Note:** You may have noticed that both functions in the above code examples have the same signature
 (i.e. they take an integer number as input and return its factorial as output).
 You could easily swap these equivalent implementations
 without changing the way that the function is invoked.
 Remember, a single piece of software may well contain instances of multiple programming paradigms -
 including procedural, functional and object-oriented -
 it is up to you to decide which one to use and when to switch
-based on the problem at hand and your personal coding style.
+based on the problem at hand and your personal coding style.*
 
 Functional computations only rely on the values that are provided as inputs to a function
 and not on the state of the program that precedes the function call.
@@ -338,10 +338,10 @@ print(list(result))
 > > ~~~
 > > {: .language-python}
 > >
-> > Note: `map()` function returns a map iterator object
+> > ***Note:** `map()` function returns a map iterator object
 > > which needs to be converted to a collection object
 > > (such as a list, dictionary, set, tuple)
-> > using the corresponding "factory" function (in our case `list()`).
+> > using the corresponding "factory" function (in our case `list()`).*
 > {: .solution}
 {: .challenge}
 
