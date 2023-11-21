@@ -227,7 +227,7 @@ This will create the target directory for the virtual environment
 > on the command line via the `python` command. The main difference between running such modules as 
 > standalone programs (e.g. executing "venv" by running the `venv` command directly) 
 > versus using `python3 -m` command seems to be that with latter you are in full control of 
-> which Python module will be invoked (the one that came with your Python interpreter vs. 
+> which Python module will be invoked (the one that came with your environment's Python interpreter vs. 
 > some other version you may have on your system). This makes it a more reliable way to set things 
 > up correctly and avoid issues that could prove difficult to trace and debug.
 {: .callout}
