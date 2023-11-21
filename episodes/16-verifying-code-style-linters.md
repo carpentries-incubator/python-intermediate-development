@@ -35,17 +35,8 @@ Pylint is just a Python package so we can install it in our virtual environment 
 
 ~~~
 $ pip3 install pylint
-$ pylint --version
 ~~~
 {: .language-bash}
-
-We should see the version of Pylint, something like:
-
-~~~
-pylint 2.13.3
-...
-~~~
-{: .output}
 
 We should also update our `requirements.txt` with this new addition:
 

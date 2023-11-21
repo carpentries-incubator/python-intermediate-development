@@ -89,8 +89,7 @@ a common term we use to refer to sets of tests - that we'll use for our test wri
 
 ~~~
 $ git switch develop
-$ git branch test-suite
-$ git switch test-suite
+$ git branch -c test-suite
 ~~~
 {: .language-bash}
 
@@ -435,7 +434,7 @@ but what you learn can scale to more complex functional testing for applications
 >
 > A common challenge, particularly at the intermediate level, is the selection of a suitable tool from many alternatives
 > for a given task. Once you've become accustomed to object-oriented programming you may find unittest a better fit
-> for a particular project or team, so you may want to revisit it at a later date!
+> for a particular project or team, so you may want to revisit it at a later date.
 {: .callout}
 
 
@@ -475,7 +474,7 @@ $ python -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-Here, we use `-m` to invoke the `pytest` installed module,
+Here, we use `-m` to invoke the `pytest` module,
 and specify the `tests/test_models.py` file to run the tests in that file explicitly.
 
 > ## Why Run Pytest Using `python -m` and Not `pytest` ?
@@ -494,15 +493,15 @@ and specify the `tests/test_models.py` file to run the tests in that file explic
 {: .callout}
 
 ~~~
-============================================== test session starts =====================================================
-platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
-rootdir: /Users/alex/python-intermediate-inflammation
-plugins: anyio-3.3.4
-collected 2 items
+============================================== test session starts =================================
+platform darwin -- Python 3.11.4, pytest-7.4.3, pluggy-1.3.0
+rootdir: /Users/alex/work/SSI/training/lessons/python-intermediate-inflammation
+plugins: anyio-4.0.0
+collected 2 items                                                                                   
 
-tests/test_models.py ..                                                                                           [100%]
+tests/test_models.py ..                                                                       [100%]
 
-=============================================== 2 passed in 0.79s ======================================================
+=============================================== 2 passed in 0.79s ==================================
 ~~~
 {: .output}
 
@@ -516,8 +515,8 @@ Notice the `..` after our test script:
   The error is included in the output so we can see what went wrong.
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed.
-Going back to our list of requirements (the bullets under [Using a Testing
-Framework](#using-a-testing-framework)),
+Going back to our list of requirements (the bullet points under [Using a Testing
+Framework](#using-a-testing-framework) section),
 do we think these results are easy to understand?
 
 > ## Exercise: Write Some Unit Tests
