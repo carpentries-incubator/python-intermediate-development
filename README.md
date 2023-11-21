@@ -66,7 +66,7 @@ Current maintainers of this lesson (in alphabetical order) are:
 
 ## Authors
 
-A list of all contributors to the lesson can be found in [AUTHORS](AUTHORS).
+A list of people who authored the lesson can be found in [AUTHORS](AUTHORS).
 
 ## Licence
 
