@@ -143,9 +143,8 @@ so that we force the code we're testing to execute in all the different ways it 
 to ensure our tests have a high degree of **code coverage**.
 
 A simple way to check the code coverage for a set of tests is
-to use `pytest` to tell us how many statements in our code are being tested.
-By installing a Python package to our virtual environment called `pytest-cov`
-that is used by Pytest and using that, we can find this out:
+to install an additional package `pytest-cov` to our virtual environment, 
+which is used by `pytest` to tell us how many statements in our code are being tested.
 
 ~~~
 $ pip3 install pytest-cov
