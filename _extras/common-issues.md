@@ -173,7 +173,7 @@ In order to get `pip` to use the proxy,
 you need to add an additional parameter when installing packages with `pip`:
 
 ~~~
-$ pip3 install --proxy <proxy-url> <name of package>`
+$ python3 -m pip install --proxy <proxy-url> <name of package>`
 ~~~
 {: .language-bash}
 
@@ -217,7 +217,7 @@ A workaround is to:
 - Close PyCharm
 - Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type:
     ~~~
-    $ pip3 install pip==20.2.4
+    $ python3 -m pip install pip==20.2.4
     ~~~
     {: .language-bash}
 - Restart PyCharm
