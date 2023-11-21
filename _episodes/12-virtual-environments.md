@@ -17,8 +17,8 @@ keypoints:
 - "Use `pip` to install and manage Python external (third-party) libraries."
 - "`pip` allows you to declare all dependencies for a project in a separate
 file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment."
-- "Use `pip3 freeze > requirements.txt` to take snapshot of your project's dependencies."
-- "Use `pip3 install -r requirements.txt` to replicate someone else's virtual environment on your machine from
+- "Use `python3 -m pip freeze > requirements.txt` to take snapshot of your project's dependencies."
+- "Use `python3 -m pip install -r requirements.txt` to replicate someone else's virtual environment on your machine from
 the `requirements.txt` file."
 ---
 
@@ -220,7 +220,7 @@ conventionally within your software project so they are co-located.
 This will create the target directory for the virtual environment
 (and any parent directories that don’t exist already).
 
-> ## What is `-m` Flag in `python3` Command??
+> ## What is `-m` Flag in `python3` Command?
 > The Python `-m` flag means "module" and tells the Python interpreter to treat what follows `-m` 
 > as the name of a module and not as a single, executable program with the same name. Some modules 
 > (such as `venv` or `pip`) have main entry points and the `-m` flag can be used to invoke them 
@@ -378,50 +378,45 @@ To install the latest version of a package with `pip`
 you use pip's `install` command and specify the package’s name, e.g.:
 
 ~~~
-(venv) $ pip3 install numpy
-(venv) $ pip3 install matplotlib
+(venv) $ python3 -m pip install numpy
+(venv) $ python3 -m pip install matplotlib
 ~~~
 {: .language-bash}
 
 or like this to install multiple packages at once for short:
 
 ~~~
-(venv) $ pip3 install numpy matplotlib
+(venv) $ python3 -m pip install numpy matplotlib
 ~~~
 {: .language-bash}
 
-> ## How About `python3 -m pip install`?
-> Why are we not using `pip` as an argument to `python3` command,
-> in the same way we did with `venv`
-> (i.e. `python3 -m venv`)?
-> `python3 -m pip install` should be used according to the
-> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip);
-> other official documentation still seems to have a mixture of usages.
-> Core Python developer Brett Cannon offers a
+> ## How About `pip3 install <package-name>` Command?
+> You may have seen or used the `pip3 install <package-name>` command in the past, which is shorter 
+> and perhaps more intuitive than `python3 -m pip install`. However, the 
+> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip) recommends 
+> `python3 -m pip install` and core Python developer Brett Cannon offers a
 > [more detailed explanation](https://snarky.ca/why-you-should-use-python-m-pip/)
-> of edge cases when the two options may produce different results
-> and recommends `python3 -m pip install`.
-> We kept the old-style command (`pip3 install`)
-> as it seems more prevalent among developers at the moment -
-> but it may be a convention that will soon change and certainly something you should consider.
+> of edge cases when the two commands may produce different results and why `python3 -m pip install`
+> is recommended. In this material, we will use `python3 -m` whenever we have to invoke a Python 
+> module from command line.
 {: .callout}
 
-If you run the `pip3 install` command on a package that is already installed,
+If you run the `python3 -m pip install` command on a package that is already installed,
 `pip` will notice this and do nothing.
 
 To install a specific version of a Python package
 give the package name followed by `==` and the version number,
-e.g. `pip3 install numpy==1.21.1`.
+e.g. `python3 -m pip install numpy==1.21.1`.
 
 To specify a minimum version of a Python package,
-you can do `pip3 install numpy>=1.20`.
+you can do `python3 -m pip install numpy>=1.20`.
 
-To upgrade a package to the latest version, e.g. `pip3 install --upgrade numpy`.
+To upgrade a package to the latest version, e.g. `python3 -m pip install --upgrade numpy`.
 
 To display information about a particular installed package do:
 
 ~~~
-(venv) $ pip3 show numpy
+(venv) $ python3 -m pip show numpy
 ~~~
 {: .language-bash}
 ~~~
@@ -441,7 +436,7 @@ Required-by: contourpy, matplotlib
 To list all packages installed with `pip` (in your current virtual environment):
 
 ~~~
-(venv) $ pip3 list
+(venv) $ python3 -m pip list
 ~~~
 {: .language-bash}
 ~~~
@@ -463,7 +458,7 @@ six             1.16.0
 ~~~
 {: .output}
 
-To uninstall a package installed in the virtual environment do: `pip3 uninstall package-name`.
+To uninstall a package installed in the virtual environment do: `python3 -m pip uninstall <package-name>`.
 You can also supply a list of packages to uninstall at the same time.
 
 ### Exporting/Importing Virtual Environments Using `pip`
@@ -475,11 +470,11 @@ and everyone can replicate equivalent virtual environments on their machines.
 `pip` has a handy way of exporting, saving and sharing virtual environments.
 
 To export your active environment -
-use `pip3 freeze` command to produce a list of packages installed in the virtual environment.
+use `python3 -m pip freeze` command to produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
 ~~~
-(venv) $ pip3 freeze > requirements.txt
+(venv) $ python3 -m pip freeze > requirements.txt
 (venv) $ cat requirements.txt
 ~~~
 {: .language-bash}
@@ -510,7 +505,7 @@ They can then replicate your environment
 and install all the necessary packages from the project root as follows:
 
 ~~~
-(venv) $ pip3 install -r requirements.txt
+(venv) $ python3 -m pip install -r requirements.txt
 ~~~
 {: .language-bash}
 

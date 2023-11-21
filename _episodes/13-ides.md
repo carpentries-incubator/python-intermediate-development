@@ -183,9 +183,9 @@ Let's see this in action through the following exercise.
 >> ## Solution
 >> From the previous episode,
 >> you may remember that we can get the list of packages in the current virtual environment
->> using the `pip3 list` command:
+>> using `pip`:
 >> ~~~
->> (venv) $ pip3 list
+>> (venv) $ python3 -m pip list
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -206,11 +206,11 @@ setuptools      67.6.1
 six             1.16.0
 >> ~~~
 >> {: .output}
->> However, `pip3 list` shows all the packages in the virtual environment -
+>> However, `python3 -m pip list` shows all the packages in the virtual environment -
 >> if we want to see only the list of packages that we installed,
->> we can use the `pip3 freeze` command instead:
+>> we can use the `python3 -m pip freeze` command instead:
 >> ~~~
->> (venv) $ pip3 freeze
+>> (venv) $ python3 -m pip freeze
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -227,13 +227,14 @@ python-dateutil==2.8.2
 six==1.16.0
 >> ~~~
 >> {: .output}
->> We see `pip` in `pip3 list` but not in `pip3 freeze` as we did not install it using `pip`.
->> Remember that we use `pip3 freeze` to update our `requirements.txt` file,
+>> We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
+>> as we did not install it using `pip`.
+>> Remember that we use `python3 -m pip freeze` to update our `requirements.txt` file,
 >> to keep a list of the packages our virtual environment includes.
 >> Python will not do this automatically;
 >> we have to manually update the file when our requirements change using:
 >> ~~~
->> pip3 freeze > requirements.txt
+>> python3 -m pip freeze > requirements.txt
 >> ~~~
 >> {: .language-bash}
 >>
@@ -320,7 +321,7 @@ Let's do this as an exercise.
 >> Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
 >> but not in `requirements.txt`. First, let's check the list of installed packages:
 >> ~~~
->> (venv) $ pip3 list
+>> (venv) $ python3 -m pip list
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -365,7 +366,7 @@ six==1.16.0
 >> {: .output}
 >> `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
 >> ~~~
->> (venv) $ pip3 freeze > requirements.txt
+>> (venv) $ python3 -m pip freeze > requirements.txt
 >> ~~~
 >> {: .language-bash}
 >> `pytest` is now present in `requirements.txt`:

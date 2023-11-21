@@ -34,14 +34,14 @@ $ git switch style-fixes
 Pylint is just a Python package so we can install it in our virtual environment using:
 
 ~~~
-$ pip3 install pylint
+$ python3 -m pip install pylint
 ~~~
 {: .language-bash}
 
 We should also update our `requirements.txt` with this new addition:
 
 ~~~
-$ pip3 freeze > requirements.txt
+$ python3 -m pip freeze > requirements.txt
 ~~~
 {: .language-bash}
 

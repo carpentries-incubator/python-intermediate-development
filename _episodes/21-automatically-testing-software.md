@@ -456,7 +456,7 @@ exit the Python console first (either with `Ctrl-D` or by typing `exit()`),
 then do:
 
 ~~~
-$ pip3 install pytest
+$ python3 -m pip install pytest
 ~~~
 {: .language-bash}
 
@@ -470,26 +470,25 @@ our virtual environment will now have the `pytest` package installed for use.
 Now we can run these tests using `pytest`:
 
 ~~~
-$ python -m pytest tests/test_models.py
+$ python3 -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-Here, we use `-m` to invoke the `pytest` module,
+Here, we use `-m` flag of the `python3` command to invoke the `pytest` module,
 and specify the `tests/test_models.py` file to run the tests in that file explicitly.
 
-> ## Why Run Pytest Using `python -m` and Not `pytest` ?
+> ## Why Run Pytest Using `python3 -m pytest` and Not `pytest`?
 >
-> Another way to run `pytest` is via its own command,
-> so we *could* try to use `pytest tests/test_models.py` on the command line instead,
-> but this would lead to a `ModuleNotFoundError: No module named 'inflammation'`.
-> This is because using the `python -m pytest` method
-> adds the current directory to its list of directories to search for modules,
-> whilst using `pytest` does not -
-> the `inflammation` subdirectory's contents are not 'seen',
-> hence the `ModuleNotFoundError`.
-> There are ways to get around this with
-> [various methods](https://stackoverflow.com/questions/71297697/modulenotfounderror-when-running-a-simple-pytest),
-> but we've used `python -m` for simplicity.
+> `pytest` is another Python module that can be run via its own command but this is a good example 
+> why invoking Python modules via `python3 -m` may be better (recall the [explanation of Python interpreter's `-m` flag](../12-virtual-environments/index.html#what-is--m-flag-in-python3-command)).
+> Had we used `pytest tests/test_models.py` command directly,
+> this would have led to a "ModuleNotFoundError: No module named 'inflammation'" error. This is 
+> because `pytest` command (unlike `python3 -m pytest`) does not add the current directory to its list of 
+> directories to search for modules, hence the `inflammation` subdirectory's contents are not being 
+> 'seen' by `pytest` causing the `ModuleNotFoundError`. There are ways to work around this problem 
+> but `python3 -m pytest` ensures it does not happen in the first place.
+> 
+> 
 {: .callout}
 
 ~~~
@@ -603,7 +602,7 @@ Since we've installed `pytest` to our environment,
 we should also regenerate our `requirements.txt`:
 
 ~~~
-$ pip3 freeze > requirements.txt
+$ python3 -m pip freeze > requirements.txt
 ~~~
 {: .language-bash}
 
