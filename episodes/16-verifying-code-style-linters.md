@@ -27,7 +27,7 @@ Let's look at a very well used one of these called `pylint`.
 First, let's ensure we are on the `style-fixes` branch once again.
 
 ~~~
-$ git checkout style-fixes
+$ git switch style-fixes
 ~~~
 {: .language-bash}
 
@@ -91,8 +91,8 @@ Pylint can also identify **code smells**.
 Pylint recommendations are given as warnings or errors,
 and Pylint also scores the code with an overall mark.
 We can look at a specific file (e.g. `inflammation-analysis.py`),
-or a module (e.g. `inflammation`).
-Let's look at our `inflammation` module and code inside it (namely `models.py` and `views.py`).
+or a package (e.g. `inflammation`).
+Let's look at our `inflammation` package and code inside it (namely `models.py` and `views.py`).
 From the project root do:
 
 ~~~
@@ -183,10 +183,10 @@ and merge onto your development and main branches.
 $ git add requirements.txt
 $ git commit -m "Added Pylint library"
 $ git push origin style-fixes
-$ git checkout develop
+$ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push origin main
 ~~~
