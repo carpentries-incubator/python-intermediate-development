@@ -6,7 +6,8 @@ either let the maintainers know or make sure you use your own fork of the lesson
 # Intermediate Research Software Development Skills In Python for Earth Sciences
 
 This lesson teaches intermediate-level course in research software engineering and development skills and collaborating as part of a 
-team (using Python as an example language) to Earth scientists using analysis of river catchment data as an example project.
+team (using Python as an example language) to Earth scientists using analysis of river catchment data as an example project. It has been
+based off the [original lesson on intermediate reseach skills in The Carpentries Incubator](https://github.com/carpentries-incubator/python-intermediate-inflammation). 
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
 self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
