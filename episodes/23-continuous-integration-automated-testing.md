@@ -208,7 +208,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python3 -m pip install --upgrade pip
-        pip3 install -r requirements.txt
+        python3 -m pip install -r requirements.txt
 
     - name: Test with PyTest
       run: |
@@ -253,7 +253,7 @@ Each of these steps are:
   In order to locally install our `inflammation` package
   it's good practice to upgrade the version of pip that is present first,
   then we use pip to install our package dependencies.
-  Once installed, we can use `pip3 install -e .` as before to install our own package.
+  Once installed, we can use `python3 -m pip install -e .` as before to install our own package.
   We use `run` here to run theses commands in the CI shell environment
 - **Test with PyTest:** lastly, we run `python3 -m pytest`,
   with the same arguments we used manually before

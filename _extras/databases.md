@@ -75,7 +75,7 @@ which contains an **Object Relational Mapping** (ORM) framework.
 Our first step is to install SQLAlchemy, then we can create our first **mapping**.
 
 ```
-$ pip3 install sqlalchemy
+$ python3 -m pip install sqlalchemy
 ```
 {: .language-bash}
 

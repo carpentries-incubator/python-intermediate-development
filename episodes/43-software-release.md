@@ -57,7 +57,7 @@ We can install Poetry much like any other Python distributable package, using `p
 
 ~~~
 $ source venv/bin/activate
-$ pip3 install poetry
+$ python3 -m pip install poetry
 ~~~
 {: .language-bash}
 
@@ -248,7 +248,7 @@ you don't need to run this command yourself,
 you've already installed it using `poetry install` above.
 
 ~~~
-$ pip3 install dist/inflammation*.whl
+$ python3 -m pip install dist/inflammation*.whl
 ~~~
 {: .language-bash}
 
