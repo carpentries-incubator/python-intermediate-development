@@ -82,7 +82,7 @@ Lots of benefits:
 1. Over-the-shoulder review
 2. Pair programming
 3. Formal code inspection
-4. **Asynchronous, tool-assisted review ←**
+4. **Asynchronous, tool-assisted review ⬅️**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -108,6 +108,80 @@ TODO the source of the png is online from mermaid.ink editor. We should figure a
 ### Exercise: Raising a pull request for your fictional colleague
 
 Go through the steps described under heading. Stop when you reach **Reviewing a pull request**
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- Should be pretty quick, 5 minutes max.
+- Status check then move on.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: review some code
+
+Pair up with someone else in your group and exchange repository links. You will be taking on the role of _Reviewer_ on your partner's repository. Before leaving review comments, read the content under the heading **Reviewing a pull request**. Try to make a comment from each of the main areas identified.
+
+**Don't submit your review just yet!!!**
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- 10-15 minutes
+- Status check then move on.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: review the code for suitable tests
+
+Add a list of expected tests to the comment box after clicking `Finish your review` near the top right of the `Files changed` tab. Use the content under **Making sure code is valid** to come up with these tests, and think back to the requirement SR1.1.1.
+
+When done, select `Request changes` from the list of toggles, then `Submit review`.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- 10-15 minutes
+- Status check then move on.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: responding and addressing comments
+
+Respond to the _Reviewers_ comments on the PR in _your_ repository. Use the information in **Responding to review comments** to guide your responses. And remember that you can talk to your _Reviewer_ for clarification, just make sure you record that in a comment on the PR.
+
+Don't implement changes that will take more than 5 minutes. Instead, raise them as an issue on your repo for future work, and link to that issue in a comment on the PR.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- 10-15 minutes
+  - tell learners not to worry too much about implementing all of the changes requested by reviewers. If it looks like a requested change will take longer than 5 mintues, open a new issue on your repository to address it in the future.
+- Status check then move on.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Making code easy to review
+
+- 🤏 Keep the changes small.
+- 1️⃣ Keep each commit as one logical change.
+- 🪟 Provide a clear description of the change.
+- 🕵️ Review your code yourself, before requesting a review.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Empathy in review comments
+
+* Identify positives in code as and when you find them
+* Remember different doesn't mean better
+* Only provide a few non-critical suggestions - you are aiming for better rather than perfect
+* Ask questions to understand why something has been done a certain way rather than assuming you
+  know a better way
+* If a conversation is taking place on a review and hasn't been resolved by a
+  single back-and-forth exchange, then schedule a conversation to discuss instead
+  (recording the results of the discussion in the PR)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: Code Review in Your Own Working Environment
+
+Follow the instructions under this exercise heading. Read the content above the exercise to figure out what is involved in a code review process for a team. After about 5 minutes, have a small conversation in your group about what your code review process would look like.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
