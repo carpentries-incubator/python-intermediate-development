@@ -1,9 +1,7 @@
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
-~~~
-Note that the lesson material can change at any point - if you are planning a workshop using this material, 
-either let the maintainers know or make sure you use your own fork of the lesson.
-~~~
+**Note that the lesson material can change at any point - if you are planning a workshop using this material, 
+either let the maintainers know or make sure you use your own fork of the lesson.**
 
 # Intermediate Research Software Development Skills In Python
 
