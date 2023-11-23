@@ -617,7 +617,7 @@ where things are getting stuck and work out what you can do to move things along
 > {: .solution}
 {: .challenge}
 
-## Other reading
+## Further reading
 
 There are multiple perspectives to a code review process -
 from general practices to technical details relating to different roles involved in the process.
