@@ -61,10 +61,9 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 
 1. Make sure you have a GitHub account
    and that you have set up your **SSH key pair for authentication with GitHub**,
-   as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line). Note 
-   that, while it is possible to use **HTTPS** with a personal access token for authentication with 
-   GitHub, the recommended and supported authentication method to use for this course is via SSH and key 
-   pairs.
+   as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
+   Note that, while it is possible to use **HTTPS** with a personal access token for authentication with GitHub,
+   the recommended and supported authentication method to use for this course is via SSH and key pairs.
 2. Log into your GitHub account.
 3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
    in GitHub.
