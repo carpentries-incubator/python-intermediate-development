@@ -199,7 +199,7 @@ and pushed it to a branch `feature-std-dev`.
 You will turn this branch into a pull request for your fictional colleague on your
 repository.
 You will then engage in code review for the change (acting as a code reviewer) on
-a course mate's repository.
+a fellow learner's repository.
 Once complete, you will respond to the comments from another team member on the pull request 
 on your repository (acting as a code author).
 
