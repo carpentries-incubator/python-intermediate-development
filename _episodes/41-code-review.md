@@ -272,7 +272,7 @@ and focus on the "why/because" rather than the "what/how"?
 #### Things Not to Look for in a Code Review
 
 The overriding priority for reviewing code should be making sure progress is being made -
-don't let perfect be the enemy of good here.
+don't let perfect be the enemy of the good here.
 According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
 the first hour of reviewing code is the most effective, with diminishing returns after that.
 
