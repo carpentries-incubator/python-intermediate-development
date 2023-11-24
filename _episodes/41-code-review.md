@@ -215,7 +215,7 @@ on your repository (acting as a code author).
 5. Click `Create pull request` button to open the request.
    ![Creating a new pull request.](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
 6. Add a comment describing the nature of the changes,
-   and then submit the pull request by clicking `Create pull request` button (in the new window).
+   and then submit the pull request by clicking the `Create pull request` button (in the new window).
 ![Submitting a pull request.](../fig/github-submit-pull-request.png){: .image-with-shadow width="900px"}
 7. At this point, the code review process is initiated.
 
