@@ -199,7 +199,7 @@ and pushed it to a branch `feature-std-dev`.
 You will turn this branch into a pull request for your fictional colleague on your
 repository.
 You will then engage in code review for the change (acting as a code reviewer) on
-a course mate's repository.
+a fellow learner's repository.
 Once complete, you will respond to the comments from another team member on the pull request 
 on your repository (acting as a code author).
 
@@ -242,10 +242,10 @@ You're going to be assessing the code in the following key areas.
 
 ##### Is the proposed code readable?
 
-* Think about do the names of the variables, do they [follow guidelines for good
+* Think about the names of the variables, do they [follow guidelines for good
 names?](../15-coding-conventions/index.html#l#naming-conventions)
 * Do you understand what conditions in each if statements are for?
-* Do the function names match the behavior of the function.
+* Do the function names match the behavior of the function?
 
 ##### Is the proposed code a minimal change?
 
@@ -253,7 +253,7 @@ names?](../15-coding-conventions/index.html#l#naming-conventions)
 elsewhere in the codebase or in a library you know about?
 * Does the code implement something that isn't on the ticket?
 
-##### Is the structure of the proposed code clear?
+##### Is the structure of the code clear?
 
 * Do functions do just one thing?
 * Is the code using the right level of modularity?
@@ -272,7 +272,7 @@ and focus on the "why/because" rather than the "what/how"?
 #### Things Not to Look for in a Code Review
 
 The overriding priority for reviewing code should be making sure progress is being made -
-don't let perfect be the enemy of good here.
+don't let perfect be the enemy of the good here.
 According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
 the first hour of reviewing code is the most effective, with diminishing returns after that.
 
@@ -327,7 +327,7 @@ on subsequent comments.
 >
 > * Make sure your review comments are specific and actionable.
 > * Try to be as specific as you can - instead "this code is unclear"
-> say "I don't understand what values this variable can hold".
+> instead say "I don't understand what values this variable can hold".
 > * Make it clear in the comment if you want something to change as part
 > of this pull request.
 > * Ideally provide a concrete suggestion (e.g., better variable name).
