@@ -320,7 +320,7 @@ You can use `Add single comment` button to immediately post a comment.
 However, it is best to batch the comments into a single review, so that the author
 knows when you have finished adding comments
 (and avoid spamming their email with notifications).
-5. Continue adding comments in this way, using the `Add review comment` button
+5. Continue adding comments in this way, if you have any, using the `Add review comment` button.
 on subsequent comments.
 
 > ## Effective Review Comments
