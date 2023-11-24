@@ -245,7 +245,7 @@ You're going to be assessing the code in the following key areas.
 * Think about the names of the variables, do they [follow guidelines for good
 names?](../15-coding-conventions/index.html#l#naming-conventions)
 * Do you understand what conditions in each if statements are for?
-* Do the function names match the behavior of the function.
+* Do the function names match the behavior of the function?
 
 ##### Is the proposed code a minimal change?
 
