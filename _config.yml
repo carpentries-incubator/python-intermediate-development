@@ -98,6 +98,7 @@ extras_order:
   - functional-programming
   - persistence
   - databases
+  - ci-cd
   - verifying-code-style-linters
   - quiz
 # Files and directories that are not to be copied.
