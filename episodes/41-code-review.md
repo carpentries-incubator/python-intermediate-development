@@ -285,13 +285,19 @@ or else have a meeting to decide whether the code needs to be rewritten.
 
 #### Adding a review comment
 
-1. To be able to add your review to a pull request created on your course mate's repository, 
-they will need to add you as a collaborator on their repository first. They can do that from 
+1. We will start by having your course mate adding you as a collaborator on their repository. 
+They can do that from 
 the `Settings` tab of the repository, then `Collaborators and teams` tab on the left, 
 then clicking the `Add people` button. 
 Once they find you by your GitHub name - you will receive an invitation via email to join the 
 repository as a collaborator. 
 You will have to do the same for the collaborator doing the review on your repository.
+    > ## Code Review from External Contributors
+    > You do not have to be a collaborator on a public repository to do code reviews 
+    > so this step is not strictly necessary. 
+    > We are still asking you to do it now as we will get you working in teams
+    > for the rest of the course so it may make sense to start setting up your collaborators now.
+    {: .callout}
 ![Adding a collaborator in GitHub](../fig/github-add-collaborator.png){: .image-with-shadow width="900px"}
 2. Open up the pull request from the GitHub's `Pull Requests` tab on the home page 
 of your course mate's software repository, then head to the `Files changed` tab.
