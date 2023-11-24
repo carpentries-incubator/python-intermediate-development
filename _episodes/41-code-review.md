@@ -253,7 +253,7 @@ names?](../15-coding-conventions/index.html#l#naming-conventions)
 elsewhere in the codebase or in a library you know about?
 * Does the code implement something that isn't on the ticket?
 
-##### Is the structure of the proposed code clear?
+##### Is the structure of the code clear?
 
 * Do functions do just one thing?
 * Is the code using the right level of modularity?
