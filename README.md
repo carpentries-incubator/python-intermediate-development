@@ -63,6 +63,7 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 Current maintainers of this lesson (in alphabetical order) are:
 
 * [Doug Lowe][doug-lowe]
+* [Anja Le Blanc][https://github.com/AnjaLeBlanc]
 
 ## Authors
 
