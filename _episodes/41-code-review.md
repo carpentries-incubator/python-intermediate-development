@@ -64,7 +64,7 @@ and something you should adopt in your development process too.
 
 Code review is a software quality assurance practice
 where one or several people from the team (different from the code's author)
-check the software by viewing parts of its source code. 
+check the software by viewing parts of its source code when code changes are introduced. 
 It is one of the most useful team code development practices -
 someone checks your design or code for errors and gets to learn from your solution; 
 having to explain code to someone else clarifies
@@ -113,7 +113,7 @@ and that your code is ready for review.
 Once a pull request is opened,
 you can discuss and review the potential changes with others on the team
 and add follow-up commits based on the feedback
-before your changes are merged from your feature branch into the `develop` branch.
+before your changes are merged into the development branch.
 The name 'pull request' suggests you are **requesting** the codebase moderators
 to **pull** your changes into the codebase.
 
@@ -166,9 +166,9 @@ If you are completing this course by yourself, you can raise the review on
 your own repository, review it there and finally respond to your own review
 comments. This is actually a very sensible thing to do in general - looking
 at your own code in a review window will allow you to spot mistakes you
-have not seen before!
+have not seen before.
 
-Here is an outline of the process of a tool based code review.
+Here is an outline of the process of a tool-assisted code review.
 
 {% comment %}
 ```mermaid
@@ -200,7 +200,8 @@ You will turn this branch into a pull request for your fictional colleague on yo
 repository.
 You will then engage in code review for the change (acting as a code reviewer) on
 a course mate's repository.
-Once complete, you will respond to the pull request on your repository from another team member.
+Once complete, you will respond to the comments from another team member on the pull request 
+on your repository (acting as a code author).
 
 ### Raising a Pull Request
 
@@ -210,27 +211,27 @@ Once complete, you will respond to the pull request on your repository from anot
    ![GitHub pull requests tab](../fig/github-pull-request-tab.png){: .image-with-shadow width="900px"}
 4. Select the base and the compare branch, e.g. `main` and `feature-std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
-   and the compare branch contains your changes.
+   and the compare branch contains the changes.
 5. Click `Create pull request` button to open the request.
    ![Creating a new pull request.](../fig/github-create-pull-request.png){: .image-with-shadow width="900px"}
 6. Add a comment describing the nature of the changes,
-   and then submit the pull request by clicking `Create pull request` button (again).
+   and then submit the pull request by clicking `Create pull request` button (in the new window).
 ![Submitting a pull request.](../fig/github-submit-pull-request.png){: .image-with-shadow width="900px"}
 7. At this point, the code review process is initiated.
 
 We will now discuss what to look for in a code review,
-before practising this on this fictional change.
+before practising it on this fictional change.
 
 ### Reviewing a Pull Request
 
 Once a review has been raised it is over to the reviewer to review the code
 and submit feedback.
 
-#### Things to Look for in a Code Review
-
 Reviewing code effectively takes practice.
 However, here is some guidance on what you should
 be looking for when reviewing a piece of code.
+
+#### Things to Look for in a Code Review
 
 Start by understanding what the code _should_ do, by reading the specification/user requirements,
 the pull request description and talking to the developer.
@@ -284,11 +285,15 @@ or else have a meeting to decide whether the code needs to be rewritten.
 
 #### Adding a review comment
 
-1. To add your review comments to a pull request created previously, open up the pull request from the 
-GitHub's `Pull Requests` tab on the home page of the software repository, 
-then head to the `Files changed` tab.
+1. To be able to add your review to a pull request created on your course mate's repository, 
+they will need to add you as a collaborator on their repository first. They can do that from 
+the `Settings` tab of the repository, then `Collaborators and teams` tab on the left. You will have
+to do the same for the collaborator doing the review on your repository.
+![Adding a collaborator in GitHub](../fig/github-add-collaborator.png){: .image-with-shadow width="900px"}
+2. Open up the pull request from the GitHub's `Pull Requests` tab on the home page 
+of your course mate's software repository, then head to the `Files changed` tab.
 ![The files changed tab of a pull request](../fig/github-pull-request-files-changed.png){: .image-with-shadow width="900px"}
-2. When you find a line that you want to add a comment to, click on the blue
+3. When you find a line that you want to add a comment to, click on the blue
 plus (+) button next to the line. This will bring up a "Write" box to add your comment.
 ![Adding a review comment to a pull request](../fig/github-pull-request-add-comment.png){: .image-with-shadow width="800px"}
 You can also add comments referring to multiple lines by clicking the plus and
@@ -300,13 +305,13 @@ This will populate the comment with the existing code, and you can edit it to be
 what you think the code should be.
 ![Adding a suggestion to a pull request](../fig/github-pull-request-add-suggestion.png){: .image-with-shadow width="800px"} 
 GitHub will then provide a button for the code author to apply your change directly.
-3. Write your comment in the box, and then click `Start review`.
+4. Write your comment in the box, and then click `Start review`.
 This will save your comment, but not publish it yet.
 You can use `Add single comment` button to immediately post a comment.
 However, it is best to batch the comments into a single review, so that the author
 knows when you have finished adding comments
 (and avoid spamming their email with notifications).
-4. Continue adding comments in this way, using the `Add review comment` button
+5. Continue adding comments in this way, using the `Add review comment` button
 on subsequent comments.
 
 > ## Effective Review Comments
