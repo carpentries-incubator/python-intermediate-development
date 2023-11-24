@@ -300,7 +300,7 @@ You will have to do the same for the collaborator doing the review on your repos
     {: .callout}
 ![Adding a collaborator in GitHub](../fig/github-add-collaborator.png){: .image-with-shadow width="900px"}
 2. Open up the pull request from the GitHub's `Pull Requests` tab on the home page 
-of your course mate's software repository, then head to the `Files changed` tab.
+of your fellow learner's software repository, then head to the `Files changed` tab.
 ![The files changed tab of a pull request](../fig/github-pull-request-files-changed.png){: .image-with-shadow width="900px"}
 3. When you find a line that you want to add a comment to, click on the blue
 plus (+) button next to the line. This will bring up a "Write" box to add your comment.
