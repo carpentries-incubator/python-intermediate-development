@@ -287,8 +287,11 @@ or else have a meeting to decide whether the code needs to be rewritten.
 
 1. To be able to add your review to a pull request created on your course mate's repository, 
 they will need to add you as a collaborator on their repository first. They can do that from 
-the `Settings` tab of the repository, then `Collaborators and teams` tab on the left. You will have
-to do the same for the collaborator doing the review on your repository.
+the `Settings` tab of the repository, then `Collaborators and teams` tab on the left, 
+then clicking the `Add people` button. 
+Once they find you by your GitHub name - you will receive an invitation via email to join the 
+repository as a collaborator. 
+You will have to do the same for the collaborator doing the review on your repository.
 ![Adding a collaborator in GitHub](../fig/github-add-collaborator.png){: .image-with-shadow width="900px"}
 2. Open up the pull request from the GitHub's `Pull Requests` tab on the home page 
 of your course mate's software repository, then head to the `Files changed` tab.
@@ -393,12 +396,13 @@ Once you have a list of tests you want the author to add, it is time to
 submit your review.
 
 1. To do this, click the `Finish your review` button at the top of the `Files changed` tab.
-![Using the finishing your review dialog](../fig/github-submit-pull-request-review.png){: .image-with-shadow width="900px"}
+![Using the finishing your review dialog](../fig/github-submit-pull-request-review.png){: .image-with-shadow width="800px"}
 In the comment box, you can add any comments that aren't
 associated with a specific line.
 For example, you can put the list of tests that you want to see
 added here.
-2. Next you will select to one of `Comment`, `Approve` or `Request changes`.
+2. Next you will need select to one of `Comment`, `Approve` or `Request changes`.
+![Using the finishing your review dialog](../fig/github-finish-pull-request-review.png){: .image-with-shadow width="900px"}
 * Use `Approve` if you would be happy for the code to
 go in with no further changes.
 * Use `Request changes` to communicate to the author that
@@ -455,10 +459,10 @@ turn for action.
 ### Responding to Review Comments
 
 When you receive comments on your code,
-there are a few different things that you will want to do.
+there are a few different things that can happen.
 
-1. With some comments, you will understand and agree with what the reviewer is saying.
-With these comments, you should make the change to your code on your branch (or accept the 
+1. You understand and agree with what the reviewer is saying.
+With such a review, you should make the change to your code on your branch (or accept the 
 suggested change by the reviewer).
 Once you've made the change you can commit it.
 It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
@@ -466,24 +470,25 @@ you have addressed it. Even better, leave a comment such as "Fixed via #commit_n
 to your commit that implemented the change.
 ![Responding to a review comment with an emoji](../fig/github-respond-to-review-comment-with-emoji.png){: .image-with-shadow width="800px"}
 ![Responding to a review comment with a link to commit](../fig/github-respond-to-review-comment-with-commit-link.png){: .image-with-shadow width="800px"}
-2. With other comments, they may not make total sense to you or it may not be cristal clear to you 
+2. Some comment may not make total sense to you or it is not clear 
 what the change should be - you should reply to such comments to ask for clarification.
-3. However, if you disagree, or are really lost on what the reviewer is driving at with their comments, 
-it might be best to talk to them in person. Discussions that happen on code reviews can often feel quite adversarial -
+3. You disagree or are really lost on what the reviewer is driving at with their comments.
+In this case, it might be best to talk to them in person. 
+Discussions that happen on code reviews can often feel quite adversarial -
 discussing what the best solution is in person can often defuse this.
 
 > ## Exercise: Responding to Comments
 >
-> Look at the PR that you created on your repo, that should now have someone else's comments
-> on it.
+> Look at the pull request that you created on your repository. 
+> By now you should now have someone else's comments on it.
 > For each comment, either reply explaining why you don't think the change is necessary
 > or make the change and push a commit fixing it. You can reply to the comment indicating you
 > have done it.
 >
-> At the same time, people will be addressing your comments on a PR in their repository. 
+> At the same time, people will be addressing your comments on a pull request in their repository. 
 > If you're happy that your comment has been suitably addressed, you can mark it as resolved.
-> Once you're happy they have all been addressed, you can approve the PR.
-> To approve a PR, submit a new review and this time select `Approve`.
+> Once you're happy they have all been addressed, you can approve the pull request.
+> To approve a pull request, submit a new review and this time select `Approve`.
 > This tells the author you are happy for them to merge the pull request.
 {: .challenge}
 
@@ -599,12 +604,12 @@ where things are getting stuck and work out what you can do to move things along
 > what challenges you think you'd face in implementing this process in your own working environment.
 > > ## Solution
 > > The purposes of code review include:
-> > - improving internal code readability, understandability, quality and maintainability
-> > - checking for coding standards compliance, code uniformity and consistency
-> > - checking for test coverage and detecting bugs and code defects early
-> > - detecting performance problems and identifying code optimisation points
-> > - finding alternative/better solutions.
-> > - sharing knowledge of the code, and of coding standards and expectations of quality
+> > - improving internal code readability, understandability, quality and maintainability,
+> > - checking for coding standards compliance, code uniformity and consistency,
+> > - checking for test coverage and detecting bugs and code defects early,
+> > - detecting performance problems and identifying code optimisation points,
+> > - finding alternative/better solutions,
+> > - sharing knowledge of the code, and of coding standards and expectations of quality.
 > >
 > > Finally, it helps increase the sense of collective code ownership and responsibility,
 > > which in turn helps increase the "bus factor"
@@ -613,10 +618,11 @@ where things are getting stuck and work out what you can do to move things along
 > > and not being shared among team members.
 > >
 > > Challenges you might face introducing a code review process:
-> > - Complaints that it is a waste of time
-> > - Creating a negative atmosphere where people are overly critical of each others work, or are defensive of their own
-> > - Perfectionism leading to slower development
-> > - People not sharing code to avoid the review process
+> > - complaints that it is a waste of time,
+> > - creating a negative atmosphere where people are overly critical of each others work, 
+> > or are defensive of their own,
+> > - perfectionism leading to slower development,
+> > - people not sharing code to avoid the review process.
 > >
 > > Make sure to monitor whether these are happening, and adjust the process accordingly.
 > {: .solution}
