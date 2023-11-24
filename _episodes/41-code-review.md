@@ -58,7 +58,7 @@ This model is more prevalent with teams and organisations collaborating on priva
 
 ## Code Review
 
-Regardless of the collaborative code development model you and your collaborators use -
+Regardless of the collaborative code development model you and your collaborators use, 
 [code reviews][code-review] are one of the widely accepted best practices for software development in teams
 and something you should adopt in your development process too. 
 
