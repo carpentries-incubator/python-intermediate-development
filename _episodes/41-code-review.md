@@ -321,7 +321,7 @@ on subsequent comments.
 >
 > * Make sure your review comments are specific and actionable.
 > * Try to be as specific as you can - instead "this code is unclear"
-> say "I don't understand what values this variable can hold".
+> instead say "I don't understand what values this variable can hold".
 > * Make it clear in the comment if you want something to change as part
 > of this pull request.
 > * Ideally provide a concrete suggestion (e.g., better variable name).
