@@ -326,7 +326,7 @@ on subsequent comments.
 > ## Effective Review Comments
 >
 > * Make sure your review comments are specific and actionable.
-> * Try to be as specific as you can - instead "this code is unclear"
+> * Try to be as specific as you can - instead of "this code is unclear"
 > instead say "I don't understand what values this variable can hold".
 > * Make it clear in the comment if you want something to change as part
 > of this pull request.
