@@ -93,7 +93,7 @@ Select `Open Folder` and find the software project directory
 `python-intermediate-rivercatchment` you cloned earlier.
 This directory is now the current working directory for VS Code,
 so when we run scripts from VS Code, this is the directory they will run from.
-VS Code may ask you: `Do you trust the authors of the files in this folder?`, select `Yes, I trust the authors`.
+If VS Code asks you: `Do you trust the authors of the files in this folder?`, select `Yes, I trust the authors`.
 
 You will notice several tabs placed on a vertical panel on the left hand side. The top (default) tab is the `Explorer` view and 
 this opens a project/file navigator window which can be used to traverse and select the files (and any subdirectories) 
@@ -119,9 +119,9 @@ is now showing on the bottom status bar, on the right hand side. If this is the 
 In many cases, VS Code will have been able to locate this environment automatically, and add it as the most likely option (as it is located within the current project directory).
 To select an interpeter for the current project from scratch, 
 1. Press CTRL-SHIFT-P to bring up the VS Code command palette
-2. search for `select interpreter`
+2. Search for `select interpreter` and select it
 3. This will display a drop-down list of options, select `+ Enter interpreter path...` 
-4. Click on `Find...` and enter the path to the `python` binary file held in the `./venv/bin/` directory. 
+4. Click on `Find...` and browse in the pop-up window to select the path to the `python` binary file held in the `./venv/bin/` directory. 
 
 ![Updating the virtual environment in VS Code](../fig/vs-code-select-virtual-env.png){: .image-with-shadow width="800px" }
 
@@ -482,7 +482,7 @@ To find a search string in the whole project:
    use this panel and its options to group the results, preview them,
    and work with them further.
 
-    ![Code Search Functionality in PyCharm](../fig/pycharm-find-panel.png){: .image-with-shadow width="1000px" }
+    ![Code Search Functionality in VS Code, using a seperate tab](../fig/vs-code-find-tab.png){: .image-with-shadow width="1000px" }
 
 ### Version Control
 VS Code supports a directory-based versioning model,
