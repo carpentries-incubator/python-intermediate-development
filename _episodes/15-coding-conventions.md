@@ -107,7 +107,7 @@ So, you can type a tab character and VS Code will automatically convert it to 4 
 You can control the amount of spaces that VS Code uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
 You can modify these settings in VS Code's
-`File`>`Preferences`>`Settings` and then search on `editor tab size`, `editor indent size` or `editor insert spaces`
+`File`>`Preferences`>`Settings` and then try searching on `editor tab size`, `editor indent size` and `editor insert spaces`
 
 
 ![Python code indentation settings in VS Code](../fig/vs-code-indentation.png){: .image-with-shadow width="800px"}
