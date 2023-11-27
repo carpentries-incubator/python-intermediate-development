@@ -121,11 +121,15 @@ GitHub is a free, online host for Git repositories that you will use during the 
 you will need to open a free [GitHub](https://github.com/) account unless you don't already have one.
 
 ### Secure Access To GitHub Using Git From Command Line
-In order to access GitHub using Git from your machine securely, you need to set up a way of authenticating yourself 
-with GitHub through Git. The recommended way to do that for this course is to set up 
-[*SSH authentication*](https://www.ssh.com/academy/ssh/public-key-authentication) - a 
-method of authentication that is more secure than sending [*passwords over HTTPS*](https://security.stackexchange.com/questions/110415/is-it-ok-to-send-plain-text-password-over-https) and which requires a pair of keys - one public that you 
-upload to your GitHub account, and one private that remains on your machine. 
+
+In order to access GitHub using Git from your machine securely,
+you need to set up a way of authenticating yourself with GitHub through Git.
+The recommended way to do that for this course is to set up
+[*SSH authentication*](https://www.ssh.com/academy/ssh/public-key-authentication) -
+a method of authentication that is more secure than sending
+[*passwords over HTTPS*](https://security.stackexchange.com/questions/110415/is-it-ok-to-send-plain-text-password-over-https)
+and which requires a pair of keys -
+one public that you upload to your GitHub account, and one private that remains on your machine.
 
 GitHub provides full documentation and guides on how to:
 - [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and
@@ -133,15 +137,24 @@ GitHub provides full documentation and guides on how to:
 
 A short summary of the commands you need to perform is shown below.
 
-To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash 
-and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub) 
-via the `-C` parameter as shown below. Note that the `ssh-keygen` command can be run with different 
-parameters - e.g. to select a specific public key algorithm and key length; if you do not use them `ssh-keygen` will generate an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.) key pair for you by default. It will also prompt you to answer a few questions - e.g. where to save the keys on your machine and 
-a passphrase to use to protect your private key. Pressing 'Enter' on these prompts 
-will get `ssh-keygen` to use the default key location (within `.ssh` folder in your home directory) and set the passphrase to empty.
+To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash
+and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub)
+via the `-C` parameter as shown below.
+Note that the `ssh-keygen` command can be run with different parameters -
+e.g. to select a specific public key algorithm and key length;
+if you do not use them `ssh-keygen` will generate an
+[RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.)
+key pair for you by default.
+GitHub now recommends that you use a newer cryptographic standard,
+so please be sure to specify the `-t` flag as shown below.
+It will also prompt you to answer a few questions -
+e.g. where to save the keys on your machine and a passphrase to use to protect your private key.
+Pressing 'Enter' on these prompts will get `ssh-keygen` to use the default key location (within
+`.ssh` folder in your home directory)
+and set the passphrase to empty.
 
 ~~~
-$ ssh-keygen -C "your-github-email@example.com"
+$ ssh-keygen -t ed25519 -C "your-github-email@example.com"
 ~~~
 {: .language-bash}
 ~~~
