@@ -81,7 +81,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    but it may be easier for future group exercises if everyone uses the same name).
    Ensure that you **uncheck** the `Copy the main branch only` button.
    This will guarantee we get some other branches needed for later exercises,
-   but for the minute you can ignore them.
+   but for the moment you can ignore them.
 
    ![Making a fork of the software project repository in GitHub](../fig/github-fork-repository-confirm.png){: .image-with-shadow width="600px" }
 
