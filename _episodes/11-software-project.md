@@ -65,7 +65,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
    in GitHub.
 
-   ![Software project fork repository in GitHub](../fig/fork-repository.png){: .image-with-shadow width="800px" }
+   ![Software project fork repository in GitHub](../fig/github-fork-repository.png){: .image-with-shadow width="900px" }
 
 4. Click the `Fork` button
    towards the top right of the repository's GitHub page to create
@@ -83,16 +83,16 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    This will guarantee we get some other branches needed for later exercises,
    but for the minute you can ignore them.
 
-   ![Making a fork of the software project repository in GitHub](../fig/fork-repository-confirm.png){: .image-with-shadow width="600px" }
+   ![Making a fork of the software project repository in GitHub](../fig/github-fork-repository-confirm.png){: .image-with-shadow width="600px" }
 
 6. Click the `Create fork` button
-   and wait for GitHub to import the copy of the repository under your account.
+   and wait for GitHub to create the forked copy of the repository under your account.
 7. Locate the forked repository under your own GitHub account.
    You should be taken there automatically after confirming the fork operation,
    but if not, you can click your username top left to be taken to your user page,
    and then select the `Repositories` tab, where you can search for this new fork.
 
-   ![View of your own fork of the software repository in GitHub](../fig/forked-repository-own.png){: .image-with-shadow width="800px" }
+   ![View of your own fork of the software repository in GitHub](../fig/github-forked-repository-own.png){: .image-with-shadow width="900px" }
 
 > ## Exercise: Obtain the Software Project Locally
 > Using the command line, clone the copied repository
