@@ -196,7 +196,11 @@ If you have not done so already,
 you will first need to enable the Pytest framework in VS Code.
 You can do this by:
 
-1. In VS Code, select the 'Testing' tab on the vertical bar on the left hand side (icon resembles a chemistry flask). 
+1. In VS Code, select the 'Testing' tab on the vertical bar on the left hand side (icon resembles a chemistry flask/beaker). 
+   If you have not yet configured any tests, you will see a blue `Configure Python Tests` button.
+   (If tests have already been configured and are incorrect or you wish to review this process, 
+   open the Command Palette (Ctr+Shift+P) and search for `Python: Configure Tests` 
+   (keeping the `>` character at the start of the search string).   
 2. Then, in the edit box that appears at the top of the edit window,
    type `pytest` and select `pytest pytest framework` from the drop-down list.
 3. You will then be asked for the root directory of your tests, so select the `tests` folder in our project.
@@ -206,7 +210,7 @@ You can do this by:
 
 We can now run `pytest` over our tests in VS Code,
 similarly to how we ran our `catchment-analysis.py` script before.
-Right-click the `test_models.py` file
+In the `Testing` panel, right-click the `test_models.py` file in the `tests` folder.
 under the `tests` directory in the file navigation window on the left,
 and select `Run test`.
 You'll see the results of the tests appear in VS Code in a bottom panel.
@@ -219,14 +223,14 @@ looking something like the following:
 We can also run our test functions individually.
 
 
-If you click on the green check next to a test function
+If you click on a green check next to a test function
 in our `test_models.py` script in VS Code,
 (or right click it and select `Run test`),
 we can run just that test:
 
 ![Running a single test in VS Code](../fig/vs-code-run-single-test.png){: .image-with-shadow width="800px"}
 
-Click on the "run" button next to `test_normalise`,
+Click on the `Run Test` button next to `test_normalise`,
 and you will be able to see that VS Code runs just that test function,
 and we see the same `AssertionError` that we saw before.
 
@@ -245,12 +249,13 @@ indicating that you have placed a breakpoint on that line.
 
 ![Setting a breakpoint in VS Code](../fig/vs-code-set-breakpoint.png){: .image-with-shadow width="600px"}
 
-Now if you find test_models.py and find green check marker for the test_normalise function 
+Now if you find test_models.py in the `Testing` panel, and locate the green play/right-arrow marker 
+for the test_normalise function 
 (in VS Code this appears next to the decorator function 
 @pytest.mark.parameterize that we recently added to test_normalise).
 Right click on that arrow and select `Debug Test` from the drop down menu.
 You will notice that execution will be paused
-at the `return` statement of `data_normalise`.
+at the `return` statement of `data_normalise`, where we placed our breakpoint.
 In the debug panel that appears below,
 we can now investigate the exact state of the program
 prior to it executing this line of code.
@@ -269,8 +274,7 @@ three sections that looks something like the following:
   that was created to hold the maximum inflammation values for each patient.
 - The `Watch` section in the middle where we can add/remove expressions that we need to evaluate.
 - The `Call Stack` section at the bottom,
-  which shows the **call stack**
-  (the chain of functions that have been executed to lead to this point).
+  which shows the chain of functions that have been executed to lead to this point.
   We can traverse this chain of functions if we wish,
   to observe the state of each function.
   
@@ -312,7 +316,7 @@ So to fix the `data_normalise` function in `models.py`,
 change `axis=1` in the first line of the function to `axis=0`.
 With this fix in place,
 running all the tests again should result in all tests passing.
-Navigate back to the `Testing` tab (chemistry flask icon) on the left hand vertical bar and click on
+Navigate back to the `Testing` tab (chemistry flask/beaker icon) on the left hand vertical bar and click on
 the arrow next to `test_models.py`
 You should be rewarded with:
 
