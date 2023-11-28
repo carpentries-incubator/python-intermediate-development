@@ -533,6 +533,7 @@ def main(args):
         measurement_data = models.read_variable_from_csv(filename, arg.measurements)
 
 
+        ### MODIFIED START ###
         if args.view == 'visualize':
             view_data = {'daily sum': models.daily_total(measurement_data),
                          'daily average': models.daily_mean(measurement_data),
@@ -547,6 +548,7 @@ def main(args):
             site.add_measurement(arg.measurements, measurement_data)
 
             views.display_measurement_record(site)
+        ### MODIFIED END ###
 
 
 def parse_cli_arguments():
@@ -567,6 +569,7 @@ def parse_cli_arguments():
         help = 'Name of measurement data series to load',
         required = True)
 
+    ### MODIFIED START ###
     parser.add_argument(
         '--view',
         default = 'visualize',
@@ -578,7 +581,8 @@ def parse_cli_arguments():
         type = str,
         default = None,
         help = 'Which site should be displayed?')
-    
+    ### MODIFIED END ###
+
     args = parser.parse_args()
     
     if args.view == 'record' and args.site is None:

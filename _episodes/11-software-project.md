@@ -68,11 +68,12 @@ create a copy of the software project template repository
 from GitHub within your own GitHub account
 and then obtain a local copy of that project (from your GitHub) on your machine.
 
-<<<<<<< HEAD
-1. Make sure you have a GitHub account 
-   and that you have set up your SSH key pair for authentication with GitHub,
+1. Make sure you have a GitHub account
+   and that you have set up your **SSH key pair for authentication with GitHub**,
    as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
-2. Log into your GitHub account. 
+   Note that, while it is possible to use **HTTPS** with a personal access token for authentication with GitHub,
+   the recommended and supported authentication method to use for this course is via SSH and key pairs.
+2. Log into your GitHub account.
 3. Go to the [software project template repository](https://github.com/UoMResearchIT/python-intermediate-rivercatchment)
    in GitHub.
 
@@ -109,8 +110,8 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
 > > Make sure you do not clone the original template repository but rather your own copy,
 > > as you should be able to push commits to it later on.
-> > Also make sure you select the **SSH tab** and not the **HTTPS** one -
-> > you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
+> > Also make sure you select the **SSH** tab and not the **HTTPS** one -
+> > for this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
 > >
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 > >

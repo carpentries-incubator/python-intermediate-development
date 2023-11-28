@@ -27,30 +27,21 @@ Let's look at a very well used one of these called `pylint`.
 First, let's ensure we are on the `style-fixes` branch once again.
 
 ~~~
-$ git checkout style-fixes
+$ git switch style-fixes
 ~~~
 {: .language-bash}
 
 Pylint is just a Python package so we can install it in our virtual environment using:
 
 ~~~
-$ pip3 install pylint
-$ pylint --version
+$ python3 -m pip install pylint
 ~~~
 {: .language-bash}
-
-We should see the version of Pylint, something like:
-
-~~~
-pylint 2.13.3
-...
-~~~
-{: .output}
 
 We should also update our `requirements.txt` with this new addition:
 
 ~~~
-$ pip3 freeze > requirements.txt
+$ python3 -m pip freeze > requirements.txt
 ~~~
 {: .language-bash}
 
@@ -183,10 +174,10 @@ and merge onto your development and main branches.
 $ git add requirements.txt
 $ git commit -m "Added Pylint library"
 $ git push origin style-fixes
-$ git checkout develop
+$ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push origin main
 ~~~

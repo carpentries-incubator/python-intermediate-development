@@ -95,14 +95,14 @@ def factorial(n):
 ~~~
 {: .language-python}
 
-Note: You may have noticed that both functions in the above code examples have the same signature
+***Note:** You may have noticed that both functions in the above code examples have the same signature
 (i.e. they take an integer number as input and return its factorial as output).
 You could easily swap these equivalent implementations
 without changing the way that the function is invoked.
 Remember, a single piece of software may well contain instances of multiple programming paradigms -
 including procedural, functional and object-oriented -
 it is up to you to decide which one to use and when to switch
-based on the problem at hand and your personal coding style.
+based on the problem at hand and your personal coding style.*
 
 Functional computations only rely on the values that are provided as inputs to a function
 and not on the state of the program that precedes the function call.
@@ -336,10 +336,10 @@ print(list(result))
 > > ~~~
 > > {: .language-python}
 > >
-> > Note: `map()` function returns a map iterator object
+> > ***Note:** `map()` function returns a map iterator object
 > > which needs to be converted to a collection object
 > > (such as a list, dictionary, set, tuple)
-> > using the corresponding "factory" function (in our case `list()`).
+> > using the corresponding "factory" function (in our case `list()`).*
 > {: .solution}
 {: .challenge}
 
@@ -497,15 +497,15 @@ One example of reducing would be to calculate the product of a sequence of numbe
 ~~~
 from functools import reduce
 
-l = [1, 2, 3, 4]
+sequence = [1, 2, 3, 4]
 
 def product(a, b):
     return a * b
 
-print(reduce(product, l))
+print(reduce(product, sequence))
 
 # The same reduction using a lambda function
-print(reduce((lambda a, b: a * b), l))
+print(reduce((lambda a, b: a * b), sequence))
 ~~~
 {: .language-python}
 ~~~
@@ -526,15 +526,15 @@ you need to import it from library `functools`.
 > > ~~~
 > > from functools import reduce
 > >
-> > l = [1, 2, 3, 4]
+> > sequence = [1, 2, 3, 4]
 > >
 > > def add(a, b):
 > >     return a + b
 > >
-> > print(reduce(add, l))
+> > print(reduce(add, sequence))
 > >
 > > # The same reduction using a lambda function
-> > print(reduce((lambda a, b: a + b), l))
+> > print(reduce((lambda a, b: a + b), sequence))
 > > ~~~
 > > {: .language-python}
 > > ~~~
@@ -556,8 +556,8 @@ using the MapReduce approach.
 ~~~
 from functools import reduce
 
-def sum_of_squares(l):
-    squares = [x * x for x in l]  # use list comprehension for mapping
+def sum_of_squares(sequence):
+    squares = [x * x for x in sequence]  # use list comprehension for mapping
     return reduce(lambda a, b: a + b, squares)
 ~~~
 {: .language-python}
@@ -601,8 +601,8 @@ The code may look like:
 ~~~
 from functools import reduce
 
-def sum_of_squares(l):
-    integers = [int(x) for x in l]
+def sum_of_squares(sequence):
+    integers = [int(x) for x in sequence]
     squares = [x * x for x in integers]
     return reduce(lambda a, b: a + b, squares)
 ~~~
@@ -630,8 +630,8 @@ To do so, we may filter out certain elements and have:
 ~~~
 from functools import reduce
 
-def sum_of_squares(l):
-    integers = [int(x) for x in l if x[0] != '#']
+def sum_of_squares(sequence):
+    integers = [int(x) for x in sequence if x[0] != '#']
     squares = [x * x for x in integers]
     return reduce(lambda a, b: a + b, squares)
 ~~~

@@ -1,7 +1,7 @@
-```
-Note that the lesson material can change at any point - if you are planning a workshop using this material, 
-either let the maintainers know or make sure you use your own fork of the lesson.
-```
+[![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
+
+**Note that the lesson material can change at any point - if you are planning a workshop using this material, 
+either let the maintainers know or make sure you use your own fork of the lesson.**
 
 # Intermediate Research Software Development Skills In Python for Earth Sciences
 
@@ -64,6 +64,9 @@ Current maintainers of this lesson (in alphabetical order) are:
 
 * [Doug Lowe][doug-lowe]
 * [Anja Le Blanc][https://github.com/AnjaLeBlanc]
+
+The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Wednesday each month. The meetings alternate between operations meetings and co-working sprints.
+Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-SvoY_2GvlQgJnu8zfr6VnU7sev_iWZAIwBUywNSfWE/edit#).
 
 ## Authors
 

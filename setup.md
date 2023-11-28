@@ -11,8 +11,11 @@ check a list of [common issues](./common-issues/index.html) other course partici
 
 ## Command Line Tool
 You will need a command line tool (shell/console) in order to run Python scripts and version control your code with Git.
-- On Windows, it is recommended to use **Git Bash** (which is included in
-  [Git For Windows package](https://gitforwindows.org/) - see the Git installation section below). The use of Windows command line tool `cmd` is not suitable for the course.
+- On Windows, it is **strongly** recommended to use **Git Bash** (which is included in
+  [Git For Windows package](https://gitforwindows.org/) - see the Git installation section below). The use of 
+  Windows command line tool `cmd` is not suitable for the course. We also advise against using 
+  [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/) for this course as we do not 
+  provide instructions for troubleshooting any potential issues between WSL and PyCharm.
 - On macOS and Linux, you will already have a command line tool available on your system. You can use a command line tool such as [**Bash**](https://www.gnu.org/software/bash/),
   or any other [command line tool that has similar syntax to Bash](https://en.wikipedia.org/wiki/Comparison_of_command_shells),
   since none of the content of this course is specific to Bash. Note that starting with macOS Catalina,
@@ -49,49 +52,50 @@ $ git help
 
 If your Git installation is working you should see something like:
 ~~~
-usage: git [--version] [--help] [-C <path>] [-c name=value]
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
            [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
            [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
 
 These are common Git commands used in various situations:
 
 start a working area (see also: git help tutorial)
-   clone      Clone a repository into a new directory
-   init       Create an empty Git repository or reinitialize an existing one
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
 
 work on the current change (see also: git help everyday)
-   add        Add file contents to the index
-   mv         Move or rename a file, a directory, or a symlink
-   reset      Reset current HEAD to the specified state
-   rm         Remove files from the working tree and from the index
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
 
 examine the history and state (see also: git help revisions)
-   bisect     Use binary search to find the commit that introduced a bug
-   grep       Print lines matching a pattern
-   log        Show commit logs
-   show       Show various types of objects
-   status     Show the working tree status
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
 
 grow, mark and tweak your common history
-   branch     List, create, or delete branches
-   checkout   Switch branches or restore working tree files
-   commit     Record changes to the repository
-   diff       Show changes between commits, commit and working tree, etc
-   merge      Join two or more development histories together
-   rebase     Reapply commits on top of another base tip
-   tag        Create, list, delete or verify a tag object signed with GPG
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
 
 collaborate (see also: git help workflows)
-   fetch      Download objects and refs from another repository
-   pull       Fetch from and integrate with another repository or a local branch
-   push       Update remote refs along with associated objects
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
 
 'git help -a' and 'git help -g' list available subcommands and some
 concept guides. See 'git help <command>' or 'git help <concept>'
 to read about a specific subcommand or concept.
-$ git help
+See 'git help git' for an overview of the system.
 ~~~
 {: .output}
 
@@ -117,11 +121,15 @@ GitHub is a free, online host for Git repositories that you will use during the 
 you will need to open a free [GitHub](https://github.com/) account unless you don't already have one.
 
 ### Secure Access To GitHub Using Git From Command Line
-In order to access GitHub using Git from your machine securely, you need to set up a way of authenticating yourself 
-with GitHub through Git. The recommended way to do that for this course is to set up 
-[*SSH authentication*](https://www.ssh.com/academy/ssh/public-key-authentication) - a 
-method of authentication that is more secure than sending [*passwords over HTTPS*](https://security.stackexchange.com/questions/110415/is-it-ok-to-send-plain-text-password-over-https) and which requires a pair of keys - one public that you 
-upload to your GitHub account, and one private that remains on your machine. 
+
+In order to access GitHub using Git from your machine securely,
+you need to set up a way of authenticating yourself with GitHub through Git.
+The recommended way to do that for this course is to set up
+[*SSH authentication*](https://www.ssh.com/academy/ssh/public-key-authentication) -
+a method of authentication that is more secure than sending
+[*passwords over HTTPS*](https://security.stackexchange.com/questions/110415/is-it-ok-to-send-plain-text-password-over-https)
+and which requires a pair of keys -
+one public that you upload to your GitHub account, and one private that remains on your machine.
 
 GitHub provides full documentation and guides on how to:
 - [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and
@@ -129,15 +137,24 @@ GitHub provides full documentation and guides on how to:
 
 A short summary of the commands you need to perform is shown below.
 
-To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash 
-and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub) 
-via the `-C` parameter as shown below. Note that the `ssh-keygen` command can be run with different 
-parameters - e.g. to select a specific public key algorithm and key length; if you do not use them `ssh-keygen` will generate an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.) key pair for you by default. It will also prompt you to answer a few questions - e.g. where to save the keys on your machine and 
-a passphrase to use to protect your private key. Pressing 'Enter' on these prompts 
-will get `ssh-keygen` to use the default key location (within `.ssh` folder in your home directory) and set the passphrase to empty.
+To generate an SSH key pair, you will need to run the `ssh-keygen` command from your command line tool/GitBash
+and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub)
+via the `-C` parameter as shown below.
+Note that the `ssh-keygen` command can be run with different parameters -
+e.g. to select a specific public key algorithm and key length;
+if you do not use them `ssh-keygen` will generate an
+[RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.)
+key pair for you by default.
+GitHub now recommends that you use a newer cryptographic standard,
+so please be sure to specify the `-t` flag as shown below.
+It will also prompt you to answer a few questions -
+e.g. where to save the keys on your machine and a passphrase to use to protect your private key.
+Pressing 'Enter' on these prompts will get `ssh-keygen` to use the default key location (within
+`.ssh` folder in your home directory)
+and set the passphrase to empty.
 
 ~~~
-$ ssh-keygen -C "your-github-email@example.com"
+$ ssh-keygen -t ed25519 -C "your-github-email@example.com"
 ~~~
 {: .language-bash}
 ~~~
@@ -197,19 +214,25 @@ your access token.
 {: .callout}
 
 ## Python Distribution
-The material has been developed using the [standard Python distribution version 3.8](https://www.python.org/downloads/)
-and is using `venv` for virtual environments and `pip` for package management.
+The material has been tested using the standard Python distribution version 3.11. The course is using `venv` for virtual 
+environment management and `pip` for package management.
 The material has not been extensively tested with other Python distributions and package managers,
 but most sections are expected to work with some modifications.
 For example, package installation and virtual environments would need to be managed differently, but Python script
 invocations should remain the same regardless of the Python distribution used.
 
-To download a Python distribution for your operating system,
+To download the latest Python distribution for your operating system,
 please head to [Python.org](https://www.python.org/downloads/).
+If you are on Linux,
+it is likely that the system Python already installed will satisfy the requirements of this course.
+Check its version using the commands below.
 
 >## Recommended Python Version
-> We recommend using at least Python version 3.8+ but any [supported version](https://devguide.python.org/versions/#versions) should work (i.e. version 3.7 onward. 
-> Specifically, we recommend upgrading from Python 2.7 wherever possible; continuing to use it will likely result in difficulty finding supported dependencies or syntax errors).
+> We recommend using the latest Python version but any [supported version](https://devguide.python.org/versions/#versions) 
+> should work. 
+> Specifically, we recommend upgrading from Python 2.7 wherever possible; 
+> continuing to use it will likely result in difficulty finding supported dependencies or 
+> syntax errors.
 {: .callout}
 
 You can
@@ -219,9 +242,13 @@ $ python3 --version # on Mac/Linux
 $ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
 ~~~
 {: .language-bash}
+
+If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may 
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../common-issues/index.html#python-hangs-in-git-bash).
+
 If all is well with your installation, you should see something like:
 ~~~       
-Python 3.8.2
+Python 3.11.4
 ~~~
 {: .output}
 
@@ -233,9 +260,8 @@ type the following in your shell:
 {: .language-bash}
 This should enter you into a Python console and you should see something like:
  ~~~
-Python 3.8.2 (default, Jun  8 2021, 11:59:35) 
-[Clang 12.0.5 (clang-1205.0.22.11)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
+Python 3.11.4 (main, Jun 20 2023, 17:23:00) [Clang 14.0.3 (clang-1403.0.22.14.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information. 
 >>> 
  ~~~
 {: .language-bash}

@@ -223,12 +223,11 @@ so that we force the code we're testing to execute in all the different ways it 
 to ensure our tests have a high degree of **code coverage**.
 
 A simple way to check the code coverage for a set of tests is
-to use `pytest` to tell us how many statements in our code are being tested.
-By installing a Python package to our virtual environment called `pytest-cov`
-that is used by Pytest and using that, we can find this out:
+to install an additional package `pytest-cov` to our virtual environment, 
+which is used by `pytest` to tell us how many statements in our code are being tested.
 
 ~~~
-$ pip3 install pytest-cov
+$ python3 -m pip install pytest-cov
 $ python -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-bash}
@@ -257,7 +256,7 @@ But which statements are not being tested?
 The additional argument `--cov-report term-missing` can tell us:
 
 ~~~
-$ python -m pytest --cov=catchment.models --cov-report term-missing tests/test_models.py
+$ python3 -m pytest --cov=catchment.models --cov-report term-missing tests/test_models.py
 ~~~
 {: .language-bash}
 
@@ -291,7 +290,7 @@ Again, we should also update our `requirements.txt` file with our latest package
 which now also includes `pytest-cov`, and commit it:
 
 ~~~
-$ pip3 freeze > requirements.txt
+$ python3 -m pip freeze > requirements.txt
 $ cat requirements.txt
 ~~~
 {: .language-bash}

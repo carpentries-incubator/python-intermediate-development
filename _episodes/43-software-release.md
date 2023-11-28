@@ -57,7 +57,7 @@ We can install Poetry much like any other Python distributable package, using `p
 
 ~~~
 $ source venv/bin/activate
-$ pip3 install poetry
+$ python3 -m pip install poetry
 ~~~
 {: .language-bash}
 
@@ -123,7 +123,7 @@ Version [0.1.0]: 1.0.0
 Description []:  Analyse river catchment project data
 Author [None, n to skip]: James Graham <J.Graham@software.ac.uk>
 License []:  MIT
-Compatible Python versions [^3.8]: ^3.8
+Compatible Python versions [^3.11]: ^3.11
 
 Would you like to define your main dependencies interactively? (yes/no) [yes] no
 Would you like to define your development dependencies interactively? (yes/no) [yes] no
@@ -137,7 +137,7 @@ authors = ["James Graham <J.Graham@software.ac.uk>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 
 [tool.poetry.dev-dependencies]
 
@@ -248,7 +248,7 @@ you don't need to run this command yourself,
 you've already installed it using `poetry install` above.
 
 ~~~
-$ pip3 install dist/catchment*.whl
+$ python3 -m pip install dist/catchment*.whl
 ~~~
 {: .language-bash}
 

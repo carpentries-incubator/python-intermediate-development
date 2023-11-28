@@ -129,7 +129,7 @@ Let's recall the solution requirements we discussed in the previous episode:
 
 - *Functional Requirements*:
   - SR1.1.1 (from UR1.1):
-    add standard deviation to data model and include in graph visualisation view
+    add daily standard deviation to the data model and include in graph visualisation view
   - SR1.2.1 (from UR1.2):
     add a new view to generate a textual representation of statistics,
     which is invoked by an optional command line argument
@@ -194,17 +194,17 @@ but also what you can do to make that code amenable to that type of testing.
 > Also make sure you push changes to your new feature branch remotely
 > to your software repository on GitHub.
 >
-> **Note: do not add the tests for the new feature just yet -
+> ***Note:** do not add the tests for the new feature just yet -
 > even though you would normally add the tests along with the new code,
 > we will do this in a later episode.
-> Equally, do not merge your changes to the `develop` branch just yet.**
+> Equally, do not merge your changes to the `develop` branch just yet.*
 >
-> **Note 2: we have intentionally left this exercise without a solution
+> ***Note 2:** we have intentionally left this exercise without a solution
 > to give you more freedom in implementing it how you see fit.
 > If you are struggling with adding a new view and command line parameter,
-> you may find the standard deviation requirement easier.
+> you may find adding the daily standard deviation requirement easier.
 > A later episode in this section will look at
-> how to handle command line parameters in a scalable way.**
+> how to handle command line parameters in a scalable way.*
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design

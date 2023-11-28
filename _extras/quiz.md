@@ -155,7 +155,7 @@ to determine where you fit on the skills spectrum and if this course is for you.
     a. n = 300 and m = 300
     b. n = -100 and m = 300
     c. n = -100 and m = -100
-    d. n = 300 and m = -10
+    d. n = 300 and m = -100
     ~~~
 
     > > ## Solution

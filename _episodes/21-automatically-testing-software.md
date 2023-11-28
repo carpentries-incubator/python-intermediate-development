@@ -88,9 +88,8 @@ And then, we'll create a new feature branch called `test-suite` off the `develop
 a common term we use to refer to sets of tests - that we'll use for our test writing work:
 
 ~~~
-$ git checkout develop
-$ git branch test-suite
-$ git checkout test-suite
+$ git switch develop
+$ git branch -c test-suite
 ~~~
 {: .language-bash}
 
@@ -554,9 +553,9 @@ but what you learn can scale to more complex functional testing for applications
 > Other unit testing frameworks exist for Python,
 > including Nose2 and Unittest,
 > and the approach to unit testing can be translated to other languages as well,
-> e.g. FRUIT for Fortran,
+> e.g. pFUnit for Fortran,
 > JUnit for Java (the original unit testing framework),
-> Catch for C++, etc.
+> Catch or gtest for C++, etc.
 {: .callout}
 
 > ## Why Use pytest over unittest?
@@ -576,7 +575,7 @@ but what you learn can scale to more complex functional testing for applications
 >
 > A common challenge, particularly at the intermediate level, is the selection of a suitable tool from many alternatives
 > for a given task. Once you've become accustomed to object-oriented programming you may find unittest a better fit
-> for a particular project or team, so you may want to revisit it at a later date!
+> for a particular project or team, so you may want to revisit it at a later date.
 {: .callout}
 
 
@@ -598,7 +597,7 @@ exit the Python console first (either with `Ctrl-D` or by typing `exit()`),
 then do:
 
 ~~~
-$ pip3 install pytest
+$ python3 -m pip install pytest
 ~~~
 {: .language-bash}
 
@@ -612,26 +611,25 @@ our virtual environment will now have the `pytest` package installed for use.
 Now we can run these tests using `pytest`:
 
 ~~~
-$ python -m pytest tests/test_models.py
+$ python3 -m pytest tests/test_models.py
 ~~~
 {: .language-bash}
 
-Here, we use `-m` to invoke the `pytest` installed module,
+Here, we use `-m` flag of the `python3` command to invoke the `pytest` module,
 and specify the `tests/test_models.py` file to run the tests in that file explicitly.
 
-> ## Why Run Pytest Using `python -m` and Not `pytest` ?
+> ## Why Run Pytest Using `python3 -m pytest` and Not `pytest`?
 >
-> Another way to run `pytest` is via its own command,
-> so we *could* try to use `pytest tests/test_models.py` on the command line instead, 
-> but this would lead to a `ModuleNotFoundError: No module named 'catchment'`. 
-> This is because using the `python -m pytest` method 
-> adds the current directory to its list of directories to search for modules,
-> whilst using `pytest` does not - 
-> the `catchment` subdirectory's contents are not 'seen',
-> hence the `ModuleNotFoundError`.
-> There are ways to get around this with
-> [various methods](https://stackoverflow.com/questions/71297697/modulenotfounderror-when-running-a-simple-pytest),
-> but we've used `python -m` for simplicity.
+> `pytest` is another Python module that can be run via its own command but this is a good example 
+> why invoking Python modules via `python3 -m` may be better (recall the [explanation of Python interpreter's `-m` flag](../12-virtual-environments/index.html#what-is--m-flag-in-python3-command)).
+> Had we used `pytest tests/test_models.py` command directly,
+> this would have led to a "ModuleNotFoundError: No module named 'catchment'" error. This is 
+> because `pytest` command (unlike `python3 -m pytest`) does not add the current directory to its list of 
+> directories to search for modules, hence the `catchment` subdirectory's contents are not being 
+> 'seen' by `pytest` causing the `ModuleNotFoundError`. There are ways to work around this problem 
+> but `python3 -m pytest` ensures it does not happen in the first place.
+> 
+> 
 {: .callout}
 
 ~~~
@@ -641,9 +639,9 @@ rootdir: /Users/alex/python-intermediate-rivercatchment
 plugins: anyio-3.3.4
 collected 2 items
 
-tests/test_models.py ..                                                                                           [100%]
+tests/test_models.py ..                                                                       [100%]
 
-=============================================== 2 passed in 0.79s ======================================================
+=============================================== 2 passed in 0.79s ==================================
 ~~~
 {: .output}
 
@@ -657,7 +655,9 @@ Notice the `..` after our test script:
   The error is included in the output so we can see what went wrong.
 
 So if we have many tests, we essentially get a report indicating which tests succeeded or failed.
-Going back to our list of requirements, do we think these results are easy to understand?
+Going back to our list of requirements (the bullet points under [Using a Testing
+Framework](#using-a-testing-framework) section),
+do we think these results are easy to understand?
 
 > ## Exercise: Write Some Unit Tests
 >
@@ -763,7 +763,7 @@ Since we've installed `pytest` to our environment,
 we should also regenerate our `requirements.txt`:
 
 ~~~
-$ pip3 freeze > requirements.txt
+$ python3 -m pip freeze > requirements.txt
 ~~~
 {: .language-bash}
 

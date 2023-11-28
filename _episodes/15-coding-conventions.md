@@ -168,7 +168,7 @@ More details on good and bad practices for continuation lines can be found in
 All lines should be up to 80 characters long;
 for lines containing comments or docstrings (to be covered later)
 the line length limit should be 73 -
-see [this discussion](https://stackoverflow.com/questions/15438326/python-pep-8-docstring-line-length)
+see [this discussion](https://stackoverflow.com/q/15438326)
 for reasoning behind these numbers.
 Some teams strongly prefer a longer line length,
 and seemed to have settled on the length of 100.
@@ -424,8 +424,8 @@ because an incorrect comment causes more confusion than no comment at all.
 > and switch to it (from the project root):
 >
 > ~~~
-> $ git checkout develop
-> $ git checkout -b style-fixes
+> $ git switch develop
+> $ git switch -c style-fixes
 > ~~~
 >  {: .language-bash}
 >
@@ -627,7 +627,7 @@ The docstring for a function or a module
 is returned when calling the `help` function and passing its name -
 for example from the interactive Python console/terminal available from the command line
 or when rendering code documentation online
-(e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
+(e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
 PyCharm also displays the docstring for a function/module
 in a little help popup window when using tab-completion.
 
@@ -739,10 +739,10 @@ to double check which branch you are on and its status):
 
 ~~~
 $ git push -u origin style-fixes
-$ git checkout develop
+$ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git checkout main
+$ git switch main
 $ git merge develop
 $ git push origin main
 ~~~

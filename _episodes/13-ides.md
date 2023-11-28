@@ -60,7 +60,7 @@ a good overview is available from the
 In addition to IDEs, there are also a number of code editors that have Python support.
 Code editors can be as simple as a text editor
 with syntax highlighting and code formatting capabilities
-(e.g. GNU EMACS, Vi/Vim).
+(e.g., GNU EMACS, Vi/Vim).
 Most good code editors can also execute code and control a debugger,
 and some can also interact with a version control system.
 Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
@@ -70,7 +70,13 @@ in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pych
 a free, open source Python IDE.
 Some popular alternatives include
 free and open source IDE [Spyder](https://www.spyder-ide.org/)
-and Microsoft's free [Visual Studio Code](https://code.visualstudio.com/).
+and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
+
+> ## Using VS Code for This Course 
+> If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../vscode/index.html)
+> to help you set up. The instructions for PyCharm in the course will not apply to you verbatim but there 
+> is an equivalent functionality in VS Code for each of the actions we ask you to do in PyCharm.
+{: .callout}
 
 ## Using the PyCharm IDE
 
@@ -133,8 +139,8 @@ and PyCharm is clever enough to understand it.
    or possibly the default version of Python installed on your system,
    e.g. `Python 2.7 /usr/bin/python2.7`,
    which we do not want to use in this instance.
-3. Select the cog-like button in the top right, then `Add Local...` 
-   (or `Add...` depending on your PyCharm version).
+3. Select the cog-like button in the top right, then `Add...` 
+   (or `Add Local...` depending on your PyCharm version).
    An `Add Python Interpreter` window will appear.
 4. Select `Virtualenv Environment` from the list on the left
    and ensure that `Existing environment` checkbox is selected within the popup window.
@@ -177,9 +183,9 @@ Let's see this in action through the following exercise.
 >> ## Solution
 >> From the previous episode,
 >> you may remember that we can get the list of packages in the current virtual environment
->> using the `pip3 list` command:
+>> using `pip`:
 >> ~~~
->> (venv) $ pip3 list
+>> (venv) $ python3 -m pip list
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -203,11 +209,11 @@ Let's see this in action through the following exercise.
 >> wheel           0.37.1
 >> ~~~
 >> {: .output}
->> However, `pip3 list` shows all the packages in the virtual environment -
+>> However, `python3 -m pip list` shows all the packages in the virtual environment -
 >> if we want to see only the list of packages that we installed,
->> we can use the `pip3 freeze` command instead:
+>> we can use the `python3 -m pip freeze` command instead:
 >> ~~~
->> (venv) $ pip3 freeze
+>> (venv) $ python3 -m pip freeze
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -226,64 +232,62 @@ Let's see this in action through the following exercise.
 >> six==1.16.0
 >> ~~~
 >> {: .output}
->> We see `pip` in `pip3 list` but not in `pip3 freeze` as we did not install it using `pip`.
->> Remember that we use `pip3 freeze` to update our `requirements.txt` file,
+>> We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
+>> as we did not install it using `pip`.
+>> Remember that we use `python3 -m pip freeze` to update our `requirements.txt` file,
 >> to keep a list of the packages our virtual environment includes.
 >> Python will not do this automatically;
 >> we have to manually update the file when our requirements change using:
 >> ~~~
->> pip3 freeze > requirements.txt
+>> python3 -m pip freeze > requirements.txt
 >> ~~~
 >> {: .language-bash}
 >>
 >> If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
 >> ~~~
->> (venv) $ ls -l venv/lib/python3.9/site-packages
+>> (venv) $ ls -l venv/lib/python3.11/site-packages
 >> ~~~
 >> {: .language-bash}
 >>
 >> ~~~
->> total 1088
->> drwxr-xr-x  103 alex  staff    3296 17 Nov 11:55 PIL
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 Pillow-8.4.0.dist-info
->> drwxr-xr-x    6 alex  staff     192 17 Nov 11:55 __pycache__
->> drwxr-xr-x    5 alex  staff     160 17 Nov 11:53 _distutils_hack
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 cycler-0.11.0.dist-info
->> -rw-r--r--    1 alex  staff   14519 17 Nov 11:55 cycler.py
->> drwxr-xr-x   14 alex  staff     448 17 Nov 11:55 dateutil
->> -rw-r--r--    1 alex  staff     152 17 Nov 11:53 distutils-precedence.pth
->> drwxr-xr-x   31 alex  staff     992 17 Nov 11:55 fontTools
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 fonttools-4.28.1.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 kiwisolver-1.3.2.dist-info
->> -rwxr-xr-x    1 alex  staff  216968 17 Nov 11:55 kiwisolver.cpython-39-darwin.so
->> drwxr-xr-x   92 alex  staff    2944 17 Nov 11:55 matplotlib
->> -rw-r--r--    1 alex  staff     569 17 Nov 11:55 matplotlib-3.5.0-py3.9-nspkg.pth
->> drwxr-xr-x   20 alex  staff     640 17 Nov 11:55 matplotlib-3.5.0.dist-info
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 mpl_toolkits
->> drwxr-xr-x   39 alex  staff    1248 17 Nov 11:55 numpy
->> drwxr-xr-x   11 alex  staff     352 17 Nov 11:55 numpy-1.21.4.dist-info
->> drwxr-xr-x   15 alex  staff     480 17 Nov 11:55 packaging
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 packaging-21.2.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:53 pip
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:53 pip-21.1.3.dist-info
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:53 pkg_resources
->> -rw-r--r--    1 alex  staff      90 17 Nov 11:55 pylab.py
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 pyparsing-2.4.7.dist-info
->> -rw-r--r--    1 alex  staff  273365 17 Nov 11:55 pyparsing.py
->> drwxr-xr-x    9 alex  staff     288 17 Nov 11:55 python_dateutil-2.8.2.dist-info
->> drwxr-xr-x   41 alex  staff    1312 17 Nov 11:53 setuptools
->> drwxr-xr-x   11 alex  staff     352 17 Nov 11:53 setuptools-57.0.0.dist-info
->> drwxr-xr-x   19 alex  staff     608 17 Nov 11:55 setuptools_scm
->> drwxr-xr-x   10 alex  staff     320 17 Nov 11:55 setuptools_scm-6.3.2.dist-info
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 six-1.16.0.dist-info
->> -rw-r--r--    1 alex  staff   34549 17 Nov 11:55 six.py
->> drwxr-xr-x    8 alex  staff     256 17 Nov 11:55 tomli
->> drwxr-xr-x    7 alex  staff     224 17 Nov 11:55 tomli-1.2.2.dist-info
+total 88
+drwxr-xr-x  105 alex  staff   3360 20 Nov 15:34 PIL
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 Pillow-10.1.0.dist-info
+drwxr-xr-x    4 alex  staff    128 20 Nov 15:34 __pycache__
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:32 _distutils_hack
+drwxr-xr-x   16 alex  staff    512 20 Nov 15:34 contourpy
+drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 contourpy-1.2.0.dist-info
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 cycler
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 cycler-0.12.1.dist-info
+drwxr-xr-x   14 alex  staff    448 20 Nov 15:34 dateutil
+-rw-r--r--    1 alex  staff    151 20 Nov 15:32 distutils-precedence.pth
+drwxr-xr-x   33 alex  staff   1056 20 Nov 15:34 fontTools
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 fonttools-4.45.0.dist-info
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver-1.4.5.dist-info
+drwxr-xr-x  150 alex  staff   4800 20 Nov 15:34 matplotlib
+drwxr-xr-x   20 alex  staff    640 20 Nov 15:34 matplotlib-3.8.2.dist-info
+drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 mpl_toolkits
+drwxr-xr-x   43 alex  staff   1376 20 Nov 15:34 numpy
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 numpy-1.26.2.dist-info
+drwxr-xr-x   18 alex  staff    576 20 Nov 15:34 packaging
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 packaging-23.2.dist-info
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:32 pip
+drwxr-xr-x   10 alex  staff    320 20 Nov 15:33 pip-23.0.1.dist-info
+drwxr-xr-x    6 alex  staff    192 20 Nov 15:32 pkg_resources
+-rw-r--r--    1 alex  staff     90 20 Nov 15:34 pylab.py
+drwxr-xr-x   15 alex  staff    480 20 Nov 15:34 pyparsing
+drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 pyparsing-3.1.1.dist-info
+drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 python_dateutil-2.8.2.dist-info
+drwxr-xr-x   49 alex  staff   1568 20 Nov 15:32 setuptools
+drwxr-xr-x   10 alex  staff    320 20 Nov 15:32 setuptools-67.6.1.dist-info
+drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
+-rw-r--r--    1 alex  staff  34549 20 Nov 15:34 six.py
 >> ~~~
 >> {: .output}
 >>
 >> Finally, if you look at both the contents of
->> `venv/lib/python3.9/site-packages` and `requirements.txt`
+>> `venv/lib/python3.11/site-packages` and `requirements.txt`
 >> and compare that with the packages shown in PyCharm's Python Interpreter Configuration -
 >> you will see that they all contain equivalent information.
 > {: .solution}
@@ -297,7 +301,7 @@ However, we will need library `pytest` soon to implement tests for our code.
 We will use this opportunity to install it from PyCharm in order to see
 an alternative way of doing this and how it propagates to the command line.
 
-1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
+1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears,
    select `Project: python-intermediate-rivercatchment` > `Project Interpreter` from the left.
 3. Select the `+` icon at the top of the window.
@@ -311,7 +315,7 @@ an alternative way of doing this and how it propagates to the command line.
 It may take a few minutes for PyCharm to install it.
 After it is done, the `pytest` library is added to our virtual environment.
 You can also verify this from the command line by
-listing the `venv/lib/python3.9/site-packages` subdirectory.
+listing the `venv/lib/python3.11/site-packages` subdirectory.
 Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
 Let's do this as an exercise.
@@ -322,7 +326,7 @@ Let's do this as an exercise.
 >> Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
 >> but not in `requirements.txt`. First, let's check the list of installed packages:
 >> ~~~
->> (venv) $ pip3 list
+>> (venv) $ python3 -m pip list
 >> ~~~
 >> {: .language-bash}
 >> ~~~
@@ -375,7 +379,7 @@ Let's do this as an exercise.
 >>{: .output}
 >> `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
 >> ~~~
->> (venv) $ pip3 freeze > requirements.txt
+>> (venv) $ python3 -m pip freeze > requirements.txt
 >> ~~~
 >> {: .language-bash}
 >> `pytest` is now present in `requirements.txt`:
@@ -433,9 +437,9 @@ This is done by adding a **Run Configuration** to a project:
 > but with different external libraries -
 > this is helpful when you need to develop different types of applications.
 > For example, you can create one virtual environment
-> based on Python 3.9 to develop Django Web applications
+> based on Python 3.11 to develop Django Web applications
 > and another virtual environment
-> based on the same Python 3.9 to work with scientific libraries.
+> based on the same Python 3.11 to work with scientific libraries.
 >
 > **Run Configurations** in PyCharm are named sets of startup properties
 > that define what to execute and what parameters
@@ -492,9 +496,10 @@ including:
   type definition of variables, fields or any other symbols
 - Quick Documentation -
   inline documentation ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings)
-  for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/)
+  for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/))
 - Parameter Info -
-  the names of parameters in method and function calls
+  the names and expected types of parameters in method and function calls.
+  Use this when cursor is on the argument of a function call.
 - Type Info -
   type of an expression
 
