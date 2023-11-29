@@ -484,7 +484,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     By convention, variable names should be in lowercase with optional underscores
 >>     so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
 >>
->>  3. There are 2 blank lines starting from line 19 in `inflammation-analysis.py`.
+>>  3. There are two blank lines starting from line 19 in `inflammation-analysis.py`.
 >>     Normally, you should not use blank lines in the middle of the code
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
