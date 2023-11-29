@@ -106,17 +106,15 @@ PyCharm has built-in support for converting tab indentation to spaces
 So, you can type a tab character and PyCharm will automatically convert it to 4 spaces.
 You can control the amount of spaces that PyCharm uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in PyCharm's
-`Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux)
-or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
+You can modify these settings in PyCharm's `Settings`>`Editor`>`Code Style`>`Python`.
 
 ![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `View`>`Active Editor`>`Show whitespace`.
+by selecting `Settings` > `Editor` > `General` > `Appearance`.
 
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="1000px"}
+![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="800px"}
 
 There are more complex rules on indenting single units of code that continue over several lines,
 e.g. function, list or dictionary definitions can all take more than one line.
