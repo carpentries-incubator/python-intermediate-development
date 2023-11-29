@@ -112,7 +112,7 @@ You can modify these settings in PyCharm's `Settings`>`Editor`>`Code Style`>`Pyt
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `Settings` > `Editor` > `General` > `Appearance`.
+by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
 
 ![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="800px"}
 
