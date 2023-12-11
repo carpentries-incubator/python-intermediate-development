@@ -238,7 +238,7 @@ before aggregating all intermediate results into the final result.
 
 ### Mapping
 `map(f, C)` is a function takes another function `f()` and a collection `C` of data items as inputs.
-Calling `map(f, L)` applies the function `f(x)` to every data item `x` in a collection `C`
+Calling `map(f, C)` applies the function `f(x)` to every data item `x` in a collection `C`
 and returns the resulting values as a new collection of the same size.
 
 This is a simple mapping that takes a list of names and

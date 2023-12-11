@@ -106,17 +106,15 @@ PyCharm has built-in support for converting tab indentation to spaces
 So, you can type a tab character and PyCharm will automatically convert it to 4 spaces.
 You can control the amount of spaces that PyCharm uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in PyCharm's
-`Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux)
-or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
+You can modify these settings in PyCharm's `Settings`>`Editor`>`Code Style`>`Python`.
 
 ![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `View`>`Active Editor`>`Show whitespace`.
+by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
 
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="1000px"}
+![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="800px"}
 
 There are more complex rules on indenting single units of code that continue over several lines,
 e.g. function, list or dictionary definitions can all take more than one line.
@@ -420,8 +418,12 @@ because an incorrect comment causes more confusion than no comment at all.
 
 > ## Exercise: Improve Code Style of Our Project
 > Let's look at improving the coding style of our project.
-> First create a new feature branch called `style-fixes` off our `develop` branch
-> and switch to it (from the project root):
+> First, from the project root, use `git switch` to create a new feature branch called `style-fixes`
+> from our develop branch.
+> (Note that at this point `develop` and `main` branches
+> are pointing at the same commit so it does not really matter which one we are branching off - 
+> in real collaborative software development environments, you'd likely be expected to branch off `develop`
+> as it would contain the latest code developed by your team.)
 >
 > ~~~
 > $ git switch develop
@@ -484,12 +486,13 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     Normally, you should not use blank lines in the middle of the code 
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
->>     and the rest of the code on line 30 in `catchment-analysis.py` - 
->>     should be two blank lines.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     and the rest of the code below line 30 in `catchment-analysis.py` - 
+>>     should be two blank lines (PEP8 recommends surrounding top-level function
+>>     (and class) definitions with two blank lines).
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >> Finally, let's add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.

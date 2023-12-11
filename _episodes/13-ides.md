@@ -409,9 +409,13 @@ Let's do this as an exercise.
 
 #### Adding a Run Configuration for Our Project
 Having configured a virtual environment, we now need to tell PyCharm to use it for our project.
-This is done by adding a **Run Configuration** to a project:
+This is done by creating and adding a **Run Configuration** to a project. 
+Run Configurations in PyCharm are named sets of startup properties
+that define which main Python script to execute and what (optional) 
+runtime parameters/environment variables (i.e. additional configuration options) to pass 
+and use on top of virtual environments.
 
-1. To add a new configuration for a project -
+1. To add a new Run Configuration for a project -
    select `Run` > `Edit Configurations...` from the top menu.
 2. Select `Add new run configuration...` then `Python`.
    ![Adding a Run Configuration in PyCharm](../fig/pycharm-add-run-configuration.png){: .image-with-shadow width="800px" }
@@ -432,7 +436,7 @@ This is done by adding a **Run Configuration** to a project:
 >
 > We configured the Python interpreter to use for our project by pointing PyCharm
 > to the virtual environment we created from the command line
-> (which also includes external libraries our code needs to run).
+> (which encapsulates a Python interpreter and external libraries our code needs to run).
 > Recall that you can create several virtual environments based on the same Python interpreter
 > but with different external libraries -
 > this is helpful when you need to develop different types of applications.
@@ -441,12 +445,9 @@ This is done by adding a **Run Configuration** to a project:
 > and another virtual environment
 > based on the same Python 3.11 to work with scientific libraries.
 >
-> **Run Configurations** in PyCharm are named sets of startup properties
-> that define what to execute and what parameters
-> (i.e. what additional configuration options)
-> to use on top of virtual environments.
-> You can vary these configurations each time your code is executed,
-> which is particularly useful for running, debugging and testing your code.
+> Run Configurations provided by PyCharm are one extra layer on top of virtual environments - 
+> you can vary a run configuration each time your code is executed and 
+> you can have separate configurations for running, debugging and testing your code.
 {: .callout}
 
 Now you know how to configure and manipulate your environment in both tools

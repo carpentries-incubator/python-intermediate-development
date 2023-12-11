@@ -667,9 +667,9 @@ You can find more information in [Click's documentation](https://click.palletspr
 >
 > Both episodes cover the persistence layer of software architectures
 > and methods of persistently storing data, but take different approaches.
-> The episode on [persistence with JSON](/persistence) covers
+> The episode on [persistence with JSON](../persistence) covers
 > some more advanced concepts in Object Oriented Programming, while
-> the episode on [databases](/databases) starts to build towards a true multilayer architecture,
+> the episode on [databases](../databases) starts to build towards a true multilayer architecture,
 > which would allow our software to handle much larger quantities of data.
 {: .callout}
 
