@@ -420,8 +420,8 @@ because an incorrect comment causes more confusion than no comment at all.
 
 > ## Exercise: Improve Code Style of Our Project
 > Let's look at improving the coding style of our project.
-> First, from the project root, create a new feature branch called `style-fixes` off our `develop` branch
-> and switch to it.
+> First, from the project root, use `git switch` to create a new feature branch called `style-fixes`
+> from our develop branch.
 > (Note that at this point `develop` and `main` branches
 > are pointing at the same commit so it does not really matter which one we are branching off - 
 > in real collaborative software development environments, you'd likely be expected to branch off `develop`
