@@ -145,8 +145,8 @@ e.g. to select a specific public key algorithm and key length;
 if you do not use them `ssh-keygen` will generate an
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=RSA%20involves%20a%20public%20key,by%20using%20the%20private%20key.)
 key pair for you by default.
-GitHub now recommends that you use a newer cryptographic standard,
-so please be sure to specify the `-t` flag as shown below.
+GitHub now recommends that you use a newer cryptographic standard (such as [EdDSA](https://en.wikipedia.org/wiki/EdDSA) variant algorithm [Ed25519](https://cryptobook.nakov.com/digital-signatures/eddsa-and-ed25519)),
+so please be sure to specify it using the `-t` flag as shown below.
 It will also prompt you to answer a few questions -
 e.g. where to save the keys on your machine and a passphrase to use to protect your private key.
 Pressing 'Enter' on these prompts will get `ssh-keygen` to use the default key location (within
@@ -158,44 +158,44 @@ $ ssh-keygen -t ed25519 -C "your-github-email@example.com"
 ~~~
 {: .language-bash}
 ~~~
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/alex/.ssh/id_rsa):
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/user/.ssh/id_ed25519): 
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /Users/alex/.ssh/id_rsa
-Your public key has been saved in /Users/alex/.ssh/id_rsa.pub
+Your identification has been saved in /Users/user/.ssh/id_ed25519
+Your public key has been saved in /Users/user/.ssh/id_ed25519.pub
 The key fingerprint is:
-SHA256:pR53Y9KcYlZZ+A/ZM85Y1N/9TE7xeTdJ5G/5Gvt/b+M your-github-email@example.com
+SHA256:qjhN/iO42nnYmlpink2UTzaJpP8084yx6L2iQkVKdHk your-github-email@example.com
 The key's randomart image is:
-+---[RSA 3072]----+
-|             .o..|
-|            .o.+.|
-|          . o.o+O|
-|         o + .+B&|
-|        S * B =OX|
-|       . = = o +*|
-|        .     . .|
-|               =o|
-|              +EO|
++--[ED25519 256]--+
+|.. ..            |
+| ..o A           |
+|. o..            |
+| .o.o .          |
+| ..+ =  B        |
+| .o = ..         |
+|o..X *.          |
+|++B=@.X          |
+|+*XOoOo+         |
 +----[SHA256]-----+
 ~~~
 {: .output}
 
 Next, you need to copy your public key (**not your private key - this is important!**) over to 
 your GitHub account. The `ssh-keygen` command above will let you know where your public key is saved (the file should have the 
-extension ".pub"), and you can get its contents as, e.g.:
+extension ".pub"), and you can get its contents as follows (on a Mac OS system):
 ~~~
-$ cat /Users/alex/.ssh/id_rsa.pub
+$ cat /Users/<YOUR_USERNAME>/.ssh/id_ed25519.pub
 ~~~
 {: .language-bash}
 ~~~
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOTBh3oZ3IzFJ2bGa1TxqDA3r+BVso48hrMJElLNafkEfSQXwxdst4mfiki/sQ/HeBBaoGEhZYMOwXbPAl4oJsVc0sXDZKPr+Da7wzuhnLVlEqfy+H9Pis99aCgivWI9MJktfSHd9bczyrGFLedSuD6BtBLeL/lgh7kIsKGAfpm0ZVnkDPSssqC9/TKJpyFXyf8yRA6t3GaFPDLylNiU16Xeu82Ntjsx5CqhnUG5lDFrJeERc7ShAZY6YMhp28DEe3SC/X/3/ZITXuHjCJqO82u0NJ5W+r2ZmD87Nqt5//jXJy0OpP0aQjVRlGTOWYUck117Ow9wyfhri9sKDpUOchD20pc287V2E5f6/df3kPrsEF284Y+lwoPyF/ei0qNaJsDpLaf/JL5hIwc9NO3KkVpWS7dH0cNsFpt+uLaai7QFFEg4hdJF2SdgkPmyobquoICzN5LPEskibHAtU2jDDg6tuOWbgQoyz6nYWVOdDCyjhPHCkVrznDi9NSQyP0UQ8= your-github-email@example.com
+ssh-ed25519 AABAC3NzaC1lZDI1NTE5AAAAICWGVRsl/pZsxx85QHLwSgJWyfMB1L8RCkEvYNkP4mZC your-github-email@example.com
 ~~~
 {: .output}
 
-Copy your last line of output that starts with "ssh-rsa" and ends with your email address 
-(it may start with a different algorithm name if you did not go for RSA and it may have gone over multiple lines if your command line window
-is not wide enough).
+Copy the line of output that starts with "ssh-ed25519" and ends with your email address 
+(it may start with a different algorithm name based on which one you used to generate the key pair 
+and it may have gone over multiple lines if your command line window is not wide enough).
 
 Finally, go to your [GitHub Settings -> SSH and GPG keys -> Add New](https://github.com/settings/ssh/new) page to add a new 
 SSH public key. Give your key a memorable name (e.g. the name of the computer you are working on that contains the 
