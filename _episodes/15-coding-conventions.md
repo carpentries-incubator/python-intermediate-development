@@ -418,8 +418,12 @@ because an incorrect comment causes more confusion than no comment at all.
 
 > ## Exercise: Improve Code Style of Our Project
 > Let's look at improving the coding style of our project.
-> First create a new feature branch called `style-fixes` off our `develop` branch
-> and switch to it (from the project root):
+> First, from the project root, use `git switch` to create a new feature branch called `style-fixes`
+> from our develop branch.
+> (Note that at this point `develop` and `main` branches
+> are pointing at the same commit so it does not really matter which one we are branching off - 
+> in real collaborative software development environments, you'd likely be expected to branch off `develop`
+> as it would contain the latest code developed by your team.)
 >
 > ~~~
 > $ git switch develop
@@ -478,16 +482,17 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     By convention, variable names should be in lowercase with optional underscores
 >>     so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
 >>
->>  3. There is an extra blank line on line 20 in `inflammation-analysis.py`.
+>>  3. There are two blank lines starting from line 19 in `inflammation-analysis.py`.
 >>     Normally, you should not use blank lines in the middle of the code
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
->>     and the rest of the code on line 30 in `inflammation-analysis.py` -
->>     should be two blank lines.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     and the rest of the code below line 27 in `inflammation-analysis.py` -
+>>     should be two blank lines (PEP8 recommends surrounding top-level function
+>>     (and class) definitions with two blank lines).
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >> Finally, let's add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.
