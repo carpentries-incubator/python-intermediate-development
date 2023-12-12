@@ -1,264 +1,169 @@
 ---
 title: "Software Architecture and Design"
-teaching: 15
-exercises: 30
+teaching: 25
+exercises: 20
 questions:
 - "What should we consider when designing software?"
-- "How can we make sure the components of our software are reusable?"
+- "What goals should we have when structuring our code?"
+- "What is refactoring?"
 objectives:
-- "Understand the use of common design patterns to improve the extensibility, reusability and overall quality of software."
-- "Understand the components of multi-layer software architectures."
+- "Know what goals we have when architecting and designing software."
+- "Understand what an abstraction is, and when you should use one."
+- "Understand what refactoring is."
 keypoints:
-- "Planning software projects in advance can save a lot of effort and reduce 'technical debt' later - even a partial plan is better than no plan at all."
+- "How code is structured is important for helping future people understand and update it"
 - "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change.
 Such components can be as small as a single function, or be a software package in their own right."
+- "These smaller components can be understood individually without having to understand the entire codebase at once."
 - "When writing software used for research, requirements will almost *always* change."
 - "*'Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do.'*"
 ---
 
 ## Introduction
 
-In this episode, we'll be looking at how we can design our software
-to ensure it meets the requirements,
-but also retains the other qualities of good software.
-As a piece of software grows,
-it will reach a point where there's too much code for us to keep in mind at once.
-At this point, it becomes particularly important that the software be designed sensibly.
-What should be the overall structure of our software,
-how should all the pieces of functionality fit together,
-and how should we work towards fulfilling this overall design throughout development?
+Typically when we start writing code, we write small scripts that
+we intend to use.
+We probably don't imagine we will need to change the code in the future.
+We almost certainly don't expect other people will need to understand
+and modify the code in the future.
+However, as projects grow in complexity and the number of people involved grows,
+it becomes important to think about how to structure code.
+Software Architecture and Design is all about thinking about ways to make the
+code be **maintainable** as projects grow.
 
-It's not easy to come up with a complete definition for the term **software design**,
-but some of the common aspects are:
+Maintainable code is:
 
-- **Algorithm design** -
-  what method are we going to use to solve the core business problem?
-- **Software architecture** -
-  what components will the software have and how will they cooperate?
-- **System architecture** -
-  what other things will this software have to interact with and how will it do this?
-- **UI/UX** (User Interface / User Experience) -
-  how will users interact with the software?
+ * Readable to people who didn't write the code.
+ * Testable through automated tests (like those from [episode 2](../21-automatically-testing-software/index.html)).
+ * Adaptable to new requirements.
 
-As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
-So we should think about the design of our software from the very beginning,
-ideally even before we start writing code -
-but if you didn't, it's never too late to start.
+Writing code that meets these requirements is hard and takes practise.
+Further, in most contexts you will already have a piece of code that breaks
+some (or maybe all!) of these principles.
 
-
-The answers to these questions will provide us with some **design constraints**
-which any software we write must satisfy.
-For example, a design constraint when writing a mobile app would be
-that it needs to work with a touch screen interface -
-we might have some software that works really well from the command line,
-but on a typical mobile phone there isn't a command line interface that people can access.
-
-
-## Software Architecture
-
-At the beginning of this episode we defined **software architecture**
-as an answer to the question
-"what components will the software have and how will they cooperate?".
-Software engineering borrowed this term, and a few other terms,
-from architects (of buildings) as many of the processes and techniques have some similarities.
-One of the other important terms we borrowed is 'pattern',
-such as in **design patterns** and **architecture patterns**.
-This term is often attributed to the book
-['A Pattern Language' by Christopher Alexander *et al.*](https://en.wikipedia.org/wiki/A_Pattern_Language)
-published in 1977
-and refers to a template solution to a problem commonly encountered when building a system.
-
-Design patterns are relatively small-scale templates
-which we can use to solve problems which affect a small part of our software.
-For example, the **[adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern)**
-(which allows a class that does not have the "right interface" to be reused)
-may be useful if part of our software needs to consume data
-from a number of different external data sources.
-Using this pattern,
-we can create a component whose responsibility is
-transforming the calls for data to the expected format,
-so the rest of our program doesn't have to worry about it.
-
-Architecture patterns are similar,
-but larger scale templates which operate at the level of whole programs,
-or collections or programs.
-Model-View-Controller (which we chose for our project) is one of the best known architecture patterns.
-Many patterns rely on concepts from Object Oriented Programming,
-so we'll come back to the MVC pattern shortly
-after we learn a bit more about Object Oriented Programming.
-
-There are many online sources of information about design and architecture patterns,
-often giving concrete examples of cases where they may be useful.
-One particularly good source is [Refactoring Guru](https://refactoring.guru/design-patterns).
-
-
-### Multilayer Architecture
-
-One common architectural pattern for larger software projects is **Multilayer Architecture**.
-Software designed using this architecture pattern is split into layers,
-each of which is responsible for a different part of the process of manipulating data.
-
-Often, the software is split into three layers:
-
-- **Presentation Layer**
-  - This layer is responsible for managing the interaction between
-    our software and the people using it
-  - May include the **View** components if also using the MVC pattern
-- **Application Layer / Business Logic Layer**
-  - This layer performs most of the data processing required by the presentation layer
-  - Likely to include the **Controller** components if also using an MVC pattern
-  - May also include the **Model** components
-- **Persistence Layer / Data Access Layer**
-  - This layer handles data storage and provides data to the rest of the system
-  - May include the **Model** components of an MVC pattern
-    if they're not in the application layer
-
-Although we've drawn similarities here between the layers of a system and the components of MVC,
-they're actually solutions to different scales of problem.
-In a small application, a multilayer architecture is unlikely to be necessary,
-whereas in a very large application,
-the MVC pattern may be used just within the presentation layer,
-to handle getting data to and from the people using the software.
-
-## Addressing New Requirements
-
-So, let's assume we now want to extend our application -
-designed around an MVC architecture - with some new functionalities
-(more statistical processing and a new view to see a patient's data).
-Let's recall the solution requirements we discussed in the previous episode:
-
-- *Functional Requirements*:
-  - SR1.1.1 (from UR1.1):
-    add standard deviation to data model and include in graph visualisation view
-  - SR1.2.1 (from UR1.2):
-    add a new view to generate a textual representation of statistics,
-    which is invoked by an optional command line argument
-- *Non-functional Requirements*:
-  - SR2.1.1 (from UR2.1):
-    generate graphical statistics report on clinical workstation configuration in under 30 seconds
-
-### How Should We Test These Requirements?
-
-Sometimes when we make changes to our code that we plan to test later,
-we find the way we've implemented that change doesn't lend itself well to how it should be tested.
-So what should we do?
-
-Consider requirement SR1.2.1 -
-we have (at least) two things we should test in some way,
-for which we could write unit tests.
-For the textual representation of statistics,
-in a unit test we could invoke our new view function directly
-with known inflammation data and test the text output as a string against what is expected.
-The second one, invoking this new view with an optional command line argument,
-is more problematic since the code isn't structured in a way where
-we can easily invoke the argument parsing portion to test it.
-To make this more amenable to unit testing we could
-move the command line parsing portion to a separate function,
-and use that in our unit tests.
-So in general, it's a good idea to make sure
-your software's features are modularised and accessible via logical functions.
-
-We could also consider writing unit tests for SR2.1.1,
-ensuring that the system meets our performance requirement, so should we?
-We do need to verify it's being met with the modified implementation,
-however it's generally considered bad practice to use unit tests for this purpose.
-This is because unit tests test *if* a given aspect is behaving correctly,
-whereas performance tests test *how efficiently* it does it.
-Performance testing produces measurements of performance which require a different kind of analysis
-(using techniques such as [*code profiling*](https://towardsdatascience.com/how-to-assess-your-code-performance-in-python-346a17880c9f)),
-and require careful and specific configurations of operating environments to ensure fair testing.
-In addition, unit testing frameworks are not typically designed for conducting such measurements,
-and only test units of a system,
-which doesn't give you an idea of performance of the system
-as it is typically used by stakeholders.
-
-The key is to think about which kind of testing should be used
-to check if the code satisfies a requirement,
-but also what you can do to make that code amenable to that type of testing.
-
-> ## Exercise: Implementing Requirements
-> Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement
-> and create an appropriate feature branch -
-> e.g. `add-std-dev` or `add-view` from your most up-to-date `develop` branch.
+> ## Group Exercise: Think about examples of good and bad code
+> Try to come up with examples of code that has been hard to understand - why?
 >
-> One aspect you should consider first is
-> whether the new requirement can be implemented within the existing design.
-> If not, how does the design need to be changed to accommodate the inclusion of this new feature?
-> Also try to ensure that the changes you make are amenable to unit testing:
-> is the code suitably modularised
-> such that the aspect under test can be easily invoked
-> with test input data and its output tested?
->
-> If you have time, feel free to implement the other requirement, or invent your own!
->
-> Also make sure you push changes to your new feature branch remotely
-> to your software repository on GitHub.
->
-> **Note: do not add the tests for the new feature just yet -
-> even though you would normally add the tests along with the new code,
-> we will do this in a later episode.
-> Equally, do not merge your changes to the `develop` branch just yet.**
->
-> **Note 2: we have intentionally left this exercise without a solution
-> to give you more freedom in implementing it how you see fit.
-> If you are struggling with adding a new view and command line parameter,
-> you may find the standard deviation requirement easier.
-> A later episode in this section will look at
-> how to handle command line parameters in a scalable way.**
+> Try to come up with examples of code that was easy to understand and modify - why?
 {: .challenge}
 
-## Best Practices for 'Good' Software Design
+In this episode we will explore techniques and processes that can help you
+continuously improve the quality of code so, over time, it tends towards more
+maintainable code.
 
-Aspirationally, what makes good code can be summarised in the following quote from the
-[Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
+We will look at:
 
-> *“Good code is written so that is readable, understandable,
-> covered by automated tests, not over complicated
-> and does well what is intended to do.”*
+ * What abstractions are, and how to pick appropriate ones.
+ * How to take code that is in a bad shape and improve it.
+ * Best practises to write code in ways that facilitate achieving these goals.
 
-By taking time to design our software to be easily modifiable and extensible,
-we can save ourselves a lot of time later when requirements change.
-The sooner we do this the better -
-ideally we should have at least a rough design sketched out for our software
-before we write a single line of code.
-This design should be based around the structure of the problem we're trying to solve:
-what are the concepts we need to represent
-and what are the relationships between them.
-And importantly, who will be using our software and how will they interact with it?
+### Cognitive Load
 
-Here's another way of looking at it.
+When we are trying to understand a piece of code, in our heads we are storing
+what the different variables mean and what the lines of code will do.
+**Cognitive load** is a way of thinking about how much information we have to store in our
+heads to understand a piece of code.
 
-Not following good software design and development practices
-can lead to accumulated 'technical debt',
-which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)),
-is the "cost of additional rework caused by choosing an easy (limited) solution now
-instead of using a better approach that would take longer".
-So, the pressure to achieve project goals can sometimes lead to quick and easy solutions,
-which make the software become
-more messy, more complex, and more difficult to understand and maintain.
-The extra effort required to make changes in the future is the interest paid on the (technical) debt.
-It's natural for software to accrue some technical debt,
-but it's important to pay off that debt during a maintenance phase -
-simplifying, clarifying the code, making it easier to understand -
-to keep these interest payments on making changes manageable.
-If this isn't done, the software may accrue too much technical debt,
-and it can become too messy and prohibitive to maintain and develop,
-and then it cannot evolve.
+The higher the cognitive load, the harder it is to understand the code.
+If it is too high, we might have to create diagrams to help us hold it all in our head
+or we might just decide we can't understand it.
 
-Importantly, there is only so much time available.
-How much effort should we spend on designing our code properly
-and using good development practices?
-The following [XKCD comic](https://xkcd.com/844/) summarises this tension:
+There are lots of ways to keep cognitive load down:
 
-![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
+* Good variable and function names
+* Simple control flow
+* Having each function do just one thing
 
-At an intermediate level there are a wealth of practices that *could* be used,
-and applying suitable design and coding practices is what separates
-an *intermediate developer* from someone who has just started coding.
-The key for an intermediate developer is to balance these concerns
-for each software project appropriately,
-and employ design and development practices *enough* so that progress can be made.
-It's very easy to under-design software,
-but remember it's also possible to over-design software too.
+## Abstractions
+
+An **abstraction**, at its most basic level, is a technique to hide the details
+of one part of a system from another part of the system.
+We deal with abstractions all the time - when you press the break pedal on the
+car, you do not know how this manages both slowing down the engine and applying
+pressure on the breaks.
+The advantage of using this abstraction is, when something changes, for example
+the introduction of anti-lock breaking or an electric engine, the driver does
+not need to do anything differently -
+the detail of how the car breaks is *abstracted* away from them.
+
+Abstractions are a fundamental part of software.
+For example, when you write Python code, you are dealing with an
+abstraction of the computer.
+You don't need to understand how RAM functions.
+Instead, you just need to understand how variables work in Python.
+
+In large projects it is vital to come up with good abstractions.
+A good abstraction makes code easier to read, as the reader doesn't need to understand
+all the details of the project to understand one part.
+An abstraction lowers the cognitive load of a bit of code,
+as there is less to understand at once.
+
+A good abstraction makes code easier to test, as it can be tested in isolation
+from everything else.
+
+Finally, a good abstraction makes code easier to adapt, as the details of
+how a subsystem *used* to work are hidden from the user, so when they change,
+the user doesn't need to know.
+
+In this episode we are going to look at some code and introduce various
+different kinds of abstraction.
+However, fundamentally any abstraction should be serving these goals.
+
+## Refactoring
+
+Often we are not working on brand new projects, but instead maintaining an existing
+piece of software.
+Often, this piece of software will be hard to maintain, perhaps because it has hard to understand, or doesn't have any tests.
+In this situation, we want to adapt the code to make it more maintainable.
+This will allow greater confidence of the code, as well as making future development easier.
+
+**Refactoring** is a process where some code is modified, such that its external behaviour remains
+unchanged, but the code itself is easier to read, test and extend.
+
+When faced with a old piece of code that is hard to work with, that you need to modify, a good process to follow is:
+
+1. Have tests that verify the current behaviour
+2. Refactor the code in such a way that the new change will slot in cleanly.
+3. Make the desired change, which now fits in easily.
+
+Notice, after step 2, the *behaviour* of the code should be totally identical.
+This allows you to test rigorously that the refactoring hasn't changed/broken anything
+*before* making the intended change.
+
+In this episode, we will be making some changes to an existing bit of code that
+is in need of refactoring.
+
+## The code for this episode
+
+The code itself is a feature to the inflammation tool we've been working on.
+
+In it, if the user adds `--full-data-analysis` then the program will scan the directory
+of one of the provided files, compare standard deviations across the data by day and
+plot a graph.
+
+The main body of it exists in `inflammation/compute_data.py` in a function called `analyse_data`.
+
+We are going to be refactoring and extending this over the remainder of this episode.
+
+> ## Group Exercise: What is bad about this code?
+> In what ways does this code not live up to the ideal properties of maintainable code?
+> Think about ways in which you find it hard to understand.
+> Think about the kinds of changes you might want to make to it, and what would
+> make making those changes challenging.
+>> ## Solution
+>> You may have found others, but here are some of the things that make the code
+>> hard to read, test and maintain:
+>>
+>> * **Hard to read:** Everything is in a single function - reading it you have to understand how the file loading
+works at the same time as the analysis itself.
+>> * **Hard to modify:** If you want to use the data without using the graph you'd have to change it
+>> * **Hard to modify or test:** It is always analysing a fixed set of data stored on the disk
+>> * **Hard to modify:** It doesn't have any tests meaning changes might break something
+>>
+>> Keep the list you have created.
+>> At the end of this section we will revisit this
+>> and check that we have learnt ways to address the problems we found.
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
