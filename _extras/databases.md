@@ -16,7 +16,7 @@ keypoints:
 
 > ## Follow up from Section 3
 > This episode could be read as a follow up from the end of
-> [Section 3 on software design and development](../35-refactoring-architecture/index.html).
+> [Section 3 on software design and development](../35-refactoring-architecture/index.html#additional-material).
 {: .callout}
 
 A **database** is an organised collection of data,

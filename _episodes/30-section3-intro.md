@@ -134,7 +134,7 @@ within the context of the typical software development process:
 - How to improve existing code to be more readable, maintainable and testable.
 - Consider different strategies for writing well designed code, including
   using **pure functions**, **classes** and **abstractions**.
-- How to create, asses and improve software design.
+- How to create, assess and improve software design.
 
 
 {% include links.md %}
