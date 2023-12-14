@@ -22,7 +22,7 @@ The requirements of our software are the basis on which the whole project rests 
 if we get the requirements wrong, we'll build the wrong software.
 However, it's unlikely that we'll be able to determine all of the requirements upfront.
 Especially when working in a research context,
-requirements are flexible and may change as we develop our software.
+requirements are flexible and may change as we develop our software.  
 
 ## Types of Requirements
 
@@ -226,8 +226,7 @@ and these aspects should be considered as part of the software's non-functional 
 > Think back to a piece of code or software (either small or large) you've written,
 > or which you have experience using.
 > First, try to formulate a few of its key business requirements,
-> then derive these into user and then solution requirements
-> (in a similar fashion to the ones above in *Types of Requirements*).
+> then derive these into user and then solution requirements.
 {: .challenge}
 
 

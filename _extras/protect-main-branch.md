@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Protecting the Main Branch on a Shared GitHub Repository"
+title: "Protecting the Main Branch on a Shared GitHub Repository"
 ---
 
 ## Introduction

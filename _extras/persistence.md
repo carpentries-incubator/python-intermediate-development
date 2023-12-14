@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Persistence"
+title: "Persistence"
 layout: episode
 teaching: 25
 exercises: 25
@@ -25,7 +25,7 @@ keypoints:
 
 > ## Follow up from Section 3
 > This episode could be read as a follow up from the end of
-> [Section 3 on software design and development](../35-refactoring-architecture/index.html#additional-material).
+> [Section 3 on software design and development](../35-refactoring-architecture/index.html#conclusion).
 {: .callout}
 
 Our patient data system so far can read in some data, process it, and display it to people.
