@@ -95,10 +95,10 @@ extras_order:
   - discuss
   - protect-main-branch
   - vscode
+  - software-architecture-paradigms
   - functional-programming
   - persistence
   - databases
-  - verifying-code-style-linters
   - quiz
 # Files and directories that are not to be copied.
 exclude:
