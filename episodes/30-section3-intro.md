@@ -2,7 +2,7 @@
 title: "Section 3: Software Development as a Process"
 colour: "#fafac8"
 start: true
-teaching: 5
+teaching: 10
 exercises: 0
 questions:
 - "How can we design and write 'good' software that meets its goals and requirements?"

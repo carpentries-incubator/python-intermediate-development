@@ -1,7 +1,7 @@
 ---
 title: "Software Requirements"
-teaching: 15
-exercises: 30
+teaching: 25
+exercises: 15
 questions:
 - "Where do we start when beginning a new software project?"
 - "How can we capture and organise what is required for software to function as intended?"

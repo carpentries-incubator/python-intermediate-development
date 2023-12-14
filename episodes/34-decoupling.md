@@ -1,5 +1,5 @@
 ---
-title: "Using Classes to De-Couple Code"
+title: "Decoupling Code"
 teaching: 30
 exercises: 45
 questions:
@@ -19,27 +19,33 @@ keypoints:
 
 ## Introduction
 
-When we're thinking about units of code, one important thing to consider is
-whether the code is **decoupled** (as opposed to **coupled**).
-Two units of code can be considered decoupled if changes in one don't
-necessitate changes in the other.
-While two connected units can't be totally decoupled, loose coupling
-allows for more maintainable code:
+In software design, an important aspect is the extent its components and smaller units
+as **coupled**.
+Two units of code can be considered **decoupled** if a change in one does not 
+necessitate a change in the other.
+While two connected units cannot always be totally decoupled, **loose coupling**
+is something we should aim for. Benefits of decoupled code include:
 
-* Loosely coupled code is easier to read as you don't need to understand the
+* easier to read as you do not need to understand the
   detail of the other unit.
-* Loosely coupled code is easier to test, as one of the units can be replaced
-  by a test or mock version of it.
-* Loose coupled code tends to be easier to maintain, as changes can be isolated
+* easier to test, as one of the units can be replaced
+  by a test or a mock version of it.
+* code tends to be easier to maintain, as changes can be isolated
   from other parts of the code.
 
-Introducing **abstractions** is a way to decouple code.
+## Abstractions
+
+We have already mentioned abstractions as a principle that simplifies complexity by 
+hiding details and focusing on high-level view and efficiency.
+
+
+Abstractions are a way of decoupling code.
 If one part of the code only uses another part through an appropriate abstraction
 then it becomes easier for these parts to change independently.
 
-> ## Exercise: Decouple the file loading from the computation
-> Currently the function is hard coded to load all the files in a directory.
-> Decouple this into a separate function that returns all the files to load
+> ## Exercise: Decouple Data Loading from Analysis
+> Loading data from CSV files in a directory is baked into the `analyse_data()` function. 
+> Decouple this into a separate function that returns all the files to load.
 >> ## Solution
 >> You should have written a new function that reads all the data into the format needed
 >> for the analysis:
@@ -56,45 +62,44 @@ then it becomes easier for these parts to change independently.
 >> def analyse_data(data_dir):
 >>   data = load_inflammation_data(data_dir)
 >>   daily_standard_deviation = compute_standard_deviation_by_data(data)
->> ...
+>>   ...
 >> ```
->> This is now easier to understand, as we don't need to understand the the file loading
->> to read the statistical analysis, and we don't have to understand the statistical analysis
->> when reading the data loading.
->> Ensure you re-run our regression test to check this refactoring has not
->> changed the output of `analyse_data`.
+>> The code is now easier to follow since we do not need to understand the the data loading from
+>> files to read the statistical analysis, and vice versa - we do not have to understand the 
+>> statistical analysis when looking at data loading.
+>> Ensure you re-run the regression tests to check this refactoring has not
+>> changed the output of `analyse_data()`.
 > {: .solution}
 {: .challenge}
 
-Even with this change, the file loading is coupled with the data analysis.
-For example, if we wave to support reading JSON files or CSV files
-we would have to pass into `analyse_data` some kind of flag indicating what we want.
+However, even with this change, the data loading is still coupled with the data analysis.
+For example, if we have to support loading data from different sources 
+(e.g. JSON files and CSV files), we would have to pass some kind of a flag indicating 
+what we want into `analyse_data()`. Instead, we would like to decouple the 
+consideration of what data to load from the `analyse_data()` function entirely.
 
-Instead, we would like to decouple the consideration of what data to load
-from the `analyse_data`` function entirely.
+One way we can do this is to use an object-oriented language feature called a *class*.
 
-One way we can do this is to use a language feature called a **class**.
+## Classes
 
-## Using Python Classes
-
-A class is a way of grouping together data with some specific methods.
-In Python, you can declare a class as follows:
+A class is a way of grouping together data with some specific methods on that data.
+In Python, you can **declare** a class as follows:
 
 ```python
 class Circle:
   pass
 ```
 
-They are typically named using `UpperCase`.
+They are typically named using "CapitalisedWords" naming convention.
 
-You can then **construct** a class elsewhere in your code by doing the following:
+You can then **construct** a class **instance** elsewhere in your code by doing the following:
 
 ```python
 my_circle = Circle()
 ```
 
-When you construct a class in this ways, the classes **construtor** is called.
-It is possible to pass in values to the constructor that configure the class:
+When you construct a class in this ways, the class' **constructor** is called.
+It is also possible to pass in values to the constructor to configure the class instance:
 
 ```python
 class Circle:
@@ -104,15 +109,15 @@ class Circle:
 my_circle = Circle(10)
 ```
 
-The constructor has the special name `__init__` (one of the so called "dunder methods").
-Notice it also has a special first parameter called `self` (called this by convention).
+The constructor has the special name `__init__`.
+Notice it has a special first parameter called `self` by convention.
 This parameter can be used to access the current **instance** of the object being created.
 
 A class can be thought of as a cookie cutter template,
 and the instances are the cookies themselves.
 That is, one class can have many instances.
 
-Classes can also have methods defined on them.
+Classes can also have other methods defined on them.
 Like constructors, they have an special `self` parameter that must come first.
 
 ```python
@@ -130,11 +135,11 @@ Here the instance of the class, `my_circle` will be automatically
 passed in as the first parameter when calling `get_area`.
 Then the method can access the **member variable** `radius`.
 
-> ## Exercise: Use a class to configure loading
+> ## Exercise: Use Classes to Abstract out Data Loading
 > Put the `load_inflammation_data` function we wrote in the last exercise as a member method
 > of a new class called `CSVDataSource`.
 > Put the configuration of where to load the files in the classes constructor.
-> Once this is done, you can construct this class outside the the statistical analysis
+> Once this is done, you can construct this class outside the statistical analysis
 > and pass the instance in to `analyse_data`.
 >> ## Hint
 >> When we have completed the refactoring, the code in the `analyse_data` function
@@ -172,7 +177,7 @@ Then the method can access the **member variable** `radius`.
 >> We can now pass an instance of this class into the the statistical analysis function.
 >> This means that should we want to re-use the analysis it wouldn't be fixed to reading
 >> from a directory of CSVs.
->> We have "decoupled" the reading of the data from the statistical analysis.
+>> We have fully decoupled the reading of the data from the statistical analysis.
 >> ```python
 >> def analyse_data(data_source):
 >>   data = data_source.load_inflammation_data()
