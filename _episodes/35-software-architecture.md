@@ -1,5 +1,5 @@
 ---
-title: "Architecting Code to Separate Responsibilities"
+title: "Software Architecture"
 teaching: 15
 exercises: 50
 questions:
@@ -18,6 +18,7 @@ keypoints:
 
 
 ## Introduction
+Separating Responsibilities
 
 Model-View-Controller (MVC) is a way of separating out different responsibilities of a typical
 application. Specifically we have:

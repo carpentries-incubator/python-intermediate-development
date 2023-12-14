@@ -74,8 +74,7 @@ goal of having *maintainable* code, which is:
   * using meaningful and descriptive names for variables, functions, and classes
   * documenting code to describe it does and how it may be used
   * using simple control flow to make it easier to follow the code execution
-  * keeping functions and methods small and focused on a single task and avoiding large functions
-  that do a little bit of everything (also important for testing)
+  * keeping functions and methods small and focused on a single task (also important for testing)
 * *testable* through a set of (preferably automated) tests, e.g. by:
   * writing unit, functional, regression tests to verify the code produces 
   the expected outputs from controlled inputs and exhibits the expected behavior over time 
@@ -125,7 +124,7 @@ software project and try to identify ways in which it can be improved.
 > {: .solution}
 {: .challenge}
 
-## Technical Debt
+## Poor Design Choices & Technical Debt
 
 When faced with a problem that you need to solve by writing code - it may be tempted to 
 skip the design phase and dive straight into coding. 
