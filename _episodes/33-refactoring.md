@@ -26,14 +26,10 @@ easier to understand and test.
 
 ## Writing Tests Before Refactoring
 
-When refactoring, it is useful to apply the following process:
-
-1. Write some tests that test the behaviour as it is now
-2. Refactor the code
-3. Check that the original tests still pass
-
-By writing the tests *before* we refactor, we can be confident we have not broken
-existing behaviour through refactoring.
+When refactoring, remember we should first make sure there are tests that verity 
+the code behaviour as it is now (or write them if they are missing), 
+then refactor the code and, finally, check that the original tests still pass. 
+This is to make sure we do not break the existing behaviour through refactoring.
 
 There is a bit of a "chicken and egg" problem here - if the refactoring is supposed to make it easier 
 to write tests in the future, how can we write tests before doing the refactoring? 

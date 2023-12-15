@@ -180,10 +180,10 @@ When faced with an existing piece of code that needs modifying a good refactorin
 process to follow is:
 
 1. Make sure you have tests that verify the current behaviour
-2. Refactor the code in such a way that the behaviour of the code is identical to that 
-before refactoring
+2. Refactor the code 
+3. Verify that that the behaviour of the code is identical to that before refactoring.
 
-Another technique to use when improving code are *abstractions*. 
+Another useful technique to use when improving code is *abstraction*. 
 
 ### Abstractions
 
