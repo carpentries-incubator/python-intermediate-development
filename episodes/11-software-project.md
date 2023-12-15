@@ -54,8 +54,7 @@ to fix and build on top of the existing code during the course.
 
 ## Downloading Our Software Project
 
-To start working on the project, you will first
-create a copy of the software project template repository
+To start working on the project, you will first create a fork of the software project repository
 from GitHub within your own GitHub account
 and then obtain a local copy of that project (from your GitHub) on your machine.
 
@@ -65,33 +64,37 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    Note that, while it is possible to use **HTTPS** with a personal access token for authentication with GitHub,
    the recommended and supported authentication method to use for this course is via SSH and key pairs.
 2. Log into your GitHub account.
-3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
    in GitHub.
 
-   ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
+   ![Software project fork repository in GitHub](../fig/github-fork-repository.png){: .image-with-shadow width="900px" }
 
-4. Click the `Use this template` button
-   towards the top right of the template repository's GitHub page to create
-   a **copy** of the repository under your GitHub account
-   (you will need to be signed into GitHub to see the `Use this template` button).
-   Note that each participant is creating their own copy to work on.
-   Also, we are not forking the directory but creating a copy
-   (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
+4. Click the `Fork` button
+   towards the top right of the repository's GitHub page to create
+   a **fork** of the repository under your GitHub account
+   (you will need to be signed into GitHub for the `Fork` button to work).
+   Note that each participant is creating their own fork to work on.
+   Also, we are not copying from a template but creating a fork
+   (remember you can have only one *fork*
+   but can have multiple *copies* of a repository in GitHub).
 5. Make sure to select your personal account
    and set the name of the project to `python-intermediate-inflammation`
    (you can call it anything you like,
    but it may be easier for future group exercises if everyone uses the same name).
-   Also set the new repository's visibility to 'Public' -
-   so it can be seen by others and by third-party Continuous Integration (CI) services
-   (to be covered later on in the course).
+   Ensure that you **uncheck** the `Copy the main branch only` button.
+   This will guarantee we get some other branches needed for later exercises,
+   but for the moment you can ignore them.
 
-   ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
+   ![Making a fork of the software project repository in GitHub](../fig/github-fork-repository-confirm.png){: .image-with-shadow width="600px" }
 
-6. Click the `Create repository from template` button
-   and wait for GitHub to import the copy of the repository under your account.
-7. Locate the copied repository under your own GitHub account.
+6. Click the `Create fork` button
+   and wait for GitHub to create the forked copy of the repository under your account.
+7. Locate the forked repository under your own GitHub account.
+   You should be taken there automatically after confirming the fork operation,
+   but if not, you can click your username top left to be taken to your user page,
+   and then select the `Repositories` tab, where you can search for this new fork.
 
-   ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
+   ![View of your own fork of the software repository in GitHub](../fig/github-forked-repository-own.png){: .image-with-shadow width="900px" }
 
 > ## Exercise: Obtain the Software Project Locally
 > Using the command line, clone the copied repository
@@ -99,7 +102,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > > ## Solution
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
-> > Make sure you do not clone the original template repository but rather your own copy,
+> > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
 > > Also make sure you select the **SSH** tab and not the **HTTPS** one -
 > > for this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
@@ -116,7 +119,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
 > >     ~~~
 > >     {: .language-bash}
-> >    Make sure you are cloning your copy of the software project and not the template repository.
+> >    Make sure you are cloning your fork of the software project and not the original repository.
 > >
 > > 4. Navigate into the cloned repository folder in your command line with:
 > >     ~~~
