@@ -162,8 +162,8 @@ Generating public/private ed25519 key pair.
 Enter file in which to save the key (/Users/<YOUR_USERNAME>/.ssh/id_ed25519): 
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /Users/user/.ssh/id_ed25519
-Your public key has been saved in /Users/user/.ssh/id_ed25519.pub
+Your identification has been saved in /Users/<YOUR_USERNAME>/.ssh/id_ed25519
+Your public key has been saved in /Users/<YOUR_USERNAME>/.ssh/id_ed25519.pub
 The key fingerprint is:
 SHA256:qjhN/iO42nnYmlpink2UTzaJpP8084yx6L2iQkVKdHk your-github-email@example.com
 The key's randomart image is:
