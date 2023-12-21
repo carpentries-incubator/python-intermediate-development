@@ -150,7 +150,7 @@ Do you confirm generation? (yes/no) [yes] yes
 ~~~
 {: .output}
 
-Note that we've called our package "inflammation" in the setup above,
+Note that we have called our package "inflammation" in the setup above,
 instead of "inflammation-analysis".
 This is because Poetry will automatically find our code
 if the name of the distributable package matches the name of our module package.
