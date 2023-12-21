@@ -35,8 +35,7 @@ It reuses the inflammation datasets from the
 >
 > Each dataset records inflammation measurements from a separate clinical trial of the drug,
 > and each dataset contains information for 60 patients,
-> who had their inflammation levels recorded for 40 days whilst participating in the trial 
-> in some arbitrary units of inflammation measurement. 
+> who had their inflammation levels recorded (in some arbitrary units of inflammation measurement) for 40 days whilst participating in the trial.
 > A snapshot of one of the data files is shown in the diagram above.
 >
 > Each of the data files uses the popular
