@@ -198,10 +198,10 @@ jobs:
     # Next we need to checkout out repository, and set up Python
     # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python 3.11
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: "3.11"
 
@@ -376,10 +376,10 @@ So, our `.github/workflows/main.yml` should look like the following:
     # Next we need to checkout out repository, and set up Python
     # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 ...
