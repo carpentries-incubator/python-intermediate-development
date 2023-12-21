@@ -1,7 +1,7 @@
 ---
 title: "Developing Software In a Team: Code Review"
 teaching: 30
-exercises: 40
+exercises: 30
 questions:
 - "How do we develop software in a team?"
 - "What is code review and how it can improve the quality of code?"
@@ -356,6 +356,7 @@ knows when you have finished adding comments
 >
 > **Add your review comments but do not submit your review just yet.**
 >
+> Time: 10 min
 >> ## Solution
 >>
 >> Here are some of the things you might have found were wrong with the code. 
@@ -440,6 +441,7 @@ turn for action.
 > Once you are happy, you can submit your review.
 > Select `Request changes` to let the author know they need to address your comments.
 >
+> Time: 10 min
 >> ## Solution
 >>
 >> Your list might include the following:
@@ -500,6 +502,8 @@ discussing what the best solution is in person can help defuse this.
 > Once all comments have been addressed, you can approve the pull request by submitting 
 > a new review and this time selecting `Approve`.
 > This tells the author you are happy for them to merge the pull request.
+>
+> Time: 10 min
 {: .challenge}
 
 ### Approving a Pull Request
@@ -598,7 +602,7 @@ and the PR merged, based on how your team works.
 If you are regularly missing your targets, then you should review your process to identify
 where things are getting stuck and work out what you can do to move things along.
 
-> ## Exercise: Code Review in Your Own Working Environment
+> ## Optional Exercise: Code Review in Your Own Working Environment
 >
 > In this episode we have looked at some best practices for code review and practiced 
 > tool assisted code review with GitHub's pull requests.
@@ -613,6 +617,7 @@ where things are getting stuck and work out what you can do to move things along
 > Once complete, discuss with the rest of the class what are the advantages of
 > a code review process and what challenges you think you would face in implementing 
 > this process in your own working environment.
+>
 > > ## Solution
 > > The purposes of code review include:
 > > - improving internal code readability, understandability, quality and maintainability,

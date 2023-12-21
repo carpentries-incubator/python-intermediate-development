@@ -1,7 +1,7 @@
 ---
 title: "Functional Programming"
 teaching: 30
-exercises: 30
+exercises: 40
 questions:
 - What is functional programming?
 - Which situations/problems is functional programming well suited for?
@@ -140,6 +140,7 @@ are called *pure functions*.
 > ~~~
 > {: .language-python}
 >
+> Time: 5 min
 > > ## Solution
 > >
 > > 1. `add_one` is pure - it has no effects other than to return a value and this value will always be the same when given the same inputs
@@ -323,6 +324,7 @@ print(list(result))
 > Ordinarily we would use Numpy's own `map` feature,
 > but for this exercise, let's try a solution without it.
 >
+> Time: 5 min
 > > ## Solution
 > > ~~~
 > > def daily_above_threshold(patient_num, data, threshold):
@@ -501,6 +503,7 @@ you need to import it from library `functools`.
 > Using reduce calculate the sum of a sequence of numbers.
 > Although in practice we would use the built-in `sum()` function for this - try doing it without it.
 >
+> Time: 5 min
 > > ## Solution
 > > ~~~
 > > from functools import reduce
@@ -629,6 +632,7 @@ def sum_of_squares(sequence):
 >   note that it can conditionally return different values using the syntax
 >   `<value> if <condition> else <another_value>` in the expression.
 >
+> Time: 10 min
 > > ## Solution
 > > Using a separate function:
 > > ~~~
@@ -789,6 +793,8 @@ and can even make multiple decorated versions using different decorators.
 >     return total
 > ~~~
 > {: .language-python}
+>
+> Time: 15 min
 > > ## Solution
 > >
 > > ~~~
