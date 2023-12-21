@@ -159,7 +159,7 @@ $ ssh-keygen -t ed25519 -C "your-github-email@example.com"
 {: .language-bash}
 ~~~
 Generating public/private ed25519 key pair.
-Enter file in which to save the key (/Users/user/.ssh/id_ed25519): 
+Enter file in which to save the key (/Users/<YOUR_USERNAME>/.ssh/id_ed25519): 
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
 Your identification has been saved in /Users/user/.ssh/id_ed25519
