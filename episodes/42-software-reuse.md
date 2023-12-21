@@ -366,6 +366,7 @@ $ git push origin main
 ~~~
 {: .language-bash}
 
+The software on your `main` branch is now ready for release.
 
 ## Tagging a Release in GitHub
 
@@ -379,8 +380,8 @@ $ git tag
 ~~~
 {: .language-bash}
 
-Since we haven't tagged any commits yet, there's unsurprisingly no output.
-We can create a new tag on the last commit we did by doing:
+Since we have not tagged any commits yet, there is unsurprisingly no output.
+We can create a new tag on the last commit in our `main` branch by doing:
 
 ~~~
 $ git tag -a v1.0.0 -m "Version 1.0.0"
@@ -464,7 +465,7 @@ index 4818abb..5b8e7fd 100644
 ~~~
 {: .output}
 
-So now we've added a tag, we need this reflected in our Github repository.
+So now we have added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
 ~~~
