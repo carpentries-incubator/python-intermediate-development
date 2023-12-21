@@ -736,7 +736,7 @@ Then we can just add this to our repo and trigger a build:
 ~~~
 $ git add .github/workflows/main.yml
 $ git commit -m "Add Pylint run to build"
-$ git push
+$ git push origin test-suite
 ~~~
 {: .language-bash}
 
@@ -789,8 +789,39 @@ Now when we run Pylint we won't be penalised for having a reasonable line length
 For some further hints and tips on how to approach using Pylint for a project,
 see [this article](https://pythonspeed.com/articles/pylint/).
 
-Before moving on, be sure to commit all your changes
-and then merge to the `develop` and `main` branches in the usual manner,
-and push them all to GitHub.
+## Merging to `develop` Branch
+
+Now we're happy with our test suite, we can merge this work
+(which currently only exist on our `test-suite` branch)
+with our parent `develop` branch.
+Again, this reflects us working with impunity on a logical unit of work,
+involving multiple commits,
+on a separate feature branch until it is ready to be escalated to the `develop` branch.
+
+Be sure to commit all your changes to `test-suite` and then merge to the 
+`develop` branch in the usual manner.
+
+~~~
+$ git switch develop
+$ git merge test-suite
+~~~
+{: .language-bash}
+
+Then, assuming there are no conflicts,
+we can push these changes back to the remote repository as we've done before:
+
+~~~
+$ git push origin develop
+~~~
+{: .language-bash}
+
+Now these changes have migrated to our parent `develop` branch,
+`develop` will also inherit the configuration to run CI builds,
+so these will run automatically on this branch as well.
+
+This highlights a big benefit of CI when you perform merges (and apply pull requests).
+As new branch code is merged into upstream branches like `develop` and `main`
+these newly integrated code changes are automatically tested *together* with existing code -
+which of course may also have been changed by other developers working on the code at the same time.
 
 {% include links.md %}

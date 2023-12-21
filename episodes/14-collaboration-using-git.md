@@ -1,5 +1,5 @@
 ---
-title: "Collaborative Software Development Using Git and GitHub"
+title: "Software Development Using Git and GitHub"
 start: false
 teaching: 35
 exercises: 0
@@ -351,7 +351,7 @@ So, working on a separate branch for each feature you are adding is good for sev
 * it enables you to keep the untested and not-yet-functional feature branch code
   under version control and backed up,
 * you and other team members may work on several features
-  at the same time independently from one another,
+  at the same time independently from one another, and 
 * if you decide that the feature is not working or is no longer needed -
   you can easily and safely discard that branch without affecting the rest of the code.
 
@@ -486,7 +486,7 @@ However, as we have just created this branch locally,
 it still does not exist in our remote repository.
 You can check that in GitHub by listing all branches.
 
-![Software project's main branch](../fig/software-project-main-branch.png){: .image-with-shadow width="700px"}
+![Software project's main branch](../fig/github-main-branch.png){: .image-with-shadow width="600px"}
 
 To push a new local branch remotely for the first time,
 you could use the `-u` flag and the name of the branch you are creating and pushing to:
@@ -508,11 +508,14 @@ $ git push -u origin develop
 {: .callout}
 
 Let's confirm that the new branch `develop` now exist remotely on GitHub too.
-From the `< > Code` tab in your repository in GitHub,
+From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
-You should see your `develop` branch in the list too.
+You should see your `develop` branch in the list too. 
 
-![Software project's develop branch](../fig/software-project-develop-branch.png){: .image-with-shadow width="700px"}
+![Software project's develop branch](../fig/github-develop-branch.png){: .image-with-shadow width="600px"}
+
+You may also have noticed GitHub's notification about the latest push to your `develop` branch just
+on top of the repository files and branches drop-down menu.
 
 Now the others can check out the `develop` branch too and continue to develop code on it.
 
@@ -591,7 +594,7 @@ and commit the changes before attempting to merge again.
 Since we have no conflicts, we can now push the `main` branch to the remote repository:
 
 ~~~
-git push origin main
+$ git push origin main
 ~~~
 {: .language-bash}
 

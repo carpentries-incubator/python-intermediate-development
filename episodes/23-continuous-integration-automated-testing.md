@@ -280,7 +280,7 @@ Now if we commit and push this change a CI run will be triggered:
 ~~~
 $ git add .github
 $ git commit -m "Add GitHub Actions configuration"
-$ git push
+$ git push origin test-suite
 ~~~
 {: .language-bash}
 
@@ -397,7 +397,7 @@ Let's commit and push this change and see what happens:
 ~~~
 $ git add .github/workflows/main.yml
 $ git commit -m "Add GA build matrix for os and Python version"
-$ git push
+$ git push origin test-suite
 ~~~
 {: .language-bash}
 
@@ -409,39 +409,5 @@ Note all jobs running in parallel (up to the limit allowed by our account)
 which potentially saves us a lot of time waiting for testing results.
 Overall, this approach allows us to massively scale our automated testing
 across platforms we wish to test.
-
-
-## Merging Back to `develop` Branch
-
-Now we're happy with our test suite, we can merge this work
-(which currently only exist on our `test-suite` branch)
-with our parent `develop` branch.
-Again, this reflects us working with impunity on a logical unit of work,
-involving multiple commits,
-on a separate feature branch until it's ready to be escalated to the `develop` branch:
-
-~~~
-$ git switch develop
-$ git merge test-suite
-~~~
-{: .language-bash}
-
-Then, assuming no conflicts
-we can push these changes back to the remote repository as we've done before:
-
-~~~
-$ git push origin develop
-~~~
-{: .language-bash}
-
-Now these changes have migrated to our parent `develop` branch,
-`develop` will also inherit the configuration to run CI builds,
-so these will run automatically on this branch as well.
-
-This highlights a big benefit of CI when you perform merges (and apply pull requests).
-As new branch code is merged into upstream branches like `develop` and `main`
-these newly integrated code changes are automatically tested *together* with existing code -
-which of course may also have changed in the meantime!
-
 
 {% include links.md %}

@@ -47,12 +47,12 @@ $ python3 -m pip freeze > requirements.txt
 
 Pylint is a command-line tool that can help our code in many ways:
 
-- **Check PEP8 compliance:**
+- **Check PEP 8 compliance:**
   whilst in-IDE context-sensitive highlighting such as that provided via PyCharm
-  helps us stay consistent with PEP8 as we write code, this tool provides a full report
+  helps us stay consistent with PEP 8 as we write code, this tool provides a full report
 - **Perform basic error detection:** Pylint can look for certain Python type errors
 - **Check variable naming conventions**:
-  Pylint often goes beyond PEP8 to include other common conventions,
+  Pylint often goes beyond PEP 8 to include other common conventions,
   such as naming variables outside of functions in upper case
 - **Customisation**:
   you can specify which errors and conventions you wish to check for, and those you wish to ignore
@@ -95,14 +95,13 @@ You should see an output similar to the following:
 
 ~~~
 ************* Module inflammation.models
-inflammation/models.py:5:82: C0303: Trailing whitespace (trailing-whitespace)
-inflammation/models.py:6:66: C0303: Trailing whitespace (trailing-whitespace)
+inflammation/models.py:13:23: C0303: Trailing whitespace (trailing-whitespace)
 inflammation/models.py:34:0: C0305: Trailing newlines (trailing-newlines)
 ************* Module inflammation.views
 inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.00/10 (previous run: 8.00/10, +0.00)
+Your code has been rated at 8.50/10 (previous run: 8.50/10, +0.00)
 ~~~
 {: .output}
 
@@ -167,8 +166,17 @@ they won't find everything that may be wrong with it.
 {: .challenge}
 
 Make sure you commit and push `requirements.txt`
-and any file with further code style improvements you did
-and merge onto your development and main branches.
+and any file with further code style improvements you did on to `style-fixes` branch and then
+merge all these changes into your development branch. 
+
+For the time being, we will not merge 
+the development branch onto `main` until we finish testing our code a bit further and automating 
+those tests with GitHub's Continuous Integration service called GitHub Actions
+(to be covered in the next section). 
+Note that it is also possible to automate the linting kinds of code checks
+with GitHub Actions - we will come back to automated linting in the episode on
+["Diagnosing Issues and Improving Robustness"](../24-diagnosing-issues-improving-robustness/index.html).
+
 
 ~~~
 $ git add requirements.txt
@@ -177,9 +185,6 @@ $ git push origin style-fixes
 $ git switch develop
 $ git merge style-fixes
 $ git push origin develop
-$ git switch main
-$ git merge develop
-$ git push origin main
 ~~~
 {: .language-bash}
 
@@ -187,10 +192,5 @@ $ git push origin main
 > If you have a Python project you are working on or you worked on in the past,
 > run it past Pylint to see what issues with your code are detected, if any.
 {: .challenge}
-
-It is possible to automate these kind of code checks
-with GitHub's Continuous Integration service GitHub Actions -
-we will come back to automated linting in the episode on
-["Diagnosing Issues and Improving Robustness"](../24-diagnosing-issues-improving-robustness/index.html).
 
 {% include links.md %}

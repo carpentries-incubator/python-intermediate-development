@@ -40,16 +40,16 @@ and web browser integration for web app development,
 source code inspection for dependencies and many other useful functionalities.
 The following is a list of the most commonly seen IDE features:
 
-- syntax highlighting -
+- **syntax highlighting** -
   to show the language constructs, keywords and the syntax errors
   with visually distinct colours and font effects
-- code completion -
+- **code completion** -
   to speed up programming by offering a set of possible (syntactically correct) code options
-- code search -
+- **code search** -
   finding package, class, function and variable declarations, their usages and referencing
-- version control support -
+- **version control support** -
   to interact with source code repositories
-- debugging -
+- **debugging support** -
   for setting breakpoints in the code editor,
   step-by-step execution of code and inspection of variables
 
@@ -131,7 +131,7 @@ and PyCharm is clever enough to understand it.
 
 #### Adding a Python Interpreter
 1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears,
+2. In the window that appears,
    select `Project: python-intermediate-inflammation` > `Python Interpreter` from the left.
    You'll see a number of Python packages displayed as a list, and importantly above that,
    the current Python interpreter that is being used.
