@@ -1,7 +1,7 @@
 ---
 title: "Managing a Collaborative Software Project"
 teaching: 15
-exercises: 30
+exercises: 20
 questions:
 - "How can we keep track of identified issues and the list of tasks the team has to do?"
 - "How can we communicate within a team on code-related issues and share responsibilities?"
@@ -155,7 +155,7 @@ This can make it clear you've thought about an issue and dismissed it.
 > In GitHub, enter the details of the issue and select `Submit new issue`.
 > Add a label to your issue, if appropriate.
 >
-> Time: 5 mins
+> Time: 5 min
 >> ## Solution
 >> For example, "Add a licence file" could be a good first issue, with a label `documentation`.
 > {: .solution}
@@ -241,7 +241,7 @@ and link to the commit in question.
 > and reference the issue you created in the previous exercise
 > using the  `#` notation.
 >
-> Time: 5 mins
+> Time: 5 min
 {: .challenge}
 
 > ## You Are Also a User of Your Code
@@ -326,14 +326,14 @@ Let's create a Project in GitHub to plan the first release of our code.
    You should populate the name and the description of the project from the project's Settings,
    which can be found by clicking the `...` button in the top right corner of the board.
 
-   ![Project board setting in GitHub](../fig/github-project-settings.png){: .image-with-shadow width="1000px"}
+   ![Project board setting in GitHub](../fig/github-project-settings.png){: .image-with-shadow width="800px"}
 
 4. We can, for example, use "Inflammation project - release v0.1"
    and "Tasks for the v0.1 release of the inflammation project"
    for the name and description of our project, respectively.
    Or you can use anything that suits your project.
 
-   ![Naming a project in GitHub](../fig/github-name-project.png){: .image-with-shadow width="1000px"}
+   ![Naming a project in GitHub](../fig/github-name-project.png){: .image-with-shadow width="800px"}
 
 5. GitHub's default card board template contains
    the following three columns with pretty self-explanatory names:
@@ -342,7 +342,7 @@ Let's create a Project in GitHub to plan the first release of our code.
    - `In Progress`
    - `Done`
 
-   ![Default card board in GitHub](../fig/github-project-view-add-remove-items.png){: .image-with-shadow width="1000px"}
+   ![Default card board in GitHub](../fig/github-project-view-add-remove-items.png){: .image-with-shadow width="800px"}
 
     You can add or remove columns from your project board to suit your use case.
     One commonly seen extra column is `On hold` or `Waiting` -
@@ -366,7 +366,7 @@ Let's create a Project in GitHub to plan the first release of our code.
    and selecting the repository
    and an issue or pull request from that repository that you want to add.
 
-    ![Adding issues and notes to a project board in GitHub](../fig/github-project-new-items.png){: .image-with-shadow width="1000px"}
+    ![Adding issues and notes to a project board in GitHub](../fig/github-project-new-items.png){: .image-with-shadow width="800px"}
 
     Notes contain task descriptions and can have detailed content like checklists.
     In some cases, e.g. if a note becomes too complex,
@@ -375,7 +375,7 @@ Let's create a Project in GitHub to plan the first release of our code.
     or write more detailed comments
     (for that, use the `Convert to issue` option from the `...` menu on the card itself).
 
-   ![Coverting a task to issue](../fig/github-convert-task-to-issue.png){: .image-with-shadow width="1000px"}
+   ![Coverting a task to issue](../fig/github-convert-task-to-issue.png){: .image-with-shadow width="800px"}
 
 7.  In addition to creating new tasks as notes and converting them to issues -
 you can add an existing issue or pull request (from any repository visible to you)
@@ -400,7 +400,7 @@ and pressing the `Enter` key.
 > Make sure to add a certain number of issues to your repository
 > to be able to use in your project board.
 >
-> Time: 10 mins
+> Time: 10 min
 {: .challenge}
 
 > ## Prioritisation With Project Boards

@@ -1,7 +1,7 @@
 ---
 title: "Software Architecture and Design"
 teaching: 15
-exercises: 30
+exercises: 20
 questions:
 - "What should we consider when designing software?"
 - "How can we make sure the components of our software are reusable?"
@@ -176,6 +176,14 @@ The key is to think about which kind of testing should be used
 to check if the code satisfies a requirement,
 but also what you can do to make that code amenable to that type of testing.
 
+Let's add some more code to implement new requirements. Make sure you are located 
+in your `develop` branch and that it is up-to-date with everything you worked on so far.
+
+~~~
+$ git switch develop
+~~~
+{: .language-bash}
+
 > ## Exercise: Implementing Requirements
 > Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement
 > and create an appropriate feature branch -
@@ -205,6 +213,8 @@ but also what you can do to make that code amenable to that type of testing.
 > you may find adding the daily standard deviation requirement easier.
 > A later episode in this section will look at
 > how to handle command line parameters in a scalable way.*
+>
+> Time: 30 min
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design

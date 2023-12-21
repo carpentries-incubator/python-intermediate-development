@@ -2,7 +2,7 @@
 title: "Integrated Software Development Environments"
 start: false
 teaching: 25
-exercises: 15
+exercises: 10
 questions:
 - "What are Integrated Development Environments (IDEs)?"
 - "What are the advantages of using IDEs for software development?"
@@ -40,16 +40,16 @@ and web browser integration for web app development,
 source code inspection for dependencies and many other useful functionalities.
 The following is a list of the most commonly seen IDE features:
 
-- syntax highlighting -
+- **syntax highlighting** -
   to show the language constructs, keywords and the syntax errors
   with visually distinct colours and font effects
-- code completion -
+- **code completion** -
   to speed up programming by offering a set of possible (syntactically correct) code options
-- code search -
+- **code search** -
   finding package, class, function and variable declarations, their usages and referencing
-- version control support -
+- **version control support** -
   to interact with source code repositories
-- debugging -
+- **debugging support** -
   for setting breakpoints in the code editor,
   step-by-step execution of code and inspection of variables
 
@@ -131,7 +131,7 @@ and PyCharm is clever enough to understand it.
 
 #### Adding a Python Interpreter
 1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
-2. In the preferences window that appears,
+2. In the window that appears,
    select `Project: python-intermediate-inflammation` > `Python Interpreter` from the left.
    You'll see a number of Python packages displayed as a list, and importantly above that,
    the current Python interpreter that is being used.
@@ -180,6 +180,7 @@ Let's see this in action through the following exercise.
 > Hint: We can use an argument to `pip`,
 > or find the packages directly in a subdirectory of our virtual environment directory "venv".
 >
+> Time: 5 min
 >> ## Solution
 >> From the previous episode,
 >> you may remember that we can get the list of packages in the current virtual environment
@@ -317,6 +318,8 @@ Let's do this as an exercise.
 
 > ## Exercise: Update `requirements.txt` After Adding a New Dependency
 > Export the newly updated virtual environment into `requirements.txt` file.
+>
+> Time: 5 min 
 >> ## Solution
 >> Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
 >> but not in `requirements.txt`. First, let's check the list of installed packages:
