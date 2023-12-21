@@ -360,7 +360,7 @@ we can merge our `develop` branch into `main`:
 ~~~
 $ git switch main
 $ git merge develop
-$ git push
+$ git push origin main
 ~~~
 {: .language-bash}
 

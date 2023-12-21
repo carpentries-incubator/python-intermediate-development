@@ -44,7 +44,7 @@ import numpy as np
 ~~~
 {: .language-python}
 
-This means that our code requires two *external libraries*
+This means that our code requires two **external libraries**
 (also called third-party packages or dependencies) -
 `numpy` and `matplotlib`.
 Python applications often use external libraries that don’t come as part of the standard Python distribution.
@@ -58,7 +58,7 @@ This means that each Python application you work with may require a different se
 and a set of dependencies so it is useful to be able to keep these configurations
 separate to avoid confusion between projects.
 The solution for this problem is to create a self-contained
-*virtual environment* per project,
+**virtual environment** per project,
 which contains a particular version of Python installation
 plus a number of additional external libraries.
 
@@ -78,7 +78,7 @@ that uses a specific version of Python interpreter
 together with specific versions of a number of external libraries
 installed into that virtual environment.
 Python virtual environments are implemented as
-directories with a **particular structure** within software projects,
+directories with a particular structure within software projects,
 containing links to specified dependencies
 allowing isolation from other software projects on your machine that may require
 different versions of Python or external libraries.
@@ -269,7 +269,7 @@ containing:
   containing a symlink of the Python interpreter binary used to create the environment
   and the standard Python library,
 - `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows)
-  to contain its own independent set of installed Python packages isolated from other projects,
+  to contain its own independent set of installed Python packages isolated from other projects, and
 - various other configuration and supporting files and subdirectories.
 
 > ## Naming Virtual Environments
@@ -352,18 +352,18 @@ $ source venv/bin/activate
 
 > ## Python Within A Virtual Environment
 >
-> Within a virtual environment,
-> commands `python` and `pip` will refer to the version of Python you created the environment with.
-> If you create a virtual environment with `python3 -m venv venv`,
-> `python` will refer to `python3` and `pip` will refer to `pip3`.
+> Within an active virtual environment,
+> commands `python3` and `python` should both refer to the version of Python 3 
+> you created the environment with (note you may have multiple Python 3 versions installed).
 >
-> On some machines with Python 2 installed,
-> `python` command may refer to the copy of Python 2
-> installed outside of the virtual environment instead, which can cause confusion.
+> However, on some machines with Python 2 installed,
+> `python` command may still be hardwired to the copy of Python 2
+> installed outside of the virtual environment - this can cause errors and confusion.
+> 
 > You can always check which version of Python you are using in your virtual environment
 > with the command `which python` to be absolutely sure.
-> We continue using `python3` and `pip3` in this material to avoid confusion for those users,
-> but commands `python` and `pip` may work for you as expected.
+> We continue using `python3` in this material to avoid mistakes, 
+> but the command `python` may work for you as expected.
 {: .callout}
 
 Note that, since our software project is being tracked by Git,
