@@ -2,7 +2,7 @@
 title: "Integrated Software Development Environments"
 start: false
 teaching: 25
-exercises: 15
+exercises: 10
 questions:
 - "What are Integrated Development Environments (IDEs)?"
 - "What are the advantages of using IDEs for software development?"
@@ -180,6 +180,7 @@ Let's see this in action through the following exercise.
 > Hint: We can use an argument to `pip`,
 > or find the packages directly in a subdirectory of our virtual environment directory "venv".
 >
+> Time: 5 min
 >> ## Solution
 >> From the previous episode,
 >> you may remember that we can get the list of packages in the current virtual environment
@@ -317,6 +318,8 @@ Let's do this as an exercise.
 
 > ## Exercise: Update `requirements.txt` After Adding a New Dependency
 > Export the newly updated virtual environment into `requirements.txt` file.
+>
+> Time: 5 min 
 >> ## Solution
 >> Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
 >> but not in `requirements.txt`. First, let's check the list of installed packages:

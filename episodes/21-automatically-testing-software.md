@@ -1,7 +1,7 @@
 ---
 title: "Automatically Testing Software"
 teaching: 30
-exercises: 20
+exercises: 15
 questions:
 - "Does the code we develop work the way it should do?"
 - "Can we (and others) verify these assertions for themselves?"
@@ -540,6 +540,7 @@ do we think these results are easy to understand?
 > Once added, run all the tests again with `python -m pytest tests/test_models.py`,
 > and you should also see your new tests pass.
 >
+> Time: 15 min
 > > ## Solution
 > >
 > > ~~~

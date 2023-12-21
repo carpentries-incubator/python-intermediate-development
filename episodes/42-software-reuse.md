@@ -2,7 +2,7 @@
 title: "Preparing Software for Reuse and Release"
 start: false
 teaching: 35
-exercises: 20
+exercises: 15
 questions:
 - "What can we do to make our programs reusable by others?"
 - "How should we document and license our code?"
@@ -338,6 +338,8 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 > choosing a licence,
 > and fixing any remaining problems you are aware of in your codebase.
 > Ensure you prioritise and work on the most pressing issues first!
+> 
+> Time: 15 min
 {: .challenge}
 
 ## Merging into `main`

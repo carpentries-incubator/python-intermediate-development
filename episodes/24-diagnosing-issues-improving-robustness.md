@@ -1,7 +1,7 @@
 ---
 title: "Diagnosing Issues and Improving Robustness"
 teaching: 30
-exercises: 20
+exercises: 15
 questions:
 - "Once we know our program has errors, how can we locate them in the code?"
 - "How can we make our programs more resilient to failure?"
@@ -441,6 +441,7 @@ def patient_normalise(data):
 > and add them to the parametrised tests.
 > After you have finished remember to commit your changes.
 >
+> Time: 10 min
 > > ## Possible Solution
 > > ~~~
 > > @pytest.mark.parametrize(
@@ -698,9 +699,11 @@ you may cause yourself some trouble which may be difficult to trace).
 
 > ## Exercise: Fix Code Style Errors
 >
-> Rename our local variable `max` to something else (e.g. call it `max_data`), then rerun your tests and
-> commit these latest changes and
-> push them to GitHub using our usual feature branch workflow. Make sure your `develop` and `main` branches are up to date.
+> Rename our local variable `max` to something else (e.g. call it `max_data`), 
+> then rerun your tests and commit these latest changes and
+> push them to GitHub using our usual feature branch workflow. 
+>
+> Time: 5 min
 {: .challenge}
 
 It may be hard to remember to run linter tools every now and then.

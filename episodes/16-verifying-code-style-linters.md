@@ -2,7 +2,7 @@
 title: "Verifying Code Style Using Linters"
 start: false
 teaching: 15
-exercises: 10
+exercises: 5
 questions:
 - "What tools can help with maintaining a consistent code style?"
 - "How can we automate code style checking?"
@@ -162,7 +162,9 @@ they won't find everything that may be wrong with it.
 > ## Exercise: Further Improve Code Style of Our Project
 > Select and fix a few of the issues with our code that Pylint detected.
 > Make sure you do not break the rest of the code in the process and that the code still runs.
-> After making any changes, run Pylint again to verify you've resolved these issues.
+> After making any changes, run Pylint again to verify you have resolved these issues.
+>
+> Time: 5 min
 {: .challenge}
 
 Make sure you commit and push `requirements.txt`

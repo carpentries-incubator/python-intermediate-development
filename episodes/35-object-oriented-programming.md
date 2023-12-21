@@ -1,7 +1,7 @@
 ---
 title: "Object Oriented Programming"
 teaching: 30
-exercises: 20
+exercises: 35
 questions:
 - "How can we use code to describe the structure of data?"
 - "How should the relationships between structures be described?"
@@ -76,9 +76,9 @@ patients = [
 > which can be used to attach names to our patient dataset.
 > When used as below, it should produce the expected output.
 >
-> If you're not sure where to begin,
+> If you are not sure where to begin,
 > think about ways you might be able to effectively loop over two collections at once.
-> Also, don't worry too much about the data type of the `data` value,
+> Also, do not worry too much about the data type of the `data` value,
 > it can be a Python list, or a NumPy array - either is fine.
 >
 > ~~~
@@ -104,6 +104,7 @@ patients = [
 > ~~~
 > {: .output}
 >
+> Time: 10 min
 > > ## Solution
 > >
 > > One possible solution, perhaps the most obvious,
@@ -460,6 +461,7 @@ section of the Python documentation.
 > ~~~
 > {: .output}
 >
+> Time: 5 min
 > > ## Solution
 > >
 > > ~~~
@@ -800,6 +802,7 @@ before we can properly initialise a `Patient` model with their inflammation data
 > explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
 >
+> Time: 20 min
 > > ## Solution
 > > One example solution is shown below.
 > > You may start by writing some tests (that will initially fail),

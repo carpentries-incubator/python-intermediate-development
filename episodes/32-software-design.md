@@ -1,7 +1,7 @@
 ---
 title: "Software Architecture and Design"
 teaching: 15
-exercises: 30
+exercises: 20
 questions:
 - "What should we consider when designing software?"
 - "How can we make sure the components of our software are reusable?"
@@ -213,6 +213,8 @@ $ git switch develop
 > you may find adding the daily standard deviation requirement easier.
 > A later episode in this section will look at
 > how to handle command line parameters in a scalable way.*
+>
+> Time: 30 min
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design
