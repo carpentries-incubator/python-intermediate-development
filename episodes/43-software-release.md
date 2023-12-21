@@ -150,8 +150,8 @@ Do you confirm generation? (yes/no) [yes] yes
 ~~~
 {: .output}
 
-We've called our package "inflammation" in the setup above,
-instead of "inflammation-analysis" like we did in our previous `setup.py`.
+Note that we've called our package "inflammation" in the setup above,
+instead of "inflammation-analysis".
 This is because Poetry will automatically find our code
 if the name of the distributable package matches the name of our module package.
 If we wanted our distributable package to have a different name,
