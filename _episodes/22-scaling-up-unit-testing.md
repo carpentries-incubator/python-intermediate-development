@@ -228,7 +228,7 @@ which is used by `pytest` to tell us how many statements in our code are being t
 
 ~~~
 $ python3 -m pip install pytest-cov
-$ python -m pytest --cov=catchment.models tests/test_models.py
+$ python3 -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-bash}
 

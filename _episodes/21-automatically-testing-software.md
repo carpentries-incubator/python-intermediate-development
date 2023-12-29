@@ -620,21 +620,21 @@ and specify the `tests/test_models.py` file to run the tests in that file explic
 
 > ## Why Run Pytest Using `python3 -m pytest` and Not `pytest`?
 >
-> `pytest` is another Python module that can be run via its own command but this is a good example 
+> `pytest` is another Python module that can be run via its own command but this is a good example
 > why invoking Python modules via `python3 -m` may be better (recall the [explanation of Python interpreter's `-m` flag](../12-virtual-environments/index.html#what-is--m-flag-in-python3-command)).
 > Had we used `pytest tests/test_models.py` command directly,
-> this would have led to a "ModuleNotFoundError: No module named 'catchment'" error. This is 
-> because `pytest` command (unlike `python3 -m pytest`) does not add the current directory to its list of 
-> directories to search for modules, hence the `catchment` subdirectory's contents are not being 
-> 'seen' by `pytest` causing the `ModuleNotFoundError`. There are ways to work around this problem 
+> this would have led to a "ModuleNotFoundError: No module named 'catchment'" error. This is
+> because `pytest` command (unlike `python3 -m pytest`) does not add the current directory to its list of
+> directories to search for modules, hence the `catchment` subdirectory's contents are not being
+> 'seen' by `pytest` causing the `ModuleNotFoundError`. There are ways to work around this problem
 > but `python3 -m pytest` ensures it does not happen in the first place.
-> 
-> 
+>
+>
 {: .callout}
 
 ~~~
 ============================================== test session starts =====================================================
-platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+platform darwin -- Python 3.11.4, pytest-7.4.3, pluggy-1.3.0
 rootdir: /Users/alex/python-intermediate-rivercatchment
 plugins: anyio-3.3.4
 collected 2 items
