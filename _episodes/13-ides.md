@@ -67,12 +67,12 @@ Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
 but often less feature-rich.
 You will have to decide which one is the best for you -
 in this course we will learn how to use [VS Code](https://code.visualstudio.com/),
-a free, open source Python IDE.
-Some popular alternatives include
+a free multi-language (including Python) IDE.
+Some popular alternatives for Python include
 free and open source IDE [Spyder](https://www.spyder-ide.org/)
-and JetBrain's free [PyCharm](https://www.jetbrains.com/pycharm/). 
+and JetBrain's free and open source [PyCharm](https://www.jetbrains.com/pycharm/).
 
-> ## Using VS Code for This Course 
+> ## Using PyCharm for This Course
 > If you want to use PyCharm as your IDE for this course, there is a separate [extras episode](../pycharm/NEEDS UPDATING.html)
 > to help you set up. The instructions for VS Code in the course will not apply to you verbatim but there 
 > is an equivalent functionality in PyCharm for each of the actions we ask you to do in VS Code.
@@ -84,10 +84,10 @@ Let's open our project in VS Code now and familiarise ourselves with some common
 
 ### Opening a Software Project
 If you don't have VS Code running yet, start it up now.
-An interactive `Welcome` page will appear,
+An interactive **Welcome** page will appear,
 which allows you to configure your development environment's themes and other aspects,
 but can skip these steps for now, by clicking on `Mark Done` near the bottom of that page.
-The `Welcome` page will now ask you what you want to do,
+The **Welcome** page will now ask you what you want to do,
 e.g. open a `New File`, `Open File` to select an existing one, `Open Folder` or `Clone a Git Repository`.
 
 Select `Open Folder` and find the software project directory
@@ -97,28 +97,28 @@ so when we run scripts from VS Code, this is the directory they will run from.
 If VS Code asks you: `Do you trust the authors of the files in this folder?`,
 select `Yes, I trust the authors`.
 
-You will notice several tabs placed on a vertical panel on the left hand side.
+On the left side of the VS Code interface is the 'Activity Bar', which contains several tabs.
 The top (default) tab is the `Explorer` view.
 This opens a project/file navigator window which can be used to traverse
 and select the files (and any subdirectories) within the working directory,
 and selected files are opened in an editor window on the right.
 The bottom tab on that panel is for adding new `Extensions` to VS Code.
 We will add the Python extension for VS Code.
-Click on the Extensions tab and in the search edit box,
-type Python and select the `Python` extension, as shown in the following figure,
+Click on the `Extensions` tab and, in the search text box,
+type Python. Select the `Python` extension, as shown in the following figure,
 and click the blue `install` button.
 
 ![View of selecting the Python Extension for VS Code](../fig/vs-code-python-extension.png){: .image-with-shadow width="1000px" }
 
 At the bottom of the screen, you have a status bar which shows the current Git branch,
-and typically the Virtual Environment being used by our project,
-but we haven't set the latter yet, we'll do that soon.
+and typically the Virtual Environment being used by our project.
+The latter isn't displayed here because we haven't set it yet, we'll do that soon.
 Along the top, the menu bar has a variety of options,
 for example opening a terminal (the command line within VS Code).
 We will be using some of these in our upcoming episodes.
 
 You can close the `Welcome` and any other open documents in the main editor window.
-Now click on the `Explorer' tab on the left hand side.
+Now click on the `Explorer` tab on the left hand side.
 Use this view to navigate to the `catchment-analysis.py` file and select it,
 so that its contents are displayed in the editor window.
 
@@ -130,8 +130,9 @@ is now showing on the bottom status bar, on the right hand side.
 If this is the case, it shows that VS Code is using that environment as the interpreter.
 In many cases, VS Code will have been able to locate this environment automatically,
 and add it as the most likely option (as it is located within the current project directory).
-To select an interpeter for the current project from scratch,
-1. Press CTRL-SHIFT-P to bring up the VS Code command palette
+But it is better to explicitly select an interpeter for your project,
+to do this follow these steps:
+1. Press `Command-Shift-P` (on Mac) or `Control-Shift-P` (on Windows) to bring up the VS Code command palette
 2. Search for `select interpreter` and select it
 3. This will display a drop-down list of options, select `+ Enter interpreter path...`
 4. Click on `Find...` and browse in the pop-up window to select the path to the `python` binary file held in the `./venv/bin/` directory. 
@@ -142,21 +143,19 @@ To make working with Python virtual environments easier in VS Code
 we will install another extension called `Python Environment Manager`.
 Click on the Extensions tab and in the search edit box, type `Python Environment Manager`,
 select the correct extension, and click the blue `install` button.
-A new tab will appear at the bottom of the vertical bar, as shown below:
+A new tab will appear at the bottom of the Activity Bar, as shown below:
 
 ![Using the Python Environment Manager in VS Code](../fig/vs-code-virtual-env-mgr.png){: .image-with-shadow width="800px" } 
 
-You can navigate around the current venv environment or look at alternatives,
-either within the current workspace or gloabl environments.
-Note that a number of external libraries have magically appeared under our current venv environment,
-including `numpy` and `matplotlib`.
-VS Code has recognised the virtual environment we created from the command line using `venv`
-and has added these libraries effectively replicating our virtual environment in VS Code
-(referred to as "venv"). 
+You can navigate around the current venv environment or look at alternatives environments,
+either within the current workspace or elsewhere on your computer (listed under "Global Environments").
+Note that the external libraries we installed earlier are listed here, under "venv".
+VS Code has recognised the virtual environment we created from the command line using `venv`,
+and enables us to work with the installed libraries as we would from the command line.
 
 Also note that, although the names are not the same -
 this is one and the same virtual environment
-and changes done to it in VS Code will propagate to the command line and vice versa.
+and changes made to it in VS Code will be accessible from the command line and vice versa.
 Let's see this in action through the following exercise.
 
 > ## Exercise: Compare External Libraries in the Command Line and VS Code
@@ -288,7 +287,7 @@ However, we will need library `pytest` soon to implement tests for our code.
 We will use this opportunity to install it from VS Code in order to see
 an alternative way of doing this and how it propagates to the command line.
 
-1. Select the Python tab on the left hand side vertical bar, as we did earlier.
+1. Select the Python tab in the Activity Bar on the left, as we did earlier.
 2. Under our `venv` environment, hover over `Packages`
 3. Select the magnifying glass icon (Install Package) 
 4. In the window that appears, search for the name of the library (`pytest`),
@@ -296,7 +295,6 @@ an alternative way of doing this and how it propagates to the command line.
    then select `Install Package`.
    Once it finishes installing, you can close that window.
    ![Installing a package in VS Code](../fig/vs-code-add-library.png){: .image-with-shadow width="800px" }
-4. Select `OK` in the `Preferences`/`Settings` window.
 
 It may take a few minutes for VS Code to install it.
 After it is done, the `pytest` library is added to our virtual environment.
@@ -394,17 +392,28 @@ Let's do this as an exercise.
 {: .challenge}
 
 #### Adding a Run Configuration for Our Project
-By default, if you click on the run button (see below)
-the current file that is open in the editor window will be run by the interpreter.
+By default, if you click on the run button (see figure below)
+the file that is run by the interpreter is that which is currently open in the editor window.
 
 ![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-This will do for now, while we are only running the catchment-analysis.py script,
-but what if we want to run different configurations?
-Click on the `Run and Debug` tab, on the left hand side vertical bar. 
-At the top of the `Run and Debug` panel, click on the `Settings` cog symbol.
-This will open the launch.json file in the editor window.
-In that file, enter the following configurations:
+This is okay when working with only one python script,
+but what if we want to run our program while editing one of the module files,
+or if we want to run different configurations?
+To do this we need to create some custom run configurations,
+which can be done from the `Run and Debug` panel.
+
+We are going to create two run configurations,
+one for the current python file and the other for the `catchment-analysis` module:
+1. Click on the `Run and Debug` tab in the Activity Bar on the left.
+2. In the `Run and Debug` panel click on the `create a launch.json file` link.
+3. This will open a search text box, from which select
+`Python File: Debug the currently active Python File`
+4. This will create a `launch.json` file, and open it in the editor window,
+with a configuration for just python files
+5. In that file, add a python module configuration,
+so that the `configurations` section of the file looks like the code below.
+6. Save the file.
 
 ```
 "configurations": [
@@ -426,12 +435,17 @@ In that file, enter the following configurations:
     ]
 
 ```
-Notice that when you click on the Run symbol at the top of the `Run and Debug` panel,
-there is now a drop-down list with two choices, run `Python: Current File` or `Python: Module`,
-with the latter being set to run the catchment-analysis.py script as a module.
-You can set further configurations, and add arguments to be input when running the scripts,
-but we will leave that for now.
 
+Click again on the `Run and Debug` tab in the Activity Bar.
+The `Run and Debug` panel should have changed,
+and there will now be a Run symbol at the top of the panel.
+When you click on the Run symbol there should be a drop-down list with two choices,
+run `Python: Current File` or `Python: Module`,
+with the latter being set to run the catchment-analysis.py script as a module.
+You can edit the `launch.json` file further
+by clicking on the `Settings` cog symbol next to the Run symbol.
+This is useful for adding further configurations,
+or to add arguments to be input when running the scripts.
 
 Now you know how to configure and manipulate your environment in both tools
 (command line and VS Code),
@@ -467,14 +481,22 @@ You will often need code reference information to help you code.
 VS Code shows this useful information,
 such as definitions of symbols
 (e.g. functions, parameters, classes, fields, and methods)
-and documentation references by means of quick popups and inline tooltips.
+and documentation references ([*docstrings*](../15-coding-conventions/index.html#documentation-strings-aka-docstrings)
+for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/))
+by means of quick popups and inline tooltips.
 
-For a selected piece of code,
-you can access various code reference information from the `Go` menu
-(keyboard shortcuts can also be added for these options).
-
+For a selected piece of code, you can access the original source code using the `Go` menu.
+You can also access various code reference information by right-clicking on the code,
+then selecting the `Peek` submenu. This includes:
+- Peek Definition -
+  where and how symbols (functions, parameters, classes, fields, and methods) are defined
+- Peek Type Definition -
+  type definition of variables, fields or any other symbols
+- Peek References -
+  where this code is referenced elsewhere in the program.
 
 ![Code References Functionality in VS Code](../fig/vs-code-code-reference.png){: .image-with-shadow width="1000px" }
+
 
 ### Code Search
 You can search for a text string within a project,
@@ -498,8 +520,8 @@ To find a search string in the whole project:
    or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again
    to start a new search.
 4. To see the list of occurrences in a separate tab,
-   click the `Open New Search Editor` button at the top of the serach panel.
-   The new find panel will appear as a new tab in te editor window;
+   click the `Open New Search Editor` button at the top of the search panel.
+   The new find panel will appear as a new tab in the editor window;
    use this panel and its options to group the results, preview them,
    and work with them further.
 
