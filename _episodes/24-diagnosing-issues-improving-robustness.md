@@ -196,14 +196,19 @@ If you have not done so already,
 you will first need to enable the Pytest framework in VS Code.
 You can do this by:
 
-1. In VS Code, select the 'Testing' tab on the vertical bar on the left hand side (icon resembles a chemistry flask/beaker). 
-   If you have not yet configured any tests, you will see a blue `Configure Python Tests` button.
-   (If tests have already been configured and are incorrect or you wish to review this process, 
-   open the Command Palette (Ctr+Shift+P) and search for `Python: Configure Tests` 
+1. In VS Code, select the 'Testing' tab on the Activity Bar on the left side of the window
+   (icon resembles a chemistry flask/beaker).
+   If you have not yet configured any tests,
+   you will see a blue `Configure Python Tests` button.
+   If tests have already been configured and are incorrect,
+   or you wish to review this process,
+   open the Command Palette (Command+Shift+P for Mac, Control+Shift+P for Windows)
+   and search for `Python: Configure Tests`
    (keeping the `>` character at the start of the search string).   
-2. Then, in the edit box that appears at the top of the edit window,
+2. Then, in the text search box that appears at the top of the edit window,
    type `pytest` and select `pytest pytest framework` from the drop-down list.
-3. You will then be asked for the root directory of your tests, so select the `tests` folder in our project.
+3. You will be asked for the root directory of your tests.
+   Select the `tests` folder in our project folder.
 4. The left hand panel will then display the `tests` folder with each of the files it contains.
 
 ![Setting up test framework in VS Code](../fig/vs-code-test-framework.png){: .image-with-shadow width="1000px"}
@@ -221,9 +226,7 @@ looking something like the following:
 ![Running pytest in VS Code](../fig/vs-code-run-pytests.png){: .image-with-shadow width="1000px"}
 
 We can also run our test functions individually.
-
-
-If you click on a green check next to a test function
+Click on a green check next to a test function
 in our `test_models.py` script in VS Code,
 (or right click it and select `Run test`),
 we can run just that test:
@@ -255,7 +258,8 @@ for the test_normalise function
 @pytest.mark.parameterize that we recently added to test_normalise).
 Right click on that arrow and select `Debug Test` from the drop down menu.
 You will notice that execution will be paused
-at the `return` statement of `data_normalise`, where we placed our breakpoint.
+at the `return` statement of `data_normalise`,
+where we placed our breakpoint.
 In the debug panel that appears below,
 we can now investigate the exact state of the program
 prior to it executing this line of code.
