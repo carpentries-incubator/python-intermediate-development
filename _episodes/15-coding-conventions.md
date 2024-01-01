@@ -106,17 +106,20 @@ VS Code has built-in support for converting tab indentation to spaces
 So, you can type a tab character and VS Code will automatically convert it to 4 spaces.
 You can control the amount of spaces that VS Code uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in VS Code's
-`File`>`Preferences`>`Settings` and then try searching on `editor tab size`, `editor indent size` and `editor insert spaces`
+You can modify these settings by selecting `File`>`Preferences`>`Settings` on Windows,
+or `Code`>`Settings...`>`Settings` on Mac,
+and then searching on `editor tab size`, `editor indent size` and `editor insert spaces`
 
-
-![Python code indentation settings in VS Code](../fig/vs-code-indentation.png){: .image-with-shadow width="800px"}
+![Python code indentation settings in VS Code](../fig/vs-code-indentation.png){: .image-with-shadow width="1000px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `File`>`Preferences`>`Settings`  and search on `Render Whitespace`. Select `all` from the drop-down editbox menu.
+by again selecting `File`>`Preferences`>`Settings` on Windows,
+or `Code`>`Settings...`>`Settings` on Mac,
+and search on `Render Whitespace`.
+Select `all` from the drop-down editbox menu.
 
-![Python code whitespace settings in VS Code](../fig/vs-code-whitespace.png){: .image-with-shadow width="1000px"}
+![Python code whitespace settings in VS Code](../fig/vs-code-whitespace.png){: .image-with-shadow width="800px"}
 
 There are more complex rules on indenting single units of code that continue over several lines,
 e.g. function, list or dictionary definitions can all take more than one line.
@@ -488,13 +491,13 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     Normally, you should not use blank lines in the middle of the code 
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
->>     Note how VS Code is warning us by underlying the whole line.
+>>     Note how VS Code is warning us by underlining the whole line.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
 >>     and the rest of the code on line 30 in `catchment-analysis.py` - 
 >>     should be two blank lines (PEP8 recommends surrounding top-level function
 >>     (and class) definitions with two blank lines).
->>     Note how VS Code is warning us by underlying the whole line.
+>>     Note how VS Code is warning us by underlining the whole line.
 >>
 >> Finally, let's add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.
