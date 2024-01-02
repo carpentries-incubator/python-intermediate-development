@@ -98,12 +98,14 @@ If VS Code asks you: `Do you trust the authors of the files in this folder?`,
 select `Yes, I trust the authors`.
 
 On the left side of the VS Code interface is the 'Activity Bar', which contains several tabs.
-The top (default) tab is the `Explorer` view.
+The top (default) tab is the `Explorer` view,
+and is represented by an icon of a couple of sheets of paper.
 This opens a project/file navigator window which can be used to traverse
 and select the files (and any subdirectories) within the working directory,
 and selected files are opened in an editor window on the right.
-The bottom tab on that panel is for adding new `Extensions` to VS Code.
-We will add the Python extension for VS Code.
+Further down the Activity Bar is the `Extensions` Tab,
+represented by four squares, the top-right square not yet connected to the others.
+We will use this to add the Python extension for VS Code.
 Click on the `Extensions` tab and, in the search text box,
 type Python. Select the `Python` extension, as shown in the following figure,
 and click the blue `install` button.
