@@ -400,7 +400,7 @@ as you can see, if one is not found, you will be asked to create one.
 
 ![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-Configurations are useful for running the code whilst editing and 
+Configurations are useful for running the code whilst editing and also
 if we need to test different configurations as we code.
 To do this we need to create some custom run configurations,
 which can be done from the `Run and Debug` panel.
