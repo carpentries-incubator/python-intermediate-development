@@ -394,14 +394,14 @@ Let's do this as an exercise.
 {: .challenge}
 
 #### Adding a Run Configuration for Our Project
-By default, if you click on the run button (see figure below)
-the file that is run by the interpreter is that which is currently open in the editor window.
+By default, if you click on the run button on the Activity Bar (see figure below) 
+VS Code will look in the `.vscode` folder for a `launch.json` file. This file would contain our run configurations and 
+as you can see, if one is not found, you will be asked to create one.
 
 ![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-This is okay when working with only one python script,
-but what if we want to run our program while editing one of the module files,
-or if we want to run different configurations?
+Configurations are useful for running the code whilst editing and 
+if we need to test different configurations as we code.
 To do this we need to create some custom run configurations,
 which can be done from the `Run and Debug` panel.
 
