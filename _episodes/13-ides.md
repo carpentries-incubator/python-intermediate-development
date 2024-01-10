@@ -135,7 +135,7 @@ and add it as the most likely option (as it is located within the current projec
 But it is better to explicitly select an interpeter for your project,
 to do this follow these steps:
 1. Press `Command-Shift-P` (on Mac) or `Control-Shift-P` (on Windows or Linux) to bring up the VS Code Command Palette
-2. Search for `select interpreter` and select it
+2. Search for `Python: select interpreter` and select it
 3. This will display a drop-down list of options, select `+ Enter interpreter path...`
 4. Click on `Find...` and browse in the pop-up window to select the path to the `python` binary file held in the `./venv/bin/` directory. 
 
