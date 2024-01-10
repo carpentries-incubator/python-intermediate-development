@@ -48,7 +48,8 @@ $ python3 -m pip freeze > requirements.txt
 Pylint is a command-line tool that can help our code in many ways:
 
 - **Check PEP8 compliance:**
-  whilst in-IDE context-sensitive highlighting such as that provided via VS Code
+  whilst in-IDE context-sensitive highlighting such as that provided via VS Code (using an 
+  extension such as Flake8, which we installed in the previous episode)
   helps us stay consistent with PEP8 as we write code, this tool provides a full report
 - **Perform basic error detection:** Pylint can look for certain Python type errors
 - **Check variable naming conventions**:
