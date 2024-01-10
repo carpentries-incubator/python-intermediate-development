@@ -73,19 +73,17 @@ a description of a new feature in Python, etc.
 As we have already covered in the
 [episode on VS Code IDE](../13-ides/index.html),
 VS Code highlights the language constructs (reserved words)
-and syntax errors to help us with coding.
-
-We would also like VS Code to give us recommendations for formatting the code (for example using 
+and syntax errors to help us with coding. We would also like VS Code to give us recommendations 
+for formatting the code (for example using 
 the PEP 8 style guide above). To do this we will need to install another extension. 
 (See the [episode on VS Code IDE](../13-ides/index.html) if you need a reminder on how to add extensions.)
 On 'Activity Bar', on the left hand side of the VS Code interface, click on the `Extensions` Tab,
 so that we can add the an extension called `Flake8` for VS Code.
 In the search text box, type `Flake8`. Select the `Flake8` extension, as shown in the following figure,
-and click the blue `install` button.
+and click the blue `install` button. Note that other Python style guide extensions are available. 
+Another useful one at the time of writing, is one called `Pylint`.
+
 ![View of selecting the Flake8 Extension for VS Code](../fig/vs-code-flake8-extension.png){: .image-with-shadow width="1000px" }
-
-Note that other Python style guide extensions are available. Another useful one at the time of writing, is one called `Pylint`.
-
 
 
 VS Code will now give us recommendations for formatting the code -
