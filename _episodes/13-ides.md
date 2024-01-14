@@ -73,7 +73,8 @@ free and open source IDE [Spyder](https://www.spyder-ide.org/)
 and JetBrain's free and open source [PyCharm](https://www.jetbrains.com/pycharm/).
 
 > ## Using PyCharm for This Course
-> If you want to use PyCharm as your IDE for this course, there is a separate [extras episode](../pycharm/NEEDS UPDATING.html)
+> If you want to use PyCharm as your IDE for this course, you can use the
+> [IDE episode of the original course](https://carpentries-incubator.github.io/python-intermediate-development/13-ides/index.html)
 > to help you set up. The instructions for VS Code in the course will not apply to you verbatim but there 
 > is an equivalent functionality in PyCharm for each of the actions we ask you to do in VS Code.
 {: .callout}
