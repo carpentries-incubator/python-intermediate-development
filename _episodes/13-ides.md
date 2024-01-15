@@ -294,9 +294,7 @@ an alternative way of doing this and how it propagates to the command line.
 2. Under our `venv` environment, hover over `Packages`
 3. Select the magnifying glass icon (Install Package) 
 4. In the window that appears, search for the name of the library (`pytest`),
-   select it from the list,
-   then select `Install Package`.
-   Once it finishes installing, you can close that window.
+   then click on this package in the list below to install it.
    ![Installing a package in VS Code](../fig/vs-code-add-library.png){: .image-with-shadow width="800px" }
 
 It may take a few minutes for VS Code to install it.
