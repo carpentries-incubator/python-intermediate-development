@@ -393,18 +393,22 @@ Let's do this as an exercise.
 {: .challenge}
 
 #### Adding a Run Configuration for Our Project
-By default, if you click on the run button on the Activity Bar (see figure below) 
-VS Code will look in the `.vscode` folder for a `launch.json` file. This file would contain our run configurations and 
-as you can see, if one is not found, you will be asked to create one.
+Having configured a virtual environment, we now need to tell VS Code how to use it for our project.
+This is done by creating and adding a **Run Configuration** to a project.
+Run Configurations in VS Code are named sets of startup properties
+that define which main Python script to execute and what (optional)
+runtime parameters/environment variables (i.e. additional configuration options) to pass
+and use on top of virtual environments.
+
+Run Configurations are defined in a `launch.json` file,
+usually stored in the `.vscode` directory within your project directory.
+At first this file will not exist,
+and clicking on the `Run and Debug` tab in the `Activity Bar` will,
+as shown below, present a dialog box asking you to create one.
 
 ![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-Configurations are useful for running the code whilst editing and also
-if we need to test different configurations as we code.
-To do this we need to create some custom run configurations,
-which can be done from the `Run and Debug` panel.
-
-We are going to create two run configurations,
+We will create two run configurations,
 one for the current python file and the other for the `catchment-analysis` module:
 1. Click on the `Run and Debug` tab in the Activity Bar on the left.
 2. In the `Run and Debug` panel click on the `create a launch.json file` link.
