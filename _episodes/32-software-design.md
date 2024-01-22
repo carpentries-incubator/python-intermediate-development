@@ -37,7 +37,7 @@ Maintainable code is:
  * Testable through automated tests (like those from [episode 2](../21-automatically-testing-software/index.html)).
  * Adaptable to new requirements.
 
-Writing code that meets these requirements is hard and takes practise.
+Writing code that meets these requirements is hard and takes practice.
 Further, in most contexts you will already have a piece of code that breaks
 some (or maybe all!) of these principles.
 
@@ -55,7 +55,7 @@ We will look at:
 
  * What abstractions are, and how to pick appropriate ones.
  * How to take code that is in a bad shape and improve it.
- * Best practises to write code in ways that facilitate achieving these goals.
+ * Best practices to write code in ways that facilitate achieving these goals.
 
 ### Cognitive Load
 
@@ -78,13 +78,13 @@ There are lots of ways to keep cognitive load down:
 
 An **abstraction**, at its most basic level, is a technique to hide the details
 of one part of a system from another part of the system.
-We deal with abstractions all the time - when you press the break pedal on the
+We deal with abstractions all the time - when you press the brake pedal on the
 car, you do not know how this manages both slowing down the engine and applying
-pressure on the breaks.
+pressure on the brakes.
 The advantage of using this abstraction is, when something changes, for example
-the introduction of anti-lock breaking or an electric engine, the driver does
+the introduction of anti-lock braking or an electric engine, the driver does
 not need to do anything differently -
-the detail of how the car breaks is *abstracted* away from them.
+the detail of how the car brakes is *abstracted* away from them.
 
 Abstractions are a fundamental part of software.
 For example, when you write Python code, you are dealing with an
