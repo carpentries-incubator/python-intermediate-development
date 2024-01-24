@@ -66,7 +66,7 @@ Current maintainers of this lesson (in alphabetical order) are:
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
-* [Aleksandra Nenadic][aleksandra-nenadic]
+* [Aleksandra Nenadic][aleksandra-nenadic] (lead Maintainer for the period 1 October 2023 - 31 March 2024)
 
 The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Wednesday each month. The meetings alternate between operations meetings and co-working sprints.
 Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-SvoY_2GvlQgJnu8zfr6VnU7sev_iWZAIwBUywNSfWE/edit#).
