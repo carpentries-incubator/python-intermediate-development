@@ -17,43 +17,17 @@ jupyter:
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Section 4: Improving and Managing Software Over its Lifetime
+# Section 5: Managing and Improving Software Over Its Lifetime
 
 </br>
 </br>
-<center><img src="../fig/section4-overview.png" width="70%"></center>
+<center><img src="../fig/section5-overview.png" width="70%"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- up until this point, the course has been primarily focussed on technical practices, tools, and infrastructure, and primarily from the perspective of a single developer/researcher, albeit within a team environment
-- in this section, we will broaden this out and start looking at the management side of software projects, which necessarily makes it much more focussed on the team environment and broader considerations about how our code will be used and how we involve others contributors in the improvement of our code
-
-In this section we will:
-
-- Look at how to **prepare our software for release**, looking at what we actually mean by software reusability, the importance of good documentation, as well as what to consider when choosing an open source licence.
-- Explore ways for us to **track issues with our software** registered by ourselves and external users, and how we should employ a critical mindset when reviewing software for reuse.
-- Examine how we can manage the **improvement of our software through feedback** using agile management techniques. We'll employ effort estimation of development tasks as a foundational tool for prioritising future team work, and use the MoSCoW approach and software development sprints to manage improvement. As we will see, it is very difficult to prioritise work effectively without knowing both its relative importance to others as well as the effort required to deliver those work items.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Preparing Software for Reuse
-
-
-### Breakout: Start from the Top
-
-Start from the top of this episode page and go to the end.
-<!-- #endregion -->
-
-<!-- #raw slideshow={"slide_type": "notes"} -->
-- Split into breakout rooms for about 50 minutes
-- A few notes to preface
-  - If you have been using codimd for the shared document, then learners will have already been exposed to Markdown, so this section won't contain much new for them
-  - For writing documentation, this is another great link that can be added to the shared document: https://documentation.divio.com/
-  - For licensing software, make some notes in the shared document about the policy of your institution
-<!-- #endraw -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 5 Minute Break ☕
+- In this section of the course we look at managing the development and evolution of software - how to keep track of the tasks the team has to do, how to improve the quality and reusability of our software for others as well as ourselves, and how to assess other people’s software for reuse within our project.
+- We are therefore moving into the realm of software management, not just software development; don't be scared off!
+  - We all need to do a bit of project management from time to time
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -73,7 +47,7 @@ For the next exercise, you will then need to wait for the other group you are as
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 10 Minute Break ☕
+## ☕ Break Time ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -87,15 +61,7 @@ There is a separate shared documents specific to your group linked from the orig
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Wrap Up
+## 🕓 End of Section 5 🕓
 
-</br>
-</br>
-<center><img src="https://ukaea-rse-training.github.io/python-intermediate-development/fig/course-concept-map.png" width="70%"></center>
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## 🕓 End of Section 4 🕓
-
-Please fill out the end-of-section survey!
+Please fill out the end-of-course survey!
 <!-- #endregion -->

@@ -40,6 +40,26 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Quick Check: Who Has All the Branches!
+
+Check if you have a branch named `remote/origin/feature-std-dev` or `feature-std-dev` after running:
+
+```bash
+git branch --all
+```
+
+If not, please run these commands:
+
+```bash
+git remote add upstream git@github.com:ukaea-rse-training/python-intermediate-inflammation.git
+git fetch upstream
+git checkout upstream/feature-std-dev
+git switch --create feature-std-dev
+git push --set-upstream origin feature-std-dev
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Developing Software in a Team: Code Review
 
 Two main ways to collaborate with git:
@@ -332,7 +352,7 @@ Commit your initial `pyproject.toml` into git. Then, run the commands:
 
 ```bash
 poetry add matplotlib numpy
-poetry add --dev pylint
+poetry add --group dev pylint
 poetry install
 ```
 
