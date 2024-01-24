@@ -338,6 +338,20 @@ You should be rewarded with:
 > offers a good explanation on how axes work when applying NumPy functions to arrays.
 {: .callout}
 
+> ## Debugging Outside of an IDE
+> It is worth being aware of the fact that you don't need to use an IDE to debug code,
+> although it does certainly make it easier!
+> The Python standard library comes with a command-line capable debugger built in, called `pdb`.
+> The easiest way to use it is to put one of these lines
+> anywhere in your code you would like the debugger to stop:
+> `import pdb; pdb.set_trace()` or `breakpoint()`.
+> Then run your Python program from the command line like you normally would,
+> but instead of completing or erroring out,
+> a different prompt for the debugger will come up in your terminal.
+> The debugger has its own commands that you can read about
+> [here](https://docs.python.org/3/library/pdb.html#debugger-commands).
+{: .callout}
+
 ## Corner or Edge Cases
 
 The test case that we have currently written for `patient_normalise`
