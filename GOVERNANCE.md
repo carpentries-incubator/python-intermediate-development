@@ -38,7 +38,7 @@ the Lead Maintainer:
 Where needed e.g. due to absence,
 the Lead Maintainer may defer any of these responsibilities to another member of the Maintainer team.
 
-The Lead Maintainer has a term length of 12 months,
+The Lead Maintainer has a term length of 6 months,
 and it is expected that the role will rotate among members of the Maintainer team.
 If a Maintainer is up next in the rotation and wishes to decline the role of Lead 
 e.g. due to a lack of capacity,

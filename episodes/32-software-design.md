@@ -1,7 +1,7 @@
 ---
 title: "Software Architecture and Design"
 teaching: 15
-exercises: 30
+exercises: 20
 questions:
 - "What should we consider when designing software?"
 - "How can we make sure the components of our software are reusable?"
@@ -129,7 +129,7 @@ Let's recall the solution requirements we discussed in the previous episode:
 
 - *Functional Requirements*:
   - SR1.1.1 (from UR1.1):
-    add standard deviation to data model and include in graph visualisation view
+    add daily standard deviation to the data model and include in graph visualisation view
   - SR1.2.1 (from UR1.2):
     add a new view to generate a textual representation of statistics,
     which is invoked by an optional command line argument
@@ -176,6 +176,14 @@ The key is to think about which kind of testing should be used
 to check if the code satisfies a requirement,
 but also what you can do to make that code amenable to that type of testing.
 
+Let's add some more code to implement new requirements. Make sure you are located 
+in your `develop` branch and that it is up-to-date with everything you worked on so far.
+
+~~~
+$ git switch develop
+~~~
+{: .language-bash}
+
 > ## Exercise: Implementing Requirements
 > Pick one of the requirements SR1.1.1 or SR1.2.1 above to implement
 > and create an appropriate feature branch -
@@ -194,17 +202,19 @@ but also what you can do to make that code amenable to that type of testing.
 > Also make sure you push changes to your new feature branch remotely
 > to your software repository on GitHub.
 >
-> **Note: do not add the tests for the new feature just yet -
+> ***Note:** do not add the tests for the new feature just yet -
 > even though you would normally add the tests along with the new code,
 > we will do this in a later episode.
-> Equally, do not merge your changes to the `develop` branch just yet.**
+> Equally, do not merge your changes to the `develop` branch just yet.*
 >
-> **Note 2: we have intentionally left this exercise without a solution
+> ***Note 2:** we have intentionally left this exercise without a solution
 > to give you more freedom in implementing it how you see fit.
 > If you are struggling with adding a new view and command line parameter,
-> you may find the standard deviation requirement easier.
+> you may find adding the daily standard deviation requirement easier.
 > A later episode in this section will look at
-> how to handle command line parameters in a scalable way.**
+> how to handle command line parameters in a scalable way.*
+>
+> Time: 30 min
 {: .challenge}
 
 ## Best Practices for 'Good' Software Design

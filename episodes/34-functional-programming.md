@@ -1,7 +1,7 @@
 ---
 title: "Functional Programming"
 teaching: 30
-exercises: 30
+exercises: 40
 questions:
 - What is functional programming?
 - Which situations/problems is functional programming well suited for?
@@ -95,14 +95,14 @@ def factorial(n):
 ~~~
 {: .language-python}
 
-Note: You may have noticed that both functions in the above code examples have the same signature
+***Note:** You may have noticed that both functions in the above code examples have the same signature
 (i.e. they take an integer number as input and return its factorial as output).
 You could easily swap these equivalent implementations
 without changing the way that the function is invoked.
 Remember, a single piece of software may well contain instances of multiple programming paradigms -
 including procedural, functional and object-oriented -
 it is up to you to decide which one to use and when to switch
-based on the problem at hand and your personal coding style.
+based on the problem at hand and your personal coding style.*
 
 Functional computations only rely on the values that are provided as inputs to a function
 and not on the state of the program that precedes the function call.
@@ -140,6 +140,7 @@ are called *pure functions*.
 > ~~~
 > {: .language-python}
 >
+> Time: 5 min
 > > ## Solution
 > >
 > > 1. `add_one` is pure - it has no effects other than to return a value and this value will always be the same when given the same inputs
@@ -237,7 +238,7 @@ before aggregating all intermediate results into the final result.
 
 ### Mapping
 `map(f, C)` is a function takes another function `f()` and a collection `C` of data items as inputs.
-Calling `map(f, L)` applies the function `f(x)` to every data item `x` in a collection `C`
+Calling `map(f, C)` applies the function `f(x)` to every data item `x` in a collection `C`
 and returns the resulting values as a new collection of the same size.
 
 This is a simple mapping that takes a list of names and
@@ -323,6 +324,7 @@ print(list(result))
 > Ordinarily we would use Numpy's own `map` feature,
 > but for this exercise, let's try a solution without it.
 >
+> Time: 5 min
 > > ## Solution
 > > ~~~
 > > def daily_above_threshold(patient_num, data, threshold):
@@ -338,10 +340,10 @@ print(list(result))
 > > ~~~
 > > {: .language-python}
 > >
-> > Note: `map()` function returns a map iterator object
+> > ***Note:** `map()` function returns a map iterator object
 > > which needs to be converted to a collection object
 > > (such as a list, dictionary, set, tuple)
-> > using the corresponding "factory" function (in our case `list()`).
+> > using the corresponding "factory" function (in our case `list()`).*
 > {: .solution}
 {: .challenge}
 
@@ -501,6 +503,7 @@ you need to import it from library `functools`.
 > Using reduce calculate the sum of a sequence of numbers.
 > Although in practice we would use the built-in `sum()` function for this - try doing it without it.
 >
+> Time: 5 min
 > > ## Solution
 > > ~~~
 > > from functools import reduce
@@ -629,6 +632,7 @@ def sum_of_squares(sequence):
 >   note that it can conditionally return different values using the syntax
 >   `<value> if <condition> else <another_value>` in the expression.
 >
+> Time: 10 min
 > > ## Solution
 > > Using a separate function:
 > > ~~~
@@ -789,6 +793,8 @@ and can even make multiple decorated versions using different decorators.
 >     return total
 > ~~~
 > {: .language-python}
+>
+> Time: 15 min
 > > ## Solution
 > >
 > > ~~~

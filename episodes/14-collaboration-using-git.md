@@ -1,5 +1,5 @@
 ---
-title: "Collaborative Software Development Using Git and GitHub"
+title: "Software Development Using Git and GitHub"
 start: false
 teaching: 35
 exercises: 0
@@ -259,41 +259,34 @@ $ git pull
 {: .language-bash}
 
 Now we've ensured our repository is synchronised with the remote one,
-we can now push our changes.
-GitHub has recently
-[strengthened authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)
-accessing GitHub from the command line over HTTPS.
-This means you cannot use passwords for authentication over HTTPS any more -
-you either need to
-[set up and use a personal access token](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
-for additional security if you want to continue to use HTTPS,
-or switch to use private and public key pair over SSH
-before you can push remotely the changes you made locally.
-So, when you run the command below:
+we can now push our changes:
 
 ~~~
 $ git push origin main
 ~~~
 {: .language-bash}
 
-> ## Authentication Errors
->
-> If you get a warning that HTTPS access is deprecated, or a token is required,
-> then you accidentally cloned the repository using HTTPS and not SSH.
-> You can fix this from the command line by
-> resetting the remote repository URL setting on your local repo:
->
-> ~~~
-> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
-> ~~~
-> {: .language-bash}
-{: .caution}
-
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally
 (it is called that by convention and set up automatically by Git
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
+
+> ## GitHub Authentication/Authorisation Error
+>
+> If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
+> you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
+> then you have cloned the repository using HTTPS and not SSH.
+> You should revisit the [instructions 
+> on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
+> and can fix this from the command line by
+> changing the remote repository's HTTPS URL to its SSH equivalent:
+>
+> ~~~
+> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> ~~~
+> {: .language-bash}
+{: .callout}
 
 >## Git Remotes
 > Note that systems like Git allow us to synchronise work between
@@ -358,7 +351,7 @@ So, working on a separate branch for each feature you are adding is good for sev
 * it enables you to keep the untested and not-yet-functional feature branch code
   under version control and backed up,
 * you and other team members may work on several features
-  at the same time independently from one another,
+  at the same time independently from one another, and 
 * if you decide that the feature is not working or is no longer needed -
   you can easily and safely discard that branch without affecting the rest of the code.
 
@@ -448,7 +441,7 @@ Let's make a small modification to `inflammation/models.py` in PyCharm,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and
-`daily_min()`.
+`daily_min()` to see updating branches in action.
 
 If we do:
 
@@ -493,7 +486,7 @@ However, as we have just created this branch locally,
 it still does not exist in our remote repository.
 You can check that in GitHub by listing all branches.
 
-![Software project's main branch](../fig/software-project-main-branch.png){: .image-with-shadow width="700px"}
+![Software project's main branch](../fig/github-main-branch.png){: .image-with-shadow width="600px"}
 
 To push a new local branch remotely for the first time,
 you could use the `-u` flag and the name of the branch you are creating and pushing to:
@@ -515,11 +508,14 @@ $ git push -u origin develop
 {: .callout}
 
 Let's confirm that the new branch `develop` now exist remotely on GitHub too.
-From the `< > Code` tab in your repository in GitHub,
+From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
-You should see your `develop` branch in the list too.
+You should see your `develop` branch in the list too. 
 
-![Software project's develop branch](../fig/software-project-develop-branch.png){: .image-with-shadow width="700px"}
+![Software project's develop branch](../fig/github-develop-branch.png){: .image-with-shadow width="600px"}
+
+You may also have noticed GitHub's notification about the latest push to your `develop` branch just
+on top of the repository files and branches drop-down menu.
 
 Now the others can check out the `develop` branch too and continue to develop code on it.
 
@@ -598,7 +594,7 @@ and commit the changes before attempting to merge again.
 Since we have no conflicts, we can now push the `main` branch to the remote repository:
 
 ~~~
-git push origin main
+$ git push origin main
 ~~~
 {: .language-bash}
 
