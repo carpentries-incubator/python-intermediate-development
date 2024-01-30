@@ -52,6 +52,7 @@ For adapting our inflammation software project, example business requirements co
 > Think of a new hypothetical business-level requirements for this software.
 > This can be anything you like, but be sure to keep it at the high-level of the business itself.
 >
+> Time: 5 min
 >> ## Solution
 >> One hypothetical new business requirement (BR3) could be
 >> extending our clinical trial system to keep track of doctors who are being involved in the project.
@@ -88,6 +89,8 @@ they could include things for trial managers such as (building on the business r
 > [previous exercise](../31-software-requirements/index.html#exercise-new-business-requirements)
 > into a number of logical user requirements,
 > ensuring they stay above the level and detail of implementation.
+>
+> Time: 5 min
 >> ## Solution
 >> For our business requirement BR3 from the previous exercise,
 >> the new user/stakeholder requirements may be the ability to
@@ -175,6 +178,7 @@ and these aspects should be considered as part of the software's non-functional 
 >   - May need to run continuously for the lifetime of the device
 >   - Typically written in a lower-level language (e.g. C) for better control of resources
 >
+> Time: 10 min
 > > ## Some More Examples
 > >
 > > - Desktop Application
@@ -211,6 +215,8 @@ and these aspects should be considered as part of the software's non-functional 
 > [earlier exercise](../31-software-requirements/index.html#exercise-new-user-requirements)
 > into a number of logical solution requirements (functional and non-functional),
 > that address the detail required to be able to implement them in the software.
+>
+> Time: 10 min
 >> ## Solution
 >> For our new hypothetical business requirement BR3,
 >> new functional solution requirements could be extending
@@ -269,12 +275,12 @@ At each level, not only are the perspectives different,
 but so are the nature of the objectives and the language used to describe them,
 since they each reflect the perspective and language of their stakeholder group.
 
-It's often tempting to go right ahead and implement requirements within existing software,
+It is often tempting to go right ahead and implement requirements within existing software,
 but this neglects a crucial step:
 do these new requirements fit within our existing design,
 or does our design need to be revisited?
 It may not need any changes at all,
-but if it doesn't fit logically our design will need a bigger rethink
+but if it does not fit logically our design will need a bigger rethink
 so the new requirement can be implemented in a sensible way.
 We'll look at this a bit later in this section,
 but simply adding new code without considering
