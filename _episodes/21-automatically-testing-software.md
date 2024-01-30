@@ -412,11 +412,15 @@ essentially anything that has inputs and expected outputs.
 We'll be using Pytest to write unit tests,
 but what you learn can scale to more complex functional testing for applications or libraries.
 
-> ## What About Unit Testing in Other Languages?
+> ## What About Unit Testing Frameworks in Python and Other Languages?
 >
 > Other unit testing frameworks exist for Python,
-> including Nose2 and Unittest,
-> and the approach to unit testing can be translated to other languages as well,
+> including Nose2 and Unittest, with Unittest supplied as part of the standard Python library.
+> It's also worth noting that Pytest supports tests written for Unittest,
+> a useful feature if you wish to prioritise use of the standard library initially,
+> but retain the option to move Pytest in the future.
+> 
+> The unit testing approach can be translated to (and is supported within) other languages as well,
 > e.g. pFUnit for Fortran,
 > JUnit for Java (the original unit testing framework),
 > Catch or gtest for C++, etc.
