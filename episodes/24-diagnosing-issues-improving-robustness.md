@@ -341,11 +341,11 @@ You should be rewarded with:
 > ## Debugging Outside of an IDE
 > It is worth being aware of the fact that you don't need to use an IDE to debug code,
 > although it does certainly make it easier!
-> The Python standard library comes with a command-line capable debugger built in, called `pdb`.
+> The Python standard library comes with a command-line capable debugger built in, called [pdb](https://docs.python.org/3/library/pdb.html).
 > The easiest way to use it is to put one of these lines
 > anywhere in your code you would like the debugger to stop:
 > `import pdb; pdb.set_trace()` or `breakpoint()`.
-> Then run your Python program from the command line like you normally would,
+> Then you are able to run your Python program from the command line like you normally would,
 > but instead of completing or erroring out,
 > a different prompt for the debugger will come up in your terminal.
 > The debugger has its own commands that you can read about
