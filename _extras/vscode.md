@@ -147,7 +147,7 @@ since then you will be able to run them from the terminal as well.
 For example, if you want `pylint` and `black` packages, execute the following from the terminal:
 
 ~~~bash
-$ pip3 install pylint black
+$ python3 -m pip install pylint black
 ~~~
 
 They will now both be available to run as command line applications,

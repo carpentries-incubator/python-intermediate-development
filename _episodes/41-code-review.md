@@ -1,7 +1,7 @@
 ---
 title: "Developing Software In a Team: Code Review"
 teaching: 30
-exercises: 40
+exercises: 30
 questions:
 - "How do we develop software in a team?"
 - "What is code review and how it can improve the quality of code?"
@@ -58,14 +58,14 @@ This model is more prevalent with teams and organisations collaborating on priva
 
 ## Code Review
 
-Regardless of the collaborative code development model you and your collaborators use, 
-[code reviews][code-review] are one of the widely accepted best practices for software development in teams
+Regardless of the collaborative code development model your team uses, 
+[code review][code-review] is one of the widely accepted best practices for software development in teams
 and something you should adopt in your development process too. 
 
 Code review is a software quality assurance practice
 where one or several people from the team (different from the code's author)
-check the software by viewing parts of its source code when code changes are introduced. 
-It is one of the most useful team code development practices -
+check the software by viewing parts of its source code at the point when the code changes.
+Code review is very useful for all parties involved  -
 someone checks your design or code for errors and gets to learn from your solution; 
 having to explain code to someone else clarifies
 your rationale and design decisions in your mind too. 
@@ -86,14 +86,17 @@ as close as possible to the point where they were introduced.
 There are several **code review techniques** with various degree of formality
 and the use of a technical infrastructure, including:
 
- - [Over-the-shoulder code review](https://about.gitlab.com/topics/version-control/what-is-code-review/#Over-the-shoulder%20reviews) -
-     one developer talks the other developer through the code changes whilst sat at the same machine.
+ - [Over-the-shoulder code review](https://about.gitlab.com/topics/version-control/what-is-code-review/#Over-the-shoulder%20reviews) - 
+   one developer talks the other developer through the code changes while sitting 
+   at the same machine.
  - [Pair programming](https://about.gitlab.com/topics/version-control/what-is-code-review/#Pair%20programming) -
-     two developers work on the code at the same time where one of them actively codes whereas the other provides real-time feedback.
+   two developers work on the code at the same time with one of them actively coding and the 
+   other providing real-time feedback.
  - [Formal code inspection](https://en.wikipedia.org/wiki/Fagan_inspection) -
-     up to 6 partipants go through a formalised process to inspect the code specifications or design for defects.
+   up to 6 partipants go through a formalised process to inspect the code specification or 
+   design for defects.
  - [Tool assisted code review](https://about.gitlab.com/topics/version-control/what-is-code-review/#Tool-assisted%20reviews) -
-     developers use tools such as GitHub to review the code independently and give feedback.
+   developers use tools such as GitHub to review the code independently and give feedback.
 
 You can read more about these techniques in the ["Five Types of Review" section](https://www.khoury.northeastern.edu/home/lieber/courses/cs4500/f07/lectures/code-review-types.pdf) of the ["Best Kept Secrets of Peer Code Review" eBook](https://www.yumpu.com/en/document/view/19324443/best-kept-secrets-of-peer-code-review-pdf-smartbear).
 
@@ -120,9 +123,9 @@ to **pull** your changes into the codebase.
 Such changes are normally done on a feature branch,
 to ensure that they are separate and self-contained,
 that the main branch only contains "production-ready" work,
-and that the `develop` branch contains code that has already been extensively tested.
+and that the development branch contains code that has already been extensively tested.
 You create a branch for your work based on one of the existing branches
-(typically the `develop` branch but can be any other branch),
+(typically the development branch but can be any other branch),
 do some commits on that branch,
 and, once you are ready to merge your changes,
 create a pull request to bring the changes back to the branch that you started from.
@@ -158,17 +161,18 @@ In either model, once you are ready to merge your changes in -
 you will need to specify the base branch and the compare branch.
 
 Let's see this in action -
-you are going to act as a reviewer on a change to the codebase raised by a
-fictional colleague on one of your fellow learner's repository.
-Once this is done, you will then take on the role of the fictional colleague
+you are going to act as a reviewer on a proposed change to the codebase contributed by a
+fictional colleague on one of your fellow learner's repository. 
+One of your fellow learners will review the proposed changes on your repository.
+Once the review is done, you will then take on the role of the fictional colleague
 and respond to the review on your repository.
-If you are completing this course by yourself, you can raise the review on
-your own repository, review it there and finally respond to your own review
-comments. This is actually a very sensible thing to do in general - looking
+If you are completing the course by yourself, you can add the review on the proposed changes in
+your own repository and then respond to your own review comments by fixing the proposed code. 
+This is actually a very sensible thing to do in general - looking
 at your own code in a review window will allow you to spot mistakes you
 have not seen before.
 
-Here is an outline of the process of a tool-assisted code review.
+Here is an outline of the process of a tool assisted code review.
 
 {% comment %}
 ```mermaid
@@ -192,12 +196,11 @@ Generated with Mermaid tool, diagram available at: https://mermaid.live/edit#pak
 {% endcomment %}
 ![Code review process sequence](../fig/code-review-sequence-diagram.svg){: .image-with-shadow width="600px"}
 
-Recall [solution requirements SR1.1.1](../31-software-requirements/index.html#solution-requirements)
+Recall [solution requirement SR1.1.1](../31-software-requirements/index.html#solution-requirements)
 from an earlier episode.
-Your fictional colleague has implemented it according to the specification
-and pushed it to a branch `feature-std-dev`.
-You will turn this branch into a pull request for your fictional colleague on your
-repository.
+A fictional colleague has implemented it according to the specification
+and pushed it to a branch `feature-std-dev` of our software repository.
+You will turn this branch into a pull request on your repository.
 You will then engage in code review for the change (acting as a code reviewer) on
 a fellow learner's repository.
 Once complete, you will respond to the comments from another team member on the pull request 
@@ -209,7 +212,7 @@ on your repository (acting as a code author).
 2. Navigate to the pull requests tab.
 3. Create a new pull request by clicking the green `New pull request` button.
    ![GitHub pull requests tab](../fig/github-pull-request-tab.png){: .image-with-shadow width="900px"}
-4. Select the base and the compare branch, e.g. `main` and `feature-std-dev`, respectively.
+4. Select the base and the compare branch - `main` and `feature-std-dev`, respectively.
    Recall that the base branch is where you want your changes to be merged
    and the compare branch contains the changes.
 5. Click `Create pull request` button to open the request.
@@ -234,7 +237,7 @@ be looking for when reviewing a piece of code.
 #### Things to Look for in a Code Review
 
 Start by understanding what the code _should_ do, by reading the specification/user requirements,
-the pull request description and talking to the developer.
+the pull request description or talking to the developer if need be.
 In this case, understand what [SR1.1.1](../31-software-requirements/index.html#solution-requirements) means.
 
 Once you're happy, start reading the code (skip the test code for now - we will come back to it later). 
@@ -242,16 +245,15 @@ You're going to be assessing the code in the following key areas.
 
 ##### Is the proposed code readable?
 
-* Think about the names of the variables, do they [follow guidelines for good
-names?](../15-coding-conventions/index.html#l#naming-conventions)
+* Think about the names of the variables and functions - do they [follow naming conventions](../15-coding-conventions/index.html#naming-conventions)?
 * Do you understand what conditions in each if statements are for?
-* Do the function names match the behavior of the function?
+* Does a function name match the behavior of the function?
 
 ##### Is the proposed code a minimal change?
 
 * Does the code reimplement anything that already exists, either
 elsewhere in the codebase or in a library you know about?
-* Does the code implement something that isn't on the ticket?
+* Does the code implement something that is not the requirement or in the issue/ticket?
 
 ##### Is the structure of the code clear?
 
@@ -263,8 +265,7 @@ elsewhere in the codebase or in a library you know about?
 
 * If functionality has changed, has corresponding documentation been
 updated?
-* If new functions have been added, do they have appropriate
-levels of documentation?
+* If new functions have been added, do they have the associated documentation?
 * Does the documentation make sense?
 * Are there clear and useful comments that explain complex designs
 and focus on the "why/because" rather than the "what/how"?
@@ -272,11 +273,11 @@ and focus on the "why/because" rather than the "what/how"?
 #### Things Not to Look for in a Code Review
 
 The overriding priority for reviewing code should be making sure progress is being made -
-don't let perfect be the enemy of the good here.
+do not let perfect be the enemy of the good here.
 According to [“Best Kept Secrets of Peer Code Review” (Cohen, 2006)](https://www.amazon.co.uk/Best-Kept-Secrets-Peer-Review/dp/1599160676)
 the first hour of reviewing code is the most effective, with diminishing returns after that.
 
-To that end, here are a few things you *shouldn't* be trying to spot when reviewing:
+To that end, here are a few things you *should not* be trying to spot when reviewing:
 * Linting issues, or anything else that an automated tool can spot - get the Continuous Integration (CI) to do it.
 * Bugs - instead make sure there are tests for all cases.
 * Issues that pre-date the change - raise separate PRs fixing these issues separately to avoid heading down a rabbit hole.
@@ -284,8 +285,10 @@ To that end, here are a few things you *shouldn't* be trying to spot when review
 or else have a meeting to decide whether the code needs to be rewritten.
 
 #### Adding a review comment
+Here, we are outlining the process of adding a review to a pull request. 
+There is doing to be an exercise next for you to practice it.
 
-1. We will start by having your course mate adding you as a collaborator on their repository. 
+1. Your fellow learner should add you as a collaborator on their repository to begin with. 
 They can do that from 
 the `Settings` tab of the repository, then `Collaborators and teams` tab on the left, 
 then clicking the `Add people` button. 
@@ -299,8 +302,9 @@ You will have to do the same for the collaborator doing the review on your repos
     > for the rest of the course so it may make sense to start setting up your collaborators now.
     {: .callout}
 ![Adding a collaborator in GitHub](../fig/github-add-collaborator.png){: .image-with-shadow width="900px"}
-2. Open up the pull request from the GitHub's `Pull Requests` tab on the home page 
-of your fellow learner's software repository, then head to the `Files changed` tab.
+2. Locate up the pull request from the GitHub's `Pull Requests` tab on the home page 
+of your fellow learner's software repository, then head to the `Files changed` tab 
+on the pull request.
 ![The files changed tab of a pull request](../fig/github-pull-request-files-changed.png){: .image-with-shadow width="900px"}
 3. When you find a line that you want to add a comment to, click on the blue
 plus (+) button next to the line. This will bring up a "Write" box to add your comment.
@@ -311,9 +315,12 @@ If you want to make a concrete suggestion or a change to the code directly,
 such as renaming a variable, you can click the `Add a suggestion` button 
 (which looks like a document with a plus and a minus in it).
 This will populate the comment with the existing code, and you can edit it to be
-what you think the code should be.
+what you think the code should be. 
+
+    ***Note:** you can only make direct code suggestions if you are a collaborator on a repository. 
+    Otherwise, you can add comments only.*
 ![Adding a suggestion to a pull request](../fig/github-pull-request-add-suggestion.png){: .image-with-shadow width="800px"} 
-GitHub will then provide a button for the code author to apply your change directly.
+GitHub will then provide a button for the code author to apply your changes directly.
 4. Write your comment in the box, and then click `Start review`.
 This will save your comment, but not publish it yet.
 You can use `Add single comment` button to immediately post a comment.
@@ -321,16 +328,15 @@ However, it is best to batch the comments into a single review, so that the auth
 knows when you have finished adding comments
 (and avoid spamming their email with notifications).
 5. Continue adding comments in this way, if you have any, using the `Add review comment` button.
-on subsequent comments.
 
 > ## Effective Review Comments
 >
 > * Make sure your review comments are specific and actionable.
 > * Try to be as specific as you can - instead of "this code is unclear"
-> instead say "I don't understand what values this variable can hold".
+> instead say "I do not understand what values this variable can hold".
 > * Make it clear in the comment if you want something to change as part
 > of this pull request.
-> * Ideally provide a concrete suggestion (e.g., better variable name).
+> * Ideally provide a concrete suggestion (e.g. a better variable name).
 {: .callout}
 
 > ## Exercise: Review Some Code
@@ -340,7 +346,7 @@ on subsequent comments.
 > If there is an odd number of people in your group, three people can go in a round robin fashion
 > (the first team member will review the pull request on the second member’s repository
 > and will receive comments on the pull request on their repository from
-> the third team member).
+> the third team member, and so on).
 > If you are going through the material on your own and do not have a collaborator,
 > you can be the reviewer on the pull requests on your own repository.
 >
@@ -348,15 +354,18 @@ on subsequent comments.
 > There are examples of all four main problem areas in the pull request,
 > so try to make at least one suggestion for each area.
 >
-> Do not submit your review just yet.
+> **Add your review comments but do not submit your review just yet.**
 >
+> Time: 10 min
 >> ## Solution
 >>
 >> Here are some of the things you might have found were wrong with the code. 
 >> ##### Is the proposed code readable? 
->> * Unclear function name `s_dev` - uses an uncommon abbreviation increasing mental load
->>    when reading code that calls this function, prefer `standard_deviation`.
->> * Variable `number` not clear what it contains --- prefer business-logic name like `mean` or `mean_of_data`
+>> * Function name `s_dev` is not the best or self-explanatory - it uses an uncommon abbreviation 
+>> and does not make it clear immediately what the function does without reading the code. 
+>> A better name is `standard_deviation`.
+>> * Not clear what variable `number` contains - better option is a business-logic name
+>>    like `mean` or `mean_of_data`.
 >>
 >> ##### Is the proposed code a minimal change?
 >>
@@ -378,13 +387,12 @@ on subsequent comments.
 
 The other key thing you want to verify in a code review is that the code is correct and
 well tested.
-One approach to do this is to build up a list of tests you expect to see
-(and the results you'd expect them to have),
+One approach to do this is to build up a list of tests you would expect to see
+(and the results you would expect them to have),
 and then verify that all these tests are present and correct.
 
-Start by listing out all the tests you'd expect to see based on the specification.
-
-As you are going through the code, add to this list with any tests you can think
+Start by listing out all the tests you would expect to see based on the specification.
+As you are going through the code, add to this list any other tests you can think
 of, making sure to add tests for:
 
 * All paths through the code.
@@ -393,8 +401,8 @@ of, making sure to add tests for:
 * Edge cases that you spot.
 * Any circumstances where you are not certain how code would behave.
 
-Once you have built the list, go through the tests in the pull request. Make sure
-the tests test what you expect (so inspect them closely!).
+Once you have the list, go through the tests in the pull request. 
+Inspect them closely to make sure they test everything you expect them to.
 
 ### Submitting a Review
 
@@ -403,7 +411,7 @@ submit your review.
 
 1. To do this, click the `Finish your review` button at the top of the `Files changed` tab.
 ![Using the finishing your review dialog](../fig/github-submit-pull-request-review.png){: .image-with-shadow width="800px"}
-In the comment box, you can add any comments that aren't
+In the comment box, you can add any other comments that are not
 associated with a specific line.
 For example, you can put the list of tests that you want to see
 added here.
@@ -413,19 +421,19 @@ added here.
 go in with no further changes.
 * Use `Request changes` to communicate to the author that
 they should address your comments before you will approve it.
-* Use `Comment` if you don't want to express a decision on
-whether the code should be accepted. For example, if you've been asked
+* Use `Comment` if you do not want to express a decision on
+whether the code should be accepted. For example, if you have been asked
 to look at a specific part of the code, or if you are part way through
 a review, but wanted to share some comments sooner.
 3. Finally, you can press `Submit review` button.
-This will publish all the comments you've made as part of the review and
+This will publish all the comments you have made as part of the review and
 let the author know that the review is complete and it is their
 turn for action.
 
 > ## Exercise: Review the Code for Suitable Tests
 >
-> Remind yourself of the specification of SR1.1.1 and write a list of
-> tests you'd expect to see for this feature.
+> Remind yourself of the [specification for SR1.1.1](../31-software-requirements/index.html#solution-requirements) 
+> and write a list of tests you would expect to see for this feature.
 > Review the code again and expand this list to include any other
 > edge cases the code makes you think of.
 > Go through the tests in the pull request and work out which tests are present.
@@ -433,6 +441,7 @@ turn for action.
 > Once you are happy, you can submit your review.
 > Select `Request changes` to let the author know they need to address your comments.
 >
+> Time: 10 min
 >> ## Solution
 >>
 >> Your list might include the following:
@@ -464,38 +473,37 @@ turn for action.
 
 ### Responding to Review Comments
 
-When you receive comments on your code,
-there are a few different things that can happen.
+Once you receive comments on your code, a few different scenarios can occur:
 
-1. You understand and agree with what the reviewer is saying.
-With such a review, you should make the change to your code on your branch (or accept the 
-suggested change by the reviewer).
-Once you've made the change you can commit it.
+1. You understand and agree with the reviewer's comments.
+In this scenario, you should make the requested change to your branch (or accept the 
+suggested change by the reviewer) and commit it.
 It might be helpful to add a thumbs up reaction to the comment, so the reviewer knows
 you have addressed it. Even better, leave a comment such as "Fixed via #commit_number" with a link 
 to your commit that implemented the change.
 ![Responding to a review comment with an emoji](../fig/github-respond-to-review-comment-with-emoji.png){: .image-with-shadow width="800px"}
 ![Responding to a review comment with a link to commit](../fig/github-respond-to-review-comment-with-commit-link.png){: .image-with-shadow width="800px"}
-2. Some comment may not make total sense to you or it is not clear 
-what the change should be - you should reply to such comments to ask for clarification.
-3. You disagree or are really lost on what the reviewer is driving at with their comments.
-In this case, it might be best to talk to them in person. 
+2. It is not completely clear what the requested change should be - in this scenario 
+you should reply to such a review to ask for clarification.
+3. You disagree with the reviewer - in this scenario, it might be best to talk to them in person. 
 Discussions that happen on code reviews can often feel quite adversarial -
-discussing what the best solution is in person can often defuse this.
+discussing what the best solution is in person can help defuse this.
 
 > ## Exercise: Responding to Comments
 >
 > Look at the pull request that you created on your repository. 
-> By now you should now have someone else's comments on it.
-> For each comment, either reply explaining why you don't think the change is necessary
-> or make the change and push a commit fixing it. You can reply to the comment indicating you
-> have done it.
+> By now you should have someone else's comments on it.
+> For each comment, either reply explaining why you do not think the change is necessary
+> or make the change and push a commit fixing it. Reply to each of the comments indicating you
+> have addressed it.
 >
-> At the same time, people will be addressing your comments on a pull request in their repository. 
-> If you're happy that your comment has been suitably addressed, you can mark it as resolved.
-> Once you're happy they have all been addressed, you can approve the pull request.
-> To approve a pull request, submit a new review and this time select `Approve`.
+> At the same time, people will be addressing your comments on the pull request in their repository. 
+> If you are satisfied that your comment has been suitably addressed, you can mark it as resolved.
+> Once all comments have been addressed, you can approve the pull request by submitting 
+> a new review and this time selecting `Approve`.
 > This tells the author you are happy for them to merge the pull request.
+>
+> Time: 10 min
 {: .challenge}
 
 ### Approving a Pull Request
@@ -519,17 +527,16 @@ as easy as possible for the reviewer to review your code:
 * **Review your code yourself**, before requesting a review.
 
 The most important thing to keep in mind is how long your pull request is.
-Smaller changes, that just make one small improvement, will be much quicker and easier to
-review.
+Smaller changes that just make one small improvement will be much quicker and easier to review.
 There is no golden rule, but [studies into code review](https://smartbear.com/resources/ebooks/the-state-of-code-review-2020-report/) show that you should not review more
 than 400 lines of code at a time, so this is a reasonable target to aim for.
 You can refer to some [studies](https://jserd.springeropen.com/articles/10.1186/s40411-018-0058-0)
 and [Google recommendations](https://google.github.io/eng-practices/review/developer/small-cls.html)
 as to what a "large pull request" is but be aware that it is not an exact science.
 
-Even within a single review, try to keep each commit to be making one logical change.
-This can help if your review would otherwise be too large.
-In particular, if you've reformatted, refactored and changed the behavior of the
+Try to keep each commit (within your pull request) to be making one logical change.
+This can especially help with larger pull requests that would otherwise be harder to review.
+In particular, if you have reformatted, refactored and changed the behavior of the
 code make sure each of these is in a separate commit
 (i.e reformat the code, commit, refactor the code, commit, alter the behavior of the code, commit).
 
@@ -548,66 +555,69 @@ Code is written by humans (mostly!), and code review is a form of communication.
 As such, empathy is important for effective reviewing.
 
 When reviewing code, it can be sometimes frustrating when code is confusing, particularly
-as it will be implemented differently to how you would have done it.
+as it is implemented differently to how you would have done it.
 However, it is important as a reviewer to be compassionate to the
 person whose code you are reviewing.
 Specifically:
 
 * Identify positives in code as and when you find them (particularly if it is an improvement on
-  something you've previously fed back on in a previous review).
-* Remember different doesn't mean better - only request changes if the code is wrong or hard to understand.
+  something you have fed back on in a previous review).
+* Remember different does not mean better - only request changes if the code is wrong or 
+hard to understand.
 * Only provide a few non-critical suggestions - you are aiming for better rather than perfect.
 * Ask questions to understand why something has been done a certain way rather than assuming you
   know a better way.
-* If a conversation is taking place on a review and hasn't been resolved by a
+* If a conversation is taking place on a review and has not been resolved by a
   single back-and-forth exchange, then schedule a conversation to discuss instead
-  (recording the results of the discussion in the PR).
+  (and record the outcome of the discussion in the PR's comments).
 
 ## Defining a Review Process For Your Team
 
 To be effective, code review needs to be a process that is followed by everyone
-developing the code.
+in the team developing the code.
 Everyone should believe that the process provides value.
 One way to foster this is to agree on the review process as a team and consider, e.g.:
 
-* Do all changes need to go through code review
-* What technologies will you use to manage the review process
-* How quickly do you expect someone to review the code once you've raised a PR?
-* How long should be spent reviewing code?
-* What kind of issues are (and aren't) appropriate to raise in a PR?
-* How will someone know when they are expected to take action (e.g. review a PR)?
+* Whether all changes need to go through code review
+* What technologies you are going to use to manage the review process
+* How quickly you expect someone to review the code once a PR has been raised
+* How long should be spent reviewing code
+* What kind of issues are (and are not) appropriate to raise in a PR
+* How will someone know when they are expected to take action (e.g. review a PR).
 
 You could also consider using pull request states in GitHub:
- - Open a pull request in a `DRAFT` state to show progress or request early feedback,
- - `READY FOR REVIEW` when you are ready for feedback,
+ - Open a pull request in a `DRAFT` state to show progress or request early feedback
+ - `READY FOR REVIEW` when you are ready for feedback
  - `CHANGES REQUESTED` to let the author know
-     they need to fix the requested changes or discuss more,
+     they need to fix the requested changes or discuss more
  - `APPROVED` to let the author they can merge their pull request.
 
-Once you've introduced a review process, you should monitor (either formally or
+Once you have agreed on a review process, you should monitor (either formally or
 informally) how well it is working.
 
-It is important that reviews are processed quickly, to avoid costly context switching.
-We recommend aiming for 3 hours to get a first review, with the PR being merged the same
-day in most cases. If you are regularly missing these targets, then you should review
+It is important that reviews are processed quickly, to avoid costly context switching for the 
+code author moving on to work on other things and coming back to their PR.
+Try and set the targets for when you would want the first review submitted on a PR 
+and the PR merged, based on how your team works. 
+If you are regularly missing your targets, then you should review your process to identify
 where things are getting stuck and work out what you can do to move things along.
 
-> ## Exercise: Code Review in Your Own Working Environment
+> ## Optional Exercise: Code Review in Your Own Working Environment
 >
-> In this episode we have looked at why and how to use a tool driven code review process
-> using GitHub pull requests. We've also looked at some best practices for doing
-> code reviews in general.
+> In this episode we have looked at some best practices for code review and practiced 
+> tool assisted code review with GitHub's pull requests.
 >
-> Now think about how you typically develop code.
-> What benefits do you think you would see for introducing a code review process in
-> your work environment.
-> How you might institute code review practices within your environment.
-> Write down a process for a tool assisted code review, answering the questions
+> Now think about how you and your collaborators typically develop code.
+> What benefits do you see for introducing a code review process in
+> your work environment?
+> How might you institute code review practices within your environment?
+> Write down a process for a tool assisted code review for your team, answering the questions
 > above.
 >
 > Once complete, discuss with the rest of the class what are the advantages of
-> a code review process and
-> what challenges you think you'd face in implementing this process in your own working environment.
+> a code review process and what challenges you think you would face in implementing 
+> this process in your own working environment.
+>
 > > ## Solution
 > > The purposes of code review include:
 > > - improving internal code readability, understandability, quality and maintainability,

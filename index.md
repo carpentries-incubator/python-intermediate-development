@@ -72,10 +72,22 @@ This course is for you if:
    and those of individual episodes
  - The software you write is fully documented and well architected
 
+> ## Learning Objectives
+> After going through this course, participants will be able to:
+> - Set up and use a suitable development environment
+together with popular source code management infrastructure to develop software collaboratively
+> - Use a test framework to automate the verification of correct behaviour of code,
+and employ parameterisation and continuous integration to scale and further automate code testing
+> - Design robust, extensible software through the application of suitable programming paradigms 
+and design techniques
+> - Understand the code review process and employ it to improve the quality of code
+> - Prepare and release software for reuse by others
+> - Manage software improvement from feedback through agile techniques
+{: .objectives }
+
 > ## Prerequisites
-> To attend this course you should meet the following criteria.
-> You can also test your prerequisite knowledge by taking
-> [this short quiz](quiz/index.html).
+> Before joining this training, participants should meet the following criteria.
+> (You can use [this short quiz](quiz/index.html) to test your prerequisite knowledge.)
 >
 > #### Git
 > - **You are familiar with the concept of version control**
@@ -97,20 +109,6 @@ This course is for you if:
 >   to navigate a UNIX-style file system and run commands with arguments**
 > - Optionally, you have experience redirecting inputs and outputs from a command
 {: .prereq}
-
-> ## Learning Objectives for the Workshop
-> - Set up and use a suitable development environment
->   together with popular source code management infrastructure to develop software collaboratively
-> - Use a test framework to automate the verification of correct behaviour of code,
->   and employ parameterisation and continuous integration
->   to scale and further automate your testing
-> - Design robust, extensible software
->   through the application of suitable programming paradigms and design techniques
-> - Understand the code review process
->   and employ it to improve the quality of code
-> - Prepare and release your software for reuse by others
-> - Manage software improvement from feedback through agile techniques
-{: .objectives }
 
 > ## Setup
 > Please make sure that you have all the necessary software and accounts setup ahead of the workshop

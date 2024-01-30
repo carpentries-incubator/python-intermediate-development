@@ -2,7 +2,7 @@
 title: "Preparing Software for Reuse and Release"
 start: false
 teaching: 35
-exercises: 20
+exercises: 15
 questions:
 - "What can we do to make our programs reusable by others?"
 - "How should we document and license our code?"
@@ -215,7 +215,7 @@ add the following (replacing `<your_github_username>` with your own:
 
 ~~~
 # Inflam
-![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
+![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/actions/workflows/main.yml/badge.svg?branch=main)
 ...
 ~~~
 {: .language-markdown}
@@ -338,6 +338,8 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 > choosing a licence,
 > and fixing any remaining problems you are aware of in your codebase.
 > Ensure you prioritise and work on the most pressing issues first!
+> 
+> Time: 15 min
 {: .challenge}
 
 ## Merging into `main`
@@ -360,10 +362,11 @@ we can merge our `develop` branch into `main`:
 ~~~
 $ git switch main
 $ git merge develop
-$ git push
+$ git push origin main
 ~~~
 {: .language-bash}
 
+The software on your `main` branch is now ready for release.
 
 ## Tagging a Release in GitHub
 
@@ -377,8 +380,8 @@ $ git tag
 ~~~
 {: .language-bash}
 
-Since we haven't tagged any commits yet, there's unsurprisingly no output.
-We can create a new tag on the last commit we did by doing:
+Since we have not tagged any commits yet, there is unsurprisingly no output.
+We can create a new tag on the last commit in our `main` branch by doing:
 
 ~~~
 $ git tag -a v1.0.0 -m "Version 1.0.0"
@@ -462,7 +465,7 @@ index 4818abb..5b8e7fd 100644
 ~~~
 {: .output}
 
-So now we've added a tag, we need this reflected in our Github repository.
+So now we have added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
 ~~~

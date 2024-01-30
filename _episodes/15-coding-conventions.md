@@ -2,7 +2,7 @@
 title: "Python Code Style Conventions"
 start: false
 teaching: 20
-exercises: 15
+exercises: 20
 questions:
 - "Why should you follow software code style conventions?"
 - "Who is setting code style conventions?"
@@ -27,12 +27,11 @@ It may be worth spending some time learning a bit about Python coding style conv
 to make sure that your code is consistently formatted and readable by yourself and others.
 
 > *"Any fool can write code that a computer can understand.
-> Good programmers write code that humans can understand."* -
-> [Martin Fowler](https://en.wikiquote.org/wiki/Martin_Fowler),
-> British software engineer, author and international speaker on software development
+> Good programmers write code that humans can understand."* - [Martin Fowler](https://en.wikiquote.org/wiki/Martin_Fowler),
+>British software engineer, author and international speaker on software development
 
 ## Python Coding Style Guide
-One of the most important things we can do to make sure our code is readable by others
+One of the most important things we can do to make sure our code is readable by other developers
 (and ourselves a few months down the line)
 is to make sure that it is descriptive,
 cleanly and consistently formatted
@@ -56,7 +55,7 @@ a description of a new feature in Python, etc.
 >## Style consistency
 > One of the
 > [key insights from Guido van Rossum](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds),
-> one of the PEP 8 authors,
+> the creator of the Python programming language and one of the PEP 8 authors,
 > is that code is read much more often than it is written.
 > Style guidelines are intended to improve the readability of code
 > and make it consistent across the wide spectrum of Python code.
@@ -102,21 +101,19 @@ be consistent and follow the style already used in the project.
 {: .callout}
 
 PyCharm has built-in support for converting tab indentation to spaces
-"under the hood" for Python code in order to conform to PEP8.
+"under the hood" for Python code in order to conform to PEP 8.
 So, you can type a tab character and PyCharm will automatically convert it to 4 spaces.
 You can control the amount of spaces that PyCharm uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in PyCharm's
-`Preferences`>`Editor`>`Code Style`>`Python` (MacOS/Linux)
-or `Settings`>`Editor`>`Code Style`>`Python` (Windows).
+You can modify these settings in PyCharm's `Settings`>`Editor`>`Code Style`>`Python`.
 
 ![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `View`>`Active Editor`>`Show whitespace`.
+by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
 
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="1000px"}
+![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="800px"}
 
 There are more complex rules on indenting single units of code that continue over several lines,
 e.g. function, list or dictionary definitions can all take more than one line.
@@ -305,7 +302,7 @@ Avoid extraneous whitespace in the following situations:
 
 ### String Quotes
 In Python, single-quoted strings and double-quoted strings are the same.
-PEP8 does not make a recommendation for this
+PEP 8 does not make a recommendation for this
 apart from picking one rule and consistently sticking to it.
 When a string contains single or double quote characters,
 use the other one to avoid backslashes in the string as it improves readability.
@@ -323,7 +320,7 @@ e.g HTTPServerError)
 As with other style guide recommendations - consistency is key.
 Follow the one already established in the project, if there is one.
 If there isn't, follow any standard language style (such as
-[PEP8](https://www.python.org/dev/peps/pep-0008/) for Python).
+[PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python).
 Failing that, just pick one, document it and stick to it.
 
 Some things to be wary of when naming things in the code:
@@ -353,7 +350,7 @@ Some things to be wary of when naming things in the code:
 >
 > A more detailed guide on
 > [naming functions, modules, classes and variables](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)
-> is available from PEP8.
+> is available from PEP 8.
 >
 {: .callout}
 
@@ -420,8 +417,12 @@ because an incorrect comment causes more confusion than no comment at all.
 
 > ## Exercise: Improve Code Style of Our Project
 > Let's look at improving the coding style of our project.
-> First create a new feature branch called `style-fixes` off our `develop` branch
-> and switch to it (from the project root):
+> First, from the project root, use `git switch` to create a new feature branch called `style-fixes`
+> from our develop branch.
+> (Note that at this point `develop` and `main` branches
+> are pointing at the same commit so it does not really matter which one we are branching off - 
+> in real collaborative software development environments, you'd likely be expected to branch off `develop`
+> as it would contain the latest code developed by your team.)
 >
 > ~~~
 > $ git switch develop
@@ -433,6 +434,7 @@ because an incorrect comment causes more confusion than no comment at all.
 > and identify where the above guidelines have not been followed.
 > Fix the discovered inconsistencies and commit them to the feature branch.
 >
+> Time: 10 min
 >> ## Solution
 >> Modify `inflammation-analysis.py` from PyCharm,
 >> which is helpfully marking inconsistencies with coding guidelines by underlying them.
@@ -480,16 +482,17 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     By convention, variable names should be in lowercase with optional underscores
 >>     so you should rename the variable 'InFiles' to, e.g., 'infiles' or 'in_files'.
 >>
->>  3. There is an extra blank line on line 20 in `inflammation-analysis.py`.
+>>  3. There are two blank lines starting from line 19 in `inflammation-analysis.py`.
 >>     Normally, you should not use blank lines in the middle of the code
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
->>     and the rest of the code on line 30 in `inflammation-analysis.py` -
->>     should be two blank lines.
->>     Note how PyCharm is warning us by underlying the whole line.
+>>     and the rest of the code below line 27 in `inflammation-analysis.py` -
+>>     should be two blank lines (PEP 8 recommends surrounding top-level function
+>>     (and class) definitions with two blank lines).
+>>     Note how PyCharm is warning us by underlining the whole line below.
 >>
 >> Finally, let's add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.
@@ -524,7 +527,7 @@ because an incorrect comment causes more confusion than no comment at all.
 
 
 > ## Optional Exercise: Improve Code Style of Your Other Python Projects
-> If you have another Python project, check to which extent it conforms to PEP8 coding style.
+> If you have another Python project, check to which extent it conforms to PEP 8 coding style.
 {: .challenge}
 
 ### Documentation Strings aka Docstrings
@@ -628,7 +631,7 @@ The docstring for a function or a module
 is returned when calling the `help` function and passing its name -
 for example from the interactive Python console/terminal available from the command line
 or when rendering code documentation online
-(e.g. see [Python documentation](https://docs.python.org/3.8/library/index.html)).
+(e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
 PyCharm also displays the docstring for a function/module
 in a little help popup window when using tab-completion.
 
@@ -643,6 +646,8 @@ help(fibonacci)
 > `daily_min`,
 > `daily_max`.
 > Commit those changes to feature branch `style-fixes`.
+>
+> Time: 10 min
 > > ## Solution
 > > For example,
 > > the improved docstrings for the above functions would contain explanations
