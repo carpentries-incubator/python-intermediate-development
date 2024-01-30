@@ -49,12 +49,13 @@ rather than a core team member.
 
 In the **shared repository model**, collaborators are granted push access to a single shared code repository.
 By default, collaborators have write access to the main branch.
-However, it is best practice to create feature branches for new developments,
-and protect the main branch. See the [extra episode on protecting the main branch](../protect-main-branch)
+However, it is best practice to create feature branches for new developments
+and protect the main branch from direct and unreviewed commits to keep it stable - see 
+[GitHub's documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
 on how to do this.
-While it requires more upfront coordination, it is easier to share each others
-work, so it works well for more stable teams.
-This model is more prevalent with teams and organisations collaborating on private projects.
+While this model of collaboration requires more upfront coordination, 
+it makes it easier to share each other's work. It works well for more stable teams and 
+is more prevalent with teams and organisations collaborating on private projects.
 
 ## Code Review
 
