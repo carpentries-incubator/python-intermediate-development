@@ -52,7 +52,7 @@ and [`pip`](https://pip.pypa.io/en/stable/)
 to set up a Python virtual development environment
 and isolate our software project from other Python projects we may work on.
 
-**Note:** *some Windows users experience the issue where Python hangs from Git Bash
+***Note:** some Windows users experience the issue where Python hangs from Git Bash
 (i.e. typing `python` causes it to just hang with no error message or output) -
 [see the solution to this issue](../common-issues/index.html#python-hangs-in-git-bash).*
 
