@@ -408,49 +408,53 @@ as shown below, present a dialog box asking you to create one.
 
 ![Running single scripts in VS Code](../fig/vs-code-run-script.png){: .image-with-shadow width="1000px" }
 
-We will create two run configurations,
-one for the current python file and the other for the `catchment-analysis` module:
+We will create two run configurations for the `catchment-analysis` module:
 1. Click on the `Run and Debug` tab in the Activity Bar on the left.
 2. In the `Run and Debug` panel click on the `create a launch.json file` link.
 3. This will open a search text box, from which select
 `Python File: Debug the currently active Python File`
 4. This will create a `launch.json` file, and open it in the editor window,
 with a configuration for just python files
-5. In that file, add a python module configuration,
-so that the `configurations` section of the file looks like the code below.
+5. Change the contents of the file, to match the code below.
 6. Save the file.
 
 ```
-"configurations": [
+{
+    "version": "0.2.0",
+    "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Catchment-analysis: Rain",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "args" : [ "data/rain_data_2015-12.csv" ],
+            "module": "catchment-analysis",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": True
         },
         {
-            "name": "Python: Module",
+            "name": "Catchment-analysis: River",
             "type": "python",
             "request": "launch",
+            "args" : [ "data/river_data_2015-12.csv" ],
             "module": "catchment-analysis",
-            "justMyCode": true
+            "console": "integratedTerminal",
+            "justMyCode": True
         }
     ]
-
+}
 ```
 
 Click again on the `Run and Debug` tab in the Activity Bar.
 The `Run and Debug` panel should have changed,
 and there will now be a Run symbol at the top of the panel.
 When you click on the Run symbol there should be a drop-down list with two choices,
-run `Python: Current File` or `Python: Module`,
-with the latter being set to run the catchment-analysis.py script as a module.
+run `Catchment-analysis: Rain` or `Catchment-analysis: River`,
+each of which will run the catchment-analysis.py script as a module,
+but with the relevant data file passed as an argument.
 You can edit the `launch.json` file further
 by clicking on the `Settings` cog symbol next to the Run symbol.
 This is useful for adding further configurations,
-or to add arguments to be input when running the scripts.
+or more arguments to be input when running the scripts.
 
 Now you know how to configure and manipulate your environment in both tools
 (command line and VS Code),
@@ -558,25 +562,27 @@ online.
 ### Running Scripts in VS Code
 We have configured our environment and explored some of the most commonly used VS Code features
 and are now ready to run our script from VS Code!
-To do so select the `catchment-analysis.py` file
+We could select the `catchment-analysis.py` file
 in the VS Code project/file explorer, and select `Run`.
-Or you can select the `Run and Debug` tab
-and then select the `Run: Python Module` configuration
-that we created earlier.
+However this will not pass any command line arguments to the file,
+and so does not work for us.
 
-The script will run in a terminal window at the bottom of the IDE window and display something like:
+To run our script instead use the `Run and Debug` tab
+and then select either of the `Catchment-analysis: Rain` and `Catchment-analysis: River`
+configurations that we created earlier.
+The script will run in a terminal window at the bottom of the IDE window
+and should return either the rain statistical data,
+or a ValueError exception, as we got before for the river data file.
+This time, however, VS Code will helpfully enter debug mode,
+open the module file where that error occurs
+and display the error message below the appropriate line of code.
 
-~~~
-/Users/alex/work/python-intermediate-rivercatchment/venv/bin/python /Users/alex/work/python-intermediate-rivercatchment/catchment-analysis.py
-usage: catchment-analysis.py [-h] infiles [infiles ...]
-catchment-analysis.py: error: the following arguments are required: infiles
+![River Data Error Message in VS Code](../fig/vs-code-river-data-error.png){: .image-with-shadow width="1000px" }
 
-Process finished with exit code 2
-~~~
-{: .output}
+Note that VS Code has a control bar for the running program at the top of the window,
+you can press the red square to stop the program running, or exit debug mode.
 
-This is the same error we got when running the script from the command line.
-We will get back to this error shortly -
+We will get back to the river data error shortly -
 for now, the good thing is that we managed to set up our project for development
 both from the command line and VS Code and are getting the same outputs.
 Before we move on to fixing errors and writing more code,
