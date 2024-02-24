@@ -570,8 +570,51 @@ In the above command, we tell the command line two things:
 
 As we can see, the Python interpreter ran our script, which threw an error -
 `catchment-analysis.py: error: the following arguments are required: infiles`. 
-It looks like the script expects a list of input files to process,
-so this is expected behaviour since we don't supply any.
-We will fix this error in a moment.
+It looks like the script expects a list of one or more input files to process,
+as indicated by the `infiles [infiles ...]` text at the end of the `usage` statement.
+
+We can solve this problem simply by providing those input files.
+Let's start with the rainfall data in the file `data/rain_data_2015-12.csv`:
+~~~
+(venv) $ python3 catchment-analysis.py data/rain_data_2015-12.csv
+~~~
+{: .language-bash}
+This will produce the following figure:
+![Rainfall daily metrics](../fig/rainfall_daily_metrics.png){: .image-with-shadow width="800px" }
+We can see now that the software calculates, and plots, for each site
+the daily sum, average, maximum and minimum values of the data provided.
+The presentation of the data is not perfect, but it is still a helpful overview of the data.
+
+Let's now provide the river data in the file `data/river_data_2015-12.csv`:
+~~~
+(venv) $ python3 catchment-analysis.py data/rain_data_2015-12.csv
+~~~
+{: .language-bash}
+This time, however, we get the following error message:
+~~~
+Traceback (most recent call last):
+  File "/Users/mbessdl2/work/manchester/Course_Material/Intermediate_Programming_Skills/python-intermediate-rivercatchment-template/catchment-analysis.py", line 39, in <module>
+    main(args)
+  File "/Users/mbessdl2/work/manchester/Course_Material/Intermediate_Programming_Skills/python-intermediate-rivercatchment-template/catchment-analysis.py", line 22, in main
+    measurement_data = models.read_variable_from_csv(filename)
+  File "/Users/mbessdl2/work/manchester/Course_Material/Intermediate_Programming_Skills/python-intermediate-rivercatchment-template/catchment/models.py", line 22, in read_variable_from_csv
+    dataset = pd.read_csv(filename, usecols=['Date', 'Site', 'Rainfall (mm)'])
+...
+ValueError: Usecols do not match columns, columns expected but not found: ['Rainfall (mm)']
+~~~
+{: .output}
+We can see that error is caused by a mismatch 
+between the columns of data the program expects to find,
+and what columns of data are present in the input file.
+The traceback information also shows the cause of the error,
+which is that the columns of data expected are hard-coded in the `models.py` file:
+~~~
+dataset = pd.read_csv(filename, usecols=['Date', 'Site', 'Rainfall (mm)'])
+~~~
+{: .language-python}
+Hard-coding values like this into your code is problematic
+because it ultimately reduces the flexibility of your programs.
+We cannot correct this error right now,
+but will revisit the problem in a later episode.
 
 {% include links.md %}
