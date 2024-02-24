@@ -154,7 +154,7 @@ A few notes before we start.
 
 > ## Outdated Screenshots
 > Throughout this lesson we will make use and show content
-> from Graphical User Interface (GUI) tools (PyCharm and GitHub).
+> from Graphical User Interface (GUI) tools (Visual Studio Code (VS Code) and GitHub).
 > These are evolving tools and platforms, always adding new features and new visual elements.
 > Screenshots in the lesson may then become out-of-sync,
 > refer to or show content that no longer exists or is different to what you see on your machine.

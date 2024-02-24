@@ -14,7 +14,7 @@ keypoints:
 
 ## Verifying Code Style Using Linters
 
-We've seen how we can use PyCharm to help us format our Python code in a consistent style.
+We've seen how we can use VS Code to help us format our Python code in a consistent style.
 This aids reusability,
 since consistent-looking code is easier to modify
 since it's easier to read and understand.
@@ -48,7 +48,8 @@ $ python3 -m pip freeze > requirements.txt
 Pylint is a command-line tool that can help our code in many ways:
 
 - **Check PEP8 compliance:**
-  whilst in-IDE context-sensitive highlighting such as that provided via PyCharm
+  whilst in-IDE context-sensitive highlighting such as that provided via VS Code (using an 
+  extension such as Flake8, which we installed in the previous episode)
   helps us stay consistent with PEP8 as we write code, this tool provides a full report
 - **Perform basic error detection:** Pylint can look for certain Python type errors
 - **Check variable naming conventions**:
@@ -83,7 +84,7 @@ Pylint recommendations are given as warnings or errors,
 and Pylint also scores the code with an overall mark. 
 We can look at a specific file (e.g. `catchment-analysis.py`),
 or a module (e.g. `catchment`).
-Let's look at our `catchment` module and code inside it (namely `models.py` and `views.py`). 
+Let's look at our `catchment` module and code inside it (namely `models.py` and `views.py`).
 From the project root do:
 
 ~~~

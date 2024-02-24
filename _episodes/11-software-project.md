@@ -390,6 +390,6 @@ when we talk in more detail about software's
 and [software design](../32-software-design/index.html).
 We now proceed to set up our virtual development environment
 and start working with the code using a more convenient graphical tool -
-[IDE PyCharm](https://www.jetbrains.com/pycharm/).
+[IDE Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 
 {% include links.md %}

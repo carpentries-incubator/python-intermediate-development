@@ -71,10 +71,22 @@ a description of a new feature in Python, etc.
 {: .callout}
 
 As we have already covered in the
-[episode on PyCharm IDE](../13-ides/index.html),
-PyCharm highlights the language constructs (reserved words)
-and syntax errors to help us with coding.
-PyCharm also gives us recommendations for formatting the code -
+[episode on VS Code IDE](../13-ides/index.html),
+VS Code highlights the language constructs (reserved words)
+and syntax errors to help us with coding. We would also like VS Code to give us recommendations 
+for formatting the code (for example using 
+the PEP 8 style guide above). To do this we will need to install another extension. 
+(See the [episode on VS Code IDE](../13-ides/index.html) if you need a reminder on how to add extensions.)
+On 'Activity Bar', on the left hand side of the VS Code interface, click on the `Extensions` Tab,
+so that we can add the an extension called `Flake8` for VS Code.
+In the search text box, type `Flake8`. Select the `Flake8` extension, as shown in the following figure,
+and click the blue `install` button. Note that other Python style guide extensions are available. 
+Another useful one at the time of writing, is one called `Pylint`.
+
+![View of selecting the Flake8 Extension for VS Code](../fig/vs-code-flake8-extension.png){: .image-with-shadow width="1000px" }
+
+
+VS Code will now give us recommendations for formatting the code -
 these recommendations are mostly taken from the PEP 8 style guide.
 
 A full list of style guidelines for this style is available from the
@@ -101,20 +113,25 @@ be consistent and follow the style already used in the project.
 > Whichever you choose, be consistent throughout the project.
 {: .callout}
 
-PyCharm has built-in support for converting tab indentation to spaces
+VS Code has built-in support for converting tab indentation to spaces
 "under the hood" for Python code in order to conform to PEP8.
-So, you can type a tab character and PyCharm will automatically convert it to 4 spaces.
-You can control the amount of spaces that PyCharm uses to replace one tab character
+So, you can type a tab character and VS Code will automatically convert it to 4 spaces.
+You can control the amount of spaces that VS Code uses to replace one tab character
 or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in PyCharm's `Settings`>`Editor`>`Code Style`>`Python`.
+You can modify these settings by selecting `File`>`Preferences`>`Settings` on Windows,
+or `Code`>`Settings...`>`Settings` on Mac,
+and then searching on `editor tab size`, `editor indent size` and `editor insert spaces`
 
-![Python code indentation settings in PyCharm](../fig/pycharm-indentation.png){: .image-with-shadow width="800px"}
+![Python code indentation settings in VS Code](../fig/vs-code-indentation.png){: .image-with-shadow width="1000px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
+by again selecting `File`>`Preferences`>`Settings` on Windows,
+or `Code`>`Settings...`>`Settings` on Mac,
+and search on `Render Whitespace`.
+Select `all` from the drop-down editbox menu.
 
-![Python code whitespace settings in PyCharm](../fig/pycharm-whitespace.png){: .image-with-shadow width="800px"}
+![Python code whitespace settings in VS Code](../fig/vs-code-whitespace.png){: .image-with-shadow width="800px"}
 
 There are more complex rules on indenting single units of code that continue over several lines,
 e.g. function, list or dictionary definitions can all take more than one line.
@@ -431,11 +448,11 @@ because an incorrect comment causes more confusion than no comment at all.
 > ~~~
 >  {: .language-bash}
 >
-> Next look at the `catchment-analysis.py` file in PyCharm
+> Next look at the `catchment-analysis.py` file in VS Code
 > and identify where the above guidelines have not been followed.
 > Fix the discovered inconsistencies and commit them to the feature branch.
 >> ## Solution
->> Modify `catchment-analysis.py` from PyCharm, 
+>> Modify `catchment-analysis.py` from VS Code, 
 >> which is helpfully marking inconsistencies with coding guidelines by underlying them.
 >> There are a few things to fix in `catchment-analysis.py`, for example:
 >>
@@ -486,13 +503,13 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     Normally, you should not use blank lines in the middle of the code 
 >>     unless you want to separate logical units -
 >>     in which case only one blank line is used.
->>     Note how PyCharm is warning us by underlining the whole line below.
+>>     Note how VS Code is warning us by underlining the whole line.
 >>
 >>  4. Only one blank line after the end of definition of function `main`
->>     and the rest of the code below line 30 in `catchment-analysis.py` - 
+>>     and the rest of the code on line 30 in `catchment-analysis.py` - 
 >>     should be two blank lines (PEP8 recommends surrounding top-level function
 >>     (and class) definitions with two blank lines).
->>     Note how PyCharm is warning us by underlining the whole line below.
+>>     Note how VS Code is warning us by underlining the whole line.
 >>
 >> Finally, let's add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.
@@ -631,7 +648,7 @@ is returned when calling the `help` function and passing its name -
 for example from the interactive Python console/terminal available from the command line
 or when rendering code documentation online
 (e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
-PyCharm also displays the docstring for a function/module
+VS Code also displays the docstring for a function/module
 in a little help popup window when using tab-completion.
 
 ~~~
@@ -640,7 +657,7 @@ help(fibonacci)
  {: .language-python}
 
 > ## Exercise: Fix the Docstrings
-> Look into `models.py` in PyCharm and improve docstrings for functions
+> Look into `models.py` in VS Code and improve docstrings for functions
 > `daily_mean` ,
 > `daily_min`,
 > `daily_max`.
