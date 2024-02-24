@@ -21,7 +21,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 
 ## National River Catchment Research Project
 So, you have joined a software development team that has been working on the 
-[river catchment study project](https://github.com/UoMResearchIT/python-intermediate-rivercatchment) 
+[river catchment study project](https://github.com/carpentries-incubator/python-intermediate-rivercatchment) 
 developed in Python and stored on GitHub. 
 The project will involve the analysis of environmental measurement data 
 to improve our understanding of the hydrological, hydrogeological, 
@@ -74,7 +74,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    Note that, while it is possible to use **HTTPS** with a personal access token for authentication with GitHub,
    the recommended and supported authentication method to use for this course is via SSH and key pairs.
 2. Log into your GitHub account.
-3. Go to the [software project template repository](https://github.com/UoMResearchIT/python-intermediate-rivercatchment)
+3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-rivercatchment)
    in GitHub.
 
    ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
