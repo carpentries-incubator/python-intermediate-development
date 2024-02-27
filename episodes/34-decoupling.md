@@ -1,5 +1,5 @@
 ---
-title: "Decoupling Code"
+title: "Code Decoupling & Abstractions"
 teaching: 30
 exercises: 45
 questions:
@@ -19,36 +19,45 @@ keypoints:
 
 ## Introduction
 
-In software design, an important aspect is the extent its components and smaller units
-as **coupled**.
-Two units of code can be considered **decoupled** if a change in one does not 
+Decoupling means breaking the system into smaller components and reducing the interdependence 
+between these components, so that they can be tested and maintained independently.
+Two components of code can be considered **decoupled** if a change in one does not 
 necessitate a change in the other.
 While two connected units cannot always be totally decoupled, **loose coupling**
 is something we should aim for. Benefits of decoupled code include:
 
 * easier to read as you do not need to understand the
-  detail of the other unit.
-* easier to test, as one of the units can be replaced
+  details of the other component.
+* easier to test, as one of the components can be replaced
   by a test or a mock version of it.
 * code tends to be easier to maintain, as changes can be isolated
   from other parts of the code.
 
-## Abstractions
+*Abstraction* is the process of hiding the implementation details of a piece of
+code behind an interface - i.e. the details of *how* something works are hidden away,
+leaving us to deal only with *what* it does.
+This allows developers to work with the code at a higher level
+of abstraction, without needing to understand fully (or keep in mind) all the underlying 
+details and thereby reducing the cognitive load when programming.
 
-We have already mentioned abstractions as a principle that simplifies complexity by 
-hiding details and focusing on high-level view and efficiency.
-
-
-Abstractions are a way of decoupling code.
+Abstractions can aid decoupling of code.
 If one part of the code only uses another part through an appropriate abstraction
 then it becomes easier for these parts to change independently.
 
-> ## Exercise: Decouple Data Loading from Analysis
-> Loading data from CSV files in a directory is baked into the `analyse_data()` function. 
-> Decouple this into a separate function that returns all the files to load.
+Let's start redesigning our code by introducing some of the decoupling and abstraction techniques 
+to incrementally improve its design.
+
+You may have noticed that loading data from CSV files in a directory is "baked" into 
+(i.e. is part of) the `analyse_data()` function. 
+This is not strictly a functionality of the data analysis function, so let's decouple the date 
+loading this into a separate function.
+
+> ## Exercise: Decouple Data Loading from Data Analysis
+> Separate out the data loading functionality from `analyse_data()` into a new function 
+> `load_inflammation_data()` that returns all the files to load.
 >> ## Solution
->> You should have written a new function that reads all the data into the format needed
->> for the analysis:
+>> The new function `load_inflammation_data()` that reads all the data into the format needed
+>> for the analysis should look something like:
 >> ```python
 >> def load_inflammation_data(dir_path):
 >>   data_file_paths = glob.glob(os.path.join(dir_path, 'inflammation*.csv'))
@@ -57,7 +66,7 @@ then it becomes easier for these parts to change independently.
 >>   data = map(models.load_csv, data_file_paths)
 >>   return list(data)
 >> ```
->> This can then be used in the analysis.
+>> This function can now be used in the analysis as follows:
 >> ```python
 >> def analyse_data(data_dir):
 >>   data = load_inflammation_data(data_dir)
@@ -77,29 +86,43 @@ For example, if we have to support loading data from different sources
 (e.g. JSON files and CSV files), we would have to pass some kind of a flag indicating 
 what we want into `analyse_data()`. Instead, we would like to decouple the 
 consideration of what data to load from the `analyse_data()` function entirely.
+One way we can do this is by using *encapsulation* and *classes*.
 
-One way we can do this is to use an object-oriented language feature called a *class*.
+## Encapsulation & Classes
 
-## Classes
+*Encapsulation* is the packing of "data" and "functions operating on that data" into a 
+single component/object. 
+It is also provides a mechanism for restricting the access to that data. 
+Encapsulation means that the internal representation of a component is generally hidden 
+from view outside of the component's definition.
 
-A class is a way of grouping together data with some specific methods on that data.
-In Python, you can **declare** a class as follows:
+Encapsulation allows developers to present a consistent interface to an object/component
+that is independent of its internal implementation. 
+For example, encapsulation can be used to hide the values or 
+state of a structured data object inside a **class**, preventing direct access to them 
+that could violate the object's state maintained by the class' methods. 
+Note that object-oriented programming (OOP) languages support encapsulation, 
+but encapsulation is not unique to OOP.
+
+So, a class is a way of grouping together data with some methods that manipulate that data.
+In Python, you can *declare* a class as follows:
 
 ```python
 class Circle:
   pass
 ```
 
-They are typically named using "CapitalisedWords" naming convention.
+Classes are typically named using "CapitalisedWords" naming convention - e.g. FileReader, 
+OutputStream, Rectangle.
 
-You can then **construct** a class **instance** elsewhere in your code by doing the following:
+You can *construct* an *instance* of a class elsewhere in the code by doing the following:
 
 ```python
 my_circle = Circle()
 ```
 
-When you construct a class in this ways, the class' **constructor** is called.
-It is also possible to pass in values to the constructor to configure the class instance:
+When you construct a class in this ways, the class' *constructor* method is called.
+It is also possible to pass values to the constructor in order to configure the class instance:
 
 ```python
 class Circle:
@@ -110,15 +133,14 @@ my_circle = Circle(10)
 ```
 
 The constructor has the special name `__init__`.
-Notice it has a special first parameter called `self` by convention.
-This parameter can be used to access the current **instance** of the object being created.
+Note it has a special first parameter called `self` by convention - it is 
+used to access the current *instance* of the object being created.
 
-A class can be thought of as a cookie cutter template,
-and the instances are the cookies themselves.
+A class can be thought of as a cookie cutter template, and instances as the cookies themselves.
 That is, one class can have many instances.
 
 Classes can also have other methods defined on them.
-Like constructors, they have an special `self` parameter that must come first.
+Like constructors, they have the special parameter `self` that must come first.
 
 ```python
 import math
@@ -131,19 +153,28 @@ class Circle:
 print(my_circle.get_area())
 ```
 
-Here the instance of the class, `my_circle` will be automatically
-passed in as the first parameter when calling `get_area`.
-Then the method can access the **member variable** `radius`.
+On the last line of the code above, the instance of the class, `my_circle`, will be automatically
+passed as the first parameter (`self`) when calling the `get_area()` method.
+The `get_area()` method can then access the variable `radius` encapsulated within the object, which 
+is otherwise invisible to the world outside of the object. 
+The method `get_area()` itself can also be accessed via the object/instance only.
+
+As we can see, internal representation of any instance of class `Circle` is hidden 
+outside of this class (encapsulation). 
+In addition, implementation of the method `get_area()` is hidden too (abstraction).
+
+> ## Encapsulation & Abstraction
+> Encapsulation provides **information hiding**. Abstraction provides **implementation hiding**.
+{: .callout}
 
 > ## Exercise: Use Classes to Abstract out Data Loading
-> Put the `load_inflammation_data` function we wrote in the last exercise as a member method
-> of a new class called `CSVDataSource`.
-> Put the configuration of where to load the files in the classes constructor.
-> Once this is done, you can construct this class outside the statistical analysis
-> and pass the instance in to `analyse_data`.
+> Declare a new class `CSVDataSource` that contains the `load_inflammation_data` function 
+> we wrote in the previous exercise as a method of this class.
+> The directory path where to load the files from should be passed in the class' constructor method.
+> Finally, construct an instance of the class `CSVDataSource` outside the statistical 
+> analysis and pass it to `analyse_data()` function.
 >> ## Hint
->> When we have completed the refactoring, the code in the `analyse_data` function
->> should look like:
+>> At the end of this exercise, the code in the `analyse_data()` function should look like:
 >> ```python
 >> def analyse_data(data_source):
 >>   data = data_source.load_inflammation_data()
@@ -157,12 +188,12 @@ Then the method can access the **member variable** `radius`.
 >> ```
 > {: .solution}
 >> ## Solution
->> You should have created a class that looks something like this:
+>> For example, we can declare class `CSVDataSource` like this:
 >>
 >> ```python
 >> class CSVDataSource:
 >>   """
->>   Loads all the inflammation csvs within a specified folder.
+>>   Loads all the inflammation CSV files within a specified directory.
 >>   """
 >>   def __init__(self, dir_path):
 >>     self.dir_path = dir_path
@@ -170,29 +201,33 @@ Then the method can access the **member variable** `radius`.
 >>   def load_inflammation_data(self):
 >>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
 >>     if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation csv's found in path {self.dir_path}")
+>>       raise ValueError(f"No inflammation CSV files found in path {self.dir_path}")
 >>     data = map(models.load_csv, data_file_paths)
 >>     return list(data)
 >> ```
->> We can now pass an instance of this class into the the statistical analysis function.
->> This means that should we want to re-use the analysis it wouldn't be fixed to reading
->> from a directory of CSVs.
->> We have fully decoupled the reading of the data from the statistical analysis.
+>> In the controller, we create an instance of CSVDataSource and pass it 
+>> into the the statistical analysis function.
+>>
+>> ```python
+>> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> analyse_data(data_source)
+>> ```
+>> The `analyse_data()` function is modified to receive any data source object (that implements 
+>> the `load_inflammation_data()` method) as a parameter.
 >> ```python
 >> def analyse_data(data_source):
 >>   data = data_source.load_inflammation_data()
 >>   daily_standard_deviation = compute_standard_deviation_by_data(data)
 >>   ...
 >> ```
->>
->> In the controller, you might have something like:
->>
->> ```python
->> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->> analyse_data(data_source)
->> ```
->> While the behaviour is unchanged, how we call `analyse_data` has changed.
->> We must update our regression test to match this, to ensure we haven't broken the code:
+>> We have now fully decoupled the reading of the data from the statistical analysis and 
+>> the analysis is not fixed to reading from a directory of CSV files. Indeed, we can pass various 
+>> data sources to this function now, as long as they implement the `load_inflammation_data()` 
+>> method. 
+>> 
+>> While the overall behaviour of the code and its results are unchanged, 
+>> the way we invoke data analysis has changed. 
+>> We must update our regression test to match this, to ensure we have not broken anything:
 >> ```python
 >> ...
 >> def test_compute_data():
@@ -206,42 +241,50 @@ Then the method can access the **member variable** `radius`.
 > {: .solution}
 {: .challenge}
 
+
 ## Interfaces
 
-Another important concept in software design is the idea of **interfaces** between different units in the code.
-One kind of interface you might have come across are APIs (Application Programming Interfaces).
-These allow separate systems to communicate with each other - such as a making an API request
-to Google Maps to find the latitude and longitude of an address.
+An interface is another important concept in software design related to abstraction and 
+encapsulation. For a software component, it declares the operations that can be invoked on 
+that component, along with input arguments and what it returns. By knowing these details, 
+we can communicate with this component without the need to know how it implements this interface. 
 
-However, there are internal interfaces within our software that dictate how
+API (Application Programming Interface) is one example of an interface that allows separate 
+systems (external to one another) to communicate with each other. 
+For example, a request to Google Maps service API may get 
+you the latitude and longitude for a given address. 
+Twitter API may return all tweets that contain 
+a given keyword that have been posted within a certain date range.
+
+Internal interfaces within software dictate how
 different parts of the system interact with each other.
-Even if these aren't thought out or documented, they still exist!
+Even when these are not explicitly documented or thought out, they still exist.
 
-For example, our `Circle` class implicitly has an interface:
-you can call `get_area` on it and it will return a number representing its area.
+For example, our `Circle` class implicitly has an interface - you can call `get_area()` method
+on it and it will return a number representing its surface area.
 
-> ## Exercise: Identify the interface between `CSVDataSource` and `analyse_data`
-> What is the interface that CSVDataSource has with `analyse_data`.
-> Think about what functions `analyse_data` needs to be able to call,
-> what parameters they need and what it will return.
+> ## Exercise: Identify an Interface Between `CSVDataSource` and `analyse_data`
+> What is the interface between CSVDataSource class and `analyse_data()` function.
+> Think about what functions `analyse_data()` needs to be able to call to perform its duty,
+> what parameters they need and what they return.
 >> ## Solution
->> The interface is the `load_inflammation_data` method.
->>
->> It takes no parameters.
->>
->> It returns a list where each entry is a 2D array of patient inflammation results by day
->> Any object we pass into `analyse_data` must conform to this interface.
+>> The interface is the `load_inflammation_data()` method, which takes no parameters and 
+>> returns a list where each entry is a 2D array of patient inflammation data (read from some 
+> data source).
+>> 
+>> Any object passed into `analyse_data()` should conform to this interface.
 > {: .solution}
 {: .challenge}
 
+
 ## Polymorphism
 
-It is possible to design multiple classes that each conform to the same interface.
+In OOP, it is possible to have different object classes that conform to the same interface.
 
-For example, we could provide a `Rectangle` class:
+For example, let's have a look at the `Rectangle` class:
 
 ```python
-class Rectangle(Shape):
+class Rectangle:
   def __init__(self, width, height):
     self.width = width
     self.height = height
@@ -249,18 +292,15 @@ class Rectangle(Shape):
     return self.width * self.height
 ```
 
-Like `Circle`, this class provides a `get_area` method.
+Like `Circle`, this class provides a `get_area()` method.
 The method takes the same number of parameters (none), and returns a number.
-However, the implementation is different.
+However, the implementation is different. This is one type of *polymorphism*.
 
-When classes share an interface, then we can use an instance of a class without
-knowing what specific class is being used.
-When we do this, it is called **polymorphism**.
+The word "polymorphism" means "many forms", and in programming it refers to 
+methods/functions/operators with the same name that can be executed on many objects or classes.
 
-Here is an example where we create a list of shapes (either Circles or Rectangles)
-and can then find the total area.
-Note how we call `get_area` and Python is able to call the appropriate `get_area`
-for each of the shapes.
+Using our `Circle` and `Rectangle` classes, we can create a list of different shapes and iterate 
+through the list to find their total surface area as follows:
 
 ```python
 my_circle = Circle(radius=10)
@@ -269,24 +309,22 @@ my_shapes = [my_circle, my_rectangle]
 total_area = sum(shape.get_area() for shape in my_shapes)
 ```
 
-This is an example of **abstraction** - when we are calculating the total
-area, the method for calculating the area of each shape is abstracted away
-to the relevant class.
+Note that we have not created a common superclass or linked the classes `Circle` and `Rectangle` 
+together in any way. It is possible due to polymorphism. 
+You could also say that, when we are calculating the total surface area, 
+the method for calculating the area of each shape is abstracted away to the relevant class.
 
-### How polymorphism is useful
+How can polymorphism be useful in our software project? 
+For example, we can replace our `CSVDataSource` with another class that reads a totally 
+different file format (e.g. JSON instead of CSV), or reads from an external service or database
+All of these changes can be now be made without changing the analysis function as we have decoupled 
+the process of data loading from the data analysis earlier.
+Conversely, if we wanted to write a new analysis function, we could support any of these 
+data sources with no extra work.
 
-As we saw with the `Circle` and `Square` examples, we can use common interfaces and polymorphism
-to abstract away the details of the implementation from the caller.
-
-For example, we could replace our `CSVDataSource` with a class that reads a totally different format,
-or reads from an external service.
-All of these can be added in without changing the analysis.
-Further - if we want to write a new analysis, we can support any of these data sources
-for free with no further work.
-That is, we have decoupled the job of loading the data from the job of analysing the data.
-
-> ## Exercise: Introduce an alternative implementation of DataSource
-> Create another class that supports loading JSON instead of CSV.
+> ## Exercise: Add an Additional DataSource
+> Create another class that supports loading patient data from JSON files, with the 
+> appropriate `load_inflammation_data()` method.
 > There is a function in `models.py` that loads from JSON in the following format:
 > ```json
 > [
@@ -298,14 +336,13 @@ That is, we have decoupled the job of loading the data from the job of analysing
 >   }
 > ]
 > ```
-> It should implement the `load_inflammation_data` method.
 > Finally, at run time construct an appropriate instance based on the file extension.
 >> ## Solution
->> You should have created a class that looks something like:
+>> The new class could look something like:
 >> ```python
 >> class JSONDataSource:
 >>   """
->>   Loads all the inflammation JSON's within a specified folder.
+>>   Loads patient data with inflammation values from JSON files within a specified folder.
 >>   """
 >>   def __init__(self, dir_path):
 >>     self.dir_path = dir_path
@@ -329,23 +366,22 @@ That is, we have decoupled the job of loading the data from the job of analysing
 >>   raise ValueError(f'Unsupported file format: {extension}')
 >> analyse_data(data_source)
 >>```
->> As you have seen, all these changes were made without modifying
+>> As you can seen, all the above changes have been made made without modifying
 >> the analysis code itself.
 > {: .solution}
 {: .challenge}
 
-## Testing using Mock Objects
+## Testing Using Mock Objects
 
 We can use this abstraction to also make testing more straight forward.
 Instead of having our tests use real file system data, we can instead provide
 a mock or dummy implementation instead of one of the real classes.
-Providing what we substitute conforms to the same interface, the code we are testing will work
-just the same.
-This dummy implementation could just returns some fixed example data.
-
+Providing that what we use as a substitute conforms to the same interface, 
+the code we are testing should work just the same.
+Such mock/dummy implementation could just returns some fixed example data.
 
 An convenient way to do this in Python is using Python's [mock object library](https://docs.python.org/3/library/unittest.mock.html).
-These are a whole topic to themselves -
+This is a whole topic in itself -
 but a basic mock can be constructed using a couple of lines of code:
 
 ```python
@@ -355,14 +391,14 @@ mock_version = Mock()
 mock_version.method_to_mock.return_value = 42
 ```
 
-Here we construct a mock in the same way you'd construct a class.
+Here we construct a mock in the same way you would construct a class.
 Then we specify a method that we want to behave a specific way.
 
 Now whenever you call `mock_version.method_to_mock()` the return value will be `42`.
 
 
-> ## Exercise: Test using a mock or dummy implementation
-> Complete this test for analyse_data, using a mock object in place of the
+> ## Exercise: Test Using a Mock Implementation
+> Complete this test for `analyse_data()`, using a mock object in place of the
 > `data_source`:
 > ```python
 > from unittest.mock import Mock
@@ -377,11 +413,11 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 >
 >   # TODO: add assert on the contents of result
 > ```
-> Create a mock for to provide as the `data_source` that returns some fixed data to test
+> Create a mock that returns some fixed data and to use as the `data_source` in order to test
 > the `analyse_data` method.
 > Use this mock in a test.
 >
-> Don't forget you will need to import `Mock` from the `unittest.mock` package.
+> Do not forget to import `Mock` from the `unittest.mock` package.
 >> ## Solution
 >> ```python
 >> from unittest.mock import Mock
@@ -398,51 +434,35 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 > {: .solution}
 {: .challenge}
 
-## Object Oriented Programming
+## Programming Paradigms
 
-Using classes, particularly when using polymorphism, are techniques that come from
-**object oriented programming** (frequently abbreviated to OOP).
-As with functional programming different programming languages will provide features to enable you
-to write object oriented code.
-For example, in Python you can create classes, and use polymorphism to call the
-correct method on an instance (e.g when we called `get_area` on a shape, the appropriate `get_area` was called).
+Until now, we have mainly written procedural code.
+In this episode, we have touched a bit upon classes, encapsulation and polymorphism, 
+which are characteristics of (but not limited to) the Object Oriented Programming (OOP).
+These different paradigms provide varied approaches to solving a problem and structuring 
+your code - each with certain strengths and weaknesses when used to solve particular types of 
+problems. 
+In many cases, particularly with modern languages, a single language can allow many different 
+structural approaches within your code.
+Once your software begins to get more complex - it is common to use aspects of different paradigms 
+to handle different subtasks. 
+Because of this, it is useful to know about the major paradigms, 
+so you can recognise where it might be useful to switch. 
+This is outside of scope of this course, so we will point you to some further reading.
 
-Object oriented programming also includes **information hiding**.
-In this, certain fields might be marked private to a class,
-preventing them from being modified at will.
-
-This can be used to maintain invariants of a class (such as insisting that a circles radius is always non-negative).
-
-There is also inheritance, which allows classes to specialise
-the behaviour of other classes by **inheriting** from
-another class and **overriding** certain methods.
-
-As with functional programming, there are times when
-object oriented programming is well suited, and times where it is not.
-
-Good uses:
-
- * Representing real world objects with invariants
- * Providing alternative implementations such as we did with DataSource
- * Representing something that has a state that will change over the programs lifetime (such as elements of a GUI)
-
-One downside of OOP is ending up with very large classes that contain complex methods.
-As they are methods on the class, it can be hard to know up front what side effects it causes to the class.
-This can make maintenance hard.
-
-> ## Classes and functional programming
-> Using classes is compatible with functional programming.
-> In fact, grouping data into logical structures (such as three numbers into a vector)
-> is a vital step in writing readable and maintainable code with any approach.
-> However, when writing in a functional style, classes should be immutable.
-> That is, the methods they provide are read-only.
-> If you require the class to be different, you'd create a new instance
-> with the new values.
-> (that is, the functions should not modify the state of the class).
+> ## So Which is Python?
+> Python is a multi-paradigm and multi-purpose programming language.
+> You can use it as a procedural language and you can use it in a more object oriented way.
+> It does tend to land more on the object oriented side as all its core data types
+> (strings, integers, floats, booleans, lists,
+> sets, arrays, tuples, dictionaries, files)
+> as well as functions, modules and classes are objects.
+>
+> Since functions in Python are also objects that can be passed around like any other object,
+> Python is also well suited to functional programming.
+> One of the most popular Python libraries for data manipulation,
+> [Pandas](https://pandas.pydata.org/) (built on top of NumPy),
+> supports a functional programming style
+> as most of its functions on data are not changing the data (no side effects)
+> but producing a new data to reflect the result of the function.
 {: .callout}
-
-
-Don't use features for the sake of using features.
-Code should be as simple as it can be, but not any simpler.
-If you know your function only makes sense to operate on circles, then
-don't accept shapes just to use polymorphism!

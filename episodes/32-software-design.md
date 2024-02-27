@@ -19,8 +19,8 @@ the easier the development and maintenance process will."
 
 ## Introduction
 
-Ideally, we should have at least a rough design sketched out for our software before we write a 
-single line of code. 
+Ideally, we should have at least a rough design of our software sketched out 
+before we write a single line of code. 
 This design should be based around the requirements and the structure of the problem we are trying 
 to solve: what are the concepts we need to represent and what are the relationships between them. 
 And importantly, who will be using our software and how will they interact with it.
@@ -183,32 +183,39 @@ process to follow is:
 2. Refactor the code 
 3. Verify that that the behaviour of the code is identical to that before refactoring.
 
-Another useful technique to use when improving code is *abstraction*. 
+### Code Decoupling
 
-### Abstractions
+*Code decoupling* is another technique of improving the code by breaking a (complex) 
+software system into smaller parts, more manageable parts, and reducing the interdependence 
+between these different components or modules of the system.
+This means that a change in one part of the code usually does not require a change in the other, 
+thereby making its development more efficient.
+
+
+### Code Abstraction
 
 *Abstraction* is the process of hiding the implementation details of a piece of
-code behind an interface - i.e. the details of *how* something works are hidden away,
-leaving us to deal only with *what* it does.
+code (typically behind an interface) - i.e. the details of *how* something works are hidden away,
+leaving code developers to deal only with *what* it does.
 This allows developers to work with the code at a higher level
-of abstraction, without needing to understand the underlying details.
-Abstraction is used to simplify complex systems by breaking them down into smaller, 
-more manageable parts.
+of abstraction, without needing to understand fully (or keep in mind) all the underlying
+details at any given time and thereby reducing the cognitive load when programming.
 
-Abstraction can be
-achieved through techniques like *encapsulation*, *inheritance*, and *polymorphism*, which we will
-cover in the next episodes.
+Abstraction can be achieved through techniques such as *encapsulation*, *inheritance*, and 
+*polymorphism*, which we will explore in the next episodes. There are other [abstraction techniques](https://en.wikipedia.org/wiki/Abstraction_(computer_science))
+available too.
 
 ## Improving Our Software Design
 
-Both refactoring and abstraction are important for creating maintainable code.
-Refactoring helps to keep the codebase clean and easy to understand, while abstraction allows
-developers to work with the code in a more abstract and modular way.
+Refactoring our code to make it more decoupled and to introduce abstractions to
+hide all but the relevant information about parts of the code is important for creating more 
+maintainable code. 
+It will help to keep our codebase clean, modular and easier to understand. 
 
 Writing good code is hard and takes practise.
 You may also be faced with an existing piece of code that breaks some (or all) of the
 good code principles, and your job will be to improve it so that the code can evolve further.
-In the rest of this section, we will use the refactoring and abstraction techniques to 
-help us redesign our code to incrementally improve its quality.
+We will now look into some examples of the techniques that can help us redesign our code 
+and incrementally improve its quality.
 
 {% include links.md %}
