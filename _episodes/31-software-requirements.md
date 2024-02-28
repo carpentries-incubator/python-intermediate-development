@@ -223,7 +223,7 @@ and these aspects should be considered as part of the software's non-functional 
 
 > ## Optional Exercise: Requirements for Your Software Project
 >
-> Think back to a piece of code or software (either small or large) you've written,
+> Think back to a piece of code or software (either small or large) you have written,
 > or which you have experience using.
 > First, try to formulate a few of its key business requirements,
 > then derive these into user and then solution requirements.
@@ -232,7 +232,7 @@ and these aspects should be considered as part of the software's non-functional 
 
 ### Long- or Short-Lived Code?
 
-Along with requirements, here's something to consider early on.
+Along with requirements, here is something to consider early on.
 You, perhaps with others, may be developing open-source software
 with the intent that it will live on after your project completes.
 It could be important to you that your software is adopted and used by other projects
@@ -248,10 +248,10 @@ so be sure to consider these aspects.
 On the other hand, you might want to knock together some code to prove a concept
 or to perform a quick calculation
 and then just discard it.
-But can you be sure you'll never want to use it again?
-Maybe a few months from now you'll realise you need it after all,
+But can you be sure you will never want to use it again?
+Maybe a few months from now you will realise you need it after all,
 or you'll have a colleague say "I wish I had a..."
-and realise you've already made one.
+and realise you have already made one.
 A little effort now could save you a lot in the future.
 
 ## From Requirements to Implementation, via Design
@@ -268,12 +268,12 @@ At each level, not only are the perspectives different,
 but so are the nature of the objectives and the language used to describe them,
 since they each reflect the perspective and language of their stakeholder group.
 
-It's often tempting to go right ahead and implement requirements within existing software,
+It is often tempting to go right ahead and implement requirements within existing software,
 but this neglects a crucial step:
 do these new requirements fit within our existing design,
 or does our design need to be revisited?
 It may not need any changes at all,
-but if it doesn't fit logically our design will need a bigger rethink
+but if it does not fit logically our design will need a bigger rethink
 so the new requirement can be implemented in a sensible way.
 We'll look at this a bit later in this section,
 but simply adding new code without considering

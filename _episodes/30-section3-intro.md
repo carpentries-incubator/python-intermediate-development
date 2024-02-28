@@ -79,7 +79,7 @@ The typical stages of a software development process can be categorised as follo
   This helps maintain a clear direction throughout development,
   and sets clear targets for what the software needs to do.
 - **Design:** where the requirements are translated into an overall design for the software.
-  It covers what will be the basic software 'components' and how they'll fit together,
+  It covers what will be the basic software 'components' and how they will fit together,
   as well as the tools and technologies that will be used,
   which will together address the requirements identified in the first stage.
 - **Implementation:** the software is developed according to the design,

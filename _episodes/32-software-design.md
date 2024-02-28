@@ -7,10 +7,9 @@ questions:
 - "What should we consider when designing software?"
 objectives:
 - "Understand the goals and principles of designing 'good' software."
-- "Understand what a code abstraction is, and when we should use it."
+- "Understand code decoupling and code abstraction design techniques."
 - "Understand what code refactoring is."
 keypoints:
-- "When writing software used for research, requirements will almost *always* change."
 - "'Good' code is designed to be maintainable: readable by people who did not author the code, 
 testable through a set of automated tests, adaptable to new requirements."
 - "The sooner you adopt a practice of designing your software in the lifecycle of your project, 
@@ -22,18 +21,19 @@ the easier the development and maintenance process will."
 Ideally, we should have at least a rough design of our software sketched out 
 before we write a single line of code. 
 This design should be based around the requirements and the structure of the problem we are trying 
-to solve: what are the concepts we need to represent and what are the relationships between them. 
+to solve: what are the concepts we need to represent in our code 
+and what are the relationships between them. 
 And importantly, who will be using our software and how will they interact with it.
 
 As a piece of software grows,
-it will reach a point where there's too much code for us to keep in mind at once.
+it will reach a point where there is too much code for us to keep in mind at once.
 At this point, it becomes particularly important to think of the overall design and
 structure of our software, how should all the pieces of functionality fit together,
 and how should we work towards fulfilling this overall design throughout development.
 Even if you did not think about the design of your software from the very beginning - 
 it is not too late to start now.
 
-It's not easy to come up with a complete definition for the term **software design**,
+It is not easy to come up with a complete definition for the term **software design**,
 but some of the common aspects are:
 
 - **Algorithm design** -
@@ -87,12 +87,12 @@ goal of having *maintainable* code, which is:
   or separating "pure" (without side-effects) and "impure" (with side-effects) parts of the code on the 
   level of functions.
 
-Now that we know what goals we should aspire to, let's take a critical look at the code in our 
+Now that we know what goals we should aspire to, let us take a critical look at the code in our 
 software project and try to identify ways in which it can be improved. 
 
 > ## Exercise: Identifying How Code Can be Improved?
 > A team member has implemented a feature to our inflammation analysis software so that when a 
-> `--full-data-analysis` command line parameter parameter is passed to software, 
+> `--full-data-analysis` command line parameter parameter is passed, 
 > it scans the directory of one of the provided files, compares standard deviations across 
 > the data by day and plots a graph. 
 > The code is located in `compute_data.py` file within the `inflammation` project 
@@ -106,7 +106,7 @@ software project and try to identify ways in which it can be improved.
 > make making those changes challenging.
 >> ## Solution
 >> You may have found others, but here are some of the things that make the code
->> hard to read, test and maintain:
+>> hard to read, test and maintain.
 >>
 >> * **Hard to read:** everything is implemented in a single function. 
 >> In order to understand it, you need to understand how file loading works at the same time as 
@@ -156,7 +156,7 @@ The key for an intermediate developer is to balance these concerns
 for each software project appropriately,
 and employ design and development practices *enough* so that progress can be made.
 It is very easy to under-design software,
-but remember it's also possible to over-design software too.
+but remember it is also possible to over-design software too.
 
 ## Techniques for Improving Code
 
@@ -170,7 +170,8 @@ the entire codebase at once.
 
 ### Code Refactoring
 
-*Refactoring* is the process of changing the internal structure of code without changing its 
+*Code refactoring* is the process of improving the design of existing code - 
+changing the internal structure of code without changing its 
 external behavior, with the goal of making the code more readable, maintainable, efficient or easier
 to test.
 This can include things such as renaming variables, reorganising 
@@ -185,11 +186,11 @@ process to follow is:
 
 ### Code Decoupling
 
-*Code decoupling* is another technique of improving the code by breaking a (complex) 
-software system into smaller parts, more manageable parts, and reducing the interdependence 
-between these different components or modules of the system.
+*Code decoupling* is a code design technique that involves breaking a (complex) 
+software system into smaller, more manageable parts, and reducing the interdependence 
+between these different parts of the system.
 This means that a change in one part of the code usually does not require a change in the other, 
-thereby making its development more efficient.
+thereby making its development more efficient and less error prone.
 
 
 ### Code Abstraction
@@ -214,7 +215,7 @@ It will help to keep our codebase clean, modular and easier to understand.
 
 Writing good code is hard and takes practise.
 You may also be faced with an existing piece of code that breaks some (or all) of the
-good code principles, and your job will be to improve it so that the code can evolve further.
+good code principles, and your job will be to improve/refactor it so that it can evolve further.
 We will now look into some examples of the techniques that can help us redesign our code 
 and incrementally improve its quality.
 
