@@ -16,43 +16,9 @@ keypoints:
 - "A single piece of software will often contain instances of multiple paradigms."
 ---
 
-## Introduction
-
-As a piece of software grows,
-it will reach a point where there's too much code for us to keep in mind at once.
-At this point, it becomes particularly important that the software be designed sensibly.
-What should be the overall structure of our software,
-how should all the pieces of functionality fit together,
-and how should we work towards fulfilling this overall design throughout development?
-
-It's not easy to come up with a complete definition for the term **software design**,
-but some of the common aspects are:
-
-- **Algorithm design** -
-  what method are we going to use to solve the core business problem?
-- **Software architecture** -
-  what components will the software have and how will they cooperate?
-- **System architecture** -
-  what other things will this software have to interact with and how will it do this?
-- **UI/UX** (User Interface / User Experience) -
-  how will users interact with the software?
-
-As usual, the sooner you adopt a practice in the lifecycle of your project, the easier it will be.
-So we should think about the design of our software from the very beginning,
-ideally even before we start writing code -
-but if you didn't, it's never too late to start.
-
-The answers to these questions will provide us with some **design constraints**
-which any software we write must satisfy.
-For example, a design constraint when writing a mobile app would be
-that it needs to work with a touch screen interface -
-we might have some software that works really well from the command line,
-but on a typical mobile phone there isn't a command line interface that people can access.
-
 ## Software Architecture
 
-At the beginning of this episode we defined **software architecture**
-as an answer to the question
+**Software architecture** provides an answer to the question
 "what components will the software have and how will they cooperate?".
 Software engineering borrowed this term, and a few other terms,
 from architects (of buildings) as many of the processes and techniques have some similarities.
@@ -216,7 +182,7 @@ we also gain the ability to run many operations in parallel
 as it's guaranteed that each operation won't interact with any of the others -
 this is essential if we want to process this much data in a reasonable amount of time.
 
-You can read more in an [Extras episode on Functional Programming](/functional-programming/index.html).
+You can read more in an [extra episode on Functional Programming](/functional-programming/index.html).
 
 ### Object Oriented Programming
 
@@ -244,7 +210,7 @@ Most people would classify Object Oriented Programming as an
 (with the extra feature being the objects), but
 [others disagree](https://stackoverflow.com/questions/38527078/what-is-the-difference-between-imperative-and-object-oriented-programming).
 
-You can read more in an [Extras episode on Object Oriented Programming](/object-oriented-programming/index.html).
+You can read more in an [extra episode on Object Oriented Programming](/object-oriented-programming/index.html).
 
 > ## So Which one is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
@@ -273,7 +239,7 @@ for much more information see the Wikipedia's page on
 We have mainly used Procedural Programming in this lesson, but you can
 have a closer look at [Functional](/functional-programming/index.html) and 
 [Object Oriented Programming](/object-oriented-programming/index.html) paradigms 
-in Extras episodes and how they can affect our architectural design choices.
+in extra episodes and how they can affect our architectural design choices.
 
 {% include links.md %}
 
