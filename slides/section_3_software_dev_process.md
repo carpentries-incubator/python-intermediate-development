@@ -2,7 +2,6 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    formats: ipynb,md
     notebook_metadata_filter: rise,celltoolbar
     text_representation:
       extension: .md
