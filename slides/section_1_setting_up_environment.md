@@ -420,7 +420,7 @@ Start from this heading and continue to the end of the page.
 
 </br>
 </br>
-<center><img src='../fig/git-lifecycle.png'></center>
+<center><img src='../fig/git-lifecycle.svg'></center>
 
 <!-- #endregion -->
 
