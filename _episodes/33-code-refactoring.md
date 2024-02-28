@@ -4,29 +4,45 @@ teaching: 30
 exercises: 20
 questions:
 - "How do you refactor code without breaking it?"
+- "What is decoupled code?"
 - "What are benefits of pure functions?"
 objectives:
+- "Understand the benefits of code decoupling."
 - "Understand the use of regressions tests to avoid breaking existing code when refactoring."
 - "Understand the use of pure functions in software design to make the code easier to test."
 keypoints:
-- "Implementing regression tests before you refactor the code gives you confidence that your changes have not 
-broken anything."
-- "By refactoring code into pure functions that process data without side effects makes code easier 
+- "Implementing regression tests before refactoring gives you confidence that your changes have not 
+broken the code."
+- "Decoupling code into pure functions that process data without side effects makes code easier 
 to read, test and maintain."
 ---
 
 ## Introduction
 
+Recall that *code decoupling* means breaking the system into smaller components and reducing the 
+interdependence between these components, so that they can be tested and maintained independently.
+Two components of code can be considered **decoupled** if a change in one does not
+necessitate a change in the other.
+While two connected units cannot always be totally decoupled, **loose coupling**
+is something we should aim for. Benefits of decoupled code include:
+
+* easier to read as you do not need to understand the
+  details of the other component.
+* easier to test, as one of the components can be replaced
+  by a test or a mock version of it.
+* code tends to be easier to maintain, as changes can be isolated
+  from other parts of the code.
+
 In this episode we will refactor the function `analyse_data()` in `compute_data.py` 
 from our project in the following two ways:
 * add more tests so we can be more confident that future changes will have the 
 intended effect and will not break the existing code. 
-* split the `analyse_data()` function into a number of smaller (functions) making the code 
-easier to understand and test.
+* split the monolithic `analyse_data()` function into a number of smaller and mode decoupled functions 
+making the code easier to understand and test.
 
 ## Writing Tests Before Refactoring
 
-When refactoring, remember we should first make sure there are tests that verity 
+When refactoring, first we need to make sure there are tests that verity 
 the code behaviour as it is now (or write them if they are missing), 
 then refactor the code and, finally, check that the original tests still pass. 
 This is to make sure we do not break the existing behaviour through refactoring.
@@ -126,7 +142,7 @@ the tests at all.
 
 Now that we have our regression test for `analyse_data()` in place, we are ready to refactor the 
 function further. 
-We would like to separate out as much of its code as possible as **pure functions**. 
+We would like to separate out as much of its code as possible as *pure functions*. 
 Pure functions are very useful and much easier to test as they take input only from its input 
 parameters and output only via their return values.
 

@@ -1,39 +1,21 @@
 ---
-title: "Code Decoupling & Abstractions"
+title: "Code Abstractions"
 teaching: 30
 exercises: 45
 questions:
-- "What is de-coupled code?"
 - "When is it useful to use classes to structure code?"
 - "How can we make sure the components of our software are reusable?"
 objectives:
-- "Understand the object-oriented principle of polymorphism and interfaces."
-- "Be able to introduce appropriate abstractions to simplify code."
-- "Understand what decoupled code is, and why you would want it."
+- "Introduce appropriate abstractions to simplify code."
+- "Understand the principles of polymorphism and interfaces."
 - "Be able to use mocks to replace a class in test code."
 keypoints:
-- "Classes can help separate code so it is easier to understand."
-- "By using interfaces, code can become more decoupled."
-- "Decoupled code is easier to test, and easier to maintain."
+- "Classes and interfaces can help decouple code so it is easier to understand, test and maintain."
 ---
 
 ## Introduction
 
-Decoupling means breaking the system into smaller components and reducing the interdependence 
-between these components, so that they can be tested and maintained independently.
-Two components of code can be considered **decoupled** if a change in one does not 
-necessitate a change in the other.
-While two connected units cannot always be totally decoupled, **loose coupling**
-is something we should aim for. Benefits of decoupled code include:
-
-* easier to read as you do not need to understand the
-  details of the other component.
-* easier to test, as one of the components can be replaced
-  by a test or a mock version of it.
-* code tends to be easier to maintain, as changes can be isolated
-  from other parts of the code.
-
-*Abstraction* is the process of hiding the implementation details of a piece of
+*Code abstraction* is the process of hiding the implementation details of a piece of
 code behind an interface - i.e. the details of *how* something works are hidden away,
 leaving us to deal only with *what* it does.
 This allows developers to work with the code at a higher level
@@ -44,13 +26,13 @@ Abstractions can aid decoupling of code.
 If one part of the code only uses another part through an appropriate abstraction
 then it becomes easier for these parts to change independently.
 
-Let's start redesigning our code by introducing some of the decoupling and abstraction techniques 
+Let's start redesigning our code by introducing some of the abstraction techniques 
 to incrementally improve its design.
 
 You may have noticed that loading data from CSV files in a directory is "baked" into 
 (i.e. is part of) the `analyse_data()` function. 
-This is not strictly a functionality of the data analysis function, so let's decouple the date 
-loading this into a separate function.
+This is not strictly a functionality of the data analysis function, so firstly 
+let's decouple the data loading into a separate function.
 
 > ## Exercise: Decouple Data Loading from Data Analysis
 > Separate out the data loading functionality from `analyse_data()` into a new function 
@@ -279,9 +261,8 @@ on it and it will return a number representing its surface area.
 
 ## Polymorphism
 
-In OOP, it is possible to have different object classes that conform to the same interface.
-
-For example, let's have a look at the `Rectangle` class:
+In OOP, it is possible to have different object classes that conform to the same interface. 
+For example, let's have a look at the following class representing a `Rectangle`:
 
 ```python
 class Rectangle:
@@ -292,7 +273,7 @@ class Rectangle:
     return self.width * self.height
 ```
 
-Like `Circle`, this class provides a `get_area()` method.
+Like `Circle`, this class provides the `get_area()` method.
 The method takes the same number of parameters (none), and returns a number.
 However, the implementation is different. This is one type of *polymorphism*.
 
@@ -436,21 +417,25 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 
 ## Programming Paradigms
 
-Until now, we have mainly written procedural code.
+Until now, we have mainly been writing procedural code. 
+In the previous episode, we mentioned [pure functions](/33-code-refactoring/index.html#pure-functions) 
+and Functional Programming.
 In this episode, we have touched a bit upon classes, encapsulation and polymorphism, 
 which are characteristics of (but not limited to) the Object Oriented Programming (OOP).
-These different paradigms provide varied approaches to solving a problem and structuring 
-your code - each with certain strengths and weaknesses when used to solve particular types of 
-problems. 
+All these different programming paradigms provide varied approaches to structuring your code - 
+each with certain strengths and weaknesses when used to solve particular types of problems. 
 In many cases, particularly with modern languages, a single language can allow many different 
-structural approaches within your code.
-Once your software begins to get more complex - it is common to use aspects of different paradigms 
+structural approaches and mixing programming paradigms within your code.
+Once your software begins to get more complex - it is common to use aspects of [different paradigm](/software-architecture-paradigms/index.html) 
 to handle different subtasks. 
-Because of this, it is useful to know about the major paradigms, 
+Because of this, it is useful to know about the [major paradigms](/software-architecture-paradigms/index.html), 
 so you can recognise where it might be useful to switch. 
-This is outside of scope of this course, so we will point you to some further reading.
+This is outside of scope of this course - we have some extra episodes on the topics of 
+[Procedural Programming](/software-architecture-paradigms/index.html#procedural-programming), 
+[Functional Programming](/functional-programming/index.html) and 
+[Object Oriented Programming](/object-oriented-programming/index.html) if you want to know more.
 
-> ## So Which is Python?
+> ## So Which One is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
 > You can use it as a procedural language and you can use it in a more object oriented way.
 > It does tend to land more on the object oriented side as all its core data types

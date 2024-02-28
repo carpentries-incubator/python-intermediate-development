@@ -97,6 +97,7 @@ extras_order:
   - vscode
   - software-architecture-paradigms
   - functional-programming
+  - object-oriented-programming
   - persistence
   - databases
   - quiz
