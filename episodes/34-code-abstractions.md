@@ -426,12 +426,12 @@ All these different programming paradigms provide varied approaches to structuri
 each with certain strengths and weaknesses when used to solve particular types of problems. 
 In many cases, particularly with modern languages, a single language can allow many different 
 structural approaches and mixing programming paradigms within your code.
-Once your software begins to get more complex - it is common to use aspects of [different paradigm](/software-architecture-paradigms/index.html) 
+Once your software begins to get more complex - it is common to use aspects of [different paradigm](/programming-paradigms/index.html) 
 to handle different subtasks. 
-Because of this, it is useful to know about the [major paradigms](/software-architecture-paradigms/index.html), 
+Because of this, it is useful to know about the [major paradigms](/programming-paradigms/index.html), 
 so you can recognise where it might be useful to switch. 
 This is outside of scope of this course - we have some extra episodes on the topics of 
-[Procedural Programming](/software-architecture-paradigms/index.html#procedural-programming), 
+[Procedural Programming](/programming-paradigms/index.html#procedural-programming), 
 [Functional Programming](/functional-programming/index.html) and 
 [Object Oriented Programming](/object-oriented-programming/index.html) if you want to know more.
 
