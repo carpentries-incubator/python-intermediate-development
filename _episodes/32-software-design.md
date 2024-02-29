@@ -16,6 +16,7 @@ testable through a set of automated tests, adaptable to new requirements."
 the easier the development and maintenance process will."
 ---
 
+
 ## Introduction
 
 Ideally, we should have at least a rough design of our software sketched out 
@@ -90,17 +91,35 @@ goal of having *maintainable* code, which is:
 Now that we know what goals we should aspire to, let us take a critical look at the code in our 
 software project and try to identify ways in which it can be improved. 
 
+Our software project contains a branch `full-data-analysis` with code for a new feature of our 
+inflammation analysis software. Recall that you can see all your branches as follows: 
+~~~
+$ git branch --all
+~~~
+{: .language-bash}
+
+Let's checkout a new local branch from the `full-data-analysis` branch, making sure we
+have saved and committed all current changes before doing so.
+
+~~~
+git checkout -b full-data-analysis
+~~~
+{: .language-bash}
+
+This new feature enables user to pass a new command-line parameter `--full-data-analysis` causing
+the software to find the directory containing the first input data file (provided via command line 
+parameter `infiles`) and invoke the data analysis over all the data files in that directory. 
+This bit of functionality is handled by `inflammation-analysis.py` in the project root.
+
+The new data analysis code is located in `compute_data.py` file within the `inflammation` directory 
+in a function called `analyse_data()`. 
+This function loads all the data files for a given a directory path, then
+calculates and compares standard deviation across all the data by day and finaly plots a graph.
+
 > ## Exercise: Identifying How Code Can be Improved?
-> A team member has implemented a feature to our inflammation analysis software so that when a 
-> `--full-data-analysis` command line parameter parameter is passed, 
-> it scans the directory of one of the provided files, compares standard deviations across 
-> the data by day and plots a graph. 
-> The code is located in `compute_data.py` file within the `inflammation` project 
-> in a function called `analyse_data()`. 
->
-> Critically examine this new code. 
-> In what ways does this code not live up to the ideal properties 
-> of maintainable code?
+> Critically examine the code in `analyse_data()` function in `compute_data.py` file. 
+> 
+> In what ways does this code not live up to the ideal properties of maintainable code?
 > Think about ways in which you find it hard to understand.
 > Think about the kinds of changes you might want to make to it, and what would
 > make making those changes challenging.
@@ -111,16 +130,22 @@ software project and try to identify ways in which it can be improved.
 >> * **Hard to read:** everything is implemented in a single function. 
 >> In order to understand it, you need to understand how file loading works at the same time as 
 >> the analysis itself.
->> * **Hard to modify:** if you want to use the data without using the graph you would have to 
->> change the function.
->> * **Hard to modify or test:** it is always analysing a fixed set of data stored on the disk.
->> * **Hard to modify:** it does not have any tests meaning changes may break something and it 
->> would be hard to know what.
+>> * **Hard to modify:** if you wanted to use the data for some other purpose and not just 
+>> plotting the graph you would have to change the `data_analysis()` function.
+>> * **Hard to modify or test:** it is always analysing a fixed set of CSV data files 
+>> stored on a disk.
+>> * **Hard to modify:** it does not have any tests so we cannot be 100% confident the code does 
+>> what it claims to do; any changes to the code may break something and it would be harder and 
+>> more time-consuming to figure out what.
 >> 
 >> Make sure to keep the list you have created in the exercise above. 
 >> For the remainder of this section, we will work on improving this code. 
 >> At the end, we will revisit your list to check that you have learnt ways to address each of the 
 >> problems you had found.
+>> 
+>> There may be other things to improve with the code on this branch, e.g. how command line 
+>> parameters are being handled in `inflammation-analysis.py`, but we are focussing on 
+>> `analyse_data()` function for the time being.
 > {: .solution}
 {: .challenge}
 

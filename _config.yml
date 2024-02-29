@@ -95,7 +95,8 @@ extras_order:
   - discuss
   - protect-main-branch
   - vscode
-  - software-architecture-paradigms
+  - software-architecture-extra
+  - programing-paradigms
   - functional-programming
   - object-oriented-programming
   - persistence
