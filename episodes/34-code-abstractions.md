@@ -7,10 +7,15 @@ questions:
 - "How can we make sure the components of our software are reusable?"
 objectives:
 - "Introduce appropriate abstractions to simplify code."
-- "Understand the principles of polymorphism and interfaces."
-- "Be able to use mocks to replace a class in test code."
+- "Understand the principles of encapsulation, polymorphism and interfaces."
+- "Use mocks to replace a class in test code."
 keypoints:
 - "Classes and interfaces can help decouple code so it is easier to understand, test and maintain."
+- "Encapsulation is bundling related data into a structured component, 
+along with the methods that operate on the data. It is also provides a mechanism for restricting 
+the access to that data, hiding the internal representation of the component."
+- "Polymorphism describes the provision of a single interface to entities of different types, 
+or the use of a single symbol to represent different types."
 ---
 
 ## Introduction
@@ -261,6 +266,16 @@ on it and it will return a number representing its surface area.
 
 ## Polymorphism
 
+In general, polymorphism is the idea of having multiple implementations/forms/shapes 
+of the same abstract concept. 
+It is the provision of a single interface to entities of different types, 
+or the use of a single symbol to represent multiple different types.
+
+There are [different versions of polymorphism](https://www.bmc.com/blogs/polymorphism-programming/). 
+For example, method or operator overloading is one 
+type of polymorphism enabling methods and operators to take parameters of different types. 
+
+We will have a look at the interface-based polymorphism. 
 In OOP, it is possible to have different object classes that conform to the same interface. 
 For example, let's have a look at the following class representing a `Rectangle`:
 

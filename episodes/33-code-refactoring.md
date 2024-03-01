@@ -5,11 +5,12 @@ exercises: 20
 questions:
 - "How do you refactor code without breaking it?"
 - "What is decoupled code?"
-- "What are benefits of pure functions?"
+- "What are benefits of using pure functions in our code?"
 objectives:
 - "Understand the benefits of code decoupling."
 - "Understand the use of regressions tests to avoid breaking existing code when refactoring."
 - "Understand the use of pure functions in software design to make the code easier to test."
+- "Refactor a piece of code to separate out 'pure' from 'impure' code."
 keypoints:
 - "Implementing regression tests before refactoring gives you confidence that your changes have not 
 broken the code."
@@ -19,6 +20,8 @@ to read, test and maintain."
 
 ## Introduction
 
+*Code refactoring* is the process of improving the design of an existing code - for example 
+to make it more decoupled. 
 Recall that *code decoupling* means breaking the system into smaller components and reducing the 
 interdependence between these components, so that they can be tested and maintained independently.
 Two components of code can be considered **decoupled** if a change in one does not
@@ -32,6 +35,13 @@ is something we should aim for. Benefits of decoupled code include:
   by a test or a mock version of it.
 * code tends to be easier to maintain, as changes can be isolated
   from other parts of the code.
+
+When faced with an existing piece of code that needs modifying a good refactoring
+process to follow is:
+
+1. Make sure you have tests that verify the current behaviour
+2. Refactor the code
+3. Verify that that the behaviour of the code is identical to that before refactoring.
 
 In this episode we will refactor the function `analyse_data()` in `compute_data.py` 
 from our project in the following two ways:

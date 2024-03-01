@@ -16,7 +16,6 @@ testable through a set of automated tests, adaptable to new requirements."
 the easier the development and maintenance process will."
 ---
 
-
 ## Introduction
 
 Ideally, we should have at least a rough design of our software sketched out 
@@ -119,7 +118,7 @@ calculates and compares standard deviation across all the data by day and finaly
 > ## Exercise: Identifying How Code Can be Improved?
 > Critically examine the code in `analyse_data()` function in `compute_data.py` file. 
 > 
-> In what ways does this code not live up to the ideal properties of maintainable code?
+> In what ways does this code not live up to the ideal properties of 'good' code?
 > Think about ways in which you find it hard to understand.
 > Think about the kinds of changes you might want to make to it, and what would
 > make making those changes challenging.
@@ -195,19 +194,12 @@ the entire codebase at once.
 
 ### Code Refactoring
 
-*Code refactoring* is the process of improving the design of existing code - 
+*Code refactoring* is the process of improving the design of an existing code - 
 changing the internal structure of code without changing its 
 external behavior, with the goal of making the code more readable, maintainable, efficient or easier
 to test.
 This can include things such as renaming variables, reorganising 
 functions to avoid code duplication and increase reuse, and simplifying conditional statements.
-
-When faced with an existing piece of code that needs modifying a good refactoring 
-process to follow is:
-
-1. Make sure you have tests that verify the current behaviour
-2. Refactor the code 
-3. Verify that that the behaviour of the code is identical to that before refactoring.
 
 ### Code Decoupling
 
@@ -216,7 +208,6 @@ software system into smaller, more manageable parts, and reducing the interdepen
 between these different parts of the system.
 This means that a change in one part of the code usually does not require a change in the other, 
 thereby making its development more efficient and less error prone.
-
 
 ### Code Abstraction
 
