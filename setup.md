@@ -102,7 +102,7 @@ See 'git help git' for an overview of the system.
 When you use Git on a machine for the first time, you need to configure a few things:
 
 * your name, 
-* your email address (used to uniquely identify you commit a change),
+* your email address (the one you used to open your GitHub account with, which will be used to uniquely identify your commits),
 * preferred text editor for Git to use (e.g. `nano` or another text editor of your choice),
 * whether you want to use these settings globally (i.e. for every Git project on your machine).
 
@@ -114,11 +114,9 @@ $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
 
-Make sure to use the same email address you used to open an account on GitHub that you will use for this course (see below).
-
 ### GitHub Account
 GitHub is a free, online host for Git repositories that you will use during the course to store your code in so 
-you will need to open a free [GitHub](https://github.com/) account unless you don't already have one.
+you will need to open a free [GitHub](https://github.com/) account unless you do not already have one.
 
 ### Secure Access To GitHub Using Git From Command Line
 
@@ -185,7 +183,7 @@ Next, you need to copy your public key (**not your private key - this is importa
 your GitHub account. The `ssh-keygen` command above will let you know where your public key is saved (the file should have the 
 extension ".pub"), and you can get its contents (e.g. on a Mac OS system) as follows:
 ~~~
-$ cat /Users/<YOUR_USERNAME>/.ssh/id_ed25519.pub
+$ cat /Users/<YOUR_USERNAME>/.ssh/id_ed25519.pub 
 ~~~
 {: .language-bash}
 ~~~
