@@ -108,9 +108,9 @@ git checkout -b full-data-analysis
 This new feature enables user to pass a new command-line parameter `--full-data-analysis` causing
 the software to find the directory containing the first input data file (provided via command line 
 parameter `infiles`) and invoke the data analysis over all the data files in that directory. 
-This bit of functionality is handled by `inflammation-analysis.py` in the project root.
+This bit of functionality is handled by `catchment-analysis.py` in the project root.
 
-The new data analysis code is located in `compute_data.py` file within the `inflammation` directory 
+The new data analysis code is located in `compute_data.py` file within the `catchment` directory 
 in a function called `analyse_data()`. 
 This function loads all the data files for a given a directory path, then
 calculates and compares standard deviation across all the data by day and finaly plots a graph.
@@ -143,7 +143,7 @@ calculates and compares standard deviation across all the data by day and finaly
 >> problems you had found.
 >> 
 >> There may be other things to improve with the code on this branch, e.g. how command line 
->> parameters are being handled in `inflammation-analysis.py`, but we are focussing on 
+>> parameters are being handled in `catchment-analysis.py`, but we are focussing on 
 >> `analyse_data()` function for the time being.
 > {: .solution}
 {: .challenge}
