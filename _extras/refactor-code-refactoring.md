@@ -213,25 +213,27 @@ be harder to test but, when simplified like this, may only require a handful of 
 >> ## Solution
 >> The analysis code will be refactored into a separate function that may look something like:
 >> ```python
->> def compute_standard_deviation_by_day(data):
->>     means_by_day = map(models.daily_mean, data)
->>     means_by_day_matrix = np.stack(list(means_by_day))
+>>def compute_standard_deviation_by_day(data):
+>>    means_by_day = map(models.daily_mean, data)
+>>    means_by_day_matrix = pd.concat(means_by_day)
 >>
->>     daily_standard_deviation = np.std(means_by_day_matrix, axis=0)
->>     return daily_standard_deviation
+>>    daily_standard_deviation = pd.DataFrame(means_by_day_matrix.std(axis=1), columns=['std'])
+>>    return daily_standard_deviation
 >> ```
 >> The `analyse_data()` function now calls the `compute_standard_deviation_by_day()` function, 
 >> while keeping all the logic for reading the data, processing it and showing it in a graph:
 >>```python
 >>def analyse_data(data_dir):
->>    """Calculate the standard deviation by day between datasets
->>    Gets all the inflammation csvs within a directory, works out the mean
->>    inflammation value for each day across all datasets, then graphs the
->>    standard deviation of these means."""
->>    data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
+>>    """Calculate the standard deviation by day between datasets.
+>>
+>>    Gets all the measurement data from the CSV files in the data directory,
+>>    works out the mean for each day, and then graphs the standard deviation
+>>    of these means.
+>>    """
+>>    data_file_paths = glob.glob(os.path.join(data_dir, 'rain_data_2015*.csv'))
 >>    if len(data_file_paths) == 0:
->>        raise ValueError(f"No inflammation csv's found in path {data_dir}")
->>    data = map(models.load_csv, data_file_paths)
+>>        raise ValueError('No CSV files found in the data directory')
+>>    data = map(models.read_variable_from_csv, data_file_paths)
 >>    daily_standard_deviation = compute_standard_deviation_by_day(data)
 >>
 >>    graph_data = {
