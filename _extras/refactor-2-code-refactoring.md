@@ -107,7 +107,7 @@ the tests at all.
 >
 > Remember to run the test using `python -m pytest` from the project base directory:
 > ```bash
-> python -m pytest tests/test_analyse_data.py
+> python -m pytest tests/test_compute_data.py
 > ```
 >
 >> ## Hint
@@ -214,10 +214,12 @@ be harder to test but, when simplified like this, may only require a handful of 
 >> The analysis code will be refactored into a separate function that may look something like:
 >> ```python
 >>def compute_standard_deviation_by_day(data):
->>    means_by_day = map(models.daily_mean, data)
->>    means_by_day_matrix = pd.concat(means_by_day)
+>>    daily_std_list = []
+>>    for dataset in data:
+>>        daily_std = dataset.groupby(dataset.index.date).std()
+>>        daily_std_list.append(daily_std)
 >>
->>    daily_standard_deviation = pd.DataFrame(means_by_day_matrix.std(axis=1), columns=['std'])
+>>    daily_standard_deviation = pd.concat(daily_std_list)
 >>    return daily_standard_deviation
 >> ```
 >> The `analyse_data()` function now calls the `compute_standard_deviation_by_day()` function, 
@@ -244,6 +246,66 @@ be harder to test but, when simplified like this, may only require a handful of 
 >>```
 >> Make sure to re-run the regression test to check this refactoring has not
 >> changed the output of `analyse_data()`.
+> {: .solution}
+{: .challenge}
+
+### MapReduce Data Processing Approach
+
+When working with data you will often find that you need to
+apply a transformation to each datapoint of a dataset
+and then perform some aggregation across the whole dataset.
+One instance of this data processing approach is known as MapReduce
+and is applied when processing (but not limited to) Big Data,
+e.g. using tools such as [Spark](https://en.wikipedia.org/wiki/Apache_Spark)
+or [Hadoop](https://hadoop.apache.org/).
+The name MapReduce comes from applying an operation to (mapping) each value in a dataset,
+then performing a reduction operation which
+collects/aggregates all the individual results together to produce a single result.
+MapReduce relies heavily on composability and parallelisability of functional programming -
+both map and reduce can be done in parallel and on smaller subsets of data,
+before aggregating all intermediate results into the final result.
+
+> ## Exercise: Mapping
+> `map(f, C)` is a function that takes another function `f()`
+> and a collection `C` of data items as inputs.
+> Calling `map(f, C)` applies the function `f(x)` to every data item `x` in a collection `C`
+> and returns the resulting values as a new collection of the same size.
+>
+> First identify a line of code in the `analyse_data` function which uses the `map` function.
+>> ## Solution
+>> The `map` function is used with the `read_variables_from_csv` function in the `catchment/models.py` module.
+>> It creates a collection of dataframes containing the data within files defined in the list `data_file_paths`:
+>> ```python
+>> data = map(models.read_variable_from_csv, data_file_paths)
+>> ```
+> {: .solution}
+>
+> Now create a pure function, `daily_std`, to calculate the standard deviation by day for any dataframe.
+> This can take form similar to the `daily_mean` and `daily_max` functions in the `catchment/models.py` file.
+>
+> Then replace the `for` loop below, that is in your `compute_standard_deviation_by_day` function,
+> with a `map()` function that uses the `daily_std` function to calculate the daily standard
+> deviation.
+> ```python
+> daily_std_list = []
+> for dataset in data:
+>     daily_std = dataset.groupby(dataset.index.date).std()
+>     daily_std_list.append(daily_std)
+> ```
+>> ## Solution
+>> The final functions could look like:
+>> ```python
+>> def daily_std(data):
+>>     return data.groupby(data.index.date).std()
+>>
+>>
+>> def compute_standard_deviation_by_day(data):
+>>     daily_std_list = map(daily_std, data)
+>>
+>>     daily_standard_deviation = pd.concat(daily_std_list)
+>>     return daily_standard_deviation
+>> ```
+>>
 > {: .solution}
 {: .challenge}
 
