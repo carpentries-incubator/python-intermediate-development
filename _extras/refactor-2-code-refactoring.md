@@ -136,14 +136,37 @@ the tests at all.
 >>     from catchment.compute_data import analyse_data
 >>     path = Path.cwd() / "data"
 >>     result = analyse_data(path)
->>    expected_output = [[0.09133463], [0.17383042], [0.00147314], [0.00147314],
->>                       [0.        ], [0.00294628], [0.03682848], [0.00883883],
->>                       [0.00147314], [0.169411  ], [0.00147314], [0.        ],
->>                       [0.00147314], [0.        ], [0.        ], [0.        ],
->>                       [0.        ], [0.00294628], [0.00147314], [0.00147314],
->>                       [0.00147314], [0.00147314], [0.        ], [    np.nan],
->>                       [0.00147314], [0.00147314], [0.00147314], [0.00147314],
->>                       [0.01473139], [0.01178511], [0.02209709]]
+>>    expected_output = [ [0.        , 0.18801829],
+>>                        [0.10978448, 0.43107373],
+>>                        [0.06066156, 0.0699624 ],
+>>                        [0.        , 0.02041241],
+>>                        [0.        , 0.        ],
+>>                        [0.        , 0.02871518],
+>>                        [0.        , 0.17227833],
+>>                        [0.        , 0.04866643],
+>>                        [0.        , 0.02041241],
+>>                        [0.88952727, 0.        ],
+>>                        [0.        , 0.02041241],
+>>                        [0.        , 0.        ],
+>>                        [0.02041241, 0.        ],
+>>                        [0.        , 0.        ],
+>>                        [0.        , 0.        ],
+>>                        [0.        , 0.        ],
+>>                        [0.        , 0.        ],
+>>                        [0.0349812 , 0.02041241],
+>>                        [0.02871518, 0.02041241],
+>>                        [0.02041241, 0.        ],
+>>                        [0.02041241, 0.        ],
+>>                        [0.        , 0.02041241],
+>>                        [0.        , 0.        ],
+>>                        [0.        ,     np.nan],
+>>                        [0.02041241, 0.        ],
+>>                        [0.        , 0.02041241],
+>>                        [0.        , 0.02041241],
+>>                        [0.02041241, 0.        ],
+>>                        [0.13449059, 0.        ],
+>>                        [0.18285024, 0.19707288],
+>>                        [0.19176008, 0.13915472]]
 >>     npt.assert_array_almost_equal(result, expected_output)
 >> ```
 >>
@@ -324,22 +347,41 @@ from CSV to JSON, the bulk of the tests need not be updated
 
 > ## Exercise: Testing a Pure Function
 > Add tests for `compute_standard_deviation_by_data()` that check for situations 
-> when there is only one file with multiple rows, 
-> multiple files with one row, and any other cases you can think of that should be tested.
+> when there is only one file with multiple sites, 
+> multiple files with one site, and any other cases you can think of that should be tested.
 >> ## Solution
 >> You might have thought of more tests, but we can easily extend the test by parametrizing
 >> with more inputs and expected outputs:
 >> ```python
->>@pytest.mark.parametrize('data,expected_output', [
->>    ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
->>    ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
->>    ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
->>],
->>ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
+>>@pytest.mark.parametrize(
+>>    "data, expected_output",
+>>    [
+>>        (
+>>            [pd.DataFrame(data=[ [1.0, 0.0], [3.0, 4.0], [5.0, 8.0] ],
+>>                        index=[ pd.to_datetime('2000-01-01 01:00'),
+>>                                pd.to_datetime('2000-01-01 02:00'),
+>>                                pd.to_datetime('2000-01-01 03:00') ],
+>>                        columns=[ 'A', 'B' ])],
+>>            [ [2.0,  4.0] ]
+>>        ),
+>>        (
+>>            [pd.DataFrame(data=[ 1.0, 3.0, 5.0 ],
+>>                        index=[ pd.to_datetime('2000-01-01 01:00'),
+>>                                pd.to_datetime('2000-01-01 02:00'),
+>>                                pd.to_datetime('2000-01-01 03:00') ],
+>>                        columns=['A']),
+>>            pd.DataFrame(data=[ 0.0, 4.0, 8.0 ],
+>>                        index=[ pd.to_datetime('2000-01-01 01:00'),
+>>                                pd.to_datetime('2000-01-01 02:00'),
+>>                                pd.to_datetime('2000-01-01 03:00') ],
+>>                        columns=['B']) ],                      
+>>            [ [2.0,  4.0] ]
+>>        )
+>>    ], ids=["two datasets in same dataframe", "two datasets in two different dataframes"])
 >>def test_compute_standard_deviation_by_day(data, expected_output):
->>    from inflammation.compute_data import compute_standard_deviation_by_data
+>>    from catchment.compute_data import compute_standard_deviation_by_day
 >>
->>    result = compute_standard_deviation_by_data(data)
+>>    result = compute_standard_deviation_by_day(data)
 >>    npt.assert_array_almost_equal(result, expected_output)
 ```
 > {: .solution}
@@ -351,7 +393,7 @@ from CSV to JSON, the bulk of the tests need not be updated
 > Some programming languages, such as Haskell or Lisp, support writing pure functional code only.
 > Other languages, such as Python, Java, C++, allow mixing **functional** and **procedural** 
 > programming paradigms. 
-> Read more in the [extra episode on functional programming](/functional-programming/index.html)
+> Read more in the [extra episode on functional programming](/34-functional-programming/index.html)
 > and when it can be very useful to switch to this paradigm 
 > (e.g. to employ MapReduce approach for data processing).
 {: .callout}
