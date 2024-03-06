@@ -108,12 +108,15 @@ git checkout -b full-data-analysis
 This new feature enables user to pass a new command-line parameter `--full-data-analysis` causing
 the software to find the directory containing the first input data file (provided via command line 
 parameter `infiles`) and invoke the data analysis over all the data files in that directory. 
-This bit of functionality is handled by `catchment-analysis.py` in the project root.
+This bit of functionality is handled by `catchment-analysis.py` in the project root. E.g.
+```bash
+python catchment-analysis.py data/rain_data_small.csv --full-data-analysis
+```
 
 The new data analysis code is located in `compute_data.py` file within the `catchment` directory 
 in a function called `analyse_data()`. 
 This function loads all the data files for a given a directory path, then
-calculates and compares standard deviation across all the data by day and finaly plots a graph.
+calculates and compares standard deviation across all the data by day and finally plots a graph.
 
 > ## Exercise: Identifying How Code Can be Improved?
 > Critically examine the code in `analyse_data()` function in `compute_data.py` file. 
@@ -131,8 +134,8 @@ calculates and compares standard deviation across all the data by day and finaly
 >> the analysis itself.
 >> * **Hard to modify:** if you wanted to use the data for some other purpose and not just 
 >> plotting the graph you would have to change the `data_analysis()` function.
->> * **Hard to modify or test:** it is always analysing a fixed set of CSV data files 
->> stored on a disk.
+>> * **Hard to modify or test:** it always analyses a fixed set of CSV data files 
+>> within whichever directory it accesses, not always the file that is given as an argument.
 >> * **Hard to modify:** it does not have any tests so we cannot be 100% confident the code does 
 >> what it claims to do; any changes to the code may break something and it would be harder and 
 >> more time-consuming to figure out what.
