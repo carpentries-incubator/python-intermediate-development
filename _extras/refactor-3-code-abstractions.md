@@ -41,22 +41,22 @@ let's decouple the data loading into a separate function.
 
 > ## Exercise: Decouple Data Loading from Data Analysis
 > Separate out the data loading functionality from `analyse_data()` into a new function 
-> `load_inflammation_data()` that returns all the files to load.
+> `load_catchment_data()` that returns all the files to load.
 >> ## Solution
->> The new function `load_inflammation_data()` that reads all the data into the format needed
+>> The new function `load_catchment_data()` that reads all the data into the format needed
 >> for the analysis should look something like:
 >> ```python
 >> def load_inflammation_data(dir_path):
->>   data_file_paths = glob.glob(os.path.join(dir_path, 'inflammation*.csv'))
+>>   data_file_paths = glob.glob(os.path.join(dir_path, 'rain_data_2015*.csv'))
 >>   if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation csv's found in path {dir_path}")
+>>       raise ValueError('No CSV files found in the data directory')
 >>   data = map(models.load_csv, data_file_paths)
 >>   return list(data)
 >> ```
 >> This function can now be used in the analysis as follows:
 >> ```python
 >> def analyse_data(data_dir):
->>   data = load_inflammation_data(data_dir)
+>>   data = load_catchment_data(data_dir)
 >>   daily_standard_deviation = compute_standard_deviation_by_data(data)
 >>   ...
 >> ```
@@ -155,7 +155,7 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 {: .callout}
 
 > ## Exercise: Use Classes to Abstract out Data Loading
-> Declare a new class `CSVDataSource` that contains the `load_inflammation_data` function 
+> Declare a new class `CSVDataSource` that contains the `load_catchment_data` function 
 > we wrote in the previous exercise as a method of this class.
 > The directory path where to load the files from should be passed in the class' constructor method.
 > Finally, construct an instance of the class `CSVDataSource` outside the statistical 
@@ -164,14 +164,14 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> At the end of this exercise, the code in the `analyse_data()` function should look like:
 >> ```python
 >> def analyse_data(data_source):
->>   data = data_source.load_inflammation_data()
+>>   data = data_source.load_catchment_data()
 >>   daily_standard_deviation = compute_standard_deviation_by_data(data)
 >>   ...
 >> ```
 >> The controller code should look like:
 >> ```python
->> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->> analyse_data(data_source)
+>> data_source = compute_data.CSVDataSource(os.path.dirname(InFiles[0]))
+>> compute_data.analyse_data(data_source)
 >> ```
 > {: .solution}
 >> ## Solution
@@ -180,16 +180,16 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> ```python
 >> class CSVDataSource:
 >>   """
->>   Loads all the inflammation CSV files within a specified directory.
+>>   Loads all the catchment CSV files within a specified directory.
 >>   """
 >>   def __init__(self, dir_path):
 >>     self.dir_path = dir_path
 >>
->>   def load_inflammation_data(self):
->>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
+>>   def load_catchment_data(self):
+>>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'rain_data_2015*.csv'))
 >>     if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation CSV files found in path {self.dir_path}")
->>     data = map(models.load_csv, data_file_paths)
+>>       raise ValueError('No CSV files found in the data directory')
+>>     data = map(models.read_variable_from_csv, data_file_paths)
 >>     return list(data)
 >> ```
 >> In the controller, we create an instance of CSVDataSource and pass it 
@@ -200,16 +200,16 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> analyse_data(data_source)
 >> ```
 >> The `analyse_data()` function is modified to receive any data source object (that implements 
->> the `load_inflammation_data()` method) as a parameter.
+>> the `load_catchment_data()` method) as a parameter.
 >> ```python
 >> def analyse_data(data_source):
->>   data = data_source.load_inflammation_data()
+>>   data = data_source.load_catchment_data()
 >>   daily_standard_deviation = compute_standard_deviation_by_data(data)
 >>   ...
 >> ```
 >> We have now fully decoupled the reading of the data from the statistical analysis and 
 >> the analysis is not fixed to reading from a directory of CSV files. Indeed, we can pass various 
->> data sources to this function now, as long as they implement the `load_inflammation_data()` 
+>> data sources to this function now, as long as they implement the `load_catchment_data()` 
 >> method. 
 >> 
 >> While the overall behaviour of the code and its results are unchanged, 
@@ -218,11 +218,11 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> ```python
 >> ...
 >> def test_compute_data():
->>     from inflammation.compute_data import analyse_data
+>>     from catchment.compute_data import analyse_data, CSVDataSource
 >>     path = Path.cwd() / "../data"
 >>     data_source = CSVDataSource(path)
 >>     result = analyse_data(data_source)
->>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211
+>>     expected_output = [ [0.        , 0.18801829],
 >>     ...
 >> ```
 > {: .solution}
@@ -255,9 +255,9 @@ on it and it will return a number representing its surface area.
 > Think about what functions `analyse_data()` needs to be able to call to perform its duty,
 > what parameters they need and what they return.
 >> ## Solution
->> The interface is the `load_inflammation_data()` method, which takes no parameters and 
->> returns a list where each entry is a 2D array of patient inflammation data (read from some 
-> data source).
+>> The interface is the `load_catchment_data()` method, which takes no parameters and 
+>> returns a list where each entry is a 2D array of catchment measurement data (read from some 
+>> data source).
 >> 
 >> Any object passed into `analyse_data()` should conform to this interface.
 > {: .solution}
@@ -320,16 +320,22 @@ data sources with no extra work.
 
 > ## Exercise: Add an Additional DataSource
 > Create another class that supports loading patient data from JSON files, with the 
-> appropriate `load_inflammation_data()` method.
+> appropriate `load_catchment_data()` method.
 > There is a function in `models.py` that loads from JSON in the following format:
 > ```json
-> [
->   {
->     "observations": [0, 1]
->   },
->   {
->     "observations": [0, 2]
->   }
+>[
+>    {
+>        "Site": "FP35",
+>        "Site Name": "Lower Wraxall Farm",
+>        "Date": "01/12/2008 23:00",
+>        "Rainfall (mm)": 0.0
+>    },
+>    {
+>        "Site": "FP35",
+>        "Site Name": "Lower Wraxall Farm",
+>        "Date": "01/12/2008 23:15",
+>        "Rainfall (mm)": 0.0
+>    }
 > ]
 > ```
 > Finally, at run time construct an appropriate instance based on the file extension.
@@ -337,18 +343,18 @@ data sources with no extra work.
 >> The new class could look something like:
 >> ```python
 >> class JSONDataSource:
->>   """
->>   Loads patient data with inflammation values from JSON files within a specified folder.
->>   """
->>   def __init__(self, dir_path):
->>     self.dir_path = dir_path
+>>     """
+>>     Loads patient data with catchment values from JSON files within a specified folder.
+>>     """
+>>     def __init__(self, dir_path):
+>>         self.dir_path = dir_path
 >>
->>   def load_inflammation_data(self):
->>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.json'))
->>     if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation JSON's found in path {self.dir_path}")
->>     data = map(models.load_json, data_file_paths)
->>     return list(data)
+>>     def load_catchment_data(self):
+>>         data_file_paths = glob.glob(os.path.join(self.dir_path, 'rain_data_2015*.json'))
+>>         if len(data_file_paths) == 0:
+>>             raise ValueError('No JSON files found in the data directory')
+>>         data = map(models.load_json, data_file_paths)
+>>         return list(data)
 >> ```
 >> Additionally, in the controller will need to select the appropriate DataSource to
 >> provide to the analysis:
@@ -400,7 +406,7 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 > from unittest.mock import Mock
 >
 > def test_compute_data_mock_source():
->   from inflammation.compute_data import analyse_data
+>   from catchment.compute_data import analyse_data
 >   data_source = Mock()
 >
 >   # TODO: configure data_source mock
@@ -419,13 +425,21 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 >> from unittest.mock import Mock
 >>
 >> def test_compute_data_mock_source():
->>   from inflammation.compute_data import analyse_data
->>   data_source = Mock()
->>   data_source.load_inflammation_data.return_value = [[[0, 2, 0]],
->>                                                      [[0, 1, 0]]]
+>>    from catchment.compute_data import analyse_data
+>>    data_source = Mock()
 >>
->>   result = analyse_data(data_source)
->>   npt.assert_array_almost_equal(result, [0, math.sqrt(0.25) ,0])
+>>    data_source.load_catchment_data.return_value = [pd.DataFrame(
+>>                     data=[[1.0, 1.0],
+>>                           [2.0, 1.0],
+>>                           [4.0, 2.0]],
+>>                     index=[pd.to_datetime('2000-01-01 01:00'),
+>>                            pd.to_datetime('2000-01-01 02:00'),
+>>                            pd.to_datetime('2000-01-01 03:00')],
+>>                     columns=['A', 'B']
+>>    )]
+>>
+>>    result = analyse_data(data_source)
+>>    npt.assert_array_almost_equal(result, [[1.527525, 0.57735 ]])
 >> ```
 > {: .solution}
 {: .challenge}
