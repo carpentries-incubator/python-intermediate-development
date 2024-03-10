@@ -25,6 +25,20 @@ We've been developing our software using the **Model-View-Controller** (MVC) arc
 but, as we have seen, MVC is just one of the common architectural patterns
 and is not the only choice we could have made.
 
+### Separation of Responsibilities
+
+Separation of responsibilities is important when designing software architectures
+in order to reduce the code's complexity and increase its maintainability.
+Note, however, there are limits to everything -
+and MVC architecture is no exception.
+Controller often transcends into Model and View
+and a clear separation is sometimes difficult to maintain.
+For example, the Command Line Interface provides both the View
+(what user sees and how they interact with the command line)
+and the Controller (invoking of a command) aspects of a CLI application.
+In Web applications, Controller often manipulates the data (received from the Model)
+before displaying it to the user or passing it from the user to the Model.
+
 There are many variants of an MVC-like pattern (such as
 [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP),
 [Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.),
@@ -33,10 +47,106 @@ What really matters is that we are making decisions about the architecture of ou
 that suit the way in which we expect to use it.
 We should reuse these established ideas where we can, but we don't need to stick to them exactly.
 
-In this episode we'll be taking our Object Oriented code from the previous episode
-and integrating it into our existing MVC pattern.
-But first we will explain some features of
-the Controller (`catchment-analysis.py`) component of our architecture.
+The key thing to take away is the distinction between the Model and the View code, while
+the View and the Controller can be more or less coupled together (e.g. the code that specifies 
+there is a button on the screen, might be the same code that specifies what that button does).
+The View may be hard to test, or use special libraries to draw the UI, but should not contain any 
+complex logic, and is really just a presentation layer on top of the Model.
+The Model, conversely, should not care how the data is displayed. 
+For example, the View may present dates as "Monday 24th July 2023", 
+but the Model stores it using a `Date` object rather than its string representation.
+
+## Our Project's Architecture (Revisited)
+
+Recall that in our software project, the **Controller** module is in `catchment-analysis.py`, 
+and the View and Model modules are contained in 
+`catchment/views.py` and `catchment/models.py`, respectively.
+Data underlying the Model is contained within the directory `data`.
+
+Looking at the code in the branch `full-data-analysis` (where we should be currently located),
+we can notice that the new code was added in a separate script `catchment/compute_data.py` and 
+contains a mix of Model, View and Controller code.
+
+> ## Exercise: Identify Model, View and Controller Parts of the Code
+> Looking at the code inside `compute_data.py`, what parts could be considered 
+> Model, View and Controller code?
+>
+>> ## Solution
+>> * Computing the standard deviation belongs to Model.
+>> * Reading the data from CSV files also belongs to Model.
+>> * Displaying of the output as a graph is View.
+>> * The logic that processes the supplied files is Controller.
+> {: .solution}
+{: .challenge}
+
+Within the Model further separations make sense.
+For example, as we did in the before, separating out the impure code that interacts with 
+the file system from the pure calculations helps with readability and testability.
+Nevertheless, the MVC architectural pattern is a great starting point when thinking about 
+how you should structure your code.
+
+> ## Exercise: Split out the Model, View and Controller Code
+> Refactor `analyse_data()` function so that the Model, View and Controller code 
+> we identified in the previous exercise is moved to appropriate modules.
+>> ## Solution
+>> The idea here is for the `analyse_data()` function not to have any "view" considerations.
+>> That is, it should just compute and return the data and 
+>> should be located in `catchment/models.py`.
+>>
+>> ```python
+>> def analyse_data(data_source):
+>>     """Calculate the standard deviation by day between datasets
+>>     Gets all the measurement data from the CSV files in the data directory,
+>>     works out the mean for each day, and then graphs the standard deviation
+>>     of these means.
+>>     """
+>>     data = data_source.load_catchment_data()
+>>     daily_standard_deviation = compute_standard_deviation_by_data(data)
+>>
+>>     return daily_standard_deviation
+>> ```
+>> There can be a separate bit of code in the Controller `catchment-analysis.py` 
+>> that chooses how data should be presented, e.g. as a graph:
+>>
+>> ```python
+>> if args.full_data_analysis:
+>>   _, extension = os.path.splitext(InFiles[0])
+>>   if extension == '.json':
+>>     data_source = JSONDataSource(os.path.dirname(InFiles[0]))
+>>   elif extension == '.csv':
+>>     data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>>   else:
+>>     raise ValueError(f'Unsupported file format: {extension}')
+>>   data_result = analyse_data(data_source)
+>>   graph_data = {
+>>     'daily standard deviation': data_result,
+>>   }
+>>   views.visualize(graph_data)
+>>   return
+>> ```
+>> Note that this is, more or less, the change we did to write our regression test.
+>> This demonstrates that splitting up Model code from View code can
+>> immediately make your code much more testable.
+>> Ensure you re-run our regression test to check this refactoring has not
+>> changed the output of `analyse_data()`.
+> {: .solution}
+{: .challenge}
+
+At this point, you have refactored and tested all the code on branch `full-data-analysis`
+and it is working as expected. The branch is ready to be incorporated into `develop`
+and then, later on, `main`, which may also have been changed by other developers working on
+the code at the same time so make sure to update accordingly or resolve any conflicts.
+
+~~~
+$ git switch develop
+$ git merge full-data-analysis
+~~~
+{: .language-bash}
+
+Let's now have a closer look at our Controller, and how can handling command line arguments in Python
+(which is something you may find yourself doing often if you need to run the code from a 
+command line tool).
+
 
 ### Controller file structure
 
@@ -421,244 +531,6 @@ so that they are properly read by the parser.
 
 
 
-### Adding a new View 
-
-Now that we can select the data we require,
-let's add a view that allows us to see the data for a single site.
-First, we need to add the code for the view itself
-and make sure our `Site` class has the necessary data -
-including the ability to pass a list of measurements to the `__init__` method.
-Note that your Site class may look very different now,
-so adapt this example to fit what you have.
-
-~~~ python
-# file: catchment/views.py
-
-...
-
-def display_measurement_record(site):
-    """Display each dataset for a single site."""
-    print(site.name)
-    for measurement in site.measurements:
-        print(site.measurements[measurement].series)
-~~~
-{: .language-python}
-
-~~~ python
-# file: catchment/models.py
-
-...
-
-class MeasurementSeries:
-    def __init__(self, series, name, units):
-        self.series = series
-        self.name = name
-        self.units = units
-        self.series.name = self.name
-    
-    def add_measurement(self, data):
-        self.series = pd.concat([self.series,data])
-        self.series.name = self.name
-    
-    def __str__(self):
-        if self.units:
-            return f"{self.name} ({self.units})"
-        else:
-            return self.name
-
-class Location:
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return self.name
-
-class Site(Location):
-    def __init__(self,name):
-        super().__init__(name)
-        self.measurements = {}
-    
-    def add_measurement(self, measurement_id, data, units=None):    
-        if measurement_id in self.measurements.keys():
-            self.measurements[measurement_id].add_measurement(data)
-    
-        else:
-            self.measurements[measurement_id] = MeasurementSeries(data, measurement_id, units)
-    
-    @property
-    def last_measurements(self):
-        return pd.concat(
-            [self.measurements[key].series[-1:] for key in self.measurements.keys()],
-            axis=1).sort_index()
-
-~~~
-{: .language-python}
-
-Now we need to make sure people can call this view -
-that means connecting it to the controller
-and ensuring that there's a way to request this view when running the program.
-
-#### Adapting the Controller
-
-The changes we need to make here are that the `main` function
-needs to be able to direct us to the view we've requested -
-and we need to add to the command line interface - the controller -
-the necessary data to drive the new view.
-
-As the argument parsing routines are getting more involved, we have moved these into a 
-single function (`parse_cli_arguments`), to make the script more readable.
-~~~
-# file: catchment-analysis.py
-
-#!/usr/bin/env python3
-"""Software for managing measurement data for our catchment project."""
-
-import argparse
-
-from catchment import models, views
-
-
-def main(args):
-    """The MVC Controller of the patient data system.
-
-    The Controller is responsible for:
-    - selecting the necessary models and views for the current task
-    - passing data between models and views
-    """
-    infiles = args.infiles
-    if not isinstance(infiles, list):
-        infiles = [args.infiles]
-
-    for filename in in_files:
-        measurement_data = models.read_variable_from_csv(filename, arg.measurements)
-
-
-        ### MODIFIED START ###
-        if args.view == 'visualize':
-            view_data = {'daily sum': models.daily_total(measurement_data),
-                         'daily average': models.daily_mean(measurement_data),
-                         'daily max': models.daily_max(measurement_data),
-                         'daily min': models.daily_min(measurement_data)}
-        
-            views.visualize(view_data)
-
-        elif args.view == 'record':
-            measurement_data = measurement_data[args.site]
-            site = models.Site(args.site)
-            site.add_measurement(arg.measurements, measurement_data)
-
-            views.display_measurement_record(site)
-        ### MODIFIED END ###
-
-
-def parse_cli_arguments():
-    """Definitions and logic tests for the CLI argument parser"""
-    
-    parser = argparse.ArgumentParser(
-        description='A basic environmental data management system')
-    
-    req_group = parser.add_argument_group('required arguments')
-
-    parser.add_argument(
-        'infiles',
-        nargs = '+',
-        help = 'Input CSV(s) containing measurement data')
-
-    req_group.add_argument(
-        '-m', '--measurements',
-        help = 'Name of measurement data series to load',
-        required = True)
-
-    ### MODIFIED START ###
-    parser.add_argument(
-        '--view',
-        default = 'visualize',
-        choices = ['visualize', 'record'],
-        help = 'Which view should be used?')
-
-    parser.add_argument(
-        '--site',
-        type = str,
-        default = None,
-        help = 'Which site should be displayed?')
-    ### MODIFIED END ###
-
-    args = parser.parse_args()
-    
-    if args.view == 'record' and args.site is None:
-        parser.error("'record' --view requires that --site is set")
-
-    return args
-
-
-if __name__ == "__main__":
-
-    args = parse_cli_arguments()
-
-    main(args)
-~~~
-{: .language-python}
-
-We've added two options to our command line interface here:
-one to request a specific view (`--view`) 
-and one for the site ID that we want to lookup (`--site`).
-Note that both are optional,
-but have `default` values if they are not set.
-For the view option,
-the default is for the graphic `visualize` view,
-and we have set a defined list of `choices` that users are allowed to specify.
-For the site option the default value is `None`.
-We have added an `if` statement after the arguments are parsed,
-but before calling the `main` function,
-to ensure that the site option is set if we are using the `record` view,
-which will return an error using the `parser.error` function:
-~~~
-python3 catchment-analysis.py --view record -m 'Rainfall (mm)' data/rain_data_2015-12.csv
-~~~
-{: .language-bash}
-~~~
-usage: catchment-analysis.py [-h] -m MEASUREMENTS [--view {visualize,record}] [--site SITE] infiles [infiles ...]
-catchment-analysis.py: error: 'record' --view requires that --site is set
-~~~
-{: .output}
-Because we used the `parser.error` function,
-the usage information for the command is given,
-followed by the error message that we have added.
-
-We can now call our program with these extra arguments to see the record for a single site:
-
-~~~
-$ python3 catchment-analysis.py --view record --site FP35 -m 'Rainfall (mm)' data/rain_data_2015-12.csv
-~~~
-{: .language-bash}
-
-~~~
-FP35
-2005-12-01 00:00:00    0.0
-2005-12-01 00:15:00    0.0
-2005-12-01 00:30:00    0.0
-2005-12-01 00:45:00    0.0
-2005-12-01 01:00:00    0.0
-                      ... 
-2005-12-31 22:45:00    0.2
-2005-12-31 23:00:00    0.0
-2005-12-31 23:15:00    0.2
-2005-12-31 23:30:00    0.2
-2005-12-31 23:45:00    0.0
-Name: Rainfall, Length: 2976, dtype: float64
-~~~
-{: .output}
-
-
-For the full range of features that we have access to with `argparse` see the
-[Python module documentation](https://docs.python.org/3/library/argparse.html?highlight=argparse#module-argparse).
-Allowing the user to request a specific view like this is
-a similar model to that used by the popular Python library Click -
-if you find yourself needing to build more complex interfaces than this,
-Click would be a good choice.
-You can find more information in [Click's documentation](https://click.palletsprojects.com/).
-
-
 > ## Additional Material
 >
 > Now that we've covered the basics of different programming paradigms
@@ -695,4 +567,4 @@ and maintained within a team by having multiple people
 have a look and comment on key code changes to see how they fit within the codebase.
 Such reviews check the correctness of the new code, test coverage, functionality changes,
 and confirm that they follow the coding guides and best practices.
-Let's have a look at some code review techniques available to us.
+In the following episodes we will have a look at some code review techniques available to us.
