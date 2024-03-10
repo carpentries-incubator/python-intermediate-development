@@ -272,29 +272,27 @@ be harder to test but, when simplified like this, may only require a handful of 
 > {: .solution}
 {: .challenge}
 
-### MapReduce Data Processing Approach
-
-When working with data you will often find that you need to
-apply a transformation to each datapoint of a dataset
-and then perform some aggregation across the whole dataset.
-One instance of this data processing approach is known as MapReduce
-and is applied when processing (but not limited to) Big Data,
-e.g. using tools such as [Spark](https://en.wikipedia.org/wiki/Apache_Spark)
-or [Hadoop](https://hadoop.apache.org/).
-The name MapReduce comes from applying an operation to (mapping) each value in a dataset,
-then performing a reduction operation which
-collects/aggregates all the individual results together to produce a single result.
-MapReduce relies heavily on composability and parallelisability of functional programming -
-both map and reduce can be done in parallel and on smaller subsets of data,
-before aggregating all intermediate results into the final result.
-
-> ## Exercise: Mapping
+> ## Mapping
 > `map(f, C)` is a function that takes another function `f()`
 > and a collection `C` of data items as inputs.
 > Calling `map(f, C)` applies the function `f(x)` to every data item `x` in a collection `C`
 > and returns the resulting values as a new collection of the same size.
 >
-> First identify a line of code in the `analyse_data` function which uses the `map` function.
+> This is a simple mapping that takes a list of names and
+> returns a list of the lengths of those names using the built-in function `len()`:
+> ```python
+> name_lengths = map(len, ["Mary", "Isla", "Sam"])
+> print(list(name_lengths))
+> ```
+> ```output
+> [4, 4, 3]
+> ```
+> For more information on mapping functions, and how they can be combined with reduce
+> functions, see the [Functional Programming](/34-functional-programming/index.html) episode.
+{: .callout}
+
+> ## Exercise: Mapping
+> Identify a line of code in the `analyse_data` function which uses the `map` function.
 >> ## Solution
 >> The `map` function is used with the `read_variables_from_csv` function in the `catchment/models.py` module.
 >> It creates a collection of dataframes containing the data within files defined in the list `data_file_paths`:
@@ -304,7 +302,7 @@ before aggregating all intermediate results into the final result.
 > {: .solution}
 >
 > Now create a pure function, `daily_std`, to calculate the standard deviation by day for any dataframe.
-> This can take form similar to the `daily_mean` and `daily_max` functions in the `catchment/models.py` file.
+> This can take a similar form to the `daily_mean` and `daily_max` functions in the `catchment/models.py` file.
 >
 > Then replace the `for` loop below, that is in your `compute_standard_deviation_by_day` function,
 > with a `map()` function that uses the `daily_std` function to calculate the daily standard
@@ -346,7 +344,7 @@ the test is correct
 from CSV to JSON, the bulk of the tests need not be updated
 
 > ## Exercise: Testing a Pure Function
-> Add tests for `compute_standard_deviation_by_data()` that check for situations 
+> Add tests for `compute_standard_deviation_by_day()` that check for situations 
 > when there is only one file with multiple sites, 
 > multiple files with one site, and any other cases you can think of that should be tested.
 >> ## Solution
