@@ -319,7 +319,7 @@ Conversely, if we wanted to write a new analysis function, we could support any 
 data sources with no extra work.
 
 > ## Exercise: Add an Additional DataSource
-> Create another class that supports loading patient data from JSON files, with the 
+> Create another class that supports loading catchment data from JSON files, with the 
 > appropriate `load_catchment_data()` method.
 > There is a function in `models.py` that loads from JSON in the following format:
 > ```json
