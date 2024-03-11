@@ -92,10 +92,12 @@ extras_order:
   - figures
   - guide
   - common-issues
-  - discuss
+  - refactor-1-software-design
+  - refactor-2-code-refactoring
+  - refactor-3-code-abstractions
+  - refactor-4-architecture-revisited
   - protect-main-branch
   - vscode
-  - functional-programming
   - persistence
   - databases
   - geopandas
