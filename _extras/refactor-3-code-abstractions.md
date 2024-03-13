@@ -79,7 +79,7 @@ One way we can do this is by using *encapsulation* and *classes*.
 
 *Encapsulation* is the packing of "data" and "functions operating on that data" into a 
 single component/object. 
-It is also provides a mechanism for restricting the access to that data. 
+It also provides a mechanism for restricting the access to that data. 
 Encapsulation means that the internal representation of a component is generally hidden 
 from view outside of the component's definition.
 
