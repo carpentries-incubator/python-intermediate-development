@@ -212,7 +212,7 @@ Finally, pure functions are easier to reuse as the caller
 only needs to understand what parameters to provide, rather
 than anything else that might need to be configured prior to the call. 
 For these reasons, you should try and have as much of the complex, analytical and mathematical 
-code are pure functions.
+code as pure functions.
 
 
 Some parts of a program are inevitably impure.
