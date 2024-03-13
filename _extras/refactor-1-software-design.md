@@ -115,7 +115,7 @@ python catchment-analysis.py data/rain_data_small.csv --full-data-analysis
 
 The new data analysis code is located in `compute_data.py` file within the `catchment` directory 
 in a function called `analyse_data()`. 
-This function loads all the data files for a given a directory path, then
+This function loads all the data files for a given directory path, then
 calculates and compares standard deviation across all the data by day and finally plots a graph.
 
 > ## Exercise: Identifying How Code Can be Improved?
