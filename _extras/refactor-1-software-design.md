@@ -153,7 +153,7 @@ calculates and compares standard deviation across all the data by day and finall
 
 ## Poor Design Choices & Technical Debt
 
-When faced with a problem that you need to solve by writing code - it may be tempted to 
+When faced with a problem that you need to solve by writing code - it may be tempting to 
 skip the design phase and dive straight into coding. 
 What happens if you do not follow the good software design and development best practices?
 It can lead to accumulated 'technical debt',
