@@ -72,7 +72,7 @@ goal of having *maintainable* code, which is:
 * *readable* (and understandable) by developers who did not write the code, e.g. by:
   * following a consistent coding style and naming conventions
   * using meaningful and descriptive names for variables, functions, and classes
-  * documenting code to describe it does and how it may be used
+  * documenting code to describe what it does and how it may be used
   * using simple control flow to make it easier to follow the code execution
   * keeping functions and methods small and focused on a single task (also important for testing)
 * *testable* through a set of (preferably automated) tests, e.g. by:
