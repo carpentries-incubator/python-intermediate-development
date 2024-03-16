@@ -91,7 +91,7 @@ Now that we know what goals we should aspire to, let us take a critical look at 
 software project and try to identify ways in which it can be improved. 
 
 Our software project contains a branch `full-data-analysis` with code for a new feature of our 
-inflammation analysis software. Recall that you can see all your branches as follows: 
+catchment analysis software. Recall that you can see all your branches as follows: 
 ~~~
 $ git branch --all
 ~~~
