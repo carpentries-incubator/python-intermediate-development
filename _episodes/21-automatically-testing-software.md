@@ -89,7 +89,7 @@ a common term we use to refer to sets of tests - that we'll use for our test wri
 
 ~~~
 $ git switch develop
-$ git branch -c test-suite
+$ git switch -c test-suite
 ~~~
 {: .language-bash}
 
