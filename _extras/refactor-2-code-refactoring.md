@@ -47,7 +47,7 @@ In this episode we will refactor the function `analyse_data()` in `compute_data.
 from our project in the following two ways:
 * add more tests so we can be more confident that future changes will have the 
 intended effect and will not break the existing code. 
-* split the monolithic `analyse_data()` function into a number of smaller and mode decoupled functions 
+* split the monolithic `analyse_data()` function into a number of smaller and more decoupled functions 
 making the code easier to understand and test.
 
 ## Writing Tests Before Refactoring
