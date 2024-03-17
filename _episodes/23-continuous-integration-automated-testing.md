@@ -249,7 +249,7 @@ Each of these steps are:
   it would be interpreted as the number `3.1` which -
   although it's the same number as `3.10` -
   would be interpreted as the wrong version!
-- **Install latest version of pip, dependencies, and our inflammation package:**
+- **Install latest version of pip, dependencies, and our catchment package:**
   In order to locally install our `catchment` package
   it's good practice to upgrade the version of pip that is present first,
   then we use pip to install our package dependencies.
