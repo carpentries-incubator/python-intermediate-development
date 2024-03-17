@@ -424,21 +424,21 @@ with a configuration for just python files
     "configurations": [
         {
             "name": "Catchment-analysis: Rain",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "args" : [ "data/rain_data_2015-12.csv" ],
             "module": "catchment-analysis",
             "console": "integratedTerminal",
-            "justMyCode": True
+            "justMyCode": true
         },
         {
             "name": "Catchment-analysis: River",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "args" : [ "data/river_data_2015-12.csv" ],
             "module": "catchment-analysis",
             "console": "integratedTerminal",
-            "justMyCode": True
+            "justMyCode": true
         }
     ]
 }
