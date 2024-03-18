@@ -159,6 +159,14 @@ preserving the new line after sorrow.
 
 As we'll see shortly, GitHub Actions workflows will use all of these.
 
+> ## YAML support in VS Code
+> YAML language support is available within VS Code.
+> Select the Extensions tab, and type 'YAML' into the extension search bar.
+> The first result should be the YAML extension from redhat (see graphic below). 
+> Select and install this extension.
+> ![YAML language extension in VS Code](../fig/vs-code-yaml-install.png){: .image-with-shadow width="1000px"}
+{: .callout}
+
 ### Defining Our Workflow
 
 With a GitHub repository there's a way we can set up CI
