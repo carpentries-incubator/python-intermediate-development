@@ -85,9 +85,47 @@ Refactoring code is not meant to change its behaviour, but sometimes to make it 
 you not changing the important behaviour you have to make small tweaks to the code to write
 the tests at all.
 
+> ## First Refactor Step - Preparing for Programmatic Work.
+> Before we can progress with refactoring in a programmatic way,
+> we need to ensure that the `analyse_data()` function is only analysing the data,
+> not plotting it as well ('separating concerns' within our code).
+> This first refactoring step will be tested manually:
+> you will simply ensure the same graphs are produced both before and after this refactoring step.
+>
+> First remove the following lines of code from the `analyse_data()` function:
+> ```python
+>    graph_data = {
+>        'daily standard deviation': daily_standard_deviation
+>    }
+>
+>    views.visualize(graph_data)
+> ```
+> and add this `return` statement at the end of the `analyse_data()` function:
+> ```python
+>    return daily_standard_deviation
+> ```
+>
+> Then replace this line in the `catchment-analysis.py` file:
+> ```python
+>        compute_data.analyse_data(os.path.dirname(InFiles[0]))
+> ```
+> with these lines of code:
+> ```python
+>        daily_standard_deviation = compute_data.analyse_data(os.path.dirname(InFiles[0]))
+>        graph_data = {
+>            'daily standard deviation': daily_standard_deviation
+>        }
+>
+>        views.visualize(graph_data)
+> ```
+>
+> Run the program to ensure that you get the same graph plotted as before. 
+> Once you have confirmed that your code is functioning as before 
+> you are ready to carry on the rest of the refactoring process. 
+{: .callout}
+
 > ## Exercise: Write Regression Tests
-> Modify the `analyse_data()` function not to plot a graph and return the data instead.
-> Then, add a new test file called `test_compute_data.py` in the `tests` folder and 
+> Add a new test file called `test_compute_data.py` in the `tests` folder and 
 > add a regression test to verify the current output of `analyse_data()`. We will use this test
 > in the remainder of this section to verify the output `analyse_data()` is unchanged each time
 > we refactor or change code in the future. 
