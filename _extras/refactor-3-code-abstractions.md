@@ -46,11 +46,11 @@ let's decouple the data loading into a separate function.
 >> The new function `load_catchment_data()` that reads all the data into the format needed
 >> for the analysis should look something like:
 >> ```python
->> def load_inflammation_data(dir_path):
+>> def load_catchment_data(dir_path):
 >>   data_file_paths = glob.glob(os.path.join(dir_path, 'rain_data_2015*.csv'))
 >>   if len(data_file_paths) == 0:
 >>       raise ValueError('No CSV files found in the data directory')
->>   data = map(models.load_csv, data_file_paths)
+>>   data = map(models.read_variable_from_csv, data_file_paths)
 >>   return list(data)
 >> ```
 >> This function can now be used in the analysis as follows:
@@ -219,7 +219,7 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> ...
 >> def test_compute_data():
 >>     from catchment.compute_data import analyse_data, CSVDataSource
->>     path = Path.cwd() / "../data"
+>>     path = Path.cwd() / "data"
 >>     data_source = CSVDataSource(path)
 >>     result = analyse_data(data_source)
 >>     expected_output = [ [0.        , 0.18801829],
@@ -353,7 +353,7 @@ data sources with no extra work.
 >>         data_file_paths = glob.glob(os.path.join(self.dir_path, 'rain_data_2015*.json'))
 >>         if len(data_file_paths) == 0:
 >>             raise ValueError('No JSON files found in the data directory')
->>         data = map(models.load_json, data_file_paths)
+>>         data = map(models.read_variable_from_json, data_file_paths)
 >>         return list(data)
 >> ```
 >> Additionally, in the controller will need to select the appropriate DataSource to
