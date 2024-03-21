@@ -99,15 +99,15 @@ such as:
   is to always do a `git pull` before a `git push`, to ensure you have any latest changes before you push your own.
 
 <!--
-Created with https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9
+Created with https://mermaid.live/edit#pako:eNqVkjFrwzAQhf-KuKmlKd01BAoZ2yUZumi5SmdbRPI58oliQv57JbuloSaFajqd3sd7x-kMlh2BhpFOmXpLO49twmh6Vc4bp6PvW7Xziaxwmh6324eDYFubz4lQq9aLQucW_fVTlb6wxaD2NPDoK77ILcfoZSF-Kyq1p8hCK2zIY7dAK8Ftr4bEdretVgPqOWBH9shZ_stFSi39EXFNfQ0WgrobO05ic4nM6Sd6uYXAH-TU-6Susz3NZvewgVJE9K7s8Fy9DUhHkQzoUjpqMAcxYPpLkWIWPky9BS0p0wby4FC-Vw66wTCWLrma-HX5F_P3uHwCS-vA3Q
 sequenceDiagram
     Working Directory->>+Staging Area: git add
     Staging Area->>+Local Repository: git commit
     Local Repository->>+Remote Repository: git push
     Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Staging Area:git checkout / git switch
-    Local Repository->>+Staging Area:git merge
-    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git merge/rebase)
+    Local Repository->>+Working Directory:git checkout
+    Local Repository->>+Working Directory:git merge
+    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout/merge)
 -->
 <!--
 SVG of the diagram can be downloaded from:
