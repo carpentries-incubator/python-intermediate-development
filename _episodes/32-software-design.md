@@ -52,7 +52,42 @@ requirements of 'good' software and revisit
 our software's [MVC architecture](/11-software-project/index.html#software-architecture) 
 in the context of software design.
 
+## Poor Design Choices & Technical Debt
+
+When faced with a problem that you need to solve by writing code - it may be tempted to 
+skip the design phase and dive straight into coding. 
+What happens if you do not follow the good software design and development best practices?
+It can lead to accumulated 'technical debt',
+which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)),
+is the "cost of additional rework caused by choosing an easy (limited) solution now
+instead of using a better approach that would take longer".
+The pressure to achieve project goals can sometimes lead to quick and easy solutions,
+which make the software become
+more messy, more complex, and more difficult to understand and maintain.
+The extra effort required to make changes in the future is the interest paid on the (technical) debt.
+It is natural for software to accrue some technical debt,
+but it is important to pay off that debt during a maintenance phase -
+simplifying, clarifying the code, making it easier to understand -
+to keep these interest payments on making changes manageable.
+
+There is only so much time available in a project.
+How much effort should we spend on designing our code properly
+and using good development practices?
+The following [XKCD comic](https://xkcd.com/844/) summarises this tension:
+
+![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
+
+At an intermediate level there are a wealth of practices that *could* be used,
+and applying suitable design and coding practices is what separates
+an *intermediate developer* from someone who has just started coding.
+The key for an intermediate developer is to balance these concerns
+for each software project appropriately,
+and employ design and development practices *enough* so that progress can be made.
+It is very easy to under-design software,
+but remember it is also possible to over-design software too.
+
 ## Good Software Design Goals
+
 Aspirationally, what makes good code can be summarised in the following quote from the
 [Intent HG blog](https://intenthq.com/blog/it-audience/what-is-good-code-a-scientific-definition/):
 
@@ -69,29 +104,28 @@ to fix a problem or the software's requirements change.
 Satisfying the above properties will lead to an overall software design 
 goal of having *maintainable* code, which is:
 
-* *readable* (and understandable) by developers who did not write the code, e.g. by:
-  * following a consistent coding style and naming conventions
-  * using meaningful and descriptive names for variables, functions, and classes
-  * documenting code to describe it does and how it may be used
-  * using simple control flow to make it easier to follow the code execution
-  * keeping functions and methods small and focused on a single task (also important for testing)
-* *testable* through a set of (preferably automated) tests, e.g. by:
-  * writing unit, functional, regression tests to verify the code produces 
+* *understandable* by developers who did not develop the code,
+by having a clear and well-considered high-level design (or *architecture*) that separates out the different components and aspects of its function logically
+and in a modular way, and having the interactions between these different parts clear, simple, and sufficiently high-level that they do not contravene this design.
+   * Moving this forward into implementation, *understandable* would mean being consistent in coding style, using sensible naming conventions for functions, classes and variables, documenting and commenting code, simple control flow, and having small functions and methods focused on single tasks.
+* *adaptable* by designing the code to be easily modifiable and extensible to satisfy new requirements,
+by incorporating points in the modular design where new behaviour can be added in a clear and straightforward manner
+(e.g. as individual functions in existing modules, or perhaps at a higher-level as plugins).
+  * In an implementation sense, this means writing low-coupled/decoupled code where each part of the code has a separate concern, and has the lowest possible dependency on other parts of the code.
+  This makes it easier to test, update or replace.
+* *testable* by designing the code in a sufficiently modular way to make it easier to test the functionality within a modular design,
+either as a whole or in terms of its individual functions.
+  * This would carry forward in an implementation sense in two ways. Firstly, having functions sufficiently small to be amenable to individual (ideally automated) test cases, e.g. by writing unit, regression tests to verify the code produces 
   the expected outputs from controlled inputs and exhibits the expected behavior over time 
-  as the code changes
-* *adaptable* (easily modifiable and extensible) to satisfy new requirements, e.g. by:
-  * writing low-coupled/decoupled code where each part of the code has a separate concern and 
-  the lowest possible dependency on other parts of the code making it 
-  easier to test, update or replace - e.g. by separating the "business logic" and "presentation" 
-  layers of the code on the architecture level (recall the [MVC architecture](/11-software-project/index.html#software-architecture)), 
-  or separating "pure" (without side-effects) and "impure" (with side-effects) parts of the code on the 
-  level of functions.
+  as the code changes.
+  Secondly, at a higher-level in implementation, this would allow functional tests to be written to create tests to verify entire pathways through the code, from initial software input to testing eventual output.
 
 Now that we know what goals we should aspire to, let us take a critical look at the code in our 
 software project and try to identify ways in which it can be improved. 
 
 Our software project contains a branch `full-data-analysis` with code for a new feature of our 
-inflammation analysis software. Recall that you can see all your branches as follows: 
+inflammation analysis software. Recall that you can see all your branches as follows:
+
 ~~~
 $ git branch --all
 ~~~
@@ -147,40 +181,6 @@ calculates and compares standard deviation across all the data by day and finaly
 >> `analyse_data()` function for the time being.
 > {: .solution}
 {: .challenge}
-
-## Poor Design Choices & Technical Debt
-
-When faced with a problem that you need to solve by writing code - it may be tempted to 
-skip the design phase and dive straight into coding. 
-What happens if you do not follow the good software design and development best practices?
-It can lead to accumulated 'technical debt',
-which (according to [Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)),
-is the "cost of additional rework caused by choosing an easy (limited) solution now
-instead of using a better approach that would take longer".
-The pressure to achieve project goals can sometimes lead to quick and easy solutions,
-which make the software become
-more messy, more complex, and more difficult to understand and maintain.
-The extra effort required to make changes in the future is the interest paid on the (technical) debt.
-It is natural for software to accrue some technical debt,
-but it is important to pay off that debt during a maintenance phase -
-simplifying, clarifying the code, making it easier to understand -
-to keep these interest payments on making changes manageable.
-
-There is only so much time available in a project.
-How much effort should we spend on designing our code properly
-and using good development practices?
-The following [XKCD comic](https://xkcd.com/844/) summarises this tension:
-
-![Writing good code comic](../fig/xkcd-good-code-comic.png){: .image-with-shadow width="400px" }
-
-At an intermediate level there are a wealth of practices that *could* be used,
-and applying suitable design and coding practices is what separates
-an *intermediate developer* from someone who has just started coding.
-The key for an intermediate developer is to balance these concerns
-for each software project appropriately,
-and employ design and development practices *enough* so that progress can be made.
-It is very easy to under-design software,
-but remember it is also possible to over-design software too.
 
 ## Techniques for Improving Code
 
