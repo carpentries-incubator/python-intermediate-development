@@ -3,9 +3,10 @@ title: "Code Refactoring"
 teaching: 30
 exercises: 20
 questions:
-- "How do you refactor code without breaking it?"
+- "How do you refactor existing code without breaking it?"
 - "What are benefits of using pure functions in code?"
 objectives:
+- "Employ code refactoring to improve the structure of existing code."
 - "Understand the use of regressions tests to avoid breaking existing code when refactoring."
 - "Understand the use of pure functions in software design to make the code easier to test."
 - "Refactor a piece of code to separate out 'pure' from 'impure' code."
@@ -24,6 +25,12 @@ more readable, maintainable, efficient or easier to test. This can include intro
 as code decoupling and abstractions, but also renaming variables, reorganising functions to avoid 
 code duplication and increase reuse, and simplifying conditional statements.
 
+In the previous episode, we have already changed the structure of our code (i.e. refactored it 
+to a certain extent) 
+when we separated out data loading from data analysis but we have not tested that the new code 
+works as intended. This is particularly important with bigger code changes but even a small change 
+can easily break the codebase and introduce bugs.
+
 When faced with an existing piece of code that needs modifying a good refactoring
 process to follow is:
 
@@ -31,29 +38,26 @@ process to follow is:
 2. Refactor the code
 3. Verify that that the behaviour of the code is identical to that before refactoring.
 
-In this episode we will refactor the function `analyse_data()` in `compute_data.py` 
-from our project in the following two ways:
+In this episode we will further improve the code from our project in the following two ways:
 * add more tests so we can be more confident that future changes will have the 
 intended effect and will not break the existing code. 
-* further split the monolithic `analyse_data()` function into a number of smaller and more 
-decoupled functions (continuing the work from the previous episode) making the code easier to 
-understand and test.
+* further split `analyse_data()` function into a number of smaller and more 
+decoupled functions (continuing the work from the previous episode).
 
 ## Writing Tests Before Refactoring
 
-When refactoring, first we need to make sure there are tests that verity 
+When refactoring, first we need to make sure there are tests in place that can verify 
 the code behaviour as it is now (or write them if they are missing), 
 then refactor the code and, finally, check that the original tests still pass. 
-This is to make sure we do not break the existing behaviour through refactoring.
 
 There is a bit of a "chicken and egg" problem here - if the refactoring is supposed to make it easier 
 to write tests in the future, how can we write tests before doing the refactoring? 
 The tricks to get around this trap are:
 
- * Test at a higher level, with coarser accuracy
- * Write tests that you intend to remove
+ * test at a higher level, with coarser accuracy, and
+ * write tests that you intend to remove.
 
-The best tests are ones that test single bits of functionality rigorously.
+The best tests are the ones that test a single bit of functionality rigorously.
 However, with our current `analyse_data()` code that is not possible because it is a 
 large function doing a little bit of everything. 
 Instead we will make minimal changes to the code to make it a bit more testable. 
@@ -62,8 +66,8 @@ Firstly,
 we will modify the function to return the data instead of visualising it because graphs are harder 
 to test automatically (i.e. they need to be viewed and inspected manually in order to determine 
 their correctness). 
-Next, we will make the assert statements verify what the outcome is 
-currently, rather than checking whether that is correct or not. 
+Next, we will make the assert statements verify what the current outcome is, rather than check 
+whether that is correct or not. 
 Such tests are meant to 
 verify that the behaviour does not *change* rather than checking the current behaviour is correct
 (there should be another set of tests checking the correctness). 
@@ -103,11 +107,12 @@ the tests at all.
 >> ## Solution
 >> One approach we can take is to:
 >>  * comment out the visualise method on `analyse_data()` 
->> (as this will cause our test to hang waiting for the result data)
->>  * return the data instead, so we can write asserts on the data
->>  * See what the calculated value is, and assert that it is the same as the expected value
+>> (this will cause our test to hang waiting for the result data)
+>>  * return the data (instead of plotting it on a graph), so we can write assert statements 
+>> on the data
+>>  * see what the calculated result value is, and assert that it is the same as the expected value
 >> 
->> Putting this together, your test may look like:
+>> Putting this together, our test may look like:
 >>
 >> ```python
 >> import numpy.testing as npt
@@ -129,8 +134,8 @@ the tests at all.
 >> ```
 >>
 >> Note that while the above test will detect if we accidentally break the analysis code and 
->> change the output of the analysis, is not a good or complete test for the following reasons:
->> * It is not at all obvious why the `expected_output` is correct
+>> change the output of the analysis, it is still not a complete test for the following reasons:
+>> * It is not obvious why the `expected_output` is correct
 >> * It does not test edge cases
 >> * If the data files in the directory change - the test will fail
 >> 
@@ -144,7 +149,8 @@ Now that we have our regression test for `analyse_data()` in place, we are ready
 function further. 
 We would like to separate out as much of its code as possible as *pure functions*. 
 Pure functions are very useful and much easier to test as they take input only from its input 
-parameters and output only via their return values.
+parameters, do not modify input data and output only via their return value 
+(i.e. do not have any side effect of modifying global variables or writing to files).
 
 ### Pure Functions
 
