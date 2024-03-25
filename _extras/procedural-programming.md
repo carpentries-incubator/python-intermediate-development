@@ -19,8 +19,6 @@ have no return value) and functions (similar to procedures but return value afte
 Procedures and function both perform a single task, with exactly one entry and one exit point and 
 containing a series of logical steps (instructions) to be carried out.
 The primary concern is the *process* through which the input is transformed into the desired output.
-Procedural languages treat data and procedures as two different 
-entities (unlike in functional programming, where code is also treated as data). 
 
 Key features of procedural programming include:
 
@@ -34,5 +32,40 @@ arrays, lists, and records to store and manipulate data efficiently.
 To better understand procedural programming, it is useful to compare it with other prevalent 
 programming paradigms such as 
 [object-oriented programming](/object-oriented-programming/index.html) (OOP) 
-and [functional programming](/functional-programming/index.html#functional-vs-procedural-programming)
+and [functional programming](/functional-programming/index.html)
 to shed light on their distinctions, advantages, and drawbacks.
+
+Procedural programming uses a very detailed list of instructions to tell the computer what to do 
+step by step. This approach uses iteration to repeat a series of steps as often as needed. 
+Functional programming is an approach to problem solving that treats every computation as a 
+mathematical function (an expression) and relies more heavily on recursion as a primary control 
+structure (rather than iteration). 
+Procedural languages treat data and procedures as two different
+entities whereas, in functional programming, code is also treated as data - functions 
+can take other functions as arguments or return them as results. 
+Compare and contract [two different implementations](/functional-programming/index.html#functional-vs-procedural-programming) 
+of the same functionality in procedural and functional programming styles 
+to better grasp their differences.
+
+Procedural and [object-oriented programming](/object-oriented-programming/index.html) have fundamental differences in their approach to 
+organising code and solving problems.
+In procedural programming, the code is structured around functions and procedures that execute a 
+specific task or operations. Object-oriented programming is based around objects and classes, 
+where data is encapsulated within objects and methods on objects that used to manipulate that data.
+Both procedural and object-oriented programming paradigms support [abstraction and modularization](/33-code-decoupling-abstractions/index.html).
+Procedural programming achieves this through procedures and functions, while OOP uses classes and 
+objects. 
+However, OOP goes further by encapsulating related data and methods within objects, 
+enabling a higher level of abstraction and separation between different components.
+Inheritance and polymorphism are two vital features provided by OOP, which are not intrinsically 
+supported by procedural languages. [Inheritance](/object-oriented-programming/index.html#inheritance) allows the creation of classes that inherit 
+properties and methods from existing classes – enabling code reusability and reducing redundancy. 
+[Polymorphism](/33-code-decoupling-abstractions/index.html#polymorphism) permits a single function or method to operate on multiple data types or objects, 
+improving flexibility and adaptability.
+
+The choice between procedural, functional and object-oriented programming depends primarily on 
+the specific project requirements and personal preference. 
+Procedural programming may be more suitable for smaller projects, whereas OOP is typically 
+preferred for larger and more complex projects, especially when working in a team. 
+Functional programming can offer more elegant and scalable solutions for complex problems, 
+particularly in parallel computing.
