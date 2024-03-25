@@ -93,12 +93,9 @@ extras_order:
   - guide
   - common-issues
   - discuss
-  - protect-main-branch
   - vscode
-  - functional-programming
   - persistence
   - databases
-  - verifying-code-style-linters
   - quiz
 # Files and directories that are not to be copied.
 exclude:
