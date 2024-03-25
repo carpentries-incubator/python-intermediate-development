@@ -39,7 +39,7 @@ Git is a program that can be accessed from your command line tool.
 - On Windows, it is recommended to use **Git Bash**, which comes included as part of the [Git For Windows package](https://gitforwindows.org/) and will
   install the Bash command line tool as well as Git.
 - On macOS, Git is included as part of Apple's [Xcode tools](https://en.wikipedia.org/wiki/Xcode)
-  and should be available from the command line as long as you have XCode. If you do not have XCode installed, you can download it from
+  and should be available from the command line as long as you have Xcode. If you do not have Xcode installed, you can download it from
   [Apple's App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) or you can
   [install Git using alternative methods](https://git-scm.com/download/mac).
 - On Linux, Git can be installed using your favourite package manager.
@@ -102,7 +102,7 @@ See 'git help git' for an overview of the system.
 When you use Git on a machine for the first time, you need to configure a few things:
 
 * your name, 
-* your email address (used to uniquely identify you commit a change),
+* your email address (the one you used to open your GitHub account with, which will be used to uniquely identify your commits),
 * preferred text editor for Git to use (e.g. `nano` or another text editor of your choice),
 * whether you want to use these settings globally (i.e. for every Git project on your machine).
 
@@ -114,11 +114,9 @@ $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
 
-Make sure to use the same email address you used to open an account on GitHub that you will use for this course (see below).
-
 ### GitHub Account
 GitHub is a free, online host for Git repositories that you will use during the course to store your code in so 
-you will need to open a free [GitHub](https://github.com/) account unless you don't already have one.
+you will need to open a free [GitHub](https://github.com/) account unless you do not already have one.
 
 ### Secure Access To GitHub Using Git From Command Line
 
