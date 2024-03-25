@@ -11,9 +11,10 @@ objectives:
 - "Understand the use of pure functions in software design to make the code easier to test."
 - "Refactor a piece of code to separate out 'pure' from 'impure' code."
 keypoints:
+- "Code refactoring is a technique for improving the structure of existing code."
 - "Implementing regression tests before refactoring gives you confidence that your changes have not 
 broken the code."
-- "Refactoring code into pure functions that process data without side effects makes code easier 
+- "Using pure functions that process data without side effects whenever possible makes the code easier 
 to read, test and maintain."
 ---
 
@@ -147,10 +148,7 @@ the tests at all.
 
 Now that we have our regression test for `analyse_data()` in place, we are ready to refactor the 
 function further. 
-We would like to separate out as much of its code as possible as *pure functions*. 
-Pure functions are very useful and much easier to test as they take input only from its input 
-parameters, do not modify input data and output only via their return value 
-(i.e. do not have any side effect of modifying global variables or writing to files).
+We would like to separate out as much of its code as possible as *pure functions*.
 
 ### Pure Functions
 
@@ -211,10 +209,10 @@ be harder to test but, when simplified like this, may only require a handful of 
 >> while keeping all the logic for reading the data, processing it and showing it in a graph:
 >>```python
 >>def analyse_data(data_dir):
->>    """Calculate the standard deviation by day between datasets
->>    Gets all the inflammation csvs within a directory, works out the mean
->>    inflammation value for each day across all datasets, then graphs the
->>    standard deviation of these means."""
+>>    """Calculates the standard deviation by day between datasets.
+>>    Gets all the inflammation data from CSV files within a directory, works out the mean
+>>    inflammation value for each day across all datasets, then visualises the
+>>    standard deviation of these means on a graph."""
 >>    data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
 >>    if len(data_file_paths) == 0:
 >>        raise ValueError(f"No inflammation csv's found in path {data_dir}")
@@ -293,7 +291,7 @@ testable and maintainable. This is particularly useful for:
 
 Until this section, we have mainly been writing procedural code. 
 In the previous episode, we have touched a bit upon classes, encapsulation and polymorphism, 
-which are characteristics of (but not limited to) the Object Oriented Programming (OOP).
+which are characteristics of (but not limited to) the object-oriented programming (OOP).
 In this episode, we mentioned [pure functions](./index.html#pure-functions) 
 and Functional Programming.
 
@@ -307,9 +305,9 @@ to handle different subtasks.
 Because of this, it is useful to know about the [major paradigms](/programming-paradigms/index.html), 
 so you can recognise where it might be useful to switch. 
 This is outside of scope of this course - we have some extra episodes on the topics of 
-[Procedural Programming](/procedural-programming/index.html), 
-[Functional Programming](/functional-programming/index.html) and 
-[Object Oriented Programming](/object-oriented-programming/index.html) if you want to know more.
+[procedural programming](/procedural-programming/index.html), 
+[functional programming](/functional-programming/index.html) and 
+[object-oriented programming](/object-oriented-programming/index.html) if you want to know more.
 
 > ## So Which One is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
@@ -327,5 +325,12 @@ This is outside of scope of this course - we have some extra episodes on the top
 > as most of its functions on data are not changing the data (no side effects)
 > but producing a new data to reflect the result of the function.
 {: .callout}
+
+## Software Design and Architecture
+
+In this section so far we have been talking about **software design** - the individual modules and 
+components of the software. We are now doing to have a brief look into **software architecture** - 
+which is about the overall structure that these software components fit into, a *design pattern* 
+with a common successful use of software components. 
 
 {% include links.md %}
