@@ -182,7 +182,7 @@ and employ design and development practices *enough* so that progress can be mad
 It is very easy to under-design software,
 but remember it is also possible to over-design software too.
 
-## Techniques for Improving Code
+## Techniques for Good Software Design
 
 How code is structured is important for helping people who are developing and maintaining it 
 to understand and update it.
@@ -192,14 +192,7 @@ Such components can be as small as a single function, or be a software package i
 These smaller components can be understood individually without having to understand 
 the entire codebase at once.
 
-### Code Refactoring
-
-*Code refactoring* is the process of improving the design of an existing code - 
-changing the internal structure of code without changing its 
-external behavior, with the goal of making the code more readable, maintainable, efficient or easier
-to test.
-This can include things such as renaming variables, reorganising 
-functions to avoid code duplication and increase reuse, and simplifying conditional statements.
+Most commonly used software design techniques are given below.  
 
 ### Code Decoupling
 
@@ -221,6 +214,17 @@ details at any given time and thereby reducing the cognitive load when programmi
 Abstraction can be achieved through techniques such as *encapsulation*, *inheritance*, and 
 *polymorphism*, which we will explore in the next episodes. There are other [abstraction techniques](https://en.wikipedia.org/wiki/Abstraction_(computer_science))
 available too.
+
+### Code Refactoring
+
+*Code refactoring* is the process of improving the design of an *existing codebase* -
+changing the internal structure of code without changing its
+external behavior, with the goal of making the code more readable, maintainable, efficient or easier
+to test.
+This can include introducing things such as code decoupling and abstractions, but also 
+renaming variables, reorganising functions to avoid code duplication and increase reuse, 
+and simplifying conditional statements.
+
 
 ## Improving Our Software Design
 

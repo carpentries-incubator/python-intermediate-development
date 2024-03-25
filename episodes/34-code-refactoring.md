@@ -4,37 +4,25 @@ teaching: 30
 exercises: 20
 questions:
 - "How do you refactor code without breaking it?"
-- "What is decoupled code?"
-- "What are benefits of using pure functions in our code?"
+- "What are benefits of using pure functions in code?"
 objectives:
-- "Understand the benefits of code decoupling."
 - "Understand the use of regressions tests to avoid breaking existing code when refactoring."
 - "Understand the use of pure functions in software design to make the code easier to test."
 - "Refactor a piece of code to separate out 'pure' from 'impure' code."
 keypoints:
 - "Implementing regression tests before refactoring gives you confidence that your changes have not 
 broken the code."
-- "Decoupling code into pure functions that process data without side effects makes code easier 
+- "Refactoring code into pure functions that process data without side effects makes code easier 
 to read, test and maintain."
 ---
 
 ## Introduction
 
-*Code refactoring* is the process of improving the design of an existing code - for example 
-to make it more decoupled. 
-Recall that *code decoupling* means breaking the system into smaller components and reducing the 
-interdependence between these components, so that they can be tested and maintained independently.
-Two components of code can be considered **decoupled** if a change in one does not
-necessitate a change in the other.
-While two connected units cannot always be totally decoupled, **loose coupling**
-is something we should aim for. Benefits of decoupled code include:
-
-* easier to read as you do not need to understand the
-  details of the other component.
-* easier to test, as one of the components can be replaced
-  by a test or a mock version of it.
-* code tends to be easier to maintain, as changes can be isolated
-  from other parts of the code.
+Code refactoring is the process of improving the design of an existing codebase - changing the 
+internal structure of code without changing its external behavior, with the goal of making the code 
+more readable, maintainable, efficient or easier to test. This can include introducing things such 
+as code decoupling and abstractions, but also renaming variables, reorganising functions to avoid 
+code duplication and increase reuse, and simplifying conditional statements.
 
 When faced with an existing piece of code that needs modifying a good refactoring
 process to follow is:
@@ -47,8 +35,9 @@ In this episode we will refactor the function `analyse_data()` in `compute_data.
 from our project in the following two ways:
 * add more tests so we can be more confident that future changes will have the 
 intended effect and will not break the existing code. 
-* split the monolithic `analyse_data()` function into a number of smaller and mode decoupled functions 
-making the code easier to understand and test.
+* further split the monolithic `analyse_data()` function into a number of smaller and more 
+decoupled functions (continuing the work from the previous episode) making the code easier to 
+understand and test.
 
 ## Writing Tests Before Refactoring
 
@@ -98,13 +87,13 @@ the tests at all.
 > def test_analyse_data():
 >     from inflammation.compute_data import analyse_data
 >     path = Path.cwd() / "../data"
->     result = analyse_data(path)
->
->     # TODO: add an assert for the value of result
+>     data_source = CSVDataSource(path)
+>     result = analyse_data(data_source)
+> 
+>     # TODO: add assert statement(s) to test the result value is as expected
 > ```
 > Use `assert_array_almost_equal` from the `numpy.testing` library to
 > compare arrays of floating point numbers.
->
 >> ## Hint
 >> When determining the correct return data result to use in tests, it may be helpful to assert the 
 >> result equals some random made-up data, observe the test fail initially and then 
@@ -113,7 +102,7 @@ the tests at all.
 >
 >> ## Solution
 >> One approach we can take is to:
->>  * comment out the visualize method on `analyse_data()` 
+>>  * comment out the visualise method on `analyse_data()` 
 >> (as this will cause our test to hang waiting for the result data)
 >>  * return the data instead, so we can write asserts on the data
 >>  * See what the calculated value is, and assert that it is the same as the expected value
@@ -127,7 +116,8 @@ the tests at all.
 >> def test_analyse_data():
 >>     from inflammation.compute_data import analyse_data
 >>     path = Path.cwd() / "../data"
->>     result = analyse_data(path)
+>>     data_source = CSVDataSource(path)
+>>     result = analyse_data(data_source)
 >>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211,
 >>                        0.25104719,0.22330897,0.89680503,0.21573875,1.24235548,0.63042094,
 >>                        1.57511696,2.18850242,0.3729574,0.69395538,2.52365162,0.3179312,
@@ -144,7 +134,7 @@ the tests at all.
 >> * It does not test edge cases
 >> * If the data files in the directory change - the test will fail
 >> 
->> We would need additional tests to check the above.
+>> We would need to add additional tests to check the above.
 > {: .solution}
 {: .challenge}
 
@@ -290,7 +280,46 @@ testable and maintainable. This is particularly useful for:
 
 * Data processing and analysis 
 (for example, using [Python Pandas library](https://pandas.pydata.org/) for data manipulation where most of functions appear pure)
-* Doing simulations
-* Translating data from one format to another
+* Doing simulations (? needs more explanation)
+* Translating data from one format to another (? an example would be good)
+
+## Programming Paradigms
+
+Until this section, we have mainly been writing procedural code. 
+In the previous episode, we have touched a bit upon classes, encapsulation and polymorphism, 
+which are characteristics of (but not limited to) the Object Oriented Programming (OOP).
+In this episode, we mentioned [pure functions](./index.html#pure-functions) 
+and Functional Programming.
+
+These are examples of different [programming paradigms](/programming-paradigms/index.html) 
+and provide varied approaches to structuring your code - 
+each with certain strengths and weaknesses when used to solve particular types of problems. 
+In many cases, particularly with modern languages, a single language can allow many different 
+structural approaches and mixing programming paradigms within your code.
+Once your software begins to get more complex - it is common to use aspects of [different paradigm](/programming-paradigms/index.html) 
+to handle different subtasks. 
+Because of this, it is useful to know about the [major paradigms](/programming-paradigms/index.html), 
+so you can recognise where it might be useful to switch. 
+This is outside of scope of this course - we have some extra episodes on the topics of 
+[Procedural Programming](/procedural-programming/index.html), 
+[Functional Programming](/functional-programming/index.html) and 
+[Object Oriented Programming](/object-oriented-programming/index.html) if you want to know more.
+
+> ## So Which One is Python?
+> Python is a multi-paradigm and multi-purpose programming language.
+> You can use it as a procedural language and you can use it in a more object oriented way.
+> It does tend to land more on the object oriented side as all its core data types
+> (strings, integers, floats, booleans, lists,
+> sets, arrays, tuples, dictionaries, files)
+> as well as functions, modules and classes are objects.
+>
+> Since functions in Python are also objects that can be passed around like any other object,
+> Python is also well suited to functional programming.
+> One of the most popular Python libraries for data manipulation,
+> [Pandas](https://pandas.pydata.org/) (built on top of NumPy),
+> supports a functional programming style
+> as most of its functions on data are not changing the data (no side effects)
+> but producing a new data to reflect the result of the function.
+{: .callout}
 
 {% include links.md %}

@@ -1,16 +1,20 @@
 ---
-title: "Code Abstractions"
+title: "Code Decoupling & Abstractions"
 teaching: 30
 exercises: 45
 questions:
+- "What is decoupled code?"
+- "What are commonly used code abstractions?"
 - "When is it useful to use classes to structure code?"
 - "How can we make sure the components of our software are reusable?"
 objectives:
+- "Understand the benefits of code decoupling."
 - "Introduce appropriate abstractions to simplify code."
 - "Understand the principles of encapsulation, polymorphism and interfaces."
 - "Use mocks to replace a class in test code."
 keypoints:
-- "Classes and interfaces can help decouple code so it is easier to understand, test and maintain."
+- "Classes and interfaces can help decouple code by abstracting out/hiding certain details of the 
+code so it is easier to understand, test and maintain."
 - "Encapsulation is bundling related data into a structured component, 
 along with the methods that operate on the data. It is also provides a mechanism for restricting 
 the access to that data, hiding the internal representation of the component."
@@ -19,6 +23,20 @@ or the use of a single symbol to represent different types."
 ---
 
 ## Introduction
+
+*Code decoupling* means breaking the system into smaller components and reducing the
+interdependence between these components, so that they can be tested and maintained independently.
+Two components of code can be considered **decoupled** if a change in one does not
+necessitate a change in the other.
+While two connected units cannot always be totally decoupled, **loose coupling**
+is something we should aim for. Benefits of decoupled code include:
+
+* easier to read as you do not need to understand the
+  details of the other component.
+* easier to test, as one of the components can be replaced
+  by a test or a mock version of it.
+* code tends to be easier to maintain, as changes can be isolated
+  from other parts of the code.
 
 *Code abstraction* is the process of hiding the implementation details of a piece of
 code behind an interface - i.e. the details of *how* something works are hidden away,
@@ -34,24 +52,26 @@ then it becomes easier for these parts to change independently.
 Let's start redesigning our code by introducing some of the abstraction techniques 
 to incrementally improve its design.
 
-You may have noticed that loading data from CSV files in a directory is "baked" into 
+In the code from our current branch `full-data-analysis`, 
+you may have noticed that loading data from CSV files in a directory is "baked" into 
 (i.e. is part of) the `analyse_data()` function. 
 This is not strictly a functionality of the data analysis function, so firstly 
 let's decouple the data loading into a separate function.
 
 > ## Exercise: Decouple Data Loading from Data Analysis
 > Separate out the data loading functionality from `analyse_data()` into a new function 
-> `load_inflammation_data()` that returns all the files to load.
+> `load_inflammation_data()` that returns a list of 2D NumPy arrays with inflammation data 
+> loaded from all inflammation CSV files found in a specified directory path.
 >> ## Solution
->> The new function `load_inflammation_data()` that reads all the data into the format needed
->> for the analysis should look something like:
+>> The new function `load_inflammation_data()` that reads all the inflammation data into the 
+>> format needed for the analysis could look something like:
 >> ```python
 >> def load_inflammation_data(dir_path):
 >>   data_file_paths = glob.glob(os.path.join(dir_path, 'inflammation*.csv'))
 >>   if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation csv's found in path {dir_path}")
->>   data = map(models.load_csv, data_file_paths)
->>   return list(data)
+>>       raise ValueError(f"No inflammation CSV files found in path {dir_path}")
+>>   data = map(models.load_csv, data_file_paths) # load inflammation data from CSV files
+>>   return list(data) # return the list of 2D NumPy arrays with inflammation data
 >> ```
 >> This function can now be used in the analysis as follows:
 >> ```python
@@ -63,8 +83,6 @@ let's decouple the data loading into a separate function.
 >> The code is now easier to follow since we do not need to understand the the data loading from
 >> files to read the statistical analysis, and vice versa - we do not have to understand the 
 >> statistical analysis when looking at data loading.
->> Ensure you re-run the regression tests to check this refactoring has not
->> changed the output of `analyse_data()`.
 > {: .solution}
 {: .challenge}
 
@@ -213,18 +231,7 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> method. 
 >> 
 >> While the overall behaviour of the code and its results are unchanged, 
->> the way we invoke data analysis has changed. 
->> We must update our regression test to match this, to ensure we have not broken anything:
->> ```python
->> ...
->> def test_compute_data():
->>     from inflammation.compute_data import analyse_data
->>     path = Path.cwd() / "../data"
->>     data_source = CSVDataSource(path)
->>     result = analyse_data(data_source)
->>     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211
->>     ...
->> ```
+>> the way we invoke data analysis has changed.
 > {: .solution}
 {: .challenge}
 
@@ -256,7 +263,7 @@ on it and it will return a number representing its surface area.
 > what parameters they need and what they return.
 >> ## Solution
 >> The interface is the `load_inflammation_data()` method, which takes no parameters and 
->> returns a list where each entry is a 2D array of patient inflammation data (read from some 
+>> returns a list where each entry is a 2D NumPy array of patient inflammation data (read from some 
 > data source).
 >> 
 >> Any object passed into `analyse_data()` should conform to this interface.
@@ -346,7 +353,7 @@ data sources with no extra work.
 >>   def load_inflammation_data(self):
 >>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.json'))
 >>     if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation JSON's found in path {self.dir_path}")
+>>       raise ValueError(f"No inflammation JSON files found in path {self.dir_path}")
 >>     data = map(models.load_json, data_file_paths)
 >>     return list(data)
 >> ```
@@ -369,12 +376,12 @@ data sources with no extra work.
 
 ## Testing Using Mock Objects
 
-We can use this abstraction to also make testing more straight forward.
-Instead of having our tests use real file system data, we can instead provide
+We can use a *mock object* abstraction to make testing more straightforward.
+Instead of having our tests use real data stored on a file system, we can instead provide
 a mock or dummy implementation instead of one of the real classes.
 Providing that what we use as a substitute conforms to the same interface, 
 the code we are testing should work just the same.
-Such mock/dummy implementation could just returns some fixed example data.
+Such mock/dummy implementation could just return some fixed example data.
 
 An convenient way to do this in Python is using Python's [mock object library](https://docs.python.org/3/library/unittest.mock.html).
 This is a whole topic in itself -
@@ -430,39 +437,6 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 > {: .solution}
 {: .challenge}
 
-## Programming Paradigms
 
-Until now, we have mainly been writing procedural code. 
-In the previous episode, we mentioned [pure functions](/33-code-refactoring/index.html#pure-functions) 
-and Functional Programming.
-In this episode, we have touched a bit upon classes, encapsulation and polymorphism, 
-which are characteristics of (but not limited to) the Object Oriented Programming (OOP).
-All these different programming paradigms provide varied approaches to structuring your code - 
-each with certain strengths and weaknesses when used to solve particular types of problems. 
-In many cases, particularly with modern languages, a single language can allow many different 
-structural approaches and mixing programming paradigms within your code.
-Once your software begins to get more complex - it is common to use aspects of [different paradigm](/programming-paradigms/index.html) 
-to handle different subtasks. 
-Because of this, it is useful to know about the [major paradigms](/programming-paradigms/index.html), 
-so you can recognise where it might be useful to switch. 
-This is outside of scope of this course - we have some extra episodes on the topics of 
-[Procedural Programming](/programming-paradigms/index.html#procedural-programming), 
-[Functional Programming](/functional-programming/index.html) and 
-[Object Oriented Programming](/object-oriented-programming/index.html) if you want to know more.
+{% include links.md %}
 
-> ## So Which One is Python?
-> Python is a multi-paradigm and multi-purpose programming language.
-> You can use it as a procedural language and you can use it in a more object oriented way.
-> It does tend to land more on the object oriented side as all its core data types
-> (strings, integers, floats, booleans, lists,
-> sets, arrays, tuples, dictionaries, files)
-> as well as functions, modules and classes are objects.
->
-> Since functions in Python are also objects that can be passed around like any other object,
-> Python is also well suited to functional programming.
-> One of the most popular Python libraries for data manipulation,
-> [Pandas](https://pandas.pydata.org/) (built on top of NumPy),
-> supports a functional programming style
-> as most of its functions on data are not changing the data (no side effects)
-> but producing a new data to reflect the result of the function.
-{: .callout}
