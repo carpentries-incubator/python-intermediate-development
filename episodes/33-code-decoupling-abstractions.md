@@ -13,14 +13,14 @@ objectives:
 - "Understand the principles of encapsulation, polymorphism and interfaces."
 - "Use mocks to replace a class in test code."
 keypoints:
-- "Abstractions can hide certain details of the code behind classes and interfaces" 
-- "Encapsulation bundles data into a structured component along with the methods that operate 
+- "Code decoupling is separating code into smaller components and reducing the interdependence 
+between them so that the code is easier to understand, test and maintain."
+- "Abstractions can hide certain details of the code behind classes and interfaces." 
+- "Encapsulation bundles data into a structured component along with methods that operate 
 on the data, and provides a mechanism for restricting access to that data, 
 hiding the internal representation of the component."
 - "Polymorphism describes the provision of a single interface to entities of different types, 
 or the use of a single symbol to represent different types."
-- "Code decoupling is separating code into smaller components and reducing the interdependence 
-between them so that the code is easier to understand, test and maintain."
 
 ---
 
@@ -440,6 +440,13 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 > {: .solution}
 {: .challenge}
 
+## Safe Code Structure Changes
+
+With the changes to the code structure we have done using code decoupling and abstractions we have 
+already refactored our code to a certain extent but we have not tested that the changes work as 
+intended. 
+We will now look into how to properly refactor code to guarantee that the code still works 
+as before any modifications.
 
 {% include links.md %}
 
