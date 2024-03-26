@@ -8,14 +8,15 @@ questions:
 objectives:
 - "Employ code refactoring to improve the structure of existing code."
 - "Understand the use of regressions tests to avoid breaking existing code when refactoring."
-- "Understand the use of pure functions in software design to make the code easier to test."
+- "Understand the use of pure functions in software design to make the code easier to read, 
+test amd maintain."
 - "Refactor a piece of code to separate out 'pure' from 'impure' code."
 keypoints:
 - "Code refactoring is a technique for improving the structure of existing code."
 - "Implementing regression tests before refactoring gives you confidence that your changes have not 
 broken the code."
 - "Using pure functions that process data without side effects whenever possible makes the code easier 
-to read, test and maintain."
+to understand, test and maintain."
 ---
 
 ## Introduction
@@ -329,7 +330,7 @@ This is outside of scope of this course - we have some extra episodes on the top
 ## Software Design and Architecture
 
 In this section so far we have been talking about **software design** - the individual modules and 
-components of the software. We are now doing to have a brief look into **software architecture** - 
+components of the software. We are now going to have a brief look into **software architecture** - 
 which is about the overall structure that these software components fit into, a *design pattern* 
 with a common successful use of software components. 
 
