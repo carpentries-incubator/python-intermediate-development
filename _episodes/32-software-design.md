@@ -7,7 +7,7 @@ questions:
 - "What should we consider when designing software?"
 - "What is software architecture?"
 objectives:
-- "List the common aspects of software design."
+- "List the common aspects of software architecture and design."
 - "Describe the term technical debt and how it impacts software."
 - "Understand the goals and principles of designing 'good' software."
 - "Use a diagramming technique to describe a software architecture."
