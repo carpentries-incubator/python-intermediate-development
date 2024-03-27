@@ -182,45 +182,44 @@ calculates and compares standard deviation across all the data by day and finaly
 > {: .solution}
 {: .challenge}
 
-## Techniques for Improving Code
+## Techniques for Good Code Design
 
-How code is structured is important for helping people who are developing and maintaining it 
+Once we have a good high-level architectural design,
+it's important to follow this philosophy through to the process of developing the code itself,
+and there are some key techniques to keep in mind that will help.
+
+As we've discussed,
+how code is structured is important for helping people who are developing and maintaining it 
 to understand and update it.
-By breaking down our software into components with a single responsibility, 
+By breaking down our software into modular components with a single responsibility,
 we avoid having to rewrite it all when requirements change. 
-Such components can be as small as a single function, or be a software package in their own right.
-These smaller components can be understood individually without having to understand 
+This also means that these smaller components can be understood individually without having to understand 
 the entire codebase at once.
+The following techniques build on this concept of modularity:
 
-### Code Refactoring
+- *Abstraction* is the process of hiding the implementation details of a piece of
+code (typically behind an interface) - i.e. the details of *how* something works are hidden away,
+leaving code developers to deal only with *what* it does.
+This allows developers to work with the code at a higher level
+of abstraction, without needing to understand fully (or keep in mind) all the underlying
+details at any given time and thereby reducing the cognitive load when programming.
+    Abstraction can be achieved through techniques such as *encapsulation*, *inheritance*, and 
+*polymorphism*, which we will explore in the next episodes. There are other [abstraction techniques](https://en.wikipedia.org/wiki/Abstraction_(computer_science))
+available too.
 
-*Code refactoring* is the process of improving the design of an existing code - 
+- *Code decoupling* is a code design technique that involves breaking a (complex) 
+software system into smaller, more manageable parts, and reducing the interdependence 
+between these different parts of the system.
+This means that a change in one part of the code usually does not require a change in the other, 
+thereby making its development more efficient and less error prone.
+
+- *Code refactoring* is the process of improving the design of an existing code - 
 changing the internal structure of code without changing its 
 external behavior, with the goal of making the code more readable, maintainable, efficient or easier
 to test.
 This can include things such as renaming variables, reorganising 
 functions to avoid code duplication and increase reuse, and simplifying conditional statements.
 
-### Code Decoupling
-
-*Code decoupling* is a code design technique that involves breaking a (complex) 
-software system into smaller, more manageable parts, and reducing the interdependence 
-between these different parts of the system.
-This means that a change in one part of the code usually does not require a change in the other, 
-thereby making its development more efficient and less error prone.
-
-### Code Abstraction
-
-*Abstraction* is the process of hiding the implementation details of a piece of
-code (typically behind an interface) - i.e. the details of *how* something works are hidden away,
-leaving code developers to deal only with *what* it does.
-This allows developers to work with the code at a higher level
-of abstraction, without needing to understand fully (or keep in mind) all the underlying
-details at any given time and thereby reducing the cognitive load when programming.
-
-Abstraction can be achieved through techniques such as *encapsulation*, *inheritance*, and 
-*polymorphism*, which we will explore in the next episodes. There are other [abstraction techniques](https://en.wikipedia.org/wiki/Abstraction_(computer_science))
-available too.
 
 ## Improving Our Software Design
 
@@ -232,7 +231,7 @@ It will help to keep our codebase clean, modular and easier to understand.
 Writing good code is hard and takes practise.
 You may also be faced with an existing piece of code that breaks some (or all) of the
 good code principles, and your job will be to improve/refactor it so that it can evolve further.
-We will now look into some examples of the techniques that can help us redesign our code 
+We will now look into some examples of these techniques that can help us redesign our code 
 and incrementally improve its quality.
 
 {% include links.md %}
