@@ -13,10 +13,20 @@ Hanging issues with trying to run Python 3 in Git Bash on Windows
 The solution appears to be to use `winpty` -
 a Windows software package providing an interface similar to a Unix pty-master
 for communicating with Windows command line tools.
-Inside the shell type `alias python='winpty python.exe'`.
+Inside the shell type:
+
+~~~
+$ alias python="winpty python.exe"
+~~~
+{: .language-bash}
+
 This alias will be valid for the duration of the shell session.
 For a more permanent solution, from the shell do:
-`echo "alias python='winpty python.exe'" >> ~/.bashrc`
+~~~
+$ echo "alias python='winpty python.exe'" >> ~/.bashrc
+~~~
+{: .language-bash}
+
 (and from there on remember to invoke Python as `python`
 or whatever command you aliased it to).
 Read more details on the issue at
@@ -163,7 +173,7 @@ In order to get `pip` to use the proxy,
 you need to add an additional parameter when installing packages with `pip`:
 
 ~~~
-$ pip3 install --proxy <proxy-url> <name of package>`
+$ python3 -m pip install --proxy <proxy-url> <name of package>`
 ~~~
 {: .language-bash}
 
@@ -207,7 +217,7 @@ A workaround is to:
 - Close PyCharm
 - Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type:
     ~~~
-    $ pip3 install pip==20.2.4
+    $ python3 -m pip install pip==20.2.4
     ~~~
     {: .language-bash}
 - Restart PyCharm

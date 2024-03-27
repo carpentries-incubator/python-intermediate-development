@@ -41,13 +41,15 @@ will help you adopt the same attitude when assessing your own software for futur
 > groups will exchange repositories and review the code of the repository they inherit,
 > and provide feedback.
 >
-> Time: 5 mins
->
 > 1. Decide as a team on one of your repositories that will represent your group.
->    You can do this any way you wish.
+>    You can do this any way you wish,
+>    but if you are having trouble then a pseudo-random number might help:
+>    `python -c "import numpy as np; print(np.random.randint(low=1, high=<size_group_plus_1>))"`
 > 2. Add the URL of the repository to
 >    the section of the shared notes labelled 'Decide on your Group's Repository',
 >    next to your team's name.
+>
+> Time: 10 min
 {: .challenge}
 
 > ## Exercise: Conduct Assessment on Third-Party Software
@@ -58,8 +60,6 @@ will help you adopt the same attitude when assessing your own software for futur
 > to identify any issues that need resolving prior to working with it,
 > and will provide feedback to the developing team to fix these issues.
 >
-> Time: 20 mins
->
 > 1. As a team, briefly decide who will assess which aspect of the repository,
 >    e.g. its documentation, tests, codebase, etc.
 > 2. Obtain the URL for the repository you will assess from the shared notes document,
@@ -68,6 +68,8 @@ will help you adopt the same attitude when assessing your own software for futur
 > 3. Conduct the assessment
 >    and register any issues you find on the other team's software repository on GitHub.
 > 4. Be meticulous in your assessment and register as many issues as you can!
+>
+> Time: 20 min
 {: .challenge}
 
 

@@ -1,9 +1,7 @@
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
-```
-Note that the lesson material can change at any point - if you are planning a workshop using this material, 
-either let the maintainers know or make sure you use your own fork of the lesson.
-```
+**Note that the lesson material can change at any point - if you are planning a workshop using this material, 
+either let the maintainers know or make sure you use your own fork of the lesson.**
 
 # Intermediate Research Software Development Skills In Python
 
@@ -68,8 +66,10 @@ Current maintainers of this lesson (in alphabetical order) are:
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]
-* [Sam Mangham][sam-mangham]
-* [Aleksandra Nenadic][aleksandra-nenadic]
+* [Aleksandra Nenadic][aleksandra-nenadic] (lead Maintainer for the period 1 October 2023 - 31 March 2024)
+
+The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Wednesday each month. The meetings alternate between operations meetings and co-working sprints.
+Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-SvoY_2GvlQgJnu8zfr6VnU7sev_iWZAIwBUywNSfWE/edit#).
 
 ## Authors
 
@@ -111,4 +111,3 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matthew-bluteau]: https://github.com/bielsnohr
 [doug-lowe]: https://github.com/douglowe
 [kamilla-kopec-harding]: https://github.com/kkh451
-[sam-mangham]: https://github.com/smangham

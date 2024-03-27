@@ -46,12 +46,12 @@ follows this pattern:
 ~~~
 # import modules
 
-def main():
+def main(args):
     # perform some actions
 
 if __name__ == "__main__":
     # perform some actions before main()
-    main()
+    main(args)
 ~~~
 {: .language-python}
 
@@ -237,6 +237,15 @@ including the ability to pass a list of measurements to the `__init__` method.
 Note that your Patient class may look very different now,
 so adapt this example to fit what you have.
 
+Make sure to start with your most up-to-date `develop` branch and create a new branch `add-view` 
+for this work.
+
+~~~
+$ git switch develop
+$ git switch -c add-view
+~~~
+{: .language-bash}
+
 ~~~
 # file: inflammation/views.py
 
@@ -276,8 +285,10 @@ class Patient(Person):
         super().__init__(name)
 
         self.observations = []
+        ### MODIFIED START ###
         if observations is not None:
             self.observations = observations
+        ### MODIFIED END ###
 
     def add_observation(self, value, day=None):
         if day is None:
@@ -327,6 +338,7 @@ def main(args):
     for filename in infiles:
         inflammation_data = models.load_csv(filename)
 
+        ### MODIFIED START ###
         if args.view == 'visualize':
             view_data = {
                 'average': models.daily_mean(inflammation_data),
@@ -342,6 +354,7 @@ def main(args):
             patient = models.Patient('UNKNOWN', observations)
 
             views.display_patient_record(patient)
+        ### MODIFIED END ###
 
 
 if __name__ == "__main__":
@@ -353,6 +366,7 @@ if __name__ == "__main__":
         nargs='+',
         help='Input CSV(s) containing inflammation series for each patient')
 
+    ### MODIFIED START ###
     parser.add_argument(
         '--view',
         default='visualize',
@@ -364,6 +378,7 @@ if __name__ == "__main__":
         type=int,
         default=0,
         help='Which patient should be displayed?')
+    ### MODIFIED END ###
 
     args = parser.parse_args()
 
@@ -405,6 +420,21 @@ UNKNOWN
 ~~~
 {: .output}
 
+Be sure to commit all your changes to `add-view` branch and push to remote repository.
+
+~~~
+$ git push -u origin add-view
+~~~
+
+When you are finished with all the work on `add-view` branch - it is time to merge it to `develop`
+and push it to remote repository.
+
+~~~
+$ git switch develop
+$ git merge add-view
+$ git push origin develop
+~~~
+
 > ## Additional Material
 >
 > Now that we've covered the basics of different programming paradigms
@@ -413,12 +443,26 @@ UNKNOWN
 >
 > Both episodes cover the persistence layer of software architectures
 > and methods of persistently storing data, but take different approaches.
-> The episode on [persistence with JSON](/persistence) covers
+> The episode on [persistence with JSON](../persistence) covers
 > some more advanced concepts in Object Oriented Programming, while
-> the episode on [databases](/databases) starts to build towards a true multilayer architecture,
+> the episode on [databases](../databases) starts to build towards a true multilayer architecture,
 > which would allow our software to handle much larger quantities of data.
 {: .callout}
 
+## Merging Upstream to `main` Branch
+
+At this point, you have tested all the code have done so far on various feature branches
+together with existing code - which of course may also have been changed by other developers
+working on the code at the same time.
+The code is working as expected and all the tests are passing - it may be time for all the
+new features to make their way to `main`.
+
+~~~
+$ git switch main
+$ git merge develop
+$ git push origin main
+~~~
+{: .language-bash}
 
 ## Towards Collaborative Software Development
 

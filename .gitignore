@@ -22,3 +22,5 @@ venv/
 .venv/
 .*history
 .tool-versions
+.vscode/
+.ruby-version
