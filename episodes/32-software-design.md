@@ -19,7 +19,7 @@ keypoints:
 - "'Good' code is designed to be maintainable: readable by people who did not author the code, 
 testable through a set of automated tests, adaptable to new requirements."
 - "Use abstraction and decoupling to logically separate the different aspects of your software within design as well as implementation."
-- "Use refactoring to improve existing code to improve it's consistency internally and within its overall architecture."
+- "Use refactoring to improve existing code to improve its consistency internally and within its overall architecture."
 - "Include software design as a key stage in the lifecycle of your project so that development and maintenance becomes easier."
 ---
 
