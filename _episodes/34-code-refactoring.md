@@ -77,7 +77,7 @@ This kind of testing is called **regression testing** as we are testing for
 regressions in existing behaviour.
 
 Refactoring code is not meant to change its behaviour, but sometimes to make it possible to verify
-you not changing the important behaviour you have to make small tweaks to the code to write
+you are not changing the important behaviour you have to make small tweaks to the code to write
 the tests at all.
 
 > ## Exercise: Write Regression Tests
