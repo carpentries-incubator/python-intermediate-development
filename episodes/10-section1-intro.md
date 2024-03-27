@@ -15,7 +15,8 @@ you need to use a number of different tools."
 to decide which tool is right for you, which may be a matter of personal preference or what the team or community you belong to is using."
 ---
 
-The first section of the course is dedicated to setting up your environment for collaborative software development.
+The first section of the course is dedicated to setting up your environment for collaborative software development
+and introducing the project that we will be working on throughout the course.
 In order to build working (research) software efficiently
 and to do it in collaboration with others rather than in isolation,
 you will have to get comfortable with using a number of different tools interchangeably
@@ -51,7 +52,7 @@ and [`pip`](https://pip.pypa.io/en/stable/)
 to set up a Python virtual development environment
 and isolate our software project from other Python projects we may work on.
 
-**Note:** *some Windows users experience the issue where Python hangs from Git Bash
+***Note:** some Windows users experience the issue where Python hangs from Git Bash
 (i.e. typing `python` causes it to just hang with no error message or output) -
 [see the solution to this issue](../common-issues/index.html#python-hangs-in-git-bash).*
 
@@ -86,6 +87,17 @@ issue management,
 code review,
 code testing/Continuous Integration,
 and collaborative development.
+An important concept in collaborative development is version control workflows
+(i.e. how to effectively use version control on a project with others).
+
+### Python Coding Style
+Most programming languages will have associated standards and conventions for how the source code
+should be formatted and styled.
+Although this sounds pedantic,
+it is important for maintaining the consistency and readability of code across a project.
+Therefore, one should be aware of these guidelines
+and adhere to whatever the project you are working on has specified.
+In Python, we will be looking at a convention called PEP8.
 
 Let's get started with setting up our software development environment!
 

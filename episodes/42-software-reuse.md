@@ -2,7 +2,7 @@
 title: "Preparing Software for Reuse and Release"
 start: false
 teaching: 35
-exercises: 20
+exercises: 15
 questions:
 - "What can we do to make our programs reusable by others?"
 - "How should we document and license our code?"
@@ -215,7 +215,7 @@ add the following (replacing `<your_github_username>` with your own:
 
 ~~~
 # Inflam
-![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
+![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/actions/workflows/main.yml/badge.svg?branch=main)
 ...
 ~~~
 {: .language-markdown}
@@ -269,7 +269,7 @@ sufficiently well to make their own changes to it,
 including external developers, other members in your team and a future version of yourself too.
 This may include documentation that covers the software's architecture,
 including its different components and how they fit together,
-API (Application Programmer Interface) documentation
+API (Application Programming Interface) documentation
 that describes the interface points designed into your software for other developers to use,
 e.g. for a software library,
 or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
@@ -338,6 +338,8 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 > choosing a licence,
 > and fixing any remaining problems you are aware of in your codebase.
 > Ensure you prioritise and work on the most pressing issues first!
+> 
+> Time: 15 min
 {: .challenge}
 
 ## Merging into `main`
@@ -348,7 +350,7 @@ and if you're doing this work on a feature branch also ensure you merge it into 
 e.g.:
 
 ~~~
-$ git checkout develop
+$ git switch develop
 $ git merge my-feature-branch
 ~~~
 {: .language-bash}
@@ -358,12 +360,13 @@ and are confident it works as expected on `develop`,
 we can merge our `develop` branch into `main`:
 
 ~~~
-$ git checkout main
+$ git switch main
 $ git merge develop
-$ git push
+$ git push origin main
 ~~~
 {: .language-bash}
 
+The software on your `main` branch is now ready for release.
 
 ## Tagging a Release in GitHub
 
@@ -377,8 +380,8 @@ $ git tag
 ~~~
 {: .language-bash}
 
-Since we haven't tagged any commits yet, there's unsurprisingly no output.
-We can create a new tag on the last commit we did by doing:
+Since we have not tagged any commits yet, there is unsurprisingly no output.
+We can create a new tag on the last commit in our `main` branch by doing:
 
 ~~~
 $ git tag -a v1.0.0 -m "Version 1.0.0"
@@ -462,7 +465,7 @@ index 4818abb..5b8e7fd 100644
 ~~~
 {: .output}
 
-So now we've added a tag, we need this reflected in our Github repository.
+So now we have added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
 ~~~

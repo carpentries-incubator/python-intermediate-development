@@ -17,8 +17,8 @@ keypoints:
 - "Use `pip` to install and manage Python external (third-party) libraries."
 - "`pip` allows you to declare all dependencies for a project in a separate
 file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment."
-- "Use `pip3 freeze > requirements.txt` to take snapshot of your project's dependencies."
-- "Use `pip3 install -r requirements.txt` to replicate someone else's virtual environment on your machine from
+- "Use `python3 -m pip freeze > requirements.txt` to take snapshot of your project's dependencies."
+- "Use `python3 -m pip install -r requirements.txt` to replicate someone else's virtual environment on your machine from
 the `requirements.txt` file."
 ---
 
@@ -44,7 +44,7 @@ import numpy as np
 ~~~
 {: .language-python}
 
-This means that our code requires two *external libraries*
+This means that our code requires two **external libraries**
 (also called third-party packages or dependencies) -
 `numpy` and `matplotlib`.
 Python applications often use external libraries that don’t come as part of the standard Python distribution.
@@ -58,7 +58,7 @@ This means that each Python application you work with may require a different se
 and a set of dependencies so it is useful to be able to keep these configurations
 separate to avoid confusion between projects.
 The solution for this problem is to create a self-contained
-*virtual environment* per project,
+**virtual environment** per project,
 which contains a particular version of Python installation
 plus a number of additional external libraries.
 
@@ -78,7 +78,7 @@ that uses a specific version of Python interpreter
 together with specific versions of a number of external libraries
 installed into that virtual environment.
 Python virtual environments are implemented as
-directories with a **particular structure** within software projects,
+directories with a particular structure within software projects,
 containing links to specified dependencies
 allowing isolation from other software projects on your machine that may require
 different versions of Python or external libraries.
@@ -196,6 +196,17 @@ From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons
 Let us have a look at how we can create and manage virtual environments from the command line
 using `venv` and manage packages using `pip`.
 
+> ## Making Sure You Can Invoke Python
+> You can test your Python installation from the command line with:
+> ~~~
+> $ python3 --version # on Mac/Linux
+> $ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
+> ~~~
+> {: .language-bash}
+> If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may 
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../common-issues/index.html#python-hangs-in-git-bash).
+{: .prereq}
+
 ### Creating Virtual Environments Using `venv`
 Creating a virtual environment with `venv` is done by executing the following command:
 
@@ -208,6 +219,21 @@ where `/path/to/new/virtual/environment` is a path to a directory where you want
 conventionally within your software project so they are co-located.
 This will create the target directory for the virtual environment
 (and any parent directories that don’t exist already).
+
+> ## What is `-m` Flag in `python3` Command?
+> The Python `-m` flag means "module" and tells the Python interpreter to treat what follows `-m` 
+> as the name of a module and not as a single, executable program with the same name.
+> Some modules (such as `venv` or `pip`) have main entry points
+> and the `-m` flag can be used to invoke them on the command line via the `python` command.
+> The main difference between running such modules as standalone programs
+> (e.g. executing "venv" by running the `venv` command directly) 
+> versus using `python3 -m` command seems to be that
+> with latter you are in full control of which Python module will be invoked
+> (the one that came with your environment's Python interpreter vs.
+> some other version you may have on your system).
+> This makes it a more reliable way to set things up correctly
+> and avoid issues that could prove difficult to trace and debug.
+{: .callout}
 
 For our project let's create a virtual environment called "venv".
 First, ensure you are within the project root directory, then:
@@ -243,7 +269,7 @@ containing:
   containing a symlink of the Python interpreter binary used to create the environment
   and the standard Python library,
 - `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows)
-  to contain its own independent set of installed Python packages isolated from other projects,
+  to contain its own independent set of installed Python packages isolated from other projects, and
 - various other configuration and supporting files and subdirectories.
 
 > ## Naming Virtual Environments
@@ -326,18 +352,18 @@ $ source venv/bin/activate
 
 > ## Python Within A Virtual Environment
 >
-> Within a virtual environment,
-> commands `python` and `pip` will refer to the version of Python you created the environment with.
-> If you create a virtual environment with `python3 -m venv venv`,
-> `python` will refer to `python3` and `pip` will refer to `pip3`.
+> Within an active virtual environment,
+> commands `python3` and `python` should both refer to the version of Python 3 
+> you created the environment with (note you may have multiple Python 3 versions installed).
 >
-> On some machines with Python 2 installed,
-> `python` command may refer to the copy of Python 2
-> installed outside of the virtual environment instead, which can cause confusion.
+> However, on some machines with Python 2 installed,
+> `python` command may still be hardwired to the copy of Python 2
+> installed outside of the virtual environment - this can cause errors and confusion.
+> 
 > You can always check which version of Python you are using in your virtual environment
 > with the command `which python` to be absolutely sure.
-> We continue using `python3` and `pip3` in this material to avoid confusion for those users,
-> but commands `python` and `pip` may work for you as expected.
+> We continue using `python3` in this material to avoid mistakes, 
+> but the command `python` may work for you as expected.
 {: .callout}
 
 Note that, since our software project is being tracked by Git,
@@ -355,93 +381,87 @@ To install the latest version of a package with `pip`
 you use pip's `install` command and specify the package’s name, e.g.:
 
 ~~~
-(venv) $ pip3 install numpy
-(venv) $ pip3 install matplotlib
+(venv) $ python3 -m pip install numpy
+(venv) $ python3 -m pip install matplotlib
 ~~~
 {: .language-bash}
 
 or like this to install multiple packages at once for short:
 
 ~~~
-(venv) $ pip3 install numpy matplotlib
+(venv) $ python3 -m pip install numpy matplotlib
 ~~~
 {: .language-bash}
 
-> ## How About `python3 -m pip install`?
-> Why are we not using `pip` as an argument to `python3` command,
-> in the same way we did with `venv`
-> (i.e. `python3 -m venv`)?
-> `python3 -m pip install` should be used according to the
-> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip);
-> other official documentation still seems to have a mixture of usages.
-> Core Python developer Brett Cannon offers a
+> ## How About `pip3 install <package-name>` Command?
+> You may have seen or used the `pip3 install <package-name>` command in the past, which is shorter 
+> and perhaps more intuitive than `python3 -m pip install`. However, the 
+> [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip) recommends 
+> `python3 -m pip install` and core Python developer Brett Cannon offers a
 > [more detailed explanation](https://snarky.ca/why-you-should-use-python-m-pip/)
-> of edge cases when the two options may produce different results
-> and recommends `python3 -m pip install`.
-> We kept the old-style command (`pip3 install`)
-> as it seems more prevalent among developers at the moment -
-> but it may be a convention that will soon change and certainly something you should consider.
+> of edge cases when the two commands may produce different results and why `python3 -m pip install`
+> is recommended. In this material, we will use `python3 -m` whenever we have to invoke a Python 
+> module from command line.
 {: .callout}
 
-If you run the `pip3 install` command on a package that is already installed,
+If you run the `python3 -m pip install` command on a package that is already installed,
 `pip` will notice this and do nothing.
 
 To install a specific version of a Python package
 give the package name followed by `==` and the version number,
-e.g. `pip3 install numpy==1.21.1`.
+e.g. `python3 -m pip install numpy==1.21.1`.
 
 To specify a minimum version of a Python package,
-you can do `pip3 install numpy>=1.20`.
+you can do `python3 -m pip install numpy>=1.20`.
 
-To upgrade a package to the latest version, e.g. `pip3 install --upgrade numpy`.
+To upgrade a package to the latest version, e.g. `python3 -m pip install --upgrade numpy`.
 
 To display information about a particular installed package do:
 
 ~~~
-(venv) $ pip3 show numpy
+(venv) $ python3 -m pip show numpy
 ~~~
 {: .language-bash}
 ~~~
 Name: numpy
-Version: 1.21.2
-Summary: NumPy is the fundamental package for array computing with Python.
-Home-page: https://www.numpy.org
+Version: 1.26.2
+Summary: Fundamental package for array computing in Python
+Home-page: https://numpy.org
 Author: Travis E. Oliphant et al.
-Author-email: None
-License: BSD
-Location: /Users/alex/work/SSI/Carpentries/python-intermediate-inflammation/inflammation/lib/python3.9/site-packages
-Requires:
-Required-by: matplotlib
+Author-email: 
+License: Copyright (c) 2005-2023, NumPy Developers.
+All rights reserved.
+...
+Required-by: contourpy, matplotlib
 ~~~
 {: .output}
 
 To list all packages installed with `pip` (in your current virtual environment):
 
 ~~~
-(venv) $ pip3 list
+(venv) $ python3 -m pip list
 ~~~
 {: .language-bash}
 ~~~
 Package         Version
 --------------- -------
-cycler          0.11.0
-fonttools       4.28.1
-kiwisolver      1.3.2
-matplotlib      3.5.0
-numpy           1.21.4
-packaging       21.2
-Pillow          8.4.0
-pip             21.1.3
-pyparsing       2.4.7
+contourpy       1.2.0
+cycler          0.12.1
+fonttools       4.45.0
+kiwisolver      1.4.5
+matplotlib      3.8.2
+numpy           1.26.2
+packaging       23.2
+Pillow          10.1.0
+pip             23.0.1
+pyparsing       3.1.1
 python-dateutil 2.8.2
-setuptools      57.0.0
-setuptools-scm  6.3.2
+setuptools      67.6.1
 six             1.16.0
-tomli           1.2.2
 ~~~
 {: .output}
 
-To uninstall a package installed in the virtual environment do: `pip3 uninstall package-name`.
+To uninstall a package installed in the virtual environment do: `python3 -m pip uninstall <package-name>`.
 You can also supply a list of packages to uninstall at the same time.
 
 ### Exporting/Importing Virtual Environments Using `pip`
@@ -453,27 +473,26 @@ and everyone can replicate equivalent virtual environments on their machines.
 `pip` has a handy way of exporting, saving and sharing virtual environments.
 
 To export your active environment -
-use `pip3 freeze` command to produce a list of packages installed in the virtual environment.
+use `python3 -m pip freeze` command to produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
 ~~~
-(venv) $ pip3 freeze > requirements.txt
+(venv) $ python3 -m pip freeze > requirements.txt
 (venv) $ cat requirements.txt
 ~~~
 {: .language-bash}
 ~~~
-cycler==0.11.0
-fonttools==4.28.1
-kiwisolver==1.3.2
-matplotlib==3.5.0
-numpy==1.21.4
-packaging==21.2
-Pillow==8.4.0
-pyparsing==2.4.7
+contourpy==1.2.0
+cycler==0.12.1
+fonttools==4.45.0
+kiwisolver==1.4.5
+matplotlib==3.8.2
+numpy==1.26.2
+packaging==23.2
+Pillow==10.1.0
+pyparsing==3.1.1
 python-dateutil==2.8.2
-setuptools-scm==6.3.2
 six==1.16.0
-tomli==1.2.2
 ~~~
 {: .output}
 
@@ -489,7 +508,7 @@ They can then replicate your environment
 and install all the necessary packages from the project root as follows:
 
 ~~~
-(venv) $ pip3 install -r requirements.txt
+(venv) $ python3 -m pip install -r requirements.txt
 ~~~
 {: .language-bash}
 

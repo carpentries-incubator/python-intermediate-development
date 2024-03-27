@@ -20,7 +20,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Patient Inflammation Study Project
-So, you have joined a software development team that has been working on the
+You have joined a software development team that has been working on the
 [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
 developed in Python and stored on GitHub.
 The project analyses the data to study the effect of a new treatment for arthritis
@@ -35,17 +35,16 @@ It reuses the inflammation datasets from the
 >
 > Each dataset records inflammation measurements from a separate clinical trial of the drug,
 > and each dataset contains information for 60 patients,
-> who had their inflammation levels recorded for 40 days whilst participating in the trial
-> (a snapshot of one of the data files is shown in diagram above).
+> who had their inflammation levels recorded (in some arbitrary units of inflammation measurement) for 40 days whilst participating in the trial.
+> A snapshot of one of the data files is shown in the diagram above.
 >
 > Each of the data files uses the popular
 > [comma-separated (CSV) format](https://en.wikipedia.org/wiki/Comma-separated_values)
 > to represent the data, where:
 >
-> - Each row holds inflammation measurements for a single patient,
-> - Each column represents a successive day in the trial,
-> - Each cell represents an inflammation reading on a given day for a patient
->   (in some arbitrary units of inflammation measurement).
+> - each row holds inflammation measurements for a single patient
+> - each column represents a successive day in the trial
+> - each cell represents an inflammation reading on a given day for a patient
 {: .callout}
 
 The project is not finished and contains some errors.
@@ -54,53 +53,62 @@ to fix and build on top of the existing code during the course.
 
 ## Downloading Our Software Project
 
-To start working on the project, you will first
-create a copy of the software project template repository
+To start working on the project, you will first create a fork of the software project repository
 from GitHub within your own GitHub account
 and then obtain a local copy of that project (from your GitHub) on your machine.
 
 1. Make sure you have a GitHub account
-   and that you have set up your SSH key pair for authentication with GitHub,
-   as explained in [Setup](../setup.html#secure-access-to-github-using-git-from-command-line).
+   and that you have [set up SSH key pair for authentication with GitHub](../setup.html#secure-access-to-github-using-git-from-command-line).
+   
+   ***Note:** while it is possible to use HTTPS with a personal access token for authentication
+   with GitHub, the recommended and supported authentication method to use for this course 
+   is SSH with key pairs.*
 2. Log into your GitHub account.
-3. Go to the [software project template repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
+3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
    in GitHub.
 
-   ![Software project template repository in GitHub](../fig/template-repository.png){: .image-with-shadow width="800px" }
+   ![Software project fork repository in GitHub](../fig/github-fork-repository.png){: .image-with-shadow width="900px" }
 
-4. Click the `Use this template` button
-   towards the top right of the template repository's GitHub page to create
-   a **copy** of the repository under your GitHub account
-   (you will need to be signed into GitHub to see the `Use this template` button).
-   Note that each participant is creating their own copy to work on.
-   Also, we are not forking the directory but creating a copy
-   (remember - you can have only one *fork* but can have multiple *copies* of a repository in GitHub).
+4. Click the `Fork` button
+   towards the top right of the repository's GitHub page to **create a fork** of the repository 
+   under your GitHub account.
+   Remember, you will need to be signed into GitHub for the `Fork` button to work.
+
+   ***Note:** each participant is creating their own fork of the project to work on.*
+
+   ***Note 2:** we are creating a fork of the software project repository (instead of copying it 
+   from its template) because we want to preserve the history of all commits (with template copying 
+   you only get a snapshot of a repository at a given point in time).*
 5. Make sure to select your personal account
    and set the name of the project to `python-intermediate-inflammation`
    (you can call it anything you like,
    but it may be easier for future group exercises if everyone uses the same name).
-   Also set the new repository's visibility to 'Public' -
-   so it can be seen by others and by third-party Continuous Integration (CI) services
-   (to be covered later on in the course).
+   Ensure that you **uncheck** the `Copy the main branch only` option.
+   This guarantees you get all the branches from this repository needed for later exercises.
 
-   ![Making a copy of the software project template repository in GitHub](../fig/copy-template-repository.png){: .image-with-shadow width="600px" }
+   ![Making a fork of the software project repository in GitHub](../fig/github-fork-repository-confirm.png){: .image-with-shadow width="600px" }
 
-6. Click the `Create repository from template` button
-   and wait for GitHub to import the copy of the repository under your account.
-7. Locate the copied repository under your own GitHub account.
+6. Click the `Create fork` button
+   and wait for GitHub to create the forked copy of the repository under your account.
+7. Locate the forked repository under your own GitHub account.
+   GitHub should redirect you there automatically after creating the fork. 
+   If this does not happen, click your user icon in the top right corner and select 
+   `Your Repositories` from the drop-down menu, then locate your newly created fork.
 
-   ![View of the own copy of the software template repository in GitHub](../fig/own-template-repository.png){: .image-with-shadow width="800px" }
+   ![View of your own fork of the software repository in GitHub](../fig/github-forked-repository-own.png){: .image-with-shadow width="900px" }
 
 > ## Exercise: Obtain the Software Project Locally
 > Using the command line, clone the copied repository
 > from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
+> 
+> Time: 5 min
 > > ## Solution
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
-> > Make sure you do not clone the original template repository but rather your own copy,
+> > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
-> > Also make sure you select the **SSH tab** and not the **HTTPS** one -
-> > you'll be able to clone with HTTPS, but not to send your changes back to GitHub!
+> > Also make sure you select the **SSH** tab and not the **HTTPS** one -
+> > for this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
 > >
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 > >
@@ -114,7 +122,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
 > >     ~~~
 > >     {: .language-bash}
-> >    Make sure you are cloning your copy of the software project and not the template repository.
+> >    Make sure you are cloning your fork of the software project and not the original repository.
 > >
 > > 4. Navigate into the cloned repository folder in your command line with:
 > >     ~~~
@@ -195,21 +203,24 @@ total 264
 ~~~
 {: .language-bash}
 
-As [previously mentioned](#what-is-the-format-of-the-data),
+As [previously mentioned](#what-does-patient-inflammation-data-contain),
 each of the inflammation data files contains separate trial data for 60 patients over 40 days.
 
 > ## Exercise: Have a Peek at the Data
-> Which command(s) would you use to list the contents or a first few lines of `data/inflammation-01.csv` file?
+> Which command(s) would you use to list the contents or a first few 
+> lines of `data/inflammation-01.csv` file?
+> 
+> Time: 1 min
 > > ## Solution
 > > 1. To list the entire content of a file from the project root do: `cat data/inflammation-01.csv`.
 > > 2. To list the first 5 lines of a file from the project root do: `head -n 5 data/inflammation-01.csv`.
 > >
 > > ~~~
-> 0,0,1,3,2,3,6,4,5,7,2,4,11,11,3,8,8,16,5,13,16,5,8,8,6,9,10,10,9,3,3,5,3,5,4,5,3,3,0,1
-> 0,1,1,2,2,5,1,7,4,2,5,5,4,6,6,4,16,11,14,16,14,14,8,17,4,14,13,7,6,3,7,7,5,6,3,4,2,2,1,1
-> 0,1,1,1,4,1,6,4,6,3,6,5,6,4,14,13,13,9,12,19,9,10,15,10,9,10,10,7,5,6,8,6,6,4,3,5,2,1,1,1
-> 0,0,0,1,4,5,6,3,8,7,9,10,8,6,5,12,15,5,10,5,8,13,18,17,14,9,13,4,10,11,10,8,8,6,5,5,2,0,2,0
-> 0,0,1,0,3,2,5,4,8,2,9,3,3,10,12,9,14,11,13,8,6,18,11,9,13,11,8,5,5,2,8,5,3,5,4,1,3,1,1,0
+> 0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
+> 0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
+> 0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
+> 0,0,2,0,4,2,2,1,6,7,10,7,9,13,8,8,15,10,10,7,17,4,4,7,6,15,6,4,9,11,3,5,6,3,3,4,2,3,2,1
+> 0,1,1,3,3,1,3,5,2,4,4,7,6,5,3,10,8,10,6,17,9,14,9,7,13,9,12,6,7,7,9,6,3,2,2,4,2,0,1,1
 > > ~~~
 > >{: .output}
 > {: .solution}
@@ -218,11 +229,19 @@ each of the inflammation data files contains separate trial data for 60 patients
 Directory `tests` contains several tests that have been implemented already.
 We will be adding more tests during the course as our code grows.
 
+~~~
+$ ls -l tests
+total 16
+-rw-r--r--  1 alex  staff  941 18 Dec 11:42 test_models.py
+-rw-r--r--  1 alex  staff  182 18 Dec 11:42 test_patient.py
+~~~
+{: .language-bash}
+
 An important thing to note here is that the structure of the project is not arbitrary.
 One of the big differences between novice and intermediate software development is
 planning the structure of your code.
-This structure includes software components and behavioural interactions between them
-(including how these components are laid out in a directory and file structure).
+This structure includes software components and behavioural interactions between them, 
+including how these components are laid out in a directory and file structure.
 A novice will often make up the structure of their code as they go along.
 However, for more advanced software development,
 we need to plan this structure - called a *software architecture* - beforehand.
@@ -334,6 +353,8 @@ For example, the diagram below depicts the use of MVC architecture for the
 > Think of some other examples from your work or life
 > where MVC architecture may be suitable
 > or have a discussion with your fellow learners.
+>
+> Time: 5 min
 > > ## Solution
 > > MVC architecture is a popular choice when designing web and mobile applications.
 > > Users interact with a web/mobile application by sending various requests to it.
@@ -374,7 +395,7 @@ For example, the diagram below depicts the use of MVC architecture for the
 >
 {: .callout}
 
-#### Our Project's MVC Architecture
+### Our Project's Architecture
 
 Our software project uses the MVC architecture.
 The file `inflammation-analysis.py` is the **Controller** module
@@ -386,9 +407,7 @@ Data underlying the **Model** is contained within the directory `data` -
 as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
-when we talk in more detail about software's
-[business/user/solution requirements](../31-software-requirements/index.html)
-and [software design](../32-software-design/index.html).
+when we talk in more detail about [software design](../32-software-design/index.html).
 We now proceed to set up our virtual development environment
 and start working with the code using a more convenient graphical tool -
 [IDE PyCharm](https://www.jetbrains.com/pycharm/).
