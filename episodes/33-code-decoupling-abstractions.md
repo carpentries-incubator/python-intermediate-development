@@ -176,8 +176,8 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 {: .callout}
 
 > ## Exercise: Use Classes to Abstract out Data Loading
-> Declare a new class `CSVDataSource` that contains the `load_inflammation_data` function 
-> we wrote in the previous exercise as a method of this class.
+> Inside `compute_data.py`, declare a new class `CSVDataSource` that contains the 
+> `load_inflammation_data()` function we wrote in the previous exercise as a method of this class.
 > The directory path where to load the files from should be passed in the class' constructor method.
 > Finally, construct an instance of the class `CSVDataSource` outside the statistical 
 > analysis and pass it to `analyse_data()` function.
@@ -261,7 +261,8 @@ For example, our `Circle` class implicitly has an interface - you can call `get_
 on it and it will return a number representing its surface area.
 
 > ## Exercise: Identify an Interface Between `CSVDataSource` and `analyse_data`
-> What is the interface between CSVDataSource class and `analyse_data()` function.
+> What would you say is the interface between the CSVDataSource class 
+> and `analyse_data()` function?
 > Think about what functions `analyse_data()` needs to be able to call to perform its duty,
 > what parameters they need and what they return.
 >> ## Solution
