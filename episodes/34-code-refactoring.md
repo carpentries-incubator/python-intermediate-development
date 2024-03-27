@@ -57,7 +57,7 @@ to write tests in the future, how can we write tests before doing the refactorin
 The tricks to get around this trap are:
 
  * test at a higher level, with coarser accuracy, and
- * write tests that you intend to remove.
+ * write tests that you intend to replace or remove.
 
 The best tests are the ones that test a single bit of functionality rigorously.
 However, with our current `analyse_data()` code that is not possible because it is a 
