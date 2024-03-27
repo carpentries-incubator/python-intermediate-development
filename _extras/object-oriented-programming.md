@@ -1,5 +1,6 @@
 ---
 title: "Object Oriented Programming"
+layout: episode
 teaching: 30
 exercises: 35
 questions:
@@ -26,7 +27,7 @@ Data is encapsulated in the form of fields (attributes) of objects,
 while code is encapsulated in the form of procedures (methods)
 that manipulate objects' attributes and define "behaviour" of objects.
 So, in object oriented programming,
-we first think about the data and the things that we’re modelling -
+we first think about the data and the things that we are modelling -
 and represent these by objects -
 rather than define the logic of the program,
 and code becomes a series of interactions between objects.

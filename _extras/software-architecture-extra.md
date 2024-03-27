@@ -67,8 +67,8 @@ Often, the software is split into three layers:
   - May include the **Model** components of an MVC pattern
     if they're not in the application layer
 
-Although we've drawn similarities here between the layers of a system and the components of MVC,
-they're actually solutions to different scales of problem.
+Although we have drawn similarities here between the layers of a system and the components of MVC,
+they are actually solutions to different scales of problem.
 In a small application, a multilayer architecture is unlikely to be necessary,
 whereas in a very large application,
 the MVC pattern may be used just within the presentation layer,
