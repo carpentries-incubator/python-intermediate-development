@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Using Microsoft Visual Studio Code"
+title: "Using Microsoft Visual Studio Code"
 ---
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/), not to be confused with [Visual Studio](https://visualstudio.microsoft.com/), 

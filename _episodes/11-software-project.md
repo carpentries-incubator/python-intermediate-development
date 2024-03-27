@@ -138,7 +138,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > {: .solution}
 {: .challenge}
 
-### Our Software Project Structure
+## Our Software Project's Structure
 Let’s inspect the content of the software project from the command line.
 From the root directory of the project,
 you can use the command `ls -l` to get a more detailed list of the contents.
@@ -250,7 +250,9 @@ Let's have a more detailed look into what a software architecture is
 and which architecture is used by our software project
 before we start adding more code to it.
 
-## Software Architecture
+
+### Software Architecture
+
 A software architecture is the fundamental structure of a software system
 that is decided at the beginning of project development
 based on its requirements and cannot be changed that easily once implemented.
@@ -283,122 +285,28 @@ Another example of modules are classes in object-oriented programming languages.
 >
 {: .callout}
 
-There are various software architectures around defining different ways of
-dividing the code into smaller modules with well defined roles, for example:
+We are going to talk about software architecture and design a 
+bit more in [Section 3](../30-section3.html) - for now
+it is sufficient to know that the way our software project's code is structured is intentional.
 
-- [Model–View–Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller),
-  which we will look into in detail and use for our software project,
-- [Service-oriented architecture (SOA)](https://en.wikipedia.org/wiki/Service-oriented_architecture),
-  which separates code into distinct services,
-  accessible over a network by consumers (users or other services)
-  that communicate with each other by passing data in a well-defined, shared format (protocol),
-- [Client-server architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model),
-  where clients request content or service from a server,
-  initiating communication sessions with servers,
-  which await incoming requests (e.g. email, network printing, the Internet),
-- [Multilayer architecture](https://en.wikipedia.org/wiki/Multitier_architecture),
-  is a type of architecture in which presentation,
-  application processing
-  and data management functions
-  are split into distinct layers and may even be physically separated to run on separate machines -
-  some more detail on this later in the course.
-
-### Model-View-Controller (MVC) Architecture
-MVC architecture divides the related program logic
-into three interconnected modules:
-
-- **Model** (data)
-- **View** (client interface),  and
-- **Controller** (processes that handle input/output and manipulate the data).
-
-**Model** represents the data used by a program and also contains operations/rules
-for manipulating and changing the data in the model.
-This may be a database, a file, a single data object or a series of objects -
-for example a table representing patients' data.
-
-**View** is the means of displaying data to users/clients within an application
-(i.e. provides visualisation of the state of the model).
-For example, displaying a window with input fields and buttons (Graphical User Interface, GUI)
-or textual options within a command line (Command Line Interface, CLI) are examples of Views.
-They include anything that the user can see from the application.
-While building GUIs is not the topic of this course,
-we will cover building CLIs in Python in later episodes.
-
-**Controller** manipulates both the **Model** and the **View**.
-It accepts input from the **View**
-and performs the corresponding action on the **Model** (changing the state of the model)
-and then updates the **View** accordingly.
-For example, on user request,
-**Controller** updates a picture on a user's GitHub profile
-and then modifies the **View** by displaying the updated profile back to the user.
-
-#### MVC Examples
-
-MVC architecture can be applied in scientific applications in the following manner.
-Model comprises those parts of the application that deal with
-some type of scientific processing or manipulation of the data,
-e.g. numerical algorithm, simulation, DNA.
-View is a visualisation, or format, of the output,
-e.g. graphical plot, diagram, chart, data table, file.
-Controller is the part that ties the scientific processing and output parts together,
-mediating input and passing it to the model or view,
-e.g. command line options, mouse clicks, input files.
-For example, the diagram below depicts the use of MVC architecture for the
-[DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
-
-![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
-{% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
-
-> ## Exercise: MVC Application Examples From your Work
-> Think of some other examples from your work or life
-> where MVC architecture may be suitable
-> or have a discussion with your fellow learners.
->
-> Time: 5 min
-> > ## Solution
-> > MVC architecture is a popular choice when designing web and mobile applications.
-> > Users interact with a web/mobile application by sending various requests to it.
-> > Forms to collect users inputs/requests
-> > together with the info returned and displayed to the user as a result represent the View.
-> > Requests are processed by the Controller,
-> > which interacts with the Model to retrieve or update the underlying data.
-> > For example, a user may request to view its profile.
-> > The Controller retrieves the account information for the user from the Model
-> > and passes it to the View for rendering.
-> > The user may further interact with the application
-> > by asking it to update its personal information.
-> > Controller verifies the correctness of the information
-> > (e.g. the password satisfies certain criteria,
-> > postal address and phone number are in the correct format, etc.)
-> > and passes it to the Model for permanent storage.
-> > The View is then updated accordingly and the user sees its updated profile details.
-> >
-> > Note that not everything fits into the MVC architecture
-> > but it is still good to think about how things could be split into smaller units.
-> > For a few more examples, have a look at this short
-> > [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
-> {: .solution}
-{: .challenge}
-
-> ## Separation of Concerns
-> Separation of concerns is important when designing software architectures
-> in order to reduce the code's complexity.
-> Note, however, there are limits to everything -
-> and MVC architecture is no exception.
-> Controller often transcends into Model and View
-> and a clear separation is sometimes difficult to maintain.
-> For example, the Command Line Interface provides both the View
-> (what user sees and how they interact with the command line)
-> and the Controller (invoking of a command) aspects of a CLI application.
-> In Web applications, Controller often manipulates the data (received from the Model)
-> before displaying it to the user or passing it from the user to the Model.
->
-{: .callout}
 
 ### Our Project's Architecture
 
-Our software project uses the MVC architecture.
-The file `inflammation-analysis.py` is the **Controller** module
+Our software project uses the [Model-View-Controller (MVC) architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). 
+MVC architecture divides the software logic into three interconnected modules:
+
+- **Model** (data) - represents the data used by a program and contains operations/rules
+  for manipulating and changing the data in the model (a database, a file, a single data object 
+  or a series of objects - for example a table representing patients' data).
+- **View** (client interface) - provides means of displaying data to users/clients within an 
+  application (i.e. provides visualisation of the state of the model).
+  For example, displaying a window with input fields and buttons (Graphical User Interface, GUI)
+  or textual options within a command line (Command Line Interface, CLI) are examples of Views.
+- **Controller** (processes that handle input/output and manipulate the data) - 
+  accepts input from the **View** and performs the corresponding action on the **Model** 
+  (changing the state of the model) and then updates the **View** accordingly.
+
+In our project, `inflammation-analysis.py` is the **Controller** module
 that performs basic statistical analysis over patient data
 and provides the main entry point into the application.
 The **View** and **Model** modules are contained in the files `views.py` and `models.py`, respectively,
@@ -407,7 +315,7 @@ Data underlying the **Model** is contained within the directory `data` -
 as we have seen already it contains several files with patients’ daily inflammation information.
 
 We will revisit the software architecture and MVC topics once again in later episodes
-when we talk in more detail about [software design](../32-software-design/index.html).
+when we talk in more detail about [software architecture and design](../32-software-architecture-design/index.html).
 We now proceed to set up our virtual development environment
 and start working with the code using a more convenient graphical tool -
 [IDE PyCharm](https://www.jetbrains.com/pycharm/).

@@ -94,6 +94,11 @@ extras_order:
   - common-issues
   - discuss
   - vscode
+  - software-architecture-extra
+  - programming-paradigms
+  - procedural-programming
+  - functional-programming
+  - object-oriented-programming
   - persistence
   - databases
   - quiz
