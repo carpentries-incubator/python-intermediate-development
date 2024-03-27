@@ -1,5 +1,5 @@
 ---
-title: "Additional Material: Databases"
+title: "Databases"
 layout: episode
 teaching: 30
 exercises: 30
@@ -16,7 +16,7 @@ keypoints:
 
 > ## Follow up from Section 3
 > This episode could be read as a follow up from the end of
-> [Section 3 on software design and development](../36-architecture-revisited/index.html#additional-material).
+> [Section 3 on software design and development](../35-refactoring-architecture/index.html#conclusion).
 {: .callout}
 
 A **database** is an organised collection of data,

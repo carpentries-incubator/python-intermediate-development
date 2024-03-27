@@ -1,7 +1,8 @@
 ---
 title: "Functional Programming"
 teaching: 30
-exercises: 40
+exercises: 30
+layout: episode
 questions:
 - What is functional programming?
 - Which situations/problems is functional programming well suited for?
@@ -627,10 +628,10 @@ def sum_of_squares(sequence):
 >
 > Hints:
 > - Remember that you can define an `initialiser` value with `reduce()`
->   to help you start the counter
+    >   to help you start the counter
 > - If defining a lambda expression,
->   note that it can conditionally return different values using the syntax
->   `<value> if <condition> else <another_value>` in the expression.
+    >   note that it can conditionally return different values using the syntax
+    >   `<value> if <condition> else <another_value>` in the expression.
 >
 > Time: 10 min
 > > ## Solution
