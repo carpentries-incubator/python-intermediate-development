@@ -96,7 +96,8 @@ extras_order:
   - protect-main-branch
   - vscode
   - software-architecture-extra
-  - programming-paradigms.md
+  - programming-paradigms
+  - procedural-programming
   - functional-programming
   - object-oriented-programming
   - persistence

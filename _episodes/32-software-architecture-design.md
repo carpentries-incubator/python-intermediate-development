@@ -156,7 +156,7 @@ in a function called `analyse_data()`.
 This function loads all the data files for a given a directory path, then
 calculates and compares standard deviation across all the data by day and finaly plots a graph.
 
-> ## Exercise: Identifying How Code Can be Improved?
+> ## Exercise: Identify How Can Code be Improved?
 > 
 > Critically examine the code in `analyse_data()` function in `compute_data.py` file. 
 > 
@@ -164,9 +164,7 @@ calculates and compares standard deviation across all the data by day and finaly
 > Think about ways in which you find it hard to understand.
 > Think about the kinds of changes you might want to make to it, and what would
 > make making those changes challenging.
-> 
 >> ## Solution
-> 
 >> You may have found others, but here are some of the things that make the code
 >> hard to read, test and maintain.
 >>
@@ -233,7 +231,7 @@ responsibilities and think about the kinds of information different parts of the
 {: .challenge}
 
 We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but, MVC is just one of the common [software architectural patterns](/software-architecture-extra/index.html))
+but MVC is just one of the common [software architectural patterns](/software-architecture-extra/index.html)
 and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture
@@ -318,20 +316,20 @@ but instead practise and taking care to:
 * Keep how much a person has to understand at once to a minimum.
 * Try not to have too many abstractions (if you have to jump around a lot when reading the 
 code that is a clue that your code may be too abstract).
-* Think about how interfaces will work (?).
+* Think about how will your components interface other components and external systems.
 * Not try to design a future-proof solution or to anticipate future requirements or adaptations 
 of the software - design the simplest solution that solves the problem at hand.
 * (When working on a less well-structured part of the code), start by refactoring it so that your 
 change fits in cleanly.
 * Try to leave the code in a better state that you found it.
 
-## Techniques for Good Code Design
+## Techniques for Good Software Design
 
 Once we have a good high-level architectural design,
-it's important to follow this philosophy through to the process of developing the code itself,
+it is important to follow this philosophy through to the process of developing the code itself,
 and there are some key techniques to keep in mind that will help.
 
-As we've discussed,
+As we have discussed,
 how code is structured is important for helping people who are developing and maintaining it 
 to understand and update it.
 By breaking down our software into modular components with a single responsibility,
