@@ -1,97 +1,25 @@
 ---
-title: "Software Architecture"
+title: "Software Architecture Revisited"
 teaching: 15
-exercises: 50
+exercises: 30
 questions:
-- "What is software architecture?"
-- "What are components of Model-View-Controller (MVC) architecture?"
+- "How do we handle code contributions that don't fit within our existing architecture?"
 objectives:
-- "Understand the use of common design patterns to improve the extensibility, reusability and 
-overall quality of software."
-- "List some best practices when designing software."
+- "Analyse new code to identify Model, View, Controller aspects."
+- "Refactor new code to conform to an MVC architecture."
+- "Adapt our existing code to include the new re-architected code."
 keypoints:
+- "Sometimes new, contributed code needs refactoring for it to fit within an existing codebase."
 - "Try to leave the code in a better state that you found it."
 ---
 
+In the previous few episodes we've looked at the importance and principles of good software architecture and design,
+and how techniques such as code abstraction and refactoring fulfil that design within an implementation,
+and help us maintain and improve it as our code evolves.
 
-## Software Architecture
+Let us now return to software architecture and consider how we may refactor some new code to fit within our existing MVC architectural design using the techniques we have learnt so far.
 
-A software architecture is the fundamental structure of a software system
-that is typically decided at the beginning of project development
-based on its requirements and is not that easy to change once implemented.
-It refers to a "bigger picture" of a software system
-that describes high-level components (modules) of the system, what their functionality/roles are 
-and how they interact.
-
-There are various [software architectures](/software-architecture-extra/index.html) around defining different ways of
-dividing the code into smaller modules with well defined roles that are outside the scope of 
-this course.
-We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but, MVC is just one of the common architectural patterns
-and is not the only choice we could have made.
-
-### Model-View-Controller (MVC) Architecture
-MVC architecture divides the related program logic
-into three interconnected modules:
-
-- **Model** (data)
-- **View** (client interface),  and
-- **Controller** (processes that handle input/output and manipulate the data).
-
-Model represents the data used by a program and also contains operations/rules
-for manipulating and changing the data in the model.
-This may be a database, a file, a single data object or a series of objects -
-for example a table representing patients' data.
-
-View is the means of displaying data to users/clients within an application
-(i.e. provides visualisation of the state of the model).
-For example, displaying a window with input fields and buttons (Graphical User Interface, GUI)
-or textual options within a command line (Command Line Interface, CLI) are examples of Views.
-They include anything that the user can see from the application.
-While building GUIs is not the topic of this course,
-we do cover building CLIs (handling command line arguments) in Python to a certain extent.
-
-Controller manipulates both the Model and the View.
-It accepts input from the View
-and performs the corresponding action on the Model (changing the state of the model)
-and then updates the View accordingly.
-For example, on user request,
-Controller updates a picture on a user's GitHub profile
-and then modifies the View by displaying the updated profile back to the user.
-
-### Separation of Responsibilities
-
-Separation of responsibilities is important when designing software architectures
-in order to reduce the code's complexity and increase its maintainability.
-Note, however, there are limits to everything -
-and MVC architecture is no exception.
-Controller often transcends into Model and View
-and a clear separation is sometimes difficult to maintain.
-For example, the Command Line Interface provides both the View
-(what user sees and how they interact with the command line)
-and the Controller (invoking of a command) aspects of a CLI application.
-In Web applications, Controller often manipulates the data (received from the Model)
-before displaying it to the user or passing it from the user to the Model.
-
-There are many variants of an MVC-like pattern 
-(such as [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) (MVP),
-[Model-View-Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM), etc.),
-where the Controller role is handled slightly differently, 
-but in most cases, the distinction between these patterns is not particularly important.
-What really matters is that we are making conscious decisions about the architecture of our software
-that suit the way in which we expect to use it.
-We should reuse these established ideas where we can, but we do not need to stick to them exactly.
-
-The key thing to take away is the distinction between the Model and the View code, while
-the View and the Controller can be more or less coupled together (e.g. the code that specifies 
-there is a button on the screen, might be the same code that specifies what that button does).
-The View may be hard to test, or use special libraries to draw the UI, but should not contain any 
-complex logic, and is really just a presentation layer on top of the Model.
-The Model, conversely, should not care how the data is displayed. 
-For example, the View may present dates as "Monday 24th July 2023", 
-but the Model stores it using a `Date` object rather than its string representation.
-
-## Our Project's Architecture (Revisited)
+## Revisiting Our Software's Architecture
 
 Recall that in our software project, the **Controller** module is in `inflammation-analysis.py`, 
 and the View and Model modules are contained in 
@@ -368,74 +296,12 @@ by setting `required = True` within the `add_argument()` command.
 in the usage section of the help page.
 {: .callout}
 
-## Architecting Software
-
-When designing a new software application, or making a substantial change to an existing one,
-it can be really helpful to sketch out the intended architecture.
-The basic idea is you draw boxes that will represent different units of code, as well as
-other components of the system (such as users, databases, etc).
-Then connect these boxes with lines where information or control will be exchanged.
-These lines represent the interfaces in your system.
-
-As well as helping to visualise the work, doing this sketch can troubleshoot potential issues.
-For example, if there is a circular dependency between two sections of the design.
-It can also help with estimating how long the work will take, as it forces you to consider all 
-the components that need to be made.
-
-Diagrams are not foolproof, but are a great starting point to break down the different 
-responsibilities and think about the kinds of information different parts of the system will need.
-
-> ## Exercise: Design a High-Level Architecture for a New Requirement
-> Sketch out an architectural design for a new feature requested by a user.
->
-> *"I want there to be a Google Drive folder such that when I upload new inflammation data to it,
-> the software automatically pulls it down and updates the analysis.
-> The new result should be added to a database with a timestamp.
-> An email should then be sent to a group mailing list notifying them of the change."*
->
-> You can  draw by hand on a piece of paper or whiteboard, or use an online drawing tool 
-> such as [Excalidraw](https://excalidraw.com/).
->> ## Solution
->>
->> ![Diagram showing proposed architecture of the problem](../fig/example-architecture-diagram.svg){: width="600px" }
-> {: .solution}
-{: .challenge}
-
-### Architectural & Programming Patterns
-
-[Architectural]((https://www.redhat.com/architect/14-software-architecture-patterns)) and 
-[programming patterns](https://refactoring.guru/design-patterns/catalog) are reusable templates for 
-software systems and code that provide solutions for some common software design challenges. 
-MVC is one architectural pattern. 
-Patterns are a useful starting point for how to design your software and also provide 
-a common vocabulary for discussing software designs with other developers.
-They may not always provide a full design solution as some problems may require
-a bespoke design that maps cleanly on to the specific problem you are trying to solve.
-
-### Design Guidelines
-
-Creating good software architecture is not about applying any rules or patterns blindly, 
-but instead practise and taking care to:
-
-* Discuss design with your colleagues before writing the code.
-* Separate different concerns into different sections of the code.
-* Avoid duplication of code or data.
-* Keep how much a person has to understand at once to a minimum.
-* Try not to have too many abstractions (if you have to jump around a lot when reading the 
-code that is a clue that your code may be too abstract).
-* Think about how interfaces will work (?).
-* Not try to design a future-proof solution or to anticipate future requirements or adaptations 
-of the software - design the simplest solution that solves the problem at hand.
-* (When working on a less well-structured part of the code), start by refactoring it so that your 
-change fits in cleanly.
-* Try to leave the code in a better state that you found it.
-
 
 ### Additional Reading Material & References
 
-Now that we have covered the basics of [software architecture](/software-architecture-extra/index.html) 
+Now that we have covered and revisited [software architecture](/software-architecture-extra/index.html) 
 and [different programming paradigms](/programming-paradigms/index.html)
-and how we can integrate them into our multi-layer architecture,
+and how we can integrate them into our architecture,
 there are two optional extra episodes which you may find interesting.
 
 Both episodes cover the persistence layer of software architectures
