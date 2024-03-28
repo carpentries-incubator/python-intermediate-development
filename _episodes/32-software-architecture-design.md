@@ -209,7 +209,7 @@ For example, if there is a circular dependency between two sections of the desig
 It can also help with estimating how long the work will take, as it forces you to consider all 
 the components that need to be made.
 
-Diagrams are not foolproof, but are a great starting point to break down the different 
+Diagrams are not flawless, but are a great starting point to break down the different 
 responsibilities and think about the kinds of information different parts of the system will need.
 
 > ## Exercise: Design a High-Level Architecture for a New Requirement
@@ -236,7 +236,7 @@ and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture
 
-MVC architecture divides the related program logic into three interconnected components or modules:
+Recall that the MVC architecture divides the related program logic into three interconnected components or modules:
 
 - **Model** (data)
 - **View** (client interface), and
@@ -265,7 +265,7 @@ and then modifies the View by displaying the updated profile back to the user.
 
 ### Limitations to Architectural Design
 
-Note, however, there are limits to everything - and MVC architecture is no exception.
+There are limits to everything - and MVC architecture is no exception.
 The Controller often transcends into the Model and View,
 and a clear separation is sometimes difficult to maintain.
 For example, the Command Line Interface provides both the View
