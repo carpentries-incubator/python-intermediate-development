@@ -2,7 +2,7 @@
 title: "Section 3: Software Development as a Process"
 colour: "#fafac8"
 start: true
-teaching: 5
+teaching: 10
 exercises: 0
 questions:
 - "How can we design and write 'good' software that meets its goals and requirements?"
@@ -13,7 +13,11 @@ objectives:
 keypoints:
 - "Software engineering takes a wider view of software development beyond programming (or coding)."
 - "Ensuring requirements are sufficiently captured is critical to the success of any project."
-- "Following a process makes development predictable, can save time, and helps ensure each stage of development is given sufficient consideration before proceeding to the next."
+- "Following a process makes software development predictable, saves time in the long run, 
+  and helps ensure each stage of development is given sufficient consideration 
+  before proceeding to the next."
+- "Once you get the hang of a programming language, writing code to do what you want is relatively 
+easy. The hard part is writing code that is easy to adapt when your requirements change."
 ---
 
 In this section, we will take a step back from coding development practices and tools
@@ -65,7 +69,7 @@ Someone who is engineering software takes a wider view:
   but there is an assumption that the software - or even just a part of it -
   could be reused in the future.
 
-### The Software Development Process
+### Software Development Process
 
 The typical stages of a software development process can be categorised as follows:
 
@@ -75,7 +79,7 @@ The typical stages of a software development process can be categorised as follo
   This helps maintain a clear direction throughout development,
   and sets clear targets for what the software needs to do.
 - **Design:** where the requirements are translated into an overall design for the software.
-  It covers what will be the basic software 'components' and how they'll fit together,
+  It covers what will be the basic software 'components' and how they will fit together,
   as well as the tools and technologies that will be used,
   which will together address the requirements identified in the first stage.
 - **Implementation:** the software is developed according to the design,
@@ -99,7 +103,7 @@ these stages are followed implicitly or explicitly in every software project.
 What is required for a project (during requirements gathering) is always considered, for example,
 even if it isn't explored sufficiently or well understood.
 
-Following a process of development offers some major benefits:
+Following a **process** of development offers some major benefits:
 
 - **Stage gating:** a quality *gate* at the end of each stage,
   where stakeholders review the stage's outcomes to decide
@@ -115,31 +119,27 @@ Following a process of development offers some major benefits:
 - **Transparency:** essentially, each stage generates output(s) into subsequent stages,
   which presents opportunities for them to be published
   as part of an open development process.
-- **It saves time:** a well-known result from
+- **Time saving:** a well-known result from
   [empirical software engineering studies](https://web.archive.org/web/20160731150816/http://superwebdeveloper.com/2009/11/25/the-incredible-rate-of-diminishing-returns-of-fixing-software-bugs/)
-  is that it becomes exponentially more expensive to fix mistakes in future stages.
-  For example, if a mistake takes 1 hour to fix in requirements,
+  is that fixing software mistakes is exponentially more expensive in later software development 
+  stages.
+  For example, if a mistake takes 1 hour to fix in the requirements stage,
   it may take 5 times that during design,
   and perhaps as much as 20 times that to fix if discovered during testing.
 
 In this section we will place the actual writing of software (implementation)
-within the context of the typical software development process:
+within the context of a typical software development process:
 
 - Explore the **importance of software requirements**,
-  the different classes of requirements,
+  different classes of requirements,
   and how we can interpret and capture them.
 - How requirements inform and drive the **design of software**,
   the importance, role, and examples of **software architecture**,
   and the ways we can describe a software design.
-- **Implementation choices** in terms of **programming paradigms**,
-  looking at **procedural**, **functional**, and **object oriented** paradigms of development.
-  Modern software will often contain instances of multiple paradigms,
-  so it is worthwhile being familiar with them and knowing when
-  to switch in order to make better code.
-- How you can (and should) assess and update a software's architecture when
-  requirements change and complexity increases -
-  is the architecture still fit for purpose,
-  or are modifications and extensions becoming increasingly difficult to make?
+- How to **improve** existing code to be more **readable**, **testable** and **maintainable**.
+- Consider different strategies for writing well designed code, including
+  using **pure functions**, **classes** and **abstractions**.
+- How to create, assess and improve **software design**.
 
 
 {% include links.md %}

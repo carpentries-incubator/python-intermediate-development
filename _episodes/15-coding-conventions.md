@@ -440,7 +440,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >> which is helpfully marking inconsistencies with coding guidelines by underlying them.
 >> There are a few things to fix in `inflammation-analysis.py`, for example:
 >>
->>  1. Line 24 in `inflammation-analysis.py` is too long and not very readable.
+>>  1. Line 30 in `inflammation-analysis.py` is too long and not very readable.
 >>     A better style would be to use multiple lines and hanging indent,
 >>     with the closing brace `}' aligned either with
 >>     the first non-whitespace character of the last line of list
