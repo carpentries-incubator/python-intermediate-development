@@ -339,7 +339,7 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 > and fixing any remaining problems you are aware of in your codebase.
 > Ensure you prioritise and work on the most pressing issues first!
 > 
-> Time: 15 min
+> 
 {: .challenge}
 
 ## Merging into `main`

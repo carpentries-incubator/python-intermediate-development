@@ -544,7 +544,7 @@ do we think these results are easy to understand?
 > Once added, run all the tests again with `python -m pytest tests/test_models.py`,
 > and you should also see your new tests pass.
 >
-> Time: 15 min
+> 
 > > ## Solution
 > >
 > > ~~~

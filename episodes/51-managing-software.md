@@ -155,7 +155,7 @@ This can make it clear you've thought about an issue and dismissed it.
 > In GitHub, enter the details of the issue and select `Submit new issue`.
 > Add a label to your issue, if appropriate.
 >
-> Time: 5 min
+> 
 >> ## Solution
 >> For example, "Add a licence file" could be a good first issue, with a label `documentation`.
 > {: .solution}
@@ -241,7 +241,7 @@ and link to the commit in question.
 > and reference the issue you created in the previous exercise
 > using the  `#` notation.
 >
-> Time: 5 min
+> 
 {: .challenge}
 
 > ## You Are Also a User of Your Code
@@ -400,7 +400,7 @@ and pressing the `Enter` key.
 > Make sure to add a certain number of issues to your repository
 > to be able to use in your project board.
 >
-> Time: 10 min
+> 
 {: .challenge}
 
 > ## Prioritisation With Project Boards

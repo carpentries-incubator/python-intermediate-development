@@ -125,7 +125,7 @@ and raise crucial questions to clarify ambiguities.
 > Make sure these are honest estimates,
 > and you are able to complete them in the allotted time!
 >
-> Time: 15 min
+> 
 {: .challenge}
 
 
@@ -219,7 +219,7 @@ Let's now use Milestones to plan and prioritise our team's next sprint.
 > and assign all issues you'll be working on (i.e. not `Won't Haves`) to a new milestone,
 > e.g. "Tidy up documentation" or "version 0.1".
 >
-> Time: 10 min
+> 
 {: .challenge}
 
 {% comment %}
