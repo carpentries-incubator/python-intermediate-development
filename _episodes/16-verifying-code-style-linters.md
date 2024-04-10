@@ -164,7 +164,7 @@ they won't find everything that may be wrong with it.
 > Make sure you do not break the rest of the code in the process and that the code still runs.
 > After making any changes, run Pylint again to verify you have resolved these issues.
 >
-> Time: 5 min
+> 
 {: .challenge}
 
 Make sure you commit and push `requirements.txt`

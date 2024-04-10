@@ -357,7 +357,7 @@ knows when you have finished adding comments
 >
 > **Add your review comments but do not submit your review just yet.**
 >
-> Time: 10 min
+> 
 >> ## Solution
 >>
 >> Here are some of the things you might have found were wrong with the code. 
@@ -442,7 +442,7 @@ turn for action.
 > Once you are happy, you can submit your review.
 > Select `Request changes` to let the author know they need to address your comments.
 >
-> Time: 10 min
+> 
 >> ## Solution
 >>
 >> Your list might include the following:
@@ -504,7 +504,7 @@ discussing what the best solution is in person can help defuse this.
 > a new review and this time selecting `Approve`.
 > This tells the author you are happy for them to merge the pull request.
 >
-> Time: 10 min
+> 
 {: .challenge}
 
 ### Approving a Pull Request

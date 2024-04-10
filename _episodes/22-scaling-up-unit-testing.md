@@ -82,7 +82,7 @@ and adding more tests scales better as our code becomes more complex.
 > Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised,
 > adding in new test cases for each of them.
 >
-> Time: 10 min
+> 
 > > ## Solution
 > > ~~~
 > > ...

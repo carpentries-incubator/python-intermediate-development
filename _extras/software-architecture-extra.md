@@ -119,7 +119,7 @@ For example, the diagram below depicts the use of MVC architecture for the
 > where MVC architecture may be suitable
 > or have a discussion with your fellow learners.
 >
-> Time: 5 min
+> 
 > > ## Solution
 > > MVC architecture is a popular choice when designing web and mobile applications.
 > > Users interact with a web/mobile application by sending various requests to it.

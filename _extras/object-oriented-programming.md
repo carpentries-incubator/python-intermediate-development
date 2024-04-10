@@ -105,7 +105,7 @@ patients = [
 > ~~~
 > {: .output}
 >
-> Time: 10 min
+> 
 > > ## Solution
 > >
 > > One possible solution, perhaps the most obvious,
@@ -462,7 +462,7 @@ section of the Python documentation.
 > ~~~
 > {: .output}
 >
-> Time: 5 min
+> 
 > > ## Solution
 > >
 > > ~~~
@@ -803,7 +803,7 @@ before we can properly initialise a `Patient` model with their inflammation data
 > explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
 >
-> Time: 20 min
+> 
 > > ## Solution
 > > One example solution is shown below.
 > > You may start by writing some tests (that will initially fail),

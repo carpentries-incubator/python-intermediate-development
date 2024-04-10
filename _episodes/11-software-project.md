@@ -102,7 +102,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 > 
-> Time: 5 min
+> 
 > > ## Solution
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
 > > Make sure you do not clone the original repository but rather your own fork,
@@ -210,7 +210,7 @@ each of the inflammation data files contains separate trial data for 60 patients
 > Which command(s) would you use to list the contents or a first few 
 > lines of `data/inflammation-01.csv` file?
 > 
-> Time: 1 min
+> 
 > > ## Solution
 > > 1. To list the entire content of a file from the project root do: `cat data/inflammation-01.csv`.
 > > 2. To list the first 5 lines of a file from the project root do: `head -n 5 data/inflammation-01.csv`.

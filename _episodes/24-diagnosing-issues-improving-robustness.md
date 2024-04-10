@@ -455,7 +455,7 @@ def patient_normalise(data):
 > and add them to the parametrised tests.
 > After you have finished remember to commit your changes.
 >
-> Time: 10 min
+> 
 > > ## Possible Solution
 > > ~~~
 > > @pytest.mark.parametrize(
@@ -717,7 +717,7 @@ you may cause yourself some trouble which may be difficult to trace).
 > then rerun your tests and commit these latest changes and
 > push them to GitHub using our usual feature branch workflow. 
 >
-> Time: 5 min
+> 
 {: .challenge}
 
 It may be hard to remember to run linter tools every now and then.

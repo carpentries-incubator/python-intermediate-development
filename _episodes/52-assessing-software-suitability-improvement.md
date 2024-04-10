@@ -49,7 +49,7 @@ will help you adopt the same attitude when assessing your own software for futur
 >    the section of the shared notes labelled 'Decide on your Group's Repository',
 >    next to your team's name.
 >
-> Time: 10 min
+> 
 {: .challenge}
 
 > ## Exercise: Conduct Assessment on Third-Party Software
@@ -69,7 +69,7 @@ will help you adopt the same attitude when assessing your own software for futur
 >    and register any issues you find on the other team's software repository on GitHub.
 > 4. Be meticulous in your assessment and register as many issues as you can!
 >
-> Time: 20 min
+> 
 {: .challenge}
 
 
