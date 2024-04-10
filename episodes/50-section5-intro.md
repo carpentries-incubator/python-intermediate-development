@@ -27,7 +27,31 @@ how the outside world interacts with and makes use of our software,
 how others can interact with ourselves to report issues,
 and the ways we can successfully manage software improvement in response to feedback.
 
+{% comment %}
 ![Managing software](../fig/section5-overview.png){: .image-with-shadow width="800px" }
+{% endcomment %}
+
+![Managing software](../fig/section5-overview.svg){: .image-with-shadow width="1000px" }
+
+{% comment %}
+flowchart LR
+A(1. Setting up
+software environment)
+--> B(2. Verifying
+software correctness)
+--> C(3. Software development
+as a process)
+--> D(4. Collaborative
+development for reuse)
+--> E(5. Managing software
+over its lifetime
+
+    - Issue reporting & prioritisation
+    - Agile development in sprints
+    - software project management
+)
+https://mermaid.live/edit#pako:eNpNkMtqw0AMRX9FzMqBxNDXxotCm2TXbBroosxGtTXJgC0ZjewQQv69k4dpF0JCOvci7snV0pCrXGjlUO9RDT4-Pb8VDyVsySzyDobec5JgB1QC4jGqcEdsM8-LxSu8F48lfJHGcMz0P7QWVaqNKaU7uiyesu10b2ikVvqLlWdMgNCr1H_0qnguYSltiz-iaHEkz_80EERBaUh059fFSwkbZNxdvp7e8CwjKURL0MZAFru8ygLIdWszN3cdaYexyUGcPAN4Z3vKoKvy2FDAoTXvPJ8zioPJ9si1q0wHmruhb9BoFXGn2LkqYJvylppooptbuNeMJ3J9vUzqHvlbZNKdfwFSLYtB
+{% endcomment %}
 
 In this section we will:
 
