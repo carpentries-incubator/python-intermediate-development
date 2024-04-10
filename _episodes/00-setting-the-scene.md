@@ -57,7 +57,27 @@ are transferable to other similar tools and programming languages.
 
 The course is organised into the following sections:
 
+{% comment %}
 ![Course overview diagram](../fig/course-overview.png){: .image-with-shadow width="800px" }
+{% endcomment %}
+
+![Course overview diagram](../fig/course-overview.svg){: .image-with-shadow width="1000px" }
+{% comment %}
+flowchart LR
+A(1. Setting up
+software environment)
+--> B(2. Verifying
+software correctness)
+--> C(3. Software development
+as a process)
+--> D(4. Collaborative
+development for reuse)
+--> E(5. Managing software
+over its lifetime)
+
+https://mermaid.live/edit#pako:eNpdkE1rwzAMhv-K8CmFNrCvSw6D9eO2XlbYYeSiJXJqcKwgKyml9L_PaZox5pOQn8ey3oupuCZTGOv5VB1RFN4_ygDpvGUPORxI1YUG-m5qRrZ6QiGgMDjh0FLQBZRhtXqFdfaYwyeJs-ek_OMrFqFKA8U485vsKQ2YgZoG8tyND8LkYgSETrganUnZZs85bNh7_GZBdQPd2b-2ZQGhPtJd2mUvOewxYDNu8vujSeSBBJxG8M6SupYWZmlakhZdnWK5jFRp9EgtlaZIZU0We6-lKcM1odgrH86hMoVKT0vTdzUqbR02gq0pLPqYulQ7ZdlPUd8Sn8nd7Wa2OwxfzLN3_QE4H4oo
+
+{% endcomment %}
 
 ### [Section 1: Setting up Software Environment](../10-section1-intro/index.html)
 In the first section we are going to set up our working environment

@@ -25,7 +25,31 @@ and look at the bigger picture of software as a *process* of development.
 
 > *"If you fail to plan, you are planning to fail."* - Benjamin Franklin
 
+{% comment %}
 ![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+{% endcomment %}
+
+![Software design and architecture](../fig/section3-overview.svg){: .image-with-shadow width="1000px" }
+{% comment %}
+flowchart LR
+A(1. Setting up
+software environment)
+--> B(2. Verifying
+software correctness)
+--> C(3. Software development
+as a process
+
+    - Software requirements
+    - Software architecture & design
+    - Programming paradigms
+    )
+--> D(4. Collaborative
+development for reuse)
+--> E(5. Managing software
+over its lifetime)
+
+https://mermaid.live/edit#pako:eNplkU1rwzAMhv-K8WGk0Ab2dclhsLW9rTBW2GH4oiVKakikTJZTSul_n9M122A-2dKj95Wsoy25QlvYuuV9uQNR8_zq6DG7zs0WVT01JvaOAte6B0GDNHhh6pB05mixeDBP2U1u3lB8fUj0H7RkESyVMIQLusxuk-yUr3DAlvtRyhEEA6YXLhPtyJFJZ_HLCn5GLziy4V8SpNx5TVYxPa6SbvDNj8SLcCPQdeMkPQhUvukuEpeuVtldbpbctvDBAuoHdPSnN1OzJP8Y8MKvs_vcbICgGTWncR3xgGK8BtP6GtV3OLNz26F04Kv0w8fR1FndpSmcLdK1whpiq846OiUUovL2QKUtVCLObewrUFx5GPu3RQ1tSFGsvLJsvrd2Xt5Ers-ZqboHemee6k5flmapmQ
+{% endcomment %}
 
 ### Writing Code vs Engineering Software
 
