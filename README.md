@@ -1,12 +1,13 @@
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
-## Intermediate Research Software Development Skills In Python
+## Intermediate Research Software Development Skills In Python Lesson
 
 This is an intermediate-level course in collaborative research software engineering and development skills, 
 using Python as an example language. 
 It teaches these skills in a way that mimics a typical software development 
 process working as a part of a team, 
 starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
+The lesson is developed using [The Carpentries](https://carpentries.org) Jekyll lesson template.
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
 self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
@@ -18,15 +19,21 @@ automate the process of testing and verifying its correctness and support collab
 > :warning: The course material can change at any point - if you are planning a workshop using this material, 
 either let the maintainers know or make sure you use your own fork of the lesson.
 
+The lesson uses an imaginery [patient inflammation data](https://swcarpentry.github.io/python-novice-inflammation/#scenario-a-miracle-arthritis-inflammation-cure) for code examples, 
+from the [Software Carpentry Python "inflammation" lesson](https://swcarpentry.github.io/python-novice-inflammation/).
+
+Check out the [variant of this lesson](https://github.com/carpentries-incubator/python-intermediate-development-earth-sciences/tree/gh-pages)
+that uses river catchment data in code examples (more suited for Earth and environmental scientists).
+
 ### Lesson Status
 
-The lesson is currently in beta - it has been run over 10 times times with 
+The course is in a stable beta - it has been run over 15 times times with 
 different cohorts by the lesson authors as well as independently by people not directly involved in the lesson development
 and is in a good state to be reused and taught by others.
 
 ## Teaching the Lesson
 
-The lesson is suitable for both instructor-led teaching or guided self-learning where instructors provide help 
+The lesson is suitable for both instructor-led teaching or guided self-learning where helpers provide help 
 and answer questions (synchronously or asynchrounously) as learners go through the course on their own. 
 Initially, in sections 1-3 of the lesson, 
 learners are working on a software project and going though exercises individually.
@@ -34,9 +41,8 @@ In sections 4 and 5, they are grouped and work in teams,
 as they would when collaborating on a team software project development.
 
 The lesson has 5 sections; 
-each section can be delivered or worked through in self-learning mode over a half a day to a day, 
+each section can be delivered in one day by an instructor or worked through in self-learning mode over a half a day to a day, 
 depending on the pace.
-We would recommend setting aside one day per section to make sure the delivery is not rushed. 
 
 If you would like to teach this lesson to your audience and help with more beta testing, 
 please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a 
