@@ -24,6 +24,7 @@ This alias will be valid for the duration of the shell session.
 For a more permanent solution, from the shell do:
 ~~~
 $ echo "alias python='winpty python.exe'" >> ~/.bashrc
+$ source ~/.bashrc
 ~~~
 {: .language-bash}
 
