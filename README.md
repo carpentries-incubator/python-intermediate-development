@@ -1,14 +1,12 @@
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
-**Note that the lesson material can change at any point - if you are planning a workshop using this material, 
-either let the maintainers know or make sure you use your own fork of the lesson.**
+## Intermediate Research Software Development Skills In Python
 
-# Intermediate Research Software Development Skills In Python
-
-An intermediate-level course in research software engineering and development skills and working as part of a 
-team (using Python as an example language). This lesson teaches intermediate-level software development 
-skills in a way that mimics a typical software development 
-process in a team, starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
+This is an intermediate-level course in collaborative research software engineering and development skills, 
+using Python as an example language. 
+It teaches these skills in a way that mimics a typical software development 
+process working as a part of a team, 
+starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 
 A typical learner for this course may be someone who has gained basic software development skills either by 
 self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons]. 
@@ -16,6 +14,9 @@ However, their software
 development-related projects are now becoming larger and more complex and they need more 
 intermediate software engineering skills to help them design more robust software code, 
 automate the process of testing and verifying its correctness and support collaborations with others.
+
+> :warning: The course material can change at any point - if you are planning a workshop using this material, 
+either let the maintainers know or make sure you use your own fork of the lesson.
 
 ### Lesson Status
 
