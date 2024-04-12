@@ -19,7 +19,7 @@ automate the process of testing and verifying its correctness and support collab
 > :warning: The course material can change at any point - if you are planning a workshop using this material, 
 either let the maintainers know or make sure you use your own fork of the lesson.
 
-The lesson uses an imaginery [patient inflammation data](https://swcarpentry.github.io/python-novice-inflammation/#scenario-a-miracle-arthritis-inflammation-cure) for code examples, 
+The lesson uses [patient inflammation data](https://swcarpentry.github.io/python-novice-inflammation/#scenario-a-miracle-arthritis-inflammation-cure) for code examples, 
 from the [Software Carpentry Python "inflammation" lesson](https://swcarpentry.github.io/python-novice-inflammation/).
 
 Check out the [variant of this lesson](https://github.com/carpentries-incubator/python-intermediate-development-earth-sciences/tree/gh-pages)
