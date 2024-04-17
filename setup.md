@@ -2,7 +2,14 @@
 title: Setup
 ---
 
-You will need the following software installed and working correctly on your system to be able to follow the course.
+You will need the following software installed and working correctly on your system to be able 
+to follow the course.
+
+- [Command line tool](#command-line-tool) (such as **Bash**, **Zsh** or **Git Bash**)
+- [Git version control program](#git-version-control-tool)
+- [GitHub account](#github-account)
+- [Python 3 distribution](#python-3-distribution)
+- [PyCharm](#pycharm-ide) integrated development environment (IDE)
 
 > ## Common Issues & Tips
 > If you are having issues installing or running some of the tools below,
@@ -211,19 +218,21 @@ SSH key pair for authentication may seem complex, once set up, it is actually mo
 your access token.
 {: .callout}
 
-## Python Distribution
-The material has been tested using the standard Python distribution version 3.11. The course is using `venv` for virtual 
-environment management and `pip` for package management.
+## Python 3 Distribution
+
+To download the latest Python 3 distribution for your operating system,
+please head to [Python.org](https://www.python.org/downloads/).
+
+If you are on Linux,
+it is likely that the system Python 3 already installed will satisfy the requirements 
+of this course (the material has been tested using the standard Python distribution version 3.11
+but any [supported version](https://devguide.python.org/versions/#versions) should work).
+
+The course uses `venv` for virtual environment management and `pip` for package management.
 The material has not been extensively tested with other Python distributions and package managers,
 but most sections are expected to work with some modifications.
 For example, package installation and virtual environments would need to be managed differently, but Python script
 invocations should remain the same regardless of the Python distribution used.
-
-To download the latest Python distribution for your operating system,
-please head to [Python.org](https://www.python.org/downloads/).
-If you are on Linux,
-it is likely that the system Python already installed will satisfy the requirements of this course.
-Check its version using the commands below.
 
 >## Recommended Python Version
 > We recommend using the latest Python version but any [supported version](https://devguide.python.org/versions/#versions) 
