@@ -228,8 +228,7 @@ it is likely that the system Python 3 already installed will satisfy the require
 of this course (the material has been tested using the standard Python distribution version 3.11
 but any [supported version](https://devguide.python.org/versions/#versions) should work).
 
-The course is using `venv` for virtual 
-environment management and `pip` for package management.
+The course uses `venv` for virtual environment management and `pip` for package management.
 The material has not been extensively tested with other Python distributions and package managers,
 but most sections are expected to work with some modifications.
 For example, package installation and virtual environments would need to be managed differently, but Python script
