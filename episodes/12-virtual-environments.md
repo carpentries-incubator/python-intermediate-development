@@ -63,7 +63,7 @@ which contains a particular version of Python installation
 plus a number of additional external libraries.
 
 Virtual environments are not just a feature of Python -
-most modern programming languages use them to isolate libraries/dependencies for a specific project
+most modern programming languages use them to isolate libraries or dependencies for a specific project
 and make it easier to develop, run, test and share code with others.
 Even languages that do not explicitly have virtual environments have mechanisms
 that promote per-project dependency collections (e.g. Maven with classpath for Java).
