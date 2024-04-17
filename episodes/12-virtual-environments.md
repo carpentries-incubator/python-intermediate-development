@@ -63,10 +63,11 @@ which contains a particular version of Python installation
 plus a number of additional external libraries.
 
 Virtual environments are not just a feature of Python -
-most modern programming languages use them to isolate libraries or dependencies for a specific project
-and make it easier to develop, run, test and share code with others.
-Even languages that do not explicitly have virtual environments have mechanisms
-that promote per-project dependency collections (e.g. Maven with classpath for Java).
+most modern programming languages use a similar mechanism to isolate libraries or dependencies
+for a specific project, making it easier to develop, run, test and share code with others.
+Some examples include Bundler for Ruby, Conan for C++, or Maven with classpath for Java.
+This can also be achieved with more generic package managers like Spack,
+which is used extensively in HPC settings to resolve complex dependencies.
 In this episode, we learn how to set up a virtual environment to develop our code
 and manage our external dependencies.
 
