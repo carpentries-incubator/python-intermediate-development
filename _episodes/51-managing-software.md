@@ -269,7 +269,7 @@ representation of tasks and may not be as suitable for higher-level project mana
 prioritising tasks for future development, planning sprints and releases. Luckily,
 GitHub provides two project management tools for this purpose - **Projects** and **Milestones**.
 
-Both Projects and Milestones provide [agile development and project management systems](https://www.atlassian.com/agile)
+Both GitHub Projects and Milestones provide [agile development and project management systems](https://www.atlassian.com/agile)
 and ways of organising issues into smaller "sub-projects" (i.e.
 smaller than the "project" represented by the whole repository).
 Projects provide a way of visualising and organising work which is not time-bound and is on a higher level (e.g. more suitable for
@@ -287,7 +287,7 @@ for now, we will have a brief look at Projects.
 
 ### Projects
 
-A Project uses a "project board" consisting of columns and cards to keep track of tasks
+A GitHub Project uses a "project board" consisting of columns and cards to keep track of tasks
 (although GitHub now also provides a table view over a project's tasks).
 You break down your project into smaller sub-projects,
 which in turn are split into tasks which you write on cards,
@@ -299,7 +299,14 @@ such as issues and pull requests -
 cards can be added to track the progress of such tasks
 and automatically moved between columns based on their progress or status.
 
-> ## Project are a Cross-Repository Management Tool
+GitHub projects are "an adaptable, flexible tool for planning and tracking work on GitHub" -
+they now provide interchangeable spreadsheet, task-board, or roadmap views of your project 
+that integrates with your issues and pull requests on GitHub to help you 
+plan and track your work effectively.
+We recommend you to have a look at [GitHub’s documentation on Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) 
+and see if they are suitable for your software development workflow.
+
+> ## GitHub Project are a Cross-Repository Management Tool
 > [Project in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 > are created on a user or organisation level,
 > i.e. they can span all repositories owned by a user or organisation in GitHub
@@ -308,32 +315,31 @@ and automatically moved between columns based on their progress or status.
 > to help you plan and track your team's work effectively.
 {: .callout}
 
-Let's create a Project in GitHub to plan the first release of our code.
+Let's have a quick look at how Projects are created in GitHub - we will not use them much in 
+this course but it is good to be aware of make use of them when suitable.
 
 1. From your GitHub account's home page (not your repository's home page!),
    select the "Projects" tab, then click the `New project` button on the right.
 
-    ![Adding a new project board in GitHub](../fig/github-new-project.png){: .image-with-shadow width="1000px"}
+    ![Adding a new project board in GitHub](../fig/github-new-project.png){: .image-with-shadow width="800px"}
 
-2. In the "Select a template" pop-up window, select "Board" -
-   this will give you a classic "cards on a board" view of the project.
-   An alternative is the "Table" view,
-   which presents a spreadsheet-like and slightly more condensed view of a project.
+2. In the "Create project" pop-up window, you can either start from one of the featured existing 
+project templates or create your project from scratch using one of the three standard project 
+types/views that you customise yourself: 
+      - Table - a spreadsheet-style table to filter, sort and group your issues and pull requests. 
+      - Board - a "cards on a board" view of the project, with issues and pull requests being 
+      spread across customizable columns as cards on kanban board
+      - Roadmap - suitable for a high-level visualisation of your project over time. 
+![Selecting a project board template in GitHub](../fig/github-project-template.png){: .image-with-shadow width="800px"}
+  Regardless of which project type/view you select, you can easily switch to a different 
+  project layout later on.
 
-    ![Selecting a project board template in GitHub](../fig/github-board-template.png){: .image-with-shadow width="600px"}
-
-3. GitHub will create an unnamed project board for you.
-   You should populate the name and the description of the project from the project's Settings,
-   which can be found by clicking the `...` button in the top right corner of the board.
-
-   ![Project board setting in GitHub](../fig/github-project-settings.png){: .image-with-shadow width="800px"}
-
-4. We can, for example, use "Inflammation project - release v0.1"
-   and "Tasks for the v0.1 release of the inflammation project"
-   for the name and description of our project, respectively.
-   Or you can use anything that suits your project.
-
-   ![Naming a project in GitHub](../fig/github-name-project.png){: .image-with-shadow width="800px"}
+3. For example, select the "Board" type for the project and fill in the name of your project - 
+e.g. "Inflammation project - release v0.1".
+4. After it is created, you should also populate the description of the project from the project's Settings,
+   which can be found by clicking the `...` button in the top right corner of the project.
+![Project board setting in GitHub](../fig/github-project-settings.png){: .image-with-shadow width="800px"}
+![Adding project description and metadata in GitHub](../fig/github-project-description.png){: .image-with-shadow width="800px"}
 
 5. GitHub's default card board template contains
    the following three columns with pretty self-explanatory names:
@@ -349,6 +355,8 @@ Let's create a Project in GitHub to plan the first release of our code.
     if you have tasks that get held up by waiting on other people
     (e.g. to respond to your questions)
     then moving them to a separate column makes their current state clearer.
+    Another way to organise your table is to have a column for each quarter of the year - 
+    it is up to you to decide how you want to view your project's activities. 
 
     To add a new column,
     press the `+` button on the right;
@@ -375,7 +383,7 @@ Let's create a Project in GitHub to plan the first release of our code.
     or write more detailed comments
     (for that, use the `Convert to issue` option from the `...` menu on the card itself).
 
-   ![Coverting a task to issue](../fig/github-convert-task-to-issue.png){: .image-with-shadow width="800px"}
+   ![Converting a task to issue](../fig/github-convert-task-to-issue.png){: .image-with-shadow width="800px"}
 
 7.  In addition to creating new tasks as notes and converting them to issues -
 you can add an existing issue or pull request (from any repository visible to you)
@@ -386,6 +394,10 @@ and pressing the `Enter` key.
    Issues and pull requests on cards will automatically be moved to the `Done` column for you
    when you close the issue or merge the pull request -
    which is very convenient and can save you some project management time.
+9. Finally, you can change the way you view your project by adding another view. 
+For example, we can add a Table view to our Board view by clicking the `New button`
+and selecting it from the drop down menu.
+![Add another project view](../fig/github-project-add-view.png){: .image-with-shadow width="800px"}
 
 > ## Exercise: Working With Projects
 > Spend a few minutes planning what you want to do with your project as a bigger chunk of work
