@@ -130,19 +130,20 @@ either as a whole or in terms of its individual functions.
 Now that we know what goals we should aspire to, let us take a critical look at the code in our 
 software project and try to identify ways in which it can be improved. 
 
-Our software project contains a branch `full-data-analysis` with code for a new feature of our 
-inflammation analysis software. Recall that you can see all your branches as follows:
+Our software project contains a pre-existing branch `full-data-analysis` which contains code for a new feature of our 
+inflammation analysis software, which we'll consider as a contribution by another developer.
+Recall that you can see all your branches as follows:
 
 ~~~
 $ git branch --all
 ~~~
 {: .language-bash}
 
-Let's checkout a new local branch from the `full-data-analysis` branch, making sure we
-have saved and committed all current changes before doing so.
+Once you have saved and committed any current changes,
+checkout this `full-data-analysis` branch:
 
 ~~~
-git checkout -b full-data-analysis
+git checkout full-data-analysis
 ~~~
 {: .language-bash}
 
@@ -161,20 +162,25 @@ calculates and compares standard deviation across all the data by day and finaly
 > Critically examine the code in `analyse_data()` function in `compute_data.py` file. 
 > 
 > In what ways does this code not live up to the ideal properties of 'good' code?
-> Think about ways in which you find it hard to understand.
+> Think about ways in which you find it hard to read and understand.
 > Think about the kinds of changes you might want to make to it, and what would
-> make making those changes challenging.
+> make those changes challenging.
+> 
 >> ## Solution
+>>
 >> You may have found others, but here are some of the things that make the code
 >> hard to read, test and maintain.
 >>
 >> * **Hard to read:** everything is implemented in a single function. 
 >> In order to understand it, you need to understand how file loading works at the same time as 
 >> the analysis itself.
+>> * **Hard to read:** using the `--full-data-analysis` flag changes the meaning of the `infiles` argument
+>> to indicate a single data directory, instead of a set of data files, which may cause confusion.
 >> * **Hard to modify:** if you wanted to use the data for some other purpose and not just 
->> plotting the graph you would have to change the `data_analysis()` function.
->> * **Hard to modify or test:** it is always analysing a fixed set of CSV data files 
->> stored on a disk.
+>> plotting the graph you would have to change the `analysis_data()` function.
+>> * **Hard to modify or test:** it only analyses a set of CSV data files 
+>> matching a very particular hardcoded `inflammation*.csv` pattern, which seems an unreasonable assumption.
+>> What if someone wanted to use files which don't match this naming convention?
 >> * **Hard to modify:** it does not have any tests so we cannot be 100% confident the code does 
 >> what it claims to do; any changes to the code may break something and it would be harder and 
 >> more time-consuming to figure out what.

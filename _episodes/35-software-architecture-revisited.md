@@ -72,19 +72,19 @@ how you should structure your code.
 >>
 >> ```python
 >> if args.full_data_analysis:
->>   _, extension = os.path.splitext(InFiles[0])
->>   if extension == '.json':
->>     data_source = JSONDataSource(os.path.dirname(InFiles[0]))
->>   elif extension == '.csv':
->>     data_source = CSVDataSource(os.path.dirname(InFiles[0]))
->>   else:
->>     raise ValueError(f'Unsupported file format: {extension}')
->>   data_result = analyse_data(data_source)
->>   graph_data = {
->>     'standard deviation by day': data_result,
->>   }
->>   views.visualize(graph_data)
->>   return
+>>     _, extension = os.path.splitext(infiles[0])
+>>     if extension == '.json':
+>>         data_source = JSONDataSource(os.path.dirname(infiles[0]))
+>>     elif extension == '.csv':
+>>         data_source = CSVDataSource(os.path.dirname(infiles[0]))
+>>     else:
+>>         raise ValueError(f'Unsupported file format: {extension}')
+>>     data_result = analyse_data(data_source)
+>>     graph_data = {
+>>         'standard deviation by day': data_result,
+>>     }
+>>     views.visualize(graph_data)
+>>     return
 >> ```
 >> Note that this is, more or less, the change we did to write our regression test.
 >> This demonstrates that splitting up Model code from View code can
