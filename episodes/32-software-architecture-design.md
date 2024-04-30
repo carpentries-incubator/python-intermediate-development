@@ -143,7 +143,7 @@ Once you have saved and committed any current changes,
 checkout this `full-data-analysis` branch:
 
 ~~~
-git checkout full-data-analysis
+git switch full-data-analysis
 ~~~
 {: .language-bash}
 
