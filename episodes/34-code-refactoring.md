@@ -193,8 +193,8 @@ be harder to test but, when simplified like this, may only require a handful of 
 > The pure function should take in the data, and return the analysis result, as follows:
 > ```python
 > def compute_standard_deviation_by_day(data):
->   # TODO
->   return daily_standard_deviation
+>     # TODO
+>     return daily_standard_deviation
 > ```
 >> ## Solution
 >> The analysis code will be refactored into a separate function that may look something like:
@@ -208,23 +208,23 @@ be harder to test but, when simplified like this, may only require a handful of 
 >> ```
 >> The `analyse_data()` function now calls the `compute_standard_deviation_by_day()` function, 
 >> while keeping all the logic for reading the data, processing it and showing it in a graph:
->>```python
->>def analyse_data(data_dir):
->>    """Calculates the standard deviation by day between datasets.
->>    Gets all the inflammation data from CSV files within a directory, works out the mean
->>    inflammation value for each day across all datasets, then visualises the
->>    standard deviation of these means on a graph."""
->>    data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
->>    if len(data_file_paths) == 0:
->>        raise ValueError(f"No inflammation csv's found in path {data_dir}")
->>    data = map(models.load_csv, data_file_paths)
->>    daily_standard_deviation = compute_standard_deviation_by_day(data)
+>> ```python
+>> def analyse_data(data_dir):
+>>     """Calculates the standard deviation by day between datasets.
+>>     Gets all the inflammation data from CSV files within a directory, works out the mean
+>>     inflammation value for each day across all datasets, then visualises the
+>>     standard deviation of these means on a graph."""
+>>     data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
+>>     if len(data_file_paths) == 0:
+>>         raise ValueError(f"No inflammation csv's found in path {data_dir}")
+>>     data = map(models.load_csv, data_file_paths)
+>>     daily_standard_deviation = compute_standard_deviation_by_day(data)
 >>
->>    graph_data = {
->>        'standard deviation by day': daily_standard_deviation,
->>    }
->>    # views.visualize(graph_data)
->>    return daily_standard_deviation
+>>     graph_data = {
+>>         'standard deviation by day': daily_standard_deviation,
+>>     }
+>>     # views.visualize(graph_data)
+>>     return daily_standard_deviation
 >>```
 >> Make sure to re-run the regression test to check this refactoring has not
 >> changed the output of `analyse_data()`.
@@ -252,17 +252,17 @@ from CSV to JSON, the bulk of the tests need not be updated
 >> You might have thought of more tests, but we can easily extend the test by parametrizing
 >> with more inputs and expected outputs:
 >> ```python
->>@pytest.mark.parametrize('data,expected_output', [
->>    ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
->>    ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
->>    ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
->>],
->>ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
->>def test_compute_standard_deviation_by_day(data, expected_output):
->>    from inflammation.compute_data import compute_standard_deviation_by_data
+>> @pytest.mark.parametrize('data,expected_output', [
+>>     ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
+>>     ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
+>>     ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
+>> ],
+>> ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
+>> def test_compute_standard_deviation_by_day(data, expected_output):
+>>     from inflammation.compute_data import compute_standard_deviation_by_data
 >>
->>    result = compute_standard_deviation_by_data(data)
->>    npt.assert_array_almost_equal(result, expected_output)
+>>     result = compute_standard_deviation_by_data(data)
+>>     npt.assert_array_almost_equal(result, expected_output)
 ```
 > {: .solution}
 {: .challenge}
