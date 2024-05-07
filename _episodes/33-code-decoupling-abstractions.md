@@ -62,29 +62,46 @@ Data loading is a functionality separate from data analysis, so firstly
 let's decouple the data loading part into a separate component (function).
 
 > ## Exercise: Decouple Data Loading from Data Analysis
-> Separate out the data loading functionality from `analyse_data()` into a new function 
-> `load_inflammation_data()` that returns a list of 2D NumPy arrays with inflammation data 
+> 
+> Modify `compute_data.py` to separate out the data loading functionality from `analyse_data()` into a new function 
+> `load_inflammation_data()`, that returns a list of 2D NumPy arrays with inflammation data 
 > loaded from all inflammation CSV files found in a specified directory path.
+> Then, change your `analyse_data()` function to make use of this new function instead.
+> 
 >> ## Solution
+>>
 >> The new function `load_inflammation_data()` that reads all the inflammation data into the 
 >> format needed for the analysis could look something like:
+>.
 >> ```python
 >> def load_inflammation_data(dir_path):
->>   data_file_paths = glob.glob(os.path.join(dir_path, 'inflammation*.csv'))
->>   if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation CSV files found in path {dir_path}")
->>   data = map(models.load_csv, data_file_paths) #load inflammation data from each CSV file
->>   return list(data) #return the list of 2D NumPy arrays with inflammation data
+>>     data_file_paths = glob.glob(os.path.join(dir_path, 'inflammation*.csv'))
+>>     if len(data_file_paths) == 0:
+>>         raise ValueError(f"No inflammation CSV files found in path {dir_path}")
+>>     data = map(models.load_csv, data_file_paths) # Load inflammation data from each CSV file
+>>     return list(data) # Return the list of 2D NumPy arrays with inflammation data
 >> ```
->> This function can now be used in the analysis as follows:
+>> 
+>> The new function `analyse_data()` could then look like:
+>>
 >> ```python
 >> def analyse_data(data_dir):
->>   data = load_inflammation_data(data_dir)
->>   daily_standard_deviation = compute_standard_deviation_by_data(data)
->>   ...
+>>     data = load_inflammation_data(data_dir)
+>> 
+>>     means_by_day = map(models.daily_mean, data)
+>>     means_by_day_matrix = np.stack(list(means_by_day))
+>> 
+>>     daily_standard_deviation = np.std(means_by_day_matrix, axis=0)
+>> 
+>>     graph_data = {
+>>         'standard deviation by day': daily_standard_deviation,
+>>     }
+>>     views.visualize(graph_data)
 >> ```
+>> 
 >> The code is now easier to follow since we do not need to understand the data loading part
 >> to understand the statistical analysis part, and vice versa.
+>> In most cases, functions work best when they are short!
 > {: .solution}
 {: .challenge}
 
@@ -185,13 +202,12 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >> At the end of this exercise, the code in the `analyse_data()` function should look like:
 >> ```python
 >> def analyse_data(data_source):
->>   data = data_source.load_inflammation_data()
->>   daily_standard_deviation = compute_standard_deviation_by_data(data)
->>   ...
+>>     data = data_source.load_inflammation_data()
+>>     ...
 >> ```
 >> The controller code should look like:
 >> ```python
->> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> data_source = CSVDataSource(os.path.dirname(infiles[0]))
 >> analyse_data(data_source)
 >> ```
 > {: .solution}
@@ -200,33 +216,32 @@ In addition, implementation of the method `get_area()` is hidden too (abstractio
 >>
 >> ```python
 >> class CSVDataSource:
->>   """
->>   Loads all the inflammation CSV files within a specified directory.
->>   """
->>   def __init__(self, dir_path):
->>     self.dir_path = dir_path
+>>     """
+>>     Loads all the inflammation CSV files within a specified directory.
+>>     """
+>>     def __init__(self, dir_path):
+>>         self.dir_path = dir_path
 >>
->>   def load_inflammation_data(self):
->>     data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
->>     if len(data_file_paths) == 0:
->>       raise ValueError(f"No inflammation CSV files found in path {self.dir_path}")
->>     data = map(models.load_csv, data_file_paths)
->>     return list(data)
+>>     def load_inflammation_data(self):
+>>         data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
+>>         if len(data_file_paths) == 0:
+>>             raise ValueError(f"No inflammation CSV files found in path {self.dir_path}")
+>>         data = map(models.load_csv, data_file_paths)
+>>         return list(data)
 >> ```
 >> In the controller, we create an instance of CSVDataSource and pass it 
 >> into the the statistical analysis function.
 >>
 >> ```python
->> data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>> data_source = CSVDataSource(os.path.dirname(infiles[0]))
 >> analyse_data(data_source)
 >> ```
 >> The `analyse_data()` function is modified to receive any data source object (that implements 
 >> the `load_inflammation_data()` method) as a parameter.
 >> ```python
 >> def analyse_data(data_source):
->>   data = data_source.load_inflammation_data()
->>   daily_standard_deviation = compute_standard_deviation_by_data(data)
->>   ...
+>>     data = data_source.load_inflammation_data()
+>>     ...
 >> ```
 >> We have now fully decoupled the reading of the data from the statistical analysis and 
 >> the analysis is not fixed to reading from a directory of CSV files. Indeed, we can pass various 
@@ -364,11 +379,11 @@ data sources with no extra work.
 >> Additionally, in the controller we will need to select an appropriate DataSource instance to
 >> provide to the analysis:
 >>```python
->> _, extension = os.path.splitext(InFiles[0])
+>> _, extension = os.path.splitext(infiles[0])
 >> if extension == '.json':
->>   data_source = JSONDataSource(os.path.dirname(InFiles[0]))
+>>   data_source = JSONDataSource(os.path.dirname(infiles[0]))
 >> elif extension == '.csv':
->>   data_source = CSVDataSource(os.path.dirname(InFiles[0]))
+>>   data_source = CSVDataSource(os.path.dirname(infiles[0]))
 >> else:
 >>   raise ValueError(f'Unsupported data file format: {extension}')
 >> analyse_data(data_source)
