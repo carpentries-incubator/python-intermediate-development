@@ -360,29 +360,40 @@ to refer to the values from the matrix.
 So, our `.github/workflows/main.yml` should look like the following:
 
 ~~~
-...
+# Same key-value pairs as in "Defining Our Workflow" section
+name: CI
+on: push
+jobs:
+  build:
+
+    # Here we add the matrices definition:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
         python-version: ["3.10", "3.11"]
 
+    # Here we add the reference to the os matrix values
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
-...
-
-    # a job is a seq of steps
+    # Same key-value pairs as in "Defining Our Workflow" section
     steps:
 
-    # Next we need to checkout out repository, and set up Python
-    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
     - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
+        # Here we add the reference to the python-version matrix values
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-...
+    # Same steps as in "Defining Our Workflow" section
+    - name: Install Python dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install -r requirements.txt
+    - name: Test with PyTest
+      run: |
+        python3 -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
