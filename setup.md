@@ -209,7 +209,7 @@ from your clipboard into the box labelled "Key" (making sure it does not contain
 
 Now, we can check that the SSH connection is working:
 ~~~
-ssh -T git@github.com
+$ ssh -T git@github.com
 ~~~
 {: .language-bash}
 
