@@ -120,37 +120,49 @@ to check that the normalisation function is correct for some test data.
     ])
 def test_patient_normalise(test, expected):
     """Test normalisation works for arrays of one and positive integers.
-       Assumption that test accuracy of two decimal places is sufficient."""
+       Test with a relative and absolute tolerance of 0.01."""
     from inflammation.models import patient_normalise
-    npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+    result = patient_normalise(np.array(test))
+    npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 ~~~
 {: .language-python}
 
-Note that we are using the `assert_almost_equal()` Numpy testing function
+Note that we are using the `assert_allclose()` Numpy testing function
 instead of `assert_array_equal()`,
-since it allows us to test against values that are *almost* equal.
+since it allows us to test against values that are **close** to each other.
 This is very useful when we have numbers with arbitrary decimal places
 and are only concerned with a certain degree of precision,
-like the test case above,
-where we make the assumption that a test accuracy of two decimal places is sufficient.
+like the test case above.
+
+> ## Relative and absolute tolerance
+> **Relative tolerance** in unit testing means that the acceptable difference between the expected and actual results 
+> depends on the size of the expected result itself. So, if your expected result is 100, 
+> a relative tolerance of 0.1 (or 10%) means the actual result can be anywhere from 90 to 110 and still be considered correct.
+> 
+> **Absolute tolerance**, on the other hand, 
+> sets a fixed allowable difference regardless of the magnitude of the expected result. 
+> For example, if you set an absolute tolerance of 5, 
+> it means the actual result can be within 5 units of the expected result, 
+> regardless of whether the expected result is 10 or 1000.
+{: .callout}
 
 Run the tests again using `python -m pytest tests/test_models.py`
 and you will note that the new test is failing,
 with an error message that does not give many clues as to what went wrong.
 
 ~~~
-E       AssertionError:
-E       Arrays are not almost equal to 2 decimals
+E           AssertionError:
+E           Not equal to tolerance rtol=0.01, atol=0.01
 E
-E       Mismatched elements: 6 / 9 (66.7%)
-E       Max absolute difference: 0.57142857
-E       Max relative difference: 1.345
-E        x: array([[0.14, 0.29, 0.43],
-E              [0.5 , 0.62, 0.75],
-E              [0.78, 0.89, 1.  ]])
-E        y: array([[0.33, 0.67, 1.  ],
-E              [0.67, 0.83, 1.  ],
-E              [0.78, 0.89, 1.  ]])
+E           Mismatched elements: 6 / 9 (66.7%)
+E           Max absolute difference: 0.57142857
+E           Max relative difference: 0.57356077
+E            x: array([[0.142857, 0.285714, 0.428571],
+E                  [0.5     , 0.625   , 0.75    ],
+E                  [0.777778, 0.888889, 1.      ]])
+E            y: array([[0.33, 0.67, 1.  ],
+E                  [0.67, 0.83, 1.  ],
+E                  [0.78, 0.89, 1.  ]])
 
 tests/test_models.py:53: AssertionError
 ~~~
@@ -407,7 +419,7 @@ due to the division by zero as we predicted.
 
 ~~~
 E           AssertionError:
-E           Arrays are not almost equal to 2 decimals
+E           Not equal to tolerance rtol=0.01, atol=0.01
 E
 E           x and y nan location mismatch:
 E            x: array([[nan, nan, nan],
@@ -489,7 +501,8 @@ def patient_normalise(data):
 > > def test_patient_normalise(test, expected):
 > >     """Test normalisation works for arrays of one and positive integers."""
 > >     from inflammation.models import patient_normalise
-> >     npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+> >     result = patient_normalise(np.array(test))
+> >     npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 > > ...
 > > ~~~
 > > {: .language-python}
@@ -569,11 +582,14 @@ but of an inappropriate value.
 def test_patient_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers."""
     from inflammation.models import patient_normalise
+        
     if expect_raises is not None:
         with pytest.raises(expect_raises):
-            npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+            result = patient_normalise(np.array(test))
+            npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
     else:
-        npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+        result = patient_normalise(np.array(test))
+        npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 ~~~
 {: .language-python}
 
@@ -651,14 +667,17 @@ Be sure to commit your changes so far and push them to GitHub.
 > >         test = np.array(test)
 > >     if expect_raises is not None:
 > >         with pytest.raises(expect_raises):
-> >             npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
+> >           result = patient_normalise(test)
+> >           npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
+> >
 > >     else:
-> >         npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
+> >         result = patient_normalise(test)
+> >         npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 > > ...
 > > ~~~
 > >
 > > Note the conversion from `list` to `np.array` has been moved
-> > out of the call to `npt.assert_almost_equal()` within the test function,
+> > out of the call to `npt.assert_allclose()` within the test function,
 > > and is now only applied to list items (rather than all items).
 > > This allows for greater flexibility with our test inputs,
 > > since this wouldn't work in the test case that uses a string.
