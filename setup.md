@@ -207,7 +207,7 @@ SSH public key. Give your key a memorable name (e.g. the name of the computer yo
 private key counterpart), paste the public key 
 from your clipboard into the box labelled "Key" (making sure it does not contain any line breaks), then click the "Add SSH key" button.
 
-Now, we can check that the ssh connection is working:
+Now, we can check that the SSH connection is working:
 ~~~
 ssh -T git@github.com
 ~~~
