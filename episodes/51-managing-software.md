@@ -51,7 +51,7 @@ and click on the **Issues** tab.
 You should see a page listing the open issues on your repository -
 currently there should be none. 
 If you do not see the **Issues** tab, you must first enable it in the settings of your repository: 
-Go to the **Settings** tab, scroll down to the "Features" section and activate the checkmark on "Issues".
+go to the `Settings` tab, scroll down to the `Features` section and activate the checkmark on `Issues`.
 
 ![List of project issues in GitHub](../fig/github-issue-list.png){: .image-with-shadow width="1000px"}
 
