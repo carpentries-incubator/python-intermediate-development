@@ -47,10 +47,10 @@ GitHub provides **Issues** -
 a framework for managing bug reports, feature requests, and lists of future work.
 
 Go back to the home page for your `python-intermediate-inflammation` repository in GitHub,
-and click on the **Issues** tab. 
+and click on the `Issues` tab. 
 You should see a page listing the open issues on your repository -
 currently there should be none. 
-If you do not see the **Issues** tab, you must first enable it in the settings of your repository: 
+If you do not see the `Issues` tab, you must first enable it in the settings of your repository: 
 go to the `Settings` tab, scroll down to the `Features` section and activate the checkmark on `Issues`.
 
 ![List of project issues in GitHub](../fig/github-issue-list.png){: .image-with-shadow width="1000px"}
