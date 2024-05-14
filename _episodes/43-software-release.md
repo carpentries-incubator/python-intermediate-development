@@ -190,7 +190,7 @@ allowing us to distinguish between runtime and development dependencies.
 
 ~~~
 $ poetry add matplotlib numpy
-$ poetry add --dev pylint
+$ poetry add --group dev pylint
 $ poetry install
 ~~~
 {: .language-bash}
