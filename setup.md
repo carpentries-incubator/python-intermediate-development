@@ -207,6 +207,12 @@ SSH public key. Give your key a memorable name (e.g. the name of the computer yo
 private key counterpart), paste the public key 
 from your clipboard into the box labelled "Key" (making sure it does not contain any line breaks), then click the "Add SSH key" button.
 
+Now, we can check that the SSH connection is working:
+~~~
+$ ssh -T git@github.com
+~~~
+{: .language-bash}
+
 > ## What About Passwords?
 > While using passwords over HTTPS for authentication is easier to setup and will allow you *read access* to your repository on GitHub from your machine, 
 it alone is not sufficient any more to allow you to send changes or *write* to your remote repository on GitHub. This is because, 
