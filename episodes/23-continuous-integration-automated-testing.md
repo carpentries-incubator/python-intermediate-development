@@ -410,4 +410,25 @@ which potentially saves us a lot of time waiting for testing results.
 Overall, this approach allows us to massively scale our automated testing
 across platforms we wish to test.
 
+> ## Failed CI Builds
+> A CI build can fail when, e.g. a used Python package no longer supports a particular version of Python indicated in a
+> GitHub Actions CI build matrix. In this case, the solution is either to downgrade the package and not use the latest one,
+> or upgrade the Python version in the build matrix.
+>
+> Also notw that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
+> GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
+>
+>   >*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
+>
+> This can be changed by changing the `fail-fast` property:
+> ~~~
+> ...
+>    strategy:
+>      fail-fast: false
+>      matrix:
+> ...
+> ~~~
+{: .language-yaml}
+{: .callout}
+
 {% include links.md %}
