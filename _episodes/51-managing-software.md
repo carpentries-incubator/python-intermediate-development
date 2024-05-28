@@ -316,7 +316,7 @@ and see if they are suitable for your software development workflow.
 {: .callout}
 
 Let's have a quick look at how Projects are created in GitHub - we will not use them much in 
-this course but it is good to be aware of make use of them when suitable.
+this course but it is good to be aware of how to make use of them when suitable.
 
 1. From your GitHub account's home page (not your repository's home page!),
    select the "Projects" tab, then click the `New project` button on the right.
