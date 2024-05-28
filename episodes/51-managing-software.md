@@ -340,6 +340,7 @@ types/views that you customise yourself:
    which can be found by clicking the `...` button in the top right corner of the project.
 ![Project board setting in GitHub](../fig/github-project-settings.png){: .image-with-shadow width="800px"}
 ![Adding project description and metadata in GitHub](../fig/github-project-description.png){: .image-with-shadow width="800px"}
+   After adding a description, select `Save`.
 
 5. GitHub's default card board template contains
    the following three columns with pretty self-explanatory names:
