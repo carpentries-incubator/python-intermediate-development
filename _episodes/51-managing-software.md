@@ -334,7 +334,7 @@ types/views that you customise yourself:
   Regardless of which project type/view you select, you can easily switch to a different 
   project layout later on.
 
-3. For example, select the "Board" type for the project and fill in the name of your project - 
+3. For example, select the "Board" type for the project, fill in the name of your project
 e.g. "Inflammation project - release v0.1".
 4. After it is created, you should also populate the description of the project from the project's Settings,
    which can be found by clicking the `...` button in the top right corner of the project.
