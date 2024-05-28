@@ -306,7 +306,7 @@ plan and track your work effectively.
 We recommend you to have a look at [GitHub’s documentation on Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) 
 and see if they are suitable for your software development workflow.
 
-> ## GitHub Project are a Cross-Repository Management Tool
+> ## GitHub Projects are a Cross-Repository Management Tool
 > [Project in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 > are created on a user or organisation level,
 > i.e. they can span all repositories owned by a user or organisation in GitHub
