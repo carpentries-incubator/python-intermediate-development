@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
-## Intermediate Research Software Development Skills In Python Lesson
+## Intermediate Research Software Development Skills (Python)
 
 This is an intermediate-level course in collaborative research software engineering and development skills, 
 using Python as an example language. 
