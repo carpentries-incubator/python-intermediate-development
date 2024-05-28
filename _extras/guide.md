@@ -68,7 +68,7 @@ and would not require to code-along to the same extent as novice learners.
 In later stages, exercises require participants to develop code more individually
 so they can review and comment on each other's code,
 so the codes need to be sufficiently different for these exercises to be effective.
-For instrctor-led mode of delivery, you can have an instructor live-code these group exercises 
+For instructor-led mode of delivery, you can have an instructor live-code these group exercises 
 after learner have been given a chance to work on them as a team.
 
 A workshop kicks off with everyone together at the start of each day.
