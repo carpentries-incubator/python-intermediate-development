@@ -91,7 +91,7 @@ At the workshop, when using the "self-learning with helpers" delivery mode, ever
 there are no instructors per se.
 You may have more experienced helpers delivering introductions to the workshop and sections.
 Contact the course authors for section intro slides you can reuse, and you can also find slides for each 
-section in the course repository (for intructor-led delivery mode).
+section in the course repository (for instructor-led delivery mode).
 
 Roles and responsibilities of helpers include:
 
