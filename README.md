@@ -69,7 +69,7 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 
 Current maintainers of this lesson (in alphabetical order) are:
 
-* [Matthew Bluteau][matthew-bluteau] - Lead Maintainer for the period 1 May 2024 - 30 April 2024
+* [Matthew Bluteau][matthew-bluteau] - Lead Maintainer for the period 1 May 2024 - 31 October 2024
 * [Steve Crouch][steve-crouch]
 * [Kamilla Kopec-Harding][kamilla-kopec-harding]
 * [Doug Lowe][doug-lowe]

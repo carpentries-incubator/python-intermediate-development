@@ -360,29 +360,40 @@ to refer to the values from the matrix.
 So, our `.github/workflows/main.yml` should look like the following:
 
 ~~~
-...
+# Same key-value pairs as in "Defining Our Workflow" section
+name: CI
+on: push
+jobs:
+  build:
+
+    # Here we add the matrices definition:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
         python-version: ["3.10", "3.11"]
 
+    # Here we add the reference to the os matrix values
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
-...
-
-    # a job is a seq of steps
+    # Same key-value pairs as in "Defining Our Workflow" section
     steps:
 
-    # Next we need to checkout out repository, and set up Python
-    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
     - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
+        # Here we add the reference to the python-version matrix values
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-...
+    # Same steps as in "Defining Our Workflow" section
+    - name: Install Python dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install -r requirements.txt
+    - name: Test with PyTest
+      run: |
+        python3 -m pytest --cov=catchment.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
@@ -409,5 +420,26 @@ Note all jobs running in parallel (up to the limit allowed by our account)
 which potentially saves us a lot of time waiting for testing results.
 Overall, this approach allows us to massively scale our automated testing
 across platforms we wish to test.
+
+> ## Failed CI Builds
+> A CI build can fail when, e.g. a used Python package no longer supports a particular version of 
+> Python indicated in a GitHub Actions CI build matrix. In this case, the solution is either to 
+> upgrade the Python version in the build matrix (when possible) or downgrade the package version (and not use the latest one like we have been doing in this course).
+>
+> Also note that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
+> GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
+>
+>   >*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
+>
+> This behaviour can be controlled by changing the value of the `fail-fast` property:
+> ~~~
+> ...
+>    strategy:
+>      fail-fast: false
+>      matrix:
+> ...
+> ~~~
+{: .language-yaml}
+{: .callout}
 
 {% include links.md %}
