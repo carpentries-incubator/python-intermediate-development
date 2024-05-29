@@ -16,7 +16,7 @@ pip install -r slides/requirements.txt
 # launch jupyter from the top level of this repo, **not** in the slide
 # directory or else the relative figure links won't work
 jupyter-notebook
-# navigate to the slide file and edit
+# navigate to the slide file, open with notebook and edit.
 ```
 
 Use the RISE extension to Jupyter to view the slides.
