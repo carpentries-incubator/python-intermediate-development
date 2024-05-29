@@ -114,16 +114,16 @@ In later sections, exercises involve more group work and learners from the same 
 
 # How the lesson came to be
 
-The Software Sustainability Institute conducted an international RSE survey in 2018 as well as a series of internal interviews with the key RSE group leaders and 
-[Open Call reseach software projects](https://www.software.ac.uk/news/need-free-help-your-research-software-try-institutes-open-call-1) we supported with free 
-software development expertise and consultancy. 
-In terms of training, they all came back to us with a single feedback - what software engineering skills to learn next 
+The Software Sustainability Institute (SSI) conducted an international RSE survey in 2018 as well as a series of internal interviews with the key RSE group leaders and 
+[SSI's Open Call research software projects](https://www.software.ac.uk/news/need-free-help-your-research-software-try-institutes-open-call-1) we supported with free 
+software development expertise and consultancy, and asked them about the current training needs. 
+They all came back to us with a single feedback - what software engineering skills to learn next 
 after gaining foudnational computational skills via Software, Data or Library Carpentry and where to find such training resources.
 There was also a shift from working on research software development projects in isolation and solo towards working in teams and collaboratively, 
 as software is developed in industry, and how to learn those skills.
 
 Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch from the Software Sustainability Institute joined up to create this 
-course to fill on those gaps and started working on this course in late 2019.
+course to fill on those gaps and started working on this course in 2019.
 
 # Acknowledgements
 
