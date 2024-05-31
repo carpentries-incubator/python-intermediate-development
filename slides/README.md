@@ -15,13 +15,13 @@ python3 -m venv .venv  # it is important to use the dot prefix if you are creati
 pip install -r slides/requirements.txt 
 # launch jupyter from the top level of this repo, **not** in the slide
 # directory or else the relative figure links won't work
-jupyter-notebook
-# navigate to the slide file, open with notebook and edit.
+jupyter-notebook  # or `jupyter-lab`
+# navigate to the slide file, right click, "open with > notebook".
 ```
 
 Use the RISE extension to Jupyter to view the slides.
 This allows you to enter the slideshow from the Jupyter notebook web interface.
-There should be a button with a histogram on the Jupyter notebook toolbar
+There should be a "projector screen" button on the Jupyter notebook toolbar next to the kernel name
 (you might need to go to the 'View' menu to get the toolbar to show).
 Click the button, or press `Alt-r` to launch the RISE presentation view.
 Use spacebar to advance slides. Presenter view with `t`.
