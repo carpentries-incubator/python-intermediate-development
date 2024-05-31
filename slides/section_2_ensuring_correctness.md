@@ -56,6 +56,7 @@ jupyter:
   - Automated testing
     - Unit tests
     - Functional or integration tests
+    - End-to-end
     - Regression tests
 <!-- #endregion -->
 
@@ -117,7 +118,7 @@ Start from this section heading and go to the end of the page.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Breakout Exercise: 🖉 Parameterising Our Unit Tests
 
-Go through the whole content of this page starting from this section heading. In the last 5-7 minutes, please think about the question:
+Go through this page to the end, starting from this section heading. In the last 5-7 minutes, please think about the question:
 
 _Where can and might the input data and corresponding expected results come from for code you use in your usual work?_
 

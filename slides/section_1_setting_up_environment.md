@@ -17,7 +17,8 @@ jupyter:
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Intermediate Research Software Development in Python
+ 
+ # Intermediate Research Software Development in Python
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -487,7 +488,7 @@ Continue from this heading to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Python Coding Conventions
+## Python Code Style Conventions
 
 > "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” — Martin Fowler
 
@@ -507,7 +508,7 @@ Continue from this heading to the end of the page.
   - the important point is this: make sure whatever sytle you choose that it is consistent **within** a project, and if possible also across related projects
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Style in Different Languages and Tools
 
 - Python: PEP8

@@ -792,11 +792,10 @@ Time: 15min
 
 ## Exercise: Design a high-level architecture
 
-Sketch out a design for a new feature requested by a user
+Sketch out a design for something you have come up with or the current project.
 
-> “I want there to be a Google Drive folder that when I upload new inflammation data to the software automatically pulls it down and updates the analysis. The new result should be added to a database with a timestamp. An email should then be sent to a group email notifying them of the change.”
 
-Time: 15min
+Time: 10min
 
 <!-- #endregion -->
 
