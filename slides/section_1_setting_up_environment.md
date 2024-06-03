@@ -517,7 +517,7 @@ Continue from this heading to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this won't exist, so choose what seems best)
+- Unless you have particular requirements, it is best to go with a style guide that has the majority consensus for a particular language (albeit sometimes this won't exist, so choose what seems best)
   - In Python, this is PEP8
     - In PyCharm, adherance to PEP8 will automatically be checked and violations flagged for fixing (demonstrate this live)
     - VSCode can do the same thing with an extension. See the "Extras" section.

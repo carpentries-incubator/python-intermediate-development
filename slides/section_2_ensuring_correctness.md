@@ -199,7 +199,7 @@ Follow along from this section heading to the bottom of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - split learners into breakout rooms (~50 mins although likely less, so take a status check early) starting from this section heading and going to the end of the page
-  - if learners are using different editors, then encourage them to try and replicate the techique of debugging that is explained here
+  - if learners are using different editors, then encourage them to try and replicate the technique of debugging that is explained here
 - status check
 <!-- #endregion -->
 
