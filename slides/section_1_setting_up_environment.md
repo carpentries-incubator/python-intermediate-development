@@ -446,7 +446,7 @@ Start from this heading and go until the "Git Branches" heading.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Git Branches
 
-<center><img src="../fig/git-feature-branch.png"></center>
+<center><img src="../fig/git-feature-branch.svg"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
