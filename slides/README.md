@@ -19,6 +19,9 @@ jupyter-notebook  # or `jupyter-lab`
 # navigate to the slide file, right click, "open with > notebook".
 ```
 
+> Note: we have had mixed success with both `jupyter-notebook` and `jupyter-lab`.
+> Try the other if one isn't working for you.
+
 Use the RISE extension to Jupyter to view the slides.
 This allows you to enter the slideshow from the Jupyter notebook web interface.
 There should be a "projector screen" button on the Jupyter notebook toolbar next to the kernel name
