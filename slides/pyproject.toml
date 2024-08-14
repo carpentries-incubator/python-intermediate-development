@@ -1,0 +1,2 @@
+[tool.jupytext]
+notebook_metadata_filter = "-kernelspec,-jupytext.text_representation.jupytext_version,rise,celltoolbar"

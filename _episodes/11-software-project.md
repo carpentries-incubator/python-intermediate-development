@@ -20,6 +20,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Patient Inflammation Study Project
+
 You have joined a software development team that has been working on the
 [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
 developed in Python and stored on GitHub.

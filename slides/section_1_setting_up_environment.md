@@ -2,16 +2,11 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    notebook_metadata_filter: rise,celltoolbar
+    notebook_metadata_filter: -kernelspec,-jupytext.text_representation.jupytext_version,rise,celltoolbar
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
   rise:
     theme: solarized
 ---
@@ -451,7 +446,7 @@ Start from this heading and go until the "Git Branches" heading.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Git Branches
 
-<center><img src="../fig/git-feature-branch.png"></center>
+<center><img src="../fig/git-feature-branch.svg"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->

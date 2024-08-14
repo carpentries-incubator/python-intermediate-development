@@ -17,10 +17,11 @@ vendor/
 .docker-vendor/
 Gemfile.lock
 tmp/
-.venv/
 venv/
 .venv/
 .*history
 .tool-versions
 .vscode/
 .ruby-version
+slides/*.ipynb
+slides/*.html
