@@ -122,6 +122,10 @@ Roles and responsibilities of helpers include:
 - Helping students get through the material
   but also being ready to answer questions on applying the material in learners’ domains,
   if possible
+- Monitoring the progress of students
+  - get up every now and then and do a walk around the room, look at stickies and have a peak at
+    computer screens (particularly if the session is running a bit behind)
+  - ask any learners that you might have helped previously how they are getting on
 
 ### Group Exercises
 
