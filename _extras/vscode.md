@@ -18,11 +18,28 @@ in the VS Code sidebar:
 
 ![VS Code application window with the Extensions button highlighted](../fig/vs-code-extensions.png){: .image-with-shadow width="800px" }
 
-In the search box, type "python" and select the Intellisense Python extension by Microsoft, 
-then click the "Install" button to install the extension. You may be asked to reload the VS Code IDE for the changes 
-to take effect.
+In the search box, type "python" and select the Intellisense Python extension by Microsoft,
+then click the "Install" button to install the extension.
+You may be asked to reload the VS Code IDE for the changes to take effect.
 
 ![VS Code application with the list of extensions found by search term "python"](../fig/vs-code-python-extension.png){: .image-with-shadow width="800px" }
+
+### Using VS Code with Windows Subsystem for Linux
+
+If you plan to do this course and your development generally in [WSL (Windows Subsystem for Linux)][wsl],
+then it is a good idea to make sure that VS Code connects properly to WSL.
+In your WSL terminal, navigate to the project folder for this course and execute the command
+
+```bash
+code .
+```
+
+This should launch VS Code in a way that ensures it performs most operations within WSL.
+To do this, the [WSL - Remote extension][vscode-wsl-extension]
+for VS Code should automatically be installed.
+If this doesn't happen, please install the extension manually.
+You can also launch WSL sessions from VS Code itself using the
+[instructions on the extension page.][vscode-wsl-extension-launch-options]
 
 ## Using the VS Code IDE
 
@@ -175,3 +192,8 @@ When clicking on a test you will see two icons,
 the ordinary Run/Play icon, and a Run/Play icon with a bug.
 The latter allows you to run the tests in debug mode
 useful for obtaining further information as to why a failure has occurred - this will be covered in the main lesson material.
+
+
+[vscode-wsl-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[vscode-wsl-extension-launch-options]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl#commands
+[wsl]: https://learn.microsoft.com/en-us/windows/wsl/about
