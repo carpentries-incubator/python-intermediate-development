@@ -12,7 +12,7 @@ jupyter:
     theme: solarized
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 # Section 3: Software Development as a Process
 
 </br>
@@ -25,7 +25,7 @@ jupyter:
 - We are going to step up a level and look at the overall process of developing software
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Writing Code versus Engineering Software
 
 - Software is _not_ just a tool for answering a research question
@@ -37,7 +37,7 @@ jupyter:
   - Software can be reused 🔁
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 - Software is _not_ just a tool for answering a research question
   - Software is shared frequently between researchers and _reused_ after publication
   - Therefore, we need to be concerned with more than just the implementation, i.e. "writing code"
@@ -48,7 +48,7 @@ jupyter:
   - Software can be reused: like with stakeholders, it is hard to predict how the software will be used in the future, and we want to make it easy for reuse to happen
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Software Development Lifecycle
 
 <center><img src="../fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
@@ -56,7 +56,7 @@ jupyter:
 <a href="https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg">Cliffydcw</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 The typical stages of a software development process can be categorised as follows:
 
 - Requirements gathering (coming up next): the process of identifying and recording the exact requirements for a software project before it begins. This helps maintain a clear direction throughout development, and sets clear targets for what the software needs to do.
@@ -92,15 +92,15 @@ There is value we get from following some sort of process:
   3. solution requirements: the how
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Breakout: Reading and Exercises
 
 Read from the top of the "Software Requirements" page and do the exercises as you go.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 If you are using a shared document, you could have sections for each of the
-requirement types and get learners to write their suggestions in their.
+requirement types and get learners to write their suggestions in there.
 Afterwards, you could go through some of the suggestions and see whether there
 is agreement about whether they have been categorised correctly.
 <!-- #endregion -->
@@ -168,15 +168,17 @@ There is a limit (and it is low!)
 
 Reduce cognitive load for a bit of code by:
 
- * Good variable names
+ * Good variable names: `toroidal_magnetic_field` much better than `btor`
  * Simple control flow
  * Functions doing one thing
+ * Good abstractions (next slide!)
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-Good variable names - give examples
-Simple control flow - explain means not lots of nesting if statement
+Good variable names - we not longer have punch card restrictions, so use more descriptive names!
+
+Simple control flow - explain means not lots of nesting if statement or for loops
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -188,8 +190,13 @@ An **abstraction** hides the details of one part of a system from another.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-Give some examples of abstractions
-Maybe ask for people to think of ideas of abstractions in the real world?
+Give some examples of abstractions, or maybe ask for people to think of ideas of abstractions in the real world?
+
+Examples:
+
+- A brake pedal in a car: we don't need to know the exact mechanism by which the car slows down, so that implementation has been "abstracted" away from the car user
+- Similarly, a light switch is an abstraction: we don't need to know what happens with the wiring and flow of electricity in order to understand that one side means the light will be on and vice versa
+- human society is full of things like these...
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -244,6 +251,10 @@ When making a change to a piece of software, do the following:
 Rest of section we will learn how to refactor an existing piece of code
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+In the process of refactoring, we will try to target some of the "good practices we just talked about, like making good abstractions and reducing cognitive load.
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
 ## Refactoring Exercise
@@ -251,7 +262,7 @@ Rest of section we will learn how to refactor an existing piece of code
 Look at `inflammation/compute_data.py`
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Bring up the code
 
 Explain the feature:
@@ -260,7 +271,7 @@ In it, if the user adds --full-data-analysis then the program will scan the dire
 The main body of it exists in inflammation/compute_data.py in a function called analyse_data.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
 ## Exercise: why isn't this code maintainable?
 
@@ -275,11 +286,15 @@ Maintainable code should be:
 Time: 5min
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Solution:
+
 Hard to read: Everything is in a single function - reading it you have to understand how the file loading works at the same time as the analysis itself.
+
 Hard to modify: If you want to use the data without using the graph you’d have to change it
+
 Hard to modify or test: It is always analysing a fixed set of data stored on the disk
+
 Hard to modify: It doesn’t have any tests meaning changes might break something
 <!-- #endregion -->
 
@@ -310,10 +325,13 @@ Functions that just do one thing are:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 We identified last episode that the code has a function that does many more than one thing
+
 Hard to understand - high cognitive load
+
 Hard to test as mixed lots of different things together
+
 Hard to reuse as was very fixed in its behaviour.
 <!-- #endregion -->
 
@@ -342,7 +360,7 @@ but we will remove them in the end.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Exercise: Write a Regression Test for Analyse Data Before Refactoring
 
-Add a new test file called `test_compute_data.py` in the tests folder.
+Add a new test file called `test_compute_data.py` in the tests folder. There is more information on the relevant web page.
 Complete the regression test to verify the current output of analyse_data is unchanged by the refactorings we are going to do.
 
 Time: 10min
@@ -372,12 +390,13 @@ There will be no side effects from running the function
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Externalities like what is in a database or the time of day
+
 Side effects like modifying a global variable or writing a file
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Pure Functions
 
 Pure functions have a number of advantages for maintainable code:
@@ -387,7 +406,7 @@ Pure functions have a number of advantages for maintainable code:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Refactor Code into a Pure Function
 
 Refactor the analyse_data function into a pure function with the logic, and an impure function that handles the input and output. The pure function should take in the data, and return the analysis results:
@@ -402,7 +421,7 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Testing Pure Functions
 
 Pure functions are also easier to test
@@ -437,7 +456,7 @@ Python, and other languages, provide features that make it easier to write "func
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 If there is time - do some live coding to show imperative code, then transform into a pipeline:
 
  * Sequence of numbers
@@ -446,34 +465,39 @@ If there is time - do some live coding to show imperative code, then transform i
  * Add them together
 
 
-```
-def is_even(number):
-  return number % 2 == 0
-
+```python
+# Imperative
 numbers = range(1, 100)
 total = 0
 for number in numbers:
-  if is_even(number):
-    squared = number ** 2
-    total += squared
+    if number % 2 == 0:
+        squared = number**2
+        total += squared
 
-evens = filter(is_even, numbers)
-squared_evens = map(lambda number: number ** 2, evens)
-total = reduce(lambda number, total: total + number, squared_evens)
-# OR sum(squared_evens)
+
+# Functional
+def is_even(number):
+    return number % 2 == 0
+
+
+def squared(number):
+    return number**2
+
+
+total = sum(map(squared, filter(is_even, numbers)))
 ```
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 ## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 ## Using Classes to Decouple Code
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Decoupled Code
 
 When thinking about code, we tend to think of it in distinct parts or **units**.
@@ -482,25 +506,27 @@ Two units are **decoupled** if changes in one can be made independently of the o
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 E.g we have the part that loads a file and the part that draws a graph
+
 Or the part that the user interacts with and the part that does the calculations
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Decoupled Code
 
 Abstractions allow decoupling code
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 When we have a suitable abstraction, we don't need to worry about the inner workings of the other part
+
 For example break of a car, the details of how to slow down are abstracted, so when we change how
 breaking works, we don't need to retrain the driver.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Exercise: Decouple the File Loading from the Computation
 
 Currently the function is hard coded to load all the files in a directory.
@@ -511,17 +537,37 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Decoupled... but not completely
+
+Although we have separated out the data loading, we there is still an assumption and therefore coupling in terms of the format of that data (in this case CSV).
+
+Is there a way we could make this more flexible?
+<!-- #endregion -->
+
+<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+- The format of the data stored is a practical detail which we don't want to limit the use of our `analyse_data()` function
+- We could add an argument to our function to specify the format, but then we might have quite a long conditional list of all the different possible formats, and the user would need to request changes to `analyse_data()` any time they want to add a new format
+- Is there a way we can let the user more flexibly specify the way in which their data gets read?
+<!-- #endregion -->
+
+<!-- #region editable=true slideshow={"slide_type": "fragment"} -->
+One way is with **classes**!
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Python Classes
 
-A **class** is a Python feature that allows grouping methods with some data.
+A **class** is a Python feature that allows grouping methods (i.e. functions) with some data.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Do some live coding, ending with:
 
-```
+```python
+import math
+
 class Circle:
   def __init__(self, radius):
     self.radius = radius
@@ -535,12 +581,12 @@ print(my_circle.get_area())
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Exercise: Use a Class to Configure Loading
 
 Put the `load_inflammation_data` function we wrote in the last exercise as a member method of a new class called `CSVDataSource`.
 
-Put the configuration of where to load the files in the classes constructor.
+Put the configuration of where to load the files in the classes initialiser.
 
 Once this is done, you can construct this class outside the the statistical analysis and pass the instance in to analyse_data.
 
@@ -548,21 +594,21 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Interfaces
 
 **Interfaces** describe how different parts of the code interact with each other.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 For example, the interface of the breaking system in a car, is the break pedal.
 The user can push the pedal harder or softer to get more or less breaking.
 The interface of our circle class is the user can call get_area to get the 2D area of the circle
 as a number.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Interfaces
 
 Question: what is the interface for CSVDataSource
@@ -585,21 +631,23 @@ class CSVDataSource:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Suggest discuss in groups for 1min.
+
+Answer: the interface is the signature of the `load_inflammation_data()` method, i.e. what arguments it takes and what it returns.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Common Interfaces
 
 If we have two classes that share the same interface, we can use the interface without knowing which class we have
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Easiest shown with an example, lets do more live coding:
 
-```
+```python
 class Rectangle(Shape):
   def __init__(self, width, height):
     self.width = width
@@ -615,7 +663,7 @@ total_area = sum(shape.get_area() for shape in my_shapes)
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Polymorphism
 
 Using an interface to call different methods is a technique known as **polymorphism**.
@@ -624,18 +672,22 @@ A form of abstraction - we've abstracted what kind of shape we have.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Exercise: Introduce an alternative implementation of DataSource
 
-Polymorphism is very useful - suppose we want to read JSON.
+Polymorphism is very useful - suppose we want to read a JSON (JavaScript Object Notation) file.
 
 Write a class that has the same interface as `CSVDataSource` that
 loads from JSON.
 
-There is a function in models.py that loads from JSON.
+There is a function in `models.py` that loads from JSON.
 
 Time: 15min
 
+<!-- #endregion -->
+
+<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+Remind learners to check the course webpage for further details and some important hints.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -645,11 +697,11 @@ Another use of polymorphism is **mocking** in tests.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 
 Lets live code a mock shape:
 
-```
+```python
 from unittest.mock import Mock
 
 def test_sum_shapes():
@@ -667,11 +719,11 @@ def test_sum_shapes():
 
 Easier to read this test as don't need to understand how
 get_area might work for a real shape.
-Focus on testing what we're testing
+Focus on testing what behaviour rather than implementation.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Exercise: Test Using a Mock Implementation
 
 Complete the exercise to write a mock data source for `analyse_data`.
@@ -680,7 +732,7 @@ Time: 15min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
 ## Object Oriented Programming
 
