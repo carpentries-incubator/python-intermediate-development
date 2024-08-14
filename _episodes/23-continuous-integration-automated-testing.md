@@ -201,7 +201,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Python 3.11
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.11"
 
@@ -370,7 +370,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.10", "3.11", "3.12"]
 
     # Here we add the reference to the os matrix values
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
@@ -382,7 +382,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         # Here we add the reference to the python-version matrix values
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
