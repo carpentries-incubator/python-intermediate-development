@@ -78,6 +78,7 @@ In addition, a short intro to the section topics is provided on each day,
 to explain what the students will be learning and doing on that particular day.
 After that, participants are split into groups
 and go through the materials for that day on their own with helpers on hand.
+Each section holds optional exercises at the end for fast learners to go through if they finish early.
 At the end of each section, all reconvene for a joint Q&A session, feedback and wrap-up.
 If participants have not finished all exercises for a section,
 they are asked to finish them off before the next section starts
