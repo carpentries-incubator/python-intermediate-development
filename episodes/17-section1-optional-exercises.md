@@ -14,6 +14,12 @@ This episode holds some optional exercises for section 1.
 The exercises have an explorative nature, so see what you like to explore.
 For the remainder of the lesson we recommend sticking with the tools that were introduced in this section.
 
+> ## Exercise: Apply to your own project(s)
+> Apply what you learned in this section to your own project(s). 
+> This is the time to ask any questions to our instructors or let us help you solve problems that you run into.
+> 
+{: .challenge}
+
 > ## Exercise: Try out different Integrated Development Environments
 > Install different Integrated Development Environments (IDEs) and thest them out.
 > Which one do you like the most and why?
@@ -45,10 +51,10 @@ For the remainder of the lesson we recommend sticking with the tools that were i
 >
 >> ## Solution
 >> ### By passing an argument to `pylint` in the command line
->> Specify the max line length as an argument: `pylint --max-line-length=100
+>> Specify the max line length as an argument: `pylint --max-line-length=100`
 >>
 >> ### Using a configuration file
->> You can create .pylintrc file in your python script to overwrite pylint settings and put inside
+>> You can create a file `.pylintrc` in the root of your project folder to overwrite pylint settings:
 >> ```
 >> [FORMAT]
 >> max-line-length=100
