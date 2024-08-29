@@ -772,7 +772,7 @@ Then we can just add this to our repo and trigger a build:
 ~~~
 $ git add .github/workflows/main.yml
 $ git commit -m "Add Pylint run to build"
-$ git push origin test-suite
+$ git push origin pylint-ci
 ~~~
 {: .language-bash}
 
