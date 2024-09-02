@@ -47,7 +47,9 @@ we still recommend sticking with the tools that were introduced prior to this ep
 > ## Exercise: Try out different virtual environment managers
 > So far we used `venv`, but there are other virtual environment managers for Python:
 > - [Poetry](https://python-poetry.org/).
-> - [conda (part of Anaconda Distribution)](https://www.anaconda.com/download)
+> - conda, which is part of [Anaconda Distribution)](https://www.anaconda.com/download). 
+> Anaconda is widely used in academia, but the current license does not allow use for research in most circumstances. 
+> An open-source alternative is [mini-forge](https://github.com/conda-forge/miniforge).
 > 
 {: .challenge}
 
