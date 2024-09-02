@@ -11,8 +11,10 @@ keypoints:
 ---
 
 This episode holds some optional exercises for section 2. 
-The exercises have an explorative nature, so see what you like to explore.
-For the remainder of the lesson we recommend sticking with the tools that were introduced in this section.
+The exercises have an explorative nature, so feel free to go off in any direction that interests you.
+You will be looking at some tools that either complement or are alternatives to those already introduced.
+Even if you find something that you really like,
+we still recommend sticking with the tools that were introduced prior to this episode when you move onto other sections of the course.
 
 > ## Exercise: Apply to your own project(s)
 > Apply what you learned in this section to your own project(s). 
