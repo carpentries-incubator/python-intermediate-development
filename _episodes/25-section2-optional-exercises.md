@@ -24,7 +24,8 @@ we still recommend sticking with the tools that were introduced prior to this ep
 
 > ## Exercise: Branch coverage versus line coverage
 > For your test coverage, have a look at the concept of 
-> [branch coverage](https://about.codecov.io/blog/line-or-branch-coverage-which-type-is-right-for-you/) as opposed to just line coverage. 
+> [branch coverage](https://about.codecov.io/blog/line-or-branch-coverage-which-type-is-right-for-you/)
+> as opposed to just line coverage. 
 > Which do you prefer and why?
 > 
 {: .challenge}
