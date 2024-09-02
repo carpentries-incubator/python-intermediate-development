@@ -18,7 +18,9 @@ we still recommend sticking with the tools that were introduced prior to this ep
 
 > ## Exercise: Apply to your own project(s)
 > Apply what you learned in this section to your own project(s). 
-> This is the time to ask any questions to our instructors or let us help you solve problems that you run into.
+> You can think of adding unit tests, add continuous integration pipelines, 
+> or measure the test coverage of your project(s)
+> This is the time to ask any questions to your instructors or helpers.
 > 
 {: .challenge}
 
