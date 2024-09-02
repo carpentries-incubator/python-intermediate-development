@@ -1,5 +1,5 @@
 ---
-title: "Optional exercises for section 1"
+title: "Optional Exercises for Section 1"
 start: false
 teaching: 0
 exercises: 45
