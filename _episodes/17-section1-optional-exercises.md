@@ -24,7 +24,7 @@ we still recommend sticking with the tools that were introduced prior to this ep
 {: .challenge}
 
 > ## Exercise: Try out different Integrated Development Environments
-> Install different Integrated Development Environments (IDEs) and thest them out.
+> Install different Integrated Development Environments (IDEs) and test them out.
 > Which one do you like the most and why?
 > You can try: 
 > - [Visual Studio Code](https://code.visualstudio.com/)
