@@ -18,7 +18,8 @@ we still recommend sticking with the tools that were introduced prior to this ep
 
 > ## Exercise: Apply to your own project(s)
 > Apply what you learned in this section to your own project(s). 
-> This is the time to ask any questions to our instructors or let us help you solve problems that you run into.
+> This is the time to ask any questions to your instructors or helpers.
+> Everyone has different preferences for tooling, so getting the input of experienced developers is a great opportunity.
 > 
 {: .challenge}
 
