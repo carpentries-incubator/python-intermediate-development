@@ -26,14 +26,22 @@ we still recommend sticking with the tools that were introduced prior to this ep
 > ## Exercise: Try out different Integrated Development Environments
 > Install different Integrated Development Environments (IDEs) and test them out.
 > Which one do you like the most and why?
+>
 > You can try: 
 > - [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course]({{ site.baseurl }}{% link _extras/vscode.md %})
 > - [Atom](https://atom-editor.cc/)
 > - [Sublime Text](https://www.sublimetext.com/)
+> - [RStudio](https://posit.co/download/rstudio-desktop/)
 > 
-> Technically, compared to PyCharm, the 'IDEs' listed above are source code editors capable of functioning as an IDE.
+> Technically, compared to PyCharm, the 'IDEs' listed above are source code editors capable of functioning as an IDE 
+> (with RStudio as an example).
 > To function as an IDE, you have to manually install plugins for more powerful features 
-> such as support for a specific programming language or unit testing. What do you prefer?
+> such as support for a specific programming language or unit testing. 
+> What do you prefer, a lot of tooling out of the box or a lightweight editor with optional extensions?
+> 
+> If you want an even more lightweight setup you can try out these configurable source code editors:
+> - [Emacs](https://www.gnu.org/software/emacs/)
+> - [Vim](https://www.vim.org/)
 > 
 {: .challenge}
 
