@@ -27,7 +27,7 @@ we still recommend sticking with the tools that were introduced prior to this ep
 > Install different Integrated Development Environments (IDEs) and test them out.
 > Which one do you like the most and why?
 > You can try: 
-> - [Visual Studio Code](https://code.visualstudio.com/)
+> - [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course]({{ site.baseurl }}{% link _extras/vscode.md %})
 > - [Atom](https://atom-editor.cc/)
 > - [Sublime Text](https://www.sublimetext.com/)
 > 
