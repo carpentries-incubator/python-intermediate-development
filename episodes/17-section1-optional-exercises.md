@@ -31,6 +31,10 @@ we still recommend sticking with the tools that were introduced prior to this ep
 > - [Atom](https://atom-editor.cc/)
 > - [Sublime Text](https://www.sublimetext.com/)
 > 
+> Technically, compared to PyCharm, the 'IDEs' listed above are source code editors capable of functioning as an IDE.
+> To function as an IDE, you have to manually install plugins for more powerful features 
+> such as support for a specific programming language or unit testing. What do you prefer?
+> 
 {: .challenge}
 
 > ## Exercise: Customize the command line
