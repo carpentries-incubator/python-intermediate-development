@@ -86,8 +86,7 @@ and adding more tests scales better as our code becomes more complex.
 > 
 > > ## Solution
 > > ~~~
-> > from inflammation.models import daily_max
-> > from inflammation.models import daily_min
+> > from inflammation.models import daily_max, daily_min
 > > ...
 > > @pytest.mark.parametrize(
 > >     "test, expected",
