@@ -325,9 +325,9 @@ Failing that, just pick one, document it and stick to it.
 
 Some things to be wary of when naming things in the code:
 
-- Avoid any names that could cause confusion (e.g. lower case `l` is
-  hard to distinguish from a `1` (one), 'O' (uppercase o) from a '0' (zero),
- 'I' (uppercase i) from 'l' (lowercase L)).
+- Avoid any names that could cause confusion (e.g. `l` (lower case L) is
+  hard to distinguish from a `1` (one), `O` (uppercase o) from a `0` (zero),
+  `I` (uppercase i) from `l` (lowercase L)).
 - Avoid using non-ASCII (e.g. Unicode) characters for identifiers as these
   can trip up software that does not support Unicode.
 - If your audience is international and English is the common language,
