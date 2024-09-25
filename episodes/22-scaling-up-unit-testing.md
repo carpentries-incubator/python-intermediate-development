@@ -351,7 +351,9 @@ especially in the long term,
 and allows others to verify against correct behaviour.
 
 ## Optional exercises
-Checkout [these optional exercises]({{ site.baseurl }}{% link _episodes/25-section2-optional-exercises.md %}#exercise-customize-pylint)
+
+Checkout
+[these optional exercises]({{ site.baseurl }}{% link _episodes/25-section2-optional-exercises.md %})
 to learn more about code coverage.
 
 {% include links.md %}
