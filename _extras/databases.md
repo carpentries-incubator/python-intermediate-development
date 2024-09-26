@@ -169,11 +169,12 @@ but it allows us not to worry about **migrations**.
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from inflammation.models import Base, Patient
+
 ...
 
 def test_sqlalchemy_patient_search():
     """Test that we can save and retrieve patient data from a database."""
-    from inflammation.models import Base, Patient
 
     # Setup a database connection - we're using a database stored in memory here
     engine = create_engine('sqlite:///:memory:', echo=True)
@@ -273,11 +274,11 @@ We then test that we can get the observations from a patient we've searched for.
 ~~~
 # file: tests/test_models.py
 
+from inflammation.models import Base, Observation, Patient
 ...
 
 def test_sqlalchemy_observations():
     """Test that we can save and retrieve inflammation observations from a database."""
-    from inflammation.models import Base, Observation, Patient
 
     # Setup a database connection - we're using a database stored in memory here
     engine = create_engine('sqlite:///:memory:', echo=True)
@@ -342,10 +343,10 @@ and test that we can turn them into a Numpy array.
 
 ~~~
 # file: tests/test_models.py
-
+from inflammation.models import Base, Observation, Patient
+...
 def test_sqlalchemy_observations_to_array():
     """Test that we can save and retrieve inflammation observations from a database."""
-    from inflammation.models import Base, Observation, Patient
 
     # Setup a database connection - we're using a database stored in memory here
     engine = create_engine('sqlite:///:memory:')
