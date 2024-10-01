@@ -421,6 +421,16 @@ which potentially saves us a lot of time waiting for testing results.
 Overall, this approach allows us to massively scale our automated testing
 across platforms we wish to test.
 
+With everything working as intended, we can merge this branch into `develop`
+and push it to GitHub:
+
+~~~
+$ git switch develop
+$ git merge test-suite
+$ git push origin develop
+~~~
+{:".language-bash}
+
 > ## Failed CI Builds
 > A CI build can fail when, e.g. a used Python package no longer supports a particular version of 
 > Python indicated in a GitHub Actions CI build matrix. In this case, the solution is either to 
