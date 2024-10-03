@@ -572,4 +572,9 @@ Before we move on to fixing errors and writing more code,
 let's have a look at the last set of tools for collaborative code development
 which we will be using in this course - Git and GitHub.
 
+
+## Optional exercises
+Checkout [this optional exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-try-out-different-integrated-development-environments)
+to try out different IDEs and code editors.
+
 {% include links.md %}

@@ -568,4 +568,10 @@ It looks like the script expects a list of input files to process,
 so this is expected behaviour since we don't supply any.
 We will fix this error in a moment.
 
+## Optional exercises
+Checkout [this optional exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-try-out-different-virtual-environment-managers)
+to try out different virtual environment managers. 
+Or, [this exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-customize-the-command-line) 
+to customize the command line. 
+
 {% include links.md %}
