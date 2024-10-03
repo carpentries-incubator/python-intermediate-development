@@ -57,9 +57,8 @@ Git has several important characteristics:
   so even if you make a mistake you can revert to a point before it.
 
 The diagram below shows a typical software development lifecycle with Git
-(starting from making changes locally) and the commonly used commands to interact
-with different parts of the Git infrastructure,
-such as:
+(in our case starting from making changes in a local branch that "tracks" a remote branch) and the commonly used commands to interact
+with different parts of the Git infrastructure, including:
 - **working directory** -
   a local directory (including any subdirectories) where your project files live
   and where you are currently working.
@@ -102,16 +101,15 @@ such as:
 Created with https://mermaid.live/edit#pako:eNqVkjFrwzAQhf-KuKmlKd01BAoZ2yUZumi5SmdbRPI58oliQv57JbuloSaFajqd3sd7x-kMlh2BhpFOmXpLO49twmh6Vc4bp6PvW7Xziaxwmh6324eDYFubz4lQq9aLQucW_fVTlb6wxaD2NPDoK77ILcfoZSF-Kyq1p8hCK2zIY7dAK8Ftr4bEdretVgPqOWBH9shZ_stFSi39EXFNfQ0WgrobO05ic4nM6Sd6uYXAH-TU-6Susz3NZvewgVJE9K7s8Fy9DUhHkQzoUjpqMAcxYPpLkWIWPky9BS0p0wby4FC-Vw66wTCWLrma-HX5F_P3uHwCS-vA3Q
 sequenceDiagram
     Working Directory->>+Staging Area: git add
-    Staging Area->>+Local Repository: git commit
-    Local Repository->>+Remote Repository: git push
-    Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Directory:git restore
-    Local Repository->>+Working Directory:git merge
-    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git merge)
+    Staging Area->>+Local Repository Branch: git commit
+    Local Repository Branch->>+Remote Repository Branch: git push
+    Remote Repository Branch->>+Local Repository Branch: git fetch
+    Local Repository Branch->>+Working Directory:git merge
+    Remote Repository Branch->>+Working Directory: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
 -->
 <!--
 SVG of the diagram can be downloaded from:
-[![](https://mermaid.ink/img/pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9?type=png)](https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9)
+[![](https://mermaid.ink/img/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r?type=png)](https://mermaid.live/edit#pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r)
 -->
 ![Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
 <p style="text-align: center;">
