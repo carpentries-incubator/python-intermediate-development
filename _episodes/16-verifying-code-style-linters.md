@@ -195,4 +195,8 @@ $ git push origin develop
 > run it past Pylint to see what issues with your code are detected, if any.
 {: .challenge}
 
+## Optional exercises
+Checkout [this optional exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-customize-pylint)
+to learn more about `pylint`.
+
 {% include links.md %}
