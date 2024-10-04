@@ -140,8 +140,8 @@ $ git config --global core.editor "nano -w"
 
 ## SSH key authentication issues with Windows Git
 
-Rather unhelpfully, Git for Windows will use it's own SSH instance by default 
-which will result in you getting errors such as the below even after adding your 
+Rather unhelpfully, Git Bash will use its own SSH library by default
+which will result in you getting errors such as the below even after adding your
 SSH key correctly
 
 ~~~

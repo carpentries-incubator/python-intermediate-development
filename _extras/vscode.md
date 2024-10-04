@@ -26,8 +26,11 @@ You may be asked to reload the VS Code IDE for the changes to take effect.
 
 ### Using VS Code with Windows Subsystem for Linux
 
-If you plan to do this course and your development generally in [WSL (Windows Subsystem for Linux)][wsl],
-then it is a good idea to make sure that VS Code connects properly to WSL.
+If you are developing software on Windows,
+and particularly software that comes from or targets Unix or Linux systems,
+it can be advantageous to use [WSL (Windows Subsystem for Linux)][wsl].
+Although this course does not explicitly support WSL setup,
+we will provide some guidance on how to best link up WSL with VS Code.
 In your WSL terminal, navigate to the project folder for this course and execute the command
 
 ```bash
