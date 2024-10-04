@@ -110,9 +110,10 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
 > > Also make sure you select the **SSH** tab and not the **HTTPS** one.
-> > For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub,
-> > but if you have already authenticated through HTTPS in the past,
-> > it is fine for you to continue using that method.
+> > For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
+> > If you have only authenticated through HTTPS in the past,
+> > please follow the guidance [at the top of this section](#downloading-our-software-project)
+> > to add an SSH key to your GitHub account.
 > >
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 > >
