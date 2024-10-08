@@ -237,7 +237,7 @@ responsibilities and think about the kinds of information different parts of the
 {: .challenge}
 
 We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but MVC is just one of the common [software architectural patterns](/software-architecture-extra/index.html)
+but MVC is just one of the common [software architectural patterns](https://carpentries-incubator.github.io/python-intermediate-development/software-architecture-extra/index.html)
 and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture
