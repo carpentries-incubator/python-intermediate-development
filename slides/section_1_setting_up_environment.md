@@ -143,7 +143,7 @@ There are five main sections of the course, each roughly to be covered in one of
 - the recommendations are opinionated but backed by experience
 
 1. Command Line & Virtual Development Environment: use command line to run our code and then the Python tools `venv` and `pip` to manage dependencies and isolate our project
-2. Integrated Development Environment (IDE): course content supports **PyCharm** directly, but there is now additional material to support use of **VSCode**
+2. Integrated Development Environment (IDE): course content supports **VSCode**.
   - Show the "Extras" tab of the course material website and the VSCode information under that
 3. GitHub and Git development workflows
 4. Python coding style: PEP8
