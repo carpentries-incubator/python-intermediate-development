@@ -14,12 +14,12 @@ allowing us to more comprehensively and rapidly find faults in code, as well as 
 - "The use of test techniques and infrastructures such as **parameterisation** and **Continuous Integration** can help scale and further automate our testing process."
 ---
 
-We've just set up a suitable environment for the development of our software project
+We have just set up a suitable environment for the development of our software project
 and are ready to start coding.
 However, we want to make sure that the new code we contribute to the project
 is actually correct and is not breaking any of the existing code.
 So, in this section,
-we'll look at testing approaches that can help us ensure
+we will look at testing approaches that can help us ensure
 that the software we write is behaving as intended,
 and how we can diagnose and fix issues once faults are found.
 Using such approaches requires us to change our practice of development.

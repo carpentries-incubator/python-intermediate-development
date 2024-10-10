@@ -207,7 +207,7 @@ looking something like the following:
 ![Running pytest in PyCharm](../fig/pytest-pycharm-run-tests.png){: .image-with-shadow width="1000px"}
 
 We can also run our test functions individually.
-First, let's check that our PyCharm running and testing configurations are correct.
+First, let us check that our PyCharm running and testing configurations are correct.
 Select `Run` > `Edit Configurations...` from the PyCharm menu,
 and you should see something like the following:
 
@@ -221,8 +221,8 @@ was configured when we set up how to run our script from within PyCharm.
 The second -
 `pytest in test_models.py` under `Python tests` -
 is our recent test configuration.
-If you see just these, you're good to go.
-We don't need any others,
+If you see just these, you are good to go.
+We do not need any others,
 so select any others you see and click the `-` button at the top to remove them.
 This will avoid any confusion when running our tests separately.
 Click `OK` when done.
@@ -351,7 +351,7 @@ You should be rewarded with:
 {: .callout}
 
 > ## Debugging Outside of an IDE
-> It is worth being aware of the fact that you don't need to use an IDE to debug code,
+> It is worth being aware of the fact that you do not need to use an IDE to debug code,
 > although it does certainly make it easier!
 > The Python standard library comes with a command-line capable debugger built in, called [pdb](https://docs.python.org/3/library/pdb.html).
 > The easiest way to use it is to put one of these lines
@@ -372,7 +372,7 @@ However, when writing your test cases,
 it is important to consider parameterising them by unusual or extreme values,
 in order to test all the edge or corner cases that your code could be exposed to in practice.
 Generally speaking, it is at these extreme cases that you will find your code failing,
-so it's beneficial to test them beforehand.
+so it is beneficial to test them beforehand.
 
 What is considered an "edge case" for a given component depends on
 what that component is meant to do.
@@ -398,7 +398,7 @@ so this will clearly break if we are dividing by zero here,
 resulting in `NaN` values in the normalised array.
 
 With all this in mind,
-let us add a few edge cases to our parametrisation of `test_patient_normalise`.
+Let us add a few edge cases to our parametrisation of `test_patient_normalise`.
 We will add two extra tests,
 corresponding to an input array of all 0,
 and an input array of all 1.
@@ -518,7 +518,7 @@ In the previous section, we made a few design choices for our `patient_normalise
 
 1. We are implicitly converting any `NaN` and negative values to 0,
 2. Normalising a constant 0 array of inflammation results in an identical array of 0s,
-3. We don't warn the user of any of these situations.
+3. We do not warn the user of any of these situations.
 
 This could have be handled differently.
 We might decide that we do not want to silently make these changes to the data,
@@ -705,7 +705,7 @@ This approach is useful when explicitly checking the precondition is too costly.
 
 ## Improving Robustness with Automated Code Style Checks
 
-Let's re-run Pylint over our project after having added some more code to it.
+Let us re-run Pylint over our project after having added some more code to it.
 From the project root do:
 
 ~~~
@@ -726,7 +726,7 @@ inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin
 The above output indicates that by using the local variable called `max`
 in the `patient_normalise` function,
 we have redefined a built-in Python function called `max`.
-This isn't a good idea and may have some undesired effects
+This is not a good idea and may have some undesired effects
 (e.g. if you redefine a built-in name in a global scope
 you may cause yourself some trouble which may be difficult to trace).
 
@@ -742,8 +742,8 @@ you may cause yourself some trouble which may be difficult to trace).
 It may be hard to remember to run linter tools every now and then.
 Luckily, we can now add this Pylint execution to our continuous integration builds
 as one of the extra tasks.
-Since we're adding an extra feature to our CI workflow,
-let's start this from a new feature branch from the `develop` branch:
+Since we are adding an extra feature to our CI workflow,
+let us start this from a new feature branch from the `develop` branch:
 
 ~~~
 $ git switch -c pylint-ci develop # note a shorthand for creating a branch from another and switching to it
@@ -763,9 +763,9 @@ we can add the following step to our `steps` in `.github/workflows/main.yml`:
 {: .language-bash}
 
 Note we need to add `--fail-under=0` otherwise
-the builds will fail if we don't get a 'perfect' score of 10!
-This seems unlikely, so let's be more pessimistic.
-We've also added `--reports=y` which will give us a more detailed report of the code analysis.
+the builds will fail if we do not get a 'perfect' score of 10!
+This seems unlikely, so let us be more pessimistic.
+We have also added `--reports=y` which will give us a more detailed report of the code analysis.
 
 Then we can just add this to our repo and trigger a build:
 
@@ -798,13 +798,13 @@ $ pylint --generate-rcfile > .pylintrc
 ~~~
 {: .language-bash}
 
-Looking at this file, you'll see it's already pre-populated.
+Looking at this file, you'll see it is already pre-populated.
 No behaviour is currently changed from the default by generating this file,
 but we can amend it to suit our team's coding style.
 For example, a typical rule to customise - favoured by many projects -
 is the one involving line length.
-You'll see it's set to 100, so let's set that to a more reasonable 120.
-While we're at it, let's also set our `fail-under` in this file:
+You'll see it is set to 100, so let us set that to a more reasonable 120.
+While we are at it, let us also set our `fail-under` in this file:
 
 ~~~
 ...
@@ -817,17 +817,17 @@ max-line-length=120
 ~~~
 {: .language-bash}
 
-Don't forget to remove the `--fail-under` argument to Pytest
+do not forget to remove the `--fail-under` argument to Pytest
 in our GitHub Actions configuration file too,
-since we don't need it anymore.
+since we do not need it anymore.
 
-Now when we run Pylint we won't be penalised for having a reasonable line length.
+Now when we run Pylint we Will not be penalised for having a reasonable line length.
 For some further hints and tips on how to approach using Pylint for a project,
 see [this article](https://pythonspeed.com/articles/pylint/).
 
 ## Merging to `develop` Branch
 
-Now we're happy with our test suite, we can merge this work
+Now we are happy with our test suite, we can merge this work
 (which currently only exist on our `test-suite` branch)
 with our parent `develop` branch.
 Again, this reflects us working with impunity on a logical unit of work,
@@ -844,7 +844,7 @@ $ git merge test-suite
 {: .language-bash}
 
 Then, assuming there are no conflicts,
-we can push these changes back to the remote repository as we've done before:
+we can push these changes back to the remote repository as we have done before:
 
 ~~~
 $ git push origin develop

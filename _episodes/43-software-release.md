@@ -1,4 +1,5 @@
 ---
+---
 title: "Packaging Code for Release and Distribution"
 teaching: 0
 exercises: 20
@@ -17,7 +18,7 @@ keypoints:
 
 ## Why Package our Software?
 
-We've now got our software ready to release -
+We have now got our software ready to release -
 the last step is to package it up so that it can be distributed.
 
 For very small pieces of software,
@@ -30,12 +31,12 @@ e.g. a list of dependencies.
 By distributing our code as a package,
 we reduce the complexity of fetching, installing and integrating it for the end-users.
 
-In this session we'll introduce
+In this session we will introduce
 one widely used method for building an installable package from our code.
 There are range of methods in common use,
-so it's likely you'll also encounter projects which take different approaches.
+so it is likely you will also encounter projects which take different approaches.
 
-There's some confusing terminology in this episode around the use of the term "package".
+There is some confusing terminology in this episode around the use of the term "package".
 This term is used to refer to both:
 - A directory containing Python files / modules and an `__init__.py` - a "module package"
 - A way of structuring / bundling a project for easier distribution and installation -
@@ -45,9 +46,9 @@ This term is used to refer to both:
 
 ### Installing Poetry
 
-Because we've recommended GitBash if you're using Windows,
-we're going to install Poetry using a different method to the officially recommended one.
-If you're on MacOS or Linux,
+Because we have recommended GitBash if you are using Windows,
+we are going to install Poetry using a different method to the officially recommended one.
+If you are on MacOS or Linux,
 are comfortable with installing software at the command line
 and want to use Poetry to manage multiple projects,
 you may instead prefer to follow the official
@@ -73,12 +74,12 @@ $ which poetry
 ~~~
 {: .output}
 
-If you don't get similar output,
-make sure you've got the correct virtual environment activated.
+If you do not get similar output,
+make sure you have got the correct virtual environment activated.
 
 Poetry can also handle virtual environments for us,
 so in order to behave similarly to how we used them previously,
-let's change the Poetry config to put them in the same directory as our project:
+Let us change the Poetry config to put them in the same directory as our project:
 
 ~~~ bash
 $ poetry config virtualenvs.in-project true
@@ -97,7 +98,7 @@ It is described in
 
 Make sure you are in the root directory of your software project
 and have activated your virtual environment,
-then we're ready to begin.
+then we are ready to begin.
 
 To create a `pyproject.toml` file for our code, we can use `poetry init`.
 This will guide us through the most important settings -
@@ -181,10 +182,10 @@ When we add a dependency using Poetry,
 Poetry will add it to the list of dependencies in the `pyproject.toml` file,
 add a reference to it in a new `poetry.lock` file,
 and automatically install the package into our virtual environment.
-If we don't yet have a virtual environment activated,
+If we do not yet have a virtual environment activated,
 Poetry will create it for us - using the name `.venv`,
 so it appears hidden unless we do `ls -a`.
-Because we've already activated a virtual environment, Poetry will use ours instead.
+Because we have already activated a virtual environment, Poetry will use ours instead.
 The `pyproject.toml` file has two separate lists,
 allowing us to distinguish between runtime and development dependencies.
 
@@ -199,7 +200,7 @@ These two sets of dependencies will be used in different circumstances.
 When we build our package and upload it to a package repository,
 Poetry will only include references to our runtime dependencies.
 This is because someone installing our software through a tool like `pip` is only using it,
-but probably doesn't intend to contribute to the development of our software
+but probably does not intend to contribute to the development of our software
 and does not require development dependencies.
 
 In contrast, if someone downloads our code from GitHub,
@@ -208,7 +209,7 @@ and installs the project that way,
 they will get both our runtime and development dependencies.
 If someone is downloading our source code,
 that suggests that they intend to contribute to the development,
-so they'll need all of our development tools.
+so they will need all of our development tools.
 
 Have a look at the `pyproject.toml` file again to see what's changed.
 
@@ -219,9 +220,9 @@ make sure that our code is organised in the recommended structure.
 This is the Python module structure -
 a directory containing an `__init__.py` and our Python source code files.
 Make sure that the name of this Python package
-(`inflammation` - unless you've renamed it)
+(`inflammation` - unless you have renamed it)
 matches the name of your distributable package in `pyproject.toml`
-unless you've chosen to explicitly list the module packages.
+unless you have chosen to explicitly list the module packages.
 
 By convention distributable package names use hyphens,
 whereas module package names use underscores.
@@ -229,7 +230,7 @@ While we could choose to use underscores in a distributable package name,
 we cannot use hyphens in a module package name,
 as Python will interpret them as a minus sign in our code when we try to import them.
 
-Once we've got our `pyproject.toml` configuration done and our project is in the right structure,
+Once we have got our `pyproject.toml` configuration done and our project is in the right structure,
 we can go ahead and build a distributable version of our software:
 
 ~~~
@@ -240,12 +241,12 @@ $ poetry build
 This should produce two files for us in the `dist` directory.
 The one we care most about is the `.whl` or **wheel** file.
 This is the file that `pip` uses to distribute and install Python packages,
-so this is the file we'd need to share with other people who want to install our software.
+so this is the file we would need to share with other people who want to install our software.
 
 Now if we gave this wheel file to someone else,
 they could install it using `pip` -
-you don't need to run this command yourself,
-you've already installed it using `poetry install` above.
+you do not need to run this command yourself,
+you have already installed it using `poetry install` above.
 
 ~~~
 $ python3 -m pip install dist/inflammation*.whl
@@ -256,13 +257,13 @@ The star in the line above is a **wildcard**,
 that means Bash should use any filenames that match that pattern,
 with any number of characters in place for the star.
 We could also rely on Bash's autocomplete functionality and type `dist/inflammation`,
-then hit the <kbd>Tab</kbd> key if we've only got one version built.
+then hit the <kbd>Tab</kbd> key if we have only got one version built.
 
-After we've been working on our code for a while and want to publish an update,
+After we have been working on our code for a while and want to publish an update,
 we just need to update the version number in the `pyproject.toml` file
 (using [SemVer](https://semver.org/) perhaps),
 then use Poetry to build and publish the new version.
-If we don't increment the version number,
+If we do not increment the version number,
 people might end up using this version,
 even though they thought they were using the previous one.
 Any re-publishing of the package, no matter how small the changes,
@@ -275,17 +276,17 @@ $ poetry build
 ~~~
 {: .language-bash}
 
-In addition to the commands we've already seen,
+In addition to the commands we have already seen,
 Poetry contains a few more that can be useful for our development process.
 For the full list see the [Poetry CLI documentation](https://python-poetry.org/docs/cli/).
 
 The final step is to publish our package to a package repository.
 A package repository could be either public or private -
 while you may at times be working on public projects,
-it's likely the majority of your work will be published internally
+it is likely the majority of your work will be published internally
 using a private repository such as JFrog Artifactory.
 Every repository may be configured slightly differently,
-so we'll leave that to you to investigate.
+so we will leave that to you to investigate.
 
 ## What if We Need More Control?
 

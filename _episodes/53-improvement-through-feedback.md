@@ -24,7 +24,7 @@ keypoints:
 When a software project has been around for even just a short amount of time,
 you'll likely discover many aspects that can be improved.
 These can come from issues that have been registered via collaborators or users,
-but also those you're aware of internally,
+but also those you are aware of internally,
 which should also be registered as issues.
 When starting a new software project,
 you'll also have to determine how you'll handle all the requirements.
@@ -39,14 +39,14 @@ There are also many other draws on our time
 in addition to the research, development, and writing of publications that we do,
 which makes it all the more important to prioritise our time for development effectively.
 
-In this lesson we'll be looking at prioritising work we need to do
+In this lesson we will be looking at prioritising work we need to do
 and what we can use from the agile perspective of project management
 to help us do this in our software projects.
 
 
 ## Estimation as a Foundation for Prioritisation
 
-For simplicity, we'll refer to our issues as *requirements*,
+For simplicity, we will refer to our issues as *requirements*,
 since that's essentially what they are -
 new requirements for our software to fulfil.
 
@@ -69,7 +69,7 @@ since we cannot meaningfully prioritise requirements without
 knowing what the effort tradeoffs will be.
 Even if we know how important each requirement is,
 how would we even know if completing the project is possible?
-Or if we don't know how long it will take
+Or if we do not know how long it will take
 to deliver those requirements we deem to be critical to the success of a project,
 how can we know if we can include other less important ones?
 
@@ -149,7 +149,7 @@ MoSCoW is an acronym that stands for
 **Must have**,
 **Should have**,
 **Could have**,
-and **Won't have**.
+and **Will not have**.
 Each requirement is discussed by the stakeholder group and falls into one of these categories:
 
 - *Must Have* (MH) -
@@ -164,7 +164,7 @@ Each requirement is discussed by the stakeholder group and falls into one of the
 - *Could Have* (CH) -
   these are desirable but not necessary,
   and each of these will be included in this timebox if it can be achieved.
-- *Won't Have* (WH) -
+- *Will not Have* (WH) -
   these are agreed to be out of scope for this timebox,
   perhaps because they are the least important or not critical for this phase of development.
 
@@ -187,7 +187,7 @@ you have still delivered it *successfully*.
 
 ### GitHub's Milestones
 
-Once we've decided on those we'll work on (i.e. not Won't Haves),
+Once we have decided on those we will work on (i.e. not Will not Haves),
 we can (optionally) use a GitHub's **Milestone** to organise them for a particular timebox.
 Remember, a milestone is a collection of issues to be worked on in a given period (or timebox).
 We can create a new one by selecting `Issues` on our repository,
@@ -209,14 +209,14 @@ and assign them to our milestone from the `Issues` page or from an individual is
 
 ![Milestones in GitHub](../fig/github-assign-milestone.png){: .image-with-shadow width="1000px"}
 
-Let's now use Milestones to plan and prioritise our team's next sprint.
+Let us now use Milestones to plan and prioritise our team's next sprint.
 
 > ## Exercise: Prioritise!
 >
 > Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues
 > to determine how you will prioritise effort to resolve them in the allotted time.
 > Try to stick to the 60/20/20 rule,
-> and assign all issues you'll be working on (i.e. not `Won't Haves`) to a new milestone,
+> and assign all issues you'll be working on (i.e. not `Will not Haves`) to a new milestone,
 > e.g. "Tidy up documentation" or "version 0.1".
 >
 > 
@@ -257,7 +257,7 @@ and serves to highlight any blockers and challenges to meeting the sprint goal.
 {: .challenge}
 
 Depending on how many issues were registered on your repository,
-it's likely you won't have resolved all the issues in this first milestone.
+it is likely you Will not have resolved all the issues in this first milestone.
 Of course, in reality, a sprint would be over a much longer period of time.
 In any event, as the development progresses into future sprints
 any unresolved issues can be reconsidered and prioritised for another milestone,

@@ -24,7 +24,7 @@ keypoints:
 
 Being able to demonstrate that a process generates the right results
 is important in any field of research,
-whether it's software generating those results or not.
+whether it is software generating those results or not.
 So when writing software we need to ask ourselves some key questions:
 
 - Does the code we develop work the way it should do?
@@ -41,7 +41,7 @@ Automation can help, and automation where possible is a good thing -
 it enables us to define a potentially complex process in a repeatable way
 that is far less prone to error than manual approaches.
 Once defined, automation can also save us a lot of effort, particularly in the long run.
-In this episode we'll look into techniques of automated testing to
+In this episode we will look into techniques of automated testing to
 improve the predictability of a software change,
 make development more productive,
 and help us produce code that works as expected and produces desired results.
@@ -77,16 +77,16 @@ There are three main types of automated tests:
 - **Regression tests** make sure that your program's output hasn't changed,
   for example after making changes your code to add new functionality or fix a bug.
 
-For the purposes of this course, we'll focus on unit tests.
-But the principles and practices we'll talk about can be built on
+For the purposes of this course, we will focus on unit tests.
+But the principles and practices we wll talk about can be built on
 and applied to the other types of tests too.
 
 ## Set Up a New Feature Branch for Writing Tests
 
-We're going to look at how to run some existing tests and also write some new ones,
-so let's ensure we're initially on our `develop` branch.
+We are going to look at how to run some existing tests and also write some new ones,
+so let us ensure we are initially on our `develop` branch.
 We will create a new feature branch called `test-suite` off the `develop` branch -
-a common term we use to refer to sets of tests - that we'll use for our test writing work:
+a common term we use to refer to sets of tests - that we will use for our test writing work:
 
 ~~~
 $ git switch develop
@@ -95,7 +95,7 @@ $ git switch -c test-suite
 {: .language-bash}
 
 Good practice is to write our tests around the same time we write our code on a feature branch.
-But since the code already exists, we're creating a feature branch for just these extra tests.
+But since the code already exists, we are creating a feature branch for just these extra tests.
 Git branches are designed to be lightweight, and where necessary, transient,
 and use of branches for even small bits of work is encouraged.
 
@@ -109,7 +109,7 @@ we will merge all of the work into `main`.
 
 ## Inflammation Data Analysis
 
-Let's go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project).
+Let us go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project).
 Recall that it is based on a clinical trial of inflammation
 in patients who have been given a new treatment for arthritis.
 There are a number of datasets in the `data` directory
@@ -119,7 +119,7 @@ and are each stored in comma-separated values (CSV) format:
 each row holds information for a single patient,
 and the columns represent successive days when inflammation was measured in patients.
 
-Let's take a quick look at the data now from within the Python command line console.
+Let us take a quick look at the data now from within the Python command line console.
 Change directory to the repository root
 (which should be in your home directory `~/python-intermediate-inflammation`),
 ensure you have your virtual environment activated in your command line terminal
@@ -224,7 +224,7 @@ but simplicity here allows us to reason about what's happening -
 and what we need to test -
 more easily.
 
-Let's now look into how we can test each of our application's statistical functions
+Let us now look into how we can test each of our application's statistical functions
 to ensure they are functioning correctly.
 
 
@@ -253,8 +253,8 @@ part of NumPy's testing library -
 to test that our calculated result is the same as our expected result.
 This function explicitly checks the array's shape and elements are the same,
 and throws an `AssertionError` if they are not.
-In particular, note that we can't just use `==` or other Python equality methods,
-since these won't work properly with NumPy arrays in all cases.
+In particular, note that we cannot just use `==` or other Python equality methods,
+since these Will not work properly with NumPy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values,
 and end up with something like:
@@ -274,7 +274,7 @@ npt.assert_array_equal(daily_mean(test_input), test_result)
 ~~~
 {: .language-python}
 
-However, if we were to enter these in this order, we'll find we get the following after the first test:
+However, if we were to enter these in this order, we will find we get the following after the first test:
 
 ~~~
 ...
@@ -289,19 +289,19 @@ Max relative difference: 0.5
 ~~~
 {: .output}
 
-This tells us that one element between our generated and expected arrays doesn't match,
+This tells us that one element between our generated and expected arrays does not match,
 and shows us the different arrays.
 
 We could put these tests in a separate script to automate the running of these tests.
 But a Python script halts at the first failed assertion,
 so the second and third tests aren't run at all.
-It would be more helpful if we could get data from all of our tests every time they're run,
+It would be more helpful if we could get data from all of our tests every time they are run,
 since the more information we have,
-the faster we're likely to be able to track down bugs.
+the faster we are likely to be able to track down bugs.
 It would also be helpful to have some kind of summary report:
 if our set of tests - known as a **test suite** - includes thirty or forty tests
 (as it well might for a complex function or library that's widely used),
-we'd like to know how many passed or failed.
+we would like to know how many passed or failed.
 
 Going back to our failed first test, what was the issue?
 As it turns out, the test itself was incorrect, and should have read:
@@ -325,7 +325,7 @@ Otherwise, our tests hold little value.
 ### Using a Testing Framework
 
 Keeping these things in mind,
-here's a different approach that builds on the ideas we've seen so far
+here's a different approach that builds on the ideas we have seen so far
 but uses a **unit testing framework**.
 In such a framework we define our tests we want to run as functions,
 and the framework automatically runs each of these functions in turn,
@@ -333,7 +333,7 @@ summarising the outputs.
 And unlike our previous approach,
 it will run every test regardless of any encountered test failures.
 
-Most people don't enjoy writing tests,
+Most people do not enjoy writing tests,
 so if we want them to actually do it,
 it must be easy to:
 
@@ -343,7 +343,7 @@ it must be easy to:
 - Understand those tests' results
 
 Test results must also be reliable.
-If a testing tool says that code is working when it's not,
+If a testing tool says that code is working when it is not,
 or reports problems when there actually aren't any,
 people will lose faith in it and stop using it.
 
@@ -399,7 +399,7 @@ these are a specification of:
   and using `assert_array_equal()` to test its validity
 - Expected outputs, e.g. our `test_result` NumPy array that we test against
 
-Also, we're defining each of these things for a test case we can run independently
+Also, we are defining each of these things for a test case we can run independently
 that requires no manual intervention.
 
 Going back to our list of requirements, how easy is it to run these tests?
@@ -409,14 +409,14 @@ You can use it to test things like Python functions,
 database operations,
 or even things like service APIs -
 essentially anything that has inputs and expected outputs.
-We'll be using Pytest to write unit tests,
+We will be using Pytest to write unit tests,
 but what you learn can scale to more complex functional testing for applications or libraries.
 
 > ## What About Unit Testing Frameworks in Python and Other Languages?
 >
 > Other unit testing frameworks exist for Python,
 > including Nose2 and Unittest, with Unittest supplied as part of the standard Python library.
-> It's also worth noting that Pytest supports tests written for Unittest,
+> it is also worth noting that Pytest supports tests written for Unittest,
 > a useful feature if you wish to prioritise use of the standard library initially,
 > but retain the option to move Pytest in the future.
 > 
@@ -442,7 +442,7 @@ but what you learn can scale to more complex functional testing for applications
 > - unittest-style unit tests can be run from pytest out of the box!
 >
 > A common challenge, particularly at the intermediate level, is the selection of a suitable tool from many alternatives
-> for a given task. Once you've become accustomed to object-oriented programming you may find unittest a better fit
+> for a given task. Once you have become accustomed to object-oriented programming you may find unittest a better fit
 > for a particular project or team, so you may want to revisit it at a later date.
 {: .callout}
 
@@ -583,7 +583,7 @@ ensuring that ourselves (and others) always have a set of tests
 to verify our code at each step of development.
 This way, when we implement a new feature, we can check
 a) that the feature works using a test we write for it, and
-b) that the development of the new feature doesn't break any existing functionality.
+b) that the development of the new feature does not break any existing functionality.
 
 ### What About Testing for Errors?
 
@@ -608,7 +608,7 @@ with `import pytest` so that we can use `pytest`'s `raises()` function.
 
 Run all your tests as before.
 
-Since we've installed `pytest` to our environment,
+Since we have installed `pytest` to our environment,
 we should also regenerate our `requirements.txt`:
 
 ~~~
@@ -616,7 +616,7 @@ $ python3 -m pip freeze > requirements.txt
 ~~~
 {: .language-bash}
 
-Finally, let's commit our new `test_models.py` file,
+Finally, let us commit our new `test_models.py` file,
 `requirements.txt` file,
 and test cases to our `test-suite` branch,
 and push this new branch and all its commits to GitHub:

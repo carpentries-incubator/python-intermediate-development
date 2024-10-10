@@ -21,20 +21,20 @@ keypoints:
 
 ## Introduction
 
-So far we've been manually running our tests as we require.
-Once we've made a change,
+So far we have been manually running our tests as we require.
+Once we have made a change,
 or added a new feature with accompanying tests,
 we can re-run our tests,
 giving ourselves (and others who wish to run them)
 increased confidence that everything is working as expected.
-Now we're going to take further advantage of automation
+Now we are going to take further advantage of automation
 in a way that helps testing scale across a development team with very little overhead,
 using **Continuous Integration**.
 
 
 ## What is Continuous Integration?
 
-The automated testing we've done so far only takes into account
+The automated testing we have done so far only takes into account
 the state of the repository we have on our own machines.
 In a software project involving multiple developers working and pushing changes on a repository,
 it would be great to know holistically how all these changes are affecting our codebase
@@ -56,7 +56,7 @@ Once complete, it presents a report to let you see what happened.
 There are many CI infrastructures and services,
 free and paid for,
 and subject to change as they evolve their features.
-We'll be looking at [GitHub Actions](https://github.com/features/actions) -
+We will be looking at [GitHub Actions](https://github.com/features/actions) -
 which unsurprisingly is available as part of GitHub.
 
 
@@ -66,7 +66,7 @@ which unsurprisingly is available as part of GitHub.
 
 YAML is a text format used by GitHub Action workflow files.
 It is also increasingly used for configuration files and storing other types of data,
-so it's worth taking a bit of time looking into this file format.
+so it is worth taking a bit of time looking into this file format.
 
 [YAML](https://www.commonwl.org/user_guide/yaml/)
 (a recursive acronym which stands for "YAML Ain't Markup Language")
@@ -84,11 +84,11 @@ first_scaled_by: Hans Meyer
 ~~~
 {: .language-yaml}
 
-In general, you don't need quotes for strings,
+In general, you do not need quotes for strings,
 but you can use them when you want to explicitly distinguish between numbers and strings,
 e.g. `height_metres: "5892"` would be a string,
 but in the above example it is an integer.
-It turns out Hans Meyer isn't the only first ascender of Kilimanjaro,
+It turns out Hans Meyer is not the only first ascender of Kilimanjaro,
 so one way to add this person as another value to this key is by using YAML **arrays**,
 like this:
 
@@ -127,7 +127,7 @@ with the last of these being another nested key with the keys `year` and `by`.
 Note the convention of using two spaces for tabs, instead of Python's four.
 
 We can also combine maps and arrays to describe more complex data.
-Let's say we want to add more detail to our list of initial ascenders:
+Let us say we want to add more detail to our list of initial ascenders:
 
 ~~~
 ...
@@ -157,13 +157,13 @@ shakespeare_couplet: |
 They key `shakespeare_couplet` would hold the full two line string,
 preserving the new line after sorrow.
 
-As we'll see shortly, GitHub Actions workflows will use all of these.
+As we will see shortly, GitHub Actions workflows will use all of these.
 
 ### Defining Our Workflow
 
-With a GitHub repository there's a way we can set up CI
+With a GitHub repository there is a way we can set up CI
 to run our tests automatically when we commit changes.
-Let's do this now by adding a new file to our repository whilst on the `test-suite` branch.
+Let us do this now by adding a new file to our repository whilst on the `test-suite` branch.
 First, create the new directories `.github/workflows`:
 
 ~~~
@@ -174,7 +174,7 @@ $ mkdir -p .github/workflows
 This directory is used specifically for GitHub Actions,
 allowing us to specify any number of workflows that can be run under a variety of conditions,
 which is also written using YAML.
-So let's add a new YAML file called `main.yml`
+So let us add a new YAML file called `main.yml`
 (note its extension is `.yml` without the `a`)
 within the new `.github/workflows` directory:
 
@@ -218,7 +218,7 @@ jobs:
 
 ***Note**: be sure to create this file as `main.yml`
 within the newly created `.github/workflows` directory,
-or it won't work!*
+or it Will not work!*
 
 So as well as giving our workflow a name - CI -
 we indicate with `on` that we want this workflow to run when we `push` commits to our repository.
@@ -229,7 +229,7 @@ and each one would run in parallel.
 Next, we define what our build job will do.
 With `runs-on` we first state which operating systems we want to use,
 in this case just Ubuntu for now.
-We'll be looking at ways we can scale this up to testing on more systems later.
+We will be looking at ways we can scale this up to testing on more systems later.
 
 Lastly, we define the `step`s that our job will undertake in turn,
 to set up the job's environment and run our tests.
@@ -247,11 +247,11 @@ Each of these steps are:
   Otherwise, if we wanted to test against for example Python 3.10,
   by specifying `3.10` without the quotes,
   it would be interpreted as the number `3.1` which -
-  although it's the same number as `3.10` -
+  although it is the same number as `3.10` -
   would be interpreted as the wrong version!
 - **Install latest version of pip, dependencies, and our inflammation package:**
   In order to locally install our `inflammation` package
-  it's good practice to upgrade the version of pip that is present first,
+  it is good practice to upgrade the version of pip that is present first,
   then we use pip to install our package dependencies.
   Once installed, we can use `python3 -m pip install -e .` as before to install our own package.
   We use `run` here to run theses commands in the CI shell environment
@@ -287,13 +287,13 @@ $ git push origin test-suite
 Since we are only committing the GitHub Actions configuration file
 to the `test-suite` branch for the moment,
 only the contents of this branch will be used for CI.
-We can pass this file upstream into other branches (i.e. via merges) when we're happy it works,
+We can pass this file upstream into other branches (i.e. via merges) when we are happy it works,
 which will then allow the process to run automatically on these other branches.
 This again highlights the usefulness of the feature-branch model -
-we can work in isolation on a feature until it's ready to be passed upstream
+we can work in isolation on a feature until it is ready to be passed upstream
 without disrupting development on other branches,
 and in the case of CI,
-we're starting to see its scaling benefits across a larger scale development team
+we are starting to see its scaling benefits across a larger scale development team
 working across potentially many branches.
 
 ### Checking Build Progress and Reports
@@ -350,7 +350,7 @@ Using a build matrix we can specify testing environments and parameters
 (such as operating system, Python version, etc.)
 and new jobs will be created that run our tests for each permutation of these.
 
-Let's see how this is done using GitHub Actions.
+Let us see how this is done using GitHub Actions.
 To support this, we define a `strategy` as
 a `matrix` of operating systems and Python versions within `build`.
 We then use `matrix.os` and `matrix.python-version` to reference these configuration possibilities
@@ -403,7 +403,7 @@ This way, every possible permutation of Python versions 3.10 and 3.11
 with the latest versions of Ubuntu, Mac OS and Windows operating systems
 will be tested and we can expect 6 build jobs in total.
 
-Let's commit and push this change and see what happens:
+Let us commit and push this change and see what happens:
 
 ~~~
 $ git add .github/workflows/main.yml

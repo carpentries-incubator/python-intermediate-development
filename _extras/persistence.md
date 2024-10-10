@@ -44,7 +44,7 @@ If we want to bring in this data,
 modify it somehow,
 and save it back to a file,
 all using our existing MVC architecture pattern,
-we'll need to:
+we will need to:
 
 - Write some code to perform data import / export (**persistence**)
 - Add some views we can use to modify the data
@@ -58,10 +58,10 @@ and is handled by a **serialiser**.
 Serialisation is the process of
 exporting our structured data to a usually text-based format for easy storage or transfer,
 while deserialisation is the opposite.
-We're going to be making a serialiser for our patient data,
+We are going to be making a serialiser for our patient data,
 but since there are many different formats we might eventually want to use to store the data,
-we'll also make sure it's possible to add alternative serialisers later and swap between them.
-So let's start by creating a base class
+we will also make sure it is possible to add alternative serialisers later and swap between them.
+So let us start by creating a base class
 to represent the concept of a serialiser for our patient data -
 then we can specialise this to make serialisers for different formats
 by inheriting from this base class.
@@ -71,7 +71,7 @@ If we create some alternative serialisers for different data formats,
 we know that we will be able to use them all in exactly the same way.
 This technique is part of an approach called **design by contract**.
 
-We'll call our base class `PatientSerializer` and put it in file `inflammation/serializers.py`.
+We will call our base class `PatientSerializer` and put it in file `inflammation/serializers.py`.
 
 ~~~
 # file: inflammation/serializers.py
@@ -103,13 +103,13 @@ class PatientSerializer:
 Our serialiser base class has two pairs of class methods
 (denoted by the `@classmethod` decorators),
 one to serialise (save) the data and one to deserialise (load) it.
-We're not actually going to implement any of them quite yet
+We are not actually going to implement any of them quite yet
 as this is just a template for how our real serialisers should look,
-so we'll raise `NotImplementedError` to make this clear
+so we will raise `NotImplementedError` to make this clear
 if anyone tries to use this class directly.
-The reason we've used class methods is that
-we don't need to be able to pass any data in using the `__init__` method,
-as we'll be passing the data to be serialised directly to the `save` function.
+The reason we have used class methods is that
+we do not need to be able to pass any data in using the `__init__` method,
+as we will be passing the data to be serialised directly to the `save` function.
 
 There are many different formats we could use to store our data,
 but a good one is [**JSON** (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON).
@@ -121,7 +121,7 @@ used across most common programming languages.
 Data in JSON format is structured using nested
 **arrays** (very similar to Python lists)
 and **objects** (very similar to Python dictionaries).
-For example, we're going to try to use this format to store data about our patients:
+For example, we are going to try to use this format to store data about our patients:
 
 ~~~
 [
@@ -157,7 +157,7 @@ If we wanted to represent this data in CSV format,
 the most natural way would be to have two separate files:
 one with each row representing a patient,
 the other with each row representing an observation.
-We'd then need to use a unique identifier to link each observation record to the relevant patient.
+We would then need to use a unique identifier to link each observation record to the relevant patient.
 This is how relational databases work,
 but it would be quite complicated to manage this ourselves with CSVs.
 
@@ -187,7 +187,7 @@ def test_patients_json_serializer():
     serializers.PatientJSONSerializer.save(patients, output_file)
     patients_new = serializers.PatientJSONSerializer.load(output_file)
 
-    # Check that we've got the same data back
+    # Check that we have got the same data back
     for patient_new, patient in zip(patients_new, patients):
         assert patient_new.name == patient.name
 
@@ -200,14 +200,14 @@ def test_patients_json_serializer():
 Here we set up some patient data, which we save to a file named `patients.json`.
 We then load the data from this file and check that the results match the input.
 
-With our test, we know what the correct behaviour looks like - now it's time to implement it.
-For this, we'll use one of Python's built-in libraries.
+With our test, we know what the correct behaviour looks like - now it is time to implement it.
+For this, we will use one of Python's built-in libraries.
 Among other more complex features,
 the `json` library provides functions for
 converting between Python data structures and JSON formatted text files.
 Our test also didn't specify what the structure of our output data should be,
 so we need to make that decision here  -
-we'll use the format we used as JSON example earlier.
+we will use the format we used as JSON example earlier.
 
 ~~~
 # file: inflammation/serializers.py
@@ -275,8 +275,8 @@ but we need to write a serializer for our observation model as well!
 Since this new serializer is not a type of `PatientSerializer`,
 we need to inherit from a new base class
 which holds the design that is shared between `PatientSerializer` and `ObservationSerializer`.
-Since we don't actually need to save the observation data to a file independently,
-we won't worry about implementing the `save` and `load` methods for the `Observation` model.
+Since we do not actually need to save the observation data to a file independently,
+we Will not worry about implementing the `save` and `load` methods for the `Observation` model.
 
 ~~~
 # file: inflammation/serializers.py
@@ -351,8 +351,8 @@ class PatientSerializer(Serializer):
 {: .language-python}
 
 > ## Linking it All Together
-> We've now got some code which we can use to save and load our patient data,
-> but we've not yet linked it up so people can use it.
+> We have now got some code which we can use to save and load our patient data,
+> but we have not yet linked it up so people can use it.
 >
 > Just like we did with the `display_patient` view in
 > [Section 3](../36-architecture-revisited/index.html#mvc-revisited),
@@ -371,7 +371,7 @@ class PatientSerializer(Serializer):
 >
 > The reason for this is that,
 > by default, `==` comparing two instances of a class
-> tests whether they're stored at the same location in memory,
+> tests whether they are stored at the same location in memory,
 > rather than just whether they contain the same data.
 >
 > Add some code to the `Patient` and `Observation` classes,
@@ -398,11 +398,11 @@ class PatientSerializer(Serializer):
 > **Hint:** The only component that needs to be changed is `Serializer` -
 > this should not require any changes to the other classes.
 >
-> **Hint:** The abc module documentation refers to metaclasses - don't worry about these.
+> **Hint:** The abc module documentation refers to metaclasses - do not worry about these.
 > A metaclass is a template for creating a class (classes are instances of a metaclass),
 > just like a class is a template for creating objects (objects are instances of a class),
-> but this isn't necessary to understand
-> if you're just using them to create your own abstract base classes.
+> but this is not necessary to understand
+> if you are just using them to create your own abstract base classes.
 {: .challenge}
 
 > ## Advanced Challenge: CSV Serialization
@@ -413,7 +413,7 @@ class PatientSerializer(Serializer):
 > see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
 > This module provides a CSV reader and writer which are a bit more flexible,
 > but slower for purely numeric data,
-> than the ones we've seen previously as part of NumPy.
+> than the ones we have seen previously as part of NumPy.
 >
 > Can you think of any cases when a CSV might not be a suitable format to hold our patient data?
 {: .challenge}
