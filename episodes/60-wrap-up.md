@@ -48,25 +48,25 @@ which relies on the same best practices taught in this course:
 - Collaborative techniques and tools play an important part
   of research software development in teams,
   but also have benefits in solo development.
-  We've looked at the benefits of a well-considered development environment,
+  We have looked at the benefits of a well-considered development environment,
   using practices, tools and infrastructure
   to help us write code more effectively in collaboration with others.
-- We've looked at the importance of being able to
+- We have looked at the importance of being able to
   verify the correctness of software and automation,
   and how we can leverage techniques and infrastructure
   to automate and scale tasks such as testing to save us time -
   but automation has a role beyond simply testing:
   what else can you automate that would save you even more time?
-  Once found, we've also examined how to locate faults in our software.
-- We've gone beyond procedural programming and explored different software design paradigms,
+  Once found, we have also examined how to locate faults in our software.
+- We have gone beyond procedural programming and explored different software design paradigms,
   such as object-oriented and functional styles of programming.
-  We've contrasted their pros, cons, and the situations in which they work best,
+  We have contrasted their pros, cons, and the situations in which they work best,
   and how separation of concerns through modularity and architectural design
   can help shape good software.
 - As an intermediate developer,
   aspects other than technical skills become important,
   particularly in development teams.
-  We've looked at the importance of good,
+  We have looked at the importance of good,
   consistent practices for team working,
   and the importance of having a self-critical mindset when developing software,
   and ways to manage feedback effectively and efficiently.

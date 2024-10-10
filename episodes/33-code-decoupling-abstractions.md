@@ -52,14 +52,14 @@ Benefits of using these techniques include having the codebase that is:
 * easier to maintain, as changes can be isolated
   from other parts of the code.
 
-Let's start redesigning our code by introducing some of the abstraction techniques 
+Let us start redesigning our code by introducing some of the abstraction techniques 
 to incrementally decouple it into smaller components to improve its overall design.
 
 In the code from our current branch `full-data-analysis`, 
 you may have noticed that loading data from CSV files from a `data` directory is "hardcoded" into 
 the `analyse_data()` function.
 Data loading is a functionality separate from data analysis, so firstly 
-let's decouple the data loading part into a separate component (function).
+Let us decouple the data loading part into a separate component (function).
 
 > ## Exercise: Decouple Data Loading from Data Analysis
 > 
@@ -303,7 +303,7 @@ type of polymorphism enabling methods and operators to take parameters of differ
 
 We will have a look at the *interface-based polymorphism*. 
 In OOP, it is possible to have different object classes that conform to the same interface. 
-For example, let's have a look at the following class representing a `Rectangle`:
+For example, let us have a look at the following class representing a `Rectangle`:
 
 ```python
 class Rectangle:

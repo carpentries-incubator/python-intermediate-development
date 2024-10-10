@@ -10,23 +10,23 @@ objectives:
 - "Conduct an assessment of software against suitability criteria"
 - "Describe what should be included in software issue reports and register them"
 keypoints:
-- "It's as important to have a critical attitude to adopting software as we do to developing it."
+- "it is as important to have a critical attitude to adopting software as we do to developing it."
 - "As a team agree on who and to what extent you will support software you make available to others."
 ---
 
 ## Introduction
 
-What we've been looking at so far enables us to adopt
+What we have been looking at so far enables us to adopt
 a more proactive and managed attitude and approach to the software we develop.
 But we should also adopt this attitude when
 selecting and making use of third-party software we wish to use.
-With pressing deadlines it's very easy to reach for
+With pressing deadlines it is very easy to reach for
 a piece of software that appears to do what you want
-without considering properly whether it's a good fit for your project first.
+without considering properly whether it is a good fit for your project first.
 A chain is only as strong as its weakest link,
 and our software may inherit weaknesses in any dependent software or create other problems.
 
-Overall, when adopting software to use it's important to consider
+Overall, when adopting software to use it is important to consider
 not only whether it has the functionality you want,
 but a broader range of qualities that are important for your project.
 Adopting a critical mindset when assessing other software against suitability criteria
@@ -83,16 +83,16 @@ will help you adopt the same attitude when assessing your own software for futur
 > - Manage your support:
 >   an issue tracker - like the one in GitHub - is essential to track and manage issues
 > - Manage expectations:
->   let users know the level of support you offer,
+>   Let users know the level of support you offer,
 >   in terms of when they can expect responses to queries,
 >   the scope of support (e.g. which platforms, types of releases, etc.),
 >   the types of support (e.g. bug resolution, helping develop tailored solutions),
 >   and expectations for support in the future (e.g. when project funding runs out)
 >
-> All of this requires effort, and you can't do everything.
-> It's therefore important to agree and be clear on
+> All of this requires effort, and you cannot do everything.
+> it is therefore important to agree and be clear on
 > how the software will be supported from the outset,
-> whether it's within the context of a single laboratory,
+> whether it is within the context of a single laboratory,
 > project,
 > or other collaboration,
 > or across an entire community.

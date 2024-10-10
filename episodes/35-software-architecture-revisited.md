@@ -3,7 +3,7 @@ title: "Software Architecture Revisited"
 teaching: 15
 exercises: 30
 questions:
-- "How do we handle code contributions that don't fit within our existing architecture?"
+- "How do we handle code contributions that do not fit within our existing architecture?"
 objectives:
 - "Analyse new code to identify Model, View, Controller aspects."
 - "Refactor new code to conform to an MVC architecture."
@@ -13,7 +13,7 @@ keypoints:
 - "Try to leave the code in a better state that you found it."
 ---
 
-In the previous few episodes we've looked at the importance and principles of good software architecture and design,
+In the previous few episodes we have looked at the importance and principles of good software architecture and design,
 and how techniques such as code abstraction and refactoring fulfil that design within an implementation,
 and help us maintain and improve it as our code evolves.
 
@@ -105,7 +105,7 @@ $ git merge full-data-analysis
 ~~~
 {: .language-bash}
 
-Let's now have a closer look at our Controller, and how can handling command line arguments in Python
+Let us now have a closer look at our Controller, and how can handling command line arguments in Python
 (which is something you may find yourself doing often if you need to run the code from a 
 command line tool).
 
@@ -332,6 +332,6 @@ and maintained within a team by having multiple people
 have a look and comment on key code changes to see how they fit within the codebase.
 Such reviews check the correctness of the new code, test coverage, functionality changes,
 and confirm that they follow the coding guides and best practices.
-Let's have a look at some code review techniques available to us.
+Let us have a look at some code review techniques available to us.
 
 {% include links.md %}

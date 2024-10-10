@@ -55,7 +55,7 @@ go to the `Settings` tab, scroll down to the `Features` section and activate the
 
 ![List of project issues in GitHub](../fig/github-issue-list.png){: .image-with-shadow width="1000px"}
 
-Let's go through the process of creating a new issue.
+Let us go through the process of creating a new issue.
 Start by clicking the `New issue` button.
 
 ![Creating a new issue in GitHub](../fig/github-new-issue.png){: .image-with-shadow width="1000px"}
@@ -80,7 +80,7 @@ The [default labels available in GitHub](https://docs.github.com/en/issues/using
 - `help wanted` - indicates that a maintainer wants help on an issue or pull request
 - `invalid` - indicates that an issue, pull request, or discussion is no longer relevant
 - `question` - indicates that an issue, pull request, or discussion needs more information
-- `wontfix` - indicates that work won't continue on an issue, pull request, or discussion
+- `wontfix` - indicates that work Will not continue on an issue, pull request, or discussion
 
 You can also create your own custom labels to help with classifying issues.
 There are no rules really about naming the labels -
@@ -104,7 +104,7 @@ They should also be clear on what the bug reporter considers factual
 and speculation
 ("I think it was caused by this").
 If an error report was generated from the software itself,
-it's a very good idea to include that in the issue.
+it is a very good idea to include that in the issue.
 
 The `enhancement` label is a great way to communicate your future priorities
 to your collaborators but also to yourself -
@@ -122,10 +122,10 @@ the easier the code is to use, the more widely it will be adopted
 and the greater impact it will have.
 
 One interesting label is `wontfix`,
-which indicates that an issue simply won't be worked on for whatever reason.
+which indicates that an issue simply Will not be worked on for whatever reason.
 Maybe the bug it reports is outside of the use case of the software,
-or the feature it requests simply isn't a priority.
-This can make it clear you've thought about an issue and dismissed it.
+or the feature it requests simply is not a priority.
+This can make it clear you have thought about an issue and dismissed it.
 
 > ## Locking and Pinning Issues
 > The **Lock conversation** and **Pin issue** buttons are both available
@@ -211,11 +211,11 @@ GitHub also lets you mention/reference one issue or pull request from another
 Whilst writing the description of an issue, or commenting on one,
 if you type <kbd>#</kbd> you should see
 a list of the issues and pull requests on the repository.
-They are coloured green if they're open, or white if they're closed.
+They are coloured green if they are open, or white if they are closed.
 Continue typing the issue number, and the list will narrow down,
 then you can hit <kbd>Return</kbd> to select the entry and link the two.
 For example, if you realise that several of your bugs have common roots,
-or that one enhancement can't be implemented before you've finished another,
+or that one enhancement cannot be implemented before you have finished another,
 you can use the mention system to indicate the depending issue(s).
 This is a simple way to add much more information to your issues.
 
@@ -253,11 +253,11 @@ and link to the commit in question.
 > and document what conversations were held around particular issues.
 > As a sole developer, and possibly also the only user of the code,
 > you might be tempted to not bother with recording issues, comments and new features
-> as you don't need to communicate the information to anyone else.
+> as you do not need to communicate the information to anyone else.
 >
-> Unfortunately, human memory isn't infallible!
+> Unfortunately, human memory is not infallible!
 > After spending six months on a different topic,
-> it's inevitable you'll forget some of the plans you had and problems you faced.
+> it is inevitable you'll forget some of the plans you had and problems you faced.
 > Not documenting these things can lead to you having to
 > re-learn things you already put the effort into discovering before.
 > Also, if others are brought on to the project at a later date,
@@ -317,7 +317,7 @@ and see if they are suitable for your software development workflow.
 > to help you plan and track your team's work effectively.
 {: .callout}
 
-Let's have a quick look at how Projects are created in GitHub - we will not use them much in 
+Let us have a quick look at how Projects are created in GitHub - we will not use them much in 
 this course but it is good to be aware of how to make use of them when suitable.
 
 1. From your GitHub account's home page (not your repository's home page!),

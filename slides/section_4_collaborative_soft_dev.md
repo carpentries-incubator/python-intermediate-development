@@ -140,7 +140,7 @@ Go through the steps described under heading. Stop when you reach **Reviewing a 
 
 Pair up with someone else in your group and exchange repository links. You will be taking on the role of _Reviewer_ on your partner's repository. Before leaving review comments, read the content under the heading **Reviewing a pull request**. Try to make a comment from each of the main areas identified.
 
-**Don't submit your review just yet!!!**
+**do not submit your review just yet!!!**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -166,7 +166,7 @@ When done, select `Request changes` from the list of toggles, then `Submit revie
 
 Respond to the _Reviewers_ comments on the PR in _your_ repository. Use the information in **Responding to review comments** to guide your responses. And remember that you can talk to your _Reviewer_ for clarification, just make sure you record that in a comment on the PR.
 
-Don't implement changes that will take more than 5 minutes. Instead, raise them as an issue on your repo for future work, and link to that issue in a comment on the PR.
+do not implement changes that will take more than 5 minutes. Instead, raise them as an issue on your repo for future work, and link to that issue in a comment on the PR.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -189,7 +189,7 @@ Don't implement changes that will take more than 5 minutes. Instead, raise them 
 ### Empathy in review comments
 
 * Identify positives in code as and when you find them
-* Remember different doesn't mean better
+* Remember different does not mean better
 * Only provide a few non-critical suggestions - you are aiming for better rather than perfect
 * Ask questions to understand why something has been done a certain way rather than assuming you
   know a better way
@@ -235,7 +235,7 @@ Start from the top of this episode page and go to the end.
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Learners can skim the first two sections if you have talked about them in the previous slide
 - Split into breakout rooms for about 50 minutes
-- A preface note: if you have been using codimd or hackmd for the shared document, then learners will have already been exposed to Markdown, so this section won't contain much new for them
+- A preface note: if you have been using codimd or hackmd for the shared document, then learners will have already been exposed to Markdown, so this section Will not contain much new for them
 - Post episode comments
   - A README is a great place to start your documentation, but at some point it will outgrow that, and you will need a bigger documentation system. The most popular in Python is Sphinx, which can be used with Markdown or another markup language called ReStructuredText (`.rst` files)
   - For writing documentation, this is another great link that can be added to the shared document: https://documentation.divio.com/
@@ -269,7 +269,7 @@ Start from the top of this episode page and go to the end.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - 📌 Pinning dependencies in a `requirements.txt` has some serious limitations
-  - It doesn't differentiate between production dependencies (i.e. what our package needs to be used in a standalone manner) and library dependencies (i.e. what our package needs to be used as part of another application, which itself has dependencies)
+  - It does not differentiate between production dependencies (i.e. what our package needs to be used in a standalone manner) and library dependencies (i.e. what our package needs to be used as part of another application, which itself has dependencies)
   - It reduces the portability of our code across Python versions: some learners may have encountered this when setting up the CI matrices in GitHub Actions. e.g. Pinning dependencies at Python 3.10 could (and does!) cause issues if those same dependencies need to be installed in a Python 3.8 environment.
   - It is prone to error: what if we forget to add a dependency to requirements.txt? We could happily use pip to install something into our environment and the code will work, but when someone tries to use it themselves, they will be missing a dependency and the code will error out. In other words, we have two disconnected steps we need to perform when installing a dependency.
   - Distributing Python packages to popular repositories like PyPI requires more metadata than having a simple `requirements.txt` and we would need to manually create this
@@ -298,7 +298,7 @@ poetry --version  # check we have access to the poetry executable
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Important warning: Poetry explicitly recommends that you shouldn't install Poetry within the virtual environment of a specific project. Rather, it should have its own isolated environment, which the official download script or `pipx` ensures. This is in direct contradiction to what the course material currently recommends.
-  - So, unless it really isn't possible, encourage learners to follow the link to Poetry's install website and follow instructions there
+  - So, unless it really is not possible, encourage learners to follow the link to Poetry's install website and follow instructions there
 - Give learners about 5 mins to complete this and status check at the end
 <!-- #endregion -->
 
@@ -363,7 +363,7 @@ Inspect how `pyproject.toml` has changed. Look at what has gone into `poetry.loc
 - Give learners a few minutes to do this
   - Then, quickly run through it and look at the changes in your own repo
 - Explain when `poetry.lock` is used: if it is present in a repo when `poetry install` is called, the _exact_ versions of dependencies in `poetry.lock` will be used. Again, useful if we are distributing a standalone application.
-  - Don't check in `poetry.lock` into version control if you want your package to be used as a library
+  - do not check in `poetry.lock` into version control if you want your package to be used as a library
 - Note that the last command is quite important because it puts the current package we are developing into our environment
   - This means that some of those annoying `ModuleNotFound` errors will be eliminated
   - Generally, we want to install the package we are working on in our environment

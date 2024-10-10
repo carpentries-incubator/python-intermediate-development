@@ -246,7 +246,7 @@ A novice will often make up the structure of their code as they go along.
 However, for more advanced software development,
 we need to plan and design this structure - called a *software architecture* - beforehand.
 
-Let's have a quick look into what a software architecture is
+Let us have a quick look into what a software architecture is
 and which architecture is used by our software project
 before we start adding more code to it.
 

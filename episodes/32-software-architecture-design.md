@@ -131,7 +131,7 @@ Now that we know what goals we should aspire to, let us take a critical look at 
 software project and try to identify ways in which it can be improved. 
 
 Our software project contains a pre-existing branch `full-data-analysis` which contains code for a new feature of our 
-inflammation analysis software, which we'll consider as a contribution by another developer.
+inflammation analysis software, which we will consider as a contribution by another developer.
 Recall that you can see all your branches as follows:
 
 ~~~
@@ -180,7 +180,7 @@ calculates and compares standard deviation across all the data by day and finaly
 >> plotting the graph you would have to change the `analysis_data()` function.
 >> * **Hard to modify or test:** it only analyses a set of CSV data files 
 >> matching a very particular hardcoded `inflammation*.csv` pattern, which seems an unreasonable assumption.
->> What if someone wanted to use files which don't match this naming convention?
+>> What if someone wanted to use files which do not match this naming convention?
 >> * **Hard to modify:** it does not have any tests so we cannot be 100% confident the code does 
 >> what it claims to do; any changes to the code may break something and it would be harder and 
 >> more time-consuming to figure out what.

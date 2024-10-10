@@ -22,7 +22,7 @@ help the development of software in a team environment, but in an individual set
 Despite developing tests to check our code - no one else from the team had a look at our code
 before we merged it into the main development stream.
 Software is often designed and built as part of a team,
-so in this episode we'll be looking at how to manage the process of team software development
+so in this episode we will be looking at how to manage the process of team software development
 and improve our code by engaging in code review process with other team members.
 
 ## Collaborative Code Development Models
@@ -112,7 +112,7 @@ and has gained popularity within the software development community in recent ye
 
 Pull requests are fundamental to how teams review and improve code
 on GitHub (and similar code sharing platforms) -
-they let you tell others about changes you've pushed to a branch in a repository on GitHub
+they let you tell others about changes you have pushed to a branch in a repository on GitHub
 and that your code is ready for review.
 Once a pull request is opened,
 you can discuss and review the potential changes with others on the team
@@ -161,7 +161,7 @@ how you create the feature branch.
 In either model, once you are ready to merge your changes in -
 you will need to specify the base branch and the compare branch.
 
-Let's see this in action -
+Let us see this in action -
 you are going to act as a reviewer on a proposed change to the codebase contributed by a
 fictional colleague on one of your fellow learner's repository. 
 One of your fellow learners will review the proposed changes on your repository.
@@ -241,8 +241,8 @@ Start by understanding what the code _should_ do, by reading the specification/u
 the pull request description or talking to the developer if need be.
 In this case, understand what [SR1.1.1](../31-software-requirements/index.html#solution-requirements) means.
 
-Once you're happy, start reading the code (skip the test code for now - we will come back to it later). 
-You're going to be assessing the code in the following key areas.
+Once you are happy, start reading the code (skip the test code for now - we will come back to it later). 
+you are going to be assessing the code in the following key areas.
 
 ##### Is the proposed code readable?
 
