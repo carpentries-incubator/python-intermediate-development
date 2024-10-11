@@ -142,7 +142,7 @@ $ git config --global core.editor "nano -w"
 
 Rather unhelpfully, Git Bash will use its own SSH library by default
 which will result in you getting errors such as the one below even after adding your
-SSH key correctly
+SSH key correctly:
 
 ~~~
 $ git clone git@github.com:https://github.com/ukaea-rse-training/python-intermediate-inflammation
