@@ -109,7 +109,7 @@ we will merge all of the work into `main`.
 
 ## Inflammation Data Analysis
 
-Let's go back to our [patient inflammation software project](/11-software-project/index.html#patient-inflammation-study-project).
+Let's go back to our [patient inflammation software project](../11-software-project/index.html#patient-inflammation-study-project).
 Recall that it is based on a clinical trial of inflammation
 in patients who have been given a new treatment for arthritis.
 There are a number of datasets in the `data` directory

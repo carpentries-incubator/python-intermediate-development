@@ -56,7 +56,7 @@ There is literature on each of the above software design aspects - we will not g
 them all here. 
 Instead, we will learn some techniques to structure our code better to satisfy some of the 
 requirements of 'good' software and revisit 
-our software's [MVC architecture](/11-software-project/index.html#software-architecture) 
+our software's [MVC architecture](../11-software-project/index.html#software-architecture) 
 in the context of software design.
 
 ## Poor Design Choices & Technical Debt
@@ -237,7 +237,7 @@ responsibilities and think about the kinds of information different parts of the
 {: .challenge}
 
 We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but MVC is just one of the common [software architectural patterns](/software-architecture-extra/index.html)
+but MVC is just one of the common [software architectural patterns](../software-architecture-extra/index.html)
 and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture

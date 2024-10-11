@@ -354,9 +354,7 @@ class PatientSerializer(Serializer):
 > We've now got some code which we can use to save and load our patient data,
 > but we've not yet linked it up so people can use it.
 >
-> Just like we did with the `display_patient` view in
-> [Section 3](../36-architecture-revisited/index.html#mvc-revisited),
-> try adding some views to work with our patient data using the JSON serialiser.
+> Try adding some views to work with our patient data using the JSON serialiser.
 > When you do this, think about the design of the command line interface -
 > what arguments will you need to get from the user,
 > what output should they receive back?
