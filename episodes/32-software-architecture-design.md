@@ -237,7 +237,7 @@ responsibilities and think about the kinds of information different parts of the
 {: .challenge}
 
 We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but MVC is just one of the common [software architectural patterns](/software-architecture-extra/index.html)
+but MVC is just one of the common [software architectural patterns](../software-architecture-extra/index.html)
 and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture
@@ -301,7 +301,7 @@ but the Model stores it using a `Date` object rather than its string representat
 
 > ## Reusable "Patterns" of Architecture
 > 
-> [Architectural]((https://www.redhat.com/architect/14-software-architecture-patterns)) and 
+> [Architectural](https://www.redhat.com/architect/14-software-architecture-patterns) and 
 > [programming patterns](https://refactoring.guru/design-patterns/catalog) are reusable templates for 
 > software systems and code that provide solutions for some common software design challenges. 
 > MVC is one architectural pattern. 

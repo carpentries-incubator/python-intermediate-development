@@ -273,7 +273,7 @@ from CSV to JSON, the bulk of the tests need not be updated
 > Some programming languages, such as Haskell or Lisp, support writing pure functional code only.
 > Other languages, such as Python, Java, C++, allow mixing **functional** and **procedural** 
 > programming paradigms. 
-> Read more in the [extra episode on functional programming](/functional-programming/index.html)
+> Read more in the [extra episode on functional programming](../functional-programming/index.html)
 > and when it can be very useful to switch to this paradigm 
 > (e.g. to employ MapReduce approach for data processing).
 {: .callout}
@@ -301,14 +301,14 @@ and provide varied approaches to structuring your code -
 each with certain strengths and weaknesses when used to solve particular types of problems. 
 In many cases, particularly with modern languages, a single language can allow many different 
 structural approaches and mixing programming paradigms within your code.
-Once your software begins to get more complex - it is common to use aspects of [different paradigm](/programming-paradigms/index.html) 
+Once your software begins to get more complex - it is common to use aspects of [different paradigm](../programming-paradigms/index.html) 
 to handle different subtasks. 
-Because of this, it is useful to know about the [major paradigms](/programming-paradigms/index.html), 
+Because of this, it is useful to know about the [major paradigms](../programming-paradigms/index.html), 
 so you can recognise where it might be useful to switch. 
 This is outside of scope of this course - we have some extra episodes on the topics of 
-[procedural programming](/procedural-programming/index.html), 
-[functional programming](/functional-programming/index.html) and 
-[object-oriented programming](/object-oriented-programming/index.html) if you want to know more.
+[procedural programming](../procedural-programming/index.html), 
+[functional programming](../functional-programming/index.html) and 
+[object-oriented programming](../object-oriented-programming/index.html) if you want to know more.
 
 > ## So Which One is Python?
 > Python is a multi-paradigm and multi-purpose programming language.
