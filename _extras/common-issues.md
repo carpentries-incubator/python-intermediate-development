@@ -138,14 +138,14 @@ $ git config --global core.editor "nano -w"
 {: .language-bash}
 
 
-## SSH key authentication issues with Windows Git
+## SSH key authentication issues with Git Bash
 
 Rather unhelpfully, Git Bash will use its own SSH library by default
-which will result in you getting errors such as the below even after adding your
+which will result in you getting errors such as the one below even after adding your
 SSH key correctly
 
 ~~~
-PS > git clone git@github.com:https://github.com/ukaea-rse-training/python-intermediate-inflammation
+$ git clone git@github.com:https://github.com/ukaea-rse-training/python-intermediate-inflammation
 Cloning into 'python-intermediate-inflammation'...
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.
@@ -158,7 +158,7 @@ The solution is to change the SSH instance used by default in newer versions of
 Windows with:
 
 ~~~
-PS > git config --global core.sshCommand C:/windows/System32/OpenSSH/ssh.exe
+$ git config --global core.sshCommand C:/windows/System32/OpenSSH/ssh.exe
 ~~~
 
 ## Python, `pip`, `venv` & Installing Packages Issues
