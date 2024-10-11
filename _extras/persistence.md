@@ -276,7 +276,7 @@ Since this new serializer is not a type of `PatientSerializer`,
 we need to inherit from a new base class
 which holds the design that is shared between `PatientSerializer` and `ObservationSerializer`.
 Since we do not actually need to save the observation data to a file independently,
-we Will not worry about implementing the `save` and `load` methods for the `Observation` model.
+we will not worry about implementing the `save` and `load` methods for the `Observation` model.
 
 ~~~
 # file: inflammation/serializers.py

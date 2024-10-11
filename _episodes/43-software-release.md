@@ -79,7 +79,7 @@ make sure you have got the correct virtual environment activated.
 
 Poetry can also handle virtual environments for us,
 so in order to behave similarly to how we used them previously,
-Let us change the Poetry config to put them in the same directory as our project:
+let us change the Poetry config to put them in the same directory as our project:
 
 ~~~ bash
 $ poetry config virtualenvs.in-project true

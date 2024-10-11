@@ -80,7 +80,7 @@ The [default labels available in GitHub](https://docs.github.com/en/issues/using
 - `help wanted` - indicates that a maintainer wants help on an issue or pull request
 - `invalid` - indicates that an issue, pull request, or discussion is no longer relevant
 - `question` - indicates that an issue, pull request, or discussion needs more information
-- `wontfix` - indicates that work Will not continue on an issue, pull request, or discussion
+- `wontfix` - indicates that work will not continue on an issue, pull request, or discussion
 
 You can also create your own custom labels to help with classifying issues.
 There are no rules really about naming the labels -
@@ -122,7 +122,7 @@ the easier the code is to use, the more widely it will be adopted
 and the greater impact it will have.
 
 One interesting label is `wontfix`,
-which indicates that an issue simply Will not be worked on for whatever reason.
+which indicates that an issue simply will not be worked on for whatever reason.
 Maybe the bug it reports is outside of the use case of the software,
 or the feature it requests simply is not a priority.
 This can make it clear you have thought about an issue and dismissed it.

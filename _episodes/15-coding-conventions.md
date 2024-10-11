@@ -279,7 +279,7 @@ Avoid extraneous whitespace in the following situations:
   augmented assignment (+=, -= etc.),
   comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not),
   booleans (and, or, not).
-- do not use spaces around the = sign
+- Do not use spaces around the = sign
   when used to indicate a keyword argument assignment
   or to indicate a default value for an unannotated function parameter
      ~~~

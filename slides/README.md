@@ -14,7 +14,7 @@ python3 -m venv .venv  # it is important to use the dot prefix if you are creati
 . .venv/bin/activate
 pip install -r slides/requirements.txt 
 # launch jupyter from the top level of this repo, **not** in the slide
-# directory or else the relative figure links Will not work
+# directory or else the relative figure links will not work
 jupyter-notebook
 # navigate to the slide file and edit
 ```
@@ -28,7 +28,7 @@ Use spacebar to advance slides. Presenter view with `t`.
 
 Saving the slides from the Jupyter interface should only save to the markdown source file.
 If you find you have ended up with some `.ipynb` files in the `slides/` directory,
-then you have done something wrong. do not check those `.ipynb` files into version control.
+then you have done something wrong. Do not check those `.ipynb` files into version control.
 
 ## Slide Export
 

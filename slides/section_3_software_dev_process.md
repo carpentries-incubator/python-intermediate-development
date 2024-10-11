@@ -413,7 +413,7 @@ Pure functions are also easier to test
 
  * Easier to write as can create the input as we need it
  * Easier to read as do not need to read any external files
- * Easier to maintain - tests Will not need to change if the file format changes
+ * Easier to maintain - tests will not need to change if the file format changes
 
 <!-- #endregion -->
 
@@ -690,7 +690,7 @@ Time: 15min
 
 These are techniques from **object oriented programming**.
 
-There is a lot more that we Will not go into:
+There is a lot more that we will not go into:
 
 * Inheritance
 * Information hiding
@@ -830,7 +830,7 @@ Practise makes perfect:
 
  * Spot signs things could be improved - like duplication
  * Think about why things are working or not working
- * do not design for an imagined future
+ * Do not design for an imagined future
  * Keep refactoring as you go
 
 <!-- #endregion -->

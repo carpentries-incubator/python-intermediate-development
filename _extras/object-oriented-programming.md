@@ -142,7 +142,7 @@ patients = [
 > > > A better solution would be to use the `zip` function,
 > > > which allows us to iterate over multiple iterables without needing an index variable.
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller,
-> > > so we Will not raise an exception here,
+> > > so we will not raise an exception here,
 > > > but this might not quite be the behaviour we want,
 > > > so we will also explicitly `assert` that the inputs should be the same length.
 > > > Checking that our inputs are valid in this way is an example of a precondition,
@@ -515,7 +515,7 @@ parameterising unit tests and functional programming -
 In this case the `property` decorator is taking the `last_observation` function
 and modifying its behaviour,
 so it can be accessed as if it were a normal attribute.
-It is also possible to make your own decorators, but we Will not cover it here.
+It is also possible to make your own decorators, but we will not cover it here.
 
 ## Relationships Between Classes
 
@@ -684,7 +684,7 @@ who is a Person but not a Patient.
 We see in the example above that to say that a class inherits from another,
 we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-there is something else we need to add as well -
+There is something else we need to add as well -
 Python does not automatically call the `__init__` method on the parent class
 if we provide a new `__init__` for our subclass,
 so we will need to call it ourselves.
