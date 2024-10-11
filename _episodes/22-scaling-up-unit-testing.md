@@ -10,23 +10,23 @@ objectives:
 - "Use code coverage to understand how much of our code is being tested using unit tests"
 keypoints:
 - "We can assign multiple inputs to tests using parametrisation."
-- "It's important to understand the **coverage** of our tests across our code."
+- "it is important to understand the **coverage** of our tests across our code."
 - "Writing unit tests takes time, so apply them where it makes the most sense."
 ---
 
 ## Introduction
 
-We're starting to build up a number of tests that test the same function,
+We are starting to build up a number of tests that test the same function,
 but just with different parameters.
 However, continuing to write a new function for every single test case
-isn't likely to scale well as our development progresses.
+is not likely to scale well as our development progresses.
 How can we make our job of writing tests more efficient?
 And importantly, as the number of tests increases,
 how can we determine how much of our code base is actually being tested?
 
 ## Parameterising Our Unit Tests
 
-So far, we've been writing a single function for every new test we need.
+So far, we have been writing a single function for every new test we need.
 But when we simply want to use the same test code but with different data for another test,
 it would be great to be able to specify multiple sets of data to use with the same test code.
 Test **parameterisation** gives us this.
@@ -52,7 +52,7 @@ def test_daily_mean(test, expected):
 {: .language-python}
 
 Here, we use Pytest's **mark** capability to add metadata to this specific test -
-in this case, marking that it's a parameterised test.
+in this case, marking that it is a parameterised test.
 `parameterize()` function is actually a
 [Python **decorator**](https://www.programiz.com/python-programming/decorator).
 A decorator, when applied to a function,
@@ -73,7 +73,7 @@ and check to see if it equals `[0, 0]` (our `expected` argument).
 Similarly, our second test will run `daily_mean()`
 with `[ [1, 2], [3, 4], [5, 6] ]` and check it produces `[3, 4]`.
 
-The big plus here is that we don't need to write separate functions for each of the tests -
+The big plus here is that we do not need to write separate functions for each of the tests -
 our test code can remain compact and readable as we write more tests
 and adding more tests scales better as our code becomes more complex.
 
@@ -119,8 +119,8 @@ and adding more tests scales better as our code becomes more complex.
 
 Try them out!
 
-Let's commit our revised `test_models.py` file and test cases to our `test-suite` branch
-(but don't push them to the remote repository just yet!):
+Let us commit our revised `test_models.py` file and test cases to our `test-suite` branch
+(but do not push them to the remote repository just yet!):
 
 ~~~
 $ git add tests/test_models.py
@@ -131,16 +131,16 @@ $ git commit -m "Add parameterisation mean, min, max test cases"
 
 ## Code Coverage - How Much of Our Code is Tested?
 
-Pytest can't think of test cases for us.
+Pytest cannot think of test cases for us.
 We still have to decide what to test and how many tests to run.
 Our best guide here is economics:
-we want the tests that are most likely to give us useful information that we don't already have.
+we want the tests that are most likely to give us useful information that we do not already have.
 For example, if `daily_mean(np.array([[2, 0], [4, 0]])))` works,
-there's probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`,
-since it's hard to think of a bug that would show up in one case but not in the other.
+there is probably not much point testing `daily_mean(np.array([[3, 0], [4, 0]])))`,
+since it is hard to think of a bug that would show up in one case but not in the other.
 
 Now, we should try to choose tests that are as different from each other as possible,
-so that we force the code we're testing to execute in all the different ways it can -
+so that we force the code we are testing to execute in all the different ways it can -
 to ensure our tests have a high degree of **code coverage**.
 
 A simple way to check the code coverage for a set of tests is
@@ -197,14 +197,14 @@ TOTAL                        9      1    89%
 ~~~
 {: .output}
 
-So there's still one statement not being tested at line 18,
-and it turns out it's in the function `load_csv()`.
+So there is still one statement not being tested at line 18,
+and it turns out it is in the function `load_csv()`.
 Here we should consider whether or not to write a test for this function,
 and, in general, any other functions that may not be tested.
 Of course, if there are hundreds or thousands of lines that are not covered
 it may not be feasible to write tests for them all.
 But we should prioritise the ones for which we write tests, considering
-how often they're used,
+how often they are used,
 how complex they are,
 and importantly, the extent to which they affect our program's results.
 
@@ -218,7 +218,7 @@ $ cat requirements.txt
 {: .language-bash}
 
 You'll notice `pytest-cov` and `coverage` have been added.
-Let's commit this file and push our new branch to GitHub:
+Let us commit this file and push our new branch to GitHub:
 
 ~~~
 $ git add requirements.txt
@@ -287,7 +287,7 @@ $ git push origin test-suite
 > you can test against that,
 > conducting multiple test runs that take advantage of the randomness
 > to fill the known "space" of expected results.
-> Note that this isn't as precise or complete,
+> Note that this is not as precise or complete,
 > and bear in mind this could mean you need to run *a lot* of tests
 > which may take considerable time.
 {: .callout}
@@ -309,9 +309,9 @@ write the code.
 The main advantages are:
 
 - It forces us to think about how our code will be used before we write it
-- It prevents us from doing work that we don't need to do, e.g. "I might need this later..."
-- It forces us to test that the tests _fail_ before we've implemented the code, meaning we
-   don't inadvertently forget to add the correct asserts.
+- It prevents us from doing work that we do not need to do, e.g. "I might need this later..."
+- It forces us to test that the tests _fail_ before we have implemented the code, meaning we
+   do not inadvertently forget to add the correct asserts.
 
 You may also see this process called **Red, Green, Refactor**:
 'Red' for the failing tests,
@@ -329,7 +329,7 @@ a complex program requires a much higher investment in testing than a simple one
 Putting it another way,
 a small script that is only going to be used once,
 to produce one figure,
-probably doesn't need separate testing:
+probably does not need separate testing:
 its output is either correct or not.
 A linear algebra library that will be used by
 thousands of people in twice that number of applications over the course of a decade,
@@ -337,7 +337,7 @@ on the other hand, definitely does.
 The key is identify and prioritise against
 what will most affect the code's ability to generate accurate results.
 
-It's also important to remember that unit testing cannot catch every bug in an application,
+it is also important to remember that unit testing cannot catch every bug in an application,
 no matter how many tests you write.
 To mitigate this manual testing is also important.
 Also remember to test using as much input data as you can,

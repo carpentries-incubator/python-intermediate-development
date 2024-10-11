@@ -26,7 +26,7 @@ to take effect.
 
 ## Using the VS Code IDE
 
-Let's open our software project in VS Code and familiarise ourselves with some commonly used features needed for this course.
+Let us open our software project in VS Code and familiarise ourselves with some commonly used features needed for this course.
 
 ### Opening a Software Project
 
@@ -38,7 +38,7 @@ which we are using in this course.
 
 As in the episode on
 [virtual environments for software development]({{ page.root }}{% link _episodes/12-virtual-environments.md %}),
-we'd want to create a virtual environment for our project to work in (unless you have already done so earlier in the course).
+we would want to create a virtual environment for our project to work in (unless you have already done so earlier in the course).
 From the top menu, select `Terminal` > `New Terminal` to open a new terminal (command line) session within the project directory,
 and run the following command to create a new environment:
 

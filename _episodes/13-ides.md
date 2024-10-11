@@ -80,10 +80,10 @@ and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.co
 
 ## Using the PyCharm IDE
 
-Let's open our project in PyCharm now and familiarise ourselves with some commonly used features.
+Let us open our project in PyCharm now and familiarise ourselves with some commonly used features.
 
 ### Opening a Software Project
-If you don't have PyCharm running yet, start it up now.
+If you do not have PyCharm running yet, start it up now.
 You can skip the initial configuration steps which just go through
 selecting a theme and other aspects.
 You should be presented with a dialog box that asks you what you want to do,
@@ -156,7 +156,7 @@ and PyCharm is clever enough to understand it.
    so we can also use this environment for other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window.
    Back in the `Preferences` window, you should select "Python 3.11 (python-intermediate-inflammation)"
-   or similar (that you've just added) from the `Project Interpreter` drop-down list.
+   or similar (that you have just added) from the `Project Interpreter` drop-down list.
 
 Note that a number of external libraries have magically appeared under the
 "Python 3.11 (python-intermediate-inflammation)" interpreter,
@@ -170,7 +170,7 @@ and has added these libraries effectively replicating our virtual environment in
 Also note that, although the names are not the same -
 this is one and the same virtual environment
 and changes done to it in PyCharm will propagate to the command line and vice versa.
-Let's see this in action through the following exercise.
+Let us see this in action through the following exercise.
 
 > ## Exercise: Compare External Libraries in the Command Line and PyCharm
 > Can you recall two places where information about our project's dependencies
@@ -314,15 +314,15 @@ You can also verify this from the command line by
 listing the `venv/lib/python3.11/site-packages` subdirectory.
 Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
-Let's do this as an exercise.
+Let us do this as an exercise.
 
 > ## Exercise: Update `requirements.txt` After Adding a New Dependency
 > Export the newly updated virtual environment into `requirements.txt` file.
 >
 >  
 >> ## Solution
->> Let's verify first that the newly installed library `pytest` is appearing in our virtual environment
->> but not in `requirements.txt`. First, let's check the list of installed packages:
+>> Let us verify first that the newly installed library `pytest` is appearing in our virtual environment
+>> but not in `requirements.txt`. First, let us check the list of installed packages:
 >> ~~~
 >> (venv) $ python3 -m pip list
 >> ~~~
@@ -412,7 +412,7 @@ and use on top of virtual environments.
    (i.e. the virtual environment and interpreter you configured earlier in this episode)
    in the `Python interpreter` field.
 5. You can give this run configuration a name at the top of the window if you like -
-   e.g. let's name it `inflammation analysis`.
+   e.g. let us name it `inflammation analysis`.
 6. You can optionally configure run parameters and environment variables in the same window -
    we do not need this at the moment.
 7. Select `Apply` to confirm these settings.
@@ -438,7 +438,7 @@ and use on top of virtual environments.
 Now you know how to configure and manipulate your environment in both tools
 (command line and PyCharm),
 which is a useful parallel to be aware of.
-Let's have a look at some other features afforded to us by PyCharm.
+Let us have a look at some other features afforded to us by PyCharm.
 
 ### Syntax Highlighting
 The first thing you may notice is that code is displayed using different colours.
@@ -446,7 +446,7 @@ Syntax highlighting is a feature that displays source code terms
 in different colours and fonts according to the syntax category the highlighted term belongs to.
 It also makes syntax errors visually distinct.
 Highlighting does not affect the meaning of the code itself -
-it's intended only for humans to make reading code and finding errors easier.
+it is intended only for humans to make reading code and finding errors easier.
 
 ![Syntax Highlighting Functionality in PyCharm](../fig/pycharm-syntax-highlighting.png){: .image-with-shadow width="1000px" }
 
@@ -569,7 +569,7 @@ We will get back to this error shortly -
 for now, the good thing is that we managed to set up our project for development
 both from the command line and PyCharm and are getting the same outputs.
 Before we move on to fixing errors and writing more code,
-let's have a look at the last set of tools for collaborative code development
+Let us have a look at the last set of tools for collaborative code development
 which we will be using in this course - Git and GitHub.
 
 

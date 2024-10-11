@@ -79,7 +79,7 @@ Someone who is engineering software takes a wider view:
 - Who will (or may) be involved: software is written for *stakeholders*.
   This may only be the researcher initially,
   but there is an understanding that others may become involved later
-  (even if that isn't evident yet).
+  (even if that is not evident yet).
   A good rule of thumb is to always assume that
   code will be read and used by others later on, which includes yourself!
 - Software (or code) is an asset: software inherently contains value -
@@ -125,7 +125,7 @@ each stage's outputs flow into the next stage sequentially.
 Whether projects or people that develop software are aware of them or not,
 these stages are followed implicitly or explicitly in every software project.
 What is required for a project (during requirements gathering) is always considered, for example,
-even if it isn't explored sufficiently or well understood.
+even if it is not explored sufficiently or well understood.
 
 Following a **process** of development offers some major benefits:
 
@@ -134,7 +134,7 @@ Following a **process** of development offers some major benefits:
   if that stage has completed successfully before proceeding to the next one
   (and even if the next stage is not warranted at all -
   for example, it may be discovered during requirements of design
-  that development of the software isn't practical or even required).
+  that development of the software is not practical or even required).
 - **Predictability:** each stage is given attention in a logical sequence;
   the next stage should not begin until prior stages have completed.
   Returning to a prior stage is possible and may be needed, but may prove expensive,

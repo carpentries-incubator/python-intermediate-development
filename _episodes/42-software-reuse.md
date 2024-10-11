@@ -20,15 +20,15 @@ keypoints:
 ---
 
 ## Introduction
-In previous episodes we've looked at skills, practices, and tools to help us
+In previous episodes we have looked at skills, practices, and tools to help us
 design and develop software in a collaborative environment.
-In this lesson we'll be looking at
-a critical piece of the development puzzle that builds on what we've learnt so far -
+In this lesson we will be looking at
+a critical piece of the development puzzle that builds on what we have learnt so far -
 sharing our software with others.
 
 ## The Levels of Software Reusability - Good Practice Revisited
 
-Let's begin by taking a closer look at software reusability and what we want from it.
+Let us begin by taking a closer look at software reusability and what we want from it.
 
 Firstly, whilst we want to ensure our software is reusable by others, as well as ourselves,
 we should be clear what we mean by 'reusable'.
@@ -65,20 +65,20 @@ Where 'others', of course, can include a future version of ourselves.
 
 Reproducibility is a cornerstone of science,
 and scientists who work in many disciplines are expected to document
-the processes by which they've conducted their research so it can be reproduced by others.
+the processes by which they have conducted their research so it can be reproduced by others.
 In medicinal, pharmacological, and similar research fields for example,
 researchers use logbooks which are then used to write up protocols and methods for publication.
 
-Many things we've covered so far contribute directly to making our software
+Many things we have covered so far contribute directly to making our software
 reproducible - and indeed reusable - by others.
-A key part of this we'll cover now is software documentation,
+A key part of this we will cover now is software documentation,
 which is ironically very often given short shrift in academia.
 This is often the case even in fields where
 the documentation and publication of research method is otherwise taken very seriously.
 
 A few reasons for this are that writing documentation is often considered:
 
-- A low priority compared to actual research (if it's even considered at all)
+- A low priority compared to actual research (if it is even considered at all)
 - Expensive in terms of effort, with little reward
 - Writing documentation is boring!
 
@@ -87,8 +87,8 @@ and is most effective when used to explain complex interfaces or behaviour,
 or the reasoning behind why something is coded a certain way.
 But code comments only go so far.
 
-Whilst it's certainly arguable that writing documentation isn't as exciting as writing code,
-it doesn't have to be expensive and brings many benefits.
+Whilst it is certainly arguable that writing documentation is not as exciting as writing code,
+it does not have to be expensive and brings many benefits.
 In addition to enabling general reproducibility by others, documentation...
 
 - Helps bring new staff researchers and developers up to speed quickly with using the software
@@ -103,8 +103,8 @@ In addition to enabling general reproducibility by others, documentation...
 - Importantly, it can enable others to understand the software sufficiently to
   *modify and reuse* it to do different things
 
-In the next section we'll see that writing
-a sensible minimum set of documentation in a single document doesn't have to be expensive,
+In the next section we will see that writing
+a sensible minimum set of documentation in a single document does not have to be expensive,
 and can greatly aid reproducibility.
 
 ### Writing a README
@@ -112,7 +112,7 @@ and can greatly aid reproducibility.
 A README file is the first piece of documentation
 (perhaps other than publications that refer to it)
 that people should read to acquaint themselves with the software.
-It concisely explains what the software is about and what it's for,
+It concisely explains what the software is about and what it is for,
 and covers the steps necessary to obtain and install the software
 and use it to accomplish basic tasks.
 Think of it not as a comprehensive reference of all functionality,
@@ -120,8 +120,8 @@ but more a short tutorial with links to further information -
 hence it should contain brief explanations and be focused on instructional steps.
 
 Our repository already has a README that describes the purpose of the repository for this workshop,
-but let's replace it with a new one that describes the software itself.
-First let's delete the old one:
+but let us replace it with a new one that describes the software itself.
+First let us delete the old one:
 
 ~~~
 $ rm README.md
@@ -137,16 +137,16 @@ or as source files for rendering them with formatting structures,
 and are very quick to write.
 GitHub provides a very useful [guide to writing Markdown][github-markdown] for its repositories.
 
-Let's start writing `README.md` using a text editor of your choice and add the following line.
+Let us start writing `README.md` using a text editor of your choice and add the following line.
 
 ~~~
 # Inflam
 ~~~
 {: .language-markdown}
 
-So here, we're giving our software a name.
+So here, we are giving our software a name.
 Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does.
-We would ideally rename the repository to reflect the new name, but let's leave that for now.
+We would ideally rename the repository to reflect the new name, but let us leave that for now.
 In Markdown, the `#` designates a heading, two `##` are used for a subheading, and so on.
 The Software Sustainability Institute's
 [guide on naming projects][ssi-choosing-name]
@@ -160,7 +160,7 @@ Inflam is a data management system written in Python that manages trial data use
 ~~~
 {: .language-markdown}
 
-To give readers an idea of the software's capabilities, let's add some key features next:
+To give readers an idea of the software's capabilities, let us add some key features next:
 
 ~~~
 # Inflam
@@ -177,7 +177,7 @@ Here are some key features of Inflam:
 {: .language-markdown}
 
 As well as knowing what the software aims to do and its key features,
-it's very important to specify what other software and related dependencies
+it is very important to specify what other software and related dependencies
 are needed to use the software (typically called `dependencies` or `prerequisites`):
 
 ~~~
@@ -205,7 +205,7 @@ The following optional packages are required to run Inflam's unit tests:
 ~~~
 {: .language-markdown}
 
-Here we're making use of Markdown links,
+Here we are making use of Markdown links,
 with some text describing the link within `[]` followed by the link itself within `()`.
 
 One really neat feature - and a common practice - of using many CI infrastructures is that
@@ -237,7 +237,7 @@ but there are other aspects we should also cover:
 - *Credits/acknowledgements:* where appropriate, be sure to credit those who
   have helped in the software's development or inspired it
 - *Citation:* particularly for academic software,
-  it's a very good idea to specify a reference to an appropriate academic publication
+  it is a very good idea to specify a reference to an appropriate academic publication
 	so other academics can cite use of the software in their own publications and media.
 	You can do this within a separate
 	[CITATION text file](https://github.com/citation-file-format/citation-file-format)
@@ -248,7 +248,7 @@ For more verbose sections,
 there are usually just highlights in the README with links to further information,
 which may be held within other Markdown files within the repository or elsewhere.
 
-We'll finish these off later.
+We will finish these off later.
 See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
 ### Other Documentation
@@ -258,7 +258,7 @@ writing and making available that's beyond the scope of this course.
 The key is to consider which audiences you need to write for,
 e.g. end users, developers, maintainers, etc.,
 and what they need from the documentation.
-There's a Software Sustainability Institute
+There is a Software Sustainability Institute
 [blog post on best practices for research software documentation](https://www.software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation)
 that helpfully covers the kinds of documentation to consider
 and other effective ways to convey the same information.
@@ -344,9 +344,9 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
 ## Merging into `main`
 
-Once you've done these updates,
+Once you have done these updates,
 commit your changes,
-and if you're doing this work on a feature branch also ensure you merge it into `develop`,
+and if you are doing this work on a feature branch also ensure you merge it into `develop`,
 e.g.:
 
 ~~~
@@ -355,7 +355,7 @@ $ git merge my-feature-branch
 ~~~
 {: .language-bash}
 
-Finally, once we've fully tested our software
+Finally, once we have fully tested our software
 and are confident it works as expected on `develop`,
 we can merge our `develop` branch into `main`:
 
@@ -373,7 +373,7 @@ The software on your `main` branch is now ready for release.
 There are many ways in which Git and GitHub can help us make a software release from our code.
 One of these is via **tagging**,
 where we attach a human-readable label to a specific commit.
-Let's see what tags we currently have in our repository:
+Let us see what tags we currently have in our repository:
 
 ~~~
 $ git tag
@@ -441,7 +441,7 @@ index 4818abb..5b8e7fd 100644
 +
 +## Contributing
 +- Create an issue [here](https://github.com/Onoddil/python-intermediate-inflammation/issues)
-+  - What works, what doesn't? You tell me
++  - What works, what does not? You tell me
 +- Randomly edit some code and see if it improves things, then submit a [pull request](https://github.com/Onoddil/python-intermediate-inflammation/pulls)
 +- Just yell at me while I edit the code, pair programmer style!
 +
@@ -490,7 +490,7 @@ $ git push origin v1.0.0
 {: .callout}
 
 We can now use the more memorable tag to refer to this specific commit.
-Plus, once we've pushed this back up to GitHub,
+Plus, once we have pushed this back up to GitHub,
 it appears as a specific release within our code repository
 which can be downloaded in compressed `.zip` or `.tar.gz` formats.
 Note that these downloads just contain the state of the repository at that commit,
@@ -517,7 +517,7 @@ which may include funding council,
 institutional,
 national,
 and even international policies and laws.
-Within Europe, for example, there's the need to conform to things like [GDPR][gdpr].
-It's a very good idea to make yourself aware of these aspects.
+Within Europe, for example, there is the need to conform to things like [GDPR][gdpr].
+it is a very good idea to make yourself aware of these aspects.
 
 {% include links.md %}

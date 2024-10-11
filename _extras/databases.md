@@ -62,7 +62,7 @@ Foreign Keys
   i.e. this doctor *has a* patient.
 
 While relational databases are typically accessed using **SQL queries**,
-we're going to use a library to help us translate between Python and the database.
+we are going to use a library to help us translate between Python and the database.
 [SQLAlchemy](https://www.sqlalchemy.org/) is a popular Python library
 which contains an **Object Relational Mapping** (ORM) framework.
 
@@ -83,7 +83,7 @@ A mapping is the core component of an ORM -
 it describes how to convert between our Python classes and the contents of our database tables.
 Typically, we can take our existing classes
 and convert them into mappings with a little modification,
-so we don't have to start from scratch.
+so we do not have to start from scratch.
 
 ~~~
 # file: inflammation/models.py
@@ -109,15 +109,15 @@ class Patient(Base):
 ~~~
 {: .language-python}
 
-Now that we've defined how to translate between our Python class and a database table,
+Now that we have defined how to translate between our Python class and a database table,
 we need to hook our code up to an actual database.
 
-The library we're using, SQLAlchemy, does everything through a database **engine**.
+The library we are using, SQLAlchemy, does everything through a database **engine**.
 This is essentially a wrapper around the real database,
-so we don't have to worry about which particular database software is being used -
+so we do not have to worry about which particular database software is being used -
 we just need to write code for a generic relational database.
 
-For these lessions we're going to use the SQLite engine
+For these lessions we are going to use the SQLite engine
 as this requires almost no configuration and no external software.
 Most relational database software runs as a separate service which we can connect to from our code.
 This means that in a large scale environment,
@@ -128,13 +128,13 @@ Some examples of databases which are used like this are PostgreSQL, MySQL and MS
 
 On the other hand, SQLite runs entirely within our software
 and uses only a single file to hold its data.
-It won't give us
+It will not give us
 the extremely high performance or reliability of a properly configured PostgreSQL database,
-but it's good enough in many cases and much less work to get running.
+but it is good enough in many cases and much less work to get running.
 
-Let's write some test code to setup and connect to an SQLite database.
-For now we'll store the database in memory rather than an actual file -
-it won't actually allow us to store data after the program finishes,
+Let us write some test code to setup and connect to an SQLite database.
+For now we will store the database in memory rather than an actual file -
+it will not actually allow us to store data after the program finishes,
 but it allows us not to worry about **migrations**.
 
 > ## Migrations
@@ -143,9 +143,9 @@ but it allows us not to worry about **migrations**.
 > we need to get the database to update its tables to make sure they match the new format.
 > This is what the `Base.metadata.create_all` method does -
 > creates all of these tables from scratch
-> because we're using an in-memory database which we know will be removed between runs.
+> because we are using an in-memory database which we know will be removed between runs.
 >
-> If we're actually storing data persistently,
+> If we are actually storing data persistently,
 > we need to make sure that when we change the mapping,
 > we update the database tables without damaging any of the data they currently contain.
 > We could do this manually,
@@ -157,7 +157,7 @@ but it allows us not to worry about **migrations**.
 > will compare our mappings to the known state of the database
 > and generate a Python file which updates the database to the necessary state.
 >
-> Migrations can be quite complex, so we won't be using them here -
+> Migrations can be quite complex, so we will not be using them here -
 > but you may find it useful to read about them later.
 {: .callout}
 
@@ -175,7 +175,7 @@ def test_sqlalchemy_patient_search():
     """Test that we can save and retrieve patient data from a database."""
     from inflammation.models import Base, Patient
 
-    # Setup a database connection - we're using a database stored in memory here
+    # Setup a database connection - we are using a database stored in memory here
     engine = create_engine('sqlite:///:memory:', echo=True)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -195,27 +195,27 @@ def test_sqlalchemy_patient_search():
 ~~~
 {: .language-python}
 
-For this test, we've imported our models inside the test function,
+For this test, we have imported our models inside the test function,
 rather than at the top of the file like we normally would.
 This is not recommended in normal code,
-as it means we're paying the performance cost of importing every time we run the function,
+as it means we are paying the performance cost of importing every time we run the function,
 but can be useful in test code.
 Since each test function only runs once per test session,
-this performance cost isn't as important as a function we were going to call many times.
-Additionally, if we try to import something which doesn't exist, it will fail -
+this performance cost is not as important as a function we were going to call many times.
+Additionally, if we try to import something which does not exist, it will fail -
 by imporing inside the test function,
 we limit this to that specific test failing,
 rather than the whole file failing to run.
 
 ### Relationships
 
-Relational databases don't typically have an 'array of numbers' column type,
+Relational databases do not typically have an 'array of numbers' column type,
 so how are we going to represent our observations of our patients' inflammation?
 Well, our first step is to create a table of observations.
 We can then use a **foreign key** to point from the observation to a patient,
 so we know which patient the data belongs to.
 The table also needs a column for the actual measurement -
-we'll call this `value` -
+we will call this `value` -
 and a column for the day the measurement was taken on.
 
 We can also use the ORM's `relationship` helper function
@@ -255,20 +255,20 @@ class Patient(Base):
 
 > ## Time is Hard
 >
-> We're using an integer field to store the day on which a measurement was taken.
+> We are using an integer field to store the day on which a measurement was taken.
 > This keeps us consistent with what we had previously
-> as it's essentialy the position of the measurement in the Numpy array.
+> as it is essentialy the position of the measurement in the Numpy array.
 > It also avoids us having to worry about managing actual date / times.
 >
-> The Python `datetime` module we've used previously in the Academics example would be useful here,
+> The Python `datetime` module we have used previously in the Academics example would be useful here,
 > and most databases have support for 'date' and 'time' columns,
-> but to reduce the complexity, we'll just use integers here.
+> but to reduce the complexity, we will just use integers here.
 {: .callout}
 
 Our test code for this is going to look very similar to our previous test code,
 so we can copy-paste it and make a few changes.
 This time, after setting up the database, we need to add a patient and an observation.
-We then test that we can get the observations from a patient we've searched for.
+We then test that we can get the observations from a patient we have searched for.
 
 ~~~
 # file: tests/test_models.py
@@ -279,7 +279,7 @@ def test_sqlalchemy_observations():
     """Test that we can save and retrieve inflammation observations from a database."""
     from inflammation.models import Base, Observation, Patient
 
-    # Setup a database connection - we're using a database stored in memory here
+    # Setup a database connection - we are using a database stored in memory here
     engine = create_engine('sqlite:///:memory:', echo=True)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -303,9 +303,9 @@ def test_sqlalchemy_observations():
 ~~~
 {: .language-python}
 
-Finally, let's put in a way to convert all of our observations into a Numpy array,
+Finally, let us put in a way to convert all of our observations into a Numpy array,
 so we can use our previous analysis code.
-We'll use the `property` decorator here again,
+We will use the `property` decorator here again,
 to create a method that we can use as if it was a normal data attribute.
 
 ~~~
@@ -336,7 +336,7 @@ class Patient(Base):
 ~~~
 {: .language-python}
 
-Once again we'll copy-paste the test code and make some changes.
+Once again we will copy-paste the test code and make some changes.
 This time we want to create a few observations for our patient
 and test that we can turn them into a Numpy array.
 
@@ -347,7 +347,7 @@ def test_sqlalchemy_observations_to_array():
     """Test that we can save and retrieve inflammation observations from a database."""
     from inflammation.models import Base, Observation, Patient
 
-    # Setup a database connection - we're using a database stored in memory here
+    # Setup a database connection - we are using a database stored in memory here
     engine = create_engine('sqlite:///:memory:')
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -371,7 +371,7 @@ def test_sqlalchemy_observations_to_array():
 
 > ## Further Array Testing
 >
-> There's an important feature of the behaviour of our `Patient.values` property
+> there is an important feature of the behaviour of our `Patient.values` property
 > that's not currently being tested.
 > What is this feature?
 > Write one or more extra tests to cover this feature.
@@ -385,7 +385,7 @@ def test_sqlalchemy_observations_to_array():
 > >
 > > If this is intended behaviour,
 > > it would be useful to write a test for it,
-> > to ensure that we don't break it in future.
+> > to ensure that we do not break it in future.
 > > Using tests in this way is known as **regression testing**.
 > >
 > {: .solution}
@@ -393,16 +393,16 @@ def test_sqlalchemy_observations_to_array():
 
 > ## Refactoring for Reduced Redundancy
 >
-> You've probably noticed that there's a lot of replicated code in our database tests.
-> It's fine if some code is replicated a bit,
+> You have probably noticed that there is a lot of replicated code in our database tests.
+> It is fine if some code is replicated a bit,
 > but if you keep needing to copy the same code,
 > that's a sign it should be refactored.
 >
 > Refactoring is the process of changing the structure of our code,
 > without changing its behaviour,
 > and one of the main benefits of good test coverage is that it makes refactoring easier.
-> If we've got a good set of tests,
-> it's much more likely that we'll detect any changes to behaviour -
+> If we have got a good set of tests,
+> it is much more likely that we will detect any changes to behaviour -
 > even when these changes might be in the tests themselves.
 >
 > Try refactoring the database tests to see if you can
@@ -413,9 +413,9 @@ def test_sqlalchemy_observations_to_array():
 
 > ## Advanced Challenge: Connecting More Views
 >
-> We've added the ability to store patient records in the database,
+> We have added the ability to store patient records in the database,
 > but not actually connected it to any useful views.
-> There's a common pattern in data management software
+> there is a common pattern in data management software
 > which is often refered to as **CRUD** - Create, Read, Update, Delete.
 > These are the four fundamental views that we need to provide
 > to allow people to manage their data effectively.
@@ -426,7 +426,7 @@ def test_sqlalchemy_observations_to_array():
 > show an existing record,
 > update an existing record
 > and delete an existing record.
-> It's also sometimes useful to provide a view which lists all existing records for each type -
+> It is also sometimes useful to provide a view which lists all existing records for each type -
 > for example, a list of all patients would probably be useful,
 > but a list of all observations might not be.
 >
