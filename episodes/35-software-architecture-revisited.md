@@ -299,16 +299,16 @@ in the usage section of the help page.
 
 ### Additional Reading Material & References
 
-Now that we have covered and revisited [software architecture](/software-architecture-extra/index.html) 
-and [different programming paradigms](/programming-paradigms/index.html)
+Now that we have covered and revisited [software architecture](../software-architecture-extra/index.html) 
+and [different programming paradigms](../programming-paradigms/index.html)
 and how we can integrate them into our architecture,
 there are two optional extra episodes which you may find interesting.
 
 Both episodes cover the persistence layer of software architectures
 and methods of persistently storing data, but take different approaches.
-The episode on [persistence with JSON](../persistence) covers
+The episode on [persistence with JSON](../persistence/index.html) covers
 some more advanced concepts in Object Oriented Programming, while
-the episode on [databases](../databases) starts to build towards a true multilayer architecture,
+the episode on [databases](../databases/index.html) starts to build towards a true multilayer architecture,
 which would allow our software to handle much larger quantities of data.
 
 ## Towards Collaborative Software Development
