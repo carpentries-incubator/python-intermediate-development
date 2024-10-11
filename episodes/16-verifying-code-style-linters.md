@@ -140,7 +140,7 @@ see the "W0611: Unused numpy imported as np (unused-import)" warning.
 
 It is important to note that while tools such as Pylint are great at giving you
 a starting point to consider how to improve your code,
-they Will not find everything that may be wrong with it.
+they will not find everything that may be wrong with it.
 
 > ## How Does Pylint Calculate the Score?
 >

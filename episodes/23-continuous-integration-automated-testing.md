@@ -218,7 +218,7 @@ jobs:
 
 ***Note**: be sure to create this file as `main.yml`
 within the newly created `.github/workflows` directory,
-or it Will not work!*
+or it will not work!*
 
 So as well as giving our workflow a name - CI -
 we indicate with `on` that we want this workflow to run when we `push` commits to our repository.

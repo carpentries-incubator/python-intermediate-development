@@ -398,7 +398,7 @@ so this will clearly break if we are dividing by zero here,
 resulting in `NaN` values in the normalised array.
 
 With all this in mind,
-Let us add a few edge cases to our parametrisation of `test_patient_normalise`.
+let us add a few edge cases to our parametrisation of `test_patient_normalise`.
 We will add two extra tests,
 corresponding to an input array of all 0,
 and an input array of all 1.
@@ -821,7 +821,7 @@ do not forget to remove the `--fail-under` argument to Pytest
 in our GitHub Actions configuration file too,
 since we do not need it anymore.
 
-Now when we run Pylint we Will not be penalised for having a reasonable line length.
+Now when we run Pylint we will not be penalised for having a reasonable line length.
 For some further hints and tips on how to approach using Pylint for a project,
 see [this article](https://pythonspeed.com/articles/pylint/).
 

@@ -116,7 +116,7 @@ With datasets like this, we cannot move the data around easily,
 so we often want to send our code to where the data is instead.
 By writing our code in a functional style,
 we also gain the ability to run many operations in parallel
-as it is guaranteed that each operation Will not interact with any of the others -
+as it is guaranteed that each operation will not interact with any of the others -
 this is essential if we want to process this much data in a reasonable amount of time.
 
 You can read more in an [extra episode on Functional Programming](/functional-programming/index.html).

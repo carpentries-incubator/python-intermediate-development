@@ -140,7 +140,7 @@ Go through the steps described under heading. Stop when you reach **Reviewing a 
 
 Pair up with someone else in your group and exchange repository links. You will be taking on the role of _Reviewer_ on your partner's repository. Before leaving review comments, read the content under the heading **Reviewing a pull request**. Try to make a comment from each of the main areas identified.
 
-**do not submit your review just yet!!!**
+**Do not submit your review just yet!!!**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -166,7 +166,7 @@ When done, select `Request changes` from the list of toggles, then `Submit revie
 
 Respond to the _Reviewers_ comments on the PR in _your_ repository. Use the information in **Responding to review comments** to guide your responses. And remember that you can talk to your _Reviewer_ for clarification, just make sure you record that in a comment on the PR.
 
-do not implement changes that will take more than 5 minutes. Instead, raise them as an issue on your repo for future work, and link to that issue in a comment on the PR.
+Do not implement changes that will take more than 5 minutes. Instead, raise them as an issue on your repo for future work, and link to that issue in a comment on the PR.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -235,7 +235,7 @@ Start from the top of this episode page and go to the end.
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Learners can skim the first two sections if you have talked about them in the previous slide
 - Split into breakout rooms for about 50 minutes
-- A preface note: if you have been using codimd or hackmd for the shared document, then learners will have already been exposed to Markdown, so this section Will not contain much new for them
+- A preface note: if you have been using codimd or hackmd for the shared document, then learners will have already been exposed to Markdown, so this section will not contain much new for them
 - Post episode comments
   - A README is a great place to start your documentation, but at some point it will outgrow that, and you will need a bigger documentation system. The most popular in Python is Sphinx, which can be used with Markdown or another markup language called ReStructuredText (`.rst` files)
   - For writing documentation, this is another great link that can be added to the shared document: https://documentation.divio.com/
@@ -363,7 +363,7 @@ Inspect how `pyproject.toml` has changed. Look at what has gone into `poetry.loc
 - Give learners a few minutes to do this
   - Then, quickly run through it and look at the changes in your own repo
 - Explain when `poetry.lock` is used: if it is present in a repo when `poetry install` is called, the _exact_ versions of dependencies in `poetry.lock` will be used. Again, useful if we are distributing a standalone application.
-  - do not check in `poetry.lock` into version control if you want your package to be used as a library
+  - Do not check in `poetry.lock` into version control if you want your package to be used as a library
 - Note that the last command is quite important because it puts the current package we are developing into our environment
   - This means that some of those annoying `ModuleNotFound` errors will be eliminated
   - Generally, we want to install the package we are working on in our environment

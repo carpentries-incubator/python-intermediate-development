@@ -286,7 +286,7 @@ print(list(squares))
 > but at that point we should be using a ‘normal’ Python function instead.
 >
 > ~~~
-> # do not do this
+> # Do not do this
 > add_one = lambda x: x + 1
 >
 > # Do this instead

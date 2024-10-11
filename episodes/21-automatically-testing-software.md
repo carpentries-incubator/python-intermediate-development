@@ -254,7 +254,7 @@ to test that our calculated result is the same as our expected result.
 This function explicitly checks the array's shape and elements are the same,
 and throws an `AssertionError` if they are not.
 In particular, note that we cannot just use `==` or other Python equality methods,
-since these Will not work properly with NumPy arrays in all cases.
+since these will not work properly with NumPy arrays in all cases.
 
 We could then add to this with other tests that use and test against other values,
 and end up with something like:
@@ -416,7 +416,7 @@ but what you learn can scale to more complex functional testing for applications
 >
 > Other unit testing frameworks exist for Python,
 > including Nose2 and Unittest, with Unittest supplied as part of the standard Python library.
-> it is also worth noting that Pytest supports tests written for Unittest,
+> It is also worth noting that Pytest supports tests written for Unittest,
 > a useful feature if you wish to prioritise use of the standard library initially,
 > but retain the option to move Pytest in the future.
 > 

@@ -59,7 +59,7 @@ In the code from our current branch `full-data-analysis`,
 you may have noticed that loading data from CSV files from a `data` directory is "hardcoded" into 
 the `analyse_data()` function.
 Data loading is a functionality separate from data analysis, so firstly 
-Let us decouple the data loading part into a separate component (function).
+let us decouple the data loading part into a separate component (function).
 
 > ## Exercise: Decouple Data Loading from Data Analysis
 > 

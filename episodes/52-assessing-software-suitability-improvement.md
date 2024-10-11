@@ -10,7 +10,7 @@ objectives:
 - "Conduct an assessment of software against suitability criteria"
 - "Describe what should be included in software issue reports and register them"
 keypoints:
-- "it is as important to have a critical attitude to adopting software as we do to developing it."
+- "It is as important to have a critical attitude to adopting software as we do to developing it."
 - "As a team agree on who and to what extent you will support software you make available to others."
 ---
 
@@ -83,14 +83,14 @@ will help you adopt the same attitude when assessing your own software for futur
 > - Manage your support:
 >   an issue tracker - like the one in GitHub - is essential to track and manage issues
 > - Manage expectations:
->   Let users know the level of support you offer,
+>   let users know the level of support you offer,
 >   in terms of when they can expect responses to queries,
 >   the scope of support (e.g. which platforms, types of releases, etc.),
 >   the types of support (e.g. bug resolution, helping develop tailored solutions),
 >   and expectations for support in the future (e.g. when project funding runs out)
 >
 > All of this requires effort, and you cannot do everything.
-> it is therefore important to agree and be clear on
+> It is therefore important to agree and be clear on
 > how the software will be supported from the outset,
 > whether it is within the context of a single laboratory,
 > project,

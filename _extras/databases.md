@@ -128,13 +128,13 @@ Some examples of databases which are used like this are PostgreSQL, MySQL and MS
 
 On the other hand, SQLite runs entirely within our software
 and uses only a single file to hold its data.
-It Will not give us
+It will not give us
 the extremely high performance or reliability of a properly configured PostgreSQL database,
 but it is good enough in many cases and much less work to get running.
 
 Let us write some test code to setup and connect to an SQLite database.
 For now we will store the database in memory rather than an actual file -
-it Will not actually allow us to store data after the program finishes,
+it will not actually allow us to store data after the program finishes,
 but it allows us not to worry about **migrations**.
 
 > ## Migrations
@@ -157,7 +157,7 @@ but it allows us not to worry about **migrations**.
 > will compare our mappings to the known state of the database
 > and generate a Python file which updates the database to the necessary state.
 >
-> Migrations can be quite complex, so we Will not be using them here -
+> Migrations can be quite complex, so we will not be using them here -
 > but you may find it useful to read about them later.
 {: .callout}
 
@@ -393,8 +393,8 @@ def test_sqlalchemy_observations_to_array():
 
 > ## Refactoring for Reduced Redundancy
 >
-> you have probably noticed that there is a lot of replicated code in our database tests.
-> it is fine if some code is replicated a bit,
+> You have probably noticed that there is a lot of replicated code in our database tests.
+> It is fine if some code is replicated a bit,
 > but if you keep needing to copy the same code,
 > that's a sign it should be refactored.
 >
@@ -426,7 +426,7 @@ def test_sqlalchemy_observations_to_array():
 > show an existing record,
 > update an existing record
 > and delete an existing record.
-> it is also sometimes useful to provide a view which lists all existing records for each type -
+> It is also sometimes useful to provide a view which lists all existing records for each type -
 > for example, a list of all patients would probably be useful,
 > but a list of all observations might not be.
 >
