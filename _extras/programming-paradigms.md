@@ -44,7 +44,7 @@ from the imperative and declarative families that may be useful to you -
 **Procedural Programming**, **Functional Programming** and **Object-Oriented Programming**.
 Note, however, that most of the languages can be used with multiple paradigms,
 and it is common to see multiple paradigms within a single program -
-so this classification of programming languages based on the paradigm they use isn't as strict.
+so this classification of programming languages based on the paradigm they use is not as strict.
 
 ### Procedural Programming
 
@@ -56,7 +56,7 @@ and the one we used up to this point,
 where we group code into
 *procedures performing a single task, with exactly one entry and one exit point*.
 In most modern languages we call these **functions**, instead of procedures -
-so if you are grouping your code into functions, this might be the paradigm you're using.
+so if you are grouping your code into functions, this might be the paradigm you are using.
 By grouping code like this, we make it easier to reason about the overall structure,
 since we should be able to tell roughly what a function does just by looking at its name.
 These functions are also much easier to reuse than code outside of functions,
@@ -69,7 +69,7 @@ that we are writing just for a single use.
 Aside from smaller scripts, Procedural Programming is also commonly seen
 in code focused on high performance, with relatively simple data structures,
 such as in High Performance Computing (HPC).
-These programs tend to be written in C (which doesn't support Object Oriented Programming)
+These programs tend to be written in C (which does not support Object Oriented Programming)
 or Fortran (which did not until recently).
 HPC code is also often written in C++,
 but C++ code would more commonly follow an Object Oriented style,
@@ -112,11 +112,11 @@ especially when handling **Big Data**.
 One popular definition of Big Data is
 data which is too large to fit in the memory of a single computer,
 with a single dataset sometimes being multiple terabytes or larger.
-With datasets like this, we can't move the data around easily,
+With datasets like this, we cannot move the data around easily,
 so we often want to send our code to where the data is instead.
 By writing our code in a functional style,
 we also gain the ability to run many operations in parallel
-as it is guaranteed that each operation won't interact with any of the others -
+as it is guaranteed that each operation will not interact with any of the others -
 this is essential if we want to process this much data in a reasonable amount of time.
 
 You can read more in an [extra episode on Functional Programming](/functional-programming/index.html).
@@ -127,7 +127,7 @@ Object Oriented Programming focuses on the specific characteristics of each obje
 and what each object can do.
 An object has two fundamental parts - properties (characteristics) and behaviours.
 In Object Oriented Programming,
-we first think about the data and the things that we're modelling - and represent these by objects.
+we first think about the data and the things that we are modelling - and represent these by objects.
 
 For example, if we are writing a simulation for our chemistry research,
 we are probably going to need to represent atoms and molecules.
@@ -135,7 +135,7 @@ Each of these has a set of properties which we need to know about
 in order for our code to perform the tasks we want -
 in this case, for example, we often need to know the mass and electric charge of each atom.
 So with Object Oriented Programming,
-we'll have some **object** structure which represents an atom and all of its properties,
+we will have some **object** structure which represents an atom and all of its properties,
 another structure to represent a molecule,
 and a relationship between the two (a molecule contains atoms).
 This structure also provides a way for us to associate code with an object,

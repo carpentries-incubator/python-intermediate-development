@@ -19,8 +19,8 @@ keypoints:
 ---
 
 The requirements of our software are the basis on which the whole project rests -
-if we get the requirements wrong, we'll build the wrong software.
-However, it's unlikely that we'll be able to determine all of the requirements upfront.
+if we get the requirements wrong, we will build the wrong software.
+However, it is unlikely that we will be able to determine all of the requirements upfront.
 Especially when working in a research context,
 requirements are flexible and may change as we develop our software.  
 
@@ -31,7 +31,7 @@ but at a high level a useful way to split them is into
 *business requirements*,
 *user requirements*,
 and *solution requirements*.
-Let's take a look at these now.
+Let us take a look at these now.
 
 ### Business Requirements
 
@@ -136,7 +136,7 @@ They fall into two key categories:
 #### The Importance of Non-functional Requirements
 
 When considering software requirements,
-it's *very* tempting to just think about the features users need.
+it is *very* tempting to just think about the features users need.
 However, many design choices in a software project quite rightly depend on
 the users themselves and the environment in which the software is expected to run,
 and these aspects should be considered as part of the software's non-functional requirements.
@@ -281,7 +281,7 @@ or does our design need to be revisited?
 It may not need any changes at all,
 but if it does not fit logically our design will need a bigger rethink
 so the new requirement can be implemented in a sensible way.
-We'll look at this a bit later in this section,
+We will look at this a bit later in this section,
 but simply adding new code without considering
 how the design and implementation need to change at a high level
 can make our software increasingly messy and difficult to change in the future.

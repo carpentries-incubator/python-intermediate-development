@@ -90,8 +90,8 @@ What you will be able to do at the end that should help your work:
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - This course has necessarily made some decisions about the tools used to demonstrate the concepts being taught
-  - Python is used as a fairly ubiquitous and syntactically easy language; however, the point needs to be clear that this isn't a course about Python; the course is about software engineering, and it is using Python as the playground to demonstrate the skills and concepts that should be valuable independent of the domain and language
-  - to this end, I will be trying to draw connections with other languages and development scenarios when applicable since I know Python isn't necessarily the main development language for everyone at UKAEA
+  - Python is used as a fairly ubiquitous and syntactically easy language; however, the point needs to be clear that this is not a course about Python; the course is about software engineering, and it is using Python as the playground to demonstrate the skills and concepts that should be valuable independent of the domain and language
+  - to this end, I will be trying to draw connections with other languages and development scenarios when applicable since I know Python is not necessarily the main development language for everyone at UKAEA
   - Learners should have already been notified about the IDE selection and installation. If the instructor has decided to allow different editors, reiterate any caveats (e.g. happy for you to use these editors, but no guarantee that we can help you if you are stuck). At an intermediate level, it is likely learners already have exposure to a preferred IDE, so they can shoulder more of the responsibility for getting that to work.
   - GitHub is ubiquitous in software development, and a lot of research code ends up there. Other platforms are similar and so whatever is learnt here will be applicable.
 - in the long run, you will encounter many more tools than those shown here, and you will form your own preferences; that is fine and we are in no way suggesting these are the definitive tools that should be used by any researcher who codes
@@ -114,11 +114,11 @@ What you will be able to do at the end that should help your work:
   - We want to know how you are doing, and the more information we have about your progress, the better we can tailor the course to you and make it more valuable.
   - There are two main ways to do this.
   - Self reporting: Please use the green check mark and red 'x' in Zoom (or stickies if in person) to indicate your status with lessons or the current content; this is a more subtle way of indicating that you need help without interrupting the instructor. The helpers will be keeping an eye on the list of participants and their statuses. Can everyone please check now that they can put the green check mark up.
-  - Polls within Zoom will also be used to check how you are getting on. Please fill these in and don't ignore them! In person, it is easier to see how people are getting on. 
+  - Polls within Zoom will also be used to check how you are getting on. Please fill these in and do not ignore them! In person, it is easier to see how people are getting on. 
 - Throughout the course, please feel free to interrupt at any point with a question (preferably by raising hand if in person or using the raise hand feature in Zoom or relevant analogue).
 - Many portions of the course will involve breaking into separate groups to do work. Most of this will be independent work, but there are a few group tasks. There will usually be a helper in your room if you need assistance, but again, they are not all-knowing, so please help other participants if you think you can help.
-  - There will no doubt be a range of experiences and people moving at different paces in these groups. Please be mindful of that. If you find there is too much chatter and you can't focus on getting things done, feel free to mute audio.
-  - If you fall behind on the independent exercises, don't worry and prioritise any group work or discussion at the end of a breakout session. You can catch up between sessions.
+  - There will no doubt be a range of experiences and people moving at different paces in these groups. Please be mindful of that. If you find there is too much chatter and you cannot focus on getting things done, feel free to mute audio.
+  - If you fall behind on the independent exercises, do not worry and prioritise any group work or discussion at the end of a breakout session. You can catch up between sessions.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -197,7 +197,7 @@ The "patient inflammation" example from the Novice Software Carpentry Python Les
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Let's take a look at the project structure
+- Let us take a look at the project structure
   - I like to use `tree` (on Ubuntu installable through apt-get, not sure if it comes with Git for Windows)
   - With this we see:
   - README file (that typically describes the project, its usage, installation, authors and how to contribute),
@@ -250,7 +250,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 - Adapter manipulates both the Model and the View. Usually, it accepts input from the View and performs the corresponding action on the Model (changing the state of the model) and then updates the View accordingly. In our simple example project, the file `inflammation-analysis.py` is the Adapter, and it actually does handle user input so it not quite fully abiding by MVA, and actually shares features with another architectural pattern called Model-View-Controller
 
 - Some final words on architecture and these particular patterns:
-  - don't get too caught up determining exactly what functionality should be the responsibility of each component
+  - do not get too caught up determining exactly what functionality should be the responsibility of each component
   - the act of splitting things up and thinking about how they will interact through interfaces is where you get the most value
   - it is likely you were already doing this in an informal fashion, but good to think about it more explicitly **and try to record your design in some appropriate format**
 <!-- #endregion -->
@@ -266,7 +266,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Switch to terminal and the directory of the example project at its initial commit
-  - Make sure you don't have a virtual environment activated, and preferably no numpy or matplotlib in your system python installation. If you do, create a fresh virtual environment that doesn't have these packages.
+  - Make sure you do not have a virtual environment activated, and preferably no numpy or matplotlib in your system python installation. If you do, create a fresh virtual environment that does not have these packages.
 - Try to run the analysis script from the command line: `python3 inflammation-analysis.py`
   - If you are in a clean Python installation, this should throw a `ModuleNotFoundError` which proves we have some external dependencies that are not installed and we need to get through a package manager
   - Depending on what learners have in their `PYTHONPATH` and site packages for their current default environment, they may or may not have success with this command
@@ -274,7 +274,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 - Before jumping to install matplotlib and numpy, it is worth a thought about other projects we might be currently be working on or in the future
   - what if they have a requirement for a different version of numpy or matplotlib? or a different python version? how are you going to share your project with collaborators and make sure they have the correct dependencies?
   - in general, each project is going to have its own unique configuration and set of dependencies
-  - to solve this in python, we set up a virtual environment for each project, containing a set of libraries that won't interact with others on the system
+  - to solve this in python, we set up a virtual environment for each project, containing a set of libraries that Will not interact with others on the system
   - it can be thought of like an isolated partial installation of Python specifically for your project
 <!-- #endregion -->
 
@@ -287,7 +287,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - `venv` comes standard in `Python 3.3+` and is the main advantage for its use
-  - however, important thing to note with `venv` is that you can only ever use the system version of python with it (e.g. if you have Python 3.8 on your system, you can only ever create an virtual environment with Python 3.8). Most of the time this isn't a problem, but if you are in dire need of a particular Python version, then there are other tools that can do that job (next slide).
+  - however, important thing to note with `venv` is that you can only ever use the system version of python with it (e.g. if you have Python 3.8 on your system, you can only ever create an virtual environment with Python 3.8). Most of the time this is not a problem, but if you are in dire need of a particular Python version, then there are other tools that can do that job (next slide).
   - Another consequence is that if there is an update of your system installation then your virtual environment will stop working, and you will need to get rid of it and create a new one (more on that later)
 - `pip` stands for "Pip Installs Packages" and it queries the Python Package Index (PyPI) to install dependencies
   - it is ubiquitous and compatible with all Python distributions
@@ -364,7 +364,7 @@ pip install -r requirements.txt  # great reason to have this file
 - The _coverall_ option these days is to develop in a Docker container (or relevant analogue)
   - The `Dockerfile` codifies the dependencies and setup for your project
 - If you are on a cluster, then you might be familiar with the `module` command
-  - This allows you to get different versions of libraries without installing them yourself (and indeed, because you don't have permission to install them)
+  - This allows you to get different versions of libraries without installing them yourself (and indeed, because you do not have permission to install them)
   - Spack and Easy Build are also quite popular package management tools for HPC; Spack has virtual environments!
 - C++
   - CMake is an ubiquitous build tool and overlaps with dependency management
@@ -407,8 +407,8 @@ Start from this heading and continue to the end of the page.
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Send learners into breakout rooms to read through and try out content from "Using the PyCharm IDE" (~ 30mins, but could be less, so poll helpers after 20 minutes to get a status check from the rooms, or ask directly if in person)
   - Remind to use status green check when done (or red x if having trouble)
-  - Encourage learners to try out the features that are being discussed and don't worry about making modifications to their code since it is under version control it will be easy to reset any changes
-  - Reinforce that we won't be using the version control interface of PyCharm, but it is a perfectly useable feature, and again this comes down to preference
+  - Encourage learners to try out the features that are being discussed and do not worry about making modifications to their code since it is under version control it will be easy to reset any changes
+  - Reinforce that we Will not be using the version control interface of PyCharm, but it is a perfectly useable feature, and again this comes down to preference
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -456,8 +456,8 @@ Start from this heading and go until the "Git Branches" heading.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Git branches
-  - branches are actually just a pointer to a commit, and that commit _can_ (but doesn't have to) define a distinct or divergent commit history of our main branch
-  - this allows developers to take "copies" of the code and make their own modifications without making changes to original nor affecting the commit history of the main branch (so others won't see the changes there until they are merged)
+  - branches are actually just a pointer to a commit, and that commit _can_ (but does not have to) define a distinct or divergent commit history of our main branch
+  - this allows developers to take "copies" of the code and make their own modifications without making changes to original nor affecting the commit history of the main branch (so others Will not see the changes there until they are merged)
   - this is the main aspect of git that facilitates collaboration
   - talk through the image
   - the best practice is to use a new branch for each separate and self-contained unit/piece of work you want to add to the project. This unit of work is also often called a feature and the branch where you develop it is called a feature branch. Each feature branch should have its own meaningful name - indicating its purpose (e.g. “issue23-fix”). If we keep making changes and pushing them directly to main branch on GitHub, then anyone who downloads our software from there will get all of our work in progress - whether or not it’s ready to use! So, working on a separate branch for each feature you are adding is good for several reasons:
@@ -478,7 +478,7 @@ Continue from this heading to the end of the page.
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Get learners to go through the remainder of the content from "Creating Branches" onwards (~ 15 minutes)
 - Once everyone is complete, consider running a quiz.
-  - You are working on a software project that has a main and develop branch. Feature branches are supposed to be created off of the develop branch, but you mistakenly create your feature branch off of the main branch. You don't realise this until you have already committed some changes, and now you are freaking out because you think you might have affected the code on the main branch. Is this worry valid?
+  - You are working on a software project that has a main and develop branch. Feature branches are supposed to be created off of the develop branch, but you mistakenly create your feature branch off of the main branch. You do not realise this until you have already committed some changes, and now you are freaking out because you think you might have affected the code on the main branch. Is this worry valid?
     1. yes
     1. no (correct answer)
 <!-- #endregion -->
@@ -522,18 +522,18 @@ Continue from this heading to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this won't exist, so choose what seems best)
+- Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this Will not exist, so choose what seems best)
   - In Python, this is PEP8
     - In PyCharm, adherance to PEP8 will automatically be checked and violations flagged for fixing (demonstrate this live)
     - VSCode can do the same thing with an extension. See the "Extras" section.
   - It is worth mentioning that at a project level, not everyone will be using the same IDE, so it is better to use an independent tool called a linter that will enforce these style requirements
     - `black` is a popular but harsh and opinionated tool that can take some getting used to
     - `flake8` and `pylint` a bit more conventional -> PyCharm can be modified to use one of these directly (outside of the scope of this course)
-  - C++ doesn't have a language-wide convention for style
+  - C++ does not have a language-wide convention for style
     - [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) is widely used for enforcing formatting, and there are [built-in presets](https://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options) for existing conventions followed by Google, LLVM, etc. Project specific settings made in a `.clang-format` file.
     - our guide on C++ for VSCode recommends cpplint: https://intranet.ccfe.ac.uk/software/guides/vscode-cpp.html
     - Some other useful resources that cover a broader scope than just style and formatting are [Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Formatting) and the [C++ Core Guidelines by Bjarne Stroustrup (the creator of C++)](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
-  - Fortran also doesn't have a language-wide convention
+  - Fortran also does not have a language-wide convention
     - we have a great guide on tooling in VSCode: https://intranet.ccfe.ac.uk/software/guides/vscode-fortran.html
     - this is a good online resource: https://fortran-lang.org/learn/best_practices
 <!-- #endregion -->
@@ -546,7 +546,7 @@ Start from this section heading and go to the end of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Split learners into breakout rooms and get them to work through content starting from "Indentation" section (~ 30 minutes) going to the end of the page
-  - A lot of these checks for formatting can now be done automatically with your IDE or linters, so don't spend too long absorbing them. It is good to be aware why rules are being applied, but the details of implementation are less important.
+  - A lot of these checks for formatting can now be done automatically with your IDE or linters, so do not spend too long absorbing them. It is good to be aware why rules are being applied, but the details of implementation are less important.
   - poll/status check at the end
 - Some comments after the exercises
   - There are many different docstring formats, and I tend to not like the Sphynx default very much. Google or Numpy style docstrings much more readable.

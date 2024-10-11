@@ -229,7 +229,7 @@ This issue seems to only occur with older versions of PyCharm - recent versions 
 ### Invalid YAML Issue
 If YAML is copy+pasted from the course material,
 it might not get pasted correctly in PyCharm and some extra indentation may occur.
-Annoyingly, PyCharm won't flag this up as invalid YAML
+Annoyingly, PyCharm will not flag this up as invalid YAML
 and learners may get all sort of different issues and errors with these files -
 e.g. ‘actions must start with run or uses’ with GitHub Actions workflows.
 

@@ -36,7 +36,7 @@ test it to make sure it works correctly and as expected,
 then record your changes using version control
 and share your work with others via a shared and centrally backed-up repository.
 
-Firstly, let's remind ourselves how to work with Git from the command line.
+Firstly, let us remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 Git is a version control system for tracking changes in computer files
@@ -117,7 +117,7 @@ Software development lifecycle with Git
 </p>
 
 ## Checking-in Changes to Our Project
-Let's check-in the changes we have done to our project so far.
+Let us check-in the changes we have done to our project so far.
 The first thing to do upon navigating into our software project's directory root
 is to check the current status of our local working directory and repository.
 
@@ -162,7 +162,7 @@ and stop notifying us about it.
 Edit your `.gitignore` file in PyCharm
 and add a line containing "venv/" and another one containing ".venv/".
 It does not matter much in this case where within the file you add these lines,
-so let's do it at the end.
+so let us do it at the end.
 Your `.gitignore` should look something like this:
 
 ~~~
@@ -256,7 +256,7 @@ $ git pull
 ~~~
 {: .language-bash}
 
-Now we've ensured our repository is synchronised with the remote one,
+Now we have ensured our repository is synchronised with the remote one,
 we can now push our changes:
 
 ~~~
@@ -324,11 +324,11 @@ $ git branch
 ~~~
 {: .output}
 
-At the moment, there's only one branch (`main`)
+At the moment, there is only one branch (`main`)
 and hence only one version of the code available.
 When you create a Git repository for the first time,
 by default you only get one version (i.e. branch) - `main`.
-Let's have a look at why having different branches might be useful.
+Let us have a look at why having different branches might be useful.
 
 ### Feature Branch Software Development Workflow
 While it is technically OK to commit your changes directly to `main` branch,
@@ -341,7 +341,7 @@ Each feature branch should have its own meaningful name -
 indicating its purpose (e.g. "issue23-fix").
 If we keep making changes and pushing them directly to `main` branch on GitHub,
 then anyone who downloads our software from there will get all of our work in progress -
-whether or not it's ready to use!
+whether or not it is ready to use!
 So, working on a separate branch for each feature you are adding is good for several reasons:
 
 * it enables the main branch to remain stable
@@ -382,7 +382,7 @@ Whichever is the case for you, a good rule of thumb is -
 nothing that is broken should be in `main`.
 
 ### Creating Branches
-Let's create a `develop` branch to work on:
+Let us create a `develop` branch to work on:
 
 ~~~
 $ git branch develop
@@ -435,7 +435,7 @@ the commits will happen on the `develop` branch
 and will not affect the version of the code in `main`.
 We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let's make a small modification to `inflammation/models.py` in PyCharm,
+Let us make a small modification to `inflammation/models.py` in PyCharm,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and
@@ -505,7 +505,7 @@ $ git push -u origin develop
 > We still prefer to explicitly state this information in commands.
 {: .callout}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too.
+Let us confirm that the new branch `develop` now exist remotely on GitHub too.
 From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
 You should see your `develop` branch in the list too. 
@@ -526,7 +526,7 @@ $ git push origin develop
 {: .language-bash}
 
 > ## What is the Relationship Between Originating and New Branches?
-> It's natural to think that new branches have a parent/child relationship
+> it is natural to think that new branches have a parent/child relationship
 > with their originating branch,
 > but in actual Git terms, branches themselves do not have parents
 > but single commits do.
