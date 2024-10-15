@@ -1,202 +1,273 @@
 ---
-title: "Using Microsoft Visual Studio Code"
+title: "Common Issues, Fixes & Tips"
 ---
 
-[Visual Studio Code (VS Code)](https://code.visualstudio.com/), not to be confused with [Visual Studio](https://visualstudio.microsoft.com/), 
-is an Integrated Development Environment (IDE) by Microsoft. You can use it as your IDE for this course 
-instead of PyCharm - bellow are some instructions to help you set up.
+Here is a list of issues previous participants of the course encountered
+and some tips to help you with troubleshooting.
 
-## Installation
+## Command Line/Git Bash Issues
 
-You can download VS Code from the [VS Code project website](https://code.visualstudio.com/download).
-
-### Extensions
-
-VS Code can be used to develop code in many programming languages, provided the appropriate extensions have been installed.
-For this course we will require the extensions for Python. To install extensions click the icon highlighted below 
-in the VS Code sidebar:
-
-![VS Code application window with the Extensions button highlighted](../fig/vs-code-extensions.png){: .image-with-shadow width="800px" }
-
-In the search box, type "python" and select the Intellisense Python extension by Microsoft,
-then click the "Install" button to install the extension.
-You may be asked to reload the VS Code IDE for the changes to take effect.
-
-![VS Code application with the list of extensions found by search term "python"](../fig/vs-code-python-extension.png){: .image-with-shadow width="800px" }
-
-### Using VS Code with Windows Subsystem for Linux
-
-If you are developing software on Windows,
-and particularly software that comes from or targets Unix or Linux systems,
-it can be advantageous to use [WSL (Windows Subsystem for Linux)][wsl].
-Although this course does not explicitly support WSL,
-we will provide some guidance here on how to best link up WSL with VS Code (if that is your use case).
-In your WSL terminal, navigate to the project folder for this course and execute the command:
-
-```bash
-code .
-```
-
-This should launch VS Code in a way that ensures it performs most operations within WSL.
-To do this, the [WSL - Remote extension][vscode-wsl-extension]
-for VS Code should automatically be installed.
-If this does not happen, please install the extension manually.
-You can also launch WSL sessions from VS Code itself using the
-[instructions on the extension page.][vscode-wsl-extension-launch-options]
-
-## Using the VS Code IDE
-
-Let's open our software project in VS Code and familiarise ourselves with some commonly used features needed for this course.
-
-### Opening a Software Project
-
-Select `File` > `Open Folder` from the top-level menu and navigate to the directory where you saved the 
-[`python-intermediate-inflammation` project](../11-software-project/index.html#downloading-our-software-project),
-which we are using in this course.
-
-### Configuring a Virtual Environment in VS Code
-
-As in the episode on
-[virtual environments for software development]({{ page.root }}{% link _episodes/12-virtual-environments.md %}),
-we'd want to create a virtual environment for our project to work in (unless you have already done so earlier in the course).
-From the top menu, select `Terminal` > `New Terminal` to open a new terminal (command line) session within the project directory,
-and run the following command to create a new environment:
+### Python Hangs in Git Bash
+Hanging issues with trying to run Python 3 in Git Bash on Windows
+(i.e. typing `python` in the shell, which causes it to just hang with no error message or output).
+The solution appears to be to use `winpty` -
+a Windows software package providing an interface similar to a Unix pty-master
+for communicating with Windows command line tools.
+Inside the shell type:
 
 ~~~
-python3 -m venv venv
+$ alias python="winpty python.exe"
 ~~~
 {: .language-bash}
 
-This will create a new folder called `venv` within your project root.
-VS Code will notice the new environment and ask if you want to use it as the default Python interpreter for this project - 
-click "Yes".
-
-![VS Code popup window asking which Python interpreter to use for the current project](../fig/use_env.png)
-
----
-
-#### Troubleshooting Setting the Interpreter
-
-If the prompt did not appear, you can manually set the interpreter.
-
-1. Navigate to the location of the `python` binary within the virtual environment
-using the file browser sidebar (see below). The binary will be located in `<virtual environment directory>/bin/python` within the project directory.
-2. Right-click on the binary and select `Copy Path`.
-3. Use the keyboard shortcut `CTRL-SHIFT-P` to bring up the command palette, then search for `Python: Select Interpreter`.
-4. Click `Enter interpreter path...`, paste the path you copied followed by Enter.
-
----
-
-You can verify the setup has worked correctly by selecting an existing Python script in the project folder (or creating a blank
-new one, if you do not have it, by right-clicking on the file explorer sidebar, selecting `New File` and creating a new file 
-with the extension `.py`).
-
-If everything is setup correctly, when you select a Python file in the file explorer you should see
-the interpreter and virtual environment stated in the information bar at the bottom of VS Code, e.g., 
-something similar to the following:
-
-![VS Code bottom bar indicator of the virtual environment](../fig/vs-code-virtual-env-indicator.png)
-
-Any terminal you now open will start with the activated virtual environment.
-
-### Adding Dependencies
-
-For this course you will need to install `pytest`, `numpy` and `matplotlib`. Start a new terminal and run the 
-following:
-
+This alias will be valid for the duration of the shell session.
+For a more permanent solution, from the shell do:
 ~~~
-python3 -m pip install numpy matplotlib pytest
+$ echo "alias python='winpty python.exe'" >> ~/.bashrc
+$ source ~/.bashrc
 ~~~
 {: .language-bash}
 
----
+(and from there on remember to invoke Python as `python`
+or whatever command you aliased it to).
+Read more details on the issue at
+[Stack Overflow](https://stackoverflow.com/questions/32597209/python-not-working-in-the-command-line-of-git-bash)
+or [Superuser](https://superuser.com/questions/1403345/git-bash-not-running-python3-as-expected-hanging-issues).
 
-#### Troubleshooting Dependencies
+### Customising Command Line Prompt
+Minor annoyance with the ultra long prompt command line sometimes gives you -
+if you do not want a reminder of the current working directory,
+you can set it to just `$` by typing the following in your command line: `export PS1="$ "`.
+More details on command line prompt customisation can be found in this
+[guide](https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html).
 
-If you are having issues with `pip`, it may be that `pip` version you have is too old.
-Pip will usually inform you via a warning if a newer version is available. 
-You can upgrade pip by running the following from the terminal:
+## Git/GitHub Issues
+
+### Connection Issues When Accessing GitHub Using Git Over VPN or Protected Networks - Proxy Needed
+When accessing external services and websites
+(such as GitHub using `git` or to
+[install Python packages with `pip`](../common-issues/index.html#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)),
+you may experience connection errors
+(e.g. similar to `fatal: unable to access '....': Failed connect to github.com`)
+or a connection that hangs.
+This may indicate that they need to configure a proxy server user by your organisation
+to tunnel SSH traffic through a HTTP proxy.
+
+To get `git` to work through a proxy server in Windows,
+you'll need `connect.exe` program that comes with GitBash
+(which you should have installed as part of setup, so no additional installation is needed).
+If installed in the default location,
+this file should be found at `C:\Program Files\Git\mingw64\bin\connect.exe`.
+Next, you'll need to modify your ssh config file (typically in `~/.ssh/config`)
+and add the following:
 
 ~~~
-python3 -m pip install --upgrade pip
+Host github.com
+    ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H <proxy-server>:<proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
+Mac and Linux users can use the [Corkscrew tool](https://github.com/bryanpkc/corkscrew)
+for tunneling SSH through HTTP proxies,
+which would have to be installed separately.
+Next, you'll need to modify your SSH config file (typically in `~/.ssh/config`)
+and add the following:
+
+~~~
+Host github.com
+    ProxyCommand corkscrew <proxy-server> <proxy-port> %h %p
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    User git
+    Port 22
+    Hostname github.com
+~~~
+
+### Creating a GitHub Key Without 'Workflow' Authorisation Scope
+If a learner creates a GitHub authentication token
+but forgets to check 'workflow' scope
+(to allow the token to be used to update GitHub Action workflows)
+they will get the following error when trying to push a new workflow
+(when adding the `pytest` action in Section 2) to GitHub:
+
+~~~
+! [remote rejected] test-suite -> test-suite (refusing to allow an OAuth App to create or update workflow `.github/workflows/main.yml` without `workflow` scope`
+~~~
+{: .error}
+
+The solution is to generate a new token with the correct scope/usage permissions
+and clear the local credential cache (if that's where the token has been saved).
+In same cases, simply clearing credential cache was not enough and updating to Git 2.29 was needed.
+
+### `Please tell me who you are` Git Error
+If you experience the following error the first time you do a Git commit,
+you may not have configured your identity with Git on your machine:
+
+~~~
+fatal: unable to auto-detect email address
+*** Please tell me who you are
+~~~
+{: .error}
+
+This can be configured from the command line as follows:
+
+~~~
+$ git config --global user.name "Your Name"
+$ git config --global user.email "name@example.com"
 ~~~
 {: .language-bash}
 
-You can now try to install the packages again.
+The option `--global` tells Git to use these settings "globally"
+(i.e. for every project that uses Git for version control on your machine).
+If you use different identifies for different projects,
+then you should not use the `--global` option.
+Make sure to use the same email address you used to open an account on GitHub
+that you are using for this course.
 
----
+At this point it may also be a good time to configure your favourite text editor with Git,
+if you have not already done so.
+For example, to use the editor `nano` with Git:
 
-## Running Python Scripts in VS Code
+~~~
+$ git config --global core.editor "nano -w"
+~~~
+{: .language-bash}
 
-To run a Python script in VS Code, open the script by clicking on it,
-and then either click the Play icon in the top right corner,
-or use the keyboard shortcut `CTRL-ALT-N`.
 
-![VS Code application window with highlighted Run button](../fig/vs-code-run-script.png){: .image-with-shadow width="800px" }
+## SSH key authentication issues with Git Bash
 
-## Adding a Linter in VS Code
+Git Bash uses its own SSH library by default, which may result in errors such as the one below 
+even after adding your SSH key correctly:
 
-In [the episode on coding style]({{ page.root }}{% link _episodes/15-coding-conventions.md %})
-and [the subsequent episode on linters]({{ page.root }}{% link _episodes/16-verifying-code-style-linters.md %}),
-you are asked to use an automatic feature in PyCharm
-that picks up linting issues with the source code.
-Because it is language agnostic, VS Code does not have a linter for Python built into it.
-Instead, you will need to install an extension to get linting hints.
-Get to the "Extensions" side pane by one of these actions:
+~~~
+$ git clone git@github.com:https://github.com/ukaea-rse-training/python-intermediate-inflammation
+Cloning into 'python-intermediate-inflammation'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
 
-1. Bring up the command palette with `CTRL-SHFT-P`, search for `View: Show Extensions`
-2. Use the direct keyboard shortcut `CTRL-SHFT-X`
-3. Click on the ["Extensions" icon](./index.html#extensions) on the left side panel we used previously. 
-   
-In the Extensions panel, type "pylint" into the search bar. Select Pylint from the result panel 
-that comes up and then the `Install` button:
-
-![VS Code Extensions Panel showing searching for pylint extension](../fig/vs-code-install-linter-extension.png){: .image-with-shadow width="800px" }
-
-Once installed, Pylint warnings about your code should automatically populate the "Problems" panel
-at the bottom of VS Code window, as shown below. You can also bring up the "Problems" panel using the keyboard shortcut `CTRL-SHFT-M`.
-
-![VS Code Problems Panel](../fig/vs-code-linter-problems-pane-annotated.png){: .image-with-shadow width="800px" }
-
-There are other Python linters available, such as [Flake8](https://flake8.pycqa.org/en/latest/), 
-and Python code formatters, such as [Black](https://pypi.org/project/black/).
-All are available as extensions that can be installed in a similar manner from the "Extensions" panel.
-
-We also recommend that you install these linters and formatters in your virtual environment,
-since then you will be able to run them from the terminal as well.
-For example, if you want `pylint` and `black` packages, execute the following from the terminal:
-
-~~~bash
-$ python3 -m pip install pylint black
+Please make sure you have the correct access rights
+and the repository exists.
 ~~~
 
-They will now both be available to run as command line applications,
-and you will find the details of how to run `pylint` in the lesson material (`black` in not covered).
+The solution is to change the SSH library used by Git:
 
-## Running Tests
+~~~
+$ git config --global core.sshCommand C:/windows/System32/OpenSSH/ssh.exe
+~~~
 
-VS Code also allows you to run tests from a dedicated test viewer.
-Clicking the "laboratory flask" button in the sidebar allows you to set up test exploration:
+## Python, `pip`, `venv` & Installing Packages Issues
 
-![VS Code application window for setting up test framework](../fig/vs-code-test-explorer.png){: .image-with-shadow width="800px" }
+### Issues With Numpy (and Potentially Other Packages) on New M1 Macs
+When using `numpy` package installed via `pip` on a command line on a new Apple M1 Mac,
+you get a failed installation with the error:
 
-Click `Configure Python Tests`,
-select `pytest` as the test framework,
-and the `tests` directory as the directory for searching.
+~~~
+...
+mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64e').
+...
+~~~
+{: .error}
 
-You should now be able to run tests individually
-using the test browser (available from the top level menu `View` > `Testing`) and selecting the test of interest.
+Numpy is a package heavily optimised for performance,
+and many parts of it are written in C and compiled for specific architectures,
+such as Intel (x86_64, x86_32, etc.)
+or Apple's M1 (arm64e).
+In this instance, `pip` is obtaining a version of `numpy` with the incorrect compiled binaries,
+instead of the ones needed for Apple's M1 Mac.
+One way that was found to work was to install numpy via PyCharm into your environment instead,
+which seems able to determine the correct packages to download and install.
 
-![VS Code application window for running tests](../fig/vs-code-run-test.png){: .image-with-shadow width="800px" }
+### Python 3 Installed but not Found When Using `python3` Command
+Python 3 installed on some Windows machines
+may not be accessible using the `python3` command from the command line,
+but works fine when invoked via the command `python`.
 
-### Running Code in Debug Mode
+### Connection Issues When Installing Packages With `pip` Over VPN or Protected Networks - Proxy Needed
+If you encounter issues when trying to
+install packages with `pip` over your organisational network -
+it may be because your may need to
+[use a proxy](https://stackoverflow.com/questions/30992717/proxy-awareness-with-pip)
+provided by your organisation.
+In order to get `pip` to use the proxy,
+you need to add an additional parameter when installing packages with `pip`:
 
-When clicking on a test you will see two icons,
-the ordinary Run/Play icon, and a Run/Play icon with a bug.
-The latter allows you to run the tests in debug mode
-useful for obtaining further information as to why a failure has occurred - this will be covered in the main lesson material.
+~~~
+$ python3 -m pip install --proxy <proxy-url> <name of package>`
+~~~
+{: .language-bash}
 
+To keep these settings permanently,
+you may want to add the following to your `.zshrc`/`.bashrc` file
+to avoid having to specify the proxy for each session,
+and restart your command line terminal:
 
-[vscode-wsl-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
-[vscode-wsl-extension-launch-options]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl#commands
-[wsl]: https://learn.microsoft.com/en-us/windows/wsl/about
+~~~
+# call set_proxies to set proxies and unset_proxies to remove them
+set_proxies() {
+export {http,https,ftp}_proxy='<proxy-url>'
+export {HTTP,HTTPS,FTP}_PROXY='<proxy-url>'
+export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.64.2,.<proxy-url>, <proxy-url>
+}
+
+unset_proxies() {
+export {http,https,ftp}_proxy=
+export {HTTP,HTTPS,FTP}_PROXY=
+export NO_PROXY=
+}
+~~~
+
+## PyCharm Issues
+
+### Using GitBash from PyCharm
+To embed Git Bash in PyCharm as external tool and work with it in PyCharm window,
+from Settings
+select "Tools->Terminal->Shell path"
+and enter `“C:\Program Files\Git\bin\sh.exe” --login`.
+See [more details](https://stackoverflow.com/questions/20573213/embed-git-bash-in-pycharm-as-external-tool-and-work-with-it-in-pycharm-window-w)
+on Stack Overflow.
+
+### Virtual Environments Issue `"no such option: –build-dir"`
+Using PyCharm to add a package to a virtual environment created from the command line using `venv`
+can fail with error `"no such option: –build-dir"`,
+which appears to be caused by the latest version of `pip` (20.3)
+where the flag `-build-dir` was removed but is required by PyCharm to install packages.
+A workaround is to:
+
+- Close PyCharm
+- Downgrade the version of `pip` used by `venv`, e.g. in a command line terminal type:
+    ~~~
+    $ python3 -m pip install pip==20.2.4
+    ~~~
+    {: .language-bash}
+- Restart PyCharm
+
+See [the issue](https://youtrack.jetbrains.com/issue/PY-45712) for more details.
+This issue seems to only occur with older versions of PyCharm - recent versions should be fine.
+
+### Invalid YAML Issue
+If YAML is copy+pasted from the course material,
+it might not get pasted correctly in PyCharm and some extra indentation may occur.
+Annoyingly, PyCharm won't flag this up as invalid YAML
+and learners may get all sort of different issues and errors with these files -
+e.g. ‘actions must start with run or uses’ with GitHub Actions workflows.
+
+An example of incorrect extra indentation:
+
+~~~
+steps:
+    - name: foo
+      uses: bar
+~~~
+
+Instead of
+~~~
+steps:
+  - name: foo
+    uses: bar
+~~~
+
+{% include links.md %}
