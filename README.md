@@ -5,10 +5,10 @@
 
 ## Intermediate Research Software Development Skills (Python)
 
-This is an intermediate-level course in collaborative research software engineering and development skills, 
-using Python as an example language. 
-It teaches these skills in a way that mimics a typical software development 
-process working as a part of a team, 
+This is an intermediate-level course in collaborative research software engineering and development skills,
+using Python as an example language.
+It teaches these skills in a way that mimics a typical software development
+process working as a part of a team,
 starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
 The lesson is developed using [The Carpentries](https://carpentries.org) Jekyll lesson template.
 

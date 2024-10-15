@@ -9,6 +9,7 @@ title: "Instructor Notes"
 
 
 ## Course Design
+
 The course follows a narrative around
 a software development team working on an existing software project
 that is analysing patients’ inflammation data
@@ -41,6 +42,7 @@ The course has been separated into 5 sections:
 Each section can be approximately delivered in a half-day but even better if you can allow 1 day per section.
 
 ## Course Delivery
+
 The course is intended primarily for self-learning
 but other modes of delivery have been used successfully
 (e.g. fully instructor-led code-along mode or mixing in elements of instructor-led with self-work).
@@ -87,7 +89,16 @@ to make sure everyone is in sync as much as possible and are working on similar 
 This synchronisation becomes particularly important for later workshop stages
 when students start with group exercises.
 
+Although not explicitly endorsed,
+it is quite possible for learners to do the course using VS Code instead of PyCharm.
+There is a section for setting up VS Code in the [this adjacent extras page](../vscode).
+However, when progressing through the section [Integrated Software Development Environments](../13-ides),
+it can be a bit difficult for learners to pay attention to both pages.
+Therefore, some instructors have found it helpful to perform a demonstration on their own machines of how to use VS Code to achieve the same functionality as PyCharm.
+It is worthwhile preparing this in advance of the session.
+
 ### Helpers Roles and Responsibilities
+
 At the workshop, when using the "self-learning with helpers" delivery mode, everyone in the training team is a helper and 
 there are no instructors per se.
 You may have more experienced helpers delivering introductions to the workshop and sections.
@@ -110,8 +121,13 @@ Roles and responsibilities of helpers include:
 - Helping students get through the material
   but also being ready to answer questions on applying the material in learners’ domains,
   if possible
+- Monitoring the progress of students
+  - get up every now and then and do a walk around the room, look at stickies and have a peak at
+    computer screens (particularly if the session is running a bit behind)
+  - ask any learners that you might have helped previously how they are getting on
 
 ### Group Exercises
+
 Here is some advice on how best to sync and organise group exercises in later stages of the course.
 
 - For earlier workshop stages,

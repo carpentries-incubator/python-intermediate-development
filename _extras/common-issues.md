@@ -137,6 +137,28 @@ $ git config --global core.editor "nano -w"
 ~~~
 {: .language-bash}
 
+
+## SSH key authentication issues with Git Bash
+
+Git Bash uses its own SSH library by default, which may result in errors such as the one below 
+even after adding your SSH key correctly:
+
+~~~
+$ git clone git@github.com:https://github.com/ukaea-rse-training/python-intermediate-inflammation
+Cloning into 'python-intermediate-inflammation'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+~~~
+
+The solution is to change the SSH library used by Git:
+
+~~~
+$ git config --global core.sshCommand C:/windows/System32/OpenSSH/ssh.exe
+~~~
+
 ## Python, `pip`, `venv` & Installing Packages Issues
 
 ### Issues With Numpy (and Potentially Other Packages) on New M1 Macs

@@ -2,16 +2,11 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    notebook_metadata_filter: rise,celltoolbar
+    notebook_metadata_filter: -kernelspec,-jupytext.text_representation.jupytext_version,rise,celltoolbar
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
   rise:
     theme: solarized
 ---
@@ -204,7 +199,7 @@ Follow along from this section heading to the bottom of the page.
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - split learners into breakout rooms (~50 mins although likely less, so take a status check early) starting from this section heading and going to the end of the page
-  - if learners are using different editors, then encourage them to try and replicate the techique of debugging that is explained here
+  - if learners are using different editors, then encourage them to try and replicate the technique of debugging that is explained here
 - status check
 <!-- #endregion -->
 
