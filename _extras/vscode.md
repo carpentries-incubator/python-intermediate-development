@@ -29,9 +29,9 @@ You may be asked to reload the VS Code IDE for the changes to take effect.
 If you are developing software on Windows,
 and particularly software that comes from or targets Unix or Linux systems,
 it can be advantageous to use [WSL (Windows Subsystem for Linux)][wsl].
-Although this course does not explicitly support WSL setup,
-we will provide some guidance on how to best link up WSL with VS Code.
-In your WSL terminal, navigate to the project folder for this course and execute the command
+Although this course does not explicitly support WSL,
+we will provide some guidance here on how to best link up WSL with VS Code (if that is your use case).
+In your WSL terminal, navigate to the project folder for this course and execute the command:
 
 ```bash
 code .
@@ -40,7 +40,7 @@ code .
 This should launch VS Code in a way that ensures it performs most operations within WSL.
 To do this, the [WSL - Remote extension][vscode-wsl-extension]
 for VS Code should automatically be installed.
-If this doesn't happen, please install the extension manually.
+If this does not happen, please install the extension manually.
 You can also launch WSL sessions from VS Code itself using the
 [instructions on the extension page.][vscode-wsl-extension-launch-options]
 
@@ -105,7 +105,7 @@ For this course you will need to install `pytest`, `numpy` and `matplotlib`. Sta
 following:
 
 ~~~
-pip install numpy matplotlib pytest
+python3 -m pip install numpy matplotlib pytest
 ~~~
 {: .language-bash}
 
@@ -118,7 +118,7 @@ Pip will usually inform you via a warning if a newer version is available.
 You can upgrade pip by running the following from the terminal:
 
 ~~~
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ~~~
 {: .language-bash}
 
