@@ -36,7 +36,7 @@ and code becomes a series of interactions between objects.
 
 One of the main difficulties we encounter when building more complex software is
 how to structure our data.
-So far, we've been processing data from a single source and with a simple tabular structure,
+So far, we have been processing data from a single source and with a simple tabular structure,
 but it would be useful to be able to combine data from a range of different sources
 and with more data than just an array of numbers.
 
@@ -53,7 +53,7 @@ but often we need to have more structure than this.
 For example, we may need to attach more information about the patients
 and store this alongside our measurements of inflammation.
 
-We can do this using the Python data structures we're already familiar with,
+We can do this using the Python data structures we are already familiar with,
 dictionaries and lists.
 For instance, we could attach a name to each of our patients:
 
@@ -133,22 +133,22 @@ patients = [
 > > >
 > > > What would happen if the `data` and `names` inputs were different lengths?
 > > >
-> > > If `names` is longer, we'll loop through, until we run out of rows in the `data` input,
-> > > at which point we'll stop processing the last few names.
-> > > If `data` is longer, we'll loop through, but at some point we'll run out of names -
-> > > but this time we try to access part of the list that doesn't exist,
-> > > so we'll get an exception.
+> > > If `names` is longer, we will loop through, until we run out of rows in the `data` input,
+> > > at which point we will stop processing the last few names.
+> > > If `data` is longer, we will loop through, but at some point we will run out of names -
+> > > but this time we try to access part of the list that does not exist,
+> > > so we will get an exception.
 > > >
 > > > A better solution would be to use the `zip` function,
 > > > which allows us to iterate over multiple iterables without needing an index variable.
 > > > The `zip` function also limits the iteration to whichever of the iterables is smaller,
-> > > so we won't raise an exception here,
+> > > so we will not raise an exception here,
 > > > but this might not quite be the behaviour we want,
-> > > so we'll also explicitly `assert` that the inputs should be the same length.
+> > > so we will also explicitly `assert` that the inputs should be the same length.
 > > > Checking that our inputs are valid in this way is an example of a precondition,
 > > > which we introduced conceptually in an earlier episode.
 > > >
-> > > If you've not previously come across the `zip` function,
+> > > If you have not previously come across the `zip` function,
 > > > read [this section](https://docs.python.org/3/library/functions.html#zip)
 > > > of the Python documentation.
 > > >
@@ -232,7 +232,7 @@ The behaviours we may have seen previously include:
 
 ## Encapsulating Data
 
-Let's start with a minimal example of a class representing our patients.
+Let us start with a minimal example of a class representing our patients.
 
 ~~~
 # file: inflammation/models.py
@@ -252,7 +252,7 @@ Alice
 ~~~
 {: .output}
 
-Here we've defined a class with one method: `__init__`.
+Here we have defined a class with one method: `__init__`.
 This method is the **initialiser** method,
 which is responsible for setting up the initial values and structure of the data
 inside a new instance of the class -
@@ -296,7 +296,7 @@ As we saw with the `__init__` method previously,
 we do not need to explicitly provide a value for the `self` argument,
 this is done for us by Python.
 
-Let's add another method on our Patient class that adds a new observation to a Patient instance.
+Let us add another method on our Patient class that adds a new observation to a Patient instance.
 
 ~~~
 # file: inflammation/models.py
@@ -341,14 +341,14 @@ print(alice.observations)
 Note also how we used `day=None` in the parameter list of the `add_observation` method,
 then initialise it if the value is indeed `None`.
 This is one of the common ways to handle an optional argument in Python,
-so we'll see this pattern quite a lot in real projects.
+so we will see this pattern quite a lot in real projects.
 
 > ## Class and Static Methods
 >
-> Sometimes, the function we're writing doesn't need access to
+> Sometimes, the function we are writing does not need access to
 > any data belonging to a particular object.
 > For these situations, we can instead use a **class method** or a **static method**.
-> Class methods have access to the class that they're a part of,
+> Class methods have access to the class that they are a part of,
 > and can access data on that class -
 > but do not belong to a specific instance of that class,
 > whereas static methods have access to neither the class nor its instances.
@@ -515,7 +515,7 @@ parameterising unit tests and functional programming -
 In this case the `property` decorator is taking the `last_observation` function
 and modifying its behaviour,
 so it can be accessed as if it were a normal attribute.
-It is also possible to make your own decorators, but we won't cover it here.
+It is also possible to make your own decorators, but we will not cover it here.
 
 ## Relationships Between Classes
 
@@ -543,9 +543,9 @@ for example in our inflammation project,
 we might want to say that a doctor *has* patients
 or that a patient *has* observations.
 
-In the case of our example, we're already saying that patients have observations,
-so we're already using composition here.
-We're currently implementing an observation as a dictionary with a known set of keys though,
+In the case of our example, we are already saying that patients have observations,
+so we are already using composition here.
+We are currently implementing an observation as a dictionary with a known set of keys though,
 so maybe we should make an `Observation` class as well.
 
 ~~~
@@ -594,8 +594,8 @@ print(obs)
 ~~~
 {: .output}
 
-Now we're using a composition of two custom classes to
-describe the relationship between two types of entity in the system that we're modelling.
+Now we are using a composition of two custom classes to
+describe the relationship between two types of entity in the system that we are modelling.
 
 ### Inheritance
 
@@ -684,16 +684,16 @@ who is a Person but not a Patient.
 We see in the example above that to say that a class inherits from another,
 we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-There's something else we need to add as well -
-Python doesn't automatically call the `__init__` method on the parent class
+There is something else we need to add as well -
+Python does not automatically call the `__init__` method on the parent class
 if we provide a new `__init__` for our subclass,
-so we'll need to call it ourselves.
+so we will need to call it ourselves.
 This makes sure that everything that needs to be initialised on the parent class has been,
 before we need to use it.
-If we don't define a new `__init__` method for our subclass,
+If we do not define a new `__init__` method for our subclass,
 Python will look for one on the parent class and use it automatically.
 This is true of all methods -
-if we call a method which doesn't exist directly on our class,
+if we call a method which does not exist directly on our class,
 Python will search for it among the parent classes.
 The order in which it does this search is known as the **method resolution order** -
 a little more on this in the Multiple Inheritance callout below.
@@ -713,7 +713,7 @@ before we can properly initialise a `Patient` model with their inflammation data
 > When deciding how to implement a model of a particular system,
 > you often have a choice of either composition or inheritance,
 > where there is no obviously correct choice.
-> For example, it's not obvious whether a photocopier *is a* printer and *is a* scanner,
+> For example, it is not obvious whether a photocopier *is a* printer and *is a* scanner,
 > or *has a* printer and *has a* scanner.
 >
 > ~~~
@@ -751,11 +751,11 @@ before we can properly initialise a `Patient` model with their inflammation data
 > {: .language-python}
 >
 > Both of these would be perfectly valid models and would work for most purposes.
-> However, unless there's something about how you need to use the model
+> However, unless there is something about how you need to use the model
 > which would benefit from using a model based on inheritance,
-> it's usually recommended to opt for **composition over inheritance**.
+> it is usually recommended to opt for **composition over inheritance**.
 > This is a common design principle in the object oriented paradigm and is worth remembering,
-> as it's very common for people to overuse inheritance once they've been introduced to it.
+> as it is very common for people to overuse inheritance once they have been introduced to it.
 >
 > For much more detail on this see the
 > [Python Design Patterns guide](https://python-patterns.guide/gang-of-four/composition-over-inheritance/).
@@ -766,7 +766,7 @@ before we can properly initialise a `Patient` model with their inflammation data
 > **Multiple Inheritance** is when a class inherits from more than one direct parent class.
 > It exists in Python, but is often not present in other Object Oriented languages.
 > Although this might seem useful, like in our inheritance-based model of the photocopier above,
-> it's best to avoid it unless you're sure it's the right thing to do,
+> it is best to avoid it unless you are sure it is the right thing to do,
 > due to the complexity of the inheritance heirarchy.
 > Often using multiple inheritance is a sign you should instead be using composition -
 > again like the photocopier model above.
@@ -775,13 +775,13 @@ before we can properly initialise a `Patient` model with their inflammation data
 
 > ## Exercise: A Model Patient
 >
-> Let's use what we have learnt in this episode and combine it with what we have learnt on
+> Let us use what we have learnt in this episode and combine it with what we have learnt on
 > [software requirements](../31-software-requirements/index.html)
 > to formulate and implement a
 > [few new solution requirements](../31-software-requirements/index.html#exercise-new-solution-requirements)
 > to extend the model layer of our clinical trial system.
 >
-> Let's start with extending the system such that there must be
+> Let us start with extending the system such that there must be
 > a `Doctor` class to hold the data representing a single doctor, which:
 >
 >   - must have a `name` attribute
@@ -789,17 +789,17 @@ before we can properly initialise a `Patient` model with their inflammation data
 >
 > In addition to these, try to think of an extra feature you could add to the models
 > which would be useful for managing a dataset like this -
-> imagine we're running a clinical trial, what else might we want to know?
+> imagine we are running a clinical trial, what else might we want to know?
 > Try using Test Driven Development for any features you add:
 > write the tests first, then add the feature.
 > The tests have been started for you in `tests/test_patient.py`,
 > but you will probably want to add some more.
 >
-> Once you've finished the initial implementation, do you have much duplicated code?
+> Once you have finished the initial implementation, do you have much duplicated code?
 > Is there anywhere you could make better use of composition or inheritance
 > to improve your implementation?
 >
-> For any extra features you've added,
+> For any extra features you have added,
 > explain them and how you implemented them to your neighbour.
 > Would they have implemented that feature in the same way?
 >

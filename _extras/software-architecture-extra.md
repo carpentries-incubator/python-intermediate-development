@@ -34,7 +34,7 @@ from a number of different external data sources.
 Using this pattern,
 we can create a component whose responsibility is
 transforming the calls for data to the expected format,
-so the rest of our program doesn't have to worry about it.
+so the rest of our program does not have to worry about it.
 
 Architecture patterns are similar,
 but larger scale templates which operate at the level of whole programs,
@@ -88,7 +88,7 @@ Often, the software is split into three layers:
 - **Persistence Layer / Data Access Layer**
   - This layer handles data storage and provides data to the rest of the system
   - May include the **Model** components of an MVC pattern
-    if they're not in the application layer
+    if they are not in the application layer
 
 Although we have drawn similarities here between the layers of a system and the components of MVC,
 they are actually solutions to different scales of problem.

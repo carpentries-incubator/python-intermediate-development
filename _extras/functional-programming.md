@@ -39,7 +39,7 @@ The key difference is that functional programming is focussed on
 **what** transformations are done to the data,
 rather than **how** these transformations are performed
 (i.e. a detailed sequence of steps which update the state of the code to reach a desired state).
-Let's compare and contrast examples of these two programming paradigms.
+Let us compare and contrast examples of these two programming paradigms.
 
 ## Functional vs Procedural Programming
 
@@ -75,7 +75,7 @@ and how to change the state of the program and advance towards the result.
 They often use *iteration* to repeat a series of steps.
 Functional programming, on the other hand, typically uses *recursion* -
 an ability of a function to call/repeat itself until a particular condition is reached.
-Let's see how it is used in the functional programming example below
+Let us see how it is used in the functional programming example below
 to achieve a similar effect to that of iteration in procedural programming.
 
 ~~~
@@ -122,7 +122,7 @@ are called *pure functions*.
 > ## Exercise: Pure Functions
 >
 > Which of these functions are pure?
-> If you're not sure, explain your reasoning to someone else, do they agree?
+> If you are not sure, explain your reasoning to someone else, do they agree?
 >
 > ~~~
 > def add_one(x):
@@ -219,7 +219,7 @@ passed around or returned as results from other functions
 This is why functional programming is suitable for processing data efficiently -
 in particular in the world of Big Data, where code is much smaller than the data,
 sending the code to where data is located is cheaper and faster than the other way round.
-Let's see how we can do data processing using functional programming.
+Let us see how we can do data processing using functional programming.
 
 ## MapReduce Data Processing Approach
 
@@ -286,7 +286,7 @@ print(list(squares))
 > but at that point we should be using a ‘normal’ Python function instead.
 >
 > ~~~
-> # Don't do this
+> # Do not do this
 > add_one = lambda x: x + 1
 >
 > # Do this instead
@@ -323,7 +323,7 @@ print(list(result))
 > exceeded the given threshold.
 >
 > Ordinarily we would use Numpy's own `map` feature,
-> but for this exercise, let's try a solution without it.
+> but for this exercise, let us try a solution without it.
 >
 > 
 > > ## Solution
@@ -358,7 +358,7 @@ While not a pure functional concept,
 comprehensions provide data generation functionality
 and can be used to achieve the same effect as the built-in "pure functional" function `map()`.
 They are commonly used and actually recommended as a replacement of `map()` in modern Python.
-Let's have a look at some examples.
+Let us have a look at some examples.
 
 ~~~
 integers = range(5)
@@ -419,7 +419,7 @@ print(double_even_ints)
 > ~~~
 > {: .output}
 >
-> Finally, there’s one last ‘comprehension’ in Python - a *generator expression* -
+> Finally, there is one last ‘comprehension’ in Python - a *generator expression* -
 > a type of an iterable object which we can take values from and loop over,
 > but does not actually compute any of the values until we need them.
 > Iterable is the generic term for anything we can loop or iterate over -
@@ -454,7 +454,7 @@ print(double_even_ints)
 {: .callout}
 
 
-Let's now have a look at reducing the elements of a data collection into a single result.
+Let us now have a look at reducing the elements of a data collection into a single result.
 
 ### Reducing
 
@@ -529,7 +529,7 @@ you need to import it from library `functools`.
 {: .challenge}
 
 ### Putting It All Together
-Let's now put together what we have learned about map and reduce so far
+Let us now put together what we have learned about map and reduce so far
 by writing a function that calculates the sum of the squares of the values in a list
 using the MapReduce approach.
 
@@ -563,7 +563,7 @@ print(sum_of_squares([-1, -2, -3]))
 
 Now let’s assume we’re reading in these numbers from an input file,
 so they arrive as a list of strings.
-We'll modify the function so that it passes the following tests:
+We will modify the function so that it passes the following tests:
 
 ~~~
 print(sum_of_squares(['1', '2', '3']))
@@ -590,7 +590,7 @@ def sum_of_squares(sequence):
 
 Finally, like comments in Python, we’d like it to be possible for users to
 comment out numbers in the input file they give to our program.
-We'll finally extend our function so that the following tests pass:
+We will finally extend our function so that the following tests pass:
 
 ~~~
 print(sum_of_squares(['1', '2', '3']))
@@ -699,7 +699,7 @@ a decorator can take a function, modify/decorate it, then return the resulting f
 This is possible because Python treats functions as first-class objects
 that can be passed around as normal data.
 Here, we discuss decorators in more detail and learn how to write our own.
-Let's look at the following code for ways on how to "decorate" functions.
+Let us look at the following code for ways on how to "decorate" functions.
 
 ~~~
 def with_logging(func):

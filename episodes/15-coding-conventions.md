@@ -65,7 +65,7 @@ a description of a new feature in Python, etc.
 > However, know when to be inconsistent -
 > sometimes style guide recommendations are just not applicable.
 > When in doubt, use your best judgment.
-> Look at other examples and decide what looks best. And don't hesitate to ask!
+> Look at other examples and decide what looks best. And do not hesitate to ask!
 >
 {: .callout}
 
@@ -279,7 +279,7 @@ Avoid extraneous whitespace in the following situations:
   augmented assignment (+=, -= etc.),
   comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not),
   booleans (and, or, not).
-- Don't use spaces around the = sign
+- Do not use spaces around the = sign
   when used to indicate a keyword argument assignment
   or to indicate a default value for an unannotated function parameter
      ~~~
@@ -319,15 +319,15 @@ e.g HTTPServerError)
 
 As with other style guide recommendations - consistency is key.
 Follow the one already established in the project, if there is one.
-If there isn't, follow any standard language style (such as
+If there is not, follow any standard language style (such as
 [PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python).
 Failing that, just pick one, document it and stick to it.
 
 Some things to be wary of when naming things in the code:
 
-- Avoid any names that could cause confusion (e.g. lower case `l` is
-  hard to distinguish from a `1` (one), 'O' (uppercase o) from a '0' (zero),
- 'I' (uppercase i) from 'l' (lowercase L)).
+- Avoid any names that could cause confusion (e.g. `l` (lower case L) is
+  hard to distinguish from a `1` (one), `O` (uppercase o) from a `0` (zero),
+  `I` (uppercase i) from `l` (lowercase L)).
 - Avoid using non-ASCII (e.g. Unicode) characters for identifiers as these
   can trip up software that does not support Unicode.
 - If your audience is international and English is the common language,
@@ -362,7 +362,7 @@ A good rule of thumb is to assume that someone will *always* read your code at a
 and this includes a future version of yourself.
 It can be easy to forget why you did something a particular way in six months' time.
 Write comments as complete sentences and in English
-unless you are 100% sure the code will never be read by people who don't speak your language.
+unless you are 100% sure the code will never be read by people who do not speak your language.
 
 > ## The Good, the Bad, and the Ugly Comments
 > As a side reading, check out the
@@ -396,9 +396,9 @@ def fahr_to_cels(fahr):
 ~~~
 {: .language-python}
 
-Python doesn't have any multi-line comments,
+Python does not have any multi-line comments,
 like you may have seen in other languages like C++ or Java.
-However, there are ways to do it using *docstrings* as we'll see in a moment.
+However, there are ways to do it using *docstrings* as we will see in a moment.
 
 The reader should be able to understand a single function or method
 from its code and its comments,
@@ -416,7 +416,7 @@ and comments must be accurate and updated with the code,
 because an incorrect comment causes more confusion than no comment at all.
 
 > ## Exercise: Improve Code Style of Our Project
-> Let's look at improving the coding style of our project.
+> let us look at improving the coding style of our project.
 > First, from the project root, use `git switch` to create a new feature branch called `style-fixes`
 > from our develop branch.
 > (Note that at this point `develop` and `main` branches
@@ -494,7 +494,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >>     (and class) definitions with two blank lines).
 >>     Note how PyCharm is warning us by underlining the whole line below.
 >>
->> Finally, let's add and commit our changes to the feature branch.
+>> Finally, let us add and commit our changes to the feature branch.
 >> We will check the status of our working directory first.
 >>
 >> ~~~
@@ -515,7 +515,7 @@ because an incorrect comment causes more confusion than no comment at all.
 >>
 >> Git tells us we are on branch `style-fixes`
 >> and that we have unstaged and uncommited changes to `inflammation-analysis.py`.
->> Let's commit them to the local repository.
+>> let us commit them to the local repository.
 >>
 >> ~~~
 >> $ git add inflammation-analysis.py
@@ -706,7 +706,7 @@ help(fibonacci)
 > >
 > > As expected, Git tells us we are on branch `style-fixes`
 > > and that we have unstaged and uncommited changes to `inflammation/models.py`.
-> > Let's commit them to the local repository.
+> > Let us commit them to the local repository.
 > > ~~~
 > > $ git add inflammation/models.py
 > > $ git commit -m "Docstring improvements."
@@ -719,7 +719,7 @@ In the previous exercises, we made some code improvements on feature branch `sty
 We have committed our changes locally but
 have not pushed this branch remotely for others to have a look at our code
 before we merge it onto the `develop` branch.
-Let's do that now, namely:
+Let us do that now, namely:
 
 - push `style-fixes` to GitHub
 - merge `style-fixes` into `develop` (once we are happy with the changes)
@@ -742,7 +742,7 @@ $ git push origin main
 {: .language-bash}
 
 > ## Typical Code Development Cycle
-> What you've done in the exercises in this episode mimics a typical software development workflow -
+> What you have done in the exercises in this episode mimics a typical software development workflow -
 > you work locally on code on a feature branch,
 > test it to make sure it works correctly and as expected,
 > then record your changes using version control

@@ -36,7 +36,7 @@ test it to make sure it works correctly and as expected,
 then record your changes using version control
 and share your work with others via a shared and centrally backed-up repository.
 
-Firstly, let's remind ourselves how to work with Git from the command line.
+Firstly, let us remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
 Git is a version control system for tracking changes in computer files
@@ -57,9 +57,8 @@ Git has several important characteristics:
   so even if you make a mistake you can revert to a point before it.
 
 The diagram below shows a typical software development lifecycle with Git
-(starting from making changes locally) and the commonly used commands to interact
-with different parts of the Git infrastructure,
-such as:
+(in our case starting from making changes in a local branch that "tracks" a remote branch) and the commonly used commands to interact
+with different parts of the Git infrastructure, including:
 - **working directory** -
   a local directory (including any subdirectories) where your project files live
   and where you are currently working.
@@ -102,24 +101,23 @@ such as:
 Created with https://mermaid.live/edit#pako:eNqVkjFrwzAQhf-KuKmlKd01BAoZ2yUZumi5SmdbRPI58oliQv57JbuloSaFajqd3sd7x-kMlh2BhpFOmXpLO49twmh6Vc4bp6PvW7Xziaxwmh6324eDYFubz4lQq9aLQucW_fVTlb6wxaD2NPDoK77ILcfoZSF-Kyq1p8hCK2zIY7dAK8Ftr4bEdretVgPqOWBH9shZ_stFSi39EXFNfQ0WgrobO05ic4nM6Sd6uYXAH-TU-6Susz3NZvewgVJE9K7s8Fy9DUhHkQzoUjpqMAcxYPpLkWIWPky9BS0p0wby4FC-Vw66wTCWLrma-HX5F_P3uHwCS-vA3Q
 sequenceDiagram
     Working Directory->>+Staging Area: git add
-    Staging Area->>+Local Repository: git commit
-    Local Repository->>+Remote Repository: git push
-    Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Directory:git checkout
-    Local Repository->>+Working Directory:git merge
-    Remote Repository->>+Working Directory: git pull (shortcut for git fetch followed by git checkout/merge)
+    Staging Area->>+Local Repository Branch: git commit
+    Local Repository Branch->>+Remote Repository Branch: git push
+    Remote Repository Branch->>+Local Repository Branch: git fetch
+    Local Repository Branch->>+Working Directory:git merge
+    Remote Repository Branch->>+Working Directory: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
 -->
 <!--
 SVG of the diagram can be downloaded from:
-[![](https://mermaid.ink/img/pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9?type=png)](https://mermaid.live/edit#pako:eNqVUj1PwzAQ_SvWTSCK2D1UQuoISzuwZDnsi2PVzgXnLBRV_e_YiSoKUZHwdL57T-_dxwkMWwINI31k6g3tPLqEselVeW-cjr53aucTGeE0PW63DwdBV5PPiVAr50WhtQv-ulShL2wwqD0NPPpKX-CGY_SyMH4jKmtPkYVWtCGP3UJaAW5rtSSmuy31o5fZW0fmyFn-QYmUHP1hbDXESzshqLux4yQmF6Ocvg2XXwj8SVa9T-ra1tMsdg8bKEFEb8vmTlW7AekoUgO6hJZazEEaaPpzgWIWPky9AS0p0wbyYFEuiwbdYhhLlmx1_Lpcw3wU5y-9M7w9)
+https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
 -->
-![Development lifecycle with Git, containing Git commands add, commit, push, fetch, checkout, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
+![Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
 <p style="text-align: center;">
 Software development lifecycle with Git
 </p>
 
 ## Checking-in Changes to Our Project
-Let's check-in the changes we have done to our project so far.
+Let us check-in the changes we have done to our project so far.
 The first thing to do upon navigating into our software project's directory root
 is to check the current status of our local working directory and repository.
 
@@ -164,7 +162,7 @@ and stop notifying us about it.
 Edit your `.gitignore` file in PyCharm
 and add a line containing "venv/" and another one containing ".venv/".
 It does not matter much in this case where within the file you add these lines,
-so let's do it at the end.
+so let us do it at the end.
 Your `.gitignore` should look something like this:
 
 ~~~
@@ -258,7 +256,7 @@ $ git pull
 ~~~
 {: .language-bash}
 
-Now we've ensured our repository is synchronised with the remote one,
+Now we have ensured our repository is synchronised with the remote one,
 we can now push our changes:
 
 ~~~
@@ -326,11 +324,11 @@ $ git branch
 ~~~
 {: .output}
 
-At the moment, there's only one branch (`main`)
+At the moment, there is only one branch (`main`)
 and hence only one version of the code available.
 When you create a Git repository for the first time,
 by default you only get one version (i.e. branch) - `main`.
-Let's have a look at why having different branches might be useful.
+Let us have a look at why having different branches might be useful.
 
 ### Feature Branch Software Development Workflow
 While it is technically OK to commit your changes directly to `main` branch,
@@ -343,7 +341,7 @@ Each feature branch should have its own meaningful name -
 indicating its purpose (e.g. "issue23-fix").
 If we keep making changes and pushing them directly to `main` branch on GitHub,
 then anyone who downloads our software from there will get all of our work in progress -
-whether or not it's ready to use!
+whether or not it is ready to use!
 So, working on a separate branch for each feature you are adding is good for several reasons:
 
 * it enables the main branch to remain stable
@@ -384,7 +382,7 @@ Whichever is the case for you, a good rule of thumb is -
 nothing that is broken should be in `main`.
 
 ### Creating Branches
-Let's create a `develop` branch to work on:
+Let us create a `develop` branch to work on:
 
 ~~~
 $ git branch develop
@@ -437,7 +435,7 @@ the commits will happen on the `develop` branch
 and will not affect the version of the code in `main`.
 We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let's make a small modification to `inflammation/models.py` in PyCharm,
+Let us make a small modification to `inflammation/models.py` in PyCharm,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and
@@ -507,7 +505,7 @@ $ git push -u origin develop
 > We still prefer to explicitly state this information in commands.
 {: .callout}
 
-Let's confirm that the new branch `develop` now exist remotely on GitHub too.
+Let us confirm that the new branch `develop` now exist remotely on GitHub too.
 From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
 You should see your `develop` branch in the list too. 
@@ -528,7 +526,7 @@ $ git push origin develop
 {: .language-bash}
 
 > ## What is the Relationship Between Originating and New Branches?
-> It's natural to think that new branches have a parent/child relationship
+> it is natural to think that new branches have a parent/child relationship
 > with their originating branch,
 > but in actual Git terms, branches themselves do not have parents
 > but single commits do.

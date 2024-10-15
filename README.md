@@ -1,3 +1,6 @@
+> [!NOTE]  
+> We are currently transitioning the lesson to the new Carpentries lesson format - please put your pull requests on hold and submit issues only.
+
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
 ## Intermediate Research Software Development Skills (Python)
@@ -53,7 +56,7 @@ label ![pilot](https://shields.io/badge/-pilot-31E930).
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
 questions, concerns, or experience any difficulties along the way.
 
-We'd like to ask you to familiarise yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
+We would like to ask you to familiarise yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
 the [more detailed guidelines][lesson-example] on proper formatting, instructions on compiling and rendering the lesson locally, and 
 making any changes and adding new content or episodes.
 

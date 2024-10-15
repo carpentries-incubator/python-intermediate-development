@@ -14,17 +14,17 @@ keypoints:
 
 ## Verifying Code Style Using Linters
 
-We've seen how we can use PyCharm to help us format our Python code in a consistent style.
+We have seen how we can use PyCharm to help us format our Python code in a consistent style.
 This aids reusability,
 since consistent-looking code is easier to modify
-since it's easier to read and understand.
+since it is easier to read and understand.
 We can also use tools,
 called [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29),
 to identify consistency issues in a report-style.
 Linters analyse source code to identify and report on stylistic and even programming errors.
-Let's look at a very well used one of these called `pylint`.
+Let us look at a very well used one of these called `pylint`.
 
-First, let's ensure we are on the `style-fixes` branch once again.
+First, let us ensure we are on the `style-fixes` branch once again.
 
 ~~~
 $ git switch style-fixes
@@ -83,7 +83,7 @@ Pylint recommendations are given as warnings or errors,
 and Pylint also scores the code with an overall mark.
 We can look at a specific file (e.g. `inflammation-analysis.py`),
 or a package (e.g. `inflammation`).
-Let's look at our `inflammation` package and code inside it (namely `models.py` and `views.py`).
+Let us look at our `inflammation` package and code inside it (namely `models.py` and `views.py`).
 From the project root do:
 
 ~~~
@@ -140,7 +140,7 @@ see the "W0611: Unused numpy imported as np (unused-import)" warning.
 
 It is important to note that while tools such as Pylint are great at giving you
 a starting point to consider how to improve your code,
-they won't find everything that may be wrong with it.
+they will not find everything that may be wrong with it.
 
 > ## How Does Pylint Calculate the Score?
 >
@@ -156,7 +156,7 @@ they won't find everything that may be wrong with it.
 > For example, with a total of 31 statements of models.py and views.py,
 > with a count of the errors shown above, we get a score of 8.00.
 > Note whilst there is a maximum score of 10, given the formula,
-> there is no minimum score - it's quite possible to get a negative score!
+> there is no minimum score - it is quite possible to get a negative score!
 {: .callout}
 
 > ## Exercise: Further Improve Code Style of Our Project
@@ -194,5 +194,9 @@ $ git push origin develop
 > If you have a Python project you are working on or you worked on in the past,
 > run it past Pylint to see what issues with your code are detected, if any.
 {: .challenge}
+
+## Optional exercises
+Checkout [this optional exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-customize-pylint)
+to learn more about `pylint`.
 
 {% include links.md %}

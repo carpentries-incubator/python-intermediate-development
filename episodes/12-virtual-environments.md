@@ -25,7 +25,7 @@ the `requirements.txt` file."
 ## Introduction
 So far we have cloned our software project from GitHub and inspected its contents and architecture a bit.
 We now want to run our code to see what it does -
-let's do that from the command line.
+let us do that from the command line.
 For the most part of the course we will run our code
 and interact with Git from the command line.
 While we will develop and debug our code using the PyCharm IDE
@@ -236,7 +236,7 @@ This will create the target directory for the virtual environment
 > and avoid issues that could prove difficult to trace and debug.
 {: .callout}
 
-For our project let's create a virtual environment called "venv".
+For our project let us create a virtual environment called "venv".
 First, ensure you are within the project root directory, then:
 
 ~~~
@@ -342,7 +342,7 @@ When you’re done working on your project, you can exit the environment with:
 ~~~
 {: .language-bash}
 
-If you've just done the `deactivate`,
+If you have just done the `deactivate`,
 ensure you reactivate the environment ready for the next part:
 
 ~~~
@@ -565,7 +565,13 @@ In the above command, we tell the command line two things:
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`.
 It looks like the script expects a list of input files to process,
-so this is expected behaviour since we don't supply any.
+so this is expected behaviour since we do not supply any.
 We will fix this error in a moment.
+
+## Optional exercises
+Checkout [this optional exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-try-out-different-virtual-environment-managers)
+to try out different virtual environment managers. 
+Or, [this exercise]({{ site.baseurl }}{% link _episodes/17-section1-optional-exercises.md %}#exercise-customize-the-command-line) 
+to customize the command line. 
 
 {% include links.md %}
