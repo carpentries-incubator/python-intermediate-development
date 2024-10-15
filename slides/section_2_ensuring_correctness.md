@@ -61,10 +61,10 @@ jupyter:
   - Automated testing: codify the expected behaviour of our software such that verification can happen repeatedly without user inspection
     - Unit tests: tests for small function units of our code (i.e functions, class methods, class objects)
     - Functional or integration tests: work at a higher level, and test functional paths through your code, e.g. given some specific inputs, a set of interconnected functions across a number of modules (or the entire code) produce the expected result.
-    - Regression tests: compare the current output of your code (usually an end-to-end result) to make sure it matches previous output that you don't want to change
+    - Regression tests: compare the current output of your code (usually an end-to-end result) to make sure it matches previous output that you do not want to change
 - there was a question that came in about drift in regression tests, and the short answer with how to deal with this is first determining whether the output you are tracking is actually an invariant (or something close to an invariant)
   - If not, then you will necessarily need to allow for relative proximity, but then you might question whether this is a good long term output to base your regression test on.
-  - In our area and science broadly, invariants tend to be some observable or experimental physical results, so if you test isn't based on that, you are probably going to have a tough time.
+  - In our area and science broadly, invariants tend to be some observable or experimental physical results, so if you test is not based on that, you are probably going to have a tough time.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -126,18 +126,18 @@ Please discuss with your peers. Record answers in the shared document if you can
   - with about 5 minutes left, remind the groups to have a little discussion about their test data
   - status check
 - check answers to question in shared document and briefly summarise
-  - example answer: You are working on an old plasma magnetohydrodynamics code that has been extensively tested against experiments. You have been tasked with adding some functionality to that code, but you want to make sure that you don't change the key results of the code. You take some inputs for well known runs of the code that have been verified against experiment and save the outputs. You then use the outputs to compare against when you run the code in a test suite with those original inputs. This is basically creating some regression tests for the code, using results that you know are correct because of extensive experimental validation of the code in the past.
+  - example answer: You are working on an old plasma magnetohydrodynamics code that has been extensively tested against experiments. You have been tasked with adding some functionality to that code, but you want to make sure that you do not change the key results of the code. You take some inputs for well known runs of the code that have been verified against experiment and save the outputs. You then use the outputs to compare against when you run the code in a test suite with those original inputs. This is basically creating some regression tests for the code, using results that you know are correct because of extensive experimental validation of the code in the past.
 - comments about the limits of testing:
   - there are some good points there about getting value from testing
   - what most researchers think: 
     - "Peer review of my paper will be the test"
     - "Looking at a graph is enough"
-    - "I don't have time to implement a clunky testing framework"
-  - it hints that there is a spectrum between throwaway code that doesn't need to be tested and library code used by hundreds in a community that requires extensive testing suites with more than just unit tests
+    - "I do not have time to implement a clunky testing framework"
+  - it hints that there is a spectrum between throwaway code that does not need to be tested and library code used by hundreds in a community that requires extensive testing suites with more than just unit tests
   - where your particular code lies is a tricky question to answer sometimes, but a good rule of thumb is that if there is a chance that someone else will be using it, then you should give some thought to tests
     - some further thoughts here: https://bielsnohr.github.io/2021/11/29/iccs-part2-and-testing.html
   - testing has a demonstrably positive impact upon the design on your code
-  - it must of course also be acknowledged that testing is not the answer to everything, and that it can't substitute for good manual and acceptance testing
+  - it must of course also be acknowledged that testing is not the answer to everything, and that it cannot substitute for good manual and acceptance testing
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -174,7 +174,7 @@ Follow along from this section heading to the bottom of the page.
 - comments
   - GitLab has very similar functionality and it is common for institutions to host their own GitLab instance internally. These instances will have their own documentation, and it is worthwhile to check if the RSE group or IT services have any guides to using these resources.
   - Because the supported Python versions are constantly changing, the numbers above might be a little out of date, or inconsistent.
-    - don't worry about this too much, but if you want to show the current supported Python versions, this site is very useful: https://devguide.python.org/versions/
+    - do not worry about this too much, but if you want to show the current supported Python versions, this site is very useful: https://devguide.python.org/versions/
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

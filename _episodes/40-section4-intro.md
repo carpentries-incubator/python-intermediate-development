@@ -26,18 +26,18 @@ This process of having multiple team members comment on key code changes is call
 this is one of the most important practices of collaborative software development
 that helps ensure the ‘good’ coding standards are achieved and maintained within a team,
 as well as increasing knowledge about the codebase across the team.
-We'll thus look at the benefits of reviewing code,
+We will thus look at the benefits of reviewing code,
 in particular, the value of this type of activity within a team,
 and how this can fit within various ways of team working.
-We'll see how GitHub can support code review activities via pull requests,
+We will see how GitHub can support code review activities via pull requests,
 and how we can do these ourselves making use of best practices.
 
-After that, we'll look at some general principles of software maintainability
+After that, we will look at some general principles of software maintainability
 and the benefits that writing maintainable code can give you.
 There will also be some practice at identifying problems with existing code,
 and some general, established practices you can apply
-when writing new code or to the code you've already written.
-We'll also look at how we can package software for release and distribution,
+when writing new code or to the code you have already written.
+We will also look at how we can package software for release and distribution,
 using **Poetry** to manage our Python dependencies
 and produce a code package we can use with a Python package indexing service
 to illustrate these principles.

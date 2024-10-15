@@ -20,7 +20,7 @@ and introducing the project that we will be working on throughout the course.
 In order to build working (research) software efficiently
 and to do it in collaboration with others rather than in isolation,
 you will have to get comfortable with using a number of different tools interchangeably
-as they’ll make your life a lot easier.
+as they will make your life a lot easier.
 There are many options when it comes to deciding
 which software development tools to use for your daily tasks -
 we will use a few of them in this course that we believe make a difference.
@@ -124,6 +124,6 @@ Therefore, one should be aware of these guidelines
 and adhere to whatever the project you are working on has specified.
 In Python, we will be looking at a convention called PEP8.
 
-Let's get started with setting up our software development environment!
+Let us get started with setting up our software development environment!
 
 {% include links.md %}

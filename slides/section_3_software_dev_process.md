@@ -202,7 +202,7 @@ Examples:
 
 ## Abstractions
 
-Help to make code easier - as don't have to understand details all at once.
+Help to make code easier - as do not have to understand details all at once.
 
 Lowers cognitive load for each part.
 
@@ -272,7 +272,7 @@ The main body of it exists in inflammation/compute_data.py in a function called 
 
 <!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
-## Exercise: why isn't this code maintainable?
+## Exercise: why is not this code maintainable?
 
 How is this code hard to maintain?
 
@@ -337,7 +337,7 @@ Hard to reuse as was very fixed in its behaviour.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Test Before Refactoring
 
-* Write tests *before* refactoring to ensure we don't change behaviour.
+* Write tests *before* refactoring to ensure we do not change behaviour.
 
 <!-- #endregion -->
 
@@ -400,8 +400,8 @@ Side effects like modifying a global variable or writing a file
 
 Pure functions have a number of advantages for maintainable code:
 
- * Easier to read as don't need to know calling context
- * Easier to reuse as don't need to worry about invisible dependencies
+ * Easier to read as do not need to know calling context
+ * Easier to reuse as do not need to worry about invisible dependencies
 
 <!-- #endregion -->
 
@@ -426,8 +426,8 @@ Time: 10min
 Pure functions are also easier to test
 
  * Easier to write as can create the input as we need it
- * Easier to read as don't need to read any external files
- * Easier to maintain - tests won't need to change if the file format changes
+ * Easier to read as do not need to read any external files
+ * Easier to maintain - tests will not need to change if the file format changes
 
 <!-- #endregion -->
 
@@ -519,10 +519,10 @@ Abstractions allow decoupling code
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} editable=true -->
-When we have a suitable abstraction, we don't need to worry about the inner workings of the other part
+When we have a suitable abstraction, we do not need to worry about the inner workings of the other part.
 
 For example break of a car, the details of how to slow down are abstracted, so when we change how
-breaking works, we don't need to retrain the driver.
+breaking works, we do not need to retrain the driver.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} editable=true -->
@@ -667,7 +667,7 @@ total_area = sum(shape.get_area() for shape in my_shapes)
 
 Using an interface to call different methods is a technique known as **polymorphism**.
 
-A form of abstraction - we've abstracted what kind of shape we have.
+A form of abstraction - we have abstracted what kind of shape we have.
 
 <!-- #endregion -->
 
@@ -716,8 +716,9 @@ def test_sum_shapes():
   assert total_area = 23
 ```
 
-Easier to read this test as don't need to understand how
+Easier to read this test as do not need to understand how
 get_area might work for a real shape.
+
 Focus on testing behaviour rather than implementation.
 
 <!-- #endregion -->
@@ -737,7 +738,7 @@ Time: 15min
 
 These are techniques from **object oriented programming**.
 
-There is a lot more that we won't go into:
+There is a lot more that we will not go into:
 
 * Inheritance
 * Information hiding
@@ -811,7 +812,7 @@ Time: 10min
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 
-Next slide if it feels like we've got loads of time.
+Next slide if it feels like we have got loads of time.
 
 <!-- #endregion -->
 
@@ -877,7 +878,7 @@ Practise makes perfect:
 
  * Spot signs things could be improved - like duplication
  * Think about why things are working or not working
- * Don't design for an imagined future
+ * Do not design for an imagined future
  * Keep refactoring as you go
 
 <!-- #endregion -->

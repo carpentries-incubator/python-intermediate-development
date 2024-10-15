@@ -21,7 +21,7 @@ jupyter:
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - In this section of the course we look at managing the development and evolution of software - how to keep track of the tasks the team has to do, how to improve the quality and reusability of our software for others as well as ourselves, and how to assess other people’s software for reuse within our project.
-- We are therefore moving into the realm of software management, not just software development; don't be scared off!
+- We are therefore moving into the realm of software management, not just software development; do not be scared off!
   - We all need to do a bit of project management from time to time
 <!-- #endregion -->
 

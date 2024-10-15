@@ -25,8 +25,8 @@ So, you have gained basic software development skills either by self-learning or
 e.g., a [novice Software Carpentry course][swc-lessons].
 You have been applying those skills for a while by writing code to help with your work
 and you feel comfortable developing code and troubleshooting problems.
-However, your software has now reached a point where there’s too much code to be kept in one script.
-Perhaps it's involving more researchers (developers) and users,
+However, your software has now reached a point where there is too much code to be kept in one script.
+Perhaps it is involving more researchers (developers) and users,
 and more collaborative development effort is needed to add new functionality
 while ensuring previous development efforts remain functional and maintainable.
 
