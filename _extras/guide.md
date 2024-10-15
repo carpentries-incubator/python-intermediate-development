@@ -88,8 +88,6 @@ to make sure everyone is in sync as much as possible and are working on similar 
 This synchronisation becomes particularly important for later workshop stages
 when students start with group exercises.
 
-### Section 1.3 Note
-
 Although not explicitly endorsed,
 it is quite possible for learners to do the course using VS Code instead of PyCharm.
 There is a section for setting up VS Code in the [this adjacent extras page](../vscode).
