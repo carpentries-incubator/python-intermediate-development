@@ -2,16 +2,11 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    notebook_metadata_filter: rise,celltoolbar
+    notebook_metadata_filter: -kernelspec,-jupytext.text_representation.jupytext_version,rise,celltoolbar
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
   rise:
     theme: solarized
 ---
@@ -395,7 +390,6 @@ pip install -r requirements.txt  # great reason to have this file
 - Preference for Code Editors and IDEs is one of the more contentious and strongly felt topics among software developers, but the bottom line is that if a tool works for you and helps you be productive, then it is absolutely fine to use that tool
   - But again, for the practicalities of this course, the decision to support two editors, PyCharm and VSCode, has been made
   - If you are comfortable enough in another IDE or code editor to get the functionality demonstrated in the content below, then please feel free to use that tool here, but this is a disclaimer that we cannot promise to resolve any issues you have, and if these issues are holding the group up then we will need to move on
-  - For VSCode, please consult the "Extras" content of the course web page and find the analogous functionality described there; if you are having trouble getting something to work, please ask for help!
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -405,10 +399,14 @@ Start from this heading and continue to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Send learners into breakout rooms to read through and try out content from "Using the PyCharm IDE" (~ 30mins, but could be less, so poll helpers after 20 minutes to get a status check from the rooms, or ask directly if in person)
-  - Remind to use status green check when done (or red x if having trouble)
-  - Encourage learners to try out the features that are being discussed and do not worry about making modifications to their code since it is under version control it will be easy to reset any changes
-  - Reinforce that we Will not be using the version control interface of PyCharm, but it is a perfectly useable feature, and again this comes down to preference
+- Before launching into this exercise, you should poll how many students are using each editor
+  - If the majority are using VS Code, consider doing a demo of all the features listed for PyCharm
+    using your own VS Code editor
+  - Otherwise, send learners off to read through and try out content from "Using the PyCharm IDE" (~ 30mins, but could be less, so poll after 20 minutes to get a status check, or ask directly if in person)
+    - For VSCode users, remind them to consult the "Extras" content of the course web page and find the analogous functionality described there; if you are having trouble getting something to work, please ask for help!
+    - Remind to use status green check when done (or red x if having trouble)
+    - Encourage learners to try out the features that are being discussed and don't worry about making modifications to their code since it is under version control it will be easy to reset any changes
+    - Reinforce that we won't be using the version control interface of PyCharm, but it is a perfectly useable feature, and again this comes down to preference
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -451,7 +449,7 @@ Start from this heading and go until the "Git Branches" heading.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Git Branches
 
-<center><img src="../fig/git-feature-branch.png"></center>
+<center><img src="../fig/git-feature-branch.svg"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->

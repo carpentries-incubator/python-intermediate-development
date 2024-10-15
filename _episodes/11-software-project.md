@@ -20,6 +20,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ---
 
 ## Patient Inflammation Study Project
+
 You have joined a software development team that has been working on the
 [patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
 developed in Python and stored on GitHub.
@@ -98,17 +99,21 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
    ![View of your own fork of the software repository in GitHub](../fig/github-forked-repository-own.png){: .image-with-shadow width="900px" }
 
 > ## Exercise: Obtain the Software Project Locally
+>
 > Using the command line, clone the copied repository
 > from your GitHub account into the home directory on your computer using SSH.
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
-> 
-> 
+>
+>
 > > ## Solution
 > > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
 > > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
-> > Also make sure you select the **SSH** tab and not the **HTTPS** one -
-> > for this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
+> > Also make sure you select the **SSH** tab and not the **HTTPS** one.
+> > For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
+> > If you have only authenticated through HTTPS in the past,
+> > please follow the guidance [at the top of this section](#downloading-our-software-project)
+> > to add an SSH key to your GitHub account.
 > >
 > > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 > >
@@ -269,6 +274,7 @@ are bigger modules that contain several smaller sub-modules.
 Another example of modules are classes in object-oriented programming languages.
 
 > ## Programming Modules and Interfaces
+>
 > Although modules are self-contained and independent elements to a large extent
 > (they can depend on other modules),
 > there are well-defined ways of how they interact with one another.

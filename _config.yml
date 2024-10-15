@@ -100,6 +100,7 @@ extras_order:
   - object-oriented-programming
   - persistence
   - databases
+  - vscode
   - quiz
 # Files and directories that are not to be copied.
 exclude:
