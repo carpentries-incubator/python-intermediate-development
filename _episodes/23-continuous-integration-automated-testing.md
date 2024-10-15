@@ -370,7 +370,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.10", "3.11"]
 
     # Here we add the reference to the os matrix values
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
