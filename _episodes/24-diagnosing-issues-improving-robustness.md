@@ -113,6 +113,8 @@ Let us now add a new test in `tests/test_models.py`
 to check that the normalisation function is correct for some test data.
 
 ~~~
+from inflammation.models import patient_normalise
+
 @pytest.mark.parametrize(
     "test, expected",
     [
@@ -121,7 +123,7 @@ to check that the normalisation function is correct for some test data.
 def test_patient_normalise(test, expected):
     """Test normalisation works for arrays of one and positive integers.
        Test with a relative and absolute tolerance of 0.01."""
-    from inflammation.models import patient_normalise
+
     result = patient_normalise(np.array(test))
     npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 ~~~
@@ -135,14 +137,15 @@ and are only concerned with a certain degree of precision,
 like the test case above.
 
 > ## Relative and absolute tolerance
-> **Relative tolerance** in unit testing means that the acceptable difference between the expected and actual results 
-> depends on the size of the expected result itself. So, if your expected result is 100, 
+>
+> **Relative tolerance** in unit testing means that the acceptable difference between the expected and actual results
+> depends on the size of the expected result itself. So, if your expected result is 100,
 > a relative tolerance of 0.1 (or 10%) means the actual result can be anywhere from 90 to 110 and still be considered correct.
-> 
-> **Absolute tolerance**, on the other hand, 
-> sets a fixed allowable difference regardless of the magnitude of the expected result. 
-> For example, if you set an absolute tolerance of 5, 
-> it means the actual result can be within 5 units of the expected result, 
+>
+> **Absolute tolerance**, on the other hand,
+> sets a fixed allowable difference regardless of the magnitude of the expected result.
+> For example, if you set an absolute tolerance of 5,
+> it means the actual result can be within 5 units of the expected result,
 > regardless of whether the expected result is 10 or 1000.
 {: .callout}
 
@@ -467,9 +470,12 @@ def patient_normalise(data):
 > and add them to the parametrised tests.
 > After you have finished remember to commit your changes.
 >
-> 
+>
 > > ## Possible Solution
+> >
 > > ~~~
+> > from inflammation.models import patient_normalise
+> >
 > > @pytest.mark.parametrize(
 > >     "test, expected",
 > >     [
@@ -500,7 +506,7 @@ def patient_normalise(data):
 > >     ])
 > > def test_patient_normalise(test, expected):
 > >     """Test normalisation works for arrays of one and positive integers."""
-> >     from inflammation.models import patient_normalise
+> >
 > >     result = patient_normalise(np.array(test))
 > >     npt.assert_allclose(result, np.array(expected), rtol=1e-2, atol=1e-2)
 > > ...
@@ -563,6 +569,8 @@ and is used to indicate that the function received an argument of the right type
 but of an inappropriate value.
 
 ~~~
+from inflammation.models import patient_normalise
+
 @pytest.mark.parametrize(
     "test, expected, expect_raises",
     [
@@ -581,7 +589,6 @@ but of an inappropriate value.
     ])
 def test_patient_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers."""
-    from inflammation.models import patient_normalise
         
     if expect_raises is not None:
         with pytest.raises(expect_raises):
@@ -639,6 +646,7 @@ Be sure to commit your changes so far and push them to GitHub.
 > > In `test/test_models.py`:
 > >
 > > ~~~
+> > from inflammation.models import patient_normalise
 > > ...
 > > @pytest.mark.parametrize(
 > >     "test, expected, expect_raises",
@@ -662,7 +670,6 @@ Be sure to commit your changes so far and push them to GitHub.
 > >     ])
 > > def test_patient_normalise(test, expected, expect_raises):
 > >     """Test normalisation works for arrays of one and positive integers."""
-> >     from inflammation.models import patient_normalise
 > >     if isinstance(test, list):
 > >         test = np.array(test)
 > >     if expect_raises is not None:
