@@ -38,6 +38,8 @@ the `test_daily_mean_zeros()` and `test_daily_mean_integers()`
 into a single test function:
 
 ~~~
+from inflammation.models import daily_mean
+
 @pytest.mark.parametrize(
     "test, expected",
     [
@@ -46,7 +48,6 @@ into a single test function:
     ])
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
-    from inflammation.models import daily_mean
     npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
 ~~~
 {: .language-python}
@@ -85,6 +86,7 @@ and adding more tests scales better as our code becomes more complex.
 > 
 > > ## Solution
 > > ~~~
+> > from inflammation.models import daily_max, daily_min
 > > ...
 > > @pytest.mark.parametrize(
 > >     "test, expected",
@@ -95,7 +97,6 @@ and adding more tests scales better as our code becomes more complex.
 > >     ])
 > > def test_daily_max(test, expected):
 > >     """Test max function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_max
 > >     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
 > >
 > >
@@ -108,7 +109,6 @@ and adding more tests scales better as our code becomes more complex.
 > >     ])
 > > def test_daily_min(test, expected):
 > >     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
-> >     from inflammation.models import daily_min
 > >     npt.assert_array_equal(daily_min(np.array(test)), np.array(expected))
 > > ...
 > > ~~~

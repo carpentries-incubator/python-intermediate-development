@@ -355,10 +355,10 @@ Look at `tests/test_models.py`:
 import numpy as np
 import numpy.testing as npt
 
+from inflammation.models import daily_mean
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
-    from inflammation.models import daily_mean
 
     test_input = np.array([[0, 0],
                            [0, 0],
@@ -371,7 +371,6 @@ def test_daily_mean_zeros():
 
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
-    from inflammation.models import daily_mean
 
     test_input = np.array([[1, 2],
                            [3, 4],
@@ -544,14 +543,14 @@ do we think these results are easy to understand?
 > Once added, run all the tests again with `python -m pytest tests/test_models.py`,
 > and you should also see your new tests pass.
 >
-> 
+>
 > > ## Solution
 > >
 > > ~~~
+> > from inflammation.models import daily_max, daily_mean, daily_min
 > > ...
 > > def test_daily_max():
 > >     """Test that max function works for an array of positive integers."""
-> >     from inflammation.models import daily_max
 > >
 > >     test_input = np.array([[4, 2, 5],
 > >                            [1, 6, 2],
@@ -563,7 +562,6 @@ do we think these results are easy to understand?
 > >
 > > def test_daily_min():
 > >     """Test that min function works for an array of positive and negative integers."""
-> >     from inflammation.models import daily_min
 > >
 > >     test_input = np.array([[ 4, -2, 5],
 > >                            [ 1, -6, 2],
@@ -593,10 +591,10 @@ Add this test in `tests/test_models.py`:
 
 ~~~
 import pytest
+from inflammation.models import daily_min
 ...
 def test_daily_min_string():
     """Test for TypeError when passing strings"""
-    from inflammation.models import daily_min
 
     with pytest.raises(TypeError):
         error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
