@@ -742,15 +742,7 @@ you may cause yourself some trouble which may be difficult to trace).
 It may be hard to remember to run linter tools every now and then.
 Luckily, we can now add this Pylint execution to our continuous integration builds
 as one of the extra tasks.
-Since we're adding an extra feature to our CI workflow,
-let's start this from a new feature branch from the `develop` branch:
-
-~~~
-$ git switch -c pylint-ci develop # note a shorthand for creating a branch from another and switching to it
-~~~
-{: .language-bash}
-
-Then to add Pylint to our CI workflow,
+To add Pylint to our CI workflow,
 we can add the following step to our `steps` in `.github/workflows/main.yml`:
 
 ~~~
@@ -772,7 +764,7 @@ Then we can just add this to our repo and trigger a build:
 ~~~
 $ git add .github/workflows/main.yml
 $ git commit -m "Add Pylint run to build"
-$ git push origin pylint-ci
+$ git push origin test-suite
 ~~~
 {: .language-bash}
 
