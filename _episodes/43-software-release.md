@@ -1,5 +1,4 @@
 ---
----
 title: "Packaging Code for Release and Distribution"
 teaching: 0
 exercises: 20
