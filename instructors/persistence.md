@@ -1,32 +1,41 @@
 ---
-title: "Persistence"
-layout: episode
+title: Persistence
 teaching: 25
 exercises: 25
 questions:
-- "How can we store and transfer structured data?"
-- "How can we make it easier to substitute new components into our software?"
+- How can we store and transfer structured data?
+- How can we make it easier to substitute new components into our software?
 objectives:
-- "Describe how the environment in which software is used may constrain its design."
-- "Identify common components of multi-layer software projects."
-- "Define serialisation and deserialisation."
-- "Store and retrieve structured data using an appropriate format."
-- "Define what is meant by a contract in the context of Object Oriented design."
-- "Explain the benefits of contracts and implement software components which fulfill them."
+- Describe how the environment in which software is used may constrain its design.
+- Identify common components of multi-layer software projects.
+- Define serialisation and deserialisation.
+- Store and retrieve structured data using an appropriate format.
+- Define what is meant by a contract in the context of Object Oriented design.
+- Explain the benefits of contracts and implement software components which fulfill
+  them.
 keypoints:
-- "Planning software projects in advance can save a lot of effort later - even a partial plan is better than no plan at all."
-- "The environment in which users run our software has an effect on many design choices we might make."
-- "By breaking down our software into components with a single responsibility, we avoid having to rewrite it all when requirements change."
-- "These components can be as small as a single function, or be a software package in their own right."
-- "When writing software used for research, requirements *always* change."
+- Planning software projects in advance can save a lot of effort later - even a partial
+  plan is better than no plan at all.
+- The environment in which users run our software has an effect on many design choices
+  we might make.
+- By breaking down our software into components with a single responsibility, we avoid
+  having to rewrite it all when requirements change.
+- These components can be as small as a single function, or be a software package
+  in their own right.
+- When writing software used for research, requirements *always* change.
 ---
 
 ## Introduction
 
-> ## Follow up from Section 3
-> This episode could be read as a follow up from the end of
-> [Section 3 on software design and development](../35-software-architecture-revisited/index.html#towards-collaborative-software-development).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Follow up from Section 3
+
+This episode could be read as a follow up from the end of
+[Section 3 on software design and development](../episodes/35-software-architecture-revisited.md#towards-collaborative-software-development).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Our patient data system so far can read in some data, process it, and display it to people.
 What's missing?
@@ -73,7 +82,7 @@ This technique is part of an approach called **design by contract**.
 
 We will call our base class `PatientSerializer` and put it in file `inflammation/serializers.py`.
 
-~~~
+```python
 # file: inflammation/serializers.py
 
 from inflammation import models
@@ -97,8 +106,7 @@ class PatientSerializer:
     @classmethod
     def load(cls, path):
         raise NotImplementedError
-~~~
-{: .language-python}
+```
 
 Our serialiser base class has two pairs of class methods
 (denoted by the `@classmethod` decorators),
@@ -123,7 +131,7 @@ Data in JSON format is structured using nested
 and **objects** (very similar to Python dictionaries).
 For example, we are going to try to use this format to store data about our patients:
 
-~~~
+```json
 [
     {
         "name": "Alice",
@@ -148,8 +156,7 @@ For example, we are going to try to use this format to store data about our pati
         ]
     }
 ]
-~~~
-{: .language-json}
+```
 
 Compared to the CSV format,
 this gives us much more flexibility to describe complex structured data.
@@ -162,7 +169,7 @@ This is how relational databases work,
 but it would be quite complicated to manage this ourselves with CSVs.
 
 Now, if we are going to follow
-[TDD (Test Driven Development)](../35-object-oriented-programming/index.html#test-driven-development),
+[TDD (Test Driven Development)](35-object-oriented-programming#test-driven-development),
 we should write some test code.
 Our JSON serialiser should be able to save and load our patient data to and from a JSON file,
 so for our test we could try these save-load steps
@@ -170,7 +177,7 @@ and check that the result is the same as the data we started with.
 Again you might need to change these examples slightly
 to get them to fit with how you chose to implement your `Patient` class.
 
-~~~
+```python
 # file: tests/test_serializers.py
 
 from inflammation import models, serializers
@@ -194,8 +201,7 @@ def test_patients_json_serializer():
         for obs_new, obs in zip(patient_new.observations, patient.observations):
             assert obs_new.day == obs.day
             assert obs_new.value == obs.value
-~~~
-{: .language-python}
+```
 
 Here we set up some patient data, which we save to a file named `patients.json`.
 We then load the data from this file and check that the results match the input.
@@ -209,7 +215,7 @@ Our test also didn't specify what the structure of our output data should be,
 so we need to make that decision here  -
 we will use the format we used as JSON example earlier.
 
-~~~
+```python
 # file: inflammation/serializers.py
 
 import json
@@ -242,8 +248,7 @@ class PatientJSONSerializer(PatientSerializer):
             data = json.load(jsonfile)
 
         return cls.deserialize(data)
-~~~
-{: .language-python}
+```
 
 For our `save` / `serialize` methods,
 since the JSON format is similar to nested Python lists and dictionaries,
@@ -264,10 +269,9 @@ the value of the argument is the dictionary value.
 
 When we run the tests however, we should get an error:
 
-~~~
+```error
 FAILED tests/test_serializers.py::test_patients_json_serializer - TypeError: Object of type Observation is not JSON serializable
-~~~
-{: .error}
+```
 
 This means that our patient serializer almost works,
 but we need to write a serializer for our observation model as well!
@@ -278,7 +282,7 @@ which holds the design that is shared between `PatientSerializer` and `Observati
 Since we do not actually need to save the observation data to a file independently,
 we will not worry about implementing the `save` and `load` methods for the `Observation` model.
 
-~~~
+```python
 # file: inflammation/serializers.py
 
 from inflammation import models
@@ -317,12 +321,11 @@ class ObservationSerializer(Serializer):
         return [cls.model(**d) for d in data]
 
 ...
-~~~
-{: .language-python}
+```
 
 Now we can link this up to the `PatientSerializer` and our test should finally pass.
 
-~~~
+```python
 # file: inflammation/serializers.py
 ...
 
@@ -347,73 +350,91 @@ class PatientSerializer(Serializer):
         return instances
 
 ...
-~~~
-{: .language-python}
+```
 
-> ## Linking it All Together
-> We have now got some code which we can use to save and load our patient data,
-> but we have not yet linked it up so people can use it.
->
-> Try adding some views to work with our patient data using the JSON serialiser.
-> When you do this, think about the design of the command line interface -
-> what arguments will you need to get from the user,
-> what output should they receive back?
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Equality Testing
->
-> When we wrote our serialiser test,
-> we said we wanted to check that the data coming out was the same as our input data,
-> but we actually compared just parts of the data,
-> rather than just using `assert patients_new == patients`.
->
-> The reason for this is that,
-> by default, `==` comparing two instances of a class
-> tests whether they are stored at the same location in memory,
-> rather than just whether they contain the same data.
->
-> Add some code to the `Patient` and `Observation` classes,
-> so that we get the expected result when we do `assert patients_new == patients`.
-> When you have this comparison working,
-> update the serialiser test to use this instead.
->
-> **Hint:** The method Python uses to check for equality of two instances of a class
-> is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
-{: .challenge}
+## Linking it All Together
 
-> ## Advanced Challenge: Abstract Base Classes
->
-> Since our `Serializer` class is designed not to be directly usable
-> and its methods raise `NotImplementedError`,
-> it ideally should be an abstract base class.
-> An abstract base class is one which is intended to be used only by creating subclasses of it
-> and can mark some or all of its methods as requiring implementation in the new subclass.
->
-> Using Python's documentation on
-> the [abc module](https://docs.python.org/3/library/abc.html),
-> convert the `Serializer` class into an ABC.
->
-> **Hint:** The only component that needs to be changed is `Serializer` -
-> this should not require any changes to the other classes.
->
-> **Hint:** The abc module documentation refers to metaclasses - do not worry about these.
-> A metaclass is a template for creating a class (classes are instances of a metaclass),
-> just like a class is a template for creating objects (objects are instances of a class),
-> but this is not necessary to understand
-> if you are just using them to create your own abstract base classes.
-{: .challenge}
+We have now got some code which we can use to save and load our patient data,
+but we have not yet linked it up so people can use it.
 
-> ## Advanced Challenge: CSV Serialization
->
-> Try implementing an alternative serialiser, using the CSV format instead of JSON.
->
-> **Hint:** Python also has a module for handling CSVs -
-> see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
-> This module provides a CSV reader and writer which are a bit more flexible,
-> but slower for purely numeric data,
-> than the ones we have seen previously as part of NumPy.
->
-> Can you think of any cases when a CSV might not be a suitable format to hold our patient data?
-{: .challenge}
+Try adding some views to work with our patient data using the JSON serialiser.
+When you do this, think about the design of the command line interface -
+what arguments will you need to get from the user,
+what output should they receive back?
 
-{% include links.md %}
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Equality Testing
+
+When we wrote our serialiser test,
+we said we wanted to check that the data coming out was the same as our input data,
+but we actually compared just parts of the data,
+rather than just using `assert patients_new == patients`.
+
+The reason for this is that,
+by default, `==` comparing two instances of a class
+tests whether they are stored at the same location in memory,
+rather than just whether they contain the same data.
+
+Add some code to the `Patient` and `Observation` classes,
+so that we get the expected result when we do `assert patients_new == patients`.
+When you have this comparison working,
+update the serialiser test to use this instead.
+
+**Hint:** The method Python uses to check for equality of two instances of a class
+is called `__eq__` and takes the arguments `self` (as all normal methods do) and `other`.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Advanced Challenge: Abstract Base Classes
+
+Since our `Serializer` class is designed not to be directly usable
+and its methods raise `NotImplementedError`,
+it ideally should be an abstract base class.
+An abstract base class is one which is intended to be used only by creating subclasses of it
+and can mark some or all of its methods as requiring implementation in the new subclass.
+
+Using Python's documentation on
+the [abc module](https://docs.python.org/3/library/abc.html),
+convert the `Serializer` class into an ABC.
+
+**Hint:** The only component that needs to be changed is `Serializer` -
+this should not require any changes to the other classes.
+
+**Hint:** The abc module documentation refers to metaclasses - do not worry about these.
+A metaclass is a template for creating a class (classes are instances of a metaclass),
+just like a class is a template for creating objects (objects are instances of a class),
+but this is not necessary to understand
+if you are just using them to create your own abstract base classes.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Advanced Challenge: CSV Serialization
+
+Try implementing an alternative serialiser, using the CSV format instead of JSON.
+
+**Hint:** Python also has a module for handling CSVs -
+see the documentation for the [csv module](https://docs.python.org/3/library/csv.html).
+This module provides a CSV reader and writer which are a bit more flexible,
+but slower for purely numeric data,
+than the ones we have seen previously as part of NumPy.
+
+Can you think of any cases when a CSV might not be a suitable format to hold our patient data?
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+

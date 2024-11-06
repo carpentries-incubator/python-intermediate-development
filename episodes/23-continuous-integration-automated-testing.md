@@ -1,23 +1,24 @@
 ---
-title: "Continuous Integration for Automated Testing"
+title: Continuous Integration for Automated Testing
 teaching: 45
 exercises: 0
-questions:
-- "How can I automate the testing of my repository's code in a way that scales well?"
-- "What can I do to make testing across multiple platforms easier?"
-objectives:
-- "Describe the benefits of using Continuous Integration for further automation of testing"
-- "Enable GitHub Actions Continuous Integration for public open source repositories"
-- "Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository"
-- "Use a build matrix to specify combinations of operating systems and Python versions to run tests over"
-keypoints:
-- "Continuous Integration can run tests automatically to verify changes as code develops in our repository."
-- "CI builds are typically triggered by commits pushed to a repository."
-- "We need to write a configuration file to inform a CI service what to do for a build."
-- "We can specify a build matrix to specify multiple platforms and programming language versions to test against"
-- "Builds can be enabled and configured separately for each branch."
-- "We can run - and get reports from - different CI infrastructure builds simultaneously."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Describe the benefits of using Continuous Integration for further automation of testing
+- Enable GitHub Actions Continuous Integration for public open source repositories
+- Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository
+- Use a build matrix to specify combinations of operating systems and Python versions to run tests over
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How can I automate the testing of my repository's code in a way that scales well?
+- What can I do to make testing across multiple platforms easier?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
@@ -30,7 +31,6 @@ increased confidence that everything is working as expected.
 Now we are going to take further advantage of automation
 in a way that helps testing scale across a development team with very little overhead,
 using **Continuous Integration**.
-
 
 ## What is Continuous Integration?
 
@@ -59,7 +59,6 @@ and subject to change as they evolve their features.
 We will be looking at [GitHub Actions](https://github.com/features/actions) -
 which unsurprisingly is available as part of GitHub.
 
-
 ## Continuous Integration with GitHub Actions
 
 ### A Quick Look at YAML
@@ -77,12 +76,11 @@ key-value pairs, arrays, maps and multi-line strings.
 So firstly, YAML files are essentially made up of **key-value** pairs,
 in the form `key: value`, for example:
 
-~~~
+```yaml
 name: Kilimanjaro
 height_metres: 5892
 first_scaled_by: Hans Meyer
-~~~
-{: .language-yaml}
+```
 
 In general, you do not need quotes for strings,
 but you can use them when you want to explicitly distinguish between numbers and strings,
@@ -92,25 +90,23 @@ It turns out Hans Meyer is not the only first ascender of Kilimanjaro,
 so one way to add this person as another value to this key is by using YAML **arrays**,
 like this:
 
-~~~
+```yaml
 first_scaled_by:
 - Hans Meyer
 - Ludwig Purtscheller
-~~~
-{: .language-yaml}
+```
 
 An alternative to this format for arrays is the following, which would have the same meaning:
 
-~~~
+```yaml
 first_scaled_by: [Hans Meyer, Ludwig Purtscheller]
-~~~
-{: .language-yaml}
+```
 
 If we wanted to express more information for one of these values
 we could use a feature known as **maps** (dictionaries/hashes),
 which allow us to define nested, hierarchical data structures, e.g.
 
-~~~
+```yaml
 ...
 height:
   value: 5892
@@ -119,8 +115,7 @@ height:
     year: 2008
     by: Kilimanjaro 2008 Precise Height Measurement Expedition
 ...
-~~~
-{: .language-yaml}
+```
 
 So here, `height` itself is made up of three keys `value`, `unit`, and `measured`,
 with the last of these being another nested key with the keys `year` and `by`.
@@ -129,7 +124,7 @@ Note the convention of using two spaces for tabs, instead of Python's four.
 We can also combine maps and arrays to describe more complex data.
 Let us say we want to add more detail to our list of initial ascenders:
 
-~~~
+```yaml
 ...
 first_scaled_by:
 - name: Hans Meyer
@@ -138,8 +133,7 @@ first_scaled_by:
 - name: Ludwig Purtscheller
   date_of_birth: 22-03-1858
   nationality: Austrian
-~~~
-{: .language-yaml}
+```
 
 So here we have a YAML array of our two mountaineers,
 each with additional keys offering more information.
@@ -147,12 +141,11 @@ each with additional keys offering more information.
 GitHub Actions also makes use of `|` symbol to indicate a multi-line string
 that preserves new lines. For example:
 
-~~~
+```yaml
 shakespeare_couplet: |
   Good night, good night. Parting is such sweet sorrow
   That I shall say good night till it be morrow.
-~~~
-{: .language-yaml}
+```
 
 They key `shakespeare_couplet` would hold the full two line string,
 preserving the new line after sorrow.
@@ -166,10 +159,9 @@ to run our tests automatically when we commit changes.
 Let us do this now by adding a new file to our repository whilst on the `test-suite` branch.
 First, create the new directories `.github/workflows`:
 
-~~~
+```bash
 $ mkdir -p .github/workflows
-~~~
-{: .language-bash}
+```
 
 This directory is used specifically for GitHub Actions,
 allowing us to specify any number of workflows that can be run under a variety of conditions,
@@ -178,7 +170,7 @@ So let us add a new YAML file called `main.yml`
 (note its extension is `.yml` without the `a`)
 within the new `.github/workflows` directory:
 
-~~~
+```yaml
 name: CI
 
 # We can specify which Github events will trigger a CI build
@@ -213,8 +205,7 @@ jobs:
     - name: Test with PyTest
       run: |
         python3 -m pytest --cov=inflammation.models tests/test_models.py
-~~~
-{: .language-yaml}
+```
 
 ***Note**: be sure to create this file as `main.yml`
 within the newly created `.github/workflows` directory,
@@ -258,31 +249,34 @@ Each of these steps are:
 - **Test with PyTest:** lastly, we run `python3 -m pytest`,
   with the same arguments we used manually before
 
-> ## What about other Actions?
->
-> Our workflow here uses standard GitHub Actions (indicated by `actions/*`).
-> Beyond the standard set of actions,
-> others are available via the
-> [GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview).
-> It contains many third-party actions (as well as apps)
-> that you can use with GitHub for many tasks across many programming languages,
-> particularly for setting up environments for running tests,
-> code analysis and other tools,
-> setting up and using infrastructure (for things like Docker or Amazon's AWS cloud),
-> or even managing repository issues.
-> You can even contribute your own.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What about other Actions?
+
+Our workflow here uses standard GitHub Actions (indicated by `actions/*`).
+Beyond the standard set of actions,
+others are available via the
+[GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview).
+It contains many third-party actions (as well as apps)
+that you can use with GitHub for many tasks across many programming languages,
+particularly for setting up environments for running tests,
+code analysis and other tools,
+setting up and using infrastructure (for things like Docker or Amazon's AWS cloud),
+or even managing repository issues.
+You can even contribute your own.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Triggering a Build on GitHub Actions
 
 Now if we commit and push this change a CI run will be triggered:
 
-~~~
+```bash
 $ git add .github
 $ git commit -m "Add GitHub Actions configuration"
 $ git push origin test-suite
-~~~
-{: .language-bash}
+```
 
 Since we are only committing the GitHub Actions configuration file
 to the `test-suite` branch for the moment,
@@ -305,11 +299,11 @@ and then selecting `commits`
 (located just above the code directory listing on the right,
 alongside the last commit message and a small image of a timer).
 
-![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="1000px"}
+![](fig/ci-initial-ga-build.png){alt='Continuous Integration with GitHub Actions - Initial Build' .image-with-shadow width="1000px"}
 
 You'll see a list of commits for this branch,
 and likely see an orange marker next to the latest commit
-(clicking on it yields `Some checks haven’t completed yet`)
+(clicking on it yields `Some checks haven't completed yet`)
 meaning the build is still in progress.
 This is a useful view, as over time, it will give you a history of commits,
 who did them, and whether the commit resulted in a successful build or not.
@@ -318,19 +312,18 @@ Hopefully after a while, the marker will turn into a green tick indicating a suc
 Clicking it gives you even more information about the build,
 and selecting `Details` link takes you to a complete log of the build and its output.
 
-![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="1000px"}
+![](fig/ci-initial-ga-build-log.png){alt='Continuous Integration with GitHub Actions - Build Log' .image-with-shadow width="1000px"}
 
 The logs are actually truncated; selecting the arrows next to the entries -
 which are the `name` labels we specified in the `main.yml` file -
 will expand them with more detail, including the output from the actions performed.
 
-![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="1000px"}
+![](fig/ci-initial-ga-build-details.png){alt='Continuous Integration with GitHub Actions - Build Details' .image-with-shadow width="1000px"}
 
 GitHub Actions offers these continuous integration features
 as a completely free service for public repositories,
 and supplies 2000 build minutes a month on as many private repositories that you like.
 Paid levels are available too.
-
 
 ## Scaling Up Testing Using Build Matrices
 
@@ -359,7 +352,7 @@ replacing the `runs-on` and `python-version` parameters
 to refer to the values from the matrix.
 So, our `.github/workflows/main.yml` should look like the following:
 
-~~~
+```yaml
 # Same key-value pairs as in "Defining Our Workflow" section
 name: CI
 on: push
@@ -394,8 +387,7 @@ jobs:
     - name: Test with PyTest
       run: |
         python3 -m pytest --cov=catchment.models tests/test_models.py
-~~~
-{: .language-yaml}
+```
 
 The `{% raw %}${{ }}{% endraw %}` are used
 as a means to reference configuration values from the matrix.
@@ -405,41 +397,61 @@ will be tested and we can expect 6 build jobs in total.
 
 Let us commit and push this change and see what happens:
 
-~~~
+```bash
 $ git add .github/workflows/main.yml
 $ git commit -m "Add GA build matrix for os and Python version"
 $ git push origin test-suite
-~~~
-{: .language-bash}
+```
 
 If we go to our GitHub build now, we can see that a new job has been created for each permutation.
 
-![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="1000px"}
+![](fig/ci-ga-build-matrix.png){alt='Continuous Integration with GitHub Actions - Build Matrix' .image-with-shadow width="1000px"}
 
 Note all jobs running in parallel (up to the limit allowed by our account)
 which potentially saves us a lot of time waiting for testing results.
 Overall, this approach allows us to massively scale our automated testing
 across platforms we wish to test.
 
-> ## Failed CI Builds
-> A CI build can fail when, e.g. a used Python package no longer supports a particular version of 
-> Python indicated in a GitHub Actions CI build matrix. In this case, the solution is either to 
-> upgrade the Python version in the build matrix (when possible) or downgrade the package version (and not use the latest one like we have been doing in this course).
->
-> Also note that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
-> GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
->
->   >*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
->
-> This behaviour can be controlled by changing the value of the `fail-fast` property:
-> ~~~
-> ...
->    strategy:
->      fail-fast: false
->      matrix:
-> ...
-> ~~~
-{: .language-yaml}
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-{% include links.md %}
+## Failed CI Builds
+
+A CI build can fail when, e.g. a used Python package no longer supports a particular version of
+Python indicated in a GitHub Actions CI build matrix. In this case, the solution is either to
+upgrade the Python version in the build matrix (when possible) or downgrade the package version (and not use the latest one like we have been doing in this course).
+
+Also note that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
+GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
+
+:::::::::::::::::::::::::::::::::::  language-yaml
+
+*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+This behaviour can be controlled by changing the value of the `fail-fast` property:
+
+```
+...
+   strategy:
+     fail-fast: false
+     matrix:
+...
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Continuous Integration can run tests automatically to verify changes as code develops in our repository.
+- CI builds are typically triggered by commits pushed to a repository.
+- We need to write a configuration file to inform a CI service what to do for a build.
+- We can specify a build matrix to specify multiple platforms and programming language versions to test against
+- Builds can be enabled and configured separately for each branch.
+- We can run - and get reports from - different CI infrastructure builds simultaneously.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

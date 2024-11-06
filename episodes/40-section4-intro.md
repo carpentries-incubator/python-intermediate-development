@@ -1,17 +1,23 @@
 ---
-title: "Section 4: Collaborative Software Development for Reuse"
-colour: "#fafac8"
-start: true
+title: 'Section 4: Collaborative Software Development for Reuse'
+colour: '#fafac8'
+start: yes
 teaching: 5
 exercises: 0
-questions:
-- "What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?"
-objectives:
-- "Understand the code review process and employ it to improve the quality of code."
-- "Understand the process and best practices for preparing Python code for reuse by others."
-keypoints:
-- "Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Understand the code review process and employ it to improve the quality of code.
+- Understand the process and best practices for preparing Python code for reuse by others.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What practices help us develop software collaboratively that will make it easier for us and others to further develop and reuse it?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 When changes - particularly big changes - are made to a codebase,
 how can we as a team ensure that these changes are well considered and represent good solutions?
@@ -24,7 +30,7 @@ For this reason, it is important not to write the code alone and in isolation
 and use other team members to verify each other's code and measure our coding standards against.
 This process of having multiple team members comment on key code changes is called *code review* -
 this is one of the most important practices of collaborative software development
-that helps ensure the ‘good’ coding standards are achieved and maintained within a team,
+that helps ensure the 'good' coding standards are achieved and maintained within a team,
 as well as increasing knowledge about the codebase across the team.
 We will thus look at the benefits of reviewing code,
 in particular, the value of this type of activity within a team,
@@ -43,39 +49,50 @@ and produce a code package we can use with a Python package indexing service
 to illustrate these principles.
 
 {% comment %}
-![Software design and architecture](../fig/section4-overview.png){: .image-with-shadow width="800px" }
+![](fig/section4-overview.png){alt='Software design and architecture' .image-with-shadow width="800px" }
 {% endcomment %}
 
-![Software design and architecture](../fig/section4-overview.svg){: .image-with-shadow width="1000px" }
+![](fig/section4-overview.svg){alt='Software design and architecture' .image-with-shadow width="1000px" }
 
 {% comment %}
 flowchart LR
 A(1. Setting up
 software environment)
---> B(2. Verifying
+\--> B(2. Verifying
 software correctness)
---> C(3. Software development
+\--> C(3. Software development
 as a process)
---> D(4. Collaborative
+\--> D(4. Collaborative
 development for reuse
 
-    - Code review
-    - Software documentation
-    - Software packaging & release
-    )
---> E(5. Managing software
+```
+- Code review
+- Software documentation
+- Software packaging & release
+)
+```
+
+\--> E(5. Managing software
 over its lifetime)
 
-https://mermaid.live/edit#pako:eNpVkE9rwzAMxb-K8CmFNrB_lxwGW9vbellhh-GLlsitIZGCrKSU0u8-t2vYpouF9HsP-Z1cLQ25yoVWDvUe1eDt3fNLcVfClswi72DoPScJdkAlIB6jCnfENvO8WDzDa3FfwgdpDMdM_0FrUaXamFK6ocviIdtO-4ZGaqW_WHnGBAi9Sv1Lr4rHEpbStvglihZH8vxHA0EUlIaUx54h1wL-vzefdfFUwgYZd5ffTOd5lpEUoiVoYyCLHc3c3HWkHcYmJ3K6mHhne-rIuyq3DQUcWvPO8zmjOJhsj1y7ynSguRv6Bo1WEXeKnasCtilPqYkmuvlJ-Rr2RK6vm0ndI3-KTLrzNzfGi8o
+<https://mermaid.live/edit#pako:eNpVkE9rwzAMxb-K8CmFNrB_lxwGW9vbellhh-GLlsitIZGCrKSU0u8-t2vYpouF9HsP-Z1cLQ25yoVWDvUe1eDt3fNLcVfClswi72DoPScJdkAlIB6jCnfENvO8WDzDa3FfwgdpDMdM_0FrUaXamFK6ocviIdtO-4ZGaqW_WHnGBAi9Sv1Lr4rHEpbStvglihZH8vxHA0EUlIaUx54h1wL-vzefdfFUwgYZd5ffTOd5lpEUoiVoYyCLHc3c3HWkHcYmJ3K6mHhne-rIuyq3DQUcWvPO8zmjOJhsj1y7ynSguRv6Bo1WEXeKnasCtilPqYkmuvlJ-Rr2RK6vm0ndI3-KTLrzNzfGi8o>
 {% endcomment %}
 
-{% include links.md %}
 
 
 {% comment %}
 Designing and Developing "Good" Software in Teams
+
 - **Software paradigms and design architectures** for solving different problems based on clear requirements
 - **Writing "good" software** that is understandable, modular, extensible and tested
 - **Publishing and releasing software** for reuse by others
-- **Collaborative code development and review** to improve software sustainability and avoid the accumulation of ‘technical debt’.
-{% endcomment %}
+- **Collaborative code development and review** to improve software sustainability and avoid the accumulation of 'technical debt'.
+  {% endcomment %}
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Agreeing on a set of best practices within a software development team will help to improve your software's understandability, extensibility, testability, reusability and overall sustainability.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

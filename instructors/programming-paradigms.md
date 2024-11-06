@@ -1,22 +1,20 @@
 ---
-title: "Programming Paradigms"
+title: Programming Paradigms
 teaching: 20
 exercises: 0
-layout: episode
-questions:
-- "What should we consider when designing software?"
-objectives:
-- "Describe some of the major software paradigms we can use to classify programming languages."
+questions: What should we consider when designing software?
+objectives: Describe some of the major software paradigms we can use to classify programming
+  languages.
 keypoints:
-- "A software paradigm describes a way of structuring or reasoning about code."
-- "Different programming languages are suited to different paradigms."
-- "Different paradigms are suited to solving different classes of problems."
-- "A single piece of software will often contain instances of multiple paradigms."
+- A software paradigm describes a way of structuring or reasoning about code.
+- Different programming languages are suited to different paradigms.
+- Different paradigms are suited to solving different classes of problems.
+- A single piece of software will often contain instances of multiple paradigms.
 ---
 
 ## Programming Paradigms
 
-In addition to [architectural decisions](/software-architecture-extra/index.html) on bigger components of your code, it is important
+In addition to [architectural decisions](../instructors/software-architecture-extra.md) on bigger components of your code, it is important
 to understand the wider landscape of programming paradigms and languages,
 with each supporting at least one way to approach a problem and structure your code.
 In many cases, particularly with modern languages,
@@ -83,8 +81,7 @@ Functional Programming is a separate paradigm that
 places much stronger constraints on the behaviour of a function
 and structures the code differently as we will see soon.
 
-You can read more in an [extra episode on Procedural Programming](/procedural-programming/index.html).
-
+You can read more in an [extra episode on Procedural Programming](../instructors/procedural-programming.md).
 
 ### Functional Programming
 
@@ -119,7 +116,7 @@ we also gain the ability to run many operations in parallel
 as it is guaranteed that each operation will not interact with any of the others -
 this is essential if we want to process this much data in a reasonable amount of time.
 
-You can read more in an [extra episode on Functional Programming](/functional-programming/index.html).
+You can read more in an [extra episode on Functional Programming](../instructors/functional-programming.md).
 
 ### Object Oriented Programming
 
@@ -147,7 +144,7 @@ Most people would classify Object Oriented Programming as an
 (with the extra feature being the objects), but
 [others disagree](https://stackoverflow.com/questions/38527078/what-is-the-difference-between-imperative-and-object-oriented-programming).
 
-You can read more in an [extra episode on Object Oriented Programming](/object-oriented-programming/index.html).
+You can read more in an [extra episode on Object Oriented Programming](../instructors/object-oriented-programming.md).
 
 ## Other Paradigms
 
@@ -157,8 +154,10 @@ for much more information see the Wikipedia's page on
 [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm).
 
 We have mainly used Procedural Programming in this lesson, but you can
-have a closer look at [Functional](/functional-programming/index.html) and
-[Object Oriented Programming](/object-oriented-programming/index.html) paradigms
+have a closer look at [Functional](../instructors/functional-programming.md) and
+[Object Oriented Programming](../instructors/object-oriented-programming.md) paradigms
 in extra episodes and how they can affect our architectural design choices.
 
-{% include links.md %}
+
+
+

@@ -1,24 +1,30 @@
 ---
-layout: episode
-title: "Wrap-up"
-start: true
-type: "wrap-up"
-colour: "#FBED65"
+title: Wrap-up
+start: yes
+type: wrap-up
+colour: '#FBED65'
 teaching: 15
 exercises: 0
-questions:
-- "Looking back at what was covered and how different pieces fit together"
-- "Where are some advanced topics and further reading available?"
-objectives:
-- "Put the course in context with future learning."
-keypoints:
-- "Collaborative techniques and tools play an important part of research software development in teams."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Put the course in context with future learning.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- Looking back at what was covered and how different pieces fit together
+- Where are some advanced topics and further reading available?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 {% comment %}
 Examples of 'good' code best practices (from Steve's slides):
-Correct – does what it’s intended to do
+Correct – does what it's intended to do
 Readable – remember WORM (Write Once Read Many)
-Testable – “if it’s not tested it’s broken”
+Testable – "if it's not tested it's broken"
 Documented – not what/how but why/because
 Robust and reliable
 Maintainable – by you and others six months from now
@@ -35,13 +41,14 @@ Reiterate some of the key messages.
 {% endcomment %}
 
 ## Summary
+
 As part of this course we have looked at a core set of
 established, intermediate-level software development tools and best practices
 for working as part of a team.
 The course teaches a selected subset of skills that have been tried and tested
 in collaborative research software development environments,
 although not an all-encompassing set of every skill you might need
-(check some [further reading](./#further-resources)).
+(check some [further reading](.#further-resources)).
 It will provide you with a solid basis for writing industry-grade code,
 which relies on the same best practices taught in this course:
 
@@ -71,62 +78,81 @@ which relies on the same best practices taught in this course:
   and the importance of having a self-critical mindset when developing software,
   and ways to manage feedback effectively and efficiently.
 
-> ## Reflection Exercise: Putting the Pieces Together
-> As a group, reflect on the concepts
-> (e.g. tools, techniques and practices)
-> covered throughout the course,
-> how they relate to one another,
-> how they fit together in a bigger picture or skill learning pathways
-> and in which order you need to learn them.
-> > ## Solution
-> > One way to think about these concepts is to
-> > make a list and try to organise them along two axes -
-> > 'perceived usefulness of a concept' versus
-> > 'perceived difficulty or time needed to master a concept',
-> > as shown in the table below
-> > (for the exercise, you can make your own copy of the
-> > [template table](https://docs.google.com/document/d/1NdE6PjqxjSsf1K4ofkCoWc2GA3sY2RIsjRg8BghTXas/edit?usp=sharing)
-> > for the purpose of this exercise).
-> > You then may think in which order you want to learn the skills
-> > and how much effort they require -
-> > e.g. start with those that are more useful but, for the time being,
-> > hold off those that are not too useful to you and take loads of time to master.
-> > You will likely want to focus on the concepts in the top right corner of the table first,
-> > but investing time to master more difficult concepts may pay off in the long run
-> > by saving you time and effort and helping reduce technical debt.
-> >
-> > ![Usefulness versus time to master grid](../fig/wrapup-perceived-usefulness-time.png){: .image-with-shadow width="800px"}
-> >
-> > Another way you can organise the concepts is using a
-> > [concept map](https://en.wikipedia.org/wiki/Concept_map)
-> > (a directed graph depicting suggested relationships between concepts)
-> > or any other diagram/visual aid of your choice.
-> > Below are some example views of tools and techniques covered in the course using concept maps.
-> > Your views may differ but that is not to say that either view is right or wrong.
-> > This exercise is meant to get you to reflect on what was covered in the course
-> > and hopefully to reinforce the ideas and concepts you learned.
-> >
-> > ![Overview of tools and techniques covered in the course](../fig/wrapup-concept-map.png){: .image-with-shadow width="800px"}
-> >
-> > A different concept map tries to organise concepts/skills based on their level of difficulty
-> > (novice, intermediate and advanced, and in-between!)
-> > and tries to show which skills are prerequisite for others
-> > and in which order you should consider learning skills.
-> >
-> > ![Overview of topics covered in the course based on level of difficulty](../fig/wrapup-concept-map-difficulty-level.png){: .image-with-shadow width="800px"}
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Reflection Exercise: Putting the Pieces Together
+
+As a group, reflect on the concepts
+(e.g. tools, techniques and practices)
+covered throughout the course,
+how they relate to one another,
+how they fit together in a bigger picture or skill learning pathways
+and in which order you need to learn them.
+
+:::::::::::::::  solution
+
+## Solution
+
+One way to think about these concepts is to
+make a list and try to organise them along two axes -
+'perceived usefulness of a concept' versus
+'perceived difficulty or time needed to master a concept',
+as shown in the table below
+(for the exercise, you can make your own copy of the
+[template table](https://docs.google.com/document/d/1NdE6PjqxjSsf1K4ofkCoWc2GA3sY2RIsjRg8BghTXas/edit?usp=sharing)
+for the purpose of this exercise).
+You then may think in which order you want to learn the skills
+and how much effort they require -
+e.g. start with those that are more useful but, for the time being,
+hold off those that are not too useful to you and take loads of time to master.
+You will likely want to focus on the concepts in the top right corner of the table first,
+but investing time to master more difficult concepts may pay off in the long run
+by saving you time and effort and helping reduce technical debt.
+
+![](fig/wrapup-perceived-usefulness-time.png){alt='Usefulness versus time to master grid' .image-with-shadow width="800px"}
+
+Another way you can organise the concepts is using a
+[concept map](https://en.wikipedia.org/wiki/Concept_map)
+(a directed graph depicting suggested relationships between concepts)
+or any other diagram/visual aid of your choice.
+Below are some example views of tools and techniques covered in the course using concept maps.
+Your views may differ but that is not to say that either view is right or wrong.
+This exercise is meant to get you to reflect on what was covered in the course
+and hopefully to reinforce the ideas and concepts you learned.
+
+![](fig/wrapup-concept-map.png){alt='Overview of tools and techniques covered in the course' .image-with-shadow width="800px"}
+
+A different concept map tries to organise concepts/skills based on their level of difficulty
+(novice, intermediate and advanced, and in-between!)
+and tries to show which skills are prerequisite for others
+and in which order you should consider learning skills.
+
+![](fig/wrapup-concept-map-difficulty-level.png){alt='Overview of topics covered in the course based on level of difficulty' .image-with-shadow width="800px"}
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Further Resources
 
 Below are some additional resources to help you continue learning:
 
-- [Additional episode on persisting data](../persistence)
-- [Additional episode on databases](../databases)
+- [Additional episode on persisting data](../instructors/persistence.md)
+- [Additional episode on databases](../instructors/databases.md)
 - [CodeRefinery courses on FAIR
   (Findable, Accessible, Interoperable, and Reusable)
   software practices][coderefinery-lessons]
 - [Python documentation][python-documentation]
 - [GitHub Actions documentation][github-actions]
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Collaborative techniques and tools play an important part of research software development in teams.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

@@ -1,18 +1,22 @@
 ---
-title: "Instructor Notes"
+title: Instructor Notes
 ---
 
-> ## Common Issues & Tips
-> Check out a [list of issues](../common-issues) previous participants of the course encountered
-> and some tips to help you with troubleshooting at the workshop.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
+## Common Issues \& Tips
+
+Check out a [list of issues](../instructors/common-issues.md) previous participants of the course encountered
+and some tips to help you with troubleshooting at the workshop.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Course Design
 
 The course follows a narrative around
 a software development team working on an existing software project
-that is analysing patients’ inflammation data
+that is analysing patients' inflammation data
 (from the [novice Software Carpentry Python course](https://software-carpentry.org/lessons).
 The course is meant to be delivered as a single unit
 as the course's code examples and exercises built on top of previously covered topics and code -
@@ -70,7 +74,7 @@ and would not require to code-along to the same extent as novice learners.
 In later stages, exercises require participants to develop code more individually
 so they can review and comment on each other's code,
 so the codes need to be sufficiently different for these exercises to be effective.
-For instructor-led mode of delivery, you can have an instructor live-code these group exercises 
+For instructor-led mode of delivery, you can have an instructor live-code these group exercises
 after learners have been given a chance to work on them as a team.
 
 A workshop kicks off with everyone together at the start of each day.
@@ -81,7 +85,7 @@ to explain what the students will be learning and doing on that particular day.
 After that, participants are split into groups
 and go through the materials for that day on their own with helpers on hand.
 Each section holds optional exercises at the end for fast learners to go through if they finish early.
-At the end of each section, all reconvene for a joint Q&A session, feedback and wrap-up.
+At the end of each section, all reconvene for a joint Q\&A session, feedback and wrap-up.
 If participants have not finished all exercises for a section (in "self-learning with helpers" mode),
 they are asked to finish them off before the next section starts
 to make sure everyone is in sync as much as possible and are working on similar things
@@ -91,18 +95,18 @@ when students start with group exercises.
 
 Although not explicitly endorsed,
 it is quite possible for learners to do the course using VS Code instead of PyCharm.
-There is a section for setting up VS Code in the [this adjacent extras page](../vscode).
-However, when progressing through the section [Integrated Software Development Environments](../13-ides),
+There is a section for setting up VS Code in the [this adjacent extras page](../instructors/vscode.md).
+However, when progressing through the section [Integrated Software Development Environments](../episodes/13-ides.md),
 it can be a bit difficult for learners to pay attention to both pages.
 Therefore, some instructors have found it helpful to perform a demonstration on their own machines of how to use VS Code to achieve the same functionality as PyCharm.
 It is worthwhile preparing this in advance of the session.
 
 ### Helpers Roles and Responsibilities
 
-At the workshop, when using the "self-learning with helpers" delivery mode, everyone in the training team is a helper and 
+At the workshop, when using the "self-learning with helpers" delivery mode, everyone in the training team is a helper and
 there are no instructors per se.
 You may have more experienced helpers delivering introductions to the workshop and sections.
-Contact the course authors for section intro slides you can reuse, and you can also find slides for each 
+Contact the course authors for section intro slides you can reuse, and you can also find slides for each
 section in the course repository (for instructor-led delivery mode).
 
 Roles and responsibilities of helpers include:
@@ -119,7 +123,7 @@ Roles and responsibilities of helpers include:
 - Noting mistakes, inconsistencies and learning obstacles in the materials
 - Recording issues or doing PRs in the lesson repository during or after of the workshop
 - Helping students get through the material
-  but also being ready to answer questions on applying the material in learners’ domains,
+  but also being ready to answer questions on applying the material in learners' domains,
   if possible
 - Monitoring the progress of students
   - get up every now and then and do a walk around the room, look at stickies and have a peak at
@@ -157,4 +161,6 @@ Here is some advice on how best to sync and organise group exercises in later st
   before joining the next one -
   this is even more important for group exercises so the teams are not stalled.
 
-{% include links.md %}
+
+
+

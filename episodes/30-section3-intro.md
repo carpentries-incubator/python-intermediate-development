@@ -1,24 +1,24 @@
 ---
-title: "Section 3: Software Development as a Process"
-colour: "#fafac8"
-start: true
+title: 'Section 3: Software Development as a Process'
+colour: '#fafac8'
+start: yes
 teaching: 10
 exercises: 0
-questions:
-- "How can we design and write 'good' software that meets its goals and requirements?"
-objectives:
-- "Describe the differences between writing code and engineering software."
-- "Define the fundamental stages in a software development process."
-- "List the benefits of following a process of software development."
-keypoints:
-- "Software engineering takes a wider view of software development beyond programming (or coding)."
-- "Ensuring requirements are sufficiently captured is critical to the success of any project."
-- "Following a process makes software development predictable, saves time in the long run, 
-  and helps ensure each stage of development is given sufficient consideration 
-  before proceeding to the next."
-- "Once you get the hang of a programming language, writing code to do what you want is relatively 
-easy. The hard part is writing code that is easy to adapt when your requirements change."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Describe the differences between writing code and engineering software.
+- Define the fundamental stages in a software development process.
+- List the benefits of following a process of software development.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How can we design and write 'good' software that meets its goals and requirements?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 In this section, we will take a step back from coding development practices and tools
 and look at the bigger picture of software as a *process* of development.
@@ -26,32 +26,35 @@ and look at the bigger picture of software as a *process* of development.
 > *"If you fail to plan, you are planning to fail."* - Benjamin Franklin
 
 {% comment %}
-![Software design and architecture](../fig/section3-overview.png){: .image-with-shadow width="800px" }
+![](fig/section3-overview.png){alt='Software design and architecture' .image-with-shadow width="800px" }
 {% endcomment %}
 
-![Software design and architecture](../fig/section3-overview.svg){: .image-with-shadow width="1000px" }
+![](fig/section3-overview.svg){alt='Software design and architecture' .image-with-shadow width="1000px" }
 {% comment %}
 flowchart LR
 A(1. Setting up
 software environment)
---> B(2. Verifying
+\--> B(2. Verifying
 software correctness)
---> C(3. Software development
+\--> C(3. Software development
 as a process
 
-    - Software requirements
-    - Software architecture & design
-    - Programming paradigms
-    )
---> D(4. Collaborative
+```
+- Software requirements
+- Software architecture & design
+- Programming paradigms
+)
+```
+
+\--> D(4. Collaborative
 development for reuse)
---> E(5. Managing software
+\--> E(5. Managing software
 over its lifetime)
 
-https://mermaid.live/edit#pako:eNplkU1rwzAMhv-K8WGk0Ab2dclhsLW9rTBW2GH4oiVKakikTJZTSul_n9M122A-2dKj95Wsoy25QlvYuuV9uQNR8_zq6DG7zs0WVT01JvaOAte6B0GDNHhh6pB05mixeDBP2U1u3lB8fUj0H7RkESyVMIQLusxuk-yUr3DAlvtRyhEEA6YXLhPtyJFJZ_HLCn5GLziy4V8SpNx5TVYxPa6SbvDNj8SLcCPQdeMkPQhUvukuEpeuVtldbpbctvDBAuoHdPSnN1OzJP8Y8MKvs_vcbICgGTWncR3xgGK8BtP6GtV3OLNz26F04Kv0w8fR1FndpSmcLdK1whpiq846OiUUovL2QKUtVCLObewrUFx5GPu3RQ1tSFGsvLJsvrd2Xt5Ers-ZqboHemee6k5flmapmQ
+<https://mermaid.live/edit#pako:eNplkU1rwzAMhv-K8WGk0Ab2dclhsLW9rTBW2GH4oiVKakikTJZTSul_n9M122A-2dKj95Wsoy25QlvYuuV9uQNR8_zq6DG7zs0WVT01JvaOAte6B0GDNHhh6pB05mixeDBP2U1u3lB8fUj0H7RkESyVMIQLusxuk-yUr3DAlvtRyhEEA6YXLhPtyJFJZ_HLCn5GLziy4V8SpNx5TVYxPa6SbvDNj8SLcCPQdeMkPQhUvukuEpeuVtldbpbctvDBAuoHdPSnN1OzJP8Y8MKvs_vcbICgGTWncR3xgGK8BtP6GtV3OLNz26F04Kv0w8fR1FndpSmcLdK1whpiq846OiUUovL2QKUtVCLObewrUFx5GPu3RQ1tSFGsvLJsvrd2Xt5Ers-ZqboHemee6k5flmapmQ>
 {% endcomment %}
 
-### Writing Code vs Engineering Software
+## Writing Code vs Engineering Software
 
 Traditionally in academia, software - and the process of writing it -
 is often seen as a necessary but throwaway artefact in research.
@@ -93,7 +96,7 @@ Someone who is engineering software takes a wider view:
   but there is an assumption that the software - or even just a part of it -
   could be reused in the future.
 
-### Software Development Process
+## Software Development Process
 
 The typical stages of a software development process can be categorised as follows:
 
@@ -145,7 +148,7 @@ Following a **process** of development offers some major benefits:
   as part of an open development process.
 - **Time saving:** a well-known result from
   [empirical software engineering studies](https://web.archive.org/web/20160731150816/http://superwebdeveloper.com/2009/11/25/the-incredible-rate-of-diminishing-returns-of-fixing-software-bugs/)
-  is that fixing software mistakes is exponentially more expensive in later software development 
+  is that fixing software mistakes is exponentially more expensive in later software development
   stages.
   For example, if a mistake takes 1 hour to fix in the requirements stage,
   it may take 5 times that during design,
@@ -166,4 +169,14 @@ within the context of a typical software development process:
 - How to create, assess and improve **software design**.
 
 
-{% include links.md %}
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Software engineering takes a wider view of software development beyond programming (or coding).
+- Ensuring requirements are sufficiently captured is critical to the success of any project.
+- Following a process makes software development predictable, saves time in the long run, and helps ensure each stage of development is given sufficient consideration before proceeding to the next.
+- Once you get the hang of a programming language, writing code to do what you want is relatively easy. The hard part is writing code that is easy to adapt when your requirements change.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

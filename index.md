@@ -1,14 +1,13 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+permalink: index.html
+site: sandpaper::sandpaper_site
 ---
 
 This course aims to teach a **core set** of established,
 intermediate-level software development skills
 and best practices for working as part of a team in a research environment
 using Python as an example programming language
-(see detailed [learning objectives](index.html#learning-objectives-for-the-workshop) below).
+(see detailed [learning objectives](index.md#learning-objectives-for-the-workshop) below).
 The core set of skills we teach is not a comprehensive set of all-encompassing skills,
 but a selective set of tried-and-tested collaborative development skills
 that forms a firm foundation for continuing on your learning journey.
@@ -41,81 +40,103 @@ team ethic
 and applying a process to understanding, designing, building, releasing, and maintaining software.
 
 ## Target Audience
+
 This course is for you if:
 
 - You have been writing software for a while,
   which may be used by people other than yourself,
   but it is currently undocumented or unstructured
 - You want to learn:
-    - more intermediate software engineering techniques and tools
-    - how to collaborate with others to develop software
-    - how to prepare software for others to use
+  - more intermediate software engineering techniques and tools
+  - how to collaborate with others to develop software
+  - how to prepare software for others to use
 - You are currently comfortable with:
-    - basic Python programming
-      (though this may not be the main language you use)
-      and applying it to your work on a regular basis
-    - basic version control using Git
-    - command line interface (shell)
+  - basic Python programming
+    (though this may not be the main language you use)
+    and applying it to your work on a regular basis
+  - basic version control using Git
+  - command line interface (shell)
 
- This course is not for you if:
+This course is not for you if:
 
- - You have not yet started writing software
-   (in which case have a look at the
-   [Software Carpentry course](https://software-carpentry.org/lessons)
-   or some other Python course for novices first)
- - You have learned the basics of writing software but have not
-   applied that knowledge yet (or are unsure how to apply it) to your work.
-   In this case, we suggest you revisit the course
-   after you have been programming for at least 6 months
- - You are well familiar with the
-   [learning objectives of the course](index.html#learning-objectives-for-the-workshop)
-   and those of individual episodes
- - The software you write is fully documented and well architected
+- You have not yet started writing software
+  (in which case have a look at the
+  [Software Carpentry course](https://software-carpentry.org/lessons)
+  or some other Python course for novices first)
+- You have learned the basics of writing software but have not
+  applied that knowledge yet (or are unsure how to apply it) to your work.
+  In this case, we suggest you revisit the course
+  after you have been programming for at least 6 months
+- You are well familiar with the
+  [learning objectives of the course](index.md#learning-objectives-for-the-workshop)
+  and those of individual episodes
+- The software you write is fully documented and well architected
 
-> ## Learning Objectives
-> After going through this course, participants will be able to:
-> - Set up and use a suitable development environment
-together with popular source code management infrastructure to develop software collaboratively
-> - Use a test framework to automate the verification of correct behaviour of code,
-and employ parameterisation and continuous integration to scale and further automate code testing
-> - Design robust, extensible software through the application of suitable programming paradigms 
-and design techniques
-> - Understand the code review process and employ it to improve the quality of code
-> - Prepare and release software for reuse by others
-> - Manage software improvement from feedback through agile techniques
-{: .objectives }
+:::::::::::::::::::::::::::::::::::::  objectives
 
-> ## Prerequisites
-> Before joining this training, participants should meet the following criteria.
-> (You can use [this short quiz](quiz/index.html) to test your prerequisite knowledge.)
->
-> #### Git
-> - **You are familiar with the concept of version control**
-> - **You have experience configuring Git for the first time and creating a local repository**
-> - **You have experience using Git to create and clone a repository
->   and add/commit changes to it and to push to/pull from a remote repository**
-> - Optionally, you have experience comparing various versions of tracked files
->   or ignoring specific files
->
-> #### Python
-> - **You have a basic knowledge of programming in Python
->   (using variables, lists, conditional statements,
->   functions and importing external libraries)**
-> - **You have previously written Python scripts or iPython/Jupyter notebooks
->   to accomplish tasks in your domain of work**
->
-> #### Shell
-> - **You have experience using a command line interface, such as Bash,
->   to navigate a UNIX-style file system and run commands with arguments**
-> - Optionally, you have experience redirecting inputs and outputs from a command
-{: .prereq}
+## Learning Objectives
 
-> ## Setup
-> Please make sure that you have all the necessary software and accounts setup ahead of the workshop
-> as described in the [Setup](./setup.html) section.
-> Also check the list of [common issues, fixes & tips](./common-issues/index.html)
-> if you experience any problems running any of the tools you installed -
-> your issue may be solved there.
-{: .callout}
+After going through this course, participants will be able to:
 
-{% include links.md %}
+- Set up and use a suitable development environment
+  together with popular source code management infrastructure to develop software collaboratively
+- Use a test framework to automate the verification of correct behaviour of code,
+  and employ parameterisation and continuous integration to scale and further automate code testing
+- Design robust, extensible software through the application of suitable programming paradigms
+  and design techniques
+- Understand the code review process and employ it to improve the quality of code
+- Prepare and release software for reuse by others
+- Manage software improvement from feedback through agile techniques
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::  prereq
+
+## Prerequisites
+
+Before joining this training, participants should meet the following criteria.
+(You can use [this short quiz](instructors/quiz.md) to test your prerequisite knowledge.)
+
+#### Git
+
+- **You are familiar with the concept of version control**
+- **You have experience configuring Git for the first time and creating a local repository**
+- **You have experience using Git to create and clone a repository
+  and add/commit changes to it and to push to/pull from a remote repository**
+- Optionally, you have experience comparing various versions of tracked files
+  or ignoring specific files
+
+#### Python
+
+- **You have a basic knowledge of programming in Python
+  (using variables, lists, conditional statements,
+  functions and importing external libraries)**
+- **You have previously written Python scripts or iPython/Jupyter notebooks
+  to accomplish tasks in your domain of work**
+
+#### Shell
+
+- **You have experience using a command line interface, such as Bash,
+  to navigate a UNIX-style file system and run commands with arguments**
+- Optionally, you have experience redirecting inputs and outputs from a command
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Setup
+
+Please make sure that you have all the necessary software and accounts setup ahead of the workshop
+as described in the [Setup](learners/setup.md) section.
+Also check the list of [common issues, fixes \& tips](instructors/common-issues.md)
+if you experience any problems running any of the tools you installed -
+your issue may be solved there.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+

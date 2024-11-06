@@ -1,17 +1,22 @@
 ---
-title: "Software Architecture Revisited"
+title: Software Architecture Revisited
 teaching: 15
 exercises: 30
-questions:
-- "How do we handle code contributions that do not fit within our existing architecture?"
-objectives:
-- "Analyse new code to identify Model, View, Controller aspects."
-- "Refactor new code to conform to an MVC architecture."
-- "Adapt our existing code to include the new re-architected code."
-keypoints:
-- "Sometimes new, contributed code needs refactoring for it to fit within an existing codebase."
-- "Try to leave the code in a better state that you found it."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Analyse new code to identify Model, View, Controller aspects.
+- Refactor new code to conform to an MVC architecture.
+- Adapt our existing code to include the new re-architected code.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How do we handle code contributions that do not fit within our existing architecture?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 In the previous few episodes we have looked at the importance and principles of good software architecture and design,
 and how techniques such as code abstraction and refactoring fulfil that design within an implementation,
@@ -21,92 +26,114 @@ Let us now return to software architecture and consider how we may refactor some
 
 ## Revisiting Our Software's Architecture
 
-Recall that in our software project, the **Controller** module is in `inflammation-analysis.py`, 
-and the View and Model modules are contained in 
+Recall that in our software project, the **Controller** module is in `inflammation-analysis.py`,
+and the View and Model modules are contained in
 `inflammation/views.py` and `inflammation/models.py`, respectively.
 Data underlying the Model is contained within the directory `data`.
 
 Looking at the code in the branch `full-data-analysis` (where we should be currently located),
-we can notice that the new code was added in a separate script `inflammation/compute_data.py` and 
+we can notice that the new code was added in a separate script `inflammation/compute_data.py` and
 contains a mix of Model, View and Controller code.
 
-> ## Exercise: Identify Model, View and Controller Parts of the Code
-> Looking at the code inside `compute_data.py`, what parts could be considered 
-> Model, View and Controller code?
->
->> ## Solution
->> * Computing the standard deviation belongs to Model.
->> * Reading the data from CSV files also belongs to Model.
->> * Displaying of the output as a graph is View.
->> * The logic that processes the supplied files is Controller.
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Identify Model, View and Controller Parts of the Code
+
+Looking at the code inside `compute_data.py`, what parts could be considered
+Model, View and Controller code?
+
+:::::::::::::::  solution
+
+## Solution
+
+- Computing the standard deviation belongs to Model.
+- Reading the data from CSV files also belongs to Model.
+- Displaying of the output as a graph is View.
+- The logic that processes the supplied files is Controller.
+  
+  
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Within the Model further separations make sense.
-For example, as we did in the before, separating out the impure code that interacts with 
+For example, as we did in the before, separating out the impure code that interacts with
 the file system from the pure calculations helps with readability and testability.
-Nevertheless, the MVC architectural pattern is a great starting point when thinking about 
+Nevertheless, the MVC architectural pattern is a great starting point when thinking about
 how you should structure your code.
 
-> ## Exercise: Split out the Model, View and Controller Code
-> Refactor `analyse_data()` function so that the Model, View and Controller code 
-> we identified in the previous exercise is moved to appropriate modules.
->> ## Solution
->> The idea here is for the `analyse_data()` function not to have any "view" considerations.
->> That is, it should just compute and return the data and 
->> should be located in `inflammation/models.py`.
->>
->> ```python
->> def analyse_data(data_source):
->>     """Calculate the standard deviation by day between datasets
->>     Gets all the inflammation csvs within a directory, works out the mean
->>     inflammation value for each day across all datasets, then graphs the
->>     standard deviation of these means."""
->>     data = data_source.load_inflammation_data()
->>     daily_standard_deviation = compute_standard_deviation_by_data(data)
->>
->>     return daily_standard_deviation
->> ```
->> There can be a separate bit of code in the Controller `inflammation-analysis.py` 
->> that chooses how data should be presented, e.g. as a graph:
->>
->> ```python
->> if args.full_data_analysis:
->>     _, extension = os.path.splitext(infiles[0])
->>     if extension == '.json':
->>         data_source = JSONDataSource(os.path.dirname(infiles[0]))
->>     elif extension == '.csv':
->>         data_source = CSVDataSource(os.path.dirname(infiles[0]))
->>     else:
->>         raise ValueError(f'Unsupported file format: {extension}')
->>     data_result = analyse_data(data_source)
->>     graph_data = {
->>         'standard deviation by day': data_result,
->>     }
->>     views.visualize(graph_data)
->>     return
->> ```
->> Note that this is, more or less, the change we did to write our regression test.
->> This demonstrates that splitting up Model code from View code can
->> immediately make your code much more testable.
->> Ensure you re-run our regression test to check this refactoring has not
->> changed the output of `analyse_data()`.
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Split out the Model, View and Controller Code
+
+Refactor `analyse_data()` function so that the Model, View and Controller code
+we identified in the previous exercise is moved to appropriate modules.
+
+:::::::::::::::  solution
+
+## Solution
+
+The idea here is for the `analyse_data()` function not to have any "view" considerations.
+That is, it should just compute and return the data and
+should be located in `inflammation/models.py`.
+
+```python
+def analyse_data(data_source):
+    """Calculate the standard deviation by day between datasets
+    Gets all the inflammation csvs within a directory, works out the mean
+    inflammation value for each day across all datasets, then graphs the
+    standard deviation of these means."""
+    data = data_source.load_inflammation_data()
+    daily_standard_deviation = compute_standard_deviation_by_data(data)
+
+    return daily_standard_deviation
+```
+
+There can be a separate bit of code in the Controller `inflammation-analysis.py`
+that chooses how data should be presented, e.g. as a graph:
+
+```python
+if args.full_data_analysis:
+    _, extension = os.path.splitext(infiles[0])
+    if extension == '.json':
+        data_source = JSONDataSource(os.path.dirname(infiles[0]))
+    elif extension == '.csv':
+        data_source = CSVDataSource(os.path.dirname(infiles[0]))
+    else:
+        raise ValueError(f'Unsupported file format: {extension}')
+    data_result = analyse_data(data_source)
+    graph_data = {
+        'standard deviation by day': data_result,
+    }
+    views.visualize(graph_data)
+    return
+```
+
+Note that this is, more or less, the change we did to write our regression test.
+This demonstrates that splitting up Model code from View code can
+immediately make your code much more testable.
+Ensure you re-run our regression test to check this refactoring has not
+changed the output of `analyse_data()`.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 At this point, you have refactored and tested all the code on branch `full-data-analysis`
 and it is working as expected. The branch is ready to be incorporated into `develop`
 and then, later on, `main`, which may also have been changed by other developers working on
 the code at the same time so make sure to update accordingly or resolve any conflicts.
 
-~~~
+```bash
 $ git switch develop
 $ git merge full-data-analysis
-~~~
-{: .language-bash}
+```
 
 Let us now have a closer look at our Controller, and how can handling command line arguments in Python
-(which is something you may find yourself doing often if you need to run the code from a 
+(which is something you may find yourself doing often if you need to run the code from a
 command line tool).
 
 ### Controller Structure
@@ -114,7 +141,7 @@ command line tool).
 You will have noticed already that structure of the `inflammation-analysis.py` file
 follows this pattern:
 
-~~~
+```python
 # import modules
 
 def main(args):
@@ -123,8 +150,7 @@ def main(args):
 if __name__ == "__main__":
     # perform some actions before main()
     main(args)
-~~~
-{: .language-python}
+```
 
 In this pattern the actions performed by the script are contained within the `main` function
 (which does not need to be called `main`,
@@ -140,36 +166,32 @@ the manner in which it is loaded.
 
 If we run the source file directly using the Python interpreter, e.g.:
 
-~~~
+```bash
 $ python3 inflammation-analysis.py
-~~~
-{: .language-bash}
+```
 
 then the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable:
 
-~~~
+```python
 __name__ = "__main__"
 ...
 # rest of your code
-~~~
-{: .language-python}
+```
 
 However, if your source file is imported by another Python script, e.g:
 
-~~~
+```python
 import inflammation-analysis
-~~~
-{: .language-python}
+```
 
 then the interpreter will assign the name `"inflammation-analysis"`
 from the import statement to the `__name__` variable:
 
-~~~
+```python
 __name__ = "inflammation-analysis"
 ...
 # rest of your code
-~~~
-{: .language-python}
+```
 
 Because of this behaviour of the interpreter,
 we can put any code that should only be executed when running the script
@@ -197,30 +219,27 @@ the generation of helpful error messages when users give the program invalid arg
 The basic usage of `argparse` can be seen in the `inflammation-analysis.py` script.
 First we import the library:
 
-~~~
+```python
 import argparse
-~~~
-{: .language-python}
+```
 
 We then initialise the argument parser class, passing an (optional) description of the program:
 
-~~~
+```python
 parser = argparse.ArgumentParser(
     description='A basic patient inflammation data management system')
-~~~
-{: .language-python}
+```
 
 Once the parser has been initialised we can add
 the arguments that we want argparse to look out for.
 In our basic case, we want only the names of the file(s) to process:
 
-~~~
+```python
 parser.add_argument(
     'infiles',
     nargs='+',
     help='Input CSV(s) containing inflammation series for each patient')
-~~~
-{: .language-python}
+```
 
 Here we have defined what the argument will be called (`'infiles'`) when it is read in;
 the number of arguments to be expected
@@ -235,10 +254,9 @@ and we will explain how to do this in more detail below.
 
 Finally we parse the arguments passed to the script using:
 
-~~~
+```python
 args = parser.parse_args()
-~~~
-{: .language-python}
+```
 
 This returns an object (that we have called `args`) containing all the arguments requested.
 These can be accessed using the names that we have defined for each argument,
@@ -247,12 +265,11 @@ e.g. `args.infiles` would return the filenames that have been input.
 The help for the script can be accessed using the `-h` or `--help` optional argument
 (which `argparse` includes by default):
 
-~~~
+```bash
 $ python3 inflammation-analysis.py --help
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 usage: inflammation-analysis.py [-h] infiles [infiles ...]
 
 A basic patient inflammation data management system
@@ -262,8 +279,7 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
-~~~
-{: .output}
+```
 
 The help page starts with the command line usage,
 illustrating what inputs can be given (any within `[]` brackets are optional).
@@ -282,33 +298,36 @@ then it is better to create them as 'optional' arguments.
 These can be made a required input though,
 by setting `required = True` within the `add_argument()` command.
 
-> ## Positional and Optional Argument Order
->
-> The usage section of the help page above shows
-> the optional arguments going before the positional arguments.
-> This is the customary way to present options, but is not mandatory.
-> Instead there are two rules which must be followed for these arguments:
->
-> 1. Positional and optional arguments must each be given all together, and not inter-mixed.
-    For example, the order can be either  "optional, positional" or "positional, optional",
-    but not "optional, positional, optional".
-> 2. Positional arguments must be given in the order that they are shown
-in the usage section of the help page.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
+## Positional and Optional Argument Order
 
-### Additional Reading Material & References
+The usage section of the help page above shows
+the optional arguments going before the positional arguments.
+This is the customary way to present options, but is not mandatory.
+Instead there are two rules which must be followed for these arguments:
 
-Now that we have covered and revisited [software architecture](../software-architecture-extra/index.html) 
-and [different programming paradigms](../programming-paradigms/index.html)
+1. Positional and optional arguments must each be given all together, and not inter-mixed.
+  For example, the order can be either  "optional, positional" or "positional, optional",
+  but not "optional, positional, optional".
+2. Positional arguments must be given in the order that they are shown
+  in the usage section of the help page.
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Additional Reading Material \& References
+
+Now that we have covered and revisited [software architecture](../instructors/software-architecture-extra.md)
+and [different programming paradigms](../instructors/programming-paradigms.md)
 and how we can integrate them into our architecture,
 there are two optional extra episodes which you may find interesting.
 
 Both episodes cover the persistence layer of software architectures
 and methods of persistently storing data, but take different approaches.
-The episode on [persistence with JSON](../persistence/index.html) covers
+The episode on [persistence with JSON](../instructors/persistence.md) covers
 some more advanced concepts in Object Oriented Programming, while
-the episode on [databases](../databases/index.html) starts to build towards a true multilayer architecture,
+the episode on [databases](../instructors/databases.md) starts to build towards a true multilayer architecture,
 which would allow our software to handle much larger quantities of data.
 
 ## Towards Collaborative Software Development
@@ -334,4 +353,13 @@ Such reviews check the correctness of the new code, test coverage, functionality
 and confirm that they follow the coding guides and best practices.
 Let us have a look at some code review techniques available to us.
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Sometimes new, contributed code needs refactoring for it to fit within an existing codebase.
+- Try to leave the code in a better state that you found it.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

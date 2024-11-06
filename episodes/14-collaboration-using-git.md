@@ -1,22 +1,27 @@
 ---
-title: "Software Development Using Git and GitHub"
-start: false
+title: Software Development Using Git and GitHub
+start: no
 teaching: 35
 exercises: 0
-questions:
-- "What are Git branches and why are they useful for code development?"
-- "What are some best practices when developing software collaboratively using Git?"
-objectives:
-- "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
-- "Create branches for managing different threads of code development"
-- "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
-
-keypoints:
-- "A branch is one version of your project that can contain its own set of commits."
-- "Feature branches enable us to develop / explore / test new code features without affecting the stable `main` code."
 ---
 
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Commit changes in a software project to a local repository and publish them in a remote repository on GitHub
+- Create branches for managing different threads of code development
+- Learn to use feature branch workflow to effectively collaborate with a team on a software project
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What are Git branches and why are they useful for code development?
+- What are some best practices when developing software collaboratively using Git?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Introduction
+
 So far we have checked out our software project from GitHub
 and used command line tools to configure a virtual environment for our project and run our code.
 We have also familiarised ourselves with PyCharm -
@@ -39,6 +44,7 @@ and share your work with others via a shared and centrally backed-up repository.
 Firstly, let us remind ourselves how to work with Git from the command line.
 
 ## Git Refresher
+
 Git is a version control system for tracking changes in computer files
 and coordinating work on those files among multiple people.
 It is primarily used for source code management in software development
@@ -47,6 +53,7 @@ it is particularly effective for tracking text-based files
 (e.g. source code files, CSV, Markdown, HTML, CSS, Tex, etc. files).
 
 Git has several important characteristics:
+
 - support for non-linear development
   allowing you and your colleagues to work on different parts of a project concurrently,
 - support for distributed development
@@ -59,10 +66,11 @@ Git has several important characteristics:
 The diagram below shows a typical software development lifecycle with Git
 (in our case starting from making changes in a local branch that "tracks" a remote branch) and the commonly used commands to interact
 with different parts of the Git infrastructure, including:
+
 - **working directory** -
   a local directory (including any subdirectories) where your project files live
   and where you are currently working.
-  It is also known as the “untracked” area of Git.
+  It is also known as the "untracked" area of Git.
   Any changes to files will be marked by Git in the working directory.
   If you make changes to the working directory and do not explicitly tell Git to save them -
   you will likely lose those changes.
@@ -90,11 +98,11 @@ with different parts of the Git infrastructure, including:
   and you have snapshots of its versions from the past,
   if your machine crashes - you still may lose all your work. Furthermore, you cannot
   share or collaborate on this local work with others easily.
-  Working with a remote repository involves pushing your local changes remotely 
-  (using `git push`) and pulling other people's changes from a remote repository to 
-  your local copy (using `git fetch` or `git pull`) to keep the two in sync 
+  Working with a remote repository involves pushing your local changes remotely
+  (using `git push`) and pulling other people's changes from a remote repository to
+  your local copy (using `git fetch` or `git pull`) to keep the two in sync
   in order to collaborate (with a bonus that your work also gets backed up to another machine).
-  Note that a common best practice when collaborating with others on a shared repository 
+  Note that a common best practice when collaborating with others on a shared repository
   is to always do a `git pull` before a `git push`, to ensure you have any latest changes before you push your own.
 
 <!--
@@ -107,26 +115,29 @@ sequenceDiagram
     Local Repository Branch->>+Working Directory:git merge
     Remote Repository Branch->>+Working Directory: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
 -->
+
 <!--
 SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
 -->
-![Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull](../fig/git-lifecycle.svg){: .image-with-shadow width="600px"}
+
+![](fig/git-lifecycle.svg){alt='Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull' .image-with-shadow width="600px"}
+
 <p style="text-align: center;">
 Software development lifecycle with Git
 </p>
 
 ## Checking-in Changes to Our Project
+
 Let us check-in the changes we have done to our project so far.
 The first thing to do upon navigating into our software project's directory root
 is to check the current status of our local working directory and repository.
 
-~~~
+```bash
 $ git status
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 On branch main
 Your branch is up to date with 'origin/main'.
 
@@ -136,8 +147,7 @@ Untracked files:
 	venv/
 
 nothing added to commit but untracked files present (use "git add" to track)
-~~~
-{: .output}
+```
 
 As expected,
 Git is telling us that we have some untracked files -
@@ -165,7 +175,7 @@ It does not matter much in this case where within the file you add these lines,
 so let us do it at the end.
 Your `.gitignore` should look something like this:
 
-~~~
+```output
 # IDEs
 .vscode/
 .idea/
@@ -184,26 +194,24 @@ Your `.gitignore` should look something like this:
 # Virtual environments
 venv/
 .venv/
-~~~
-{: .output}
+```
 
 You may notice that we are already not tracking certain files and directories
 with useful comments about what exactly we are ignoring.
 You may also notice that each line in `.gitignore` is actually a pattern,
 so you can ignore multiple files that match a pattern
-(e.g. "*.png" will ignore all PNG files in the current directory).
+(e.g. "\*.png" will ignore all PNG files in the current directory).
 
 If you run the `git status` command now,
 you will notice that Git has cleverly understood that
 you want to ignore changes to the "venv" directory so it is not warning us about it any more.
 However, it has now detected a change to `.gitignore` file that needs to be committed.
 
-~~~
+```bash
 $ git status
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 On branch main
 Your branch is up to date with 'origin/main'.
 
@@ -217,24 +225,21 @@ Untracked files:
 	requirements.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
-~~~
-{: .output}
+```
 
 To commit the changes `.gitignore` and `requirements.txt` to the local repository,
 we first have to add these files to staging area to prepare them for committing.
 We can do that at the same time as:
 
-~~~
+```bash
 $ git add .gitignore requirements.txt
-~~~
-{: .language-bash}
+```
 
 Now we can commit them to the local repository with:
 
-~~~
+```bash
 $ git commit -m "Initial commit of requirements.txt. Ignoring virtual env. folder."
-~~~
-{: .language-bash}
+```
 
 Remember to use meaningful messages for your commits.
 
@@ -251,18 +256,16 @@ by two collaborators making different changes to the same lines in a file.
 By pulling first, we are made aware of any changes made by others,
 in particular if there are any conflicts between their changes and ours.
 
-~~~
+```bash
 $ git pull
-~~~
-{: .language-bash}
+```
 
 Now we have ensured our repository is synchronised with the remote one,
 we can now push our changes:
 
-~~~
+```bash
 $ git push origin main
-~~~
-{: .language-bash}
+```
 
 In the above command,
 `origin` is an alias for the remote repository you used when cloning the project locally
@@ -270,41 +273,49 @@ In the above command,
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
 
-> ## GitHub Authentication/Authorisation Error
->
-> If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
-> you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
-> then you have cloned the repository using HTTPS and not SSH.
-> You should revisit the [instructions 
-> on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
-> and can fix this from the command line by
-> changing the remote repository's HTTPS URL to its SSH equivalent:
->
-> ~~~
-> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
-> ~~~
-> {: .language-bash}
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
->## Git Remotes
-> Note that systems like Git allow us to synchronise work between
-> any two or more copies of the same repository -
-> the ones that are not located on your machine are "Git remotes" for you.
-> In practice, though,
-> it is easiest to agree with your collaborators to use one copy as a central hub
-> (such as GitHub or GitLab), where everyone pushes their changes to.
-> This also avoid risks associated with keeping the "central copy" on someone’s laptop.
-> You can have more than one remote configured for your local repository,
-> each of which generally is either read-only or read/write for you.
-> Collaborating with others involves
-> managing these remote repositories and pushing and pulling information
-> to and from them when you need to share work.
->
-> ![git-distributed](../fig/git-distributed.png){: .image-with-shadow width="400px"}
-> <p style="text-align: center;">Git - distributed version control system<br> From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
-{: .callout}
+## GitHub Authentication/Authorisation Error
+
+If, at this point (i.e. the first time you try to write to a remote repository on GitHub),
+you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
+then you have cloned the repository using HTTPS and not SSH.
+You should revisit the [instructions
+on setting up your GitHub for SSH and key pair authentication](../learners/setup.md#secure-access-to-github-using-git-from-command-line)
+and can fix this from the command line by
+changing the remote repository's HTTPS URL to its SSH equivalent:
+
+```bash
+$ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Git Remotes
+
+Note that systems like Git allow us to synchronise work between
+any two or more copies of the same repository -
+the ones that are not located on your machine are "Git remotes" for you.
+In practice, though,
+it is easiest to agree with your collaborators to use one copy as a central hub
+(such as GitHub or GitLab), where everyone pushes their changes to.
+This also avoid risks associated with keeping the "central copy" on someone's laptop.
+You can have more than one remote configured for your local repository,
+each of which generally is either read-only or read/write for you.
+Collaborating with others involves
+managing these remote repositories and pushing and pulling information
+to and from them when you need to share work.
+
+![](fig/git-distributed.png){alt='git-distributed' .image-with-shadow width="400px"}
+
+<p style="text-align: center;">Git - distributed version control system<br> From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Git Branches
+
 When we do `git status`,
 Git also tells us that we are currently on the `main` branch of the project.
 A branch is one version of your project (the files in your repository)
@@ -315,14 +326,13 @@ and, once we are happy with those changes,
 merge them back to the main branch.
 To see what other branches are available, do:
 
-~~~
+```bash
 $ git branch
-~~~
-{: .language-bash}
-~~~
+```
+
+```output
 * main
-~~~
-{: .output}
+```
 
 At the moment, there is only one branch (`main`)
 and hence only one version of the code available.
@@ -331,6 +341,7 @@ by default you only get one version (i.e. branch) - `main`.
 Let us have a look at why having different branches might be useful.
 
 ### Feature Branch Software Development Workflow
+
 While it is technically OK to commit your changes directly to `main` branch,
 and you may often find yourself doing so for some minor changes,
 the best practice is to use a new branch for each separate and self-contained unit/piece of work
@@ -344,18 +355,19 @@ then anyone who downloads our software from there will get all of our work in pr
 whether or not it is ready to use!
 So, working on a separate branch for each feature you are adding is good for several reasons:
 
-* it enables the main branch to remain stable
+- it enables the main branch to remain stable
   while you and the team explore and test the new code on a feature branch,
-* it enables you to keep the untested and not-yet-functional feature branch code
+- it enables you to keep the untested and not-yet-functional feature branch code
   under version control and backed up,
-* you and other team members may work on several features
-  at the same time independently from one another, and 
-* if you decide that the feature is not working or is no longer needed -
+- you and other team members may work on several features
+  at the same time independently from one another, and
+- if you decide that the feature is not working or is no longer needed -
   you can easily and safely discard that branch without affecting the rest of the code.
 
 Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
-![Git feature branch workflow diagram](../fig/git-feature-branch.svg){: .image-with-shadow width="800px"}
+![](fig/git-feature-branch.svg){alt='Git feature branch workflow diagram' .image-with-shadow width="800px"}
+
 <p style="text-align: center;">Git feature branches<br>
 Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
 
@@ -382,54 +394,53 @@ Whichever is the case for you, a good rule of thumb is -
 nothing that is broken should be in `main`.
 
 ### Creating Branches
+
 Let us create a `develop` branch to work on:
 
-~~~
+```bash
 $ git branch develop
-~~~
-{: .language-bash}
+```
 
 This command does not give any output,
 but if we run `git branch` again,
 without giving it a new branch name, we can see the list of branches we have -
 including the new one we have just made.
 
-~~~
+```bash
 $ git branch
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
     develop
   * main
-~~~
-{: .output}
+```
 
 The `*` indicates the currently active branch.
 So how do we switch to our new branch?
 We use the `git switch` command with the name of the branch:
 
-~~~
+```bash
 $ git switch develop
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 Switched to branch 'develop'
-~~~
- {: .output}
+```
 
-> ## Create and Switch to Branch Shortcut
-> A shortcut to create a new branch and immediately switch to it:
->
-> ~~~
-> $ git switch -c develop
-> ~~~
-> {: .language-bash}
->
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Create and Switch to Branch Shortcut
+
+A shortcut to create a new branch and immediately switch to it:
+
+```bash
+$ git switch -c develop
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Updating Branches
+
 If we start updating and committing files now,
 the commits will happen on the `develop` branch
 and will not affect the version of the code in `main`.
@@ -443,12 +454,11 @@ and, say, change the spelling of "2d" to "2D" in docstrings for functions
 
 If we do:
 
-~~~
+```bash
 $ git status
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
    On branch develop
    Changes not staged for commit:
      (use "git add <file>..." to update what will be committed)
@@ -457,60 +467,68 @@ $ git status
    	modified:   inflammation/models.py
 
    no changes added to commit (use "git add" and/or "git commit -a")
-~~~
-{: .output}
+```
 
 Git is telling us that we are on branch `develop`
 and which tracked files have been modified in our working directory.
 
 We can now `add` and `commit` the changes in the usual way.
 
-~~~
+```bash
 $ git add inflammation/models.py
 $ git commit -m "Spelling fix"
-~~~
-{: .language-bash}
+```
 
-> ## Currently Active Branch
-> Remember, `add` and `commit` commands always act on the currently active branch.
-> You have to be careful and aware of which branch you are working with at any given moment.
-> `git status` can help with that, and you will find yourself invoking it very often.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Currently Active Branch
+
+Remember, `add` and `commit` commands always act on the currently active branch.
+You have to be careful and aware of which branch you are working with at any given moment.
+`git status` can help with that, and you will find yourself invoking it very often.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Pushing New Branch Remotely
+
 We push the contents of the `develop` branch to GitHub
 in the same way as we pushed the `main` branch.
 However, as we have just created this branch locally,
 it still does not exist in our remote repository.
 You can check that in GitHub by listing all branches.
 
-![Software project's main branch](../fig/github-main-branch.png){: .image-with-shadow width="600px"}
+![](fig/github-main-branch.png){alt="Software project's main branch" .image-with-shadow width="600px"}
 
 To push a new local branch remotely for the first time,
 you could use the `-u` flag and the name of the branch you are creating and pushing to:
 
-~~~
+```bash
 $ git push -u origin develop
-~~~
-{: .language-bash}
+```
 
-> ## Git Push With `-u` Flag
-> Using the `-u` switch with the `git push` command is a handy shortcut for:
-> (1) creating the new remote branch and
-> (2) setting your local branch to automatically track the remote one at the same time.
-> You need to use the `-u` switch only once to set up that association between
-> your branch and the remote one explicitly.
-> After that you could simply use `git push`
-> without specifying the remote repository, if you wished so.
-> We still prefer to explicitly state this information in commands.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Git Push With `-u` Flag
+
+Using the `-u` switch with the `git push` command is a handy shortcut for:
+(1) creating the new remote branch and
+(2) setting your local branch to automatically track the remote one at the same time.
+You need to use the `-u` switch only once to set up that association between
+your branch and the remote one explicitly.
+After that you could simply use `git push`
+without specifying the remote repository, if you wished so.
+We still prefer to explicitly state this information in commands.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Let us confirm that the new branch `develop` now exist remotely on GitHub too.
 From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
-You should see your `develop` branch in the list too. 
+You should see your `develop` branch in the list too.
 
-![Software project's develop branch](../fig/github-develop-branch.png){: .image-with-shadow width="600px"}
+![](fig/github-develop-branch.png){alt="Software project's develop branch" .image-with-shadow width="600px"}
 
 You may also have noticed GitHub's notification about the latest push to your `develop` branch just
 on top of the repository files and branches drop-down menu.
@@ -520,65 +538,66 @@ Now the others can check out the `develop` branch too and continue to develop co
 After the initial push of the new branch,
 each next time we push to it in the usual manner (i.e. without the `-u` switch):
 
-~~~
+```bash
 $ git push origin develop
-~~~
-{: .language-bash}
+```
 
-> ## What is the Relationship Between Originating and New Branches?
-> it is natural to think that new branches have a parent/child relationship
-> with their originating branch,
-> but in actual Git terms, branches themselves do not have parents
-> but single commits do.
-> Any commit can have zero parents (a root, or initial, commit),
-> one parent (a regular commit),
-> or multiple parents (a merge commit),
-> and using this structure, we can build
-> a 'view' of branches from a set of commits and their relationships.
-> A common way to look at it is that Git branches are really only
-> [lightweight, movable pointers to commits](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
-> So as a new commit is added to a branch,
-> the branch pointer is moved to the new commit.
->
-> What this means is that when you accomplish a merge between two branches,
-> Git is able to determine the common 'commit ancestor'
-> through the commits in a 'branch',
-> and use that common ancestor to
-> determine which commits need to be merged onto the destination branch.
-> It also means that, in theory, you could merge any branch with any other at any time...
-> although it may not make sense to do so!
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What is the Relationship Between Originating and New Branches?
+
+it is natural to think that new branches have a parent/child relationship
+with their originating branch,
+but in actual Git terms, branches themselves do not have parents
+but single commits do.
+Any commit can have zero parents (a root, or initial, commit),
+one parent (a regular commit),
+or multiple parents (a merge commit),
+and using this structure, we can build
+a 'view' of branches from a set of commits and their relationships.
+A common way to look at it is that Git branches are really only
+[lightweight, movable pointers to commits](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+So as a new commit is added to a branch,
+the branch pointer is moved to the new commit.
+
+What this means is that when you accomplish a merge between two branches,
+Git is able to determine the common 'commit ancestor'
+through the commits in a 'branch',
+and use that common ancestor to
+determine which commits need to be merged onto the destination branch.
+It also means that, in theory, you could merge any branch with any other at any time...
+although it may not make sense to do so!
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Merging Into Main Branch
+
 Once you have tested your changes on the `develop` branch,
 you will want to merge them onto the `main` branch.
 To do so, make sure you have committed all your changes on the `develop` branch and then switch to `main`:
 
-~~~
+```bash
 $ git switch main
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
-~~~
-{: .output}
+```
 
 To merge the `develop` branch on top of `main` do:
 
-~~~
+```bash
 $ git merge develop
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 Updating 05e1ffb..be60389
 Fast-forward
  inflammation/models.py | 6 +++---
  1 files changed, 3 insertions(+), 3 deletions(-)
-~~~
-{: .output}
+```
 
 If there are no conflicts,
 Git will merge the branches without complaining
@@ -591,21 +610,30 @@ and you will need to resolve those conflicts
 and commit the changes before attempting to merge again.
 Since we have no conflicts, we can now push the `main` branch to the remote repository:
 
-~~~
+```bash
 $ git push origin main
-~~~
-{: .language-bash}
+```
 
-> ## All Branches Are Equal
-> In Git, all branches are equal - there is nothing special about the `main` branch.
-> It is called that by convention and is created by default,
-> but it can also be called something else.
-> A good example is `gh-pages` branch
-> which is often the source branch for website projects hosted on GitHub
-> (rather than `main`).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-> ## Keeping Main Branch Stable
+## All Branches Are Equal
+
+In Git, all branches are equal - there is nothing special about the `main` branch.
+It is called that by convention and is created by default,
+but it can also be called something else.
+A good example is `gh-pages` branch
+which is often the source branch for website projects hosted on GitHub
+(rather than `main`).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::  testimonial
+
+## Keeping Main Branch Stable
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 Good software development practice is to keep the `main` branch stable
 while you and the team develop and test new functionalities on feature branches
 (which can be done in parallel and independently by different team members).
@@ -613,6 +641,15 @@ The next step is to merge feature branches onto the `develop` branch,
 where more testing can occur to verify that the new features
 work well with the rest of the code (and not just in isolation).
 We talk more about different types of code testing in one of the following episodes.
-{: .testimonial}
 
-{% include links.md %}
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- A branch is one version of your project that can contain its own set of commits.
+- Feature branches enable us to develop / explore / test new code features without affecting the stable `main` code.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

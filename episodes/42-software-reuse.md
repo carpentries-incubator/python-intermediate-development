@@ -1,25 +1,32 @@
 ---
-title: "Preparing Software for Reuse and Release"
-start: false
+title: Preparing Software for Reuse and Release
+start: no
 teaching: 35
 exercises: 15
-questions:
-- "What can we do to make our programs reusable by others?"
-- "How should we document and license our code?"
-objectives:
-- "Describe the different levels of software reusability"
-- "Explain why documentation is important"
-- "Describe the minimum components of software documentation to aid reuse"
-- "Create a repository README file to guide others to successfully reuse a program"
-- "Understand other documentation components and where they are useful"
-- "Describe the basic types of open source software licence"
-- "Explain the importance of conforming to data policy and regulation"
-- "Prioritise and work on improvements for release as a team"
-keypoints:
-- "The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end."
 ---
 
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Describe the different levels of software reusability
+- Explain why documentation is important
+- Describe the minimum components of software documentation to aid reuse
+- Create a repository README file to guide others to successfully reuse a program
+- Understand other documentation components and where they are useful
+- Describe the basic types of open source software licence
+- Explain the importance of conforming to data policy and regulation
+- Prioritise and work on improvements for release as a team
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What can we do to make our programs reusable by others?
+- How should we document and license our code?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Introduction
+
 In previous episodes we have looked at skills, practices, and tools to help us
 design and develop software in a collaborative environment.
 In this lesson we will be looking at
@@ -37,17 +44,17 @@ but a helpful one written by [Benureau and Rougler in 2017](https://dx.doi.org/1
 offers the following levels by which software can be characterised:
 
 1. Re-runnable: the code is simply executable
-   and can be run again (but there are no guarantees beyond that)
+  and can be run again (but there are no guarantees beyond that)
 2. Repeatable: the software will produce the same result more than once
 3. Reproducible: published research results generated from the same version of the software
-   can be generated again from the same input data
+  can be generated again from the same input data
 4. Reusable: easy to use, understand, and modify
 5. Replicable: the software can act as an available reference
-   for any ambiguity in the algorithmic descriptions made in the published article.
-	 That is, a new implementation can be created from the descriptions in the article
-	 that provide the same results as the original implementation,
-	 and that the original - or reference - implementation,
-	 can be used to clarify any ambiguity in those descriptions for the purposes of reimplementation
+  for any ambiguity in the algorithmic descriptions made in the published article.
+  That is, a new implementation can be created from the descriptions in the article
+  that provide the same results as the original implementation,
+  and that the original - or reference - implementation,
+  can be used to clarify any ambiguity in those descriptions for the purposes of reimplementation
 
 Later levels imply the earlier ones.
 So what should we aim for?
@@ -96,10 +103,10 @@ In addition to enabling general reproducibility by others, documentation...
   where those from other teams need to use it
 - When well written, can act as a basis for detailing
   algorithms and other mechanisms in research papers,
-	such that the software's functionality can be *replicated* and re-implemented elsewhere
+  such that the software's functionality can be *replicated* and re-implemented elsewhere
 - Provides a descriptive link back to the science that underlies it.
   As a reference, it makes it far easier to know how to
-	update the software as the scientific theory changes (and potentially vice versa)
+  update the software as the scientific theory changes (and potentially vice versa)
 - Importantly, it can enable others to understand the software sufficiently to
   *modify and reuse* it to do different things
 
@@ -123,10 +130,9 @@ Our repository already has a README that describes the purpose of the repository
 but let us replace it with a new one that describes the software itself.
 First let us delete the old one:
 
-~~~
+```bash
 $ rm README.md
-~~~
-{: .language-bash}
+```
 
 In the root of your repository create a replacement `README.md` file.
 The `.md` indicates this is a **Markdown** file,
@@ -139,10 +145,9 @@ GitHub provides a very useful [guide to writing Markdown][github-markdown] for i
 
 Let us start writing `README.md` using a text editor of your choice and add the following line.
 
-~~~
+```markdown
 # Inflam
-~~~
-{: .language-markdown}
+```
 
 So here, we are giving our software a name.
 Ideally something unique, short, snappy, and perhaps to some degree an indicator of what it does.
@@ -154,15 +159,14 @@ and products provides some helpful pointers.
 
 We should also add a short description underneath the title.
 
-~~~
+```markdown
 # Inflam
 Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
-~~~
-{: .language-markdown}
+```
 
 To give readers an idea of the software's capabilities, let us add some key features next:
 
-~~~
+```markdown
 # Inflam
 Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
@@ -173,14 +177,13 @@ Here are some key features of Inflam:
 - Ability to work on trial data in Comma-Separated Value (CSV) format
 - Generate plots of trial data
 - Analytical functions and views can be easily extended based on its Model-View-Controller architecture
-~~~
-{: .language-markdown}
+```
 
 As well as knowing what the software aims to do and its key features,
 it is very important to specify what other software and related dependencies
 are needed to use the software (typically called `dependencies` or `prerequisites`):
 
-~~~
+```markdown
 # Inflam
 Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
@@ -202,8 +205,7 @@ The following optional packages are required to run Inflam's unit tests:
 
 - [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
-~~~
-{: .language-markdown}
+```
 
 Here we are making use of Markdown links,
 with some text describing the link within `[]` followed by the link itself within `()`.
@@ -213,12 +215,11 @@ we can include the status of running recent tests within our README file.
 Just below the `# Inflam` title on our README.md file,
 add the following (replacing `<your_github_username>` with your own:
 
-~~~
+```markdown
 # Inflam
 ![Continuous Integration build in GitHub Actions](https://github.com/<your_github_username>/python-intermediate-inflammation/actions/workflows/main.yml/badge.svg?branch=main)
 ...
-~~~
-{: .language-markdown}
+```
 
 This will embed a *badge* (icon) at the top of our page that
 reflects the most recent GitHub Actions build status of your software repository,
@@ -238,10 +239,10 @@ but there are other aspects we should also cover:
   have helped in the software's development or inspired it
 - *Citation:* particularly for academic software,
   it is a very good idea to specify a reference to an appropriate academic publication
-	so other academics can cite use of the software in their own publications and media.
-	You can do this within a separate
-	[CITATION text file](https://github.com/citation-file-format/citation-file-format)
-	within the repository's root directory and link to it from the Markdown
+  so other academics can cite use of the software in their own publications and media.
+  You can do this within a separate
+  [CITATION text file](https://github.com/citation-file-format/citation-file-format)
+  within the repository's root directory and link to it from the Markdown
 - *Licence:* a short description of and link to the software's licence
 
 For more verbose sections,
@@ -276,8 +277,8 @@ or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
 
 ## Choosing an Open Source Licence
 
-Software licensing is a whole topic in itself, so we’ll just summarise here.
-Your institution’s Intellectual Property (IP) team will be able to offer specific guidance that
+Software licensing is a whole topic in itself, so we'll just summarise here.
+Your institution's Intellectual Property (IP) team will be able to offer specific guidance that
 fits the way your institution thinks about software.
 
 In IP law, software is considered a creative work of literature,
@@ -286,7 +287,7 @@ This copyright will usually belong to the institution that employs you,
 but this may be different for PhD students.
 If you need to check,
 this should be included in your employment/studentship contract
-or talk to your university’s IP team.
+or talk to your university's IP team.
 
 Since software is automatically under copyright, without a licence no one may:
 
@@ -302,45 +303,46 @@ which serve slightly different purposes:
 
 - *Proprietary licences* are designed to pass on limited rights to end users,
   and are most suitable if you want to commercialise your software.
-	They tend to be customised to suit the requirements of the software
-	and the institution to which it belongs -
-	again your institutions IP team will be able to help here.
+  They tend to be customised to suit the requirements of the software
+  and the institution to which it belongs -
+  again your institutions IP team will be able to help here.
 - *Open Source licences* are designed more to protect the rights of end users -
   they specifically grant permission to make modifications and redistribute the software to others.
-	The [website Choose A License](https://choosealicense.com/) provides recommendations
-	and a simple summary of some of the most common open source licences.
+  The [website Choose A License](https://choosealicense.com/) provides recommendations
+  and a simple summary of some of the most common open source licences.
 
 Within the open source licences, there are two categories, **copyleft** and **permissive**:
 
 - The permissive licences such as MIT and the multiple variants of the BSD licence
   are designed to give maximum freedom to the end users of software.
-	These licences allow the end user to do almost anything with the source code.
+  These licences allow the end user to do almost anything with the source code.
 - The copyleft licences in the GPL still give a lot of freedom to the end users,
   but any code that they write based on GPLed code must also be licensed under the same licence.
-	This gives the developer assurance that anyone building on their code is also
-	contributing back to the community.
-	It’s actually a little more complicated than this,
-	and the variants all have slightly different conditions and applicability,
-	but this is the core of the licence.
+  This gives the developer assurance that anyone building on their code is also
+  contributing back to the community.
+  It's actually a little more complicated than this,
+  and the variants all have slightly different conditions and applicability,
+  but this is the core of the licence.
 
 Which of these types of licence you prefer is up to you and those you develop code with.
 If you want more information, or help choosing a licence,
 the [Choose An Open-Source Licence](https://choosealicense.com/)
 or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
-> ## Exercise: Preparing for Release
->
-> In a (hopefully) highly unlikely and thoroughly unrecommended scenario,
-> your project leader has informed you of the need to release your software
-> within the next half hour,
-> so it can be assessed for use by another team.
-> You'll need to consider finishing the README,
-> choosing a licence,
-> and fixing any remaining problems you are aware of in your codebase.
-> Ensure you prioritise and work on the most pressing issues first!
-> 
-> 
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Preparing for Release
+
+In a (hopefully) highly unlikely and thoroughly unrecommended scenario,
+your project leader has informed you of the need to release your software
+within the next half hour,
+so it can be assessed for use by another team.
+You'll need to consider finishing the README,
+choosing a licence,
+and fixing any remaining problems you are aware of in your codebase.
+Ensure you prioritise and work on the most pressing issues first!
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Merging into `main`
 
@@ -349,22 +351,20 @@ commit your changes,
 and if you are doing this work on a feature branch also ensure you merge it into `develop`,
 e.g.:
 
-~~~
+```bash
 $ git switch develop
 $ git merge my-feature-branch
-~~~
-{: .language-bash}
+```
 
 Finally, once we have fully tested our software
 and are confident it works as expected on `develop`,
 we can merge our `develop` branch into `main`:
 
-~~~
+```bash
 $ git switch main
 $ git merge develop
 $ git push origin main
-~~~
-{: .language-bash}
+```
 
 The software on your `main` branch is now ready for release.
 
@@ -375,41 +375,36 @@ One of these is via **tagging**,
 where we attach a human-readable label to a specific commit.
 Let us see what tags we currently have in our repository:
 
-~~~
+```bash
 $ git tag
-~~~
-{: .language-bash}
+```
 
 Since we have not tagged any commits yet, there is unsurprisingly no output.
 We can create a new tag on the last commit in our `main` branch by doing:
 
-~~~
+```bash
 $ git tag -a v1.0.0 -m "Version 1.0.0"
-~~~
-{: .language-bash}
+```
 
 So we can now do:
 
-~~~
+```bash
 $ git tag
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 v.1.0.0
-~~~
-{: .output}
+```
 
 And also, for more information:
 
-~~~
+```bash
 $ git show v1.0.0
-~~~
-{: .language-bash}
+```
 
 You should see something like this:
 
-~~~
+```output
 tag v1.0.0
 Tagger: <Name> <email>
 Date:   Fri Dec 10 10:22:36 2021 +0000
@@ -437,7 +432,7 @@ index 4818abb..5b8e7fd 100644
 +## Installation
 +- Clone the repo ``git clone repo``
 +- Check everything runs by running ``python -m pytest`` in the root directory
-+- Hurray 😊
++- Hurray 
 +
 +## Contributing
 +- Create an issue [here](https://github.com/Onoddil/python-intermediate-inflammation/issues)
@@ -462,32 +457,34 @@ index 4818abb..5b8e7fd 100644
 +permission of the copyright holders.  If you encounter this file and do not have
 +permission, please contact the copyright holders and delete this file.
 \ No newline at end of file
-~~~
-{: .output}
+```
 
 So now we have added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
-~~~
+```bash
 $ git push origin v1.0.0
-~~~
-{: .language-bash}
+```
 
-> ## What is a Version Number Anyway?
->
-> Software version numbers are everywhere,
-> and there are many different ways to do it.
-> A popular one to consider is [**Semantic Versioning**](https://semver.org/),
-> where a given version number uses the format MAJOR.MINOR.PATCH.
-> You increment the:
->
-> - MAJOR version when you make incompatible API changes
-> - MINOR version when you add functionality in a backwards compatible manner
-> - PATCH version when you make backwards compatible bug fixes
->
-> You can also add a hyphen followed by characters to denote a pre-release version,
-> e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (fourth beta release)
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What is a Version Number Anyway?
+
+Software version numbers are everywhere,
+and there are many different ways to do it.
+A popular one to consider is [**Semantic Versioning**](https://semver.org/),
+where a given version number uses the format MAJOR.MINOR.PATCH.
+You increment the:
+
+- MAJOR version when you make incompatible API changes
+- MINOR version when you add functionality in a backwards compatible manner
+- PATCH version when you make backwards compatible bug fixes
+
+You can also add a hyphen followed by characters to denote a pre-release version,
+e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (fourth beta release)
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We can now use the more memorable tag to refer to this specific commit.
 Plus, once we have pushed this back up to GitHub,
@@ -520,4 +517,12 @@ and even international policies and laws.
 Within Europe, for example, there is the need to conform to things like [GDPR][gdpr].
 it is a very good idea to make yourself aware of these aspects.
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

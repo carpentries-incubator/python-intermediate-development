@@ -1,20 +1,31 @@
 ---
-title: "Functional Programming"
+title: Functional Programming
 teaching: 30
 exercises: 30
-layout: episode
 questions:
 - What is functional programming?
 - Which situations/problems is functional programming well suited for?
 objectives:
 - Describe the core concepts that define the functional programming paradigm
-- Describe the main characteristics of code that is written in functional programming style
-- Learn how to generate and process data collections efficiently using MapReduce and Python's comprehensions
+- Describe the main characteristics of code that is written in functional programming
+  style
+- Learn how to generate and process data collections efficiently using MapReduce and
+  Python's comprehensions
 keypoints:
-- Functional programming is a programming paradigm where programs are constructed by applying and composing smaller and simple functions into more complex ones (which describe the flow of data within a program as a sequence of data transformations).
-- In functional programming, functions tend to be *pure* - they do not exhibit *side-effects* (by not affecting anything other than the value they return or anything outside a function). Functions can also be named, passed as arguments, and returned from other functions, just as any other data type.
-- MapReduce is an instance of a data generation and processing approach, in particular suited for functional programming and handling Big Data within parallel and distributed environments.
-- Python provides comprehensions for lists, dictionaries, sets and generators - a concise (if not strictly functional) way to generate new data from existing data collections while performing sophisticated mapping, filtering and conditional logic on original dataset's members.
+- Functional programming is a programming paradigm where programs are constructed
+  by applying and composing smaller and simple functions into more complex ones (which
+  describe the flow of data within a program as a sequence of data transformations).
+- In functional programming, functions tend to be *pure* - they do not exhibit *side-effects*
+  (by not affecting anything other than the value they return or anything outside
+  a function). Functions can also be named, passed as arguments, and returned from
+  other functions, just as any other data type.
+- MapReduce is an instance of a data generation and processing approach, in particular
+  suited for functional programming and handling Big Data within parallel and distributed
+  environments.
+- Python provides comprehensions for lists, dictionaries, sets and generators - a
+  concise (if not strictly functional) way to generate new data from existing data
+  collections while performing sophisticated mapping, filtering and conditional logic
+  on original dataset's members.
 ---
 
 ## Introduction
@@ -22,7 +33,7 @@ keypoints:
 Functional programming is a programming paradigm where
 programs are constructed by applying and composing/chaining **functions**.
 Functional programming is based on the
-[mathematical definition of a function](https://en.wikipedia.org/wiki/Function_(mathematics))
+[mathematical definition of a function](https://en.wikipedia.org/wiki/Function_\(mathematics\))
 `f()`,
 which applies a transformation to some input data giving us some other data as a result
 (i.e. a mapping from input `x` to output `f(x)`).
@@ -50,7 +61,7 @@ the product of integer numbers from 1 to `n`.
 
 The first example provides a procedural style factorial function.
 
-~~~
+```python
 def factorial(n):
     """Calculate the factorial of a given number.
 
@@ -66,8 +77,7 @@ def factorial(n):
         factorial = factorial * i
 
     return factorial
-~~~
-{: .language-python}
+```
 
 Functions in procedural programming are *procedures* that describe
 a detailed list of instructions to tell the computer what to do step by step
@@ -78,7 +88,7 @@ an ability of a function to call/repeat itself until a particular condition is r
 Let us see how it is used in the functional programming example below
 to achieve a similar effect to that of iteration in procedural programming.
 
-~~~
+```python
 # Functional style factorial function
 def factorial(n):
     """Calculate the factorial of a given number.
@@ -93,8 +103,7 @@ def factorial(n):
         return 1 # exit from recursion, prevents infinite loops
     else:
         return  n * factorial(n-1) # recursive call to the same function
-~~~
-{: .language-python}
+```
 
 ***Note:** You may have noticed that both functions in the above code examples have the same signature
 (i.e. they take an integer number as input and return its factorial as output).
@@ -119,37 +128,43 @@ Functions without side affects
 that return the same data each time the same input arguments are provided
 are called *pure functions*.
 
-> ## Exercise: Pure Functions
->
-> Which of these functions are pure?
-> If you are not sure, explain your reasoning to someone else, do they agree?
->
-> ~~~
-> def add_one(x):
->     return x + 1
->
-> def say_hello(name):
->     print('Hello', name)
->
-> def append_item_1(a_list, item):
->     a_list += [item]
->     return a_list
->
-> def append_item_2(a_list, item):
->     result = a_list + [item]
->     return result
-> ~~~
-> {: .language-python}
->
-> 
-> > ## Solution
-> >
-> > 1. `add_one` is pure - it has no effects other than to return a value and this value will always be the same when given the same inputs
-> > 2. `say_hello` is not pure - printing text counts as a side effect, even though it is the clear purpose of the function
-> > 3. `append_item_1` is not pure - the argument `a_list` gets modified as a side effect - try this yourself to prove it
-> > 4. `append_item_2` is pure - the result is a new variable, so this time `a_list` does not get modified - again, try this yourself
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Pure Functions
+
+Which of these functions are pure?
+If you are not sure, explain your reasoning to someone else, do they agree?
+
+```python
+def add_one(x):
+    return x + 1
+
+def say_hello(name):
+    print('Hello', name)
+
+def append_item_1(a_list, item):
+    a_list += [item]
+    return a_list
+
+def append_item_2(a_list, item):
+    result = a_list + [item]
+    return result
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+1. `add_one` is pure - it has no effects other than to return a value and this value will always be the same when given the same inputs
+2. `say_hello` is not pure - printing text counts as a side effect, even though it is the clear purpose of the function
+3. `append_item_1` is not pure - the argument `a_list` gets modified as a side effect - try this yourself to prove it
+4. `append_item_2` is pure - the result is a new variable, so this time `a_list` does not get modified - again, try this yourself
+  
+  
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Benefits of Functional Code
 
@@ -177,11 +192,10 @@ so we keep all these benefits when we are combining functions into a larger prog
 As an example of this, we could make a function called `add_two`,
 using the `add_one` function we already have.
 
-~~~
+```python
 def add_two(x):
     return add_one(add_one(x))
-~~~
-{: .language-python}
+```
 
 **Parallelisability** is the ability for operations to be performed at the same time (independently).
 If we know that a function is fully pure and we have got a lot of data,
@@ -190,24 +204,29 @@ splitting data and distributing the computation across multiple processors.
 The output of a pure function depends only on its input,
 so we will get the right result regardless of when or where the code runs.
 
-> ## Everything in Moderation
-> Despite the benefits that pure functions can bring,
-> we should not be trying to use them everywhere.
-> Any software we write needs to interact with the rest of the world somehow,
-> which requires side effects.
-> With pure functions you cannot read any input, write any output,
-> or interact with the rest of the world in any way,
-> so we cannot usually write useful software using just pure functions.
-> Python programs or libraries written in functional style will usually not be
-> as extreme as to completely avoid reading input, writing output,
-> updating the state of internal local variables, etc.;
-> instead, they will provide a functional-appearing interface
-> but may use non-functional features internally.
-> An example of this is the [Python Pandas library](https://pandas.pydata.org/)
-> for data manipulation built on top of NumPy -
-> most of its functions appear pure
-> as they return new data objects instead of changing existing ones.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Everything in Moderation
+
+Despite the benefits that pure functions can bring,
+we should not be trying to use them everywhere.
+Any software we write needs to interact with the rest of the world somehow,
+which requires side effects.
+With pure functions you cannot read any input, write any output,
+or interact with the rest of the world in any way,
+so we cannot usually write useful software using just pure functions.
+Python programs or libraries written in functional style will usually not be
+as extreme as to completely avoid reading input, writing output,
+updating the state of internal local variables, etc.;
+instead, they will provide a functional-appearing interface
+but may use non-functional features internally.
+An example of this is the [Python Pandas library](https://pandas.pydata.org/)
+for data manipulation built on top of NumPy -
+most of its functions appear pure
+as they return new data objects instead of changing existing ones.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 There are other advantageous properties that can be derived from the functional approach to coding.
 In languages which support functional programming,
@@ -238,6 +257,7 @@ both map and reduce can be done in parallel and on smaller subsets of data,
 before aggregating all intermediate results into the final result.
 
 ### Mapping
+
 `map(f, C)` is a function takes another function `f()` and a collection `C` of data items as inputs.
 Calling `map(f, C)` applies the function `f(x)` to every data item `x` in a collection `C`
 and returns the resulting values as a new collection of the same size.
@@ -245,108 +265,117 @@ and returns the resulting values as a new collection of the same size.
 This is a simple mapping that takes a list of names and
 returns a list of the lengths of those names using the built-in function `len()`:
 
-~~~
+```python
 name_lengths = map(len, ["Mary", "Isla", "Sam"])
 print(list(name_lengths))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 [4, 4, 3]
-~~~
-{: .output}
+```
 
 This is a mapping that squares every number in the passed collection using anonymous,
 inlined *lambda* expression (a simple one-line mathematical expression representing a function):
 
-~~~
+```python
 squares = map(lambda x: x * x, [0, 1, 2, 3, 4])
 print(list(squares))
-~~~
-{: .language-python}
-~~~
-[0, 1, 4, 9, 16]
-~~~
-{: .output}
+```
 
-> ## Lambda
-> Lambda expressions are used to create anonymous functions that can be used to
-> write more compact programs by inlining function code.
-> A lambda expression takes any number of input parameters and
-> creates an anonymous function that returns the value of the expression.
-> So, we can use the short, one-line `lambda x, y, z, ...: expression` code
-> instead of defining and calling a named function `f()` as follows:
-> ~~~
-> def f(x, y, z, ...):
->   return expression
-> ~~~
-> {: .language-python}
-> The major distinction between lambda functions and ‘normal’ functions is that
-> lambdas do not have names.
-> We could give a name to a lambda expression if we really wanted to -
-> but at that point we should be using a ‘normal’ Python function instead.
->
-> ~~~
-> # Do not do this
-> add_one = lambda x: x + 1
->
-> # Do this instead
-> def add_one(x):
->   return x + 1
-> ~~~
-> {: .language-python}
-{: .callout}
+```output
+[0, 1, 4, 9, 16]
+```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Lambda
+
+Lambda expressions are used to create anonymous functions that can be used to
+write more compact programs by inlining function code.
+A lambda expression takes any number of input parameters and
+creates an anonymous function that returns the value of the expression.
+So, we can use the short, one-line `lambda x, y, z, ...: expression` code
+instead of defining and calling a named function `f()` as follows:
+
+```python
+def f(x, y, z, ...):
+  return expression
+```
+
+The major distinction between lambda functions and 'normal' functions is that
+lambdas do not have names.
+We could give a name to a lambda expression if we really wanted to -
+but at that point we should be using a 'normal' Python function instead.
+
+```python
+# Do not do this
+add_one = lambda x: x + 1
+
+# Do this instead
+def add_one(x):
+  return x + 1
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 In addition to using built-in or inlining anonymous lambda functions,
 we can also pass a named function that we have defined ourselves to the `map()` function.
 
-~~~
+```python
 def add_one(num):
     return num + 1
 
 result = map(add_one, [0, 1, 2])
 print(list(result))
-~~~
-{: .language-python}
-~~~
-[1, 2, 3]
-~~~
-{: .output}
+```
 
-> ## Exercise: Check Inflammation Patient Data Against A Threshold Using Map
-> Write a new function called `daily_above_threshold()` in our inflammation `models.py` that
-> determines whether or not each daily inflammation value for a given patient
-> exceeds a given threshold.
->
-> Given a patient row number in our data, the patient dataset itself, and a given threshold,
-> write the function to use `map()` to generate and return a list of booleans,
-> with each value representing whether or not the daily inflammation value for that patient
-> exceeded the given threshold.
->
-> Ordinarily we would use Numpy's own `map` feature,
-> but for this exercise, let us try a solution without it.
->
-> 
-> > ## Solution
-> > ~~~
-> > def daily_above_threshold(patient_num, data, threshold):
-> >     """Determine whether or not each daily inflammation value exceeds a given threshold for a given patient.
-> >
-> >     :param patient_num: The patient row number
-> >     :param data: A 2D data array with inflammation data
-> >     :param threshold: An inflammation threshold to check each daily value against
-> >     :returns: A boolean list representing whether or not each patient's daily inflammation exceeded the threshold
-> >     """
-> >
-> >     return list(map(lambda x: x > threshold, data[patient_num]))
-> > ~~~
-> > {: .language-python}
-> >
-> > ***Note:** `map()` function returns a map iterator object
-> > which needs to be converted to a collection object
-> > (such as a list, dictionary, set, tuple)
-> > using the corresponding "factory" function (in our case `list()`).*
-> {: .solution}
-{: .challenge}
+```output
+[1, 2, 3]
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Check Inflammation Patient Data Against A Threshold Using Map
+
+Write a new function called `daily_above_threshold()` in our inflammation `models.py` that
+determines whether or not each daily inflammation value for a given patient
+exceeds a given threshold.
+
+Given a patient row number in our data, the patient dataset itself, and a given threshold,
+write the function to use `map()` to generate and return a list of booleans,
+with each value representing whether or not the daily inflammation value for that patient
+exceeded the given threshold.
+
+Ordinarily we would use Numpy's own `map` feature,
+but for this exercise, let us try a solution without it.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+def daily_above_threshold(patient_num, data, threshold):
+    """Determine whether or not each daily inflammation value exceeds a given threshold for a given patient.
+
+    :param patient_num: The patient row number
+    :param data: A 2D data array with inflammation data
+    :param threshold: An inflammation threshold to check each daily value against
+    :returns: A boolean list representing whether or not each patient's daily inflammation exceeded the threshold
+    """
+
+    return list(map(lambda x: x > threshold, data[patient_num]))
+```
+
+***Note:** `map()` function returns a map iterator object
+which needs to be converted to a collection object
+(such as a list, dictionary, set, tuple)
+using the corresponding "factory" function (in our case `list()`).*
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #### Comprehensions for Mapping/Data Generation
 
@@ -360,17 +389,16 @@ and can be used to achieve the same effect as the built-in "pure functional" fun
 They are commonly used and actually recommended as a replacement of `map()` in modern Python.
 Let us have a look at some examples.
 
-~~~
+```python
 integers = range(5)
 double_ints = [2 * i for i in integers]
 
 print(double_ints)
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 [0, 2, 4, 6, 8]
-~~~
-{: .output}
+```
 
 The above example uses a *list comprehension* to double each number in a sequence.
 Notice the similarity between the syntax for a list comprehension and a for loop -
@@ -378,81 +406,81 @@ in effect, this is a for loop compressed into a single line.
 In this simple case, the code above is equivalent to using a map operation on a sequence,
 as shown below:
 
-~~~
+```python
 integers = range(5)
 double_ints = map(lambda i: 2 * i, integers)
 print(list(double_ints))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 [0, 2, 4, 6, 8]
-~~~
-{: .output}
+```
 
 We can also use list comprehensions to filter data, by adding the filter condition to the end:
 
-~~~
+```python
 double_even_ints = [2 * i for i in integers if i % 2 == 0]
 print(double_even_ints)
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 [0, 4, 8]
-~~~
-{: .output}
+```
 
-> ## Set and Dictionary Comprehensions and Generators
-> We also have *set comprehensions* and *dictionary comprehensions*,
-> which look similar to list comprehensions
-> but use the set literal and dictionary literal syntax, respectively.
-> ~~~
-> double_even_int_set = {2 * i for i in integers if i % 2 == 0}
-> print(double_even_int_set)
->
-> double_even_int_dict = {i: 2 * i for i in integers if i % 2 == 0}
-> print(double_even_int_dict)
-> ~~~
-> {: .language-python}
-> ~~~
-> {0, 4, 8}
-> {0: 0, 2: 4, 4: 8}
-> ~~~
-> {: .output}
->
-> Finally, there is one last ‘comprehension’ in Python - a *generator expression* -
-> a type of an iterable object which we can take values from and loop over,
-> but does not actually compute any of the values until we need them.
-> Iterable is the generic term for anything we can loop or iterate over -
-> lists, sets and dictionaries are all iterables.
->
->The `range` function is an example of a generator -
-> if we created a `range(1000000000)`, but didn’t iterate over it,
-> we’d find that it takes almost no time to do.
-> Creating a list containing a similar number of values would take much longer,
-> and could be at risk of running out of memory.
->
-> We can build our own generators using a generator expression.
-> These look much like the comprehensions above,
-> but act like a generator when we use them.
-> Note the syntax difference for generator expressions -
-> parenthesis are used in place of square or curly brackets.
->
-> ~~~
-> doubles_generator = (2 * i for i in integers)
-> for x in doubles_generator:
->    print(x)
-> ~~~
-> {: .language-python}
-> ~~~
-> 0
-> 2
-> 4
-> 6
-> 8
-> ~~~
-> {: .output}
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
+## Set and Dictionary Comprehensions and Generators
+
+We also have *set comprehensions* and *dictionary comprehensions*,
+which look similar to list comprehensions
+but use the set literal and dictionary literal syntax, respectively.
+
+```python
+double_even_int_set = {2 * i for i in integers if i % 2 == 0}
+print(double_even_int_set)
+
+double_even_int_dict = {i: 2 * i for i in integers if i % 2 == 0}
+print(double_even_int_dict)
+```
+
+```output
+{0, 4, 8}
+{0: 0, 2: 4, 4: 8}
+```
+
+Finally, there is one last 'comprehension' in Python - a *generator expression* -
+a type of an iterable object which we can take values from and loop over,
+but does not actually compute any of the values until we need them.
+Iterable is the generic term for anything we can loop or iterate over -
+lists, sets and dictionaries are all iterables.
+
+The `range` function is an example of a generator -
+if we created a `range(1000000000)`, but didn't iterate over it,
+we'd find that it takes almost no time to do.
+Creating a list containing a similar number of values would take much longer,
+and could be at risk of running out of memory.
+
+We can build our own generators using a generator expression.
+These look much like the comprehensions above,
+but act like a generator when we use them.
+Note the syntax difference for generator expressions -
+parenthesis are used in place of square or curly brackets.
+
+```python
+doubles_generator = (2 * i for i in integers)
+for x in doubles_generator:
+   print(x)
+```
+
+```output
+0
+2
+4
+6
+8
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Let us now have a look at reducing the elements of a data collection into a single result.
 
@@ -471,13 +499,13 @@ and the next value from the collection as the new arguments to `f()`
 until we have processed all of the data and reduced it to a single value.
 For example, if collection `C` has 5 elements, the call `reduce(f, C)` calculates:
 
-~~~
+```
 f(f(f(f(C[0], C[1]), C[2]), C[3]), C[4])
-~~~
+```
 
 One example of reducing would be to calculate the product of a sequence of numbers.
 
-~~~
+```python
 from functools import reduce
 
 sequence = [1, 2, 3, 4]
@@ -489,219 +517,229 @@ print(reduce(product, sequence))
 
 # The same reduction using a lambda function
 print(reduce((lambda a, b: a * b), sequence))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 24
 24
-~~~
-{: .output}
+```
 
 Note that `reduce()` is not a built-in function like `map()` -
 you need to import it from library `functools`.
 
-> ## Exercise: Calculate the Sum of a Sequence of Numbers Using Reduce
-> Using reduce calculate the sum of a sequence of numbers.
-> Although in practice we would use the built-in `sum()` function for this - try doing it without it.
->
-> 
-> > ## Solution
-> > ~~~
-> > from functools import reduce
-> >
-> > sequence = [1, 2, 3, 4]
-> >
-> > def add(a, b):
-> >     return a + b
-> >
-> > print(reduce(add, sequence))
-> >
-> > # The same reduction using a lambda function
-> > print(reduce((lambda a, b: a + b), sequence))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > 10
-> > 10
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Calculate the Sum of a Sequence of Numbers Using Reduce
+
+Using reduce calculate the sum of a sequence of numbers.
+Although in practice we would use the built-in `sum()` function for this - try doing it without it.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+from functools import reduce
+
+sequence = [1, 2, 3, 4]
+
+def add(a, b):
+    return a + b
+
+print(reduce(add, sequence))
+
+# The same reduction using a lambda function
+print(reduce((lambda a, b: a + b), sequence))
+```
+
+```output
+10
+10
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Putting It All Together
+
 Let us now put together what we have learned about map and reduce so far
 by writing a function that calculates the sum of the squares of the values in a list
 using the MapReduce approach.
 
-~~~
+```python
 from functools import reduce
 
 def sum_of_squares(sequence):
     squares = [x * x for x in sequence]  # use list comprehension for mapping
     return reduce(lambda a, b: a + b, squares)
-~~~
-{: .language-python}
+```
 
 We should see the following behaviour when we use it:
 
-~~~
+```python
 print(sum_of_squares([0]))
 print(sum_of_squares([1]))
 print(sum_of_squares([1, 2, 3]))
 print(sum_of_squares([-1]))
 print(sum_of_squares([-1, -2, -3]))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 0
 1
 14
 1
 14
-~~~
-{: .output}
+```
 
-Now let’s assume we’re reading in these numbers from an input file,
+Now let's assume we're reading in these numbers from an input file,
 so they arrive as a list of strings.
 We will modify the function so that it passes the following tests:
 
-~~~
+```python
 print(sum_of_squares(['1', '2', '3']))
 print(sum_of_squares(['-1', '-2', '-3']))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 14
 14
-~~~
-{: .output}
+```
 
 The code may look like:
 
-~~~
+```python
 from functools import reduce
 
 def sum_of_squares(sequence):
     integers = [int(x) for x in sequence]
     squares = [x * x for x in integers]
     return reduce(lambda a, b: a + b, squares)
-~~~
-{: .language-python}
+```
 
-Finally, like comments in Python, we’d like it to be possible for users to
+Finally, like comments in Python, we'd like it to be possible for users to
 comment out numbers in the input file they give to our program.
 We will finally extend our function so that the following tests pass:
 
-~~~
+```python
 print(sum_of_squares(['1', '2', '3']))
 print(sum_of_squares(['-1', '-2', '-3']))
 print(sum_of_squares(['1', '2', '#100', '3']))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 14
 14
 14
-~~~
-{: .output}
+```
 
 To do so, we may filter out certain elements and have:
 
-~~~
+```python
 from functools import reduce
 
 def sum_of_squares(sequence):
     integers = [int(x) for x in sequence if x[0] != '#']
     squares = [x * x for x in integers]
     return reduce(lambda a, b: a + b, squares)
-~~~
-{: .language-python}
+```
 
->## Exercise: Extend Inflammation Threshold Function Using Reduce
-> Extend the `daily_above_threshold()` function you wrote previously
-> to return a count of the number of days a patient's inflammation is over the threshold.
-> Use `reduce()` over the boolean array that was previously returned to generate the count,
-> then return that value from the function.
->
-> You may choose to define a separate function to pass to `reduce()`,
-> or use an inline lambda expression to do it (which is a bit trickier!).
->
-> Hints:
-> - Remember that you can define an `initialiser` value with `reduce()`
-    >   to help you start the counter
-> - If defining a lambda expression,
-    >   note that it can conditionally return different values using the syntax
-    >   `<value> if <condition> else <another_value>` in the expression.
->
-> 
-> > ## Solution
-> > Using a separate function:
-> > ~~~
-> > def daily_above_threshold(patient_num, data, threshold):
-> >     """Count how many days a given patient's inflammation exceeds a given threshold.
-> >
-> >     :param patient_num: The patient row number
-> >     :param data: A 2D data array with inflammation data
-> >     :param threshold: An inflammation threshold to check each daily value against
-> >     :returns: An integer representing the number of days a patient's inflammation is over a given threshold
-> >     """
-> >     def count_above_threshold(a, b):
-> >         if b:
-> >             return a + 1
-> >         else:
-> >             return a
-> >
-> >    # Use map to determine if each daily inflammation value exceeds a given threshold for a patient
-> >    above_threshold = map(lambda x: x > threshold, data[patient_num])
-> >    # Use reduce to count on how many days inflammation was above the threshold for a patient
-> >    return reduce(count_above_threshold, above_threshold, 0)
-> > ~~~
-> > {: .language-python}
-> >
-> > Note that the `count_above_threshold` function used by `reduce()`
-> > was defined within the `daily_above_threshold()` function
-> > to limit its scope and clarify its purpose
-> > (i.e. it may only be useful as part of `daily_above_threshold()`
-> > hence being defined as an inner function).
-> >
-> > The equivalent code using a lambda expression may look like:
-> >
-> > ~~~
-> > from functools import reduce
-> >
-> > ...
-> >
-> > def daily_above_threshold(patient_num, data, threshold):
-> >     """Count how many days a given patient's inflammation exceeds a given threshold.
-> >
-> >     :param patient_num: The patient row number
-> >     :param data: A 2D data array with inflammation data
-> >     :param threshold: An inflammation threshold to check each daily value against
-> >     :returns: An integer representing the number of days a patient's inflammation is over a given threshold
-> >     """
-> >
-> >     above_threshold = map(lambda x: x > threshold, data[patient_num])
-> >     return reduce(lambda a, b: a + 1 if b else a, above_threshold, 0)
-> > ~~~
-> > {: .language-python}
-> Where could this be useful?
-> For example, you may want to define the success criteria for a trial if, say,
-> 80% of patients do not exhibit inflammation in any of the trial days, or some similar metrics.
->{: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Extend Inflammation Threshold Function Using Reduce
+
+Extend the `daily_above_threshold()` function you wrote previously
+to return a count of the number of days a patient's inflammation is over the threshold.
+Use `reduce()` over the boolean array that was previously returned to generate the count,
+then return that value from the function.
+
+You may choose to define a separate function to pass to `reduce()`,
+or use an inline lambda expression to do it (which is a bit trickier!).
+
+Hints:
+
+- Remember that you can define an `initialiser` value with `reduce()`
+  \>   to help you start the counter
+- If defining a lambda expression,
+  \>   note that it can conditionally return different values using the syntax
+  \>   `<value> if <condition> else <another_value>` in the expression.
+
+:::::::::::::::  solution
+
+## Solution
+
+Using a separate function:
+
+```python
+def daily_above_threshold(patient_num, data, threshold):
+    """Count how many days a given patient's inflammation exceeds a given threshold.
+
+    :param patient_num: The patient row number
+    :param data: A 2D data array with inflammation data
+    :param threshold: An inflammation threshold to check each daily value against
+    :returns: An integer representing the number of days a patient's inflammation is over a given threshold
+    """
+    def count_above_threshold(a, b):
+        if b:
+            return a + 1
+        else:
+            return a
+
+   # Use map to determine if each daily inflammation value exceeds a given threshold for a patient
+   above_threshold = map(lambda x: x > threshold, data[patient_num])
+   # Use reduce to count on how many days inflammation was above the threshold for a patient
+   return reduce(count_above_threshold, above_threshold, 0)
+```
+
+Note that the `count_above_threshold` function used by `reduce()`
+was defined within the `daily_above_threshold()` function
+to limit its scope and clarify its purpose
+(i.e. it may only be useful as part of `daily_above_threshold()`
+hence being defined as an inner function).
+
+The equivalent code using a lambda expression may look like:
+
+```python
+from functools import reduce
+
+...
+
+def daily_above_threshold(patient_num, data, threshold):
+    """Count how many days a given patient's inflammation exceeds a given threshold.
+
+    :param patient_num: The patient row number
+    :param data: A 2D data array with inflammation data
+    :param threshold: An inflammation threshold to check each daily value against
+    :returns: An integer representing the number of days a patient's inflammation is over a given threshold
+    """
+
+    above_threshold = map(lambda x: x > threshold, data[patient_num])
+    return reduce(lambda a, b: a + 1 if b else a, above_threshold, 0)
+```
+
+Where could this be useful?
+For example, you may want to define the success criteria for a trial if, say,
+80% of patients do not exhibit inflammation in any of the trial days, or some similar metrics.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Decorators
 
 Finally, we will look at one last aspect of Python where functional programming is coming handy.
 As we have seen in the
-[episode on parametrising our unit tests](../22-scaling-up-unit-testing/index.html#parameterising-our-unit-tests),
+[episode on parametrising our unit tests](../episodes/22-scaling-up-unit-testing.md#parameterising-our-unit-tests),
 a decorator can take a function, modify/decorate it, then return the resulting function.
 This is possible because Python treats functions as first-class objects
 that can be passed around as normal data.
 Here, we discuss decorators in more detail and learn how to write our own.
 Let us look at the following code for ways on how to "decorate" functions.
 
-~~~
+```python
 def with_logging(func):
 
     """A decorator which adds logging to a function."""
@@ -729,9 +767,9 @@ def add_two(n):
 
 print(add_one(1))
 print(add_two(1))
-~~~
-{: .language-python}
-~~~
+```
+
+```output
 Before function call
 Adding one
 After function call
@@ -740,8 +778,7 @@ Before function call
 Adding two
 After function call
 3
-~~~
-{: .output}
+```
 
 In this example, we see a decorator (`with_logging`)
 and two different syntaxes for applying the decorator to a function.
@@ -774,59 +811,66 @@ we can continue to use the un-decorated function
 if we make sure to give the decorated one a different name,
 and can even make multiple decorated versions using different decorators.
 
-> ## Exercise: Measuring Performance Using Decorators
-> One small task you might find a useful case for a decorator is
-> measuring the time taken to execute a particular function.
-> This is an important part of performance profiling.
->
-> Write a decorator which you can use to measure the execution time of the decorated function
-> using the [time.process_time_ns()](https://docs.python.org/3/library/time.html#time.process_time_ns) function.
-> There are several different timing functions each with slightly different use-cases,
-> but we won’t worry about that here.
->
-> For the function to measure, you may wish to use this as an example:
-> ~~~
-> def measure_me(n):
->     total = 0
->     for i in range(n):
->         total += i * i
->
->     return total
-> ~~~
-> {: .language-python}
->
-> 
-> > ## Solution
-> >
-> > ~~~
-> > import time
-> >
-> > def profile(func):
-> >     def inner(*args, **kwargs):
-> >         start = time.process_time_ns()
-> >         result = func(*args, **kwargs)
-> >         stop = time.process_time_ns()
-> >
-> >         print("Took {0} seconds".format((stop - start) / 1e9))
-> >         return result
-> >
-> >     return inner
-> >
-> > @profile
-> > def measure_me(n):
-> >     total = 0
-> >     for i in range(n):
-> >         total += i * i
-> >
-> >     return total
-> >
-> > print(measure_me(1000000))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > Took 0.124199753 seconds
-> > 333332833333500000
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Measuring Performance Using Decorators
+
+One small task you might find a useful case for a decorator is
+measuring the time taken to execute a particular function.
+This is an important part of performance profiling.
+
+Write a decorator which you can use to measure the execution time of the decorated function
+using the [time.process\_time\_ns()](https://docs.python.org/3/library/time.html#time.process_time_ns) function.
+There are several different timing functions each with slightly different use-cases,
+but we won't worry about that here.
+
+For the function to measure, you may wish to use this as an example:
+
+```python
+def measure_me(n):
+    total = 0
+    for i in range(n):
+        total += i * i
+
+    return total
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+import time
+
+def profile(func):
+    def inner(*args, **kwargs):
+        start = time.process_time_ns()
+        result = func(*args, **kwargs)
+        stop = time.process_time_ns()
+
+        print("Took {0} seconds".format((stop - start) / 1e9))
+        return result
+
+    return inner
+
+@profile
+def measure_me(n):
+    total = 0
+    for i in range(n):
+        total += i * i
+
+    return total
+
+print(measure_me(1000000))
+```
+
+```output
+Took 0.124199753 seconds
+333332833333500000
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

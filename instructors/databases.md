@@ -1,23 +1,26 @@
 ---
-title: "Databases"
-layout: episode
+title: Databases
 teaching: 30
 exercises: 30
-questions:
-- "How can we persist complex structured data for efficient access?"
+questions: How can we persist complex structured data for efficient access?
 objectives:
-- "Describe the structure of a relational database"
-- "Store and retrieve structured data using an Object Relational Mapping (ORM)"
-keypoints:
-- "Relational databases are often the best persistence mechanism for data which fits well to the Object Oriented paradigm."
+- Describe the structure of a relational database
+- Store and retrieve structured data using an Object Relational Mapping (ORM)
+keypoints: Relational databases are often the best persistence mechanism for data
+  which fits well to the Object Oriented paradigm.
 ---
 
 ## Databases
 
-> ## Follow up from Section 3
-> This episode could be read as a follow up from the end of
-> [Section 3 on software design and development](../35-refactoring-architecture/index.html#conclusion).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Follow up from Section 3
+
+This episode could be read as a follow up from the end of
+[Section 3 on software design and development](35-refactoring-architecture#conclusion).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 A **database** is an organised collection of data,
 usually organised in some way to mimic the structure of the entities it represents.
@@ -66,18 +69,19 @@ we are going to use a library to help us translate between Python and the databa
 [SQLAlchemy](https://www.sqlalchemy.org/) is a popular Python library
 which contains an **Object Relational Mapping** (ORM) framework.
 
-> ## SQLAlchemy
->
-> For more information, see SQLAlchemy's [ORM tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html).
->
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## SQLAlchemy
+
+For more information, see SQLAlchemy's [ORM tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html).
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Our first step is to install SQLAlchemy, then we can create our first **mapping**.
 
-```
+```bash
 $ python3 -m pip install sqlalchemy
 ```
-{: .language-bash}
 
 A mapping is the core component of an ORM -
 it describes how to convert between our Python classes and the contents of our database tables.
@@ -85,7 +89,7 @@ Typically, we can take our existing classes
 and convert them into mappings with a little modification,
 so we do not have to start from scratch.
 
-~~~
+```python
 # file: inflammation/models.py
 from sqlalchemy import Column, create_engine, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -106,8 +110,7 @@ class Patient(Base):
         self.observations = []
         if 'observations' in kwargs:
             self.observations = kwargs['observations']
-~~~
-{: .language-python}
+```
 
 Now that we have defined how to translate between our Python class and a database table,
 we need to hook our code up to an actual database.
@@ -137,31 +140,35 @@ For now we will store the database in memory rather than an actual file -
 it will not actually allow us to store data after the program finishes,
 but it allows us not to worry about **migrations**.
 
-> ## Migrations
->
-> When we make changes to our mapping (e.g. adding / removing columns),
-> we need to get the database to update its tables to make sure they match the new format.
-> This is what the `Base.metadata.create_all` method does -
-> creates all of these tables from scratch
-> because we are using an in-memory database which we know will be removed between runs.
->
-> If we are actually storing data persistently,
-> we need to make sure that when we change the mapping,
-> we update the database tables without damaging any of the data they currently contain.
-> We could do this manually,
-> by running SQL queries against the tables to get them into the right format,
-> but this is error-prone and can be a lot of work.
->
-> In practice, we generate a migration for each change.
-> Tools such as [Alembic](https://alembic.sqlalchemy.org/en/latest/)
-> will compare our mappings to the known state of the database
-> and generate a Python file which updates the database to the necessary state.
->
-> Migrations can be quite complex, so we will not be using them here -
-> but you may find it useful to read about them later.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-~~~
+## Migrations
+
+When we make changes to our mapping (e.g. adding / removing columns),
+we need to get the database to update its tables to make sure they match the new format.
+This is what the `Base.metadata.create_all` method does -
+creates all of these tables from scratch
+because we are using an in-memory database which we know will be removed between runs.
+
+If we are actually storing data persistently,
+we need to make sure that when we change the mapping,
+we update the database tables without damaging any of the data they currently contain.
+We could do this manually,
+by running SQL queries against the tables to get them into the right format,
+but this is error-prone and can be a lot of work.
+
+In practice, we generate a migration for each change.
+Tools such as [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+will compare our mappings to the known state of the database
+and generate a Python file which updates the database to the necessary state.
+
+Migrations can be quite complex, so we will not be using them here -
+but you may find it useful to read about them later.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+```python
 # file: tests/test_models.py
 
 ...
@@ -193,8 +200,7 @@ def test_sqlalchemy_patient_search():
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
-~~~
-{: .language-python}
+```
 
 For this test, we have imported our models inside the test function,
 rather than at the top of the file like we normally would.
@@ -220,10 +226,10 @@ we will call this `value` -
 and a column for the day the measurement was taken on.
 
 We can also use the ORM's `relationship` helper function
- allow us to go between the observations and patients
- without having to do any of the complicated table joins manually.
+allow us to go between the observations and patients
+without having to do any of the complicated table joins manually.
 
-~~~
+```python
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -251,27 +257,30 @@ class Patient(Base):
                                 order_by=Observation.day,
                                 back_populates='patient')
 
-~~~
-{: .language-python}
+```
 
-> ## Time is Hard
->
-> We are using an integer field to store the day on which a measurement was taken.
-> This keeps us consistent with what we had previously
-> as it is essentialy the position of the measurement in the Numpy array.
-> It also avoids us having to worry about managing actual date / times.
->
-> The Python `datetime` module we have used previously in the Academics example would be useful here,
-> and most databases have support for 'date' and 'time' columns,
-> but to reduce the complexity, we will just use integers here.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Time is Hard
+
+We are using an integer field to store the day on which a measurement was taken.
+This keeps us consistent with what we had previously
+as it is essentialy the position of the measurement in the Numpy array.
+It also avoids us having to worry about managing actual date / times.
+
+The Python `datetime` module we have used previously in the Academics example would be useful here,
+and most databases have support for 'date' and 'time' columns,
+but to reduce the complexity, we will just use integers here.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Our test code for this is going to look very similar to our previous test code,
 so we can copy-paste it and make a few changes.
 This time, after setting up the database, we need to add a patient and an observation.
 We then test that we can get the observations from a patient we have searched for.
 
-~~~
+```python
 # file: tests/test_models.py
 
 from inflammation.models import Base, Observation, Patient
@@ -301,15 +310,14 @@ def test_sqlalchemy_observations():
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
-~~~
-{: .language-python}
+```
 
 Finally, let us put in a way to convert all of our observations into a Numpy array,
 so we can use our previous analysis code.
 We will use the `property` decorator here again,
 to create a method that we can use as if it was a normal data attribute.
 
-~~~
+```python
 # file: inflammation/models.py
 
 ...
@@ -334,14 +342,13 @@ class Patient(Base):
             values[observation.day] = observation.value
 
         return values
-~~~
-{: .language-python}
+```
 
 Once again we will copy-paste the test code and make some changes.
 This time we want to create a few observations for our patient
 and test that we can turn them into a Numpy array.
 
-~~~
+```python
 # file: tests/test_models.py
 from inflammation.models import Base, Observation, Patient
 ...
@@ -367,79 +374,93 @@ def test_sqlalchemy_observations_to_array():
 
     # Wipe our temporary database
     Base.metadata.drop_all(engine)
-~~~
-{: .language-python}
+```
 
-> ## Further Array Testing
->
-> there is an important feature of the behaviour of our `Patient.values` property
-> that's not currently being tested.
-> What is this feature?
-> Write one or more extra tests to cover this feature.
->
-> > ## Hint
-> >
-> > The `Patient.values` property creates an array of zeroes,
-> > then fills it with data from the table.
-> > If a measurement was not taken on a particular day,
-> > that day's value will be left as zero.
-> >
-> > If this is intended behaviour,
-> > it would be useful to write a test for it,
-> > to ensure that we do not break it in future.
-> > Using tests in this way is known as **regression testing**.
-> >
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Refactoring for Reduced Redundancy
->
-> You have probably noticed that there is a lot of replicated code in our database tests.
-> It is fine if some code is replicated a bit,
-> but if you keep needing to copy the same code,
-> that's a sign it should be refactored.
->
-> Refactoring is the process of changing the structure of our code,
-> without changing its behaviour,
-> and one of the main benefits of good test coverage is that it makes refactoring easier.
-> If we have got a good set of tests,
-> it is much more likely that we will detect any changes to behaviour -
-> even when these changes might be in the tests themselves.
->
-> Try refactoring the database tests to see if you can
-> reduce the amount of replicated code
-> by moving it into one or more functions at the top of the test file.
->
-{: .challenge}
+## Further Array Testing
 
-> ## Advanced Challenge: Connecting More Views
->
-> We have added the ability to store patient records in the database,
-> but not actually connected it to any useful views.
-> there is a common pattern in data management software
-> which is often refered to as **CRUD** - Create, Read, Update, Delete.
-> These are the four fundamental views that we need to provide
-> to allow people to manage their data effectively.
->
-> Each of these applies at the level of a single record,
-> so for both patients and observations we should have a view to:
-> create a new record,
-> show an existing record,
-> update an existing record
-> and delete an existing record.
-> It is also sometimes useful to provide a view which lists all existing records for each type -
-> for example, a list of all patients would probably be useful,
-> but a list of all observations might not be.
->
-> Pick one (or several) of these views to implement -
-> you may want to refer back to the section where we added our initial patient read view.
-{: .challenge}
+there is an important feature of the behaviour of our `Patient.values` property
+that's not currently being tested.
+What is this feature?
+Write one or more extra tests to cover this feature.
 
-> ## Advanced Challenge: Managing Dates Properly
->
-> Try converting our existing models to use actual dates instead of just a day number.
-> The Python [datetime module documentation](https://docs.python.org/3/library/datetime.html)
-> and SQLAlchemy [Column and Data Types page](https://docs.sqlalchemy.org/en/13/core/type_basics.html)
-> will be useful to you here.
->
-{: .challenge}
+:::::::::::::::  solution
+
+## Hint
+
+The `Patient.values` property creates an array of zeroes,
+then fills it with data from the table.
+If a measurement was not taken on a particular day,
+that day's value will be left as zero.
+
+If this is intended behaviour,
+it would be useful to write a test for it,
+to ensure that we do not break it in future.
+Using tests in this way is known as **regression testing**.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Refactoring for Reduced Redundancy
+
+You have probably noticed that there is a lot of replicated code in our database tests.
+It is fine if some code is replicated a bit,
+but if you keep needing to copy the same code,
+that's a sign it should be refactored.
+
+Refactoring is the process of changing the structure of our code,
+without changing its behaviour,
+and one of the main benefits of good test coverage is that it makes refactoring easier.
+If we have got a good set of tests,
+it is much more likely that we will detect any changes to behaviour -
+even when these changes might be in the tests themselves.
+
+Try refactoring the database tests to see if you can
+reduce the amount of replicated code
+by moving it into one or more functions at the top of the test file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Advanced Challenge: Connecting More Views
+
+We have added the ability to store patient records in the database,
+but not actually connected it to any useful views.
+there is a common pattern in data management software
+which is often refered to as **CRUD** - Create, Read, Update, Delete.
+These are the four fundamental views that we need to provide
+to allow people to manage their data effectively.
+
+Each of these applies at the level of a single record,
+so for both patients and observations we should have a view to:
+create a new record,
+show an existing record,
+update an existing record
+and delete an existing record.
+It is also sometimes useful to provide a view which lists all existing records for each type -
+for example, a list of all patients would probably be useful,
+but a list of all observations might not be.
+
+Pick one (or several) of these views to implement -
+you may want to refer back to the section where we added our initial patient read view.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Advanced Challenge: Managing Dates Properly
+
+Try converting our existing models to use actual dates instead of just a day number.
+The Python [datetime module documentation](https://docs.python.org/3/library/datetime.html)
+and SQLAlchemy [Column and Data Types page](https://docs.sqlalchemy.org/en/13/core/type_basics.html)
+will be useful to you here.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

@@ -1,23 +1,23 @@
 ---
-title: "Software Improvement Through Feedback"
+title: Software Improvement Through Feedback
 teaching: 25
 exercises: 45
-questions:
-- "How should we handle feedback on our software?"
-- "How, and to what extent, should we provide support to our users?"
-objectives:
-- "Prioritise and work on externally registered issues"
-- "Respond to submitted issue reports and provide feedback"
-- "Explain the importance of software support and choosing a suitable level of support"
-keypoints:
-- "Prioritisation is a key tool in academia where research goals can change and software development is often given short shrift."
-- "In order to prioritise things to do we must first estimate the effort required to do them."
-- "For accurate effort estimation, it should be done by the people who will *actually do the work*."
-- "Aim to reduce cognitive biases in effort estimation by being honest about your abilities."
-- "Ask other team members - or do estimation as a team - to help make accurate estimates."
-- "MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully."
-- "Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for requirements within a timebox."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Prioritise and work on externally registered issues
+- Respond to submitted issue reports and provide feedback
+- Explain the importance of software support and choosing a suitable level of support
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How should we handle feedback on our software?
+- How, and to what extent, should we provide support to our users?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
@@ -42,7 +42,6 @@ which makes it all the more important to prioritise our time for development eff
 In this lesson we will be looking at prioritising work we need to do
 and what we can use from the agile perspective of project management
 to help us do this in our software projects.
-
 
 ## Estimation as a Foundation for Prioritisation
 
@@ -80,21 +79,25 @@ It shouldn't be done by project managers or PIs
 simply because they are not best placed to estimate,
 and those doing the work are the ones who are effectively committing to these figures.
 
-> ## Why is it so Difficult to Estimate?
->
-> Estimation is a very valuable skill to learn, and one that is often difficult.
-> Lack of experience in estimation can play a part,
-> but a number of psychological causes can also contribute.
-> One of these is [Dunning-Kruger](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect),
-> a type of cognitive bias in which people tend to overestimate their abilities,
-> whilst in opposition to this is [imposter syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome),
-> where due to a lack of confidence people underestimate their abilities.
-> The key message here is to be honest about what you can do,
-> and find out as much information that is reasonably appropriate before arriving at an estimate.
->
-> More experience in estimation will also help to reduce these effects.
-> So keep estimating!
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Why is it so Difficult to Estimate?
+
+Estimation is a very valuable skill to learn, and one that is often difficult.
+Lack of experience in estimation can play a part,
+but a number of psychological causes can also contribute.
+One of these is [Dunning-Kruger](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect),
+a type of cognitive bias in which people tend to overestimate their abilities,
+whilst in opposition to this is [imposter syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome),
+where due to a lack of confidence people underestimate their abilities.
+The key message here is to be honest about what you can do,
+and find out as much information that is reasonably appropriate before arriving at an estimate.
+
+More experience in estimation will also help to reduce these effects.
+So keep estimating!
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 An effective way of helping to make your estimates more accurate is to do it as a team.
 Other members can ask prudent questions that may not have been considered,
@@ -102,34 +105,39 @@ and bring in other sanity checks and their own development experience.
 Just talking things through can help uncover other complexities and pitfalls,
 and raise crucial questions to clarify ambiguities.
 
-> ## Where to Record Effort Estimates?
-> There is no dedicated place to record the effort estimate on an issue in current GitHub's interface.
-> Therefore, you can agree on a convention within your team on how to record this information -
-> e.g. you can add the effort in person/days in the issue title.
-> Recording estimates within comments on an issue may not be the best idea
-> as it may get lost among other comments.
-> Another place where you can record estimates for your issues is on project boards -
-> there is no default field for this but you can create a custom numeric field
-> and use it to assign effort estimates
-> (note that you cannot sum them yet in the current GitHub's interface).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-> ## Exercise: Estimate!
->
-> As a team
-> go through the issues that your partner team has registered with your software repository,
-> and quickly estimate how long each issue will take to resolve in minutes.
-> Do this by blind consensus first,
-> each anonymously submitting an estimate,
-> and then briefly discuss your rationale and decide on a final estimate.
-> Make sure these are honest estimates,
-> and you are able to complete them in the allotted time!
->
-> 
-{: .challenge}
+## Where to Record Effort Estimates?
+
+There is no dedicated place to record the effort estimate on an issue in current GitHub's interface.
+Therefore, you can agree on a convention within your team on how to record this information -
+e.g. you can add the effort in person/days in the issue title.
+Recording estimates within comments on an issue may not be the best idea
+as it may get lost among other comments.
+Another place where you can record estimates for your issues is on project boards -
+there is no default field for this but you can create a custom numeric field
+and use it to assign effort estimates
+(note that you cannot sum them yet in the current GitHub's interface).
 
 
-# Using MoSCoW to Prioritise Work
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Estimate!
+
+As a team
+go through the issues that your partner team has registered with your software repository,
+and quickly estimate how long each issue will take to resolve in minutes.
+Do this by blind consensus first,
+each anonymously submitting an estimate,
+and then briefly discuss your rationale and decide on a final estimate.
+Make sure these are honest estimates,
+and you are able to complete them in the allotted time!
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Using MoSCoW to Prioritise Work
 
 Now we have our estimates we can decide
 how important each requirement is to the success of the project.
@@ -194,45 +202,52 @@ We can create a new one by selecting `Issues` on our repository,
 then `Milestones` to display any existing milestones,
 then clicking the "New milestone" button to the right.
 
-![Milestones in GitHub](../fig/github-milestones.png){: .image-with-shadow width="1000px"}
+![](fig/github-milestones.png){alt='Milestones in GitHub' .image-with-shadow width="1000px"}
 
-![Create a milestone in GitHub](../fig/github-create-milestone.png){: .image-with-shadow width="1000px"}
+![](fig/github-create-milestone.png){alt='Create a milestone in GitHub' .image-with-shadow width="1000px"}
 
 We add in a title,
 a completion date (i.e. the end of this timebox),
 and any description for the milestone.
 
-![Create a milestone in GitHub](../fig/github-new-milestone-description.png){: .image-with-shadow width="800px"}
+![](fig/github-new-milestone-description.png){alt='Create a milestone in GitHub' .image-with-shadow width="800px"}
 
 Once created, we can view our issues
 and assign them to our milestone from the `Issues` page or from an individual issue page.
 
-![Milestones in GitHub](../fig/github-assign-milestone.png){: .image-with-shadow width="1000px"}
+![](fig/github-assign-milestone.png){alt='Milestones in GitHub' .image-with-shadow width="1000px"}
 
 Let us now use Milestones to plan and prioritise our team's next sprint.
 
-> ## Exercise: Prioritise!
->
-> Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues
-> to determine how you will prioritise effort to resolve them in the allotted time.
-> Try to stick to the 60/20/20 rule,
-> and assign all issues you will be working on (i.e. not `Won't Haves`) to a new milestone,
-> e.g. "Tidy up documentation" or "version 0.1".
->
-> 
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Prioritise!
+
+Put your stakeholder hats on, and as a team apply MoSCoW to the repository issues
+to determine how you will prioritise effort to resolve them in the allotted time.
+Try to stick to the 60/20/20 rule,
+and assign all issues you will be working on (i.e. not `Won't Haves`) to a new milestone,
+e.g. "Tidy up documentation" or "version 0.1".
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 {% comment %}
-> ## Milestones in Project Boards
-> Milestones are also visible on project boards.
-> If an issue or pull request belongs to a milestone,
-> the name of the milestone will be displayed on the project card.
-> You can add or remove an issue or pull request from milestones using the details sidebar,
-> and filter your project cards by milestones using the search bar.
->
-> ![Milestones in Project Boards](../fig/github-milestone-in-project-board.png){: .image-with-shadow width="900px"}
-{: .callout}
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Milestones in Project Boards
+
+Milestones are also visible on project boards.
+If an issue or pull request belongs to a milestone,
+the name of the milestone will be displayed on the project card.
+You can add or remove an issue or pull request from milestones using the details sidebar,
+and filter your project cards by milestones using the search bar.
+
+![](fig/github-milestone-in-project-board.png){alt='Milestones in Project Boards' .image-with-shadow width="900px"}
+
 {% endcomment %}
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Using Sprints to Organise and Work on Issues
 
@@ -242,19 +257,23 @@ In a typical sprint, there are daily meetings called **scrum meetings**
 which check on how work is progressing,
 and serves to highlight any blockers and challenges to meeting the sprint goal.
 
-> ## Exercise: Conduct a Mini Mini-Sprint
->
-> For the remaining time in this course,
-> assign repository issues to team members and work on resolving them as per your MoSCoW breakdown.
-> Once an issue has been resolved, notable progress made, or an impasse has been reached,
-> provide concise feedback on the repository issue.
-> Be sure to add the other team members to the chosen repository so they have access to it.
-> You can grant `Write` access to others on a GitHub repository
-> via the `Settings` tab for a repository, then selecting `Collaborators`,
-> where you can invite other GitHub users to your repository with specific permissions.
->
-> Time: however long is left
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Conduct a Mini Mini-Sprint
+
+For the remaining time in this course,
+assign repository issues to team members and work on resolving them as per your MoSCoW breakdown.
+Once an issue has been resolved, notable progress made, or an impasse has been reached,
+provide concise feedback on the repository issue.
+Be sure to add the other team members to the chosen repository so they have access to it.
+You can grant `Write` access to others on a GitHub repository
+via the `Settings` tab for a repository, then selecting `Collaborators`,
+where you can invite other GitHub users to your repository with specific permissions.
+
+Time: however long is left
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Depending on how many issues were registered on your repository,
 it is likely you will not have resolved all the issues in this first milestone.
@@ -269,10 +288,29 @@ you are repeatedly **re-evaluating what is important and needs to be worked on**
 which helps to ensure real concrete progress against project goals and requirements
 which may change over time.
 
-> ## Project Boards For Planning Sprints
-> Remember, you can use project boards for higher-level project management -
-> e.g. planning several sprints in advance
-> (and use milestones for tracking progress on individual sprints).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-{% include links.md %}
+## Project Boards For Planning Sprints
+
+Remember, you can use project boards for higher-level project management -
+e.g. planning several sprints in advance
+(and use milestones for tracking progress on individual sprints).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Prioritisation is a key tool in academia where research goals can change and software development is often given short shrift.
+- In order to prioritise things to do we must first estimate the effort required to do them.
+- For accurate effort estimation, it should be done by the people who will *actually do the work*.
+- Aim to reduce cognitive biases in effort estimation by being honest about your abilities.
+- Ask other team members - or do estimation as a team - to help make accurate estimates.
+- MoSCoW is a useful technique for prioritising work to help ensure projects deliver successfully.
+- Aim for a 60%/20%/20% ratio of Must Haves/Should Haves/Could Haves for requirements within a timebox.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

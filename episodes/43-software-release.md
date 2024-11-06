@@ -1,19 +1,23 @@
 ---
-title: "Packaging Code for Release and Distribution"
+title: Packaging Code for Release and Distribution
 teaching: 0
 exercises: 20
-questions:
-- "How do we prepare our code for sharing as a Python package?"
-- "How do we release our project for other people to install and reuse?"
-objectives:
-- "Describe the steps necessary for sharing Python code as installable packages."
-- "Use Poetry to prepare an installable package."
-- "Explain the differences between runtime and development dependencies."
-keypoints:
-- "Poetry allows us to produce an installable package and upload it to a package repository."
-- "Making our software installable with Pip makes it easier for others to start using it."
-- "For complete control over building a package, we can use a `setup.py` file."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Describe the steps necessary for sharing Python code as installable packages.
+- Use Poetry to prepare an installable package.
+- Explain the differences between runtime and development dependencies.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How do we prepare our code for sharing as a Python package?
+- How do we release our project for other people to install and reuse?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Why Package our Software?
 
@@ -37,6 +41,7 @@ so it is likely you will also encounter projects which take different approaches
 
 There is some confusing terminology in this episode around the use of the term "package".
 This term is used to refer to both:
+
 - A directory containing Python files / modules and an `__init__.py` - a "module package"
 - A way of structuring / bundling a project for easier distribution and installation -
   a "distributable package"
@@ -55,23 +60,20 @@ you may instead prefer to follow the official
 
 We can install Poetry much like any other Python distributable package, using `pip`:
 
-~~~
+```bash
 $ source venv/bin/activate
 $ python3 -m pip install poetry
-~~~
-{: .language-bash}
+```
 
 To test, we can ask where Poetry is installed:
 
-~~~
+```bash
 $ which poetry
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 /home/alex/python-intermediate-inflammation/venv/bin/poetry
-~~~
-{: .output}
+```
 
 If you do not get similar output,
 make sure you have got the correct virtual environment activated.
@@ -80,10 +82,9 @@ Poetry can also handle virtual environments for us,
 so in order to behave similarly to how we used them previously,
 let us change the Poetry config to put them in the same directory as our project:
 
-~~~ bash
+```bash, bash
 $ poetry config virtualenvs.in-project true
-~~~
-{: .language-bash}
+```
 
 ### Setting up our Poetry Config
 
@@ -110,12 +111,11 @@ although use your own contact details!*
 **NB: When you get to the questions about defining our dependencies,
 answer no, so we can do this separately later.**
 
-~~~
+```bash
 $ poetry init
-~~~
-{: .language-bash}
+```
 
-~~~
+```output
 This command will guide you through creating your pyproject.toml config.
 
 Package name [example]:  inflammation
@@ -147,8 +147,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 Do you confirm generation? (yes/no) [yes] yes
-~~~
-{: .output}
+```
 
 Note that we have called our package "inflammation" in the setup above,
 instead of "inflammation-analysis".
@@ -188,12 +187,11 @@ Because we have already activated a virtual environment, Poetry will use ours in
 The `pyproject.toml` file has two separate lists,
 allowing us to distinguish between runtime and development dependencies.
 
-~~~
+```bash
 $ poetry add matplotlib numpy
 $ poetry add --group dev pylint
 $ poetry install
-~~~
-{: .language-bash}
+```
 
 These two sets of dependencies will be used in different circumstances.
 When we build our package and upload it to a package repository,
@@ -232,10 +230,9 @@ as Python will interpret them as a minus sign in our code when we try to import 
 Once we have got our `pyproject.toml` configuration done and our project is in the right structure,
 we can go ahead and build a distributable version of our software:
 
-~~~
+```bash
 $ poetry build
-~~~
-{: .language-bash}
+```
 
 This should produce two files for us in the `dist` directory.
 The one we care most about is the `.whl` or **wheel** file.
@@ -247,10 +244,9 @@ they could install it using `pip` -
 you do not need to run this command yourself,
 you have already installed it using `poetry install` above.
 
-~~~
+```bash
 $ python3 -m pip install dist/inflammation*.whl
-~~~
-{: .language-bash}
+```
 
 The star in the line above is a **wildcard**,
 that means Bash should use any filenames that match that pattern,
@@ -270,10 +266,9 @@ needs to come with a new version number.
 The advantage of [SemVer](https://semver.org/) is that the change in the version number
 indicates the degree of change in the code and thus the degree of risk of breakage when we update.
 
-~~~
+```bash
 $ poetry build
-~~~
-{: .language-bash}
+```
 
 In addition to the commands we have already seen,
 Poetry contains a few more that can be useful for our development process.
@@ -300,19 +295,33 @@ which contains a helpful guide to the overall
 using the [Twine](https://pypi.org/project/twine/) tool to
 upload created packages to PyPI for distribution as an alternative.
 
-> ## Optional Exercise: Enhancing our Package Metadata
->
-> The [Python Packaging User Guide](https://packaging.python.org/)
-> provides documentation on
-> [how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
-> using a manual approach to building a `pyproject.toml` file,
-> and using Twine to upload the distribution packages to PyPI.
->
-> Referring to the
-> [section on metadata](https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata)
-> in the documentation,
-> enhance your `pyproject.toml` with some additional metadata fields
-> to improve the information your package.
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-{% include links.md %}
+## Optional Exercise: Enhancing our Package Metadata
+
+The [Python Packaging User Guide](https://packaging.python.org/)
+provides documentation on
+[how to package a project](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+using a manual approach to building a `pyproject.toml` file,
+and using Twine to upload the distribution packages to PyPI.
+
+Referring to the
+[section on metadata](https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata)
+in the documentation,
+enhance your `pyproject.toml` with some additional metadata fields
+to improve the information your package.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Poetry allows us to produce an installable package and upload it to a package repository.
+- Making our software installable with Pip makes it easier for others to start using it.
+- For complete control over building a package, we can use a `setup.py` file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

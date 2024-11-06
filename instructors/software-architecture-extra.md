@@ -1,15 +1,11 @@
 ---
-title: "Software Architecture"
+title: Software Architecture
 teaching: 15
 exercises: 0
-layout: episode
-questions:
-- "What should we consider when designing software?"
-objectives:
-- "Understand the components of multi-layer software architectures."
-keypoints:
-- "Software architecture provides an answer to the question 
-'what components will the software have and how will they cooperate?'."
+questions: What should we consider when designing software?
+objectives: Understand the components of multi-layer software architectures.
+keypoints: Software architecture provides an answer to the question 'what components
+  will the software have and how will they cooperate?'.
 ---
 
 ## Software Architecture
@@ -39,9 +35,9 @@ so the rest of our program does not have to worry about it.
 Architecture patterns are similar,
 but larger scale templates which operate at the level of whole programs,
 or collections or programs.
-Model-View-Controller (which we chose for our project) is one of the best known architecture 
+Model-View-Controller (which we chose for our project) is one of the best known architecture
 patterns.
-Many patterns rely on concepts from [Object Oriented Programming](/object-oriented-programming/index.html).
+Many patterns rely on concepts from [Object Oriented Programming](../instructors/object-oriented-programming.md).
 
 There are many online sources of information about design and architecture patterns,
 often giving concrete examples of cases where they may be useful.
@@ -111,54 +107,67 @@ e.g. command line options, mouse clicks, input files.
 For example, the diagram below depicts the use of MVC architecture for the
 [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
-![MVC example of a DNA Guide Graphical User Interface application](../fig/mvc-DNA-guide-GUI.png){: .image-with-shadow width="400px" }
-{% comment %}Image from https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{% endcomment %}
+![](fig/mvc-DNA-guide-GUI.png){alt='MVC example of a DNA Guide Graphical User Interface application' .image-with-shadow width="400px" }
+{% comment %}Image from <https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{%> endcomment %}
 
-> ## Exercise: MVC Application Examples From your Work
-> Think of some other examples from your work or life
-> where MVC architecture may be suitable
-> or have a discussion with your fellow learners.
->
-> 
-> > ## Solution
-> > MVC architecture is a popular choice when designing web and mobile applications.
-> > Users interact with a web/mobile application by sending various requests to it.
-> > Forms to collect users inputs/requests
-> > together with the info returned and displayed to the user as a result represent the View.
-> > Requests are processed by the Controller,
-> > which interacts with the Model to retrieve or update the underlying data.
-> > For example, a user may request to view its profile.
-> > The Controller retrieves the account information for the user from the Model
-> > and passes it to the View for rendering.
-> > The user may further interact with the application
-> > by asking it to update its personal information.
-> > Controller verifies the correctness of the information
-> > (e.g. the password satisfies certain criteria,
-> > postal address and phone number are in the correct format, etc.)
-> > and passes it to the Model for permanent storage.
-> > The View is then updated accordingly and the user sees its updated profile details.
-> >
-> > Note that not everything fits into the MVC architecture
-> > but it is still good to think about how things could be split into smaller units.
-> > For a few more examples, have a look at this short
-> > [article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Separation of Concerns
-> Separation of concerns is important when designing software architectures
-> in order to reduce the code's complexity.
-> Note, however, there are limits to everything -
-> and MVC architecture is no exception.
-> Controller often transcends into Model and View
-> and a clear separation is sometimes difficult to maintain.
-> For example, the Command Line Interface provides both the View
-> (what user sees and how they interact with the command line)
-> and the Controller (invoking of a command) aspects of a CLI application.
-> In Web applications, Controller often manipulates the data (received from the Model)
-> before displaying it to the user or passing it from the user to the Model.
->
-{: .callout}
+## Exercise: MVC Application Examples From your Work
+
+Think of some other examples from your work or life
+where MVC architecture may be suitable
+or have a discussion with your fellow learners.
+
+:::::::::::::::  solution
+
+## Solution
+
+MVC architecture is a popular choice when designing web and mobile applications.
+Users interact with a web/mobile application by sending various requests to it.
+Forms to collect users inputs/requests
+together with the info returned and displayed to the user as a result represent the View.
+Requests are processed by the Controller,
+which interacts with the Model to retrieve or update the underlying data.
+For example, a user may request to view its profile.
+The Controller retrieves the account information for the user from the Model
+and passes it to the View for rendering.
+The user may further interact with the application
+by asking it to update its personal information.
+Controller verifies the correctness of the information
+(e.g. the password satisfies certain criteria,
+postal address and phone number are in the correct format, etc.)
+and passes it to the Model for permanent storage.
+The View is then updated accordingly and the user sees its updated profile details.
+
+Note that not everything fits into the MVC architecture
+but it is still good to think about how things could be split into smaller units.
+For a few more examples, have a look at this short
+[article on MVC from CodeAcademy](https://www.codecademy.com/articles/mvc).
 
 
-{% include links.md %}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Separation of Concerns
+
+Separation of concerns is important when designing software architectures
+in order to reduce the code's complexity.
+Note, however, there are limits to everything -
+and MVC architecture is no exception.
+Controller often transcends into Model and View
+and a clear separation is sometimes difficult to maintain.
+For example, the Command Line Interface provides both the View
+(what user sees and how they interact with the command line)
+and the Controller (invoking of a command) aspects of a CLI application.
+In Web applications, Controller often manipulates the data (received from the Model)
+before displaying it to the user or passing it from the user to the Model.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
