@@ -33,7 +33,7 @@ life_cycle: 'beta'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/fishtree-attempt/python-intermediate-development/'
+source: 'https://github.com/carpentries-incubator/python-intermediate-development'
 
 # Default branch of your lesson
 branch: 'main'
@@ -112,7 +112,6 @@ profiles:
 
 
 carpentry_description: Lesson Description
-url: https://preview.carpentries.org/python-intermediate-development
+url: 'https://carpentries-incubator.github.io/python-intermediate-development'
 analytics: carpentries
 lang: en
-workbench-beta: yes
