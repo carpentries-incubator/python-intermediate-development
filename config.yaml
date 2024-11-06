@@ -112,6 +112,3 @@ profiles:
 
 
 carpentry_description: Lesson Description
-url: 'https://carpentries-incubator.github.io/python-intermediate-development'
-analytics: carpentries
-lang: en
