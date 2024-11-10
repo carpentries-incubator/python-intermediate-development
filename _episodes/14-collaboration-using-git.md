@@ -1,5 +1,5 @@
 ---
-title: "Software Development Using Git and GitHub"
+title: "Software Development Using Git and GitLab"
 start: false
 teaching: 35
 exercises: 0
@@ -7,7 +7,7 @@ questions:
 - "What are Git branches and why are they useful for code development?"
 - "What are some best practices when developing software collaboratively using Git?"
 objectives:
-- "Commit changes in a software project to a local repository and publish them in a remote repository on GitHub"
+- "Commit changes in a software project to a local repository and publish them in a remote repository on GitLab"
 - "Create branches for managing different threads of code development"
 - "Learn to use feature branch workflow to effectively collaborate with a team on a software project"
 
@@ -17,13 +17,13 @@ keypoints:
 ---
 
 ## Introduction
-So far we have checked out our software project from GitHub
+So far we have checked out our software project from GitLab
 and used command line tools to configure a virtual environment for our project and run our code.
 We have also familiarised ourselves with PyCharm -
 a graphical tool we will use for code development, testing and debugging.
 We are now going to start using another set of tools
 from the collaborative code development toolbox -
-namely, the version control system Git and code sharing platform GitHub.
+namely, the version control system Git and code sharing platform GitLab.
 These two will enable us to track changes to our code and share it with others.
 
 You may recall that we have already made some changes to our project locally -
@@ -241,7 +241,7 @@ Remember to use meaningful messages for your commits.
 So far we have been working in isolation -
 all the changes we have done are still only stored locally on our individual machines.
 In order to share our work with others,
-we should push our changes to the remote repository on GitHub.
+we should push our changes to the remote repository on GitLab.
 Before we push our changes however, we should first do a `git pull`.
 This is considered best practice, since any changes made to the repository -
 notably by other people -
@@ -270,18 +270,18 @@ In the above command,
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
 
-> ## GitHub Authentication/Authorisation Error
+> ## GitLab Authentication/Authorisation Error
 >
-> If, at this point (i.e. the first time you try to write to a remote repository on GitHub), 
+> If, at this point (i.e. the first time you try to write to a remote repository on GitLab), 
 > you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
 > then you have cloned the repository using HTTPS and not SSH.
 > You should revisit the [instructions 
-> on setting up your GitHub for SSH and key pair authentication](../setup.html#secure-access-to-github-using-git-from-command-line)
+> on setting up your GitLab for SSH and key pair authentication](../setup.html#secure-access-to-gitlab-using-git-from-command-line)
 > and can fix this from the command line by
 > changing the remote repository's HTTPS URL to its SSH equivalent:
 >
 > ~~~
-> $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> $ git remote set-url origin git@gitlab.com:<WORKSHOP_GROUP_NAME>/python-intermediate-inflammation-<YOUR NAME>.git
 > ~~~
 > {: .language-bash}
 {: .callout}
@@ -339,7 +339,7 @@ This unit of work is also often called a *feature*
 and the branch where you develop it is called a *feature branch*.
 Each feature branch should have its own meaningful name -
 indicating its purpose (e.g. "issue23-fix").
-If we keep making changes and pushing them directly to `main` branch on GitHub,
+If we keep making changes and pushing them directly to `main` branch on GitLab,
 then anyone who downloads our software from there will get all of our work in progress -
 whether or not it is ready to use!
 So, working on a separate branch for each feature you are adding is good for several reasons:
@@ -478,13 +478,13 @@ $ git commit -m "Spelling fix"
 {: .callout}
 
 ### Pushing New Branch Remotely
-We push the contents of the `develop` branch to GitHub
+We push the contents of the `develop` branch to GitLab
 in the same way as we pushed the `main` branch.
 However, as we have just created this branch locally,
 it still does not exist in our remote repository.
-You can check that in GitHub by listing all branches.
+You can check that in GitLab by listing all branches.
 
-![Software project's main branch](../fig/github-main-branch.png){: .image-with-shadow width="600px"}
+![Software project's main branch](../fig/gitlab-main-branch.png){: .image-with-shadow width="600px"}
 
 To push a new local branch remotely for the first time,
 you could use the `-u` flag and the name of the branch you are creating and pushing to:
@@ -505,15 +505,12 @@ $ git push -u origin develop
 > We still prefer to explicitly state this information in commands.
 {: .callout}
 
-Let us confirm that the new branch `develop` now exist remotely on GitHub too.
-From the `Code` tab in your repository in GitHub,
+Let us confirm that the new branch `develop` now exist remotely on GitLab too.
+From your repository in GitLab,
 click the branch dropdown menu (currently showing the default branch `main`).
 You should see your `develop` branch in the list too. 
 
-![Software project's develop branch](../fig/github-develop-branch.png){: .image-with-shadow width="600px"}
-
-You may also have noticed GitHub's notification about the latest push to your `develop` branch just
-on top of the repository files and branches drop-down menu.
+![Software project's develop branch](../fig/gitlab-develop-branch.png){: .image-with-shadow width="600px"}
 
 Now the others can check out the `develop` branch too and continue to develop code on it.
 
