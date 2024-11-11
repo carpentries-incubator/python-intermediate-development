@@ -597,9 +597,6 @@ $ git push origin main
 > In Git, all branches are equal - there is nothing special about the `main` branch.
 > It is called that by convention and is created by default,
 > but it can also be called something else.
-> A good example is `gh-pages` branch
-> which is often the source branch for website projects hosted on GitHub
-> (rather than `main`).
 {: .callout}
 
 > ## Keeping Main Branch Stable
