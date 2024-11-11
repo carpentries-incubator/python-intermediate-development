@@ -23,7 +23,7 @@ the `requirements.txt` file."
 ---
 
 ## Introduction
-So far we have cloned our software project from GitHub and inspected its contents and architecture a bit.
+So far we have cloned our software project from GitLab and inspected its contents and architecture a bit.
 We now want to run our code to see what it does -
 let us do that from the command line.
 For the most part of the course we will run our code
@@ -525,7 +525,7 @@ from your virtual environment)
 is update the contents of the `requirements.txt` file accordingly
 by re-issuing `pip freeze` command
 and propagate the updated `requirements.txt` file to your collaborators
-via your code sharing platform (e.g. GitHub).
+via your code sharing platform (e.g. GitLab).
 
 > ## Official Documentation
 > For a full list of options and commands,

@@ -570,7 +570,7 @@ for now, the good thing is that we managed to set up our project for development
 both from the command line and PyCharm and are getting the same outputs.
 Before we move on to fixing errors and writing more code,
 Let us have a look at the last set of tools for collaborative code development
-which we will be using in this course - Git and GitHub.
+which we will be using in this course - Git and GitLab.
 
 
 ## Optional exercises

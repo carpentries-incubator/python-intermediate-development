@@ -173,10 +173,10 @@ merge all these changes into your development branch.
 
 For the time being, we will not merge 
 the development branch onto `main` until we finish testing our code a bit further and automating 
-those tests with GitHub's Continuous Integration service called GitHub Actions
+those tests with GitLab's Continuous Integration service called GitLab CI/CD
 (to be covered in the next section). 
 Note that it is also possible to automate the linting kinds of code checks
-with GitHub Actions - we will come back to automated linting in the episode on
+with GitLab CI/CD - we will come back to automated linting in the episode on
 ["Diagnosing Issues and Improving Robustness"](../24-diagnosing-issues-improving-robustness/index.html).
 
 

@@ -6,7 +6,7 @@ questions:
 - "What is the design architecture of our example software project?"
 - "Why is splitting code into smaller functional units (modules) good when designing software?"
 objectives:
-- "Use Git to obtain a working copy of our software project from GitHub."
+- "Use Git to obtain a working copy of our software project from GitLab."
 - "Inspect the structure and architecture of our software project."
 - "Understand Model-View-Controller (MVC) architecture in software design and its use in our project."
 
@@ -22,8 +22,8 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Patient Inflammation Study Project
 
 You have joined a software development team that has been working on the
-[patient inflammation study project](https://github.com/carpentries-incubator/python-intermediate-inflammation)
-developed in Python and stored on GitHub.
+[patient inflammation study project](https://gitlab.com/svenvanderburg/python-intermediate-inflammation)
+developed in Python and stored on GitLab.
 The project analyses the data to study the effect of a new treatment for arthritis
 by analysing the inflammation levels in patients who have been given this treatment.
 It reuses the inflammation datasets from the
@@ -55,67 +55,59 @@ to fix and build on top of the existing code during the course.
 ## Downloading Our Software Project
 
 To start working on the project, you will first create a fork of the software project repository
-from GitHub within your own GitHub account
-and then obtain a local copy of that project (from your GitHub) on your machine.
+from GitLab within the workshop's GitLab group
+and then obtain a local copy of that project (from your GitLab) on your machine.
 
-1. Make sure you have a GitHub account
-   and that you have [set up SSH key pair for authentication with GitHub](../setup.html#secure-access-to-github-using-git-from-command-line).
+1. Make sure you have a GitLab account
+   and that you have [set up SSH key pair for authentication with GitLab](../setup.html#secure-access-to-gitlab-using-git-from-command-line).
    
    ***Note:** while it is possible to use HTTPS with a personal access token for authentication
-   with GitHub, the recommended and supported authentication method to use for this course 
+   with GitLab, the recommended and supported authentication method to use for this course 
    is SSH with key pairs.*
-2. Log into your GitHub account.
-3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
-   in GitHub.
-
-   ![Software project fork repository in GitHub](../fig/github-fork-repository.png){: .image-with-shadow width="900px" }
-
+2. Log into your GitLab account.
+3. Go to the [software project repository](https://gitlab.com/svenvanderburg/python-intermediate-inflammation)
+   in GitLab.
 4. Click the `Fork` button
-   towards the top right of the repository's GitHub page to **create a fork** of the repository 
-   under your GitHub account.
-   Remember, you will need to be signed into GitHub for the `Fork` button to work.
+   towards the top right of the repository's GitLab page to **create your own fork** of the repository 
+   under the workshop's GitLab group.
+   Remember, you will need to be signed into GitLab for the `Fork` button to work.
 
    ***Note:** each participant is creating their own fork of the project to work on.*
 
    ***Note 2:** we are creating a fork of the software project repository (instead of copying it 
    from its template) because we want to preserve the history of all commits (with template copying 
    you only get a snapshot of a repository at a given point in time).*
-5. Make sure to select your personal account
-   and set the name of the project to `python-intermediate-inflammation`
+5. Make sure to select the workshop GitLab group as the **namespace**
+   and set the project slug of the project to `python-intermediate-inflammation-{your name}`
    (you can call it anything you like,
    but it may be easier for future group exercises if everyone uses the same name).
-   Ensure that you **uncheck** the `Copy the main branch only` option.
+   Ensure that you **uncheck** the `Only the default branch main` option.
    This guarantees you get all the branches from this repository needed for later exercises.
-
-   ![Making a fork of the software project repository in GitHub](../fig/github-fork-repository-confirm.png){: .image-with-shadow width="600px" }
-
-6. Click the `Create fork` button
-   and wait for GitHub to create the forked copy of the repository under your account.
-7. Locate the forked repository under your own GitHub account.
-   GitHub should redirect you there automatically after creating the fork. 
+6. Click the `Fork project` button
+   and wait for GitLab to create the forked copy of the repository under your account.
+7. Locate the forked repository under the workshop's GitLab group.
+   GitLab should redirect you there automatically after creating the fork. 
    If this does not happen, click your user icon in the top right corner and select 
    `Your Repositories` from the drop-down menu, then locate your newly created fork.
-
-   ![View of your own fork of the software repository in GitHub](../fig/github-forked-repository-own.png){: .image-with-shadow width="900px" }
 
 > ## Exercise: Obtain the Software Project Locally
 >
 > Using the command line, clone the copied repository
-> from your GitHub account into the home directory on your computer using SSH.
+> from GitLab into the home directory on your computer using SSH. 
+> Make sure you do not clone the original repository but rather your own fork
 > Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 >
 >
 > > ## Solution
-> > 1. Find the SSH URL of the software project repository to clone from your GitHub account.
+> > 1. Find the SSH URL of the software project repository to clone from GitLab.
 > > Make sure you do not clone the original repository but rather your own fork,
 > > as you should be able to push commits to it later on.
 > > Also make sure you select the **SSH** tab and not the **HTTPS** one.
-> > For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
+> > For this course, SSH is the preferred way of authenticating when sending your changes back to GitLab.
 > > If you have only authenticated through HTTPS in the past,
 > > please follow the guidance [at the top of this section](#downloading-our-software-project)
-> > to add an SSH key to your GitHub account.
+> > to add an SSH key to your GitLab account.
 > >
-> > ![URL to clone the repository in GitHub](../fig/clone-repository.png){: .image-with-shadow width="800px" }
 > >
 > > 2. Make sure you are located in your home directory in the command line with:
 > >     ~~~
@@ -124,7 +116,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > >     {: .language-bash}
 > > 3. From your home directory in the command line, do:
 > >     ~~~
-> >     $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> >     $ git clone git@gitlab.com:<WORKSHOP_GROUP_NAME>/python-intermediate-inflammation-<YOUR NAME>.git
 > >     ~~~
 > >     {: .language-bash}
 > >    Make sure you are cloning your fork of the software project and not the original repository.
@@ -137,7 +129,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 > > Note: If you have accidentally copied the **HTTPS** URL of your repository instead of the SSH one,
 > > you can easily fix that from your project folder in the command line with:
 > >     ~~~
-> >     $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+> >     $ git remote set-url origin git@gitlab.com:<WORKSHOP_GROUP_NAME>/python-intermediate-inflammation-<YOUR NAME>.git
 > >     ~~~
 > >     {: .language-bash}
 > {: .solution}

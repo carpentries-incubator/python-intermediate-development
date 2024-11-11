@@ -721,9 +721,9 @@ have not pushed this branch remotely for others to have a look at our code
 before we merge it onto the `develop` branch.
 Let us do that now, namely:
 
-- push `style-fixes` to GitHub
+- push `style-fixes` to GitLab
 - merge `style-fixes` into `develop` (once we are happy with the changes)
-- push updates to `develop` branch to GitHub (to keep it up to date with the latest developments)
+- push updates to `develop` branch to GitLab (to keep it up to date with the latest developments)
 - finally, merge `develop` branch into the stable `main` branch
 
 Here is a set commands that will achieve the above set of actions
