@@ -600,7 +600,7 @@ def test_patient_normalise(test, expected, expect_raises):
 ~~~
 {: .language-python}
 
-Be sure to commit your changes so far and push them to GitHub.
+Be sure to commit your changes so far and push them to GitLab.
 
 > ## Optional Exercise: Add a Precondition to Check the Correct Type and Shape of Data
 >
@@ -611,7 +611,7 @@ Be sure to commit your changes so far and push them to GitHub.
 > useful here, as well as the Python exception
 > [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError).
 > Once you are done, commit your new files,
-> and push the new commits to your remote repository on GitHub.
+> and push the new commits to your remote repository on GitLab
 >
 > > ## Solution
 > >
@@ -694,7 +694,7 @@ Be sure to commit your changes so far and push them to GitHub.
 >
 {: .challenge}
 
-If you do the challenge, again, be sure to commit your changes and push them to GitHub.
+If you do the challenge, again, be sure to commit your changes and push them to GitLab.
 
 You should not take it too far by trying to code preconditions for every conceivable eventuality.
 You should aim to strike a balance between
@@ -741,7 +741,7 @@ you may cause yourself some trouble which may be difficult to trace).
 >
 > Rename our local variable `max` to something else (e.g. call it `max_data`), 
 > then rerun your tests and commit these latest changes and
-> push them to GitHub using our usual feature branch workflow. 
+> push them to GitLab using our usual feature branch workflow. 
 >
 > 
 {: .challenge}
@@ -750,14 +750,14 @@ It may be hard to remember to run linter tools every now and then.
 Luckily, we can now add this Pylint execution to our continuous integration builds
 as one of the extra tasks.
 To add Pylint to our CI workflow,
-we can add the following step to our `steps` in `.github/workflows/main.yml`:
+we can add the following job to `.gitlab-ci.yml`:
 
 ~~~
 ...
-    - name: Check style with Pylint
-      run: |
-        python3 -m pylint --fail-under=0 --reports=y inflammation
-...
+
+linter:
+  script:
+    python3 -m pylint --fail-under=0 --reports=y inflammation
 ~~~
 {: .language-bash}
 
@@ -769,7 +769,7 @@ We have also added `--reports=y` which will give us a more detailed report of th
 Then we can just add this to our repo and trigger a build:
 
 ~~~
-$ git add .github/workflows/main.yml
+$ git add .gitlab-ci.yml
 $ git commit -m "Add Pylint run to build"
 $ git push origin test-suite
 ~~~
@@ -817,7 +817,7 @@ max-line-length=120
 {: .language-bash}
 
 do not forget to remove the `--fail-under` argument to Pytest
-in our GitHub Actions configuration file too,
+in `.gitlab-ci.yml`file too,
 since we do not need it anymore.
 
 Now when we run Pylint we will not be penalised for having a reasonable line length.

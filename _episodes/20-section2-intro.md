@@ -35,8 +35,6 @@ in a scalable, automated and more performant way as our codebase grows.
 ![Tools for scaled software testing](../fig/section2-overview.png){: .image-with-shadow width="800px" }
 {% endcomment %}
 
-![Tools for scaled software testing](../fig/section2-overview.svg){: .image-with-shadow width="1000px" }
-
 {% comment %}
 flowchart LR
 A(1. Setting up
@@ -66,7 +64,7 @@ In this section we will:
   to verify the correct behaviour of code and identify faults,
   making use of test **parameterisation**
   to increase the number of different test cases we can run.
-- Automatically run a set of unit tests using **GitHub Actions** -
+- Automatically run a set of unit tests using **GitLab CI/CD** -
   a **Continuous Integration** infrastructure that allows us to
   automate tasks when things happen to our code,
   such as running those tests when a new commit is made to a code repository.

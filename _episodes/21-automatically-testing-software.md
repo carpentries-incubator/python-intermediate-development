@@ -617,7 +617,7 @@ $ python3 -m pip freeze > requirements.txt
 Finally, let us commit our new `test_models.py` file,
 `requirements.txt` file,
 and test cases to our `test-suite` branch,
-and push this new branch and all its commits to GitHub:
+and push this new branch and all its commits to GitLab:
 
 ~~~
 $ git add requirements.txt tests/test_models.py
