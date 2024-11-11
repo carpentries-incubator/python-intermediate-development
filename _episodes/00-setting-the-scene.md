@@ -99,7 +99,7 @@ in this section we learn:
 
 - how to set up a **test framework** and write tests to verify the behaviour of our code is correct, and
 - how to automate and scale testing with **Continuous Integration (CI)** using
-  **GitLab CI/CD** (a CI service available on GitLab).
+  **[GitLab CI/CD](https://about.gitlab.com/topics/ci-cd/)** (a CI service available on GitLab).
 
 ### [Section 3: Software Development as a Process](../30-section3-intro/index.html)
 In this section, we step away from writing code for a bit
