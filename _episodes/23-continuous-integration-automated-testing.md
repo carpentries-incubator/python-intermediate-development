@@ -215,7 +215,7 @@ working across potentially many branches.
 
 ### Checking Build Progress and Reports
 
-Handily, we can see the progress of the build from our project on GitLAb
+Handily, we can see the progress of the build from our project on GitLab
 by `Jobs` from the `Build` menu on the left sidebar. The `Build` menu has a small rocket icon next to it.
 
 You will see a list of Jobs and likely see a marker indicating that it is still in progress.
