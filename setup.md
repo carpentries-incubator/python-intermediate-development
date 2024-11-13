@@ -140,7 +140,7 @@ one public that you upload to your GitLab account, and one private that remains 
 GitLab provides full documentation and guides on how to on [this page](https://docs.gitlab.com/ee/user/ssh.html).
 Please follow the instructions to setup an SSH connection.
 
-To check that everything works, run:L
+To check that everything works, run:
 
 ```
 ssh -T git@gitlab.example.com
