@@ -7,7 +7,7 @@ questions:
 - "What can I do to make testing across multiple platforms easier?"
 objectives:
 - "Describe the benefits of using Continuous Integration for further automation of testing"
-- "Enable GitHub Actions Continuous Integration for public open source repositories"
+- "Enable GitLab CI/CD for a GitLab project"
 - "Use continuous integration to automatically run unit tests and code coverage when changes are committed to a version control repository"
 - "Use a build matrix to specify combinations of operating systems and Python versions to run tests over"
 keypoints:
@@ -56,22 +56,22 @@ Once complete, it presents a report to let you see what happened.
 There are many CI infrastructures and services,
 free and paid for,
 and subject to change as they evolve their features.
-We will be looking at [GitHub Actions](https://github.com/features/actions) -
-which unsurprisingly is available as part of GitHub.
+We will be looking at [GitLab CI/CD](https://about.gitlab.com/topics/ci-cd/) -
+which unsurprisingly is available as part of GitLab.
 
 
-## Continuous Integration with GitHub Actions
+## Continuous Integration with GitLab CI/CD
 
 ### A Quick Look at YAML
 
-YAML is a text format used by GitHub Action workflow files.
+YAML is a text format used for the `.gitlab-ci.yml` file, with which you configure GitLab CI/CD.
 It is also increasingly used for configuration files and storing other types of data,
 so it is worth taking a bit of time looking into this file format.
 
 [YAML](https://www.commonwl.org/user_guide/yaml/)
 (a recursive acronym which stands for "YAML Ain't Markup Language")
 is a language designed to be human readable.
-A few basic things you need to know about YAML to get started with GitHub Actions are
+A few basic things you need to know about YAML to get started with GitLab CI/CD are
 key-value pairs, arrays, maps and multi-line strings.
 
 So firstly, YAML files are essentially made up of **key-value** pairs,
@@ -144,7 +144,7 @@ first_scaled_by:
 So here we have a YAML array of our two mountaineers,
 each with additional keys offering more information.
 
-GitHub Actions also makes use of `|` symbol to indicate a multi-line string
+GitLab CI/CD also makes use of `|` symbol to indicate a multi-line string
 that preserves new lines. For example:
 
 ~~~
@@ -157,134 +157,51 @@ shakespeare_couplet: |
 They key `shakespeare_couplet` would hold the full two line string,
 preserving the new line after sorrow.
 
-As we will see shortly, GitHub Actions workflows will use all of these.
+As we will see shortly, the `.gitlab-ci.yml` will use all of these.
 
 ### Defining Our Workflow
 
-With a GitHub repository there is a way we can set up CI
+With a GitLab project there is a way we can set up CI
 to run our tests automatically when we commit changes.
 Let us do this now by adding a new file to our repository whilst on the `test-suite` branch.
-First, create the new directories `.github/workflows`:
+
+Let us add a new YAML file called `.gitlab-ci.yml`
+(note its extension is `.yml` without the `a`) with this content:
 
 ~~~
-$ mkdir -p .github/workflows
-~~~
-{: .language-bash}
+image: python:3.11
 
-This directory is used specifically for GitHub Actions,
-allowing us to specify any number of workflows that can be run under a variety of conditions,
-which is also written using YAML.
-So let us add a new YAML file called `main.yml`
-(note its extension is `.yml` without the `a`)
-within the new `.github/workflows` directory:
+before_script:
+    - python3 -m pip install --upgrade pip
+    - python3 -m pip install -r requirements.txt
 
-~~~
-name: CI
-
-# We can specify which Github events will trigger a CI build
-on: push
-
-# now define a single job 'build' (but could define more)
-jobs:
-
-  build:
-
-    # we can also specify the OS to run tests on
-    runs-on: ubuntu-latest
-
-    # a job is a seq of steps
-    steps:
-
-    # Next we need to checkout out repository, and set up Python
-    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11"
-
-    - name: Install Python dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        python3 -m pip install -r requirements.txt
-
-    - name: Test with PyTest
-      run: |
-        python3 -m pytest --cov=inflammation.models tests/test_models.py
+test:
+  script:
+    # Run PyTest with coverage
+    - python3 -m pytest --cov=inflammation.models tests/test_models.py
 ~~~
 {: .language-yaml}
 
-***Note**: be sure to create this file as `main.yml`
-within the newly created `.github/workflows` directory,
-or it will not work!*
+The `image: python:3.11` indicates the docker image that will be used to run our pipeline. 
+In this case the default python docker image with Python version 3.11.
 
-So as well as giving our workflow a name - CI -
-we indicate with `on` that we want this workflow to run when we `push` commits to our repository.
-The workflow itself is made of a single `job` named `build`,
-and we could define any number of jobs after this one if we wanted,
-and each one would run in parallel.
+The `before_script` ensures the project has all required dependencies installed, preparing the environment for testing.
 
-Next, we define what our build job will do.
-With `runs-on` we first state which operating systems we want to use,
-in this case just Ubuntu for now.
-We will be looking at ways we can scale this up to testing on more systems later.
+The `test` job executes tests and generates a coverage report, 
+verifying that the code is functioning correctly with the required test coverage.
 
-Lastly, we define the `step`s that our job will undertake in turn,
-to set up the job's environment and run our tests.
-You can think of the job's environment initially as a blank slate:
-much like a freshly installed machine (albeit virtual) with very little installed on it,
-we need to prepare it with what it needs to be able to run our tests.
-Each of these steps are:
-
-- **Checkout repository for the job:**
-  `uses` indicates that want to use a GitHub Action called `checkout` that does this
-- **Set up Python version:**
-  here we use the `setup-python` Action, indicating that we want Python version 3.11.
-  Note we specify the version within quotes,
-  to ensure that this is interpreted as a complete string.
-  Otherwise, if we wanted to test against for example Python 3.10,
-  by specifying `3.10` without the quotes,
-  it would be interpreted as the number `3.1` which -
-  although it is the same number as `3.10` -
-  would be interpreted as the wrong version!
-- **Install latest version of pip, dependencies, and our inflammation package:**
-  In order to locally install our `inflammation` package
-  it is good practice to upgrade the version of pip that is present first,
-  then we use pip to install our package dependencies.
-  Once installed, we can use `python3 -m pip install -e .` as before to install our own package.
-  We use `run` here to run theses commands in the CI shell environment
-- **Test with PyTest:** lastly, we run `python3 -m pytest`,
-  with the same arguments we used manually before
-
-> ## What about other Actions?
->
-> Our workflow here uses standard GitHub Actions (indicated by `actions/*`).
-> Beyond the standard set of actions,
-> others are available via the
-> [GitHub Marketplace](https://docs.github.com/en/developers/github-marketplace/github-marketplace-overview).
-> It contains many third-party actions (as well as apps)
-> that you can use with GitHub for many tasks across many programming languages,
-> particularly for setting up environments for running tests,
-> code analysis and other tools,
-> setting up and using infrastructure (for things like Docker or Amazon's AWS cloud),
-> or even managing repository issues.
-> You can even contribute your own.
-{: .callout}
-
-### Triggering a Build on GitHub Actions
+### Triggering a Build on GitLab CI/CD
 
 Now if we commit and push this change a CI run will be triggered:
 
 ~~~
-$ git add .github
-$ git commit -m "Add GitHub Actions configuration"
+$ git add .gitlab-ci.yml
+$ git commit -m "Add GitLab CI/CD pipeline"
 $ git push origin test-suite
 ~~~
 {: .language-bash}
 
-Since we are only committing the GitHub Actions configuration file
+Since we are only committing the GitLab CI/CD configuration file
 to the `test-suite` branch for the moment,
 only the contents of this branch will be used for CI.
 We can pass this file upstream into other branches (i.e. via merges) when we are happy it works,
@@ -298,148 +215,25 @@ working across potentially many branches.
 
 ### Checking Build Progress and Reports
 
-Handily, we can see the progress of the build from our repository on GitHub
-by selecting the `test-suite` branch from the dropdown menu
-(which currently says `main`),
-and then selecting `commits`
-(located just above the code directory listing on the right,
-alongside the last commit message and a small image of a timer).
+Handily, we can see the progress of the build from our project on GitLab
+by `Jobs` from the `Build` menu on the left sidebar. The `Build` menu has a small rocket icon next to it.
 
-![Continuous Integration with GitHub Actions - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="1000px"}
+You will see a list of Jobs and likely see a marker indicating that it is still in progress.
 
-You'll see a list of commits for this branch,
-and likely see an orange marker next to the latest commit
-(clicking on it yields `Some checks haven’t completed yet`)
-meaning the build is still in progress.
-This is a useful view, as over time, it will give you a history of commits,
-who did them, and whether the commit resulted in a successful build or not.
+![Continuous Integration with GitLab CI/CD - Initial Build](../fig/ci-initial-ga-build.png){: .image-with-shadow width="1000px"}
 
 Hopefully after a while, the marker will turn into a green tick indicating a successful build.
-Clicking it gives you even more information about the build,
-and selecting `Details` link takes you to a complete log of the build and its output.
+Clicking it gives you even more information about the build and its output
 
-![Continuous Integration with GitHub Actions - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="1000px"}
+![Continuous Integration with GitLab CI/CD - Build Log](../fig/ci-initial-ga-build-log.png){: .image-with-shadow width="1000px"}
 
-The logs are actually truncated; selecting the arrows next to the entries -
-which are the `name` labels we specified in the `main.yml` file -
-will expand them with more detail, including the output from the actions performed.
+### GitLab runners
+This job ran on something that is called a `runner`. 
+A runner is a small virtual machine that can run GitLab CI/CD pipelines.
+The instructors have set these up for you in the workshop GitLab group.
+You should talk to your system administrator to setup dedicated runners for you.
 
-![Continuous Integration with GitHub Actions - Build Details](../fig/ci-initial-ga-build-details.png){: .image-with-shadow width="1000px"}
-
-GitHub Actions offers these continuous integration features
-as a completely free service for public repositories,
-and supplies 2000 build minutes a month on as many private repositories that you like.
-Paid levels are available too.
-
-
-## Scaling Up Testing Using Build Matrices
-
-Now we have our CI configured and building,
-we can use a feature called **build matrices**
-which really shows the value of using CI to test at scale.
-
-Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows,
-and either have Python version 3.10 or 3.11 installed,
-and we want to support all of these.
-Assuming we have a suitable test suite,
-it would take a considerable amount of time to set up testing platforms
-to run our tests across all these platform combinations.
-Fortunately, CI can do the hard work for us very easily.
-
-Using a build matrix we can specify testing environments and parameters
-(such as operating system, Python version, etc.)
-and new jobs will be created that run our tests for each permutation of these.
-
-Let us see how this is done using GitHub Actions.
-To support this, we define a `strategy` as
-a `matrix` of operating systems and Python versions within `build`.
-We then use `matrix.os` and `matrix.python-version` to reference these configuration possibilities
-instead of using hardcoded values -
-replacing the `runs-on` and `python-version` parameters
-to refer to the values from the matrix.
-So, our `.github/workflows/main.yml` should look like the following:
-
-~~~
-# Same key-value pairs as in "Defining Our Workflow" section
-name: CI
-on: push
-jobs:
-  build:
-
-    # Here we add the matrices definition:
-    strategy:
-      matrix:
-        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: ["3.10", "3.11"]
-
-    # Here we add the reference to the os matrix values
-    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
-
-    # Same key-value pairs as in "Defining Our Workflow" section
-    steps:
-
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        # Here we add the reference to the python-version matrix values
-        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-    # Same steps as in "Defining Our Workflow" section
-    - name: Install Python dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        python3 -m pip install -r requirements.txt
-    - name: Test with PyTest
-      run: |
-        python3 -m pytest --cov=catchment.models tests/test_models.py
-~~~
-{: .language-yaml}
-
-The `{% raw %}${{ }}{% endraw %}` are used
-as a means to reference configuration values from the matrix.
-This way, every possible permutation of Python versions 3.10 and 3.11
-with the latest versions of Ubuntu, Mac OS and Windows operating systems
-will be tested and we can expect 6 build jobs in total.
-
-Let us commit and push this change and see what happens:
-
-~~~
-$ git add .github/workflows/main.yml
-$ git commit -m "Add GA build matrix for os and Python version"
-$ git push origin test-suite
-~~~
-{: .language-bash}
-
-If we go to our GitHub build now, we can see that a new job has been created for each permutation.
-
-![Continuous Integration with GitHub Actions - Build Matrix](../fig/ci-ga-build-matrix.png){: .image-with-shadow width="1000px"}
-
-Note all jobs running in parallel (up to the limit allowed by our account)
-which potentially saves us a lot of time waiting for testing results.
-Overall, this approach allows us to massively scale our automated testing
-across platforms we wish to test.
-
-> ## Failed CI Builds
-> A CI build can fail when, e.g. a used Python package no longer supports a particular version of 
-> Python indicated in a GitHub Actions CI build matrix. In this case, the solution is either to 
-> upgrade the Python version in the build matrix (when possible) or downgrade the package version (and not use the latest one like we have been doing in this course).
->
-> Also note that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
-> GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
->
->   >*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
->
-> This behaviour can be controlled by changing the value of the `fail-fast` property:
-> ~~~
-> ...
->    strategy:
->      fail-fast: false
->      matrix:
-> ...
-> ~~~
-{: .language-yaml}
-{: .callout}
+You can also use gitlab.com's runners for free if you provide your credit/debit card details,
+read more [here](https://about.gitlab.com/pricing/#why-do-i-need-to-enter-credit-debit-card-details-for-free-compute-minutes)
 
 {% include links.md %}

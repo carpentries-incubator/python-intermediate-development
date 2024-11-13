@@ -218,7 +218,7 @@ $ cat requirements.txt
 {: .language-bash}
 
 You'll notice `pytest-cov` and `coverage` have been added.
-Let us commit this file and push our new branch to GitHub:
+Let us commit this file and push our new branch to GitLab:
 
 ~~~
 $ git add requirements.txt

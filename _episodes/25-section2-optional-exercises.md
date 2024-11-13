@@ -39,15 +39,15 @@ we still recommend sticking with the tools that were introduced prior to this ep
 > Look at the projects below and see how much test coverage they have.
 > Should 100% line (or branch) coverage always be the goal? Why or why not?
 >
-> - [pytest](https://github.com/pytest-dev/pytest)
-> - [pyjokes](https://github.com/pyjokes/pyjokes)
-> - [scikit-learn](https://github.com/scikit-learn/scikit-learn)
+> - [ase](https://gitlab.com/ase/ase)
+> - [pyjokes](https://github.com/pyjokes/pyjokes) (on GitHub)
+> - [scikit-learn](https://github.com/scikit-learn/scikit-learn) (on GitHub)
 >
 {: .challenge}
 
 > ## Exercise: Coverage badges
 >
-> Try to add a [coverage badge](https://github.com/marketplace/actions/coverage-badge) to the inflammation project.
+> Try to add a [coverage badge](https://docs.gitlab.com/ee/user/project/badges.html#test-coverage-report-badges) to the inflammation project.
 >
 {: .challenge}
 
