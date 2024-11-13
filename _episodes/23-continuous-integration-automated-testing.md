@@ -56,7 +56,7 @@ Once complete, it presents a report to let you see what happened.
 There are many CI infrastructures and services,
 free and paid for,
 and subject to change as they evolve their features.
-We will be looking at [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) -
+We will be looking at [GitLab CI/CD](https://about.gitlab.com/topics/ci-cd/) -
 which unsurprisingly is available as part of GitLab.
 
 
