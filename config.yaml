@@ -98,6 +98,8 @@ episodes:
 
 # Information for Learners
 learners: 
+- learner-setup.md
+- reference.md
 
 # Information for Instructors
 instructors: 

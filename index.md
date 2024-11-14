@@ -88,7 +88,6 @@ After going through this course, participants will be able to:
 - Prepare and release software for reuse by others
 - Manage software improvement from feedback through agile techniques
   
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
@@ -98,7 +97,7 @@ After going through this course, participants will be able to:
 Before joining this training, participants should meet the following criteria.
 (You can use [this short quiz](instructors/quiz.md) to test your prerequisite knowledge.)
 
-#### Git
+### Git
 
 - **You are familiar with the concept of version control**
 - **You have experience configuring Git for the first time and creating a local repository**
@@ -107,7 +106,7 @@ Before joining this training, participants should meet the following criteria.
 - Optionally, you have experience comparing various versions of tracked files
   or ignoring specific files
 
-#### Python
+### Python
 
 - **You have a basic knowledge of programming in Python
   (using variables, lists, conditional statements,
@@ -115,28 +114,10 @@ Before joining this training, participants should meet the following criteria.
 - **You have previously written Python scripts or iPython/Jupyter notebooks
   to accomplish tasks in your domain of work**
 
-#### Shell
+### Shell
 
 - **You have experience using a command line interface, such as Bash,
   to navigate a UNIX-style file system and run commands with arguments**
 - Optionally, you have experience redirecting inputs and outputs from a command
   
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Setup
-
-Please make sure that you have all the necessary software and accounts setup ahead of the workshop
-as described in the [Setup](learners/setup.md) section.
-Also check the list of [common issues, fixes \& tips](instructors/common-issues.md)
-if you experience any problems running any of the tools you installed -
-your issue may be solved there.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-

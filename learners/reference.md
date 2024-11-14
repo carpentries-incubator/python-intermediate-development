@@ -2,8 +2,6 @@
 title: 'Glossary'
 ---
 
-## Glossary
-
 - <a href="https://glosario.carpentries.org/en/#git_branch" class="glossary-definition">Branch</a>
 - <a href="https://glosario.carpentries.org/en/#commit" class="glossary-definition">Commit</a>
 - <a href="https://glosario.carpentries.org/en/#css" class="glossary-definition">CSS</a>
