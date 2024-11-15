@@ -22,7 +22,7 @@ patients’ inflammation data and performs basic statistical analysis using Pyth
 ## Patient Inflammation Study Project
 
 You have joined a software development team that has been working on the
-[patient inflammation study project](https://gitlab.com/svenvanderburg/python-intermediate-inflammation)
+[patient inflammation study project](https://ci.tno.nl/gitlab/scientific-software-engineering-course/2024-11-25/python-intermediate-inflammation)
 developed in Python and stored on GitLab.
 The project analyses the data to study the effect of a new treatment for arthritis
 by analysing the inflammation levels in patients who have been given this treatment.
@@ -65,7 +65,7 @@ and then obtain a local copy of that project (from your GitLab) on your machine.
    with GitLab, the recommended and supported authentication method to use for this course 
    is SSH with key pairs.*
 2. Log into your GitLab account.
-3. Go to the [software project repository](https://gitlab.com/svenvanderburg/python-intermediate-inflammation)
+3. Go to the [software project repository](https://ci.tno.nl/gitlab/scientific-software-engineering-course/2024-11-25/python-intermediate-inflammation)
    in GitLab.
 4. Click the `Fork` button
    towards the top right of the repository's GitLab page to **create your own fork** of the repository 
