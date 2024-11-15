@@ -319,7 +319,7 @@ states what parameters it can take as input and what it returns as an output.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We are going to talk about software architecture and design a
-bit more in [Section 3](30-section3.html) - for now
+bit more in [Section 3](30-section3-intro.md) - for now
 it is sufficient to know that the way our software project's code is structured is intentional.
 
 ### Our Project's Architecture

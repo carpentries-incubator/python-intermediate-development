@@ -379,8 +379,8 @@ anywhere in your code you would like the debugger to stop:
 Then you are able to run your Python program from the command line like you normally would,
 but instead of completing or erroring out,
 a different prompt for the debugger will come up in your terminal.
-The debugger has its own commands that you can read about
-[here](https://docs.python.org/3/library/pdb.html#debugger-commands).
+The debugger has its own commands that you can read about in
+[the documentation for pdb](https://docs.python.org/3/library/pdb.html#debugger-commands).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

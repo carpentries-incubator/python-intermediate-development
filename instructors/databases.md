@@ -17,7 +17,7 @@ keypoints: Relational databases are often the best persistence mechanism for dat
 ## Follow up from Section 3
 
 This episode could be read as a follow up from the end of
-[Section 3 on software design and development](35-refactoring-architecture#conclusion).
+[Section 3 on software design and development](../episodes/35-software-architecture-revisited.md).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

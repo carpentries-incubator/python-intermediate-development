@@ -1,6 +1,8 @@
 ---
-title: 'Glossary'
+title: 'Reference'
 ---
+
+## Glossary
 
 - <a href="https://glosario.carpentries.org/en/#git_branch" class="glossary-definition">Branch</a>
 - <a href="https://glosario.carpentries.org/en/#commit" class="glossary-definition">Commit</a>
@@ -11,7 +13,4 @@ title: 'Glossary'
 - <a href="https://glosario.carpentries.org/en/#repository" class="glossary-definition">Repository/repo</a>
 - <a href="https://glosario.carpentries.org/en/#version_control_system" class="glossary-definition">Version Control</a>
 - <a href="https://glosario.carpentries.org/en/#yaml" class="glossary-definition">YAML</a>
-
-
-
 

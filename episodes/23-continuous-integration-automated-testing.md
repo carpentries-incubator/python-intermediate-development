@@ -423,15 +423,9 @@ upgrade the Python version in the build matrix (when possible) or downgrade the 
 Also note that, if one job fails in the build for any reason - all subsequent jobs will get cancelled because of the default behavior of
 GitHub Actions. From [GitHub's documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures):
 
-:::::::::::::::::::::::::::::::::::  language-yaml
+*GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails.* This behaviour can be controlled by changing the value of the `fail-fast` property:
 
-*"GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails."*
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-This behaviour can be controlled by changing the value of the `fail-fast` property:
-
-```
+```yaml
 ...
    strategy:
      fail-fast: false
@@ -440,8 +434,6 @@ This behaviour can be controlled by changing the value of the `fail-fast` proper
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

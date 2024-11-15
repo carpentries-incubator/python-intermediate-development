@@ -68,7 +68,7 @@ You can customize the command line or use alternatives to `bash` to make yoursel
 
 - Try out [Bash Prompt Generator](https://bash-prompt-generator.org/), it lets you try out different prompts,
   depending on the information you want displayed.
-- Try out [z](https://github.com/rupa/z), a simple tool to more quickly move around directories.
+- Try out [z, a simple tool to more quickly move around directories](https://github.com/rupa/z).
 - Try out [Z shell (zsh)](https://zsh.sourceforge.io/), a shell designed for interactive use.
 - Try out [Oh My ZSH](https://ohmyz.sh/), which is a theming and package manager of the `zsh` terminal.
 - Try out [fish](https://fishshell.com/), a smart and user-friendly command line shell.

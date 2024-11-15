@@ -169,7 +169,7 @@ This is how relational databases work,
 but it would be quite complicated to manage this ourselves with CSVs.
 
 Now, if we are going to follow
-[TDD (Test Driven Development)](35-object-oriented-programming#test-driven-development),
+[TDD (Test Driven Development)](../episodes/22-scaling-up-unit-testing.md#test-driven-development),
 we should write some test code.
 Our JSON serialiser should be able to save and load our patient data to and from a JSON file,
 so for our test we could try these save-load steps

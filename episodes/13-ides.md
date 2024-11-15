@@ -107,7 +107,7 @@ so when we run scripts from PyCharm, this is the directory they will run from.
 
 PyCharm will show you a *'Tip of the Day'* window which you can safely ignore and close for now.
 You may also get a warning *'No Python interpreter configured for the project'* -
-we [will deal with this](#configuring-pycharm-with-anaconda)
+we [will deal with this](#configuring-a-virtual-environment-in-pycharm)
 shortly after we familiarise ourselves with the PyCharm environment.
 You will notice the IDE shows you a project/file navigator window on the left hand side,
 to traverse and select the files (and any subdirectories) within the working directory,
