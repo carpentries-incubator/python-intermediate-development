@@ -196,10 +196,7 @@ equivalent tools work in a similar way even though the command syntax may be dif
 (and that there are equivalent tools for other programming languages too
 to which your knowledge can be ported).
 
-![](fig/python-environment-hell.png){alt='Python environment hell XKCD comic' .image-with-shadow width="500px"}
-
-<p style="text-align: center;">Python Environment Hell<br>
-From <a href="https://xkcd.com/1987/" target="_blank">XKCD</a> (Creative Commons Attribution-NonCommercial 2.5 License)</p>
+![Python Environment Hell from [XKCD](https://xkcd.com/1987/) (Creative Commons Attribution-NonCommercial 2.5 License)](fig/python-environment-hell.png){alt='Python environment hell XKCD comic'}
 
 Let us have a look at how we can create and manage virtual environments from the command line
 using `venv` and manage packages using `pip`.

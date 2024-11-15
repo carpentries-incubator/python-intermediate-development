@@ -185,28 +185,28 @@ this is one and the same virtual environment
 and changes done to it in PyCharm will propagate to the command line and vice versa.
 Let us see this in action through the following exercise.
 
-> ## Exercise: Compare External Libraries in the Command Line and PyCharm
-> 
-> Can you recall two places where information about our project's dependencies
-> can be found from the command line?
-> Compare that information with the equivalent configuration in PyCharm.
-> 
-> Hint: We can use an argument to `pip`,
-> or find the packages directly in a subdirectory of our virtual environment directory "venv".
-> 
-> > ## Solution
-> > 
-> > From the previous episode,
-> > you may remember that we can get the list of packages in the current virtual environment
-> > using `pip`:
-> > 
-> > ```bash
-> > (venv) $ python3 -m pip list
-> > ```
-> > 
-> > ```
-> > ```
+::: challenge
 
+## Compare External Libraries in the Command Line and PyCharm
+
+Can you recall two places where information about our project's dependencies
+can be found from the command line?
+Compare that information with the equivalent configuration in PyCharm.
+
+Hint: We can use an argument to `pip`,
+or find the packages directly in a subdirectory of our virtual environment directory "venv".
+
+:::: solution
+
+From the previous episode,
+you may remember that we can get the list of packages in the current virtual environment
+using `pip`:
+
+```bash
+(venv) $ python3 -m pip list
+```
+
+```output
 Package         Version
 
 ***
@@ -224,20 +224,17 @@ pyparsing       3.1.1
 python-dateutil 2.8.2
 setuptools      67.6.1
 six             1.16.0
+```
 
-> > ```
-> > {: .output}
-> > However, `python3 -m pip list` shows all the packages in the virtual environment -
-> > if we want to see only the list of packages that we installed,
-> > we can use the `python3 -m pip freeze` command instead:
-> > ```
-> > 
-> > (venv) $ python3 -m pip freeze
-> > 
-> > ```
-> > {: .language-bash}
-> > ```
+However, `python3 -m pip list` shows all the packages in the virtual environment -
+if we want to see only the list of packages that we installed,
+we can use the `python3 -m pip freeze` command instead:
 
+```bash
+(venv) $ python3 -m pip freeze
+```
+
+```output
 contourpy==1.2.0
 cycler==0.12.1
 fonttools==4.45.0
@@ -249,32 +246,26 @@ Pillow==10.1.0
 pyparsing==3.1.1
 python-dateutil==2.8.2
 six==1.16.0
+```
 
-> > ```
-> > {: .output}
-> > We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
-> > as we did not install it using `pip`.
-> > Remember that we use `python3 -m pip freeze` to update our `requirements.txt` file,
-> > to keep a list of the packages our virtual environment includes.
-> > Python will not do this automatically;
-> > we have to manually update the file when our requirements change using:
-> > ```
-> > 
-> > python3 -m pip freeze > requirements.txt
-> > 
-> > ```
-> > {: .language-bash}
-> > 
-> > If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
-> > ```
-> > 
-> > (venv) $ ls -l venv/lib/python3.11/site-packages
-> > 
-> > ```
-> > {: .language-bash}
-> > 
-> > ```
+We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
+as we did not install it using `pip`.
+Remember that we use `python3 -m pip freeze` to update our `requirements.txt` file,
+to keep a list of the packages our virtual environment includes.
+Python will not do this automatically;
+we have to manually update the file when our requirements change using:
 
+```bash
+python3 -m pip freeze > requirements.txt
+```
+
+If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
+
+```bash
+(venv) $ ls -l venv/lib/python3.11/site-packages
+```
+
+```output
 total 88
 drwxr-xr-x  105 alex  staff   3360 20 Nov 15:34 PIL
 drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 Pillow-10.1.0.dist-info
@@ -308,23 +299,16 @@ drwxr-xr-x   49 alex  staff   1568 20 Nov 15:32 setuptools
 drwxr-xr-x   10 alex  staff    320 20 Nov 15:32 setuptools-67.6.1.dist-info
 drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
 \-rw-r--r--    1 alex  staff  34549 20 Nov 15:34 six.py
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-:::::::::::::::  solution
-
 ```
-{: .output}
 
 Finally, if you look at both the contents of
 `venv/lib/python3.11/site-packages` and `requirements.txt`
 and compare that with the packages shown in PyCharm's Python Interpreter Configuration -
 you will see that they all contain equivalent information.
-```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 #### Adding an External Library
 
@@ -354,22 +338,21 @@ Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
 Let us do this as an exercise.
 
-> ## Exercise: Update `requirements.txt` After Adding a New Dependency
-> 
-> Export the newly updated virtual environment into `requirements.txt` file.
-> 
-> > ## Solution
-> > 
-> > Let us verify first that the newly installed library `pytest` is appearing in our virtual environment
-> > but not in `requirements.txt`. First, let us check the list of installed packages:
-> > 
-> > ```bash
-> > (venv) $ python3 -m pip list
-> > ```
-> > 
-> > ```
-> > ```
+::: challenge
+## Update `requirements.txt` After Adding a New Dependency
 
+Export the newly updated virtual environment into `requirements.txt` file.
+
+:::: solution
+
+Let us verify first that the newly installed library `pytest` is appearing in our virtual environment
+but not in `requirements.txt`. First, let us check the list of installed packages:
+
+```bash
+(venv) $ python3 -m pip list
+```
+
+```output
 Package         Version
 
 ***
@@ -390,18 +373,16 @@ pytest          7.4.3
 python-dateutil 2.8.2
 setuptools      67.6.1
 six             1.16.0
+```
 
-> > ```
-> > {: .output}
-> > We can see the `pytest` library appearing in the listing above. However, if we do:
-> > ```
-> > 
-> > (venv) $ cat requirements.txt
-> > 
-> > ```
-> > {: .language-bash}
-> > ```
+We can see the `pytest` library appearing in the listing above. However, if we do:
 
+```bash
+(venv) $ cat requirements.txt
+
+```
+
+```output
 contourpy==1.2.0
 cycler==0.12.1
 fonttools==4.45.0
@@ -413,19 +394,17 @@ Pillow==10.1.0
 pyparsing==3.1.1
 python-dateutil==2.8.2
 six==1.16.0
+```
 
-> > ```
-> > {: .output}
-> > `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
-> > ```
-> > 
-> > (venv) $ python3 -m pip freeze > requirements.txt
-> > 
-> > ```
-> > {: .language-bash}
-> > `pytest` is now present in `requirements.txt`:
-> > ```
+`pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
 
+```bash
+(venv) $ python3 -m pip freeze > requirements.txt
+```
+
+`pytest` is now present in `requirements.txt`:
+
+```output
 contourpy==1.2.0
 cycler==0.12.1
 fonttools==4.45.0
@@ -440,17 +419,11 @@ pyparsing==3.1.1
 pytest==7.4.3
 python-dateutil==2.8.2
 six==1.16.0
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-:::::::::::::::  solution
-
-```
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 #### Adding a Run Configuration for Our Project
 
@@ -480,7 +453,7 @@ and use on top of virtual environments.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Virtual Environments \& Run Configurations in PyCharm
+## Virtual Environments And Run Configurations in PyCharm
 
 We configured the Python interpreter to use for our project by pointing PyCharm
 to the virtual environment we created from the command line
@@ -496,7 +469,6 @@ based on the same Python 3.11 to work with scientific libraries.
 Run Configurations provided by PyCharm are one extra layer on top of virtual environments -
 you can vary a run configuration each time your code is executed and
 you can have separate configurations for running, debugging and testing your code.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -568,30 +540,28 @@ include/exclude certain files from your search, find usages and occurrences.
 To find a search string in the whole project:
 
 1. From the main menu,
-  select `Edit | Find | Find in Path ...`
-  (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
-
+   select `Edit | Find | Find in Path ...`
+   (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
 2. Type your search string in the search field of the popup.
-  Alternatively, in the editor, highlight the string you want to find
-  and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows).
-  PyCharm places the highlighted string into the search field of the popup.
+   Alternatively, in the editor, highlight the string you want to find
+   and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows).
+   PyCharm places the highlighted string into the search field of the popup.
   
-  ![](fig/pycharm-code-search.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="800px" }
-  If you need, specify the additional options in the popup.
-  PyCharm will list the search strings and all the files that contain them.
+   ![](fig/pycharm-code-search.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="800px" }
 
+   If you need, specify the additional options in the popup.
+   PyCharm will list the search strings and all the files that contain them.
 3. Check the results in the preview area of the dialog where you can replace the search string
-  or select another string,
-  or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again
-  to start a new search.
-
+   or select another string,
+   or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again
+   to start a new search.
 4. To see the list of occurrences in a separate panel,
-  click the `Open in Find Window` button in the bottom right corner.
-  The find panel will appear at the bottom of the main window;
-  use this panel and its options to group the results, preview them,
-  and work with them further.
+   click the `Open in Find Window` button in the bottom right corner.
+   The find panel will appear at the bottom of the main window;
+   use this panel and its options to group the results, preview them,
+   and work with them further.
   
-  ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
+   ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
 
 ### Version Control
 
@@ -651,12 +621,9 @@ Checkout [this optional exercise](17-section1-optional-exercises.md)
 to try out different IDEs and code editors.
 
 
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - An IDE is an application that provides a comprehensive set of facilities for software development, including syntax highlighting, code search and completion, version control, testing and debugging.
 - PyCharm recognises virtual environments configured from the command line using `venv` and `pip`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
