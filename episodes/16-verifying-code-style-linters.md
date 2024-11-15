@@ -204,12 +204,14 @@ run it past Pylint to see what issues with your code are detected, if any.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Optional exercises
+::: challenge
+
+## Optional Exercise: More on Pylint
 
 Checkout [this optional exercise](17-section1-optional-exercises.md)
 to learn more about `pylint`.
 
-
+:::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
