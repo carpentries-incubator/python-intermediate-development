@@ -266,7 +266,7 @@ It accepts input from the View
 and performs the corresponding action on the Model (changing the state of the model)
 and then updates the View accordingly.
 For example, on user request,
-Controller updates a picture on a user's GitHub profile
+Controller updates a picture on a user's GitLab profile
 and then modifies the View by displaying the updated profile back to the user.
 
 ### Limitations to Architectural Design
