@@ -42,7 +42,7 @@ Which one do you like the most and why?
 
 You can try:
 
-- [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course](../instructors/vscode.md)
+- [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course](../learners/vscode.md)
 - [Atom](https://atom-editor.cc/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [RStudio](https://posit.co/download/rstudio-desktop/)

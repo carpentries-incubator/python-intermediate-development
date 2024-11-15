@@ -33,35 +33,27 @@ As you get more comfortable with different tools and their alternatives,
 you will select the one that is right for you based on your personal preferences
 or based on what your collaborators are using.
 
-{% comment %}
-![](fig/section1-overview.png){alt='Tools needed to collaborate on code development effectively' .image-with-shadow width="800px" }
-{% endcomment %}
+![Section 1 Overview](fig/section1-overview.svg){alt='Tools needed to collaborate on code development effectively'}
 
-![](fig/section1-overview.svg){alt='Tools needed to collaborate on code development effectively' .image-with-shadow width="1000px" }
-
-{% comment %}
-flowchart LR
-A(1. Setting up
-software environment
-
-```
-- Isolate and run code: command line, virtual environment & IDE
-- Version control and share code: Git & GitHub
-- Write well-written code: PEP8)
-```
-
-\--> B(2. Verifying
-software correctness)
-\--> C(3. Software development
-as a process)
-\--> D(4. Collaborative
-development for reuse)
-\--> E(5. Managing software
-over its lifetime)
-
+<!---
+Source of the above image can be rendered in the Mermaid live editor:
 <https://mermaid.live/edit#pako:eNpdkttKAzEQhl9lyIVsoS14AtkLQW3RggVRUJC9GXdn20A2s0wmLSK-u0m3K2IuQpj83z-H5MvU3JApTet4X29RFB6fKw9p3RSnc3ghVes3EHsYooFb3aMQkN9ZYd-R18oPdzNYBXaoBOgbkOghm5dp77occdbTFBKmEd1fgwAnsFosw2jzShIsZ9yrsDvYhW3OOhjeW01E2h_ix8i8iU2J9-TcbJ-OSmP2p-XT1aTys9k13BZn82xu28_U1L-GahahWj2FMIFBf1ecpxGMgoZ25LjPBR-HgQEQeuE6MwOyKC7mcMfO4QcLqt3RUfuXbllAKAY6Qsvicg5r9LjJs_6taAB5RwI2zcjZltR2NDFT05F0aJv0cF9ZVRndUkeVKdOxoRaj08pU_jtJMSq_fPralCqRpib2TXqihcWNYGfKFl1IUWqssqyHz3D4E6NyebgZ6R79O_PIff8AoRHADA>
 
-{% endcomment %}
+The mermaid source (with one less dash in arrows than needed):
+
+flowchart LR
+  A(1. Setting up
+  software environment
+
+  - Isolate and run code: command line, virtual environment & IDE
+  - Version control and share code: Git & GitHub
+  - Write well-written code: PEP8)
+
+  A -> B(2. Verifying software correctness)
+  B -> C(3. Software development as a process)
+  C -> D(4. Collaborative development for reuse)
+  D -> E(5. Managing software over its lifetime)
+-->
 
 Here is an overview of the tools we will be using.
 

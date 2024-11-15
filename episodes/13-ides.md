@@ -81,7 +81,7 @@ and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.co
 
 ## Using VS Code for This Course
 
-If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../instructors/vscode.md)
+If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../learners/vscode.md)
 to help you set up. The instructions for PyCharm in the course will not apply to you verbatim but there
 is an equivalent functionality in VS Code for each of the actions we ask you to do in PyCharm.
 
