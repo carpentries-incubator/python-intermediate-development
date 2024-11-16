@@ -236,4 +236,43 @@ You should talk to your system administrator to setup dedicated runners for you.
 You can also use gitlab.com's runners for free if you provide your credit/debit card details,
 read more [here](https://about.gitlab.com/pricing/#why-do-i-need-to-enter-credit-debit-card-details-for-free-compute-minutes)
 
+> ## Exercise (Optional): Install self-managed GitLab runner.
+> Please refer to [this guide for various choices on how to install a local runner](https://docs.gitlab.com/runner/install/docker.html)
+>  
+> These are the steps that will work for most setups:
+> 
+> ### 0. Make sure you have docker installed on your machine.
+> [TNO Coding guild Docker guide](https://codingguild.tno.nl/coding-at-tno/programming-environments/?h=docker#docker (VPN needed))
+> 
+> ### 1. Install the GitLab runner through docker 
+> Optional: In MacOS systems, /srv does not exist by default. Create /private/srv, or another private directory, for setup.
+> 
+> ```
+> docker run -d --name gitlab-runner --restart always \
+>   -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+>   -v /var/run/docker.sock:/var/run/docker.sock \
+>   gitlab/gitlab-runner:latest
+> 
+> ```
+> ### 2. Create a shared runner (via GitLab interface)
+> 
+> `Build -> Runners -> New group runner (Select Run untagged jobs) -> Create runner`
+> 
+> You will see a command to register you runner, copy it and paste in the following step.
+> 
+> 
+> ### 3. Register the runner
+> 
+> ```
+> docker exec -it gitlab-runner /bin/bash
+> gitlab-runner register --url <<url>> --token <<token>>
+> ```
+> Use `docker` executer, you can specify `python:latest` when you are asked for a default docker image. 
+> 
+> ### 4. Run
+> ```
+> gitlab-runner run
+> ```
+{: .challenge}
+
 {% include links.md %}
