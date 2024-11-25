@@ -638,7 +638,7 @@ and push the new commits to your remote repository on GitHub.
 
 In `inflammation/models.py`:
 
-```
+```python
 ...
 def patient_normalise(data):
     """
