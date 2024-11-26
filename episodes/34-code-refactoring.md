@@ -281,49 +281,52 @@ i.e. their tests are:
 - **easier to maintain** - if at some point the data format changes
   from CSV to JSON, the bulk of the tests need not be updated
 
-> ## Exercise: Testing a Pure Function
-> 
-> Add tests for `compute_standard_deviation_by_data()` that check for situations
-> when there is only one file with multiple rows,
-> multiple files with one row, and any other cases you can think of that should be tested.
-> 
-> > ## Solution
-> > 
-> > You might have thought of more tests, but we can easily extend the test by parametrizing
-> > with more inputs and expected outputs:
-> > 
-> > ```python
-> > @pytest.mark.parametrize('data,expected_output', [
-> >     ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
-> >     ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
-> >     ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
-> > ],
-> > ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
-> > def test_compute_standard_deviation_by_day(data, expected_output):
-> >     from inflammation.compute_data import compute_standard_deviation_by_data
-> > 
-> >     result = compute_standard_deviation_by_data(data)
-> >     npt.assert_array_almost_equal(result, expected_output)
-> > ```
+::: challenge
+## Exercise: Testing a Pure Function
 
+Add tests for `compute_standard_deviation_by_data()` that check for situations
+when there is only one file with multiple rows,
+multiple files with one row, and any other cases you can think of that should be tested.
+
+:::: solution
+
+You might have thought of more tests, but we can easily extend the test by parametrizing
+with more inputs and expected outputs:
+
+```python
+@pytest.mark.parametrize('data,expected_output', [
+    ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
+    ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
+    ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
+],
+ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
+def test_compute_standard_deviation_by_day(data, expected_output):
+    from inflammation.compute_data import compute_standard_deviation_by_data
+
+    result = compute_standard_deviation_by_data(data)
+    npt.assert_array_almost_equal(result, expected_output)
 ```
-> {: .solution}
-{: .challenge}
 
-> ## Functional Programming
-> **Functional programming** is a programming paradigm where programs are constructed by 
-> applying and composing/chaining pure functions.
-> Some programming languages, such as Haskell or Lisp, support writing pure functional code only.
-> Other languages, such as Python, Java, C++, allow mixing **functional** and **procedural** 
-> programming paradigms. 
-> Read more in the [extra episode on functional programming](../functional-programming/index.html)
-> and when it can be very useful to switch to this paradigm 
-> (e.g. to employ MapReduce approach for data processing).
-{: .callout}
+::::
+:::
 
+::: callout
 
-There are no definite rules in software design but making your complex logic out of 
-composed pure functions is a great place to start when trying to make your code readable, 
+## Functional Programming
+
+**Functional programming** is a programming paradigm where programs are constructed by
+applying and composing/chaining pure functions.
+Some programming languages, such as Haskell or Lisp, support writing pure functional code only.
+Other languages, such as Python, Java, C++, allow mixing **functional** and **procedural**
+programming paradigms.
+Read more in the [extra episode on functional programming](../learners/functional-programming.md)
+and when it can be very useful to switch to this paradigm
+(e.g. to employ MapReduce approach for data processing).
+
+:::
+
+There are no definite rules in software design but making your complex logic out of
+composed pure functions is a great place to start when trying to make your code readable,
 testable and maintainable. This is particularly useful for:
 
 * Data processing and analysis 
@@ -339,46 +342,46 @@ which are characteristics of (but not limited to) the object-oriented programmin
 In this episode, we mentioned [pure functions](./index.html#pure-functions) 
 and Functional Programming.
 
-These are examples of different [programming paradigms](/programming-paradigms/index.html) 
+These are examples of different [programming paradigms](../learners/programming-paradigms.md) 
 and provide varied approaches to structuring your code - 
 each with certain strengths and weaknesses when used to solve particular types of problems. 
 In many cases, particularly with modern languages, a single language can allow many different 
 structural approaches and mixing programming paradigms within your code.
-Once your software begins to get more complex - it is common to use aspects of [different paradigm](../programming-paradigms/index.html) 
+Once your software begins to get more complex - it is common to use aspects of [different paradigm](../learners/programming-paradigms.md) 
 to handle different subtasks. 
-Because of this, it is useful to know about the [major paradigms](../programming-paradigms/index.html), 
+Because of this, it is useful to know about the [major paradigms](../learners/programming-paradigms.md), 
 so you can recognise where it might be useful to switch. 
 This is outside of scope of this course - we have some extra episodes on the topics of 
-[procedural programming](../procedural-programming/index.html), 
-[functional programming](../functional-programming/index.html) and 
-[object-oriented programming](../object-oriented-programming/index.html) if you want to know more.
+[procedural programming](../learners/procedural-programming.md), 
+[functional programming](../learners/functional-programming.md) and 
+[object-oriented programming](../learners/object-oriented-programming.md) if you want to know more.
 
-> ## So Which One is Python?
-> Python is a multi-paradigm and multi-purpose programming language.
-> You can use it as a procedural language and you can use it in a more object oriented way.
-> It does tend to land more on the object oriented side as all its core data types
-> (strings, integers, floats, booleans, lists,
-> sets, arrays, tuples, dictionaries, files)
-> as well as functions, modules and classes are objects.
->
-> Since functions in Python are also objects that can be passed around like any other object,
-> Python is also well suited to functional programming.
-> One of the most popular Python libraries for data manipulation,
-> [Pandas](https://pandas.pydata.org/) (built on top of NumPy),
-> supports a functional programming style
-> as most of its functions on data are not changing the data (no side effects)
-> but producing a new data to reflect the result of the function.
-{: .callout}
+::: callout
+
+## So Which One is Python?
+
+Python is a multi-paradigm and multi-purpose programming language.
+You can use it as a procedural language and you can use it in a more object oriented way.
+It does tend to land more on the object oriented side as all its core data types
+(strings, integers, floats, booleans, lists,
+sets, arrays, tuples, dictionaries, files)
+as well as functions, modules and classes are objects.
+
+Since functions in Python are also objects that can be passed around like any other object,
+Python is also well suited to functional programming.
+One of the most popular Python libraries for data manipulation,
+[Pandas](https://pandas.pydata.org/) (built on top of NumPy),
+supports a functional programming style
+as most of its functions on data are not changing the data (no side effects)
+but producing a new data to reflect the result of the function.
+:::
 
 ## Software Design and Architecture
 
-In this section so far we have been talking about **software design** - the individual modules and 
-components of the software. We are now going to have a brief look into **software architecture** - 
-which is about the overall structure that these software components fit into, a *design pattern* 
-with a common successful use of software components. 
-
-{% include links.md %}
-```
+In this section so far we have been talking about **software design** - the individual modules and
+components of the software. We are now going to have a brief look into **software architecture** -
+which is about the overall structure that these software components fit into, a *design pattern*
+with a common successful use of software components.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -387,5 +390,3 @@ with a common successful use of software components.
 - Using pure functions that process data without side effects whenever possible makes the code easier to understand, test and maintain.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
