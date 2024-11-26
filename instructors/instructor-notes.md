@@ -6,7 +6,7 @@ title: Instructor Notes
 
 ## Common Issues \& Tips
 
-Check out a [list of issues](../instructors/common-issues.md) previous participants of the course encountered
+Check out a [list of issues](../learners/common-issues.md) previous participants of the course encountered
 and some tips to help you with troubleshooting at the workshop.
 
 

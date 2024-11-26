@@ -31,8 +31,8 @@ Key features of procedural programming include:
 
 To better understand procedural programming, it is useful to compare it with other prevalent
 programming paradigms such as
-[object-oriented programming](../instructors/object-oriented-programming.md) (OOP)
-and [functional programming](../instructors/functional-programming.md)
+[object-oriented programming](../learners/object-oriented-programming.md) (OOP)
+and [functional programming](../learners/functional-programming.md)
 to shed light on their distinctions, advantages, and drawbacks.
 
 Procedural programming uses a very detailed list of instructions to tell the computer what to do
@@ -43,11 +43,11 @@ structure (rather than iteration).
 Procedural languages treat data and procedures as two different
 entities whereas, in functional programming, code is also treated as data - functions
 can take other functions as arguments or return them as results.
-Compare and contract [two different implementations](../instructors/functional-programming.md#functional-vs-procedural-programming)
+Compare and contract [two different implementations](../learners/functional-programming.md#functional-vs-procedural-programming)
 of the same functionality in procedural and functional programming styles
 to better grasp their differences.
 
-Procedural and [object-oriented programming](../instructors/object-oriented-programming.md) have fundamental differences in their approach to
+Procedural and [object-oriented programming](../learners/object-oriented-programming.md) have fundamental differences in their approach to
 organising code and solving problems.
 In procedural programming, the code is structured around functions and procedures that execute a
 specific task or operations. Object-oriented programming is based around objects and classes,
@@ -58,7 +58,7 @@ objects.
 However, OOP goes further by encapsulating related data and methods within objects,
 enabling a higher level of abstraction and separation between different components.
 Inheritance and polymorphism are two vital features provided by OOP, which are not intrinsically
-supported by procedural languages. [Inheritance](../instructors/object-oriented-programming.md#inheritance) allows the creation of classes that inherit
+supported by procedural languages. [Inheritance](../learners/object-oriented-programming.md#inheritance) allows the creation of classes that inherit
 properties and methods from existing classes – enabling code reusability and reducing redundancy.
 [Polymorphism](../episodes/33-code-decoupling-abstractions.md#polymorphism) permits a single function or method to operate on multiple data types or objects,
 improving flexibility and adaptability.

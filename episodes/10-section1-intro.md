@@ -62,7 +62,7 @@ Here is an overview of the tools we will be using.
 ## Setup, Common Issues \& Fixes
 
 Have you [setup and installed](../learners/setup.md) all the tools and accounts required for this course?
-Check the list of [common issues, fixes \& tips](../instructors/common-issues.md)
+Check the list of [common issues, fixes \& tips](../learners/common-issues.md)
 if you experience any problems running any of the tools you installed -
 your issue may be solved there.
 
@@ -83,7 +83,7 @@ and isolate our software project from other Python projects we may work on.
 
 ***Note:** some Windows users experience the issue where Python hangs from Git Bash
 (i.e. typing `python` causes it to just hang with no error message or output) -
-[see the solution to this issue](../instructors/common-issues.md#python-hangs-in-git-bash).*
+[see the solution to this issue](../learners/common-issues.md#python-hangs-in-git-bash).*
 
 ### Integrated Development Environment (IDE)
 

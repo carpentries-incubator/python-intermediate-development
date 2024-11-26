@@ -98,12 +98,22 @@ episodes:
 
 # Information for Learners
 learners: 
+- quiz.md
 - learner-setup.md
-- vscode.md
+- common-issues.md
 - reference.md
+- vscode.md
+- software-architecture-extra.md
+- programming-paradigms.md
+- procedural-programming.md
+- functional-programming.md
+- object-oriented-programming.md
+- persistence.md
+- databases.md
 
 # Information for Instructors
 instructors: 
+- instructor-notes.md
 
 # Learner Profiles
 profiles: 

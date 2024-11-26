@@ -48,7 +48,7 @@ More details on command line prompt customisation can be found in this
 
 When accessing external services and websites
 (such as GitHub using `git` or to
-[install Python packages with `pip`](../instructors/common-issues.md#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)),
+[install Python packages with `pip`](../learners/common-issues.md#connection-issues-when-installing-packages-with-pip-over-vpn-or-protected-networks---proxy-needed)),
 you may experience connection errors
 (e.g. similar to `fatal: unable to access '....': Failed connect to github.com`)
 or a connection that hangs.

@@ -154,7 +154,7 @@ intended for people who have already been developing code in Python (or other la
 and applying it to their own problems after gaining basic software development skills.
 So, it is expected for you to have some prerequisite knowledge on the topics covered,
 as outlined at the [beginning of the lesson](../index.md#prerequisites).
-Check out this [quiz](../instructors/quiz.md) to help you test your prior knowledge
+Check out this [quiz](../learners/quiz.md) to help you test your prior knowledge
 and determine if this course is for you.
 
 
@@ -165,7 +165,7 @@ and determine if this course is for you.
 ## Setup, Common Issues \& Fixes
 
 Have you [setup and installed](../learners/setup.md) all the tools and accounts required for this course?
-Check the list of [common issues, fixes \& tips](../instructors/common-issues.md)
+Check the list of [common issues, fixes \& tips](../learners/common-issues.md)
 if you experience any problems running any of the tools you installed -
 your issue may be solved there.
 

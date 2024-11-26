@@ -16,7 +16,7 @@ to follow the course.
 ## Common Issues \& Tips
 
 If you are having issues installing or running some of the tools below,
-check a list of [common issues](instructors/common-issues.md) other course participants encountered and some useful tips for using the tools and working through the material.
+check a list of [common issues](learners/common-issues.md) other course participants encountered and some useful tips for using the tools and working through the material.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -276,7 +276,7 @@ $ python --version # on Windows — Windows installation comes with a python.exe
 ```
 
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may
-need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](instructors/common-issues.md#python-hangs-in-git-bash).
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](learners/common-issues.md#python-hangs-in-git-bash).
 
 If all is well with your installation, you should see something like:
 

@@ -37,7 +37,7 @@ but larger scale templates which operate at the level of whole programs,
 or collections or programs.
 Model-View-Controller (which we chose for our project) is one of the best known architecture
 patterns.
-Many patterns rely on concepts from [Object Oriented Programming](../instructors/object-oriented-programming.md).
+Many patterns rely on concepts from [Object Oriented Programming](../learners/object-oriented-programming.md).
 
 There are many online sources of information about design and architecture patterns,
 often giving concrete examples of cases where they may be useful.

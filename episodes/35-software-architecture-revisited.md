@@ -318,16 +318,16 @@ Instead there are two rules which must be followed for these arguments:
 
 ### Additional Reading Material \& References
 
-Now that we have covered and revisited [software architecture](../instructors/software-architecture-extra.md)
-and [different programming paradigms](../instructors/programming-paradigms.md)
+Now that we have covered and revisited [software architecture](../learners/software-architecture-extra.md)
+and [different programming paradigms](../learners/programming-paradigms.md)
 and how we can integrate them into our architecture,
 there are two optional extra episodes which you may find interesting.
 
 Both episodes cover the persistence layer of software architectures
 and methods of persistently storing data, but take different approaches.
-The episode on [persistence with JSON](../instructors/persistence.md) covers
+The episode on [persistence with JSON](../learners/persistence.md) covers
 some more advanced concepts in Object Oriented Programming, while
-the episode on [databases](../instructors/databases.md) starts to build towards a true multilayer architecture,
+the episode on [databases](../learners/databases.md) starts to build towards a true multilayer architecture,
 which would allow our software to handle much larger quantities of data.
 
 ## Towards Collaborative Software Development

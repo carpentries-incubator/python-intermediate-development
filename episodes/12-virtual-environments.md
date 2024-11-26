@@ -213,7 +213,7 @@ $ python --version # on Windows — Windows installation comes with a python.exe
 ```
 
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may
-need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../instructors/common-issues.md#python-hangs-in-git-bash).
+need to create an alias for the python executable `python.exe`, as explained in the [troubleshooting section](../learners/common-issues.md#python-hangs-in-git-bash).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -95,7 +95,7 @@ After going through this course, participants will be able to:
 ## Prerequisites
 
 Before joining this training, participants should meet the following criteria.
-(You can use [this short quiz](instructors/quiz.md) to test your prerequisite knowledge.)
+(You can use [this short quiz](learners/quiz.md) to test your prerequisite knowledge.)
 
 ### Git
 

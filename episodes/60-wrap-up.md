@@ -139,8 +139,8 @@ and in which order you should consider learning skills.
 
 Below are some additional resources to help you continue learning:
 
-- [Additional episode on persisting data](../instructors/persistence.md)
-- [Additional episode on databases](../instructors/databases.md)
+- [Additional episode on persisting data](../learners/persistence.md)
+- [Additional episode on databases](../learners/databases.md)
 - [CodeRefinery courses on FAIR
   (Findable, Accessible, Interoperable, and Reusable)
   software practices][coderefinery-lessons]

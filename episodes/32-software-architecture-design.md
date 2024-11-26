@@ -252,7 +252,7 @@ such as [Excalidraw](https://excalidraw.com/).
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We have been developing our software using the **Model-View-Controller** (MVC) architecture,
-but MVC is just one of the common [software architectural patterns](../instructors/software-architecture-extra.md)
+but MVC is just one of the common [software architectural patterns](../learners/software-architecture-extra.md)
 and is not the only choice we could have made.
 
 ### Model-View-Controller (MVC) Architecture
