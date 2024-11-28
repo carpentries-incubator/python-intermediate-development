@@ -1,27 +1,21 @@
 ---
-title: Object Oriented Programming
+title: "Extra Content: Object Oriented Programming"
 teaching: 30
 exercises: 35
-questions:
+---
+
+::: questions:
 - How can we use code to describe the structure of data?
 - How should the relationships between structures be described?
-objectives:
+:::
+
+::: objectives
 - Describe the core concepts that define the object oriented paradigm
 - Use classes to encapsulate data within a more complex program
 - Structure concepts within a program in terms of sets of behaviour
 - Identify different types of relationship between concepts within a program
 - Structure data within a program using these relationships
-keypoints:
-- Object oriented programming is a programming paradigm based on the concept of classes,
-  which encapsulate data and code.
-- Classes allow us to organise data into distinct concepts.
-- By breaking down our data into classes, we can reason about the behaviour of parts
-  of our data.
-- Relationships between concepts can be described using inheritance (*is a*) and composition
-  (*has a*).
----
-
-## Introduction
+:::
 
 Object oriented programming is a programming paradigm based on the concept of objects,
 which are data structures that contain (encapsulate) data and code.
@@ -915,5 +909,13 @@ class Patient(Person):
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-
+::: keypoints
+- Object oriented programming is a programming paradigm based on the concept of classes,
+  which encapsulate data and code.
+- Classes allow us to organise data into distinct concepts.
+- By breaking down our data into classes, we can reason about the behaviour of parts
+  of our data.
+- Relationships between concepts can be described using inheritance (*is a*) and composition
+  (*has a*).
+:::
 

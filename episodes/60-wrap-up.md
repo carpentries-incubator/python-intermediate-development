@@ -1,8 +1,5 @@
 ---
 title: Wrap-up
-start: yes
-type: wrap-up
-colour: '#FBED65'
 teaching: 15
 exercises: 0
 ---
@@ -20,7 +17,7 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-{% comment %}
+<!--
 Examples of 'good' code best practices (from Steve's slides):
 Correct – does what it's intended to do
 Readable – remember WORM (Write Once Read Many)
@@ -38,7 +35,7 @@ e.g. trade off between time, efficiency and performance,
 the levels of software reusability - this will dictate practices and the level of development.
 This can lead to a discussion.
 Reiterate some of the key messages.
-{% endcomment %}
+-->
 
 ## Summary
 
@@ -141,9 +138,9 @@ Below are some additional resources to help you continue learning:
 
 - [Additional episode on persisting data](../learners/persistence.md)
 - [Additional episode on databases](../learners/databases.md)
-- [CodeRefinery courses on FAIR
-  (Findable, Accessible, Interoperable, and Reusable)
-  software practices][coderefinery-lessons]
+- [Additional episode on software architecture](../learners/software-architecture-extra.md)
+- [Additional episode on programming paradigms](../learners/programming-paradigms.md)
+- [CodeRefinery lessons][coderefinery-lessons] on writing software for open and reproducible research
 - [Python documentation][python-documentation]
 - [GitHub Actions documentation][github-actions]
 

@@ -1,5 +1,5 @@
 ---
-title: Diagnosing Issues and Improving Robustness
+title: 2.4 Diagnosing Issues and Improving Robustness
 teaching: 30
 exercises: 15
 ---

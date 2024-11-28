@@ -1,5 +1,5 @@
 ---
-title: Code Refactoring
+title: 3.4 Code Refactoring
 teaching: 30
 exercises: 20
 ---

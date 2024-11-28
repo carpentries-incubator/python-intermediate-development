@@ -1,14 +1,16 @@
 ---
-title: Software Architecture
+title: "Extra Content: Software Architecture"
 teaching: 15
 exercises: 0
-questions: What should we consider when designing software?
-objectives: Understand the components of multi-layer software architectures.
-keypoints: Software architecture provides an answer to the question 'what components
-  will the software have and how will they cooperate?'.
 ---
 
-## Software Architecture
+::: questions
+- What should we consider when designing software?
+:::
+
+::: objectives
+- Understand the components of multi-layer software architectures.
+:::
 
 **Software architecture** provides an answer to the question
 "what components will the software have and how will they cooperate?".
@@ -171,3 +173,7 @@ before displaying it to the user or passing it from the user to the Model.
 
 
 
+::: keypoints:
+- Software architecture provides an answer to the question 'what components
+  will the software have and how will they cooperate?'.
+:::

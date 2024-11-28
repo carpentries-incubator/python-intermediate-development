@@ -1,18 +1,18 @@
 ---
-title: Programming Paradigms
+title: "Extra Content: Programming Paradigms"
 teaching: 20
 exercises: 0
-questions: What should we consider when designing software?
-objectives: Describe some of the major software paradigms we can use to classify programming
-  languages.
-keypoints:
-- A software paradigm describes a way of structuring or reasoning about code.
-- Different programming languages are suited to different paradigms.
-- Different paradigms are suited to solving different classes of problems.
-- A single piece of software will often contain instances of multiple paradigms.
 ---
 
-## Programming Paradigms
+
+::: questions: 
+- What should we consider when designing software?
+:::
+
+::: objectives: 
+- Describe some of the major software paradigms we can use to classify programming languages.
+:::
+
 
 In addition to [architectural decisions](../learners/software-architecture-extra.md) on bigger components of your code, it is important
 to understand the wider landscape of programming paradigms and languages,
@@ -159,5 +159,10 @@ have a closer look at [Functional](../learners/functional-programming.md) and
 in extra episodes and how they can affect our architectural design choices.
 
 
-
+::: keypoints
+- A software paradigm describes a way of structuring or reasoning about code.
+- Different programming languages are suited to different paradigms.
+- Different paradigms are suited to solving different classes of problems.
+- A single piece of software will often contain instances of multiple paradigms.
+:::
 

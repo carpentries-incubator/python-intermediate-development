@@ -1,5 +1,5 @@
 ---
-title: Automatically Testing Software
+title: 2.1 Automatically Testing Software
 teaching: 30
 exercises: 15
 ---

@@ -1,5 +1,5 @@
 ---
-title: Continuous Integration for Automated Testing
+title: 2.3 Continuous Integration for Automated Testing
 teaching: 45
 exercises: 0
 ---
@@ -366,7 +366,7 @@ jobs:
         python-version: ["3.10", "3.11"]
 
     # Here we add the reference to the os matrix values
-    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    runs-on: ${{ matrix.os }}
 
     # Same key-value pairs as in "Defining Our Workflow" section
     steps:
@@ -378,7 +378,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         # Here we add the reference to the python-version matrix values
-        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+        python-version: ${{ matrix.python-version }}
     # Same steps as in "Defining Our Workflow" section
     - name: Install Python dependencies
       run: |
@@ -389,7 +389,7 @@ jobs:
         python3 -m pytest --cov=catchment.models tests/test_models.py
 ```
 
-The `{% raw %}${{ }}{% endraw %}` are used
+The `{{ }}` are used
 as a means to reference configuration values from the matrix.
 This way, every possible permutation of Python versions 3.10 and 3.11
 with the latest versions of Ubuntu, Mac OS and Windows operating systems

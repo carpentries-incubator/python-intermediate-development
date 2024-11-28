@@ -1,7 +1,5 @@
 ---
 title: 'Section 4: Collaborative Software Development for Reuse'
-colour: '#fafac8'
-start: yes
 teaching: 5
 exercises: 0
 ---
@@ -48,46 +46,44 @@ using **Poetry** to manage our Python dependencies
 and produce a code package we can use with a Python package indexing service
 to illustrate these principles.
 
-{% comment %}
-![](fig/section4-overview.png){alt='Software design and architecture' .image-with-shadow width="800px" }
-{% endcomment %}
-
 ![](fig/section4-overview.svg){alt='Software design and architecture' .image-with-shadow width="1000px" }
 
-{% comment %}
+<!--
+Source of the above image can be rendered in the Mermaid live editor:
+
+https://mermaid.live/edit#pako:eNpVkE9rwzAMxb-K8CmFNrB_lxwGW9vbellhh-GLlsitIZGCrKSU0u8-t2vYpouF9HsP-Z1cLQ25yoVWDvUe1eDt3fNLcVfClswi72DoPScJdkAlIB6jCnfENvO8WDzDa3FfwgdpDMdM_0FrUaXamFK6ocviIdtO-4ZGaqW_WHnGBAi9Sv1Lr4rHEpbStvglihZH8vxHA0EUlIaUx54h1wL-vzefdfFUwgYZd5ffTOd5lpEUoiVoYyCLHc3c3HWkHcYmJ3K6mHhne-rIuyq3DQUcWvPO8zmjOJhsj1y7ynSguRv6Bo1WEXeKnasCtilPqYkmuvlJ-Rr2RK6vm0ndI3-KTLrzNzfGi8o
+
+The mermaid source (with one less dash in arrows than needed):
+
 flowchart LR
 A(1. Setting up
 software environment)
-\--> B(2. Verifying
+-> B(2. Verifying
 software correctness)
-\--> C(3. Software development
+-> C(3. Software development
 as a process)
-\--> D(4. Collaborative
+-> D(4. Collaborative
 development for reuse
 
-```
-- Code review
-- Software documentation
-- Software packaging & release
-)
-```
-
-\--> E(5. Managing software
+    - Code review
+    - Software documentation
+    - Software packaging & release
+    )
+-> E(5. Managing software
 over its lifetime)
 
-<https://mermaid.live/edit#pako:eNpVkE9rwzAMxb-K8CmFNrB_lxwGW9vbellhh-GLlsitIZGCrKSU0u8-t2vYpouF9HsP-Z1cLQ25yoVWDvUe1eDt3fNLcVfClswi72DoPScJdkAlIB6jCnfENvO8WDzDa3FfwgdpDMdM_0FrUaXamFK6ocviIdtO-4ZGaqW_WHnGBAi9Sv1Lr4rHEpbStvglihZH8vxHA0EUlIaUx54h1wL-vzefdfFUwgYZd5ffTOd5lpEUoiVoYyCLHc3c3HWkHcYmJ3K6mHhne-rIuyq3DQUcWvPO8zmjOJhsj1y7ynSguRv6Bo1WEXeKnasCtilPqYkmuvlJ-Rr2RK6vm0ndI3-KTLrzNzfGi8o>
-{% endcomment %}
+-->
 
 
 
-{% comment %}
+<!--
 Designing and Developing "Good" Software in Teams
 
 - **Software paradigms and design architectures** for solving different problems based on clear requirements
 - **Writing "good" software** that is understandable, modular, extensible and tested
 - **Publishing and releasing software** for reuse by others
 - **Collaborative code development and review** to improve software sustainability and avoid the accumulation of 'technical debt'.
-  {% endcomment %}
+-->
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

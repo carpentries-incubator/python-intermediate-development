@@ -1,5 +1,5 @@
 ---
-title: Software Development Using Git and GitHub
+title: 1.4 Software Development Using Git and GitHub
 start: no
 teaching: 35
 exercises: 0

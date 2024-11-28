@@ -1,5 +1,5 @@
 ---
-title: Software Architecture and Design
+title: 3.2 Software Architecture and Design
 teaching: 25
 exercises: 25
 ---

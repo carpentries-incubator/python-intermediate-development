@@ -1,11 +1,16 @@
-::: callout
+---
+title: Setup
+---
 
 ## Setup
 
-Please make sure that you have all the necessary software and accounts setup ahead of the workshop
-as described in the [Setup](learners/learner-setup.md) section.
-Also check the list of [common issues, fixes \& tips](learners/common-issues.md)
-if you experience any problems running any of the tools you installed -
-your issue may be solved there.
+You will need the following software and accounts setup to be able to follow the course:
 
-:::
+- Command line tool (such as Bash, Zsh or Git Bash)
+- Git version control program
+- GitHub account
+- Python 3 distribution
+- PyCharm integrated development environment (IDE)
+
+Please follow the [installation instructions](installation-instructions.md) to install the above tools and
+set up for the course.

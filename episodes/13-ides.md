@@ -1,5 +1,5 @@
 ---
-title: Integrated Software Development Environments
+title: 1.3 Integrated Software Development Environments
 start: no
 teaching: 25
 exercises: 10

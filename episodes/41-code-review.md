@@ -1,5 +1,5 @@
 ---
-title: 'Developing Software In a Team: Code Review'
+title: '4.1 Developing Software In a Team: Code Review'
 teaching: 30
 exercises: 30
 ---
@@ -181,7 +181,7 @@ have not seen before.
 
 Here is an outline of the process of a tool assisted code review.
 
-{% comment %}
+<!--
 
 ```mermaid
 %% Must disable useMaxWidth to have the diagram centre
@@ -202,7 +202,8 @@ sequenceDiagram
 ```
 
 Generated with Mermaid tool, diagram available at: <https://mermaid.live/edit#pako:eNptUrtuwzAM_BVCgOEl_QEPAYx29eKgyOKFsZhYgF6VKLeBkX-vXDvNo5UWSXfHI0VOoneSRCWKApoUGaSKeNAEKVKDX3sleQB2MOBIwANlHE8BDfRkOVBni2JSVnEFE5SRPhLZnsp8K-8ClNURdaQL5F0Unb3y3pZYnYW8PAZWvfJoGWrACHXiwYW_YDuDLY2KPmmF65fttq5gHxQTRGcI5qpuWFtBiyoSIPikNYQ5gcgLoV0ItZRZZUyuK84VY2bNHjdSdtilg1H8hGnnPLxbVhrQ--BGkgtwZ5-jB4oRXMjS6J2Vs8cS5df2plrtXjUGdTyvKqdHeuKSlQ_51Yv_P1WuX9RQOD3CYiMMBYNK5imYZnIncqMNdaLKR0lHTJo70dlLpmJitzvbXlQcEm1E8hL52sjrI0nFLjTLYP3M1-Ub_pDLrQ>
-{% endcomment %}
+-->
+
 ![](fig/code-review-sequence-diagram.svg){alt='Code review process sequence' .image-with-shadow width="600px"}
 
 Recall [solution requirement SR1.1.1](31-software-requirements.md)

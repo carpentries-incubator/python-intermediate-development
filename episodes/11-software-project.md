@@ -1,5 +1,5 @@
 ---
-title: Introduction to Our Software Project
+title: 1.1 Introduction to Our Software Project
 teaching: 20
 exercises: 10
 ---

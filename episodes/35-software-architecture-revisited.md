@@ -1,5 +1,5 @@
 ---
-title: Software Architecture Revisited
+title: 3.5 Software Architecture Revisited
 teaching: 15
 exercises: 30
 ---

@@ -1,5 +1,5 @@
 ---
-title: Packaging Code for Release and Distribution
+title: 4.3 Packaging Code for Release and Distribution
 teaching: 0
 exercises: 20
 ---

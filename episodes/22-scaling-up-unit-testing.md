@@ -1,5 +1,5 @@
 ---
-title: Scaling Up Unit Testing
+title: 2.2 Scaling Up Unit Testing
 teaching: 10
 exercises: 5
 ---

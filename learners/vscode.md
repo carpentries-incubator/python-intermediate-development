@@ -1,6 +1,14 @@
 ---
-title: Using Microsoft Visual Studio Code
+title: "Extra Content: Using Microsoft Visual Studio Code"
 ---
+
+::: objectives
+- Use VS Code as an IDE of choice instead of PyCharm
+:::
+
+::: questions
+- How do we set up VS Code as our IDE of choice for this course?
+:::
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/), not to be confused with [Visual Studio](https://visualstudio.microsoft.com/),
 is an Integrated Development Environment (IDE) by Microsoft. You can use it as your IDE for this course
@@ -192,6 +200,10 @@ When clicking on a test you will see two icons,
 the ordinary Run/Play icon, and a Run/Play icon with a bug.
 The latter allows you to run the tests in debug mode
 useful for obtaining further information as to why a failure has occurred - this will be covered in the main lesson material.
+
+::: keypoints
+- It is possible to switch to using VS Code for this course with a few tweaks
+:::
 
 [wsl]: https://learn.microsoft.com/en-us/windows/wsl/about
 [vscode-wsl-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl

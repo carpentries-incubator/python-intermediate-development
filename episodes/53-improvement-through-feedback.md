@@ -1,5 +1,5 @@
 ---
-title: Software Improvement Through Feedback
+title: 5.3 Software Improvement Through Feedback
 teaching: 25
 exercises: 45
 ---
@@ -231,8 +231,7 @@ e.g. "Tidy up documentation" or "version 0.1".
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-{% comment %}
-
+<!--
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Milestones in Project Boards
@@ -244,10 +243,8 @@ You can add or remove an issue or pull request from milestones using the details
 and filter your project cards by milestones using the search bar.
 
 ![](fig/github-milestone-in-project-board.png){alt='Milestones in Project Boards' .image-with-shadow width="900px"}
-
-{% endcomment %}
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+-->
 
 ## Using Sprints to Organise and Work on Issues
 

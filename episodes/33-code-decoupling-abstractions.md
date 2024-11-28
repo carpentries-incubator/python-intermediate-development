@@ -1,5 +1,5 @@
 ---
-title: Code Decoupling & Abstractions
+title: 3.3 Code Decoupling & Abstractions
 teaching: 30
 exercises: 45
 ---

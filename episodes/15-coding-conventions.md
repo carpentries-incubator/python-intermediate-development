@@ -1,6 +1,5 @@
 ---
-title: Python Code Style Conventions
-start: no
+title: 1.5 Python Code Style Conventions
 teaching: 20
 exercises: 20
 ---
@@ -29,7 +28,8 @@ to make sure that your code is consistently formatted and readable by yourself a
 
 > *"Any fool can write code that a computer can understand.
 > Good programmers write code that humans can understand."*  
-> - [Martin Fowler](https://en.wikiquote.org/wiki/Martin_Fowler), British software engineer, author and international speaker on software development
+> 
+> --- [Martin Fowler](https://en.wikiquote.org/wiki/Martin_Fowler), British software engineer, author and international speaker on software development
 
 ## Python Coding Style Guide
 

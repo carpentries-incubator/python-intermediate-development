@@ -1,16 +1,18 @@
 ---
-title: Databases
+title: "Extra Content: Databases"
 teaching: 30
 exercises: 30
-questions: How can we persist complex structured data for efficient access?
-objectives:
-- Describe the structure of a relational database
-- Store and retrieve structured data using an Object Relational Mapping (ORM)
-keypoints: Relational databases are often the best persistence mechanism for data
-  which fits well to the Object Oriented paradigm.
 ---
 
-## Databases
+::: questions
+- How can we persist complex structured data for efficient access?
+:::
+
+::: objectives
+- Describe the structure of a relational database
+- Store and retrieve structured data using an Object Relational Mapping (ORM)
+:::
+
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -432,7 +434,7 @@ by moving it into one or more functions at the top of the test file.
 We have added the ability to store patient records in the database,
 but not actually connected it to any useful views.
 there is a common pattern in data management software
-which is often refered to as **CRUD** - Create, Read, Update, Delete.
+which is often referred to as **CRUD** - Create, Read, Update, Delete.
 These are the four fundamental views that we need to provide
 to allow people to manage their data effectively.
 
@@ -464,3 +466,7 @@ will be useful to you here.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+::: keypoints
+- Relational databases are often the best persistence mechanism for data
+which fits well to the Object Oriented paradigm.
+:::

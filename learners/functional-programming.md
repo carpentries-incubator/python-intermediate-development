@@ -1,34 +1,21 @@
 ---
-title: Functional Programming
+title: "Extra Content: Functional Programming"
 teaching: 30
 exercises: 30
-questions:
+---
+
+::: questions
 - What is functional programming?
 - Which situations/problems is functional programming well suited for?
-objectives:
+:::
+
+::: objectives
 - Describe the core concepts that define the functional programming paradigm
 - Describe the main characteristics of code that is written in functional programming
   style
 - Learn how to generate and process data collections efficiently using MapReduce and
   Python's comprehensions
-keypoints:
-- Functional programming is a programming paradigm where programs are constructed
-  by applying and composing smaller and simple functions into more complex ones (which
-  describe the flow of data within a program as a sequence of data transformations).
-- In functional programming, functions tend to be *pure* - they do not exhibit *side-effects*
-  (by not affecting anything other than the value they return or anything outside
-  a function). Functions can also be named, passed as arguments, and returned from
-  other functions, just as any other data type.
-- MapReduce is an instance of a data generation and processing approach, in particular
-  suited for functional programming and handling Big Data within parallel and distributed
-  environments.
-- Python provides comprehensions for lists, dictionaries, sets and generators - a
-  concise (if not strictly functional) way to generate new data from existing data
-  collections while performing sophisticated mapping, filtering and conditional logic
-  on original dataset's members.
----
-
-## Introduction
+:::
 
 Functional programming is a programming paradigm where
 programs are constructed by applying and composing/chaining **functions**.
@@ -874,3 +861,19 @@ Took 0.124199753 seconds
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+::: keypoints
+- Functional programming is a programming paradigm where programs are constructed
+  by applying and composing smaller and simple functions into more complex ones (which
+  describe the flow of data within a program as a sequence of data transformations).
+- In functional programming, functions tend to be *pure* - they do not exhibit *side-effects*
+  (by not affecting anything other than the value they return or anything outside
+  a function). Functions can also be named, passed as arguments, and returned from
+  other functions, just as any other data type.
+- MapReduce is an instance of a data generation and processing approach, in particular
+  suited for functional programming and handling Big Data within parallel and distributed
+  environments.
+- Python provides comprehensions for lists, dictionaries, sets and generators - a
+  concise (if not strictly functional) way to generate new data from existing data
+  collections while performing sophisticated mapping, filtering and conditional logic
+  on original dataset's members.
+:::

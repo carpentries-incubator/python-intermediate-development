@@ -1,7 +1,5 @@
 ---
 title: 'Section 1: Setting Up Environment For Collaborative Code Development'
-colour: '#fafac8'
-start: yes
 teaching: 10
 exercises: 0
 ---

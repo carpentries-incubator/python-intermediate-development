@@ -1,11 +1,10 @@
 ---
-title: Learner Setup
+title: Installation Instructions
 ---
 
-You will need the following software installed and working correctly on your system to be able
-to follow the course.
+You will need the following software and accounts setup to be able to follow the course:
 
-- [Command line tool](#command-line-tool) (such as **Bash**, **Zsh** or **Git Bash**)
+- [Command line tool](#command-line-tool) (such as Bash, Zsh or Git Bash)
 - [Git version control program](#git-version-control-tool)
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)

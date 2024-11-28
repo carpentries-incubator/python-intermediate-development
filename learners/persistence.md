@@ -1,11 +1,15 @@
 ---
-title: Persistence
+title: "Extra Content: Persistence"
 teaching: 25
 exercises: 25
-questions:
+---
+
+::: questions
 - How can we store and transfer structured data?
 - How can we make it easier to substitute new components into our software?
-objectives:
+:::
+
+::: objectives
 - Describe how the environment in which software is used may constrain its design.
 - Identify common components of multi-layer software projects.
 - Define serialisation and deserialisation.
@@ -13,19 +17,7 @@ objectives:
 - Define what is meant by a contract in the context of Object Oriented design.
 - Explain the benefits of contracts and implement software components which fulfill
   them.
-keypoints:
-- Planning software projects in advance can save a lot of effort later - even a partial
-  plan is better than no plan at all.
-- The environment in which users run our software has an effect on many design choices
-  we might make.
-- By breaking down our software into components with a single responsibility, we avoid
-  having to rewrite it all when requirements change.
-- These components can be as small as a single function, or be a software package
-  in their own right.
-- When writing software used for research, requirements *always* change.
----
-
-## Introduction
+:::
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -435,6 +427,16 @@ Can you think of any cases when a CSV might not be a suitable format to hold our
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
+::: keypoints
+- Planning software projects in advance can save a lot of effort later - even a partial
+  plan is better than no plan at all.
+- The environment in which users run our software has an effect on many design choices
+  we might make.
+- By breaking down our software into components with a single responsibility, we avoid
+  having to rewrite it all when requirements change.
+- These components can be as small as a single function, or be a software package
+  in their own right.
+- When writing software used for research, requirements *always* change.
+:::
 
 

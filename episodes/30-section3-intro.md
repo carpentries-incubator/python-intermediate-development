@@ -1,7 +1,5 @@
 ---
 title: 'Section 3: Software Development as a Process'
-colour: '#fafac8'
-start: yes
 teaching: 10
 exercises: 0
 ---
@@ -23,7 +21,9 @@ exercises: 0
 In this section, we will take a step back from coding development practices and tools
 and look at the bigger picture of software as a *process* of development.
 
-> *"If you fail to plan, you are planning to fail."* - Benjamin Franklin
+> *"If you fail to plan, you are planning to fail."* 
+> 
+> --- Benjamin Franklin
 
 ![](fig/section3-overview.svg){alt='Software design and architecture overview flowchart'}
 

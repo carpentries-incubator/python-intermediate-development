@@ -1,5 +1,5 @@
 ---
-title: Managing a Collaborative Software Project
+title: 5.1 Managing a Collaborative Software Project
 teaching: 15
 exercises: 20
 ---

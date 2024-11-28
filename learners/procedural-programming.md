@@ -1,17 +1,19 @@
 ---
-title: Procedural Programming
+title: "Extra Content: Procedural Programming"
 teaching: 10
 exercises: 0
-questions:
+---
+
+::: questions
 - What is procedural programming?
 - Which situations/problems is procedural programming well suited for?
-objectives:
+:::
+::: objectives
 - Describe the core concepts that define the procedural programming paradigm
 - Describe the main characteristics of code that is written in procedural programming
   style
-keypoints: Procedural Programming emphasises a structured approach to coding, using
-  a sequence of tasks and subroutines to create a well-organised program.
----
+:::
+
 
 In procedural programming code is grouped into
 procedures (also known as routines -  reusable piece of code that performs a specific action but
@@ -70,4 +72,7 @@ preferred for larger and more complex projects, especially when working in a tea
 Functional programming can offer more elegant and scalable solutions for complex problems,
 particularly in parallel computing.
 
-
+::: keypoints:
+- Procedural Programming emphasises a structured approach to coding, using
+  a sequence of tasks and subroutines to create a well-organised program.
+:::

@@ -1,6 +1,5 @@
 ---
-title: Verifying Code Style Using Linters
-start: no
+title: 1.6 Verifying Code Style Using Linters
 teaching: 15
 exercises: 5
 ---
