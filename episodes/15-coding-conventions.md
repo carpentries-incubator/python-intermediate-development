@@ -388,7 +388,7 @@ unless you are 100% sure the code will never be read by people who do not speak 
 ## The Good, the Bad, and the Ugly Comments
 
 As a side reading, check out the
-['Putting comments in code: the good, the bad, and the ugly' blogpost](https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/).
+['Putting comments in code: the good, the bad, and the ugly' blogpost](https://medium.com/free-code-camp/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83).
 Remember - a comment should answer the 'why' question".
 Occasionally the "what" question.
 The "how" question should be answered by the code itself.
