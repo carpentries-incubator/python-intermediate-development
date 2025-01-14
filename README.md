@@ -1,6 +1,3 @@
-> [!NOTE]  
-> We are currently transitioning the lesson to the new Carpentries lesson format - please put your pull requests on hold and submit issues only.
-
 [![DOI](https://zenodo.org/badge/257930838.svg)](https://zenodo.org/badge/latestdoi/257930838)
 
 ## Intermediate Research Software Development Skills (Python)
