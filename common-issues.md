@@ -197,7 +197,7 @@ In order to get `pip` to use the proxy,
 you need to add an additional parameter when installing packages with `pip`:
 
 ```bash
-$ python3 -m pip install --proxy <proxy-url> <name of package>`
+$ python3 -m pip install --proxy <proxy-url> <name of package>
 ```
 
 To keep these settings permanently,
