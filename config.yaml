@@ -63,6 +63,9 @@ contact: 'info@software.ac.uk'
 # - one-learner.md
 # - another-learner.md
 
+# Disable sidebar automatic numbering
+disable_sidebar_numbering: true
+
 # Order of episodes in your lesson
 episodes:
 - 00-setting-the-scene.md
