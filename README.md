@@ -90,11 +90,11 @@ A list of all contributors to the lesson can be found in <AUTHORS>.
 Instructional material from this lesson is made available under the
 [Creative Commons Attribution][cc-by-human] ([CC BY 4.0][cc-by-legal]) licence. Except where
 otherwise noted, example programs and software included as part of this lesson are made available
-under the [MIT licence][mit-license]. For more information, see <LICENSE.md>.
+under the [MIT licence][mit-license]. For more information, see ./LICENSE.md.
 
 ## Citation
 
-To cite this lesson, please consult with <CITATION>.
+To cite this lesson, please consult with ./CITATION.
 
 ## Contact
 
