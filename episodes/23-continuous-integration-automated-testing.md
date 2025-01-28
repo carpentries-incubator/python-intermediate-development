@@ -363,7 +363,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.10", "3.11", "3.12"]
 
     # Here we add the reference to the os matrix values
     runs-on: ${{ matrix.os }}
@@ -374,7 +374,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
         # Here we add the reference to the python-version matrix values
@@ -391,9 +391,12 @@ jobs:
 
 The `{{ }}` are used
 as a means to reference configuration values from the matrix.
-This way, every possible permutation of Python versions 3.10 and 3.11
+This way, every possible permutation of Python versions 3.10 through 3.12
 with the latest versions of Ubuntu, Mac OS and Windows operating systems
-will be tested and we can expect 6 build jobs in total.
+will be tested, and we can expect 9 build jobs in total.
+We can also use this in the `name` key of the step to accurately reflect what it is doing
+(e.g. which Python version is being setup).
+This will be reflected in the GitHub Action output, making parsing those logs easier.
 
 Let us commit and push this change and see what happens:
 
