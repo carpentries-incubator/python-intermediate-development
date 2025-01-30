@@ -66,14 +66,14 @@ If you want an even more lightweight setup you can try out these configurable so
 
 ## Exercise: Customise the command line tool
 
-You can customise the command line tool or use alternatives to `bash`.
+You can customise the command line tool or use alternatives to `bash`, such as:
 
-- Try out [Bash Prompt Generator](https://bash-prompt-generator.org/) - it lets you try out different prompts,
+- [Bash Prompt Generator](https://bash-prompt-generator.org/) - it lets you try out different prompts,
   depending on the information you want displayed.
-- Try out [z, a simple tool to more quickly move around directories](https://github.com/rupa/z).
-- Try out [Z shell (zsh)](https://zsh.sourceforge.io/), a shell designed for interactive use.
-- Try out [Oh My ZSH](https://ohmyz.sh/), which is a theming and package manager of the `zsh` terminal.
-- Try out [fish](https://fishshell.com/), a smart and user-friendly command line shell.
+- [z, a simple tool to more quickly move around directories](https://github.com/rupa/z).
+- [Z shell (zsh)](https://zsh.sourceforge.io/), a shell designed for interactive use.
+- [Oh My ZSH](https://ohmyz.sh/), which is a theming and package manager of the `zsh` terminal.
+- [fish](https://fishshell.com/), a smart and user-friendly command line shell.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -84,7 +84,7 @@ You can customise the command line tool or use alternatives to `bash`.
 So far we have used `venv`, but there are other virtual environment managers for Python:
 
 - [Poetry](https://python-poetry.org/), which we will explore using in [Section 4](43-software-release.md).
-- `conda`, which is part of [Anaconda Distribution)](https://www.anaconda.com/download).
+- `conda`, which is part of [Anaconda Distribution](https://www.anaconda.com/download).
 
 Anaconda is widely used in academia, but the current license does not allow use for research in most circumstances.
 An open-source alternative is [mini-forge](https://github.com/conda-forge/miniforge).
