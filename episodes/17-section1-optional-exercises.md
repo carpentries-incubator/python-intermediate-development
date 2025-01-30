@@ -109,7 +109,7 @@ Specify the max line length as an argument: `pylint --max-line-length=100`
 
 ### Using a configuration file
 
-You can create a file `.pylintrc` in the root of your project folder to overwrite pylint settings:
+You can create a file `.pylintrc` in the root of your project folder to overwrite `pylint` settings:
 
 ```
 [FORMAT]
