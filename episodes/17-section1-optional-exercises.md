@@ -1,5 +1,5 @@
 ---
-title: 1.7 Optional Exercises for Section 1
+title: 1.7 Optional Exercises
 start: no
 teaching: 0
 exercises: 45
@@ -13,23 +13,25 @@ exercises: 45
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I further finetune my coding environment?
+- How can I further fine-tune my coding environment?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-This episode holds some optional exercises for section 1.
+This episode has some optional exercises for Section 1.
 The exercises have an explorative nature, so feel free to go off in any direction that interests you.
 You will be looking at some tools that either complement or are alternatives to those already introduced.
 Even if you find something that you really like,
-we still recommend sticking with the tools that were introduced prior to this episode when you move onto other sections of the course.
+for the sake of following through with the course, we still recommend sticking with the tools that we introduced prior to this episode
+and then switching to something else afterwards.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+:::::::::::::::::::::::::::::::::::::::  discussion
 
 ## Exercise: Apply to your own project(s)
 
 Apply what you learned in this section to your own project(s).
-This is the time to ask any questions to your instructors or helpers.
-Everyone has different preferences for tooling, so getting the input of experienced developers is a great opportunity.
+This is the time to ask any questions of your instructors, helpers or fellow learners.
+Everyone has different preferences for tooling, so getting input from experienced developers is a great opportunity to learn new things
+or different perspectives.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -40,17 +42,17 @@ Everyone has different preferences for tooling, so getting the input of experien
 Install different Integrated Development Environments (IDEs) and test them out.
 Which one do you like the most and why?
 
-You can try:
+Some suggestions to try:
 
 - [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course](../learners/vscode.md)
 - [Atom](https://atom-editor.cc/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [RStudio](https://posit.co/download/rstudio-desktop/)
 
-Technically, compared to PyCharm, the 'IDEs' listed above are source code editors capable of functioning as an IDE
-(with RStudio as an example).
-To function as an IDE, you have to manually install plugins for more powerful features
+When compared to PyCharm, the IDEs listed above are advanced source code editors capable of functioning as IDEs.
+To function as an IDE, you have to manually install plugins for these tools to obtain more advanced features -
 such as support for a specific programming language or unit testing.
+
 What do you prefer, a lot of tooling out of the box or a lightweight editor with optional extensions?
 
 If you want an even more lightweight setup you can try out these configurable source code editors:
@@ -62,11 +64,11 @@ If you want an even more lightweight setup you can try out these configurable so
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Customize the command line
+## Exercise: Customise the command line tool
 
-You can customize the command line or use alternatives to `bash` to make yourself more productive.
+You can customise the command line tool or use alternatives to `bash`.
 
-- Try out [Bash Prompt Generator](https://bash-prompt-generator.org/), it lets you try out different prompts,
+- Try out [Bash Prompt Generator](https://bash-prompt-generator.org/) - it lets you try out different prompts,
   depending on the information you want displayed.
 - Try out [z, a simple tool to more quickly move around directories](https://github.com/rupa/z).
 - Try out [Z shell (zsh)](https://zsh.sourceforge.io/), a shell designed for interactive use.
@@ -79,11 +81,10 @@ You can customize the command line or use alternatives to `bash` to make yoursel
 
 ## Exercise: Try out different virtual environment managers
 
-So far we used `venv`, but there are other virtual environment managers for Python:
+So far we have used `venv`, but there are other virtual environment managers for Python:
 
-- [Poetry](https://python-poetry.org/), which we will explore using in
-  [Section 4](43-software-release.md).
-- conda, which is part of [Anaconda Distribution)](https://www.anaconda.com/download).
+- [Poetry](https://python-poetry.org/), which we will explore using in [Section 4](43-software-release.md).
+- `conda`, which is part of [Anaconda Distribution)](https://www.anaconda.com/download).
 
 Anaconda is widely used in academia, but the current license does not allow use for research in most circumstances.
 An open-source alternative is [mini-forge](https://github.com/conda-forge/miniforge).
@@ -92,11 +93,11 @@ An open-source alternative is [mini-forge](https://github.com/conda-forge/minifo
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Customize `pylint`
+## Exercise: Customise `pylint`
 
-You decide to change the max line length of your project to 100 instead of the default 80.
-Find out how you can configure pylint. You can first try to use the pylint command line interface,
-but also play with adding a configuration file that pylint reads in.
+Tell `pylint` to accept the maximum line length of 100 characters instead of the default 80.
+
+Hint: find out different ways in which you can configure `pylint` (e.g. via `pylint` command line interface or its configuration file).
 
 :::::::::::::::  solution
 
