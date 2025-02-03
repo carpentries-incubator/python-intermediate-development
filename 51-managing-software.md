@@ -34,6 +34,19 @@ it can be hard to keep track of what's done, or what needs doing,
 and particularly difficult to convey that to others
 in the team or share the responsibilities.
 
+::: callout
+
+### Activate your virtual environment
+If it is not already active, make sure to activate your virtual environment, called `venv`,
+from the root of the software project directory:
+
+```bash
+$ source venv/bin/activate # Mac or Linux
+$ source venv/Scripts/activate # Windows
+(venv) $
+```
+:::
+
 ## Using GitHub to Manage Issues With Software
 
 As a piece of software is used,
