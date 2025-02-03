@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="78.396034mm"
+   height="57.788376mm"
+   viewBox="0 0 78.396034 57.788376"
+   version="1.1"
+   id="svg888"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview890"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="340.09903"
+     inkscape:cy="553.54493"
+     inkscape:window-width="1312"
+     inkscape:window-height="1081"
+     inkscape:window-x="622"
+     inkscape:window-y="299"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:snap-text-baseline="true" />
+  <defs
+     id="defs885" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-15,-6.0140207)">
+    <g
+       style="font-size:10px;font-family:Helvetica-Bold"
+       id="g375"
+       transform="matrix(0.26458333,0,0,0.26458333,9.7083334,3.4773962)">
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,87.266,70.2494)"
+         id="text359">Day 1</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,118.8451,70.2498)"
+         id="text361">Day 2</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,150.7304,70.2498)"
+         id="text363">Day 3</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,183.3095,70.2503)"
+         id="text365">Day 4</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,214.6142,70.2494)"
+         id="text367">Day 5</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,246.1933,70.2498)"
+         id="text369">Day 6</text>
+      <text
+         transform="matrix(0.7071,-0.7071,0.7071,0.7071,278.0314,70.2498)"
+         id="text371">Day 7</text>
+      <text
+         transform="translate(29.0003,60.7761)"
+         id="text373">Patients</text>
+    </g>
+    <g
+       style="fill:none;stroke:#000000;stroke-width:0.5"
+       id="g407"
+       transform="matrix(0.26458333,0,0,0.26458333,9.7083334,3.4773962)">
+      <!-- vertical lines -->
+      <line
+         x1="78"
+         y1="43.799999"
+         x2="78"
+         y2="228"
+         id="line377" />
+      <line
+         x1="109.9"
+         y1="43.799999"
+         x2="109.9"
+         y2="228"
+         id="line379" />
+      <line
+         x1="141.7"
+         y1="43.799999"
+         x2="141.7"
+         y2="228"
+         id="line381" />
+      <line
+         x1="173.5"
+         y1="43.799999"
+         x2="173.5"
+         y2="228"
+         id="line383" />
+      <line
+         x1="205.3"
+         y1="43.799999"
+         x2="205.3"
+         y2="228"
+         id="line385" />
+      <line
+         x1="237.10001"
+         y1="43.799999"
+         x2="237.10001"
+         y2="228"
+         id="line387" />
+      <line
+         x1="268.89999"
+         y1="43.799999"
+         x2="268.89999"
+         y2="228"
+         id="line389" />
+      <line
+         x1="300.70001"
+         y1="43.799999"
+         x2="300.70001"
+         y2="228"
+         id="line391" />
+      <!-- horizontal lines -->
+      <line
+         x1="316.29999"
+         y1="43.799999"
+         x2="78"
+         y2="43.799999"
+         id="line393" />
+      <line
+         x1="316.29999"
+         y1="73.199997"
+         x2="20"
+         y2="73.199997"
+         id="line395" />
+      <line
+         x1="316.29999"
+         y1="101.3"
+         x2="20"
+         y2="101.3"
+         id="line397" />
+      <line
+         x1="316.29999"
+         y1="129.39999"
+         x2="20"
+         y2="129.39999"
+         id="line399" />
+      <line
+         x1="316.29999"
+         y1="157.5"
+         x2="20"
+         y2="157.5"
+         id="line401" />
+      <line
+         x1="316.29999"
+         y1="185.60001"
+         x2="20"
+         y2="185.60001"
+         id="line403" />
+      <line
+         x1="316.29999"
+         y1="213.7"
+         x2="20"
+         y2="213.7"
+         id="line405" />
+    </g>
+    <g
+       fill="#0072b2"
+       style="font-size:14px;font-family:Helvetica"
+       id="g429"
+       transform="matrix(0.28946223,0,0,0.26458333,8.6733713,3.4773962)">
+      <path
+         d="m 47.9,88.7 h 2.3 c 3.2,0 5.8,2.6 5.8,5.8 v 0 c 0,1.4 -1.2,2.6 -2.6,2.6 H 44.6 C 43.2,97.1 42,95.9 42,94.5 v 0 c 0,-3.2 2.6,-5.8 5.9,-5.8 z"
+         id="path409" />
+      <ellipse
+         cx="49"
+         cy="84.599998"
+         rx="4.8000002"
+         ry="5.3000002"
+         stroke="#ffffff"
+         stroke-width="1"
+         id="ellipse411" />
+      <text
+         x="90"
+         y="92.07"
+         id="text427"><tspan
+           dx="0"
+           dy="0"
+           id="tspan413">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan415">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan417">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan419">3</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan421">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan423">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan425">4</tspan></text>
+    </g>
+    <g
+       fill="#d55e00"
+       style="font-size:14px;font-family:Helvetica"
+       id="g451"
+       transform="matrix(0.28946223,0,0,0.26458333,8.6733713,3.4773962)">
+      <path
+         d="m 44.6,125.6 c -1.6,0 -3,-1.3 -3,-3 0,-3.4 2.8,-6.2 6.2,-6.2 h 2.3 c 3.4,0 6.2,2.8 6.2,6.2 0,1.6 -1.3,3 -3,3 z"
+         id="path431" />
+      <ellipse
+         cx="49"
+         cy="112.7"
+         rx="4.8000002"
+         ry="5.3000002"
+         stroke="#ffffff"
+         stroke-width="1"
+         id="ellipse433" />
+      <text
+         x="90"
+         y="120.16"
+         id="text449"><tspan
+           dx="0"
+           dy="0"
+           id="tspan435">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan437">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan439">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan441">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan443">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan445">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan447">3</tspan></text>
+    </g>
+    <g
+       fill="#009e9e"
+       style="font-size:14px;font-family:Helvetica"
+       id="g473"
+       transform="matrix(0.28946223,0,0,0.26458333,8.6733713,3.4773962)">
+      <path
+         d="m 44.6,153.7 c -1.6,0 -3,-1.3 -3,-3 0,-3.4 2.8,-6.2 6.2,-6.2 h 2.3 c 3.4,0 6.2,2.8 6.2,6.2 0,1.6 -1.3,3 -3,3 z"
+         id="path453" />
+      <ellipse
+         cx="49"
+         cy="140.8"
+         rx="4.8000002"
+         ry="5.3000002"
+         stroke="#ffffff"
+         stroke-width="1"
+         id="ellipse455" />
+      <text
+         x="90"
+         y="148.25999"
+         id="text471"><tspan
+           dx="0"
+           dy="0"
+           id="tspan457">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan459">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan461">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan463">3</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan465">3</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan467">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan469">6</tspan></text>
+    </g>
+    <g
+       fill="#56b4e9"
+       style="font-size:14px;font-family:Helvetica"
+       id="g495"
+       transform="matrix(0.28946223,0,0,0.26458333,8.6733713,3.4773962)">
+      <path
+         d="m 47.9,173 h 2.3 c 3.2,0 5.8,2.6 5.8,5.8 v 0 c 0,1.4 -1.2,2.6 -2.6,2.6 h -8.8 c -1.4,0 -2.6,-1.2 -2.6,-2.6 v 0 c 0,-3.2 2.6,-5.8 5.9,-5.8 z"
+         id="path475" />
+      <ellipse
+         cx="49"
+         cy="168.89999"
+         rx="4.8000002"
+         ry="5.3000002"
+         stroke="#ffffff"
+         stroke-width="1"
+         id="ellipse477" />
+      <text
+         x="90"
+         y="176.35001"
+         id="text493"><tspan
+           dx="0"
+           dy="0"
+           id="tspan479">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan481">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan483">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan485">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan487">4</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan489">2</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan491">2</tspan></text>
+    </g>
+    <g
+       fill="#7221bc"
+       style="font-size:14px;font-family:Helvetica"
+       id="g517"
+       transform="matrix(0.28946223,0,0,0.26458333,8.6733713,3.4773962)">
+      <path
+         d="m 47.9,200.2 h 2.3 c 3.2,0 5.8,2.6 5.8,5.8 v 0 c 0,1.4 -1.2,2.6 -2.6,2.6 h -8.8 c -1.4,0 -2.6,-1.2 -2.6,-2.6 v 0 c 0,-3.2 2.6,-5.8 5.9,-5.8 z"
+         id="path497" />
+      <ellipse
+         cx="49"
+         cy="196.2"
+         rx="4.8000002"
+         ry="5.3000002"
+         stroke="#ffffff"
+         stroke-width="1"
+         id="ellipse499" />
+      <text
+         x="90"
+         y="204.60001"
+         id="text515"><tspan
+           dx="0"
+           dy="0"
+           id="tspan501">0</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan503">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan505">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan507">3</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan509">3</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan511">1</tspan><tspan
+           dx="20.200001"
+           dy="0"
+           id="tspan513">3</tspan></text>
+    </g>
+    <g
+       style="font-size:21px;font-family:Helvetica"
+       id="g341"
+       transform="matrix(0.26458333,0,0,0.26458333,12.125689,2.0171258)">
+      <text
+         x="107.0696"
+         y="26.747"
+         id="text335"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Inflammation data</text>
+      <text
+         x="394.67731"
+         y="26.747"
+         id="text337" />
+      <text
+         x="554.90057"
+         y="26.747"
+         id="text339" />
+    </g>
+  </g>
+</svg>
