@@ -20,11 +20,26 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Introduction 
+
 The requirements of our software are the basis on which the whole project rests -
 if we get the requirements wrong, we will build the wrong software.
 However, it is unlikely that we will be able to determine all of the requirements upfront.
 Especially when working in a research context,
 requirements are flexible and may change as we develop our software.
+
+::: callout
+
+### Activate your virtual environment
+If it is not already active, make sure to activate your virtual environment, called `venv`,
+from the root of the software project directory:
+
+```bash
+$ source venv/bin/activate # Mac or Linux
+$ source venv/Scripts/activate # Windows
+(venv) $
+```
+:::
 
 ## Types of Requirements
 

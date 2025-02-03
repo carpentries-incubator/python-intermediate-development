@@ -29,6 +29,19 @@ Software is often designed and built as part of a team,
 so in this episode we will be looking at how to manage the process of team software development
 and improve our code by engaging in code review process with other team members.
 
+::: callout
+
+### Activate your virtual environment
+If it is not already active, make sure to activate your virtual environment, called `venv`,
+from the root of the software project directory:
+
+```bash
+$ source venv/bin/activate # Mac or Linux
+$ source venv/Scripts/activate # Windows
+(venv) $
+```
+:::
+
 ## Collaborative Code Development Models
 
 The way a team provides contributions to a shared codebase depends on
