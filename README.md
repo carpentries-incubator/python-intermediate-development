@@ -48,6 +48,9 @@ If you would like to teach this lesson to your audience and help with more beta 
 please let the lesson developers know by opening an [issue](https://github.com/carpentries-incubator/python-intermediate-development/issues/new?assignees=&labels=pilot&template=lesson-pilot-issue-template.md&title=) with your workshop details and a
 label ![pilot](https://shields.io/badge/-pilot-31E930).
 
+## GitLab version of this lesson
+This lesson uses GitHub. Here is [a (bit outdated but usable) version of this lesson using GitLab](https://github.com/esciencecenter-digital-skills/python-intermediate-development-gitlab).
+
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
