@@ -46,6 +46,19 @@ improve the predictability of a software change,
 make development more productive,
 and help us produce code that works as expected and produces desired results.
 
+::: callout
+
+### Activate your virtual environment
+If it is not already active, make sure to activate your virtual environment, called `venv`, 
+from the root of the software project directory:
+
+```bash
+$ source venv/bin/activate # Mac or Linux
+$ source venv/Scripts/activate # Windows
+(venv) $
+```
+:::
+
 ## What Is Software Testing?
 
 For the sake of argument, if each line we write has a 99% chance of being right,
