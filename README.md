@@ -49,7 +49,7 @@ please let the lesson developers know by opening an [issue](https://github.com/c
 label ![pilot](https://shields.io/badge/-pilot-31E930).
 
 ## GitLab version of this lesson
-This lesson uses GitHub. Here is [a (bit outdated but usable) version of this lesson using GitLab](https://github.com/esciencecenter-digital-skills/python-intermediate-development-gitlab).
+There is [a (bit outdated but usable) version of this lesson using GitLab](https://github.com/esciencecenter-digital-skills/python-intermediate-development-gitlab).
 
 ## Contributing
 
