@@ -308,19 +308,14 @@ There is doing to be an exercise next for you to practice it.
   repository as a collaborator.
   You will have to do the same for the collaborator doing the review on your repository.
   
-  :::::::::::::::::::::::::::::::::::::::::  callout
-  
-  ## Code Review from External Contributors
-  
-  You do not have to be a collaborator on a public repository to do code reviews
+  **Note:** *You do not have to be a collaborator on a public repository to do code reviews
   so this step is not strictly necessary.
   We are still asking you to do it now as we will get you working in teams
-  for the rest of the course so it may make sense to start setting up your collaborators now.
+  for the rest of the course so it may make sense to start setting up your collaborators now - as 
+  shown in the screenshot below.*
   
   ![](fig/github-add-collaborator.png){alt='Adding a collaborator in GitHub' .image-with-shadow width="900px"}
   
-  ::::::::::::::::::::::::::::::::::::::::::::::::::
-
 2. Locate up the pull request from the GitHub's `Pull Requests` tab on the home page
   of your fellow learner's software repository, then head to the `Files changed` tab
   on the pull request.
