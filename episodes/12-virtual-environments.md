@@ -588,13 +588,9 @@ It looks like the script expects a list of input files to process,
 so this is expected behaviour since we do not supply any.
 We will fix this error in a moment.
 
-## Optional exercises
+## Optional Exercises
 
-Checkout [this optional exercise](17-section1-optional-exercises.md)
-to try out different virtual environment managers.
-Or, [this exercise](17-section1-optional-exercises.md)
-to customize the command line.
-
+Have a look at [some optional exercises](17-section1-optional-exercises.md).
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
