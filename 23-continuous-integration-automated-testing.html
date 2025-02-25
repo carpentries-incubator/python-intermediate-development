@@ -545,7 +545,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.3 Continuous Integration for Automated Testing</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-02-25 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/23-continuous-integration-automated-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -885,10 +885,10 @@ levels are available too.</p>
 called <strong>build matrices</strong> which really shows the value of
 using CI to test at scale.</p>
 <p>Suppose the intended users of our software use either Ubuntu, Mac OS,
-or Windows, and either have Python version 3.10 or 3.11 installed, and
-we want to support all of these. Assuming we have a suitable test suite,
-it would take a considerable amount of time to set up testing platforms
-to run our tests across all these platform combinations. Fortunately, CI
+or Windows, and have Python versions 3.10 through 3.12 installed, and we
+want to support all of these. Assuming we have a suitable test suite, it
+would take a considerable amount of time to set up testing platforms to
+run our tests across all these platform combinations. Fortunately, CI
 can do the hard work for us very easily.</p>
 <p>Using a build matrix we can specify testing environments and
 parameters (such as operating system, Python version, etc.) and new jobs
@@ -915,7 +915,7 @@ the following:</p>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="at">        </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"ubuntu-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"macos-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"windows-latest"</span><span class="kw">]</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.10"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.11"</span><span class="kw">]</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.10"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.11"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.12"</span><span class="kw">]</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">    # Here we add the reference to the os matrix values</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ${{ matrix.os }}</span></span>
@@ -926,7 +926,7 @@ the following:</p>
 <span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
 <span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a></span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
 <span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
 <span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
 <span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">        # Here we add the reference to the python-version matrix values</span></span>
@@ -942,9 +942,12 @@ the following:</p>
 </div>
 <p>The <code>{{ }}</code> are used as a means to reference configuration
 values from the matrix. This way, every possible permutation of Python
-versions 3.10 and 3.11 with the latest versions of Ubuntu, Mac OS and
-Windows operating systems will be tested and we can expect 6 build jobs
-in total.</p>
+versions 3.10 through 3.12 with the latest versions of Ubuntu, Mac OS
+and Windows operating systems will be tested, and we can expect 9 build
+jobs in total. We can also use this in the <code>name</code> key of the
+step to accurately reflect what it is doing (e.g. which Python version
+is being setup). This will be reflected in the GitHub Action output,
+making parsing those logs easier.</p>
 <p>Let us commit and push this change and see what happens:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1049,7 +1052,7 @@ builds simultaneously.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.7" class="external-link">pegboard (0.7.7)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1071,8 +1074,8 @@ builds simultaneously.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
-  "datePublished": "2025-02-18"
+  "dateModified": "2025-02-25",
+  "datePublished": "2025-02-25"
 }
 
   </script><script>

@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.1 Automatically Testing Software</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-02-25 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/21-automatically-testing-software.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -609,6 +609,26 @@ the long run. In this episode we will look into techniques of automated
 testing to improve the predictability of a software change, make
 development more productive, and help us produce code that works as
 expected and produces desired results.</p>
+<div id="activate-your-virtual-environment" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="activate-your-virtual-environment" class="callout-inner">
+<h3 class="callout-title">Activate your virtual environment</h3>
+<div class="callout-content">
+<p>If it is not already active, make sure to activate your virtual
+environment, called <code>venv</code>, from the root of the software
+project directory:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> source venv/bin/activate <span class="co"># Mac or Linux</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> source venv/Scripts/activate <span class="co"># Windows</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="what-is-software-testing">What Is Software Testing?<a class="anchor" aria-label="anchor" href="#what-is-software-testing"></a></h2>
 <hr class="half-width"><p>For the sake of argument, if each line we write has a 99% chance of
 being right, then a 70-line program will be wrong more than half the
@@ -648,11 +668,11 @@ some new ones, so let us ensure we are initially on our
 <code>test-suite</code> off the <code>develop</code> branch - a common
 term we use to refer to sets of tests - that we will use for our test
 writing work:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> test-suite</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> test-suite</span></code></pre>
 </div>
 <p>Good practice is to write our tests around the same time we write our
 code on a feature branch. But since the code already exists, we are
@@ -683,22 +703,22 @@ should be in your home directory
 virtual environment activated in your command line terminal
 (particularly if opening a new one), and then start the Python console
 by invoking the Python interpreter without any parameters, e.g.:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd ~/python-intermediate-inflammation</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> source venv/bin/activate</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">$</span> python3</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> cd ~/python-intermediate-inflammation</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">$</span> source venv/bin/activate</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">$</span> python3</span></code></pre>
 </div>
 <p>The last command will start the Python console within your shell,
 which enables us to execute Python commands interactively. Inside the
 console enter the following:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span><span class="st">'data/inflammation-01.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>data.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span><span class="st">'data/inflammation-01.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>data.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -714,27 +734,27 @@ functions held in <code>inflammation/models.py</code>:
 <code>daily_min()</code>, for calculating the mean average, the maximum,
 and the minimum values for a given number of rows in our data. For
 example, the <code>daily_mean()</code> function looks like this:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">def</span> daily_mean(data):</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    <span class="co">"""Calculate the daily mean of a 2D inflammation data array for each day.</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">    :returns: An array of mean values of measurements for each day.</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    <span class="cf">return</span> np.mean(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">def</span> daily_mean(data):</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    <span class="co">"""Calculate the daily mean of a 2D inflammation data array for each day.</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">    :returns: An array of mean values of measurements for each day.</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="cf">return</span> np.mean(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
 <p>Here, we use NumPy’s <code>np.mean()</code> function to calculate the
 mean <em>vertically</em> across the data (denoted by
 <code>axis=0</code>), which is then returned from the function. So, if
 <code>data</code> was a NumPy array of three rows like…</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>[[<span class="dv">1</span>, <span class="dv">2</span>],</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a> [<span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a> [<span class="dv">5</span>, <span class="dv">6</span>]]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>[[<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a> [<span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a> [<span class="dv">5</span>, <span class="dv">6</span>]]</span></code></pre>
 </div>
 <p>…the function would return a 1D NumPy array of <code>[3, 4]</code> -
 each value representing the mean of each column (which are,
@@ -743,12 +763,12 @@ array).</p>
 <p>To show this working with our patient data, we can use the function
 like this, passing the first four patient rows to the function in the
 Python console:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_mean</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>daily_mean(data[<span class="dv">0</span>:<span class="dv">4</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_mean</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>daily_mean(data[<span class="dv">0</span>:<span class="dv">4</span>])</span></code></pre>
 </div>
 <p>Note we use a different form of <code>import</code> here - only
 importing the <code>daily_mean</code> function from our
@@ -784,14 +804,14 @@ that is incorrect. So, referring back to our simple
 <code>daily_mean()</code> example above, we could use
 <code>[[1, 2], [3, 4], [5, 6]]</code> as an input to that function and
 check whether the result equals <code>[3, 4]</code>:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="im">import</span> numpy.testing <span class="im">as</span> npt</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="im">import</span> numpy.testing <span class="im">as</span> npt</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
 </div>
 <p>So we use the <code>assert_array_equal()</code> function - part of
 NumPy’s testing library - to test that our calculated result is the same
@@ -802,20 +822,20 @@ cannot just use <code>==</code> or other Python equality methods, since
 these will not work properly with NumPy arrays in all cases.</p>
 <p>We could then add to this with other tests that use and test against
 other values, and end up with something like:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">0</span>], [<span class="dv">4</span>, <span class="dv">0</span>]])</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">0</span>])</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>]])</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">0</span>], [<span class="dv">4</span>, <span class="dv">0</span>]])</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">0</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>]])</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
 </div>
 <p>However, if we were to enter these in this order, we will find we get
 the following after the first test:</p>
@@ -846,12 +866,12 @@ complex function or library that’s widely used), we would like to know
 how many passed or failed.</p>
 <p>Going back to our failed first test, what was the issue? As it turns
 out, the test itself was incorrect, and should have read:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">0</span>], [<span class="dv">4</span>, <span class="dv">0</span>]])</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">0</span>])</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>test_input <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">0</span>], [<span class="dv">4</span>, <span class="dv">0</span>]])</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">0</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>npt.assert_array_equal(daily_mean(test_input), test_result)</span></code></pre>
 </div>
 <p>Which highlights an important point: as well as making sure our code
 is returning correct answers, we also need to ensure the tests
@@ -880,39 +900,39 @@ actually do it, it must be easy to:</p>
 is working when it is not, or reports problems when there actually
 aren’t any, people will lose faith in it and stop using it.</p>
 <p>Look at <code>tests/test_models.py</code>:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">"""Tests for statistics functions within the Model layer."""</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="im">import</span> numpy.testing <span class="im">as</span> npt</span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_mean</span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="kw">def</span> test_daily_mean_zeros():</span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="co">"""Test that mean function works for an array of zeros."""</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>],</span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>                           [<span class="dv">0</span>, <span class="dv">0</span>],</span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>                           [<span class="dv">0</span>, <span class="dv">0</span>]])</span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a>    <span class="co"># Need to use NumPy testing functions to compare arrays</span></span>
-<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a>    npt.assert_array_equal(daily_mean(test_input), test_result)</span>
-<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="kw">def</span> test_daily_mean_integers():</span>
-<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a>    <span class="co">"""Test that mean function works for an array of positive integers."""</span></span>
-<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>],</span>
-<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a>                           [<span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a>                           [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a>    <span class="co"># Need to use NumPy testing functions to compare arrays</span></span>
-<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a>    npt.assert_array_equal(daily_mean(test_input), test_result)</span>
-<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a>...</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co">"""Tests for statistics functions within the Model layer."""</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="im">import</span> numpy.testing <span class="im">as</span> npt</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_mean</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="kw">def</span> test_daily_mean_zeros():</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>    <span class="co">"""Test that mean function works for an array of zeros."""</span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>                           [<span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>                           [<span class="dv">0</span>, <span class="dv">0</span>]])</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>    <span class="co"># Need to use NumPy testing functions to compare arrays</span></span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>    npt.assert_array_equal(daily_mean(test_input), test_result)</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="kw">def</span> test_daily_mean_integers():</span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>    <span class="co">"""Test that mean function works for an array of positive integers."""</span></span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a>                           [<span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a>                           [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
+<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a>    <span class="co"># Need to use NumPy testing functions to compare arrays</span></span>
+<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a>    npt.assert_array_equal(daily_mean(test_input), test_result)</span>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a>...</span></code></pre>
 </div>
 <p>Here, although we have specified two of our previous manual tests as
 separate functions, they run the same assertions. Each of these test
@@ -1002,10 +1022,10 @@ Environment With <code>pip</code>”</a> section in <a href="12-virtual-environm
 Development”</a> episode).</li>
 </ol><p>To do it via the command line - exit the Python console first (either
 with <code>Ctrl-D</code> or by typing <code>exit()</code>), then do:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip install pytest</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip install pytest</span></code></pre>
 </div>
 <p>Whether we do this via PyCharm or the command line, the results are
 exactly the same: our virtual environment will now have the
@@ -1014,10 +1034,10 @@ exactly the same: our virtual environment will now have the
 <div class="section level3">
 <h3 id="running-tests">Running Tests<a class="anchor" aria-label="anchor" href="#running-tests"></a></h3>
 <p>Now we can run these tests using <code>pytest</code>:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pytest tests/test_models.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pytest tests/test_models.py</span></code></pre>
 </div>
 <p>Here, we use <code>-m</code> flag of the <code>python3</code> command
 to invoke the <code>pytest</code> module, and specify the
@@ -1104,34 +1124,34 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_max, daily_mean, daily_min</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>...</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="kw">def</span> test_daily_max():</span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>    <span class="co">"""Test that max function works for an array of positive integers."""</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">5</span>],</span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>                           [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span>],</span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>                           [<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">9</span>]])</span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>])</span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a>    npt.assert_array_equal(daily_max(test_input), test_result)</span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a></span>
-<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="kw">def</span> test_daily_min():</span>
-<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a>    <span class="co">"""Test that min function works for an array of positive and negative integers."""</span></span>
-<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a></span>
-<span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[ <span class="dv">4</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>],</span>
-<span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a>                           [ <span class="dv">1</span>, <span class="op">-</span><span class="dv">6</span>, <span class="dv">2</span>],</span>
-<span id="cb17-19"><a href="#cb17-19" tabindex="-1"></a>                           [<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">9</span>]])</span>
-<span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">6</span>, <span class="dv">2</span>])</span>
-<span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" tabindex="-1"></a>    npt.assert_array_equal(daily_min(test_input), test_result)</span>
-<span id="cb17-23"><a href="#cb17-23" tabindex="-1"></a>...</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_max, daily_mean, daily_min</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>...</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="kw">def</span> test_daily_max():</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>    <span class="co">"""Test that max function works for an array of positive integers."""</span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">5</span>],</span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>                           [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span>],</span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>                           [<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">9</span>]])</span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>])</span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a>    npt.assert_array_equal(daily_max(test_input), test_result)</span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="kw">def</span> test_daily_min():</span>
+<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a>    <span class="co">"""Test that min function works for an array of positive and negative integers."""</span></span>
+<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a>    test_input <span class="op">=</span> np.array([[ <span class="dv">4</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>],</span>
+<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a>                           [ <span class="dv">1</span>, <span class="op">-</span><span class="dv">6</span>, <span class="dv">2</span>],</span>
+<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a>                           [<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">9</span>]])</span>
+<span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a>    test_result <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">6</span>, <span class="dv">2</span>])</span>
+<span id="cb18-21"><a href="#cb18-21" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" tabindex="-1"></a>    npt.assert_array_equal(daily_min(test_input), test_result)</span>
+<span id="cb18-23"><a href="#cb18-23" tabindex="-1"></a>...</span></code></pre>
 </div>
 </div>
 </div>
@@ -1149,17 +1169,17 @@ new feature does not break any existing functionality.</p>
 <p>There are some cases where seeing an error is actually the correct
 behaviour, and Python allows us to test for exceptions. Add this test in
 <code>tests/test_models.py</code>:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_min</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>...</span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="kw">def</span> test_daily_min_string():</span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>    <span class="co">"""Test for TypeError when passing strings"""</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">TypeError</span>):</span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>        error_expected <span class="op">=</span> daily_min([[<span class="st">'Hello'</span>, <span class="st">'there'</span>], [<span class="st">'General'</span>, <span class="st">'Kenobi'</span>]])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> daily_min</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>...</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="kw">def</span> test_daily_min_string():</span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>    <span class="co">"""Test for TypeError when passing strings"""</span></span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">TypeError</span>):</span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>        error_expected <span class="op">=</span> daily_min([[<span class="st">'Hello'</span>, <span class="st">'there'</span>], [<span class="st">'General'</span>, <span class="st">'Kenobi'</span>]])</span></code></pre>
 </div>
 <p>Note that you need to import the <code>pytest</code> library at the
 top of our <code>test_models.py</code> file with
@@ -1168,21 +1188,21 @@ top of our <code>test_models.py</code> file with
 <p>Run all your tests as before.</p>
 <p>Since we have installed <code>pytest</code> to our environment, we
 should also regenerate our <code>requirements.txt</code>:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre>
 </div>
 <p>Finally, let us commit our new <code>test_models.py</code> file,
 <code>requirements.txt</code> file, and test cases to our
 <code>test-suite</code> branch, and push this new branch and all its
 commits to GitHub:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> git add requirements.txt tests/test_models.py</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add initial test cases for daily_max() and daily_min()"</span></span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin test-suite</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> git add requirements.txt tests/test_models.py</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add initial test cases for daily_max() and daily_min()"</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin test-suite</span></code></pre>
 </div>
 <div id="why-should-we-test-invalid-input-data" class="callout">
 <div class="callout-square">
@@ -1261,7 +1281,7 @@ important and is known as <strong>data validation</strong>.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.7" class="external-link">pegboard (0.7.7)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1283,8 +1303,8 @@ important and is known as <strong>data validation</strong>.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/21-automatically-testing-software.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/21-automatically-testing-software.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
-  "datePublished": "2025-02-18"
+  "dateModified": "2025-02-25",
+  "datePublished": "2025-02-25"
 }
 
   </script><script>
