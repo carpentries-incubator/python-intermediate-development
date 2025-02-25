@@ -82,7 +82,7 @@ Poetry can also handle virtual environments for us,
 so in order to behave similarly to how we used them previously,
 let us change the Poetry config to put them in the same directory as our project:
 
-```bash, bash
+```bash
 $ poetry config virtualenvs.in-project true
 ```
 
