@@ -111,6 +111,18 @@ although use your own contact details!*
 **NB: When you get to the questions about defining our dependencies,
 answer no, so we can do this separately later.**
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## It's Not Interactive?
+
+If you're using Git Bash for Windows, depending on your configuration, you may find after typing this command that 
+you don't have an interactive set of questions displayed.
+Instead, you may find the `pyproject.toml` file is simply generated with a set of default values.
+
+If this happens, you can edit the `pyproject.toml` file and change the values in this file, similarly to how we have in the output below.
+
+:::::::::::::::::::::::::::::::::::::::::
+
 ```bash
 $ poetry init
 ```
