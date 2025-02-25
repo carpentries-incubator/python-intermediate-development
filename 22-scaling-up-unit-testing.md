@@ -213,7 +213,7 @@ Again, we should also update our `requirements.txt` file with our latest package
 which now also includes `pytest-cov`, and commit it:
 
 ```bash
-$ python3 -m pip freeze > requirements.txt
+$ python3 -m pip freeze --exclude-editable > requirements.txt
 $ cat requirements.txt
 ```
 

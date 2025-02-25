@@ -614,7 +614,7 @@ Since we have installed `pytest` to our environment,
 we should also regenerate our `requirements.txt`:
 
 ```bash
-$ python3 -m pip freeze > requirements.txt
+$ python3 -m pip freeze --exclude-editable > requirements.txt
 ```
 
 Finally, let us commit our new `test_models.py` file,
