@@ -203,7 +203,7 @@ you may remember that we can get the list of packages in the current virtual env
 using `pip`:
 
 ```bash
-(venv) $ python3 -m pip list
+(venv) $ python3 -m pip list --exclude-editable
 ```
 
 ```output
@@ -231,7 +231,7 @@ if we want to see only the list of packages that we installed,
 we can use the `python3 -m pip freeze` command instead:
 
 ```bash
-(venv) $ python3 -m pip freeze
+(venv) $ python3 -m pip freeze --exclude-editable
 ```
 
 ```output
@@ -250,13 +250,13 @@ six==1.16.0
 
 We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
 as we did not install it using `pip`.
-Remember that we use `python3 -m pip freeze` to update our `requirements.txt` file,
+Remember that we use `python3 -m pip freeze --exclude-editable` to update our `requirements.txt` file,
 to keep a list of the packages our virtual environment includes.
 Python will not do this automatically;
 we have to manually update the file when our requirements change using:
 
 ```bash
-python3 -m pip freeze > requirements.txt
+python3 -m pip freeze --exclude-editable > requirements.txt
 ```
 
 If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
@@ -399,7 +399,7 @@ six==1.16.0
 `pytest` is missing from `requirements.txt`. To add it, we need to update the file by repeating the command:
 
 ```bash
-(venv) $ python3 -m pip freeze > requirements.txt
+(venv) $ python3 -m pip freeze --exclude-editable > requirements.txt
 ```
 
 `pytest` is now present in `requirements.txt`:

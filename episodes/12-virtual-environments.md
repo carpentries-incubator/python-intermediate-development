@@ -483,6 +483,51 @@ six             1.16.0
 To uninstall a package installed in the virtual environment do: `python3 -m pip uninstall <package-name>`.
 You can also supply a list of packages to uninstall at the same time.
 
+### Installing Our Local Project as a Package Using `pip`
+
+Often when working on a Python project, the project itself will be a Python package (like `numpy` or `matplotlib` above) or at the very least it might be useful to treat it like a package.
+Said another way, it is usually the case we want a convenient way to call the Python code we are writing from another location, and making this code accessible as a package is the best way to do this.
+We will save the details of Python packaging for [a future episode](43-software-release.md), and for the meantime we can use the minimal package setup that our project already comes with, which is contained in the `pyproject.toml` file.
+Once again, we can use `pip` to install our local package:
+
+```bash
+python3 -m pip install --editable .
+```
+
+This is similar syntax to above, with two important differences:
+
+1. The `--editable` or `-e` flag indicates that the package we are specifying should be an "editable" install.
+   An "editable" install is one that allows the package in our environment to change dynamically based on source code locally.
+   This is very convenient when we are developing the package because we can instantly see changes when we call the code from within our virtual environment, rather than having to install the local package again to get the updates.
+2. The argument `'.'` indicates that the package we want to install is located in the current directory.
+   The `pyproject.toml` file located in this directory then handles the rest.
+
+If we reissue the `pip list` command we should now see our local package with the name `python-intermediate-inflammation` in the output:
+
+```output
+Package                          Version     Editable project location
+-------------------------------- ----------- ----------------------------------------------------------------------------------------------
+contourpy                        1.3.1
+cycler                           0.12.1
+exceptiongroup                   1.2.2
+fonttools                        4.56.0
+iniconfig                        2.0.0
+kiwisolver                       1.4.8
+matplotlib                       3.10.0
+numpy                            2.2.3
+packaging                        24.2
+pillow                           11.1.0
+pip                              22.0.2
+pluggy                           1.5.0
+pyparsing                        3.2.1
+pytest                           8.3.4
+python-dateutil                  2.9.0.post0
+python-intermediate-inflammation 0.0.0       /path/to/your/project/directory/python-intermediate-inflammation
+setuptools                       59.6.0
+six                              1.17.0
+tomli                            2.2.1
+```
+
 ### Exporting/Importing Virtual Environments Using `pip`
 
 You are collaborating on a project with a team so, naturally,
@@ -491,12 +536,11 @@ so they can easily 'clone' your software project with all of its dependencies
 and everyone can replicate equivalent virtual environments on their machines.
 `pip` has a handy way of exporting, saving and sharing virtual environments.
 
-To export your active environment -
-use `python3 -m pip freeze` command to produce a list of packages installed in the virtual environment.
+To export your active environment use the `python3 -m pip freeze --exclude-editable` command to produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file:
 
 ```bash
-(venv) $ python3 -m pip freeze > requirements.txt
+(venv) $ python3 -m pip freeze --exclude-editable > requirements.txt
 (venv) $ cat requirements.txt
 ```
 
@@ -518,6 +562,7 @@ The first of the above commands will create a `requirements.txt` file in your cu
 Yours may look a little different,
 depending on the version of the packages you have installed,
 as well as any differences in the packages that they themselves use.
+Also, we need to use the `--exclude-editable` command so that our local package is not included in the output, otherwise pip will try to pull from a specific commit at the time we made the editable install, which is not what we want.
 
 The `requirements.txt` file can then be committed to a version control system
 (we will see how to do this using Git in one of the following episodes)
@@ -526,10 +571,10 @@ They can then replicate your environment
 and install all the necessary packages from the project root as follows:
 
 ```bash
-(venv) $ python3 -m pip install -r requirements.txt
+(venv) $ python3 -m pip install -r requirements.txt --editable .
 ```
 
-As your project grows - you may need to update your environment for a variety of reasons.
+As your project grows you may need to update your environment for a variety of reasons.
 For example, one of your project's dependencies has just released a new version
 (dependency version number update),
 you need an additional package for data analysis (adding a new dependency)
@@ -604,7 +649,7 @@ to customize the command line.
 - Use `venv` to create and manage Python virtual environments.
 - Use `pip` to install and manage Python external (third-party) libraries.
 - `pip` allows you to declare all dependencies for a project in a separate file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment.
-- Use `python3 -m pip freeze > requirements.txt` to take snapshot of your project's dependencies.
+- Use `python3 -m pip freeze --exclude-editable > requirements.txt` to take snapshot of your project's dependencies.
 - Use `python3 -m pip install -r requirements.txt` to replicate someone else's virtual environment on your machine from the `requirements.txt` file.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
