@@ -305,7 +305,7 @@ poetry --version  # check we have access to the poetry executable
   git clone <our_repo>
   python -m venv venv
   . venv/bin/activate
-  pip install -r requirements.txt
+  pip install -r requirements.txt --editable .
   python inflammation-analysis.py
   ...
   ```
