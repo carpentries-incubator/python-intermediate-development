@@ -478,29 +478,37 @@ Now whenever you call `mock_version.method_to_mock()` the return value will be `
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Exercise: Test Using a Mock Implementation
+Add a new test file called `test_compute_data.py` in the tests folder and add a test to verify 
+whether we can successfully run `analyse_data()` when passing it a data source.
 
-Complete this test for `analyse_data()`, using a mock object in place of the
-`data_source`:
+Complete this test for `analyse_data()`, using a mock object in place of the `data_source`:
 
 ```python
 from unittest.mock import Mock
 
-def test_compute_data_mock_source():
+def test_analyse_data_mock_source():
   from inflammation.compute_data import analyse_data
   data_source = Mock()
 
   # TODO: configure data_source mock
 
-  result = analyse_data(data_source)
+  analyse_data(data_source)
 
-  # TODO: add assert on the contents of result
 ```
 
 Create a mock that returns some fixed data and to use as the `data_source` in order to test
 the `analyse_data` method.
-Use this mock in a test.
+
+Use this mock in the test.
 
 Do not forget to import `Mock` from the `unittest.mock` package.
+
+Note that the `analyse_data()` function visualizes the data with `views.visualize(graph_data)`.
+You do not have to assert that this is done correctly. For now, it is fine to just check that 
+the call to `analyse_data()` can proceed successfully. 
+
+In the next episode we will adapt the `analyse_data()` function 
+so that we can write a test that asserts whether standard deviation calculations are correct.
 
 :::::::::::::::  solution
 
@@ -509,14 +517,14 @@ Do not forget to import `Mock` from the `unittest.mock` package.
 ```python
 from unittest.mock import Mock
 
-def test_compute_data_mock_source():
+def test_analyse_data_mock_source():
   from inflammation.compute_data import analyse_data
   data_source = Mock()
-  data_source.load_inflammation_data.return_value = [[[0, 2, 0]],
-                                                     [[0, 1, 0]]]
+  mock_data = [[[0, 2, 0]],
+              [[0, 1, 0]]]
+  data_source.load_inflammation_data.return_value = mock_data
 
-  result = analyse_data(data_source)
-  npt.assert_array_almost_equal(result, [0, math.sqrt(0.25) ,0])
+  analyse_data(data_source)
 ```
 
 :::::::::::::::::::::::::
@@ -526,8 +534,8 @@ def test_compute_data_mock_source():
 ## Safe Code Structure Changes
 
 With the changes to the code structure we have done using code decoupling and abstractions we have
-already refactored our code to a certain extent but we have not tested that the changes work as
-intended.
+already refactored our code to a certain extent, 
+but we have not fully tested that the changes work as intended.
 We will now look into how to properly refactor code to guarantee that the code still works
 as before any modifications.
 
