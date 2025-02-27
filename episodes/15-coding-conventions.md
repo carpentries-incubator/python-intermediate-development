@@ -608,7 +608,7 @@ or using triple quotes as a way to 'quickly' comment out an entire block of code
 is considered bad practice.
 
 In our example case, we used the
-[Sphynx/ReadTheDocs docstring style](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html)
+[Sphinx/ReadTheDocs docstring style](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html)
 formatting for the `param`, `raises` and `returns` - other docstring formats exist as well.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
