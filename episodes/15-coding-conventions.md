@@ -145,7 +145,7 @@ def long_function_name(
 
 # Aligned with opening delimiter
 foo = long_function_name(var_one, var_two,
-                        var_three, var_four)
+                         var_three, var_four)
 
 # Use hanging indents to add an indentation level like paragraphs of text where all the lines in a paragraph are
 # indented except the first one
