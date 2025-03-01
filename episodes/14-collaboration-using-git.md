@@ -519,7 +519,7 @@ We still prefer to explicitly state this information in commands.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Let us confirm that the new branch `develop` now exist remotely on GitHub too.
+Let us confirm that the new branch `develop` now exists remotely on GitHub too.
 From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
 You should see your `develop` branch in the list too.
