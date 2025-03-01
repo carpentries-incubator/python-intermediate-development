@@ -158,7 +158,7 @@ You do, however, want to share `requirements.txt` with your team
 as this file can be used to replicate the virtual environment on your collaborators' systems.
 
 To tell Git to intentionally ignore and not track certain files and directories,
-you need to specify them in the `.gitignore` text file in the project root.
+you need to specify them in the `.gitignore` text file. A common place to put this file is in the project root.
 Our project already has `.gitignore`,
 but in cases where you do not have it -
 you can simply create it yourself.
