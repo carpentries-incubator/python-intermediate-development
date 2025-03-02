@@ -128,10 +128,10 @@ Let us say we want to add more detail to our list of initial ascenders:
 ...
 first_scaled_by:
 - name: Hans Meyer
-  date_of_birth: 22-03-1858
+  date_of_birth: 1858-03-22
   nationality: German
 - name: Ludwig Purtscheller
-  date_of_birth: 22-03-1858
+  date_of_birth: 1858-03-22
   nationality: Austrian
 ```
 
