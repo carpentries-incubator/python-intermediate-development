@@ -189,7 +189,7 @@ to indicate line continuation (slightly less preferred method).
 ```python
 # Using delimiters ( ) to wrap a multi-line expression
 if (a == True and
-   b == False):
+    b == False):
 
 # Using a backslash (\) for line continuation
 if a == True and \
