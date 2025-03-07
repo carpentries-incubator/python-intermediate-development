@@ -545,7 +545,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.3 Continuous Integration for Automated Testing</h1>
-        <p>Last updated on 2025-02-25 |
+        <p>Last updated on 2025-03-07 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/23-continuous-integration-automated-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -761,7 +761,7 @@ file called <code>main.yml</code> (note its extension is
 <span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python dependencies</span></span>
 <span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a>        python3 -m pip install --upgrade pip</span>
-<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a>        python3 -m pip install -r requirements.txt</span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a>        python3 -m pip install -r requirements.txt .</span>
 <span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a></span>
 <span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test with PyTest</span></span>
 <span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
@@ -804,10 +804,11 @@ interpreted as the wrong version!</li>
 inflammation package:</strong> In order to locally install our
 <code>inflammation</code> package it is good practice to upgrade the
 version of pip that is present first, then we use pip to install our
-package dependencies. Once installed, we can use
-<code>python3 -m pip install -e .</code> as before to install our own
-package. We use <code>run</code> here to run theses commands in the CI
-shell environment</li>
+package dependencies. Notice that it is fine to omit the
+<code>--editable</code> flag in this case because the source code will
+be static and therefore we don’t need this to be an “editable” install
+like when we are developing locally. We use <code>run</code> here to run
+theses commands in the CI shell environment</li>
 <li>
 <strong>Test with PyTest:</strong> lastly, we run
 <code>python3 -m pytest</code>, with the same arguments we used manually
@@ -935,10 +936,10 @@ the following:</p>
 <span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python dependencies</span></span>
 <span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>        python3 -m pip install --upgrade pip</span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>        python3 -m pip install -r requirements.txt</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>        python3 -m pip install -r requirements.txt .</span>
 <span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test with PyTest</span></span>
 <span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>        python3 -m pytest --cov=catchment.models tests/test_models.py</span></code></pre>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>        python3 -m pytest --cov=inflammation.models tests/test_models.py</span></code></pre>
 </div>
 <p>The <code>{{ }}</code> are used as a means to reference configuration
 values from the matrix. This way, every possible permutation of Python
@@ -1074,8 +1075,8 @@ builds simultaneously.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-02-25",
-  "datePublished": "2025-03-04"
+  "dateModified": "2025-03-07",
+  "datePublished": "2025-03-07"
 }
 
   </script><script>

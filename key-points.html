@@ -724,8 +724,9 @@ environments.</li>
 project in a separate file (by convention called
 <code>requirements.txt</code>) which can be shared with
 collaborators/users and used to replicate a virtual environment.</li>
-<li>Use <code>python3 -m pip freeze &gt; requirements.txt</code> to take
-snapshot of your project’s dependencies.</li>
+<li>Use
+<code>python3 -m pip freeze --exclude-editable &gt; requirements.txt</code>
+to take snapshot of your project’s dependencies.</li>
 <li>Use <code>python3 -m pip install -r requirements.txt</code> to
 replicate someone else’s virtual environment on your machine from the
 <code>requirements.txt</code> file.</li>
@@ -1027,8 +1028,8 @@ research software development in teams.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/key-points.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/key-points.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-03-04",
-  "datePublished": "2025-03-04"
+  "dateModified": "2025-03-07",
+  "datePublished": "2025-03-07"
 }
 
   </script><script>

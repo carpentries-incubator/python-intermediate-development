@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.1 Automatically Testing Software</h1>
-        <p>Last updated on 2025-02-25 |
+        <p>Last updated on 2025-03-07 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/21-automatically-testing-software.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1191,7 +1191,7 @@ should also regenerate our <code>requirements.txt</code>:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="at">--exclude-editable</span> <span class="op">&gt;</span> requirements.txt</span></code></pre>
 </div>
 <p>Finally, let us commit our new <code>test_models.py</code> file,
 <code>requirements.txt</code> file, and test cases to our
@@ -1303,8 +1303,8 @@ important and is known as <strong>data validation</strong>.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/21-automatically-testing-software.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/21-automatically-testing-software.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-02-25",
-  "datePublished": "2025-03-04"
+  "dateModified": "2025-03-07",
+  "datePublished": "2025-03-07"
 }
 
   </script><script>
