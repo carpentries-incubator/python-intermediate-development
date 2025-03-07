@@ -494,6 +494,20 @@ Once again, we can use `pip` to install our local package:
 python3 -m pip install --editable .
 ```
 
+:::::::::::::::::::::::::::::::::::::::::  spoiler
+
+### This command fails for me
+
+If your `pip` installation is older than version 21.3, then this command will probably fail for you.
+This is because these older versions of `pip` do not support `pyproject.toml` as the package metadata.
+Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can:
+
+```bash
+python3 -m pip install --upgrade pip
+```
+
+:::::::::::::::::::::::::::::::::::::::::
+
 This is similar syntax to above, with two important differences:
 
 1. The `--editable` or `-e` flag indicates that the package we are specifying should be an "editable" install.
@@ -501,6 +515,8 @@ This is similar syntax to above, with two important differences:
    This is very convenient when we are developing the package because we can instantly see changes when we call the code from within our virtual environment, rather than having to install the local package again to get the updates.
 2. The argument `'.'` indicates that the package we want to install is located in the current directory.
    The `pyproject.toml` file located in this directory then handles the rest.
+
+
 
 If we reissue the `pip list` command we should now see our local package with the name `python-intermediate-inflammation` in the output:
 
