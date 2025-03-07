@@ -341,9 +341,9 @@ Read through and follow along until the end of the episode page.
 rm -r venv/
 python3 -m venv venv
 source venv/bin/activate
-pip install <your_dependencies> 
+pip install <list_your_dependencies>
 # or
-pip install -r requirements.txt  # great reason to have this file
+pip install -r requirements.txt # great reason to have this file
 
 ```
 <!-- #endregion -->
