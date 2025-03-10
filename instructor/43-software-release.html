@@ -544,7 +544,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>4.3 Packaging Code for Release and Distribution</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-03-10 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/43-software-release.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -639,7 +639,11 @@ virtual environment activated.</p>
 <p>Poetry can also handle virtual environments for us, so in order to
 behave similarly to how we used them previously, let us change the
 Poetry config to put them in the same directory as our project:</p>
-<p><code>bash, bash $ poetry config virtualenvs.in-project true</code></p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> poetry config virtualenvs.in-project true</span></code></pre>
+</div>
 </div>
 <div class="section level3">
 <h3 id="setting-up-our-poetry-config">Setting up our Poetry Config<a class="anchor" aria-label="anchor" href="#setting-up-our-poetry-config"></a></h3>
@@ -662,10 +666,10 @@ use your own contact details!</em></p>
 <p><strong>NB: When you get to the questions about defining our
 dependencies, answer no, so we can do this separately
 later.</strong></p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> poetry init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> poetry init</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -735,12 +739,12 @@ name <code>.venv</code>, so it appears hidden unless we do
 environment, Poetry will use ours instead. The
 <code>pyproject.toml</code> file has two separate lists, allowing us to
 distinguish between runtime and development dependencies.</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> poetry add matplotlib numpy</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">$</span> poetry add <span class="at">--group</span> dev pylint</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="ex">$</span> poetry install</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> poetry add matplotlib numpy</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">$</span> poetry add <span class="at">--group</span> dev pylint</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="ex">$</span> poetry install</span></code></pre>
 </div>
 <p>These two sets of dependencies will be used in different
 circumstances. When we build our package and upload it to a package
@@ -775,10 +779,10 @@ when we try to import them.</p>
 <p>Once we have got our <code>pyproject.toml</code> configuration done
 and our project is in the right structure, we can go ahead and build a
 distributable version of our software:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> poetry build</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> poetry build</span></code></pre>
 </div>
 <p>This should produce two files for us in the <code>dist</code>
 directory. The one we care most about is the <code>.whl</code> or
@@ -789,10 +793,10 @@ need to share with other people who want to install our software.</p>
 using <code>pip</code> - you do not need to run this command yourself,
 you have already installed it using <code>poetry install</code>
 above.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip install dist/inflammation<span class="pp">*</span>.whl</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> pip install dist/inflammation<span class="pp">*</span>.whl</span></code></pre>
 </div>
 <p>The star in the line above is a <strong>wildcard</strong>, that means
 Bash should use any filenames that match that pattern, with any number
@@ -809,10 +813,10 @@ how small the changes, needs to come with a new version number. The
 advantage of <a href="https://semver.org/" class="external-link">SemVer</a> is that the change
 in the version number indicates the degree of change in the code and
 thus the degree of risk of breakage when we update.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> poetry build</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> poetry build</span></code></pre>
 </div>
 <p>In addition to the commands we have already seen, Poetry contains a
 few more that can be useful for our development process. For the full
@@ -927,7 +931,7 @@ to start using it.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/43-software-release.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/43-software-release.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2025-03-10",
   "datePublished": "2025-03-10"
 }
 
