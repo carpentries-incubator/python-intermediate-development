@@ -119,7 +119,7 @@ What you will be able to do at the end that should help your work:
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Content Overview
 
-![](../episodes/fig/course-overview.png)
+![](../episodes/fig/course-overview.svg)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -135,7 +135,7 @@ There are five main sections of the course, each roughly to be covered in one of
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Section 1: Setting Up The Environment For Collaborative Code Development
 
-![](../episodes/fig/section1-overview.png)
+![](../episodes/fig/section1-overview.svg)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
