@@ -119,7 +119,7 @@ What you will be able to do at the end that should help your work:
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Content Overview
 
-![](../fig/course-overview.png)
+![](../episodes/fig/course-overview.png)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -135,7 +135,7 @@ There are five main sections of the course, each roughly to be covered in one of
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Section 1: Setting Up The Environment For Collaborative Code Development
 
-![](../fig/section1-overview.png)
+![](../episodes/fig/section1-overview.png)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -156,7 +156,7 @@ There are five main sections of the course, each roughly to be covered in one of
 
 The "patient inflammation" example from the Novice Software Carpentry Python Lesson.
 
-<center><img src='../fig/inflammation-dataset.svg' width="50%"></center>
+<center><img src='../episodes/fig/inflammation-dataset.svg' width="50%"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -232,7 +232,7 @@ Please post your answers in the shared document.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Model-View-Adapter (MVA)
 
-<center><img src='../fig/mva-diagram.png' width="50%"></center>
+<center><img src='../episodes/fig/mva-diagram.png' width="50%"></center>
 
 By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 <!-- #endregion -->
@@ -269,7 +269,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 - Before jumping to install matplotlib and numpy, it is worth a thought about other projects we might be currently be working on or in the future
   - what if they have a requirement for a different version of numpy or matplotlib? or a different python version? how are you going to share your project with collaborators and make sure they have the correct dependencies?
   - in general, each project is going to have its own unique configuration and set of dependencies
-  - to solve this in python, we set up a virtual environment for each project, containing a set of libraries that Will not interact with others on the system
+  - to solve this in python, we set up a virtual environment for each project, containing a set of libraries that will not interact with others on the system
   - it can be thought of like an isolated partial installation of Python specifically for your project
 <!-- #endregion -->
 
@@ -291,7 +291,7 @@ By Soroush Khanlou, https://khanlou.com/2014/03/model-view-whatever/
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Lots of other tools...
 
-<center><img src='../fig/python-environment-hell.png' width="40%"></center>
+<center><img src='../episodes/fig/python-environment-hell.png' width="40%"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -341,9 +341,9 @@ Read through and follow along until the end of the episode page.
 rm -r venv/
 python3 -m venv venv
 source venv/bin/activate
-pip install <list_your_dependencies>
+pip install <your_dependencies> 
 # or
-pip install -r requirements.txt # great reason to have this file
+pip install -r requirements.txt --editable . # great reason to have this file
 
 ```
 <!-- #endregion -->
@@ -375,10 +375,10 @@ pip install -r requirements.txt # great reason to have this file
 
 <table><tr>
     <td>
-        <img src='../fig/PyCharm_Icon.png' width="100%">
+        <img src='../episodes/fig/PyCharm_Icon.png' width="100%">
     </td>
     <td>
-        <img src='../fig/Visual_Studio_Code_1.35_icon.png' width="100%">
+        <img src='../episodes/fig/Visual_Studio_Code_1.35_icon.png' width="100%">
     </td>
 </tr></table>
 <!-- #endregion -->
@@ -390,6 +390,7 @@ pip install -r requirements.txt # great reason to have this file
 - Preference for Code Editors and IDEs is one of the more contentious and strongly felt topics among software developers, but the bottom line is that if a tool works for you and helps you be productive, then it is absolutely fine to use that tool
   - But again, for the practicalities of this course, the decision to support two editors, PyCharm and VSCode, has been made
   - If you are comfortable enough in another IDE or code editor to get the functionality demonstrated in the content below, then please feel free to use that tool here, but this is a disclaimer that we cannot promise to resolve any issues you have, and if these issues are holding the group up then we will need to move on
+  - For VSCode, please consult the "Extras" content of the course web page and find the analogous functionality described there; if you are having trouble getting something to work, please ask for help!
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -418,7 +419,7 @@ Start from this heading and continue to the end of the page.
 
 </br>
 </br>
-<center><img src='../fig/git-lifecycle.svg'></center>
+<center><img src='../episodes/fig/git-lifecycle.svg' width="80%"></center>
 
 <!-- #endregion -->
 
@@ -449,13 +450,13 @@ Start from this heading and go until the "Git Branches" heading.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Git Branches
 
-<center><img src="../fig/git-feature-branch.svg"></center>
+<center><img src="../episodes/fig/git-feature-branch.svg"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 - Git branches
   - branches are actually just a pointer to a commit, and that commit _can_ (but does not have to) define a distinct or divergent commit history of our main branch
-  - this allows developers to take "copies" of the code and make their own modifications without making changes to original nor affecting the commit history of the main branch (so others Will not see the changes there until they are merged)
+  - this allows developers to take "copies" of the code and make their own modifications without making changes to original nor affecting the commit history of the main branch (so others will not see the changes there until they are merged)
   - this is the main aspect of git that facilitates collaboration
   - talk through the image
   - the best practice is to use a new branch for each separate and self-contained unit/piece of work you want to add to the project. This unit of work is also often called a feature and the branch where you develop it is called a feature branch. Each feature branch should have its own meaningful name - indicating its purpose (e.g. “issue23-fix”). If we keep making changes and pushing them directly to main branch on GitHub, then anyone who downloads our software from there will get all of our work in progress - whether or not it’s ready to use! So, working on a separate branch for each feature you are adding is good for several reasons:
@@ -520,7 +521,7 @@ Continue from this heading to the end of the page.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this Will not exist, so choose what seems best)
+- Unless you have particular requirements, it is best to go with a sytle guide that has the majority consensus for a particular language (albeit sometimes this will not exist, so choose what seems best)
   - In Python, this is PEP8
     - In PyCharm, adherance to PEP8 will automatically be checked and violations flagged for fixing (demonstrate this live)
     - VSCode can do the same thing with an extension. See the "Extras" section.

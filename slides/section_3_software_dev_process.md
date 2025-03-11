@@ -16,7 +16,7 @@ jupyter:
 
 </br>
 </br>
-<center><img src="../fig/section3-overview.png" width="70%"></center>
+<center><img src="../episodes/fig/section3-overview.png" width="70%"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -50,7 +50,7 @@ jupyter:
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Software Development Lifecycle
 
-<center><img src="../fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
+<center><img src="../episodes/fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
 
 <a href="https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg">Cliffydcw</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
 <!-- #endregion -->

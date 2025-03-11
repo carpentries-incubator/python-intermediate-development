@@ -16,7 +16,7 @@ jupyter:
 
 </br>
 </br>
-<center><img src="../fig/section5-overview.png" width="70%"></center>
+<center><img src="../episodes/fig/section5-overview.png" width="70%"></center>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
