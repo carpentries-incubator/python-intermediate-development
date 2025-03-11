@@ -11,7 +11,7 @@ jupyter:
     theme: solarized
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} editable=true -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 # Section 3: Software Development as a Process
 
 </br>
@@ -24,7 +24,7 @@ jupyter:
 - We are going to step up a level and look at the overall process of developing software
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Writing Code versus Engineering Software
 
 - Software is _not_ just a tool for answering a research question
@@ -36,7 +36,7 @@ jupyter:
   - Software can be reused 🔁
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 - Software is _not_ just a tool for answering a research question
   - Software is shared frequently between researchers and _reused_ after publication
   - Therefore, we need to be concerned with more than just the implementation, i.e. "writing code"
@@ -47,7 +47,7 @@ jupyter:
   - Software can be reused: like with stakeholders, it is hard to predict how the software will be used in the future, and we want to make it easy for reuse to happen
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Software Development Lifecycle
 
 <center><img src="../fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
@@ -55,7 +55,7 @@ jupyter:
 <a href="https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg">Cliffydcw</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 The typical stages of a software development process can be categorised as follows:
 
 - Requirements gathering (coming up next): the process of identifying and recording the exact requirements for a software project before it begins. This helps maintain a clear direction throughout development, and sets clear targets for what the software needs to do.
@@ -91,13 +91,13 @@ There is value we get from following some sort of process:
   3. solution requirements: the how
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Breakout: Reading and Exercises
 
 Read from the top of the "Software Requirements" page and do the exercises as you go.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 If you are using a shared document, you could have sections for each of the
 requirement types and get learners to write their suggestions in there.
 Afterwards, you could go through some of the suggestions and see whether there
@@ -113,18 +113,32 @@ is agreement about whether they have been categorised correctly.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-## Maintainable Code
+### Poor Design and Technical Debt
+
+- It is always tempting to dive straight to implementation once we have an idea of our requirements
+- However, this short-sightedness often has a cost: technical debt
+
+> **Technical debt:** cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer
+
+- There is a balance: some technical will always be necessary, and you need to balance that with getting things done to meet deadlines
+- Becoming an *intermediate* or even *senior* developer is about choosing the amount of design techniquest that are *good enough* for the current situation
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Software Design Goals
 
 Software Architecture and Design is about writing *maintainable code*.
 
- * Easy to read
- * Testable
+Maintainable code is:
+
+ * Understandable
  * Adaptable
+ * Testable
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-## Maintainable Code
+### Maintainable Code
 
 Maintainable code is vital as projects grow
 
@@ -135,14 +149,17 @@ Maintainable code is vital as projects grow
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
-## Exercise:
+## Exercise: why isn't this code maintainable?
 
-Try to come up with examples of code that has been hard to understand - why?
+How is this code hard to maintain?
 
-Try to come up with examples of code that was easy to understand and modify - why?
+Maintainable code should be:
+
+ * Easy to read
+ * Easy to test
+ * Easy to extend or modify
 
 Time: 5min
-
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -261,40 +278,13 @@ In the process of refactoring, we will try to target some of the "good practices
 Look at `inflammation/compute_data.py`
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Bring up the code
 
 Explain the feature:
 In it, if the user adds --full-data-analysis then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
 
 The main body of it exists in inflammation/compute_data.py in a function called analyse_data.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
-
-## Exercise: why is not this code maintainable?
-
-How is this code hard to maintain?
-
-Maintainable code should be:
-
- * Easy to read
- * Easy to test
- * Easy to extend or modify
-
-Time: 5min
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
-Solution:
-
-Hard to read: Everything is in a single function - reading it you have to understand how the file loading works at the same time as the analysis itself.
-
-Hard to modify: If you want to use the data without using the graph you’d have to change it
-
-Hard to modify or test: It is always analysing a fixed set of data stored on the disk
-
-Hard to modify: It doesn’t have any tests meaning changes might break something
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -324,7 +314,7 @@ Functions that just do one thing are:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 We identified last episode that the code has a function that does many more than one thing
 
 Hard to understand - high cognitive load
@@ -389,13 +379,13 @@ There will be no side effects from running the function
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Externalities like what is in a database or the time of day
 
 Side effects like modifying a global variable or writing a file
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Pure Functions
 
 Pure functions have a number of advantages for maintainable code:
@@ -405,7 +395,7 @@ Pure functions have a number of advantages for maintainable code:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Refactor Code into a Pure Function
 
 Refactor the analyse_data function into a pure function with the logic, and an impure function that handles the input and output. The pure function should take in the data, and return the analysis results:
@@ -420,7 +410,7 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Testing Pure Functions
 
 Pure functions are also easier to test
@@ -455,7 +445,7 @@ Python, and other languages, provide features that make it easier to write "func
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 If there is time - do some live coding to show imperative code, then transform into a pipeline:
 
  * Sequence of numbers
@@ -469,9 +459,9 @@ If there is time - do some live coding to show imperative code, then transform i
 numbers = range(1, 100)
 total = 0
 for number in numbers:
-    if number % 2 == 0:
-        squared = number**2
-        total += squared
+  if is_even(number):
+    squared = number ** 2
+    total += squared
 
 
 # Functional
@@ -480,7 +470,7 @@ def is_even(number):
 
 
 def squared(number):
-    return number**2
+  return number**2
 
 
 total = sum(map(squared, filter(is_even, numbers)))
@@ -488,15 +478,15 @@ total = sum(map(squared, filter(is_even, numbers)))
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} editable=true -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} editable=true -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Using Classes to Decouple Code
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Decoupled Code
 
 When thinking about code, we tend to think of it in distinct parts or **units**.
@@ -505,13 +495,13 @@ Two units are **decoupled** if changes in one can be made independently of the o
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 E.g we have the part that loads a file and the part that draws a graph
 
 Or the part that the user interacts with and the part that does the calculations
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Decoupled Code
 
 Abstractions allow decoupling code
@@ -525,7 +515,7 @@ For example break of a car, the details of how to slow down are abstracted, so w
 breaking works, we do not need to retrain the driver.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Exercise: Decouple the File Loading from the Computation
 
 Currently the function is hard coded to load all the files in a directory.
@@ -561,7 +551,7 @@ A **class** is a Python feature that allows grouping methods (i.e. functions) wi
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Do some live coding, ending with:
 
 ```python
@@ -580,7 +570,7 @@ print(my_circle.get_area())
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Exercise: Use a Class to Configure Loading
 
 Put the `load_inflammation_data` function we wrote in the last exercise as a member method of a new class called `CSVDataSource`.
@@ -593,21 +583,21 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Interfaces
 
 **Interfaces** describe how different parts of the code interact with each other.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 For example, the interface of the breaking system in a car, is the break pedal.
 The user can push the pedal harder or softer to get more or less breaking.
 The interface of our circle class is the user can call get_area to get the 2D area of the circle
 as a number.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Interfaces
 
 Question: what is the interface for CSVDataSource
@@ -630,20 +620,20 @@ class CSVDataSource:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Suggest discuss in groups for 1min.
 
 Answer: the interface is the signature of the `load_inflammation_data()` method, i.e. what arguments it takes and what it returns.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Common Interfaces
 
 If we have two classes that share the same interface, we can use the interface without knowing which class we have
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Easiest shown with an example, lets do more live coding:
 
 ```python
@@ -662,7 +652,7 @@ total_area = sum(shape.get_area() for shape in my_shapes)
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Polymorphism
 
 Using an interface to call different methods is a technique known as **polymorphism**.
@@ -671,7 +661,7 @@ A form of abstraction - we have abstracted what kind of shape we have.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Exercise: Introduce an alternative implementation of DataSource
 
 Polymorphism is very useful - suppose we want to read a JSON (JavaScript Object Notation) file.
@@ -696,7 +686,7 @@ Another use of polymorphism is **mocking** in tests.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 
 Lets live code a mock shape:
 
@@ -723,7 +713,7 @@ Focus on testing behaviour rather than implementation.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Exercise: Test Using a Mock Implementation
 
 Complete the exercise to write a mock data source for `analyse_data`.
@@ -732,7 +722,7 @@ Time: 15min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 
 ## Object Oriented Programming
 
