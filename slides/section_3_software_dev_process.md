@@ -166,6 +166,10 @@ Time: 5min
 - Use the course material to get the answers
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "notes"} -->
+After 5 min spend 5-15 min discussing examples the group has come up with
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Software Architecture
 
@@ -269,18 +273,26 @@ Simple control flow - explain means not lots of nesting if statement or for loop
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Reducing Cognitive Load
+### Reducing Cognitive Load at a Higher Level
 
 1. Decoupling
 2. Abstractions
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Decoupling
+### Decoupled Code
 
-**Code decoupling** refers to breaking up the software into smaller components and reducing the interdependence between these components so that they can be tested and maintained independently.
+When thinking about code, we tend to think of it in distinct parts or **units**.
 
-Changes in one component *should not* cause changes in another. Therefore, we only need to keep the current component in our mind at any time.
+Two units are **decoupled** if changes in one can be made independently of the other.
+
+Therefore, we only need to keep the current component in our mind at any time, reducing cognitive load.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+E.g we have the part that loads a file and the part that draws a graph
+
+Or the part that the user interacts with and the part that does the calculations
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -289,30 +301,255 @@ Changes in one component *should not* cause changes in another. Therefore, we on
 
 An **abstraction** hides the details of one part of a system from another.
 
+This allows for the units or parts of the system to be *decoupled*.
+
+We only need to know how to use the *interface* of the abstraction to interact with it, reducing cognitive load.
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
+When we have a suitable abstraction, we do not need to worry about the inner workings of the other part.
+
 Give some examples of abstractions, or maybe ask for people to think of ideas of abstractions in the real world?
 
 Examples:
 
-- A brake pedal in a car: we don't need to know the exact mechanism by which the car slows down, so that implementation has been "abstracted" away from the car user
+- A brake pedal in a car: we don't need to know the exact mechanism by which the car slows down, so that implementation has been "abstracted" away from the car user; when we change how breaking works, we do not need to retrain the driver.
 - Similarly, a light switch is an abstraction: we don't need to know what happens with the wiring and flow of electricity in order to understand that one side means the light will be on and vice versa
 - human society is full of things like these...
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
+### ✏️ Exercise: Decouple Data Loading from Data Analysis
 
-## Abstractions
+Currently the function is hard coded to load all the files in a directory.
 
-Help to make code easier - as do not have to understand details all at once.
+Decouple this into a separate function that returns all the files to load
 
-Lowers cognitive load for each part.
+Time: 10min
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Decoupled... but not completely
+
+Although we have separated out the data loading, there is still an assumption and therefore coupling in terms of the format of that data (in this case CSV).
+
+Is there a way we could make this more flexible?
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+- The format of the data stored is a practical detail which we don't want to limit the use of our `analyse_data()` function
+- We could add an argument to our function to specify the format, but then we might have quite a long conditional list of all the different possible formats, and the user would need to request changes to `analyse_data()` any time they want to add a new format
+- Is there a way we can let the user more flexibly specify the way in which their data gets read?
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+One way is with **classes**!
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Python Classes
+
+A **class** is a Python feature that allows grouping methods (i.e. functions) with some data.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Do some live coding, ending with:
+
+```python
+import math
+
+class Circle:
+  def __init__(self, radius):
+    self.radius = radius
+
+  def get_area(self):
+    return math.pi * self.radius * self.radius
+
+my_circle = Circle(10)
+print(my_circle.get_area())
+```
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### ✏️ Exercise: Decouple Data Loading from Data Analysis
+### Exercise: Use a Class to Configure Loading
+
+Put the `load_inflammation_data` function we wrote in the last exercise as a member method of a new class called `CSVDataSource`.
+
+Put the configuration of where to load the files in the class' initialiser.
+
+Once this is done, you can construct this class outside the the statistical analysis and pass the instance in to analyse_data.
+
+Time: 10min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Interfaces
+
+**Interfaces** describe how different parts of the code interact with each other.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+For example, the interface of the breaking system in a car, is the break pedal.
+The user can push the pedal harder or softer to get more or less breaking.
+The interface of our circle class is the user can call get_area to get the 2D area of the circle
+as a number.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Interfaces
+
+Question: what is the interface for CSVDataSource
+
+```python
+class CSVDataSource:
+  """
+  Loads all the inflammation csvs within a specified folder.
+  """
+  def __init__(self, dir_path):
+    self.dir_path = dir_path
+
+  def load_inflammation_data(self):
+    data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
+    if len(data_file_paths) == 0:
+      raise ValueError(f"No inflammation csv's found in path {self.dir_path}")
+    data = map(models.load_csv, data_file_paths)
+    return list(data)
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Suggest discuss in groups for 1min.
+
+Answer: the interface is the signature of the `load_inflammation_data()` method, i.e. what arguments it takes and what it returns.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Common Interfaces
+
+If we have two classes that share the same interface, we can use the interface without knowing which class we have
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Easiest shown with an example, lets do more live coding:
+
+```python
+class Rectangle(Shape):
+  def __init__(self, width, height):
+    self.width = width
+    self.height = height
+  def get_area(self):
+    return self.width * self.height
+
+my_circle = Circle(radius=10)
+my_rectangle = Rectangle(width=5, height=3)
+my_shapes = [my_circle, my_rectangle]
+total_area = sum(shape.get_area() for shape in my_shapes)
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Polymorphism
+
+Using an interface to call different methods is a technique known as **polymorphism**.
+
+A form of abstraction - we have abstracted what kind of shape we have.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Exercise: Introduce an alternative implementation of DataSource
+
+Polymorphism is very useful - suppose we want to read a JSON (JavaScript Object Notation) file.
+
+Write a class that has the same interface as `CSVDataSource` that
+loads from JSON.
+
+There is a function in `models.py` that loads from JSON.
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Remind learners to check the course webpage for further details and some important hints.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Mocks
+
+Another use of polymorphism is **mocking** in tests.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+
+Lets live code a mock shape:
+
+```python
+from unittest.mock import Mock
+
+def test_sum_shapes():
+
+  mock_shape1 = Mock()
+  mock_shape1.get_area().return_value = 10
+
+  mock_shape2 = Mock()
+  mock_shape2.get_area().return_value = 13
+  my_shapes = [mock_shape1, mock_shape2]
+  total_area = sum(shape.get_area() for shape in my_shapes)
+
+  assert total_area = 23
+```
+
+Easier to read this test as do not need to understand how
+get_area might work for a real shape.
+
+Focus on testing behaviour rather than implementation.
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Exercise: Test Using a Mock Implementation
+
+Complete the exercise to write a mock data source for `analyse_data`.
+
+Time: 15min
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## Object Oriented Programming
+
+These are techniques from **object oriented programming**.
+
+There is a lot more that we will not go into:
+
+* Inheritance
+* Information hiding
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+
+## A note on Data Classes
+
+Regardless of doing Object Oriented Programming or Functional Programming
+
+**Grouping data into logical classes is vital for writing maintainable code.**
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -356,6 +593,10 @@ When making a change to a piece of software, do the following:
 
 Rest of section we will learn how to refactor an existing piece of code
 <!-- #endregion -->
+
+```python
+
+```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 In the process of refactoring, we will try to target some of the "good practices" we just talked about, like making good abstractions and reducing cognitive load.
@@ -570,6 +811,10 @@ total = sum(map(squared, filter(is_even, numbers)))
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## ☕ 10 Minute Break ☕
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Architecting Code to Separate Responsibilities
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -837,10 +1082,6 @@ Regardless of doing Object Oriented Programming or Functional Programming
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## ☕ 10 Minute Break ☕
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Architecting Code to Separate Responsibilities
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
