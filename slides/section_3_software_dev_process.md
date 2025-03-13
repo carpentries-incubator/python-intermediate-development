@@ -120,8 +120,8 @@ is agreement about whether they have been categorised correctly.
 
 > **Technical debt:** cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer
 
-- There is a balance: some technical will always be necessary, and you need to balance that with getting things done to meet deadlines
-- Becoming an *intermediate* or even *senior* developer is about choosing the amount of design techniquest that are *good enough* for the current situation
+- There is a balance: some technical debt will always be necessary, and you need to balance that with getting things done to meet deadlines
+- Becoming an *intermediate* or even *senior* developer is about choosing the amount of design techniques that are *good enough* for the current situation
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -148,12 +148,12 @@ Maintainable code is vital as projects grow
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
+### ✏️ Exercise: why isn't this code maintainable?
 
-## Exercise: why isn't this code maintainable?
-
+Switch to the `full-data-analysis` branch in your repo. Take a look at the file `inflammation/compute_data.py`.
 How is this code hard to maintain?
 
-Maintainable code should be:
+Reminder that maintainable code should be:
 
  * Easy to read
  * Easy to test
@@ -163,12 +163,83 @@ Time: 5min
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-After 5 min spend 5-15 min discussing examples the group has come up with
+- Use the course material to get the answers
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Software Architecture
+
+* One abstraction level up from "design"
+* Concerned with the *components* of our software system and how they connect (i.e. their interfaces)
+  * Design is more about concrete aspects of the code itself
+* Helpful to draw these sorts of diagrams before diving in so we can avoid major issues
+  * Also, architecture tends to be hard to change once we create it
+* Even if you don't explicitly specify your architecture, your code still has an architecture (but likely not a good one)
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### ✏️ Exercise: Design a High-Level Architecture for a New Requirement
+
+Get your diagramming on!
+
+Time: 10 min
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Get learners to share their diagrams if possible. Go through the solution in the course material.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Model-View-Controller (MVC) Architecture
+
+<center><img src="../episodes/fig/mvc_arch.svg" width="80%"></center>
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Walk throught the main components of this architecture and how it relates to the current project.
+
+Mermaid diagram source:
+
+```
+graph LR
+    User("User")
+    View["View"]
+    Controller["Controller"]
+    Model["Model"]
+    User -->|User Input| Controller
+    Controller -->|Process Data| Model
+    Model -->|Update Data| View
+    View -->|Display Data| User
+
+    style User fill:#4CAF50,stroke:#333,stroke-width:2px,stroke-dasharray:5,5
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### 📖 Reading Time
+
+Have a read through "Limitations to Architectural Design" to the end of the page.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Ask if anyone has questions and discuss any unclear portions of the text.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ☕ 5 Minute Break ☕
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Code Decoupling & Abstractions
+
+What are these and why do we need them? Let's look at the concept of *cognitive load* to find out.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
-## Cognitive Load
+### Cognitive Load
 
 For code to be readable, readers have to be able to understand what the code does.
 
@@ -180,7 +251,7 @@ There is a limit (and it is low!)
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
-## Cognitive Load
+### Cognitive Load
 
 Reduce cognitive load for a bit of code by:
 
@@ -195,6 +266,21 @@ Reduce cognitive load for a bit of code by:
 Good variable names - we not longer have punch card restrictions, so use more descriptive names!
 
 Simple control flow - explain means not lots of nesting if statement or for loops
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Reducing Cognitive Load
+
+1. Decoupling
+2. Abstractions
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Decoupling
+
+**Code decoupling** refers to breaking up the software into smaller components and reducing the interdependence between these components so that they can be tested and maintained independently.
+
+Changes in one component *should not* cause changes in another. Therefore, we only need to keep the current component in our mind at any time.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -223,6 +309,10 @@ Help to make code easier - as do not have to understand details all at once.
 
 Lowers cognitive load for each part.
 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### ✏️ Exercise: Decouple Data Loading from Data Analysis
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -267,7 +357,7 @@ When making a change to a piece of software, do the following:
 Rest of section we will learn how to refactor an existing piece of code
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 In the process of refactoring, we will try to target some of the "good practices" we just talked about, like making good abstractions and reducing cognitive load.
 <!-- #endregion -->
 
@@ -508,7 +598,7 @@ Abstractions allow decoupling code
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 When we have a suitable abstraction, we do not need to worry about the inner workings of the other part.
 
 For example break of a car, the details of how to slow down are abstracted, so when we change how
@@ -526,7 +616,7 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Decoupled... but not completely
 
 Although we have separated out the data loading, there is still an assumption and therefore coupling in terms of the format of that data (in this case CSV).
@@ -534,17 +624,17 @@ Although we have separated out the data loading, there is still an assumption an
 Is there a way we could make this more flexible?
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 - The format of the data stored is a practical detail which we don't want to limit the use of our `analyse_data()` function
 - We could add an argument to our function to specify the format, but then we might have quite a long conditional list of all the different possible formats, and the user would need to request changes to `analyse_data()` any time they want to add a new format
 - Is there a way we can let the user more flexibly specify the way in which their data gets read?
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": "fragment"} -->
+<!-- #region slideshow={"slide_type": "fragment"} -->
 One way is with **classes**!
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Python Classes
 
 A **class** is a Python feature that allows grouping methods (i.e. functions) with some data.
@@ -675,7 +765,7 @@ Time: 15min
 
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Remind learners to check the course webpage for further details and some important hints.
 <!-- #endregion -->
 
