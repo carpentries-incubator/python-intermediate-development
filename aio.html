@@ -2134,7 +2134,7 @@ package:</p>
   This command fails for me
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If your <code>pip</code> installation is older than version 21.3,
 then this command will probably fail for you. This is because these
@@ -3756,7 +3756,7 @@ features without affecting the stable <code>main</code> code.</li>
 </div>
 </section></section><section id="aio-15-coding-conventions"><p>Content from <a href="15-coding-conventions.html">1.5 Python Code Style Conventions</a></p>
 <hr>
-<p>Last updated on 2024-12-16 |
+<p>Last updated on 2025-04-01 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/15-coding-conventions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3906,33 +3906,33 @@ inside delimiters such as parentheses (<code>()</code>), brackets
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest of the code that follows</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="kw">def</span> long_function_name(</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>       var_one, var_two, var_three,</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>       var_four):</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>   <span class="bu">print</span>(var_one)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>        var_one, var_two, var_three,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>        var_four):</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    <span class="bu">print</span>(var_one)</span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># Aligned with opening delimiter</span></span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(var_one, var_two,</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>                        var_three, var_four)</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>                         var_three, var_four)</span>
 <span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co"># Use hanging indents to add an indentation level like paragraphs of text where all the lines in a paragraph are</span></span>
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co"># indented except the first one</span></span>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(</span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>   var_one, var_two,</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>   var_three, var_four)</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    var_one, var_two,</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>    var_three, var_four)</span>
 <span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the first non-blank character of the previous line</span></span>
 <span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>a_long_list <span class="op">=</span> [</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>   [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]], [[<span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="dv">1</span>], [<span class="fl">0.66</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.77</span>, <span class="fl">0.88</span>, <span class="dv">1</span>]]</span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>   ]</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]], [[<span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="dv">1</span>], [<span class="fl">0.66</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.77</span>, <span class="fl">0.88</span>, <span class="dv">1</span>]]</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>    ]</span>
 <span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the start of the multiline contruct</span></span>
 <span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>a_long_list2 <span class="op">=</span> [</span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>   <span class="dv">1</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>   <span class="dv">2</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>   <span class="dv">3</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>   <span class="co"># ...</span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>   <span class="dv">79</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>    <span class="dv">1</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    <span class="dv">2</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>    <span class="dv">3</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>    <span class="dv">79</span></span>
 <span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a>]</span></code></pre>
 </div>
 <p>More details on good and bad practices for continuation lines can be
@@ -3956,11 +3956,11 @@ line continuation (slightly less preferred method).</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Using delimiters ( ) to wrap a multi-line expression</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>   b <span class="op">==</span> <span class="va">False</span>):</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>):</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Using a backslash (\) for line continuation</span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="cf">if</span> a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span> <span class="op">\</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>   b <span class="op">==</span> <span class="va">False</span>:</span></code></pre>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>:</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -5068,7 +5068,7 @@ with adding a configuration file that pylint reads in.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="by-passing-an-argument-to-pylint-in-the-command-line">By passing an argument to <code>pylint</code> in the command
@@ -5779,7 +5779,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7275,7 +7275,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7428,7 +7428,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -9062,7 +9062,7 @@ instead.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The new function <code>load_inflammation_data()</code> that reads all
 the inflammation data into the format needed for the analysis could look
@@ -9245,7 +9245,7 @@ function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For example, we can declare class <code>CSVDataSource</code> like
 this:</p>
@@ -9337,7 +9337,7 @@ duty, what parameters they need and what they return.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The interface is the <code>load_inflammation_data()</code> method,
 which takes no parameters and returns a list where each entry is a 2D
@@ -9447,7 +9447,7 @@ based on the file extension.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The class that reads inflammation data from JSON files could look
 something like:</p>
@@ -9560,7 +9560,7 @@ deviation calculations are correct.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9756,7 +9756,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -9771,7 +9771,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul>
@@ -9887,7 +9887,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -9971,7 +9971,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -10170,7 +10170,7 @@ could be considered Model, View and Controller code?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Computing the standard deviation belongs to Model.</li>
@@ -10206,7 +10206,7 @@ appropriate modules.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The idea here is for the <code>analyse_data()</code> function not to
 have any “view” considerations. That is, it should just compute and
@@ -11063,7 +11063,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -11188,7 +11188,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal">
@@ -11408,7 +11408,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul>
@@ -12733,7 +12733,7 @@ appropriate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For example, “Add a licence file” could be a good first issue, with a
 label <code>documentation</code>.</p>
