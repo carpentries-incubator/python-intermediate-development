@@ -90,7 +90,7 @@ There are three main types of automated tests:
   for example after making changes your code to add new functionality or fix a bug.
 
 For the purposes of this course, we will focus on unit tests.
-But the principles and practices we wll talk about can be built on
+But the principles and practices we will talk about can be built on
 and applied to the other types of tests too.
 
 ## Set Up a New Feature Branch for Writing Tests

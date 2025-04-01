@@ -547,7 +547,7 @@ Start from this section heading and go to the end of the page.
   - A lot of these checks for formatting can now be done automatically with your IDE or linters, so do not spend too long absorbing them. It is good to be aware why rules are being applied, but the details of implementation are less important.
   - poll/status check at the end
 - Some comments after the exercises
-  - There are many different docstring formats, and I tend to not like the Sphynx default very much. Google or Numpy style docstrings much more readable.
+  - There are many different docstring formats, and I tend to not like the Sphinx default very much. Google or Numpy style docstrings much more readable.
   - For the exercise to improve the docstrings, no mention is made of the fact that the module docstring should include a list of the functions in the module. This is another valid improvement. (Advance to next slide to see this)
 <!-- #endregion -->
 
