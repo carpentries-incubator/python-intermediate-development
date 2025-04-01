@@ -716,16 +716,16 @@ team as this file can be used to replicate the virtual environment on
 your collaborators’ systems.</p>
 <p>To tell Git to intentionally ignore and not track certain files and
 directories, you need to specify them in the <code>.gitignore</code>
-text file in the project root. Our project already has
-<code>.gitignore</code>, but in cases where you do not have it - you can
-simply create it yourself. In our case, we want to tell Git to ignore
-the “venv” directory (and “.venv” as another naming convention for
-directories containing virtual environments) and stop notifying us about
-it. Edit your <code>.gitignore</code> file in PyCharm and add a line
-containing “venv/” and another one containing “.venv/”. It does not
-matter much in this case where within the file you add these lines, so
-let us do it at the end. Your <code>.gitignore</code> should look
-something like this:</p>
+text file. A common place to put this file is in the project root. Our
+project already has <code>.gitignore</code>, but in cases where you do
+not have it - you can simply create it yourself. In our case, we want to
+tell Git to ignore the “venv” directory (and “.venv” as another naming
+convention for directories containing virtual environments) and stop
+notifying us about it. Edit your <code>.gitignore</code> file in PyCharm
+and add a line containing “venv/” and another one containing “.venv/”.
+It does not matter much in this case where within the file you add these
+lines, so let us do it at the end. Your <code>.gitignore</code> should
+look something like this:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
