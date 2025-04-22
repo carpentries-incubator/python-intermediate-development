@@ -552,7 +552,7 @@ Regardless of doing Object Oriented Programming or Functional Programming
 ## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 
 ## Refactoring
 
@@ -567,7 +567,11 @@ Regardless of doing Object Oriented Programming or Functional Programming
 
 ## Refactoring
 
-Refactoring is vital for improving code quality.
+Refactoring is vital for improving code quality. It might include things such as:
+* Code decoupling and abstractions
+* Renaming variables
+* Reorganising functions to avoid code duplication
+* Simplifying conditional statements to improve readability
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -578,12 +582,11 @@ Often working on existing software - refactoring is how we improve it
 
 ## Refactoring Loop
 
-When making a change to a piece of software, do the following:
+When refactoring a piece of software, a good process to follow is:
 
-* Automated tests verify current behaviour
-* Refactor code (so new change slots in cleanly)
-* Re-run tests to ensure nothing is broken
-* Make the desired change, which now fits in easily.
+* Make sure you have tests that verify the current behaviour
+* Refactor the code
+* Re-run tests to verify thr behavour of the code is unchanged
 
 <!-- #endregion -->
 
@@ -591,101 +594,74 @@ When making a change to a piece of software, do the following:
 
 ## Refactoring
 
-Rest of section we will learn how to refactor an existing piece of code
+In the rest of section we will learn how to refactor an existing piece of code. We need to:
+
+* Add more tests so we can be more confident that future changes will not break the existing code.
+* Further split analyse_data() function into a number of smaller and more decoupled functions
 <!-- #endregion -->
 
-```python
-
-```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
+When refactoring, first we need to make sure there are tests in place that can verify the code behaviour as it is now (or write them if they are missing), then refactor the code and, finally, check that the original tests still pass.
+
 In the process of refactoring, we will try to target some of the "good practices" we just talked about, like making good abstractions and reducing cognitive load.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
-## Refactoring Exercise
+## Writing Regression Tests
 
-Look at `inflammation/compute_data.py`
+Look at the `analyse_data` function within `inflammation/compute_data.py`:
 <!-- #endregion -->
+```python
+def analyse_data(data_dir):
+    data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
+    if len(data_file_paths) == 0:
+        raise ValueError(f"No inflammation data CSV files found in path {data_dir}")
+    data = map(models.load_csv, data_file_paths)
+
+
+    means_by_day = map(models.daily_mean, data)
+    means_by_day_matrix = np.stack(list(means_by_day))
+
+    daily_standard_deviation = np.std(means_by_day_matrix, axis=0)
+
+    graph_data = {
+        'standard deviation by day': daily_standard_deviation,
+    }
+    views.visualize(graph_data)
+```
+
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 Bring up the code
 
 Explain the feature:
-In it, if the user adds --full-data-analysis then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
+When using inflammation-analysis.py if the user adds --full-data-analysis then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
 
 The main body of it exists in inflammation/compute_data.py in a function called analyse_data.
+
+We want to add extra regression tests to this function. Firstly, modify the function to return the data instead of visualise it so that it is easier to automatically test. Next, we will add assert statements that verify that the current outcome always remains the same, rather than checking if it is *correct* or not. These are called regression tests.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 
-## Key Points
+## Writing Regression Tests
 
-> "Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do."
+Add a new test file called `test_compute_data.py` in the `tests` folder and add a regression test to verify the current output of `analyse_data()`.
 
+Remember that this is a *regression test* to check that we don't break our code during refactoring, and so ensure that this result remains unchanged. It does *not* necessarily check that the result is correct.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 5 Minute Break ☕
-<!-- #endregion -->
+```python
+def test_analyse_data():
+    from inflammation.compute_data import analyse_data
+    path = Path.cwd() / "../data"
+    data_source = CSVDataSource(path)
+    result = analyse_data(data_source)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Refactoring Functions to do Just One Thing
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Introduction
-
-Functions that just do one thing are:
-
-* Easier to test
-* Easier to read
-* Easier to re-use
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-We identified last episode that the code has a function that does many more than one thing
-
-Hard to understand - high cognitive load
-
-Hard to test as mixed lots of different things together
-
-Hard to reuse as was very fixed in its behaviour.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Test Before Refactoring
-
-* Write tests *before* refactoring to ensure we do not change behaviour.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Writing Tests for Code that is Hard to Test
-
-What can we do?
-
-* Test at a higher level, with coarser accuracy
-* Write "hacky" temporary tests
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Think of hacky tests like scaffolding - we will use them to ensure we can do the work safely,
-but we will remove them in the end.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Exercise: Write a Regression Test for Analyse Data Before Refactoring
-
-Add a new test file called `test_compute_data.py` in the tests folder. There is more information on the relevant web page.
-Complete the regression test to verify the current output of analyse_data is unchanged by the refactorings we are going to do.
-
-Time: 10min
-<!-- #endregion -->
-
+    # TODO: add assert statement(s) to test the result value is as expected
+```
 <!-- #region slideshow={"slide_type": "notes"} -->
 Hint: You might find it helpful to assert the results equal some made up array, observe the test failing and copy and paste the correct result into the test.
 
@@ -696,6 +672,17 @@ When talking about the solution:
  * Brittle - changing the files will break the tests
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Refactoring Functions to only do One Thing
+Functions which just do one thing are:
+
+* Easier to test
+* Easier to read
+* Easier to re-use
+
+Ideally we want to create 'pure functions', which work like a mathematical function - they take some input, and produce an output. They do not rely on any information other than the inputs provided, and do not cause any side effects.
+
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Pure Functions
@@ -704,16 +691,10 @@ A **pure function** takes in some inputs as parameters, and it produces a consis
 
 That is, just like a mathematical function.
 
-The output does not depend on externalities.
+The output does not depend on externalities, such as global variables.
 
-There will be no side effects from running the function
+There will be no side effects from running the function, eg it wont edit any files or modify global variables/
 
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Externalities like what is in a database or the time of day
-
-Side effects like modifying a global variable or writing a file
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -765,14 +746,28 @@ Time: 10min
 
 <!-- #endregion -->
 
+```python
+@pytest.mark.parametrize('data,expected_output', [
+    ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
+    ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
+    ([[[0, 1, 0], [0, 2, 0]], [[0, 1, 0], [0, 2, 0]]], [0, 0, 0])
+],
+ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
+def test_compute_standard_deviation_by_day(data, expected_output):
+    from inflammation.compute_data import compute_standard_deviation_by_data
+
+    result = compute_standard_deviation_by_data(data)
+    npt.assert_array_almost_equal(result, expected_output)
+```
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Functional Programming
 
-Pure functions are a concept from an approach to programming called **functional programming**.
+Pure functions are a concept from an approach to programming called **functional programming**, where programs are constructed by chaining together these pure functions.
 
-Python, and other languages, provide features that make it easier to write "functional" code:
+Writing code in this way is particularly useful for data processing and analysis, or translating data from one format to another.
 
- * `map` / `filter` / `reduce` can be used to chain pure functions together into pipelines
+We have so far mostly focussed on Procedural Programming, where a series of sequential steps are performed in a specific order. Different programming paradigms have different strengths and weaknesses, and are useful to solve different types of problems.
 
 <!-- #endregion -->
 
@@ -817,380 +812,125 @@ total = sum(map(squared, filter(is_even, numbers)))
 ## Architecting Code to Separate Responsibilities
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Using Classes to Decouple Code
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Recall that we are using a Model-View-Controller architecture in our project, which are located in:
+
+* **Model**: `inflammation/models.py`
+* **View**: `inflammation/views.py`
+* **Controller**: `inflammation-analysis.py`
+
+But the code we were previously analysing was added in a separate script `inflammation/compute_data.py` and contains a mix of all three.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Decoupled Code
+### Exercise: Identify Model, View and Controller
 
-When thinking about code, we tend to think of it in distinct parts or **units**.
+Looking at the code inside compute_data.py, what parts could be considered Model, View and Controller code?
 
-Two units are **decoupled** if changes in one can be made independently of the other
+Time: 5min
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-E.g we have the part that loads a file and the part that draws a graph
-
-Or the part that the user interacts with and the part that does the calculations
+Computing the standard deviation belongs to Model.
+Reading the data from CSV files also belongs to Model.
+Displaying of the output as a graph is View.
+The logic that processes the supplied files is Controller.
 <!-- #endregion -->
+
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Decoupled Code
+### Exercise: Split Out Model, View and Controller
 
-Abstractions allow decoupling code
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-When we have a suitable abstraction, we do not need to worry about the inner workings of the other part.
-
-For example break of a car, the details of how to slow down are abstracted, so when we change how
-breaking works, we do not need to retrain the driver.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Exercise: Decouple the File Loading from the Computation
-
-Currently the function is hard coded to load all the files in a directory.
-
-Decouple this into a separate function that returns all the files to load
+Refactor analyse_data() function so that the Model, View and Controller code we identified in the previous exercise is moved to appropriate modules.
 
 Time: 10min
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Decoupled... but not completely
+### Merge the Feature In
 
-Although we have separated out the data loading, there is still an assumption and therefore coupling in terms of the format of that data (in this case CSV).
+Hopefully you have now refactored the feature to conform to our MVC structure, and ran our regression tests to check that the outputs rermain the same.
 
-Is there a way we could make this more flexible?
-<!-- #endregion -->
+We can commit this to our branch, and then switch to the `develop` branch and merge it in.
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-- The format of the data stored is a practical detail which we don't want to limit the use of our `analyse_data()` function
-- We could add an argument to our function to specify the format, but then we might have quite a long conditional list of all the different possible formats, and the user would need to request changes to `analyse_data()` any time they want to add a new format
-- Is there a way we can let the user more flexibly specify the way in which their data gets read?
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
-One way is with **classes**!
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Python Classes
-
-A **class** is a Python feature that allows grouping methods (i.e. functions) with some data.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Do some live coding, ending with:
-
-```python
-import math
-
-class Circle:
-  def __init__(self, radius):
-    self.radius = radius
-
-  def get_area(self):
-    return math.pi * self.radius * self.radius
-
-my_circle = Circle(10)
-print(my_circle.get_area())
+```bash
+$ git switch develop
+$ git merge full-data-analysis
 ```
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Exercise: Use a Class to Configure Loading
+## Controller Structure
+The structure of our controller is as follows:
+```python
+# import modules
 
-Put the `load_inflammation_data` function we wrote in the last exercise as a member method of a new class called `CSVDataSource`.
+def main(args):
+    # perform some actions
 
-Put the configuration of where to load the files in the class' initialiser.
-
-Once this is done, you can construct this class outside the the statistical analysis and pass the instance in to analyse_data.
-
-Time: 10min
-
+if __name__ == "__main__":
+    # perform some actions before main()
+    main(args)
+```
+Actions performed by the script are contained within the `main` function. This is called if the `__name__` variable (a special veriable set by the Python interpreter) is `__main__`.  So if our file is run by the Python interpreter on the command line, this condition will be satisfied.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Interfaces
-
-**Interfaces** describe how different parts of the code interact with each other.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-For example, the interface of the breaking system in a car, is the break pedal.
-The user can push the pedal harder or softer to get more or less breaking.
-The interface of our circle class is the user can call get_area to get the 2D area of the circle
-as a number.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Interfaces
-
-Question: what is the interface for CSVDataSource
+## Passing Command-Line Options to Controller
+To read command line arguments passed into a script, we use `argparse`. To use this, we import it in our controller script, initialise a parser class, and then add arguments which we want to look out for:
 
 ```python
-class CSVDataSource:
-  """
-  Loads all the inflammation csvs within a specified folder.
-  """
-  def __init__(self, dir_path):
-    self.dir_path = dir_path
+import argparse
 
-  def load_inflammation_data(self):
-    data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.csv'))
-    if len(data_file_paths) == 0:
-      raise ValueError(f"No inflammation csv's found in path {self.dir_path}")
-    data = map(models.load_csv, data_file_paths)
-    return list(data)
+parser = argparse.ArgumentParser(
+    description='A basic patient inflammation data management system')
+
+parser.add_argument(
+    'infiles',
+    nargs='+',
+    help='Input CSV(s) containing inflammation series for each patient')
+
+args = parser.parse_args()
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Take people through each of these parts:
+
+Import the library
+
+Initialise the parser class
+
+Define an argument called 'infiles' which will hold a list of input CSV file(s) to read inflammation data from. The user can specify 1 or more of these files, so we define the number of args as '+'. It also contains a help string for the user, which will be displayed if they use `--help` on the command line.
+
+You then parse the arguments, which returns an object we called `args` which contains all of the arguments requested. These can be accessed by their name, eg `args.infiles`.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Positional and Optional Arguments
+Positional arguments are required arguments which must be provided all together and in the proper order when calling the script. Optional arguments are indicated by a `-` or `--` prefix, and these do not have to be provided to run the script. For example we can see the help string:
+
+```bash
+$ python3 inflammation-analysis.py --help
 ```
 
-<!-- #endregion -->
+```bash
+usage: inflammation-analysis.py [-h] infiles [infiles ...]
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-Suggest discuss in groups for 1min.
+A basic patient inflammation data management system
 
-Answer: the interface is the signature of the `load_inflammation_data()` method, i.e. what arguments it takes and what it returns.
-<!-- #endregion -->
+positional arguments:
+  infiles     Input CSV(s) containing inflammation series for each patient
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Common Interfaces
-
-If we have two classes that share the same interface, we can use the interface without knowing which class we have
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Easiest shown with an example, lets do more live coding:
-
-```python
-class Rectangle(Shape):
-  def __init__(self, width, height):
-    self.width = width
-    self.height = height
-  def get_area(self):
-    return self.width * self.height
-
-my_circle = Circle(radius=10)
-my_rectangle = Rectangle(width=5, height=3)
-my_shapes = [my_circle, my_rectangle]
-total_area = sum(shape.get_area() for shape in my_shapes)
+optional arguments:
+  -h, --help  show this help message and exit
 ```
-
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Polymorphism
-
-Using an interface to call different methods is a technique known as **polymorphism**.
-
-A form of abstraction - we have abstracted what kind of shape we have.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Exercise: Introduce an alternative implementation of DataSource
-
-Polymorphism is very useful - suppose we want to read a JSON (JavaScript Object Notation) file.
-
-Write a class that has the same interface as `CSVDataSource` that
-loads from JSON.
-
-There is a function in `models.py` that loads from JSON.
-
-Time: 15min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Remind learners to check the course webpage for further details and some important hints.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Mocks
-
-Another use of polymorphism is **mocking** in tests.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-
-Lets live code a mock shape:
-
-```python
-from unittest.mock import Mock
-
-def test_sum_shapes():
-
-  mock_shape1 = Mock()
-  mock_shape1.get_area().return_value = 10
-
-  mock_shape2 = Mock()
-  mock_shape2.get_area().return_value = 13
-  my_shapes = [mock_shape1, mock_shape2]
-  total_area = sum(shape.get_area() for shape in my_shapes)
-
-  assert total_area = 23
-```
-
-Easier to read this test as do not need to understand how
-get_area might work for a real shape.
-
-Focus on testing behaviour rather than implementation.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Exercise: Test Using a Mock Implementation
-
-Complete the exercise to write a mock data source for `analyse_data`.
-
-Time: 15min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Object Oriented Programming
-
-These are techniques from **object oriented programming**.
-
-There is a lot more that we will not go into:
-
-* Inheritance
-* Information hiding
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## A note on Data Classes
-
-Regardless of doing Object Oriented Programming or Functional Programming
-
-**Grouping data into logical classes is vital for writing maintainable code.**
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## ☕ 10 Minute Break ☕
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Model-View-Controller
-
-Reminder - this program is using the MVC Architecture:
-
-* Model - Internal data of the program, and operations that can be performed on it
-* View - How the data is presented to the user
-* Controller - Responsible for how the user interacts with the system
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout: Read and do the exercise
-
-Read the section **Separating Out Responsibilities**.
-
-Complete the exercise.
-
-Time: 10min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-Suggest discussing answer to the exercise as a table.
-Once time is up, ask one table to share their answer and any questions
-Then do the other exercise
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout Exercise:  Split out the model code from the view code
-
-Refactor `analyse_data` such the view code we identified in the last exercise is removed from the function, so the function contains only model code, and the view code is moved elsewhere.
-
-Time: 10min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Programming Patterns
-
-* MVC is a programming pattern
-* Others exist - like the visitor pattern
-* Useful for discussion and ideas - not a complete solution
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-
-Next slide if it feels like we have got loads of time.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout Exercise:  Read about a random pattern on the website and share it with the group
-
-Go to the website linked and pick a random pattern, see if you can understand what it is doing
-and why you'd want to use it.
-
-Time: 15min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Architecting larger changes
-
-* Use diagrams of boxes and lines to sketch out how code will be structured
-* Useful for larger changes, new code, or even understanding complex projects
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Exercise: Design a high-level architecture
-
-Sketch out a design for something you have come up with or the current project.
-
-
-Time: 10min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-
-At end of time, share diagrams, discussion.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Breakout: Read to end of page
-
-Read til the end, including the exercise on real world examples
-
-Time: 15min
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "notes"} -->
-
-At end of time, reconvene to discuss real world examples as a group.
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
 ## Conclusion
 
 Good software architecture and design is a **huge** topic.
