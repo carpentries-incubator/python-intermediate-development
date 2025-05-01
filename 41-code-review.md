@@ -615,7 +615,7 @@ Specifically:
   something you have fed back on in a previous review).
 - Remember different does not mean better - only request changes if the code is wrong or
   hard to understand.
-- Only provide a few non-critical suggestions - you are aiming for better rather than perfect.
+- Only provide a few critical suggestions - you are aiming for better rather than perfect.
 - Ask questions to understand why something has been done a certain way rather than assuming you
   know a better way.
 - If a conversation is taking place on a review and has not been resolved by a
