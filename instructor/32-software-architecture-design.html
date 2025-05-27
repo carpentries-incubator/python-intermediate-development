@@ -372,6 +372,7 @@
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#poor-design-choices-technical-debt">Poor Design Choices &amp; Technical Debt</a></li>
 <li><a href="#good-software-design-goals">Good Software Design Goals</a></li>
+<li><a href="#designing-a-new-feature-for-our-project">Designing a New Feature for Our Project</a></li>
 <li><a href="#software-architecture">Software Architecture</a></li>
 <li><a href="#techniques-for-good-software-design">Techniques for Good Software Design</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -546,7 +547,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>3.2 Software Architecture and Design</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-05-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/32-software-architecture-design.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -715,7 +716,8 @@ eventual output.</li>
 </ul><p>Now that we know what goals we should aspire to, let us take a
 critical look at the code in our software project and try to identify
 ways in which it can be improved.</p>
-<p>Our software project contains a pre-existing branch
+</section><section><h2 class="section-heading" id="designing-a-new-feature-for-our-project">Designing a New Feature for Our Project<a class="anchor" aria-label="anchor" href="#designing-a-new-feature-for-our-project"></a></h2>
+<hr class="half-width"><p>Our software project contains a pre-existing branch
 <code>full-data-analysis</code> which contains code for a new feature of
 our inflammation analysis software, which we will consider as a
 contribution by another developer. Recall that you can see all your
@@ -743,7 +745,7 @@ root.</p>
 file within the <code>inflammation</code> directory in a function called
 <code>analyse_data()</code>. This function loads all the data files for
 a given a directory path, then calculates and compares standard
-deviation across all the data by day and finaly plots a graph.</p>
+deviation across all the data by day and finally plots a graph.</p>
 <div id="exercise-identify-how-can-code-be-improved" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -765,7 +767,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -849,7 +851,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -1078,7 +1080,7 @@ project so that development and maintenance becomes easier.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/32-software-architecture-design.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/32-software-architecture-design.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2025-05-27",
   "datePublished": "2025-05-27"
 }
 

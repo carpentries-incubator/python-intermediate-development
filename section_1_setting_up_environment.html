@@ -531,7 +531,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1></h1>
-        <p>Last updated on 2025-04-01 |
+        <p>Last updated on 2025-05-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/slides/section_1_setting_up_environment.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -703,7 +703,7 @@ session. You can catch up between sessions. <!-- #endregion -->
 </ul></li>
 </ul><!-- #region slideshow={"slide_type": "subslide"} --></div>
 </section><section><h2 class="section-heading" id="content-overview">Content Overview<a class="anchor" aria-label="anchor" href="#content-overview"></a></h2>
-<hr class="half-width"><figure><img src="fig/course-overview.png" class="figure mx-auto d-block"><!-- #endregion --></figure><!-- #region slideshow={"slide_type": "notes"} --><p>There are five main sections of the course, each roughly to be
+<hr class="half-width"><figure><img src="fig/course-overview.svg" class="figure mx-auto d-block"><!-- #endregion --></figure><!-- #region slideshow={"slide_type": "notes"} --><p>There are five main sections of the course, each roughly to be
 covered in one of the 6 sessions.</p>
 <ol style="list-style-type: decimal"><li>Setting up Software Environment: <strong>PyCharm or VSCode</strong>
 for editing, testing and debugging, <strong>GitHub</strong> for
@@ -728,7 +728,7 @@ support</strong> <!-- #endregion -->
 </li>
 </ol><!-- #region slideshow={"slide_type": "slide"} --></section><section><h2 class="section-heading" id="section-1-setting-up-the-environment-for-collaborative-code-development">Section 1: Setting Up The Environment For Collaborative Code
 Development<a class="anchor" aria-label="anchor" href="#section-1-setting-up-the-environment-for-collaborative-code-development"></a></h2>
-<hr class="half-width"><figure><img src="fig/section1-overview.png" class="figure mx-auto d-block"><!-- #endregion --></figure><!-- #region slideshow={"slide_type": "notes"} --><ul><li>the overall objective for this section is to get set up with the
+<hr class="half-width"><figure><img src="fig/section1-overview.svg" class="figure mx-auto d-block"><!-- #endregion --></figure><!-- #region slideshow={"slide_type": "notes"} --><ul><li>the overall objective for this section is to get set up with the
 <em>tools</em> for collaborative code development, and of course there
 are lots of decisions to make</li>
 <li>the recommendations are opinionated but backed by experience</li>
@@ -751,7 +751,7 @@ will be working on throughout the course and its structure.
 <hr class="half-width"><p>The “patient inflammation” example from the Novice Software Carpentry
 Python Lesson.</p>
 <center>
-<img src="../fig/inflammation-dataset.svg" width="50%" class="figure"></center>
+<img src="../episodes/fig/inflammation-dataset.svg" width="50%" class="figure"></center>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>Give an introduction to the “patient inflammation project”
@@ -858,7 +858,7 @@ Software Design</em> <!-- #endregion -->
 <div class="section level3">
 <h3 id="model-view-adapter-mva">Model-View-Adapter (MVA)<a class="anchor" aria-label="anchor" href="#model-view-adapter-mva"></a></h3>
 <center>
-<img src="../fig/mva-diagram.png" width="50%" class="figure"></center>
+<img src="../episodes/fig/mva-diagram.png" width="50%" class="figure"></center>
 <p>By Soroush Khanlou, <a href="https://khanlou.com/2014/03/model-view-whatever/" class="external-link uri">https://khanlou.com/2014/03/model-view-whatever/</a>
 <!-- #endregion --></p>
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -932,7 +932,7 @@ dependencies?</li>
 <li>in general, each project is going to have its own unique
 configuration and set of dependencies</li>
 <li>to solve this in python, we set up a virtual environment for each
-project, containing a set of libraries that Will not interact with
+project, containing a set of libraries that will not interact with
 others on the system</li>
 <li>it can be thought of like an isolated partial installation of Python
 specifically for your project <!-- #endregion -->
@@ -971,7 +971,7 @@ the Python Package Index (PyPI) to install dependencies
 <div class="section level3">
 <h3 id="lots-of-other-tools">Lots of other tools…<a class="anchor" aria-label="anchor" href="#lots-of-other-tools"></a></h3>
 <center>
-<img src="../fig/python-environment-hell.png" width="40%" class="figure"></center>
+<img src="../episodes/fig/python-environment-hell.png" width="40%" class="figure"></center>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>there are plenty of other tools out there that manage Python
@@ -1057,9 +1057,9 @@ further</li>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> venv/</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="ex">pip</span> install <span class="op">&lt;</span>list_your_dependencies<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="ex">pip</span> install <span class="op">&lt;</span>your_dependencies<span class="op">&gt;</span> </span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt <span class="co"># great reason to have this file</span></span></code></pre>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt <span class="at">--editable</span> . <span class="co"># great reason to have this file</span></span></code></pre>
 </div>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -1099,9 +1099,9 @@ probably more for modern Fortran</li>
 </ul><!-- #region slideshow={"slide_type": "slide"} --></div>
 </section><section><h2 class="section-heading" id="integrated-development-environments">Integrated Development Environments<a class="anchor" aria-label="anchor" href="#integrated-development-environments"></a></h2>
 <hr class="half-width"><table class="table"><tr><td>
-<img src="../fig/PyCharm_Icon.png" width="100%" class="figure"></td>
+<img src="../episodes/fig/PyCharm_Icon.png" width="100%" class="figure"></td>
 <td>
-<img src="../fig/Visual_Studio_Code_1.35_icon.png" width="100%" class="figure"></td>
+<img src="../episodes/fig/Visual_Studio_Code_1.35_icon.png" width="100%" class="figure"></td>
 </tr></table><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} --><ul><li>Most of us probably started out programming with a simple text
 editor and ran our programs from the command line with a compiler or
 interpreter
@@ -1120,7 +1120,11 @@ support two editors, PyCharm and VSCode, has been made</li>
 the functionality demonstrated in the content below, then please feel
 free to use that tool here, but this is a disclaimer that we cannot
 promise to resolve any issues you have, and if these issues are holding
-the group up then we will need to move on <!-- #endregion -->
+the group up then we will need to move on</li>
+<li>For VSCode, please consult the “Extras” content of the course web
+page and find the analogous functionality described there; if you are
+having trouble getting something to work, please ask for help!
+<!-- #endregion -->
 </li>
 </ul></li>
 </ul><!-- #region slideshow={"slide_type": "subslide"} --><div class="section level3">
@@ -1154,7 +1158,7 @@ down to preference <!-- #endregion -->
 </section><section><h2 class="section-heading" id="minute-break-1">☕ 15 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-1"></a></h2>
 <hr class="half-width"><!-- #endregion --><!-- #region slideshow={"slide_type": "slide"} --></section><section><h2 class="section-heading" id="collaborative-software-development-using-git-and-github">Collaborative Software Development Using Git and GitHub<a class="anchor" aria-label="anchor" href="#collaborative-software-development-using-git-and-github"></a></h2>
 <hr class="half-width"><center>
-<img src="../fig/git-lifecycle.svg" class="figure"></center>
+<img src="../episodes/fig/git-lifecycle.svg" width="80%" class="figure"></center>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>Git is the de facto tool for version control in software development
@@ -1197,7 +1201,7 @@ that communicates with GitHub <!-- #endregion -->
 <div class="section level3">
 <h3 id="git-branches">Git Branches<a class="anchor" aria-label="anchor" href="#git-branches"></a></h3>
 <center>
-<img src="../fig/git-feature-branch.svg" class="figure"></center>
+<img src="../episodes/fig/git-feature-branch.svg" class="figure"></center>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>Git branches
@@ -1206,7 +1210,7 @@ that communicates with GitHub <!-- #endregion -->
 commit history of our main branch</li>
 <li>this allows developers to take “copies” of the code and make their
 own modifications without making changes to original nor affecting the
-commit history of the main branch (so others Will not see the changes
+commit history of the main branch (so others will not see the changes
 there until they are merged)</li>
 <li>this is the main aspect of git that facilitates collaboration</li>
 <li>talk through the image</li>
@@ -1317,7 +1321,7 @@ practices on new website) <!-- #endregion -->
 </ul></li>
 </ul><!-- #region slideshow={"slide_type": "notes"} --><ul><li>Unless you have particular requirements, it is best to go with a
 sytle guide that has the majority consensus for a particular language
-(albeit sometimes this Will not exist, so choose what seems best)
+(albeit sometimes this will not exist, so choose what seems best)
 <ul><li>In Python, this is PEP8
 <ul><li>In PyCharm, adherance to PEP8 will automatically be checked and
 violations flagged for fixing (demonstrate this live)</li>
@@ -1495,7 +1499,7 @@ issues with indentation and line length. These problems fall under:
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/section_1_setting_up_environment.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/section_1_setting_up_environment.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-04-01",
+  "dateModified": "2025-05-27",
   "datePublished": "2025-05-27"
 }
 

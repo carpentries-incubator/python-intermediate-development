@@ -531,7 +531,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1></h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-05-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/slides/section_3_software_dev_process.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -546,7 +546,7 @@
 <h1 id="section-3-software-development-as-a-process">Section 3: Software Development as a Process<a class="anchor" aria-label="anchor" href="#section-3-software-development-as-a-process"></a></h1>
 
 <center>
-<img src="../fig/section3-overview.png" width="70%" class="figure"></center>
+<img src="../episodes/fig/section3-overview.svg" width="70%" class="figure"></center>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>There is a lot bundled in here! Make it clear this will be a
@@ -591,11 +591,11 @@ it easy for reuse to happen <!-- #endregion -->
 <div class="section level2">
 <h2 id="software-development-lifecycle">Software Development Lifecycle<a class="anchor" aria-label="anchor" href="#software-development-lifecycle"></a></h2>
 <center>
-<img src="../fig/Software_Development_Life_Cycle.jpg" width="50%" class="figure"></center>
+<img src="../episodes/fig/Software_Development_Life_Cycle.jpg" width="50%" class="figure"></center>
 <p><a href="https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg" class="external-link">Cliffydcw</a>,
 <a href="https://creativecommons.org/licenses/by-sa/3.0" class="external-link">CC BY-SA
 3.0</a>, via Wikimedia Commons <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>The typical stages of a software development process can be
 categorised as follows:</p>
 <ul><li>Requirements gathering (coming up next): the process of identifying
@@ -663,11 +663,11 @@ supposed to do</li>
 <li>solution requirements: the how <!-- #endregion -->
 </li>
 </ol></li>
-</ul><!-- #region slideshow={"slide_type": "subslide"} editable=true --><div class="section level3">
+</ul><!-- #region slideshow={"slide_type": "subslide"} --><div class="section level3">
 <h3 id="breakout-reading-and-exercises">Breakout: Reading and Exercises<a class="anchor" aria-label="anchor" href="#breakout-reading-and-exercises"></a></h3>
 <p>Read from the top of the “Software Requirements” page and do the
 exercises as you go. <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>If you are using a shared document, you could have sections for each
 of the requirement types and get learners to write their suggestions in
 there. Afterwards, you could go through some of the suggestions and see
@@ -685,36 +685,126 @@ correctly. <!-- #endregion --></p>
 <h2 id="software-architecture-and-design">Software Architecture and Design<a class="anchor" aria-label="anchor" href="#software-architecture-and-design"></a></h2>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="maintainable-code">Maintainable Code<a class="anchor" aria-label="anchor" href="#maintainable-code"></a></h2>
+<div class="section level3">
+<h3 id="poor-design-and-technical-debt">Poor Design and Technical Debt<a class="anchor" aria-label="anchor" href="#poor-design-and-technical-debt"></a></h3>
+<ul><li>It is always tempting to dive straight to implementation once we
+have an idea of our requirements</li>
+<li>However, this short-sightedness often has a cost: technical
+debt</li>
+</ul><blockquote>
+<p><strong>Technical debt:</strong> cost of additional rework caused by
+choosing an easy (limited) solution now instead of using a better
+approach that would take longer</p>
+</blockquote>
+<ul><li>There is a balance: some technical debt will always be necessary,
+and you need to balance that with getting things done to meet
+deadlines</li>
+<li>Becoming an <em>intermediate</em> or even <em>senior</em> developer
+is about choosing the amount of design techniques that are <em>good
+enough</em> for the current situation <!-- #endregion -->
+</li>
+</ul><!-- #region slideshow={"slide_type": "subslide"} --></div>
+<div class="section level3">
+<h3 id="software-design-goals">Software Design Goals<a class="anchor" aria-label="anchor" href="#software-design-goals"></a></h3>
 <p>Software Architecture and Design is about writing <em>maintainable
 code</em>.</p>
-<ul><li>Easy to read</li>
-<li>Testable</li>
+<p>Maintainable code is:</p>
+<ul><li>Understandable</li>
 <li>Adaptable</li>
+<li>Testable</li>
 </ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="maintainable-code-1">Maintainable Code<a class="anchor" aria-label="anchor" href="#maintainable-code-1"></a></h2>
+<div class="section level3">
+<h3 id="maintainable-code">Maintainable Code<a class="anchor" aria-label="anchor" href="#maintainable-code"></a></h3>
 <p>Maintainable code is vital as projects grow</p>
 <ul><li>More people being involved</li>
 <li>Adding new features</li>
 </ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="exercise">Exercise:<a class="anchor" aria-label="anchor" href="#exercise"></a></h2>
-<p>Try to come up with examples of code that has been hard to understand
-- why?</p>
-<p>Try to come up with examples of code that was easy to understand and
-modify - why?</p>
-<p>Time: 5min</p>
-<!-- #endregion -->
+<div class="section level3">
+<h3 id="exercise-why-isnt-this-code-maintainable">✏️ Exercise: why isn’t this code maintainable?<a class="anchor" aria-label="anchor" href="#exercise-why-isnt-this-code-maintainable"></a></h3>
+<p>Switch to the <code>full-data-analysis</code> branch in your repo.
+Take a look at the file <code>inflammation/compute_data.py</code>. How
+is this code hard to maintain?</p>
+<p>Reminder that maintainable code should be:</p>
+<ul><li>Easy to read</li>
+<li>Easy to test</li>
+<li>Easy to extend or modify</li>
+</ul><p>Time: 5min <!-- #endregion --></p>
 <!-- #region slideshow={"slide_type": "notes"} -->
-<p>After 5 min spend 5-15 min discussing examples the group has come up
+<ul><li>Use the course material to get the answers <!-- #endregion -->
+</li>
+</ul><!-- #region slideshow={"slide_type": "notes"} --><p>After 5 min spend 5-15 min discussing examples the group has come up
 with <!-- #endregion --></p>
 <!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
+<div class="section level3">
+<h3 id="software-architecture">Software Architecture<a class="anchor" aria-label="anchor" href="#software-architecture"></a></h3>
+<ul><li>One abstraction level up from “design”</li>
+<li>Concerned with the <em>components</em> of our software system and
+how they connect (i.e. their interfaces)
+<ul><li>Design is more about concrete aspects of the code itself</li>
+</ul></li>
+<li>Helpful to draw these sorts of diagrams before diving in so we can
+avoid major issues
+<ul><li>Also, architecture tends to be hard to change once we create it</li>
+</ul></li>
+<li>Even if you don’t explicitly specify your architecture, your code
+still has an architecture (but likely not a good one)</li>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
+<div class="section level3">
+<h3 id="exercise-design-a-high-level-architecture-for-a-new-requirement">✏️ Exercise: Design a High-Level Architecture for a New
+Requirement<a class="anchor" aria-label="anchor" href="#exercise-design-a-high-level-architecture-for-a-new-requirement"></a></h3>
+<p>Get your diagramming on!</p>
+<p>Time: 10 min <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "notes"} -->
+<p>Get learners to share their diagrams if possible. Go through the
+solution in the course material. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} -->
+</div>
+<div class="section level3">
+<h3 id="model-view-controller-mvc-architecture">Model-View-Controller (MVC) Architecture<a class="anchor" aria-label="anchor" href="#model-view-controller-mvc-architecture"></a></h3>
+<center>
+<img src="../episodes/fig/mvc_arch.svg" width="80%" class="figure"></center>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "notes"} -->
+<p>Walk throught the main components of this architecture and how it
+relates to the current project.</p>
+<p>Mermaid diagram source:</p>
+<pre><code>graph LR
+    User("User")
+    View["View"]
+    Controller["Controller"]
+    Model["Model"]
+    User --&gt;|User Input| Controller
+    Controller --&gt;|Process Data| Model
+    Model --&gt;|Update Data| View
+    View --&gt;|Display Data| User
+
+    style User fill:#4CAF50,stroke:#333,stroke-width:2px,stroke-dasharray:5,5</code></pre>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
+</div>
+<div class="section level3">
+<h3 id="reading-time">📖 Reading Time<a class="anchor" aria-label="anchor" href="#reading-time"></a></h3>
+<p>Have a read through “Limitations to Architectural Design” to the end
+of the page. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "notes"} -->
+<p>Ask if anyone has questions and discuss any unclear portions of the
+text. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "slide"} -->
+</div>
+</div>
 <div class="section level2">
-<h2 id="cognitive-load">Cognitive Load<a class="anchor" aria-label="anchor" href="#cognitive-load"></a></h2>
+<h2 id="minute-break-1">☕ 5 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-1"></a></h2>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "slide"} -->
+</div>
+<div class="section level2">
+<h2 id="code-decoupling-abstractions">Code Decoupling &amp; Abstractions<a class="anchor" aria-label="anchor" href="#code-decoupling-abstractions"></a></h2>
+<p>What are these and why do we need them? Let’s look at the concept of
+<em>cognitive load</em> to find out. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} -->
+<div class="section level3">
+<h3 id="cognitive-load">Cognitive Load<a class="anchor" aria-label="anchor" href="#cognitive-load"></a></h3>
 <p>For code to be readable, readers have to be able to understand what
 the code does.</p>
 <p>Cognitive load - the amount a reader has to remember at once</p>
@@ -722,8 +812,8 @@ the code does.</p>
 <!-- #endregion -->
 <!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
-<div class="section level2">
-<h2 id="cognitive-load-1">Cognitive Load<a class="anchor" aria-label="anchor" href="#cognitive-load-1"></a></h2>
+<div class="section level3">
+<h3 id="cognitive-load-1">Cognitive Load<a class="anchor" aria-label="anchor" href="#cognitive-load-1"></a></h3>
 <p>Reduce cognitive load for a bit of code by:</p>
 <ul><li>Good variable names: <code>toroidal_magnetic_field</code> much
 better than <code>btor</code>
@@ -737,312 +827,60 @@ use more descriptive names!</p>
 or for loops <!-- #endregion --></p>
 <!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
-<div class="section level2">
-<h2 id="abstractions">Abstractions<a class="anchor" aria-label="anchor" href="#abstractions"></a></h2>
-<p>An <strong>abstraction</strong> hides the details of one part of a
-system from another.</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>Give some examples of abstractions, or maybe ask for people to think
-of ideas of abstractions in the real world?</p>
-<p>Examples:</p>
-<ul><li>A brake pedal in a car: we don’t need to know the exact mechanism by
-which the car slows down, so that implementation has been “abstracted”
-away from the car user</li>
-<li>Similarly, a light switch is an abstraction: we don’t need to know
-what happens with the wiring and flow of electricity in order to
-understand that one side means the light will be on and vice versa</li>
-<li>human society is full of things like these… <!-- #endregion -->
+<div class="section level3">
+<h3 id="reducing-cognitive-load-at-a-higher-level">Reducing Cognitive Load at a Higher Level<a class="anchor" aria-label="anchor" href="#reducing-cognitive-load-at-a-higher-level"></a></h3>
+<ol style="list-style-type: decimal"><li>Decoupling</li>
+<li>Abstractions <!-- #endregion -->
 </li>
-</ul><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="abstractions-1">Abstractions<a class="anchor" aria-label="anchor" href="#abstractions-1"></a></h2>
-<p>Help to make code easier - as do not have to understand details all
-at once.</p>
-<p>Lowers cognitive load for each part.</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="refactoring">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring"></a></h2>
-<p><strong>Refactoring</strong> is modifying code, such that:</p>
-<ul><li>external behaviour unchanged,</li>
-<li>code itself is easier to read / test / extend.</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="refactoring-1">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring-1"></a></h2>
-<p>Refactoring is vital for improving code quality.
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>Often working on existing software - refactoring is how we improve it
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="refactoring-loop">Refactoring Loop<a class="anchor" aria-label="anchor" href="#refactoring-loop"></a></h2>
-<p>When making a change to a piece of software, do the following:</p>
-<ul><li>Automated tests verify current behaviour</li>
-<li>Refactor code (so new change slots in cleanly)</li>
-<li>Re-run tests to ensure nothing is broken</li>
-<li>Make the desired change, which now fits in easily.</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="refactoring-2">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring-2"></a></h2>
-<p>Rest of section we will learn how to refactor an existing piece of
-code <!-- #endregion --></p>
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
-<p>In the process of refactoring, we will try to target some of the
-“good practices” we just talked about, like making good abstractions and
-reducing cognitive load. <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="refactoring-exercise">Refactoring Exercise<a class="anchor" aria-label="anchor" href="#refactoring-exercise"></a></h2>
-<p>Look at <code>inflammation/compute_data.py</code>
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
-<p>Bring up the code</p>
-<p>Explain the feature: In it, if the user adds –full-data-analysis then
-the program will scan the directory of one of the provided files,
-compare standard deviations across the data by day and plot a graph.</p>
-<p>The main body of it exists in inflammation/compute_data.py in a
-function called analyse_data. <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
-</div>
-<div class="section level2">
-<h2 id="exercise-why-is-not-this-code-maintainable">Exercise: why is not this code maintainable?<a class="anchor" aria-label="anchor" href="#exercise-why-is-not-this-code-maintainable"></a></h2>
-<p>How is this code hard to maintain?</p>
-<p>Maintainable code should be:</p>
-<ul><li>Easy to read</li>
-<li>Easy to test</li>
-<li>Easy to extend or modify</li>
-</ul><p>Time: 5min <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
-<p>Solution:</p>
-<p>Hard to read: Everything is in a single function - reading it you
-have to understand how the file loading works at the same time as the
-analysis itself.</p>
-<p>Hard to modify: If you want to use the data without using the graph
-you’d have to change it</p>
-<p>Hard to modify or test: It is always analysing a fixed set of data
-stored on the disk</p>
-<p>Hard to modify: It doesn’t have any tests meaning changes might break
-something <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="key-points">Key Points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
-<blockquote>
-<p>“Good code is written so that is readable, understandable, covered by
-automated tests, not over complicated and does well what is intended to
-do.”</p>
-</blockquote>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "slide"} -->
-</div>
-<div class="section level2">
-<h2 id="minute-break-1">☕ 5 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-1"></a></h2>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "slide"} -->
-</div>
-<div class="section level2">
-<h2 id="refactoring-functions-to-do-just-one-thing">Refactoring Functions to do Just One Thing<a class="anchor" aria-label="anchor" href="#refactoring-functions-to-do-just-one-thing"></a></h2>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<p>Functions that just do one thing are:</p>
-<ul><li>Easier to test</li>
-<li>Easier to read</li>
-<li>Easier to re-use</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} editable=true --><p>We identified last episode that the code has a function that does
-many more than one thing</p>
-<p>Hard to understand - high cognitive load</p>
-<p>Hard to test as mixed lots of different things together</p>
-<p>Hard to reuse as was very fixed in its behaviour.
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="test-before-refactoring">Test Before Refactoring<a class="anchor" aria-label="anchor" href="#test-before-refactoring"></a></h2>
-<ul><li>Write tests <em>before</em> refactoring to ensure we do not change
-behaviour.</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="writing-tests-for-code-that-is-hard-to-test">Writing Tests for Code that is Hard to Test<a class="anchor" aria-label="anchor" href="#writing-tests-for-code-that-is-hard-to-test"></a></h2>
-<p>What can we do?</p>
-<ul><li>Test at a higher level, with coarser accuracy</li>
-<li>Write “hacky” temporary tests</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} --><p>Think of hacky tests like scaffolding - we will use them to ensure we
-can do the work safely, but we will remove them in the end.
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="exercise-write-a-regression-test-for-analyse-data-before-refactoring">Exercise: Write a Regression Test for Analyse Data Before
-Refactoring<a class="anchor" aria-label="anchor" href="#exercise-write-a-regression-test-for-analyse-data-before-refactoring"></a></h2>
-<p>Add a new test file called <code>test_compute_data.py</code> in the
-tests folder. There is more information on the relevant web page.
-Complete the regression test to verify the current output of
-analyse_data is unchanged by the refactorings we are going to do.</p>
-<p>Time: 10min <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>Hint: You might find it helpful to assert the results equal some made
-up array, observe the test failing and copy and paste the correct result
-into the test.</p>
-<p>When talking about the solution:</p>
-<ul><li>We will have to remove it as we modified the code to get it
-working</li>
-<li>Is not a good test - not obvious it is correct</li>
-<li>Brittle - changing the files will break the tests
-<!-- #endregion -->
-</li>
-</ul><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="pure-functions">Pure Functions<a class="anchor" aria-label="anchor" href="#pure-functions"></a></h2>
-<p>A <strong>pure function</strong> takes in some inputs as parameters,
-and it produces a consistent output.</p>
-<p>That is, just like a mathematical function.</p>
-<p>The output does not depend on externalities.</p>
-<p>There will be no side effects from running the function</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
-<p>Externalities like what is in a database or the time of day</p>
-<p>Side effects like modifying a global variable or writing a file
-<!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
-</div>
-<div class="section level2">
-<h2 id="pure-functions-1">Pure Functions<a class="anchor" aria-label="anchor" href="#pure-functions-1"></a></h2>
-<p>Pure functions have a number of advantages for maintainable code:</p>
-<ul><li>Easier to read as do not need to know calling context</li>
-<li>Easier to reuse as do not need to worry about invisible
-dependencies</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} editable=true --></div>
-<div class="section level2">
-<h2 id="refactor-code-into-a-pure-function">Refactor Code into a Pure Function<a class="anchor" aria-label="anchor" href="#refactor-code-into-a-pure-function"></a></h2>
-<p>Refactor the analyse_data function into a pure function with the
-logic, and an impure function that handles the input and output. The
-pure function should take in the data, and return the analysis
-results:</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">def</span> compute_standard_deviation_by_day(data):</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="co"># </span><span class="al">TODO</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="cf">return</span> daily_standard_deviation</span></code></pre>
-</div>
-<p>Time: 10min</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
-</div>
-<div class="section level2">
-<h2 id="testing-pure-functions">Testing Pure Functions<a class="anchor" aria-label="anchor" href="#testing-pure-functions"></a></h2>
-<p>Pure functions are also easier to test</p>
-<ul><li>Easier to write as can create the input as we need it</li>
-<li>Easier to read as do not need to read any external files</li>
-<li>Easier to maintain - tests will not need to change if the file
-format changes</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} --><p>Can focus on making sure we get all edge cases without real world
-considerations <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="write-test-cases-for-the-pure-function">Write Test Cases for the Pure Function<a class="anchor" aria-label="anchor" href="#write-test-cases-for-the-pure-function"></a></h2>
-<p>Now we have refactored our a pure function, we can more easily write
-comprehensive tests. Add tests that check for when there is only one
-file with multiple rows, multiple files with one row and any other cases
-you can think of that should be tested.</p>
-<p>Time: 10min</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="functional-programming">Functional Programming<a class="anchor" aria-label="anchor" href="#functional-programming"></a></h2>
-<p>Pure functions are a concept from an approach to programming called
-<strong>functional programming</strong>.</p>
-<p>Python, and other languages, provide features that make it easier to
-write “functional” code:</p>
-<ul><li>
-<code>map</code> / <code>filter</code> / <code>reduce</code> can be
-used to chain pure functions together into pipelines</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} editable=true --><p>If there is time - do some live coding to show imperative code, then
-transform into a pipeline:</p>
-<ul><li>Sequence of numbers</li>
-<li>Remove all the odd numbers</li>
-<li>Square all the numbers</li>
-<li>Add them together</li>
-</ul><div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Imperative</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">100</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        squared <span class="op">=</span> number<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>        total <span class="op">+=</span> squared</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># Functional</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="kw">def</span> is_even(number):</span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="cf">return</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="kw">def</span> squared(number):</span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    <span class="cf">return</span> number<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">map</span>(squared, <span class="bu">filter</span>(is_even, numbers)))</span></code></pre>
-</div>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "slide"} editable=true -->
-</div>
-<div class="section level2">
-<h2 id="minute-break-2">☕ 10 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-2"></a></h2>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "slide"} editable=true -->
-</div>
-<div class="section level2">
-<h2 id="using-classes-to-decouple-code">Using Classes to Decouple Code<a class="anchor" aria-label="anchor" href="#using-classes-to-decouple-code"></a></h2>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</ol><!-- #region slideshow={"slide_type": "subslide"} --></div>
 <div class="section level3">
 <h3 id="decoupled-code">Decoupled Code<a class="anchor" aria-label="anchor" href="#decoupled-code"></a></h3>
 <p>When thinking about code, we tend to think of it in distinct parts or
 <strong>units</strong>.</p>
 <p>Two units are <strong>decoupled</strong> if changes in one can be
-made independently of the other</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+made independently of the other.</p>
+<p>Therefore, we only need to keep the current component in our mind at
+any time, reducing cognitive load. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>E.g we have the part that loads a file and the part that draws a
 graph</p>
 <p>Or the part that the user interacts with and the part that does the
 calculations <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
-<div class="section level3">
-<h3 id="decoupled-code-1">Decoupled Code<a class="anchor" aria-label="anchor" href="#decoupled-code-1"></a></h3>
-<p>Abstractions allow decoupling code</p>
+</div>
+<div class="section level2">
+<h2 id="abstractions">Abstractions<a class="anchor" aria-label="anchor" href="#abstractions"></a></h2>
+<p>An <strong>abstraction</strong> hides the details of one part of a
+system from another.</p>
+<p>This allows for the units or parts of the system to be
+<em>decoupled</em>.</p>
+<p>We only need to know how to use the <em>interface</em> of the
+abstraction to interact with it, reducing cognitive load.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>When we have a suitable abstraction, we do not need to worry about
 the inner workings of the other part.</p>
-<p>For example break of a car, the details of how to slow down are
-abstracted, so when we change how breaking works, we do not need to
-retrain the driver. <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
-</div>
-<div class="section level3">
-<h3 id="exercise-decouple-the-file-loading-from-the-computation">Exercise: Decouple the File Loading from the Computation<a class="anchor" aria-label="anchor" href="#exercise-decouple-the-file-loading-from-the-computation"></a></h3>
+<p>Give some examples of abstractions, or maybe ask for people to think
+of ideas of abstractions in the real world?</p>
+<p>Examples:</p>
+<ul><li>A brake pedal in a car: we don’t need to know the exact mechanism by
+which the car slows down, so that implementation has been “abstracted”
+away from the car user; when we change how breaking works, we do not
+need to retrain the driver.</li>
+<li>Similarly, a light switch is an abstraction: we don’t need to know
+what happens with the wiring and flow of electricity in order to
+understand that one side means the light will be on and vice versa</li>
+<li>human society is full of things like these… <!-- #endregion -->
+</li>
+</ul><!-- #region slideshow={"slide_type": "subslide"} --><div class="section level3">
+<h3 id="exercise-decouple-data-loading-from-data-analysis">✏️ Exercise: Decouple Data Loading from Data Analysis<a class="anchor" aria-label="anchor" href="#exercise-decouple-data-loading-from-data-analysis"></a></h3>
 <p>Currently the function is hard coded to load all the files in a
 directory.</p>
 <p>Decouple this into a separate function that returns all the files to
 load</p>
-<p>Time: 10min</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<p>Time: 10min <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="decoupled-but-not-completely">Decoupled… but not completely<a class="anchor" aria-label="anchor" href="#decoupled-but-not-completely"></a></h3>
@@ -1051,7 +889,7 @@ assumption and therefore coupling in terms of the format of that data
 (in this case CSV).</p>
 <p>Is there a way we could make this more flexible?
 <!-- #endregion --></p>
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <ul><li>The format of the data stored is a practical detail which we don’t
 want to limit the use of our <code>analyse_data()</code> function</li>
 <li>We could add an argument to our function to specify the format, but
@@ -1061,33 +899,33 @@ possible formats, and the user would need to request changes to
 <li>Is there a way we can let the user more flexibly specify the way in
 which their data gets read? <!-- #endregion -->
 </li>
-</ul><!-- #region editable=true slideshow={"slide_type": "fragment"} --><p>One way is with <strong>classes</strong>! <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</ul><!-- #region slideshow={"slide_type": "fragment"} --><p>One way is with <strong>classes</strong>! <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="python-classes">Python Classes<a class="anchor" aria-label="anchor" href="#python-classes"></a></h3>
 <p>A <strong>class</strong> is a Python feature that allows grouping
 methods (i.e. functions) with some data.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>Do some live coding, ending with:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="kw">class</span> Circle:</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="va">self</span>.radius <span class="op">=</span> radius</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="cf">return</span> math.pi <span class="op">*</span> <span class="va">self</span>.radius <span class="op">*</span> <span class="va">self</span>.radius</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>my_circle <span class="op">=</span> Circle(<span class="dv">10</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="bu">print</span>(my_circle.get_area())</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="kw">class</span> Circle:</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="va">self</span>.radius <span class="op">=</span> radius</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="cf">return</span> math.pi <span class="op">*</span> <span class="va">self</span>.radius <span class="op">*</span> <span class="va">self</span>.radius</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>my_circle <span class="op">=</span> Circle(<span class="dv">10</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="bu">print</span>(my_circle.get_area())</span></code></pre>
 </div>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="exercise-use-a-class-to-configure-loading">Exercise: Use a Class to Configure Loading<a class="anchor" aria-label="anchor" href="#exercise-use-a-class-to-configure-loading"></a></h3>
@@ -1100,73 +938,73 @@ initialiser.</p>
 statistical analysis and pass the instance in to analyse_data.</p>
 <p>Time: 10min</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="interfaces">Interfaces<a class="anchor" aria-label="anchor" href="#interfaces"></a></h3>
 <p><strong>Interfaces</strong> describe how different parts of the code
 interact with each other.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>For example, the interface of the breaking system in a car, is the
 break pedal. The user can push the pedal harder or softer to get more or
 less breaking. The interface of our circle class is the user can call
 get_area to get the 2D area of the circle as a number.
 <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="interfaces-1">Interfaces<a class="anchor" aria-label="anchor" href="#interfaces-1"></a></h3>
 <p>Question: what is the interface for CSVDataSource</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">class</span> CSVDataSource:</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="co">"""</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">  Loads all the inflammation csvs within a specified folder.</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">  """</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, dir_path):</span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>    <span class="va">self</span>.dir_path <span class="op">=</span> dir_path</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="kw">def</span> load_inflammation_data(<span class="va">self</span>):</span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>    data_file_paths <span class="op">=</span> glob.glob(os.path.join(<span class="va">self</span>.dir_path, <span class="st">'inflammation*.csv'</span>))</span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(data_file_paths) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>      <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"No inflammation csv's found in path </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>dir_path<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">map</span>(models.load_csv, data_file_paths)</span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(data)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">class</span> CSVDataSource:</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">  Loads all the inflammation csvs within a specified folder.</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, dir_path):</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    <span class="va">self</span>.dir_path <span class="op">=</span> dir_path</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  <span class="kw">def</span> load_inflammation_data(<span class="va">self</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    data_file_paths <span class="op">=</span> glob.glob(os.path.join(<span class="va">self</span>.dir_path, <span class="st">'inflammation*.csv'</span>))</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(data_file_paths) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>      <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"No inflammation csv's found in path </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>dir_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">map</span>(models.load_csv, data_file_paths)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(data)</span></code></pre>
 </div>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>Suggest discuss in groups for 1min.</p>
 <p>Answer: the interface is the signature of the
 <code>load_inflammation_data()</code> method, i.e. what arguments it
 takes and what it returns. <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="common-interfaces">Common Interfaces<a class="anchor" aria-label="anchor" href="#common-interfaces"></a></h3>
 <p>If we have two classes that share the same interface, we can use the
 interface without knowing which class we have</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>Easiest shown with an example, lets do more live coding:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">class</span> Rectangle(Shape):</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>my_circle <span class="op">=</span> Circle(radius<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>my_rectangle <span class="op">=</span> Rectangle(width<span class="op">=</span><span class="dv">5</span>, height<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>my_shapes <span class="op">=</span> [my_circle, my_rectangle]</span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>total_area <span class="op">=</span> <span class="bu">sum</span>(shape.get_area() <span class="cf">for</span> shape <span class="kw">in</span> my_shapes)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">class</span> Rectangle(Shape):</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>my_circle <span class="op">=</span> Circle(radius<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>my_rectangle <span class="op">=</span> Rectangle(width<span class="op">=</span><span class="dv">5</span>, height<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>my_shapes <span class="op">=</span> [my_circle, my_rectangle]</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>total_area <span class="op">=</span> <span class="bu">sum</span>(shape.get_area() <span class="cf">for</span> shape <span class="kw">in</span> my_shapes)</span></code></pre>
 </div>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="polymorphism">Polymorphism<a class="anchor" aria-label="anchor" href="#polymorphism"></a></h3>
@@ -1175,7 +1013,7 @@ interface without knowing which class we have</p>
 <p>A form of abstraction - we have abstracted what kind of shape we
 have.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level3">
 <h3 id="exercise-introduce-an-alternative-implementation-of-datasource">Exercise: Introduce an alternative implementation of DataSource<a class="anchor" aria-label="anchor" href="#exercise-introduce-an-alternative-implementation-of-datasource"></a></h3>
@@ -1187,7 +1025,7 @@ have.</p>
 JSON.</p>
 <p>Time: 15min</p>
 <!-- #endregion -->
-<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>Remind learners to check the course webpage for further details and
 some important hints. <!-- #endregion --></p>
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -1196,30 +1034,30 @@ some important hints. <!-- #endregion --></p>
 <h3 id="mocks">Mocks<a class="anchor" aria-label="anchor" href="#mocks"></a></h3>
 <p>Another use of polymorphism is <strong>mocking</strong> in tests.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 <p>Lets live code a mock shape:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> Mock</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="kw">def</span> test_sum_shapes():</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  mock_shape1 <span class="op">=</span> Mock()</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  mock_shape1.get_area().return_value <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  mock_shape2 <span class="op">=</span> Mock()</span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  mock_shape2.get_area().return_value <span class="op">=</span> <span class="dv">13</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>  my_shapes <span class="op">=</span> [mock_shape1, mock_shape2]</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>  total_area <span class="op">=</span> <span class="bu">sum</span>(shape.get_area() <span class="cf">for</span> shape <span class="kw">in</span> my_shapes)</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>  <span class="cf">assert</span> total_area <span class="op">=</span> <span class="dv">23</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> Mock</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="kw">def</span> test_sum_shapes():</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  mock_shape1 <span class="op">=</span> Mock()</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  mock_shape1.get_area().return_value <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  mock_shape2 <span class="op">=</span> Mock()</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  mock_shape2.get_area().return_value <span class="op">=</span> <span class="dv">13</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  my_shapes <span class="op">=</span> [mock_shape1, mock_shape2]</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  total_area <span class="op">=</span> <span class="bu">sum</span>(shape.get_area() <span class="cf">for</span> shape <span class="kw">in</span> my_shapes)</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  <span class="cf">assert</span> total_area <span class="op">=</span> <span class="dv">23</span></span></code></pre>
 </div>
 <p>Easier to read this test as do not need to understand how get_area
 might work for a real shape.</p>
 <p>Focus on testing behaviour rather than implementation.</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 </div>
 <div class="section level2">
@@ -1228,7 +1066,7 @@ might work for a real shape.</p>
 <code>analyse_data</code>.</p>
 <p>Time: 15min</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 </div>
 <div class="section level2">
 <h2 id="object-oriented-programming">Object Oriented Programming<a class="anchor" aria-label="anchor" href="#object-oriented-programming"></a></h2>
@@ -1245,95 +1083,430 @@ Programming</p>
 <p><strong>Grouping data into logical classes is vital for writing
 maintainable code.</strong></p>
 <!-- #endregion -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
+</div>
+<div class="section level2">
+<h2 id="minute-break-2">☕ 10 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-2"></a></h2>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
+</div>
+<div class="section level2">
+<h2 id="refactoring">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring"></a></h2>
+<p><strong>Refactoring</strong> is modifying code, such that:</p>
+<ul><li>external behaviour is unchanged,</li>
+<li>code itself is easier to read / test / extend.</li>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} editable=true --><div class="section level3">
+<h3 id="refactoring-1">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring-1"></a></h3>
+<p>Refactoring is vital for improving code quality. It might include
+things such as: * Code decoupling and abstractions * Renaming variables
+* Reorganising functions to avoid code duplication * Simplifying
+conditional statements to improve readability <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>Often working on existing software - refactoring is how we improve it
+<!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="refactoring-loop">Refactoring Loop<a class="anchor" aria-label="anchor" href="#refactoring-loop"></a></h3>
+<p>When refactoring a piece of software, a good process to follow
+is:</p>
+<ul><li>Make sure you have tests that verify the current behaviour</li>
+<li>Refactor the code</li>
+<li>Re-run tests to verify the behavour of the code is unchanged</li>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} editable=true --></div>
+<div class="section level3">
+<h3 id="refactoring-2">Refactoring<a class="anchor" aria-label="anchor" href="#refactoring-2"></a></h3>
+<p>In the rest of section we will learn how to refactor an existing
+piece of code. We need to:</p>
+<ul><li>Add more tests so we can be more confident that future changes will
+not break the existing code.</li>
+<li>Further split analyse_data() function into a number of smaller and
+more decoupled functions <!-- #endregion -->
+</li>
+</ul><!-- #region slideshow={"slide_type": "notes"} editable=true --><p>When refactoring, first we need to make sure there are tests in place
+that can verify the code behaviour as it is now (or write them if they
+are missing), then refactor the code and, finally, check that the
+original tests still pass.</p>
+<p>In the process of refactoring, we will try to target some of the
+“good practices” we just talked about, like making good abstractions and
+reducing cognitive load. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="writing-regression-tests-before-refactoring">Writing Regression Tests Before Refactoring<a class="anchor" aria-label="anchor" href="#writing-regression-tests-before-refactoring"></a></h3>
+<p>Look at the <code>analyse_data</code> function within
+<code>inflammation/compute_data.py</code>:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">def</span> analyse_data(data_dir):</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    data_file_paths <span class="op">=</span> glob.glob(os.path.join(data_dir, <span class="st">'inflammation*.csv'</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(data_file_paths) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"No inflammation data CSV files found in path </span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">map</span>(models.load_csv, data_file_paths)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    means_by_day <span class="op">=</span> <span class="bu">map</span>(models.daily_mean, data)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>    means_by_day_matrix <span class="op">=</span> np.stack(<span class="bu">list</span>(means_by_day))</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    daily_standard_deviation <span class="op">=</span> np.std(means_by_day_matrix, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    graph_data <span class="op">=</span> {</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>        <span class="st">'standard deviation by day'</span>: daily_standard_deviation,</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>    }</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>    views.visualize(graph_data)</span></code></pre>
+</div>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>Bring up the code</p>
+<p>Explain the feature: When using inflammation-analysis.py if the user
+adds <code>--full-data-analysis</code> then the program will scan the
+directory of one of the provided files, compare standard deviations
+across the data by day and plot a graph.</p>
+<p>The main body of it exists in inflammation/compute_data.py in a
+function called analyse_data.</p>
+<p>We want to add extra regression tests to this function. Firstly,
+modify the function to return the data instead of visualise it so that
+it is easier to automatically test. Next, we will add assert statements
+that verify that the current outcome always remains the same, rather
+than checking if it is <em>correct</em> or not. These are called
+regression tests. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="exercise-writing-regression-tests">Exercise: Writing Regression Tests<a class="anchor" aria-label="anchor" href="#exercise-writing-regression-tests"></a></h3>
+<p>Add a new test file called <code>test_compute_data.py</code> in the
+<code>tests</code> folder and add a regression test to verify the
+current output of <code>analyse_data()</code>.</p>
+<p>Remember that this is a <em>regression test</em> to check that we
+don’t break our code during refactoring, and so ensure that this result
+remains unchanged. It does <em>not</em> necessarily check that the
+result is correct.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">from</span> inflammation.compute_data <span class="im">import</span> analyse_data</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">def</span> test_analyse_data():</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    path <span class="op">=</span> Path.cwd() <span class="op">/</span> <span class="st">"../data"</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    data_source <span class="op">=</span> CSVDataSource(path)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    result <span class="op">=</span> analyse_data(data_source)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: add assert statement(s) to test the result value is as expected</span></span></code></pre>
+</div>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>Hint: You might find it helpful to assert the results equal some made
+up array, observe the test failing and copy and paste the correct result
+into the test.</p>
+<p>When talking about the solution:</p>
+<ul><li>We will have to remove it as we modified the code to get it
+working</li>
+<li>Is not a good test - not obvious it is correct</li>
+<li>Brittle - changing the files will break the tests
+<!-- #endregion -->
+</li>
+</ul><!-- #region slideshow={"slide_type": "subslide"} editable=true --></div>
+<div class="section level3">
+<h3 id="refactoring-functions-to-only-do-one-thing">Refactoring Functions to only do One Thing<a class="anchor" aria-label="anchor" href="#refactoring-functions-to-only-do-one-thing"></a></h3>
+<p>Functions which just do one thing are:</p>
+<ul><li>Easier to test</li>
+<li>Easier to read</li>
+<li>Easier to re-use</li>
+</ul><p>We can take this further by making our single-purpose functions
+<strong>pure</strong>.</p>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="pure-functions">Pure Functions<a class="anchor" aria-label="anchor" href="#pure-functions"></a></h3>
+<p>A <strong>pure function</strong> is effectively what we think of as a
+mathematical function:</p>
+<ul><li>they take some input, and produce an output</li>
+<li>they do not rely on any information other than the inputs
+provided</li>
+<li>they do not cause any side effects.</li>
+</ul><p>As a result, the output of a <strong>pure function</strong> does not
+depend on externalities or program sate, such as global variables.</p>
+<p>Moreover, there will be no side effects from running the function,
+e.g. it wont edit any files or modify global variables such that
+behaviour in other parts of our code are unaffected.</p>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="pure-functions-1">Pure Functions<a class="anchor" aria-label="anchor" href="#pure-functions-1"></a></h3>
+<p>Pure functions have a number of advantages for maintainable code:</p>
+<ul><li>Easier to read as do not need to know calling context</li>
+<li>Easier to reuse as do not need to worry about invisible
+dependencies</li>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} editable=true --></div>
+<div class="section level3">
+<h3 id="exercise-refactor-code-into-a-pure-function">Exercise: Refactor Code into a Pure Function<a class="anchor" aria-label="anchor" href="#exercise-refactor-code-into-a-pure-function"></a></h3>
+<p>Refactor the analyse_data function into a pure function with the
+logic, and an impure function that handles the input and output. The
+pure function should take in the data, and return the analysis
+results:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">def</span> compute_standard_deviation_by_day(data):</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="co"># </span><span class="al">TODO</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="cf">return</span> daily_standard_deviation</span></code></pre>
+</div>
+<p>Time: 10min</p>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="testing-pure-functions">Testing Pure Functions<a class="anchor" aria-label="anchor" href="#testing-pure-functions"></a></h3>
+<p>Pure functions are also easier to test</p>
+<ul><li>Easier to write as can create the input as we need it</li>
+<li>Easier to read as do not need to read any external files</li>
+<li>Easier to maintain - tests will not need to change if the file
+format changes</li>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} editable=true --><p>Can focus on making sure we get all edge cases without real world
+considerations <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="exercise-write-test-cases-for-the-pure-function">Exercise: Write Test Cases for the Pure Function<a class="anchor" aria-label="anchor" href="#exercise-write-test-cases-for-the-pure-function"></a></h3>
+<p>Now we have refactored our a pure function, we can more easily write
+comprehensive tests. Add tests that check for when there is only one
+file with multiple rows, multiple files with one row and any other cases
+you can think of that should be tested.</p>
+<p>Time: 10min</p>
+<!-- #endregion -->
+<!-- #region editable=true slideshow={"slide_type": "fragment"} -->
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="im">from</span> inflammation.compute_data <span class="im">import</span> compute_standard_deviation_by_data</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(<span class="st">'data,expected_output'</span>, [</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    ([[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>]]], [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]),</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>    ([[[<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>]], [[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]]], [<span class="dv">0</span>, math.sqrt(<span class="fl">0.25</span>), <span class="dv">0</span>]),</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    ([[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>]], [[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>]]], [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>],</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>ids<span class="op">=</span>[<span class="st">'Two patients in same file'</span>, <span class="st">'Two patients in different files'</span>, <span class="st">'Two identical patients in two different files'</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="kw">def</span> test_compute_standard_deviation_by_day(data, expected_output):</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>    result <span class="op">=</span> compute_standard_deviation_by_data(data)</span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>    npt.assert_array_almost_equal(result, expected_output)</span></code></pre>
+</div>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="functional-programming">Functional Programming<a class="anchor" aria-label="anchor" href="#functional-programming"></a></h3>
+<p>Pure functions are a concept from an approach to programming called
+<strong>functional programming</strong>, where programs are constructed
+by chaining together these pure functions.</p>
+<p>Writing code in this way is particularly useful for data processing
+and analysis, or translating data from one format to another.</p>
+<p>We have so far mostly focussed on Procedural Programming, where a
+series of sequential steps are performed in a specific order. Different
+programming paradigms have different strengths and weaknesses, and are
+useful to solve different types of problems.</p>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>If there is time - do some live coding to show imperative code, then
+transform into a pipeline:</p>
+<ul><li>Sequence of numbers</li>
+<li>Remove all the odd numbers</li>
+<li>Square all the numbers</li>
+<li>Add them together</li>
+</ul><div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Imperative</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">100</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="cf">if</span> is_even(number):</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    squared <span class="op">=</span> number <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    total <span class="op">+=</span> squared</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co"># Functional</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="kw">def</span> is_even(number):</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    <span class="cf">return</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="kw">def</span> squared(number):</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  <span class="cf">return</span> number<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">map</span>(squared, <span class="bu">filter</span>(is_even, numbers)))</span></code></pre>
+</div>
+<!-- #endregion -->
 <!-- #region slideshow={"slide_type": "slide"} -->
+</div>
 </div>
 <div class="section level2">
 <h2 id="minute-break-3">☕ 10 Minute Break ☕<a class="anchor" aria-label="anchor" href="#minute-break-3"></a></h2>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 </div>
 <div class="section level2">
 <h2 id="architecting-code-to-separate-responsibilities">Architecting Code to Separate Responsibilities<a class="anchor" aria-label="anchor" href="#architecting-code-to-separate-responsibilities"></a></h2>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
-</div>
-<div class="section level2">
-<h2 id="model-view-controller">Model-View-Controller<a class="anchor" aria-label="anchor" href="#model-view-controller"></a></h2>
-<p>Reminder - this program is using the MVC Architecture:</p>
-<ul><li>Model - Internal data of the program, and operations that can be
-performed on it</li>
-<li>View - How the data is presented to the user</li>
-<li>Controller - Responsible for how the user interacts with the
-system</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --><div class="section level3">
-<h3 id="breakout-read-and-do-the-exercise">Breakout: Read and do the exercise<a class="anchor" aria-label="anchor" href="#breakout-read-and-do-the-exercise"></a></h3>
-<p>Read the section <strong>Separating Out
-Responsibilities</strong>.</p>
-<p>Complete the exercise.</p>
-<p>Time: 10min</p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<p>Recall that we are using a Model-View-Controller architecture in our
+project, which are located in:</p>
+<ul><li>
+<strong>Model</strong>: <code>inflammation/models.py</code>
+</li>
+<li>
+<strong>View</strong>: <code>inflammation/views.py</code>
+</li>
+<li>
+<strong>Controller</strong>:
+<code>inflammation-analysis.py</code>
+</li>
+</ul><p>But the code we were previously analysing was added in a separate
+script <code>inflammation/compute_data.py</code> and contains a mix of
+all three. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+<div class="section level3">
+<h3 id="exercise-identify-model-view-and-controller">Exercise: Identify Model, View and Controller<a class="anchor" aria-label="anchor" href="#exercise-identify-model-view-and-controller"></a></h3>
+<p>Looking at the code inside <code>compute_data.py</code>, what parts
+could be considered Model, View and Controller code?</p>
+<p>Time: 5min</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>Suggest discussing answer to the exercise as a table. Once time is
-up, ask one table to share their answer and any questions Then do the
-other exercise <!-- #endregion --></p>
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>Computing the standard deviation belongs to Model. Reading the data
+from CSV files also belongs to Model. Displaying of the output as a
+graph is View. The logic that processes the supplied files is
+Controller. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 </div>
 <div class="section level3">
-<h3 id="breakout-exercise-split-out-the-model-code-from-the-view-code">Breakout Exercise: Split out the model code from the view code<a class="anchor" aria-label="anchor" href="#breakout-exercise-split-out-the-model-code-from-the-view-code"></a></h3>
-<p>Refactor <code>analyse_data</code> such the view code we identified
-in the last exercise is removed from the function, so the function
-contains only model code, and the view code is moved elsewhere.</p>
+<h3 id="exercise-split-out-model-view-and-controller">Exercise: Split Out Model, View and Controller<a class="anchor" aria-label="anchor" href="#exercise-split-out-model-view-and-controller"></a></h3>
+<p>Refactor analyse_data() function so that the Model, View and
+Controller code we identified in the previous exercise is moved to
+appropriate modules.</p>
 <p>Time: 10min</p>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 </div>
-</div>
-<div class="section level2">
-<h2 id="programming-patterns">Programming Patterns<a class="anchor" aria-label="anchor" href="#programming-patterns"></a></h2>
-<ul><li>MVC is a programming pattern</li>
-<li>Others exist - like the visitor pattern</li>
-<li>Useful for discussion and ideas - not a complete solution</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "notes"} --><p>Next slide if it feels like we have got loads of time.</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
 <div class="section level3">
-<h3 id="breakout-exercise-read-about-a-random-pattern-on-the-website-and-share-it-with-the-group">Breakout Exercise: Read about a random pattern on the website and
-share it with the group<a class="anchor" aria-label="anchor" href="#breakout-exercise-read-about-a-random-pattern-on-the-website-and-share-it-with-the-group"></a></h3>
-<p>Go to the website linked and pick a random pattern, see if you can
-understand what it is doing and why you’d want to use it.</p>
-<p>Time: 15min</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<h3 id="merge-the-feature-in">Merge the Feature In<a class="anchor" aria-label="anchor" href="#merge-the-feature-in"></a></h3>
+<p>Hopefully you have now refactored the feature to conform to our MVC
+structure, and ran our regression tests to check that the outputs
+rermain the same.</p>
+<p>We can commit this to our branch, and then switch to the
+<code>develop</code> branch and merge it in.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="ex">$</span> git merge full-data-analysis</span></code></pre>
 </div>
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 </div>
-<div class="section level2">
-<h2 id="architecting-larger-changes">Architecting larger changes<a class="anchor" aria-label="anchor" href="#architecting-larger-changes"></a></h2>
-<ul><li>Use diagrams of boxes and lines to sketch out how code will be
-structured</li>
-<li>Useful for larger changes, new code, or even understanding complex
-projects</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "subslide"} --></div>
-<div class="section level2">
-<h2 id="exercise-design-a-high-level-architecture">Exercise: Design a high-level architecture<a class="anchor" aria-label="anchor" href="#exercise-design-a-high-level-architecture"></a></h2>
-<p>Sketch out a design for something you have come up with or the
-current project.</p>
-<p>Time: 10min</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>At end of time, share diagrams, discussion.</p>
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<div class="section level3">
+<h3 id="controller-structure">Controller Structure<a class="anchor" aria-label="anchor" href="#controller-structure"></a></h3>
+<p>The structure of our controller is as follows:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># import modules</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">def</span> main(args):</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    <span class="co"># perform some actions</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="co"># perform some actions before main()</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    main(args)</span></code></pre>
 </div>
-<div class="section level2">
-<h2 id="breakout-read-to-end-of-page">Breakout: Read to end of page<a class="anchor" aria-label="anchor" href="#breakout-read-to-end-of-page"></a></h2>
-<p>Read til the end, including the exercise on real world examples</p>
-<p>Time: 15min</p>
+<p>This is a common pattern for entry points to Python packages. Actions
+performed by the script are contained within the <code>main</code>
+function. The main function is run automatically if the
+<code>__name__</code> variable (a special veriable set by the Python
+interpreter) is <code>"__main__"</code>. So if our file is run by the
+Python interpreter on the command line, this condition will be
+satisfied, and our script gets run as expected.</p>
+<p>However, if our Python module is imported from another, instead
+<code>__name__ = "inflammation_analysis"</code> will be defined, and the
+<code>main()</code> function will not automatically be run.
+<!-- #endregion --></p>
+<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+<p>It is useful to have this dual behaviour for our entry point scripts
+so that functions defined within them can be used by other modules
+without the main function being run on import, while still making it
+clear how the core functionality is run. Moreover, this pattern makes it
+possible to test the functions within our script because everything is
+put inside more easily callable functions. <!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="passing-command-line-options-to-controller">Passing Command-Line Options to Controller<a class="anchor" aria-label="anchor" href="#passing-command-line-options-to-controller"></a></h3>
+<p>To read command line arguments passed into a script, we use
+<code>argparse</code>. To use this, we import it in our controller
+script, initialise a parser class, and then add arguments which we want
+to look out for:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>parser <span class="op">=</span> argparse.ArgumentParser(</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    description<span class="op">=</span><span class="st">'A basic patient inflammation data management system'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>parser.add_argument(</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    <span class="st">'infiles'</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>    nargs<span class="op">=</span><span class="st">'+'</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="bu">help</span><span class="op">=</span><span class="st">'Input CSV(s) containing inflammation series for each patient'</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>args <span class="op">=</span> parser.parse_args()</span></code></pre>
+</div>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "notes"} -->
-<p>At end of time, reconvene to discuss real world examples as a
-group.</p>
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
+<p>Take people through each of these parts:</p>
+<p>Import the library</p>
+<p>Initialise the parser class</p>
+<p>Define an argument called ‘infiles’ which will hold a list of input
+CSV file(s) to read inflammation data from. The user can specify 1 or
+more of these files, so we define the number of args as ‘+’. It also
+contains a help string for the user, which will be displayed if they use
+<code>--help</code> on the command line.</p>
+<p>You then parse the arguments, which returns an object we called
+<code>args</code> which contains all of the arguments requested. These
+can be accessed by their name, eg <code>args.infiles</code>.
+<!-- #endregion --></p>
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
+<div class="section level3">
+<h3 id="positional-and-optional-arguments">Positional and Optional Arguments<a class="anchor" aria-label="anchor" href="#positional-and-optional-arguments"></a></h3>
+<p>Positional arguments are required arguments which must be provided
+all together and in the proper order when calling the script. Optional
+arguments are indicated by a <code>-</code> or <code>--</code> prefix,
+and these do not have to be provided to run the script. For example we
+can see the help string:</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> python3 inflammation-analysis.py <span class="at">--help</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">usage:</span> inflammation-analysis.py <span class="pp">[-</span><span class="ss">h</span><span class="pp">]</span> infiles [infiles ...]</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="ex">A</span> basic patient inflammation data management system</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="ex">positional</span> arguments:</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>  <span class="ex">infiles</span>     Input CSV<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="ex">containing</span> inflammation series for each patient</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="ex">optional</span> arguments:</span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>  show this help message and exit</span></code></pre>
+</div>
 <!-- #endregion -->
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+</div>
 </div>
 <div class="section level2">
 <h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a></h2>
@@ -1344,7 +1517,7 @@ topic.</p>
 <li>Think about why things are working or not working</li>
 <li>Do not design for an imagined future</li>
 <li>Keep refactoring as you go</li>
-</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "slide"} --></div>
+</ul><!-- #endregion --><!-- #region slideshow={"slide_type": "slide"} editable=true --></div>
 <div class="section level2">
 <h2 id="end-of-section-3">🕓 End of Section 3 🕓<a class="anchor" aria-label="anchor" href="#end-of-section-3"></a></h2>
 <!-- #endregion -->
@@ -1410,7 +1583,7 @@ topic.</p>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/section_3_software_dev_process.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/section_3_software_dev_process.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2025-05-27",
   "datePublished": "2025-05-27"
 }
 

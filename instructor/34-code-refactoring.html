@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>3.4 Code Refactoring</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-05-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/34-code-refactoring.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -664,12 +664,12 @@ unchanged each time we refactor or change code in the future.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">def</span> test_analyse_data():</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="im">from</span> inflammation.compute_data <span class="im">import</span> analyse_data</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    path <span class="op">=</span> Path.cwd() <span class="op">/</span> <span class="st">"../data"</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    data_source <span class="op">=</span> CSVDataSource(path)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    result <span class="op">=</span> analyse_data(data_source)</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> inflammation.compute_data <span class="im">import</span> analyse_data</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="kw">def</span> test_analyse_data():</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    path <span class="op">=</span> os.path.join( os.getcwd(), <span class="st">"../data"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    data_source <span class="op">=</span> CSVDataSource(path)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>    result <span class="op">=</span> analyse_data(data_source)</span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: add assert statement(s) to test the result value is as expected</span></span></code></pre>
 </div>
 <p>Use <code>assert_array_almost_equal</code> from the
@@ -683,7 +683,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -698,7 +698,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul><li>comment out the visualise method on <code>analyse_data()</code>
@@ -712,21 +712,20 @@ same as the expected value</li>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> numpy.testing <span class="im">as</span> npt</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> inflammation.compute_data <span class="im">import</span> analyse_data</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="kw">def</span> test_analyse_data():</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="im">from</span> inflammation.compute_data <span class="im">import</span> analyse_data</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    path <span class="op">=</span> Path.cwd() <span class="op">/</span> <span class="st">"../data"</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    data_source <span class="op">=</span> CSVDataSource(path)</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    result <span class="op">=</span> analyse_data(data_source)</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    expected_output <span class="op">=</span> [<span class="fl">0.</span>,<span class="fl">0.22510286</span>,<span class="fl">0.18157299</span>,<span class="fl">0.1264423</span>,<span class="fl">0.9495481</span>,<span class="fl">0.27118211</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>                       <span class="fl">0.25104719</span>,<span class="fl">0.22330897</span>,<span class="fl">0.89680503</span>,<span class="fl">0.21573875</span>,<span class="fl">1.24235548</span>,<span class="fl">0.63042094</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>                       <span class="fl">1.57511696</span>,<span class="fl">2.18850242</span>,<span class="fl">0.3729574</span>,<span class="fl">0.69395538</span>,<span class="fl">2.52365162</span>,<span class="fl">0.3179312</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>                       <span class="fl">1.22850657</span>,<span class="fl">1.63149639</span>,<span class="fl">2.45861227</span>,<span class="fl">1.55556052</span>,<span class="fl">2.8214853</span>,<span class="fl">0.92117578</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>                       <span class="fl">0.76176979</span>,<span class="fl">2.18346188</span>,<span class="fl">0.55368435</span>,<span class="fl">1.78441632</span>,<span class="fl">0.26549221</span>,<span class="fl">1.43938417</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>                       <span class="fl">0.78959769</span>,<span class="fl">0.64913879</span>,<span class="fl">1.16078544</span>,<span class="fl">0.42417995</span>,<span class="fl">0.36019114</span>,<span class="fl">0.80801707</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>                       <span class="fl">0.50323031</span>,<span class="fl">0.47574665</span>,<span class="fl">0.45197398</span>,<span class="fl">0.22070227</span>]</span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    npt.assert_array_almost_equal(result, expected_output)</span></code></pre>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    path <span class="op">=</span> os.path.join( os.getcwd(), <span class="st">"../data"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    data_source <span class="op">=</span> CSVDataSource(path)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    result <span class="op">=</span> analyse_data(data_source)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    expected_output <span class="op">=</span> [<span class="fl">0.</span>,<span class="fl">0.22510286</span>,<span class="fl">0.18157299</span>,<span class="fl">0.1264423</span>,<span class="fl">0.9495481</span>,<span class="fl">0.27118211</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>                       <span class="fl">0.25104719</span>,<span class="fl">0.22330897</span>,<span class="fl">0.89680503</span>,<span class="fl">0.21573875</span>,<span class="fl">1.24235548</span>,<span class="fl">0.63042094</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>                       <span class="fl">1.57511696</span>,<span class="fl">2.18850242</span>,<span class="fl">0.3729574</span>,<span class="fl">0.69395538</span>,<span class="fl">2.52365162</span>,<span class="fl">0.3179312</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>                       <span class="fl">1.22850657</span>,<span class="fl">1.63149639</span>,<span class="fl">2.45861227</span>,<span class="fl">1.55556052</span>,<span class="fl">2.8214853</span>,<span class="fl">0.92117578</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>                       <span class="fl">0.76176979</span>,<span class="fl">2.18346188</span>,<span class="fl">0.55368435</span>,<span class="fl">1.78441632</span>,<span class="fl">0.26549221</span>,<span class="fl">1.43938417</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>                       <span class="fl">0.78959769</span>,<span class="fl">0.64913879</span>,<span class="fl">1.16078544</span>,<span class="fl">0.42417995</span>,<span class="fl">0.36019114</span>,<span class="fl">0.80801707</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>                       <span class="fl">0.50323031</span>,<span class="fl">0.47574665</span>,<span class="fl">0.45197398</span>,<span class="fl">0.22070227</span>]</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>    npt.assert_array_almost_equal(result, expected_output)</span></code></pre>
 </div>
 <p>Note that while the above test will detect if we accidentally break
 the analysis code and change the output of the analysis, it is still not
@@ -806,7 +805,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -887,7 +886,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -1063,7 +1062,7 @@ possible makes the code easier to understand, test and maintain.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/34-code-refactoring.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/34-code-refactoring.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2025-05-27",
   "datePublished": "2025-05-27"
 }
 
