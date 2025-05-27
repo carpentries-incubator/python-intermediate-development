@@ -1,4 +1,4 @@
-# Notes for using slides
+# Notes for Using Slides
 
 Some quick information about how to use the slides when delivering the course.
 
@@ -29,12 +29,33 @@ jupyter-notebook #  or `jupyter-lab`
 > jupytext
 > ```
 
-Use the RISE extension to Jupyter to view the slides.
-This allows you to enter the slideshow from the Jupyter notebook web interface.
+Use the RISE extension of Jupyter to view and edit the slides.
+There is now a substantial interface difference between the two modalities (`jupyter-notebook` vs `jupyter-lab`).
+
+## Viewing and Editing Slides in Jupyter Notebook
+
 There should be a "projector screen" button on the Jupyter notebook toolbar next to the kernel name
 (you might need to go to the 'View' menu to get the toolbar to show).
-Click the button, or press `Alt-r` to launch the RISE presentation view.
-Use spacebar to advance slides. Presenter view with `t`.
+Click this button, or press `Alt-r` to launch the RISE presentation view.
+
+## Viewing and Editing Slides in Jupyter Lab
+
+- Click on the folder icon on the left-hand panel to get the file viewer
+- Right click on the slide files you want to view or edit
+- Select "Open With ▶" then "Rise Slides"
+- The rendered version of the slides should come up, and you can edit them from here.
+  One downside is that the notes are not also displayed, unless you get the presenter view as described below.
+- If you need to edit notes, it might be best to edit the markdown file directly.
+  You can do this from the file explorer again selecting "Open With ▶" and then "Jupytext Notebook".
+- The type of slide is set by using the "Property Inspector" on the right hand panel (two cogs icon).
+
+## Navigating
+
+Use `Space` to advance slides, `Shift + Space` to go back.
+The arrow keys on your keyboard will not work like you expect!
+Bring up presenter view with `t`, which will show the notes for a given slide.
+
+## Saving Slides
 
 Saving the slides from the Jupyter interface should only save to the markdown source file.
 If you find you have ended up with some `.ipynb` files in the `slides/` directory,
