@@ -82,6 +82,7 @@ Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-
 Past maintainers:
 
 - [Kamilla Kopec-Harding][kamilla-kopec-harding]
+- [Sam Mangham][]
 
 ## Authors
 
@@ -115,6 +116,7 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [kamilla-kopec-harding]: https://github.com/kkh451
 [doug-lowe]: https://github.com/douglowe
 [aleksandra-nenadic]: https://github.com/anenadic
+[sam-mangham]: https://github.com/smangham
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/MIT
