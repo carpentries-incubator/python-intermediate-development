@@ -26,7 +26,7 @@ that uses river catchment data in code examples (more suited for Earth and envir
 
 ### Lesson Status
 
-The course is in a stable beta - it has been run over 15 times times with
+The course is in a stable beta - it has been run over 20 times times with
 different cohorts by the lesson authors as well as independently by people not directly involved in the lesson development
 and is in a good state to be reused and taught by others.
 
