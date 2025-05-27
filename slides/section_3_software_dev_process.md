@@ -2,6 +2,7 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
+    main_language: python
     notebook_metadata_filter: -kernelspec,-jupytext.text_representation.jupytext_version,rise,celltoolbar
     text_representation:
       extension: .md
@@ -47,7 +48,7 @@ jupyter:
   - Software can be reused: like with stakeholders, it is hard to predict how the software will be used in the future, and we want to make it easy for reuse to happen
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} jp-MarkdownHeadingCollapsed=true -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Software Development Lifecycle
 
 <center><img src="../episodes/fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
