@@ -11,7 +11,7 @@ jupyter:
     theme: solarized
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 # Section 3: Software Development as a Process
 
 </br>
@@ -24,7 +24,7 @@ jupyter:
 - We are going to step up a level and look at the overall process of developing software
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Writing Code versus Engineering Software
 
 - Software is _not_ just a tool for answering a research question
@@ -36,7 +36,7 @@ jupyter:
   - Software can be reused 🔁
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 - Software is _not_ just a tool for answering a research question
   - Software is shared frequently between researchers and _reused_ after publication
   - Therefore, we need to be concerned with more than just the implementation, i.e. "writing code"
@@ -47,7 +47,7 @@ jupyter:
   - Software can be reused: like with stakeholders, it is hard to predict how the software will be used in the future, and we want to make it easy for reuse to happen
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} jp-MarkdownHeadingCollapsed=true -->
 ## Software Development Lifecycle
 
 <center><img src="../episodes/fig/Software_Development_Life_Cycle.jpg" width="50%"></center>
@@ -548,24 +548,24 @@ Regardless of doing Object Oriented Programming or Functional Programming
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 ## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 
 ## Refactoring
 
 **Refactoring** is modifying code, such that:
 
- * external behaviour unchanged,
+ * external behaviour is unchanged,
  * code itself is easier to read / test / extend.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
-## Refactoring
+### Refactoring
 
 Refactoring is vital for improving code quality. It might include things such as:
 * Code decoupling and abstractions
@@ -574,25 +574,23 @@ Refactoring is vital for improving code quality. It might include things such as
 * Simplifying conditional statements to improve readability
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Often working on existing software - refactoring is how we improve it
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Refactoring Loop
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Refactoring Loop
 
 When refactoring a piece of software, a good process to follow is:
 
 * Make sure you have tests that verify the current behaviour
 * Refactor the code
-* Re-run tests to verify thr behavour of the code is unchanged
+* Re-run tests to verify the behavour of the code is unchanged
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-
-## Refactoring
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Refactoring
 
 In the rest of section we will learn how to refactor an existing piece of code. We need to:
 
@@ -601,18 +599,18 @@ In the rest of section we will learn how to refactor an existing piece of code. 
 <!-- #endregion -->
 
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 When refactoring, first we need to make sure there are tests in place that can verify the code behaviour as it is now (or write them if they are missing), then refactor the code and, finally, check that the original tests still pass.
 
 In the process of refactoring, we will try to target some of the "good practices" we just talked about, like making good abstractions and reducing cognitive load.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
-## Writing Regression Tests
+### Writing Regression Tests Before Refactoring
 
 Look at the `analyse_data` function within `inflammation/compute_data.py`:
-<!-- #endregion -->
+
 ```python
 def analyse_data(data_dir):
     data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
@@ -631,38 +629,39 @@ def analyse_data(data_dir):
     }
     views.visualize(graph_data)
 ```
-
-
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Bring up the code
 
 Explain the feature:
-When using inflammation-analysis.py if the user adds --full-data-analysis then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
+When using inflammation-analysis.py if the user adds `--full-data-analysis` then the program will scan the directory of one of the provided files, compare standard deviations across the data by day and plot a graph.
 
 The main body of it exists in inflammation/compute_data.py in a function called analyse_data.
 
 We want to add extra regression tests to this function. Firstly, modify the function to return the data instead of visualise it so that it is easier to automatically test. Next, we will add assert statements that verify that the current outcome always remains the same, rather than checking if it is *correct* or not. These are called regression tests.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 
-## Writing Regression Tests
+### Exercise: Writing Regression Tests
 
 Add a new test file called `test_compute_data.py` in the `tests` folder and add a regression test to verify the current output of `analyse_data()`.
 
 Remember that this is a *regression test* to check that we don't break our code during refactoring, and so ensure that this result remains unchanged. It does *not* necessarily check that the result is correct.
-<!-- #endregion -->
 
 ```python
+from inflammation.compute_data import analyse_data
+
 def test_analyse_data():
-    from inflammation.compute_data import analyse_data
     path = Path.cwd() / "../data"
     data_source = CSVDataSource(path)
     result = analyse_data(data_source)
 
     # TODO: add assert statement(s) to test the result value is as expected
 ```
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Hint: You might find it helpful to assert the results equal some made up array, observe the test failing and copy and paste the correct result into the test.
 
 When talking about the solution:
@@ -672,33 +671,36 @@ When talking about the solution:
  * Brittle - changing the files will break the tests
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Refactoring Functions to only do One Thing
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Refactoring Functions to only do One Thing
+
 Functions which just do one thing are:
 
 * Easier to test
 * Easier to read
 * Easier to re-use
 
-Ideally we want to create 'pure functions', which work like a mathematical function - they take some input, and produce an output. They do not rely on any information other than the inputs provided, and do not cause any side effects.
+We can take this further by making our single-purpose functions **pure**.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Pure Functions
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Pure Functions
 
-A **pure function** takes in some inputs as parameters, and it produces a consistent output.
+A **pure function** is effectively what we think of as a mathematical function:
 
-That is, just like a mathematical function.
+- they take some input, and produce an output
+- they do not rely on any information other than the inputs provided
+- they do not cause any side effects.
 
-The output does not depend on externalities, such as global variables.
+As a result, the output of a **pure function** does not depend on externalities or program sate, such as global variables.
 
-There will be no side effects from running the function, eg it wont edit any files or modify global variables/
+Moreover, there will be no side effects from running the function, e.g. it wont edit any files or modify global variables such that behaviour in other parts of our code are unaffected.
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Pure Functions
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Pure Functions
 
 Pure functions have a number of advantages for maintainable code:
 
@@ -707,8 +709,8 @@ Pure functions have a number of advantages for maintainable code:
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Refactor Code into a Pure Function
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Exercise: Refactor Code into a Pure Function
 
 Refactor the analyse_data function into a pure function with the logic, and an impure function that handles the input and output. The pure function should take in the data, and return the analysis results:
 
@@ -722,8 +724,8 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Testing Pure Functions
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Testing Pure Functions
 
 Pure functions are also easier to test
 
@@ -733,12 +735,12 @@ Pure functions are also easier to test
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Can focus on making sure we get all edge cases without real world considerations
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Write Test Cases for the Pure Function
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Exercise: Write Test Cases for the Pure Function
 
 Now we have refactored our a pure function, we can more easily write comprehensive tests. Add tests that check for when there is only one file with multiple rows, multiple files with one row and any other cases you can think of that should be tested.
 
@@ -746,7 +748,10 @@ Time: 10min
 
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": "fragment"} -->
 ```python
+from inflammation.compute_data import compute_standard_deviation_by_data
+
 @pytest.mark.parametrize('data,expected_output', [
     ([[[0, 1, 0], [0, 2, 0]]], [0, 0, 0]),
     ([[[0, 2, 0]], [[0, 1, 0]]], [0, math.sqrt(0.25), 0]),
@@ -754,14 +759,15 @@ Time: 10min
 ],
 ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
 def test_compute_standard_deviation_by_day(data, expected_output):
-    from inflammation.compute_data import compute_standard_deviation_by_data
+
 
     result = compute_standard_deviation_by_data(data)
     npt.assert_array_almost_equal(result, expected_output)
 ```
+<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Functional Programming
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Functional Programming
 
 Pure functions are a concept from an approach to programming called **functional programming**, where programs are constructed by chaining together these pure functions.
 
@@ -771,7 +777,7 @@ We have so far mostly focussed on Procedural Programming, where a series of sequ
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 If there is time - do some live coding to show imperative code, then transform into a pipeline:
 
  * Sequence of numbers
@@ -808,11 +814,11 @@ total = sum(map(squared, filter(is_even, numbers)))
 ## ☕ 10 Minute Break ☕
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 ## Architecting Code to Separate Responsibilities
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 Recall that we are using a Model-View-Controller architecture in our project, which are located in:
 
 * **Model**: `inflammation/models.py`
@@ -822,16 +828,16 @@ Recall that we are using a Model-View-Controller architecture in our project, wh
 But the code we were previously analysing was added in a separate script `inflammation/compute_data.py` and contains a mix of all three.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Exercise: Identify Model, View and Controller
 
-Looking at the code inside compute_data.py, what parts could be considered Model, View and Controller code?
+Looking at the code inside `compute_data.py`, what parts could be considered Model, View and Controller code?
 
 Time: 5min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Computing the standard deviation belongs to Model.
 Reading the data from CSV files also belongs to Model.
 Displaying of the output as a graph is View.
@@ -839,7 +845,7 @@ The logic that processes the supplied files is Controller.
 <!-- #endregion -->
 
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Exercise: Split Out Model, View and Controller
 
 Refactor analyse_data() function so that the Model, View and Controller code we identified in the previous exercise is moved to appropriate modules.
@@ -848,7 +854,7 @@ Time: 10min
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Merge the Feature In
 
 Hopefully you have now refactored the feature to conform to our MVC structure, and ran our regression tests to check that the outputs rermain the same.
@@ -862,9 +868,11 @@ $ git merge full-data-analysis
 
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Controller Structure
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Controller Structure
+
 The structure of our controller is as follows:
+
 ```python
 # import modules
 
@@ -875,11 +883,19 @@ if __name__ == "__main__":
     # perform some actions before main()
     main(args)
 ```
-Actions performed by the script are contained within the `main` function. This is called if the `__name__` variable (a special veriable set by the Python interpreter) is `__main__`.  So if our file is run by the Python interpreter on the command line, this condition will be satisfied.
+
+This is a common pattern for entry points to Python packages. Actions performed by the script are contained within the `main` function. The main function is run automatically if the `__name__` variable (a special veriable set by the Python interpreter) is `"__main__"`.  So if our file is run by the Python interpreter on the command line, this condition will be satisfied, and our script gets run as expected.
+
+However, if our Python module is imported from another, instead `__name__ = "inflammation_analysis"` will be defined, and the `main()` function will not automatically be run.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Passing Command-Line Options to Controller
+<!-- #region editable=true slideshow={"slide_type": "notes"} -->
+It is useful to have this dual behaviour for our entry point scripts so that functions defined within them can be used by other modules without the main function being run on import, while still making it clear how the core functionality is run. Moreover, this pattern makes it possible to test the functions within our script because everything is put inside more easily callable functions.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Passing Command-Line Options to Controller
+
 To read command line arguments passed into a script, we use `argparse`. To use this, we import it in our controller script, initialise a parser class, and then add arguments which we want to look out for:
 
 ```python
@@ -897,7 +913,7 @@ args = parser.parse_args()
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
+<!-- #region slideshow={"slide_type": "notes"} editable=true -->
 Take people through each of these parts:
 
 Import the library
@@ -909,8 +925,8 @@ Define an argument called 'infiles' which will hold a list of input CSV file(s) 
 You then parse the arguments, which returns an object we called `args` which contains all of the arguments requested. These can be accessed by their name, eg `args.infiles`.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Positional and Optional Arguments
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Positional and Optional Arguments
 Positional arguments are required arguments which must be provided all together and in the proper order when calling the script. Optional arguments are indicated by a `-` or `--` prefix, and these do not have to be provided to run the script. For example we can see the help string:
 
 ```bash
@@ -930,7 +946,7 @@ optional arguments:
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ## Conclusion
 
 Good software architecture and design is a **huge** topic.
@@ -945,6 +961,6 @@ Practise makes perfect:
 <!-- #endregion -->
 
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} editable=true -->
 ## 🕓 End of Section 3 🕓
 <!-- #endregion -->
