@@ -131,6 +131,8 @@ goal of having *maintainable* code, which is:
 Now that we know what goals we should aspire to, let us take a critical look at the code in our
 software project and try to identify ways in which it can be improved.
 
+## Designing a New Feature for Our Project
+
 Our software project contains a pre-existing branch `full-data-analysis` which contains code for a new feature of our
 inflammation analysis software, which we will consider as a contribution by another developer.
 Recall that you can see all your branches as follows:
@@ -154,7 +156,7 @@ This bit of functionality is handled by `inflammation-analysis.py` in the projec
 The new data analysis code is located in `compute_data.py` file within the `inflammation` directory
 in a function called `analyse_data()`.
 This function loads all the data files for a given a directory path, then
-calculates and compares standard deviation across all the data by day and finaly plots a graph.
+calculates and compares standard deviation across all the data by day and finally plots a graph.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
