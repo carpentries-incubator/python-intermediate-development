@@ -82,7 +82,7 @@ Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-
 Past maintainers:
 
 - [Kamilla Kopec-Harding][kamilla-kopec-harding]
-- [Sam Mangham][]
+- [Sam Mangham][sam-mangham]
 
 ## Authors
 
