@@ -548,7 +548,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.4 Diagnosing Issues and Improving Robustness</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2025-05-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/24-diagnosing-issues-improving-robustness.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1133,12 +1133,15 @@ inappropriate value.</p>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>        </span>
 <span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>    <span class="cf">if</span> expect_raises <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
 <span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>        <span class="cf">with</span> pytest.raises(expect_raises):</span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>            result <span class="op">=</span> patient_normalise(np.array(test))</span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>            npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>        result <span class="op">=</span> patient_normalise(np.array(test))</span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>        npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span></code></pre>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>            patient_normalise(np.array(test))</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>        result <span class="op">=</span> patient_normalise(np.array(test))</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>        npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span></code></pre>
 </div>
+<p>Notice that under the <code>pytest.raises</code> context manager, it
+isn’t necessary to perform the <code>npt.assert_allclose</code> because
+just the call to <code>patient_normalise()</code> will raise the
+<code>ValueError</code>.</p>
 <p>Be sure to commit your changes so far and push them to GitHub.</p>
 <div id="optional-exercise-add-a-precondition-to-check-the-correct-type-and-shape-of-data" class="callout challenge">
 <div class="callout-square">
@@ -1151,8 +1154,18 @@ inappropriate value.</p>
 object and that it is of the correct shape. Add corresponding tests to
 check that the function raises the correct exception. You will find the
 Python function <a href="https://docs.python.org/3/library/functions.html#isinstance" class="external-link"><code>isinstance</code></a>
-useful here, as well as the Python exception <a href="https://docs.python.org/3/library/exceptions.html#TypeError" class="external-link"><code>TypeError</code></a>.
-Once you are done, commit your new files, and push the new commits to
+useful here, as well as the Python exception <a href="https://docs.python.org/3/library/exceptions.html#TypeError" class="external-link"><code>TypeError</code></a>.</p>
+<p>You can take this even further if your solution code involves
+multiple <code>ValueError</code>s or <code>TypeError</code>’s being
+raised at different locations. In this case, you want to make sure the
+function is raising the precise <code>Exception</code> that occurs at a
+specific point in your function. You might have noticed that
+<code>Exception</code>s can take a string argument corresponding to a
+message / description of the exception that has occurred. The <a href="https://docs.pytest.org/en/stable/reference/reference.html#pytest.raises" class="external-link"><code>pytest.raises()</code></a>
+context manager can query this message with its <code>match=</code>
+argument. See if you can use that to more precisely test the exceptions
+raised by your function.</p>
+<p>Once you are done, commit your new files, and push the new commits to
 your remote repository on GitHub.</p>
 </div>
 </div>
@@ -1213,24 +1226,78 @@ your remote repository on GitHub.</p>
 <span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>            <span class="pp">TypeError</span>,</span>
 <span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a>        ),</span>
 <span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a>        (</span>
-<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>            [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]],</span>
-<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>            [[<span class="fl">0.33</span>, <span class="fl">0.67</span>, <span class="dv">1</span>], [<span class="fl">0.67</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.78</span>, <span class="fl">0.89</span>, <span class="dv">1</span>]],</span>
-<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>            <span class="va">None</span>,</span>
-<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>        )</span>
-<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>    ])</span>
-<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="kw">def</span> test_patient_normalise(test, expected, expect_raises):</span>
-<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>    <span class="co">"""Test normalisation works for arrays of one and positive integers."""</span></span>
-<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(test, <span class="bu">list</span>):</span>
-<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a>        test <span class="op">=</span> np.array(test)</span>
-<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>    <span class="cf">if</span> expect_raises <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a>        <span class="cf">with</span> pytest.raises(expect_raises):</span>
-<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a>          result <span class="op">=</span> patient_normalise(test)</span>
-<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a>          npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span>
-<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a></span>
-<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>        result <span class="op">=</span> patient_normalise(test)</span>
-<span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a>        npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span>
-<span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a>...</span></code></pre>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>            [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>            <span class="pp">ValueError</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>        ),</span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>        (</span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a>            [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]],</span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>            [[<span class="fl">0.33</span>, <span class="fl">0.67</span>, <span class="dv">1</span>], [<span class="fl">0.67</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.78</span>, <span class="fl">0.89</span>, <span class="dv">1</span>]],</span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a>        )</span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>    ])</span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="kw">def</span> test_patient_normalise(test, expected, expect_raises):</span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a>    <span class="co">"""Test normalisation works for arrays of one and positive integers."""</span></span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(test, <span class="bu">list</span>):</span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a>        test <span class="op">=</span> np.array(test)</span>
+<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a>    <span class="cf">if</span> expect_raises <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>        <span class="cf">with</span> pytest.raises(expect_raises):</span>
+<span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a>          patient_normalise(test)</span>
+<span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-37"><a href="#cb12-37" tabindex="-1"></a>        result <span class="op">=</span> patient_normalise(test)</span>
+<span id="cb12-38"><a href="#cb12-38" tabindex="-1"></a>        npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span>
+<span id="cb12-39"><a href="#cb12-39" tabindex="-1"></a>...</span></code></pre>
+</div>
+<p>Or, if you decided to match the specific exceptions in
+<code>test/test_models.py</code>:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">from</span> inflammation.models <span class="im">import</span> patient_normalise</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>...</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    <span class="st">"test, expected, expect_raises"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>    [</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>        ...</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>        (</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>            [[<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]],</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>            <span class="pp">ValueError</span>(<span class="st">'inflammation values should be non-negative'</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>        ),</span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>        (</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>            [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>            <span class="pp">ValueError</span>(<span class="st">'inflammation array should be 2-dimensional'</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a>        ),</span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a>        (</span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>            <span class="st">'hello'</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a>            <span class="pp">TypeError</span>(<span class="st">'data input should be ndarray'</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a>        ),</span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a>        (</span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a>            <span class="dv">3</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a>            <span class="pp">TypeError</span>(<span class="st">'data input should be ndarray'</span>),</span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a>        ),</span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a>        (</span>
+<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a>            [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]],</span>
+<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a>            [[<span class="fl">0.33</span>, <span class="fl">0.67</span>, <span class="dv">1</span>], [<span class="fl">0.67</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.78</span>, <span class="fl">0.89</span>, <span class="dv">1</span>]],</span>
+<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a>            <span class="va">None</span>,</span>
+<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a>        )</span>
+<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a>    ])</span>
+<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="kw">def</span> test_patient_normalise(test, expected, expect_raises):</span>
+<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a>    <span class="co">"""Test normalisation works for arrays of one and positive integers."""</span></span>
+<span id="cb13-35"><a href="#cb13-35" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(test, <span class="bu">list</span>):</span>
+<span id="cb13-36"><a href="#cb13-36" tabindex="-1"></a>        test <span class="op">=</span> np.array(test)</span>
+<span id="cb13-37"><a href="#cb13-37" tabindex="-1"></a>    <span class="cf">if</span> expect_raises <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb13-38"><a href="#cb13-38" tabindex="-1"></a>        <span class="cf">with</span> pytest.raises(expect_raises, match<span class="op">=</span><span class="bu">str</span>(expect_raises)):</span>
+<span id="cb13-39"><a href="#cb13-39" tabindex="-1"></a>          patient_normalise(test)</span>
+<span id="cb13-40"><a href="#cb13-40" tabindex="-1"></a></span>
+<span id="cb13-41"><a href="#cb13-41" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-42"><a href="#cb13-42" tabindex="-1"></a>        result <span class="op">=</span> patient_normalise(test)</span>
+<span id="cb13-43"><a href="#cb13-43" tabindex="-1"></a>        npt.assert_allclose(result, np.array(expected), rtol<span class="op">=</span><span class="fl">1e-2</span>, atol<span class="op">=</span><span class="fl">1e-2</span>)</span>
+<span id="cb13-44"><a href="#cb13-44" tabindex="-1"></a>...</span></code></pre>
 </div>
 <p>Note the conversion from <code>list</code> to <code>np.array</code>
 has been moved out of the call to <code>npt.assert_allclose()</code>
@@ -1260,19 +1327,19 @@ explicitly checking the precondition is too costly.</p>
 </section><section><h2 class="section-heading" id="improving-robustness-with-automated-code-style-checks">Improving Robustness with Automated Code Style Checks<a class="anchor" aria-label="anchor" href="#improving-robustness-with-automated-code-style-checks"></a></h2>
 <hr class="half-width"><p>Let us re-run Pylint over our project after having added some more
 code to it. From the project root do:</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> pylint inflammation</span></code></pre>
-</div>
-<p>You may see something like the following in Pylint’s output:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">*************</span> Module inflammation.models</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="ex">inflammation/models.py:60:4:</span> W0622: Redefining built-in <span class="st">'max'</span> <span class="er">(</span><span class="ex">redefined-builtin</span><span class="kw">)</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> pylint inflammation</span></code></pre>
+</div>
+<p>You may see something like the following in Pylint’s output:</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">*************</span> Module inflammation.models</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="ex">inflammation/models.py:60:4:</span> W0622: Redefining built-in <span class="st">'max'</span> <span class="er">(</span><span class="ex">redefined-builtin</span><span class="kw">)</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
 </div>
 <p>The above output indicates that by using the local variable called
 <code>max</code> in the <code>patient_normalise</code> function, we have
@@ -1299,14 +1366,14 @@ Luckily, we can now add this Pylint execution to our continuous
 integration builds as one of the extra tasks. To add Pylint to our CI
 workflow, we can add the following step to our <code>steps</code> in
 <code>.github/workflows/main.yml</code>:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>    <span class="ex">-</span> name: Check style with Pylint</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>      <span class="ex">run:</span> <span class="kw">|</span></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>        <span class="ex">python3</span> <span class="at">-m</span> pylint <span class="at">--fail-under</span><span class="op">=</span>0 <span class="at">--reports</span><span class="op">=</span>y inflammation</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>    <span class="ex">-</span> name: Check style with Pylint</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>      <span class="ex">run:</span> <span class="kw">|</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>        <span class="ex">python3</span> <span class="at">-m</span> pylint <span class="at">--fail-under</span><span class="op">=</span>0 <span class="at">--reports</span><span class="op">=</span>y inflammation</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
 </div>
 <p>Note we need to add <code>--fail-under=0</code> otherwise the builds
 will fail if we do not get a ‘perfect’ score of 10! This seems unlikely,
@@ -1314,12 +1381,12 @@ so let us be more pessimistic. We have also added
 <code>--reports=y</code> which will give us a more detailed report of
 the code analysis.</p>
 <p>Then we can just add this to our repo and trigger a build:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> git add .github/workflows/main.yml</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add Pylint run to build"</span></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="ex">$</span> git push origin test-suite</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> git add .github/workflows/main.yml</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add Pylint run to build"</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="ex">$</span> git push origin test-suite</span></code></pre>
 </div>
 <p>Then once complete, under the build(s) reports you should see an
 entry with the output from Pylint as before, but with an extended
@@ -1334,10 +1401,10 @@ could be even more useful if we want to mandate a consistent style.</p>
 <p>We can specify overrides to Pylint’s rules in a file called
 <code>.pylintrc</code> which Pylint can helpfully generate for us. In
 our repository root directory:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> pylint <span class="at">--generate-rcfile</span> <span class="op">&gt;</span> .pylintrc</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> pylint <span class="at">--generate-rcfile</span> <span class="op">&gt;</span> .pylintrc</span></code></pre>
 </div>
 <p>Looking at this file, you’ll see it is already pre-populated. No
 behaviour is currently changed from the default by generating this file,
@@ -1346,16 +1413,16 @@ typical rule to customise - favoured by many projects - is the one
 involving line length. You’ll see it is set to 100, so let us set that
 to a more reasonable 120. While we are at it, let us also set our
 <code>fail-under</code> in this file:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="co"># Specify a score threshold to be exceeded before program exits with error.</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="ex">fail-under=0</span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co"># Maximum number of characters on a single line.</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="ex">max-line-length=120</span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="co"># Specify a score threshold to be exceeded before program exits with error.</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="ex">fail-under=0</span></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="co"># Maximum number of characters on a single line.</span></span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="ex">max-line-length=120</span></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
 </div>
 <p>do not forget to remove the <code>--fail-under</code> argument to
 Pytest in our GitHub Actions configuration file too, since we do not
@@ -1372,18 +1439,18 @@ separate feature branch until it is ready to be escalated to the
 <code>develop</code> branch.</p>
 <p>Be sure to commit all your changes to <code>test-suite</code> and
 then merge to the <code>develop</code> branch in the usual manner.</p>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="ex">$</span> git merge test-suite</span></code></pre>
-</div>
-<p>Then, assuming there are no conflicts, we can push these changes back
-to the remote repository as we have done before:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="ex">$</span> git merge test-suite</span></code></pre>
+</div>
+<p>Then, assuming there are no conflicts, we can push these changes back
+to the remote repository as we have done before:</p>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
 </div>
 <p>Now these changes have migrated to our parent <code>develop</code>
 branch, <code>develop</code> will also inherit the configuration to run
@@ -1476,7 +1543,7 @@ robustness.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/24-diagnosing-issues-improving-robustness.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/24-diagnosing-issues-improving-robustness.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2025-05-27",
   "datePublished": "2025-05-27"
 }
 
