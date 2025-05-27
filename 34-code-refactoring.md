@@ -95,12 +95,12 @@ we refactor or change code in the future.
 Start from the skeleton test code below:
 
 ```python
+from inflammation.compute_data import analyse_data
+
 def test_analyse_data():
-    from inflammation.compute_data import analyse_data
-    path = Path.cwd() / "../data"
+    path = os.path.join( os.getcwd(), "../data")
     data_source = CSVDataSource(path)
     result = analyse_data(data_source)
-
     # TODO: add assert statement(s) to test the result value is as expected
 ```
 
@@ -114,7 +114,6 @@ compare arrays of floating point numbers.
 When determining the correct return data result to use in tests, it may be helpful to assert the
 result equals some random made-up data, observe the test fail initially and then
 copy and paste the correct result into the test.
-
 
 :::::::::::::::::::::::::
 
@@ -134,11 +133,10 @@ Putting this together, our test may look like:
 
 ```python
 import numpy.testing as npt
-from pathlib import Path
+from inflammation.compute_data import analyse_data
 
 def test_analyse_data():
-    from inflammation.compute_data import analyse_data
-    path = Path.cwd() / "../data"
+    path = os.path.join( os.getcwd(), "../data")
     data_source = CSVDataSource(path)
     result = analyse_data(data_source)
     expected_output = [0.,0.22510286,0.18157299,0.1264423,0.9495481,0.27118211,
