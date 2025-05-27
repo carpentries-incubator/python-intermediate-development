@@ -7,10 +7,9 @@ using Python as an example language.
 It teaches these skills in a way that mimics a typical software development
 process working as a part of a team,
 starting from an [existing piece of software](https://github.com/carpentries-incubator/python-intermediate-inflammation).
-The lesson is developed using [The Carpentries](https://carpentries.org) Jekyll lesson template.
 
 A typical learner for this course may be someone who has gained basic software development skills either by
-self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons].
+self-learning or attending a foundational course such as the novice [Software Carpentry Python course][swc-lessons] and has been coding for 6-12 months.
 However, their software
 development-related projects are now becoming larger and more complex and they need more
 intermediate software engineering skills to help them design more robust software code,
