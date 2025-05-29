@@ -143,7 +143,7 @@ Git Bash uses its own SSH library by default, which may result in errors such as
 even after adding your SSH key correctly:
 
 ```
-$ git clone git@github.com:ukaea-rse-training/python-intermediate-inflammation
+$ git clone git@github.com:carpentries-incubator/python-intermediate-inflammation.git
 Cloning into 'python-intermediate-inflammation'...
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.

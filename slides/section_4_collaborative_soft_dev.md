@@ -46,7 +46,7 @@ git branch --all
 If not, please run these commands:
 
 ```bash
-git remote add upstream git@github.com:ukaea-rse-training/python-intermediate-inflammation.git
+git remote add upstream git@github.com:carpentries-incubator/python-intermediate-inflammation.git
 git fetch upstream
 git checkout upstream/feature-std-dev
 git switch --create feature-std-dev
