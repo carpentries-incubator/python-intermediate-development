@@ -23,7 +23,7 @@ jupyter:
 - up until this point, the course has been primarily focussed on technical practices, tools, and infrastructure, and primarily from the perspective of a single developer/researcher, albeit within a team environment
 - in this section, we are going to start broadening our attention to the collaborative side of software development
   - there are primarily two practices that facilitate collaboration: code review and package release
-- code review has many benefits, but top among them is that it provides a gate check on software quality, 
+- code review has many benefits, but top among them is that it provides a gate check on software quality,
   - it is also a way to share knowledge within a team, improving the redundancy of that team (which is actually a good thing regardless of what corporate types might say!)
   - getting another set of eyes on your code also means you are less likely to flout coding standards and convention
   - there are many different types of code review, and we will explore the most common in this section
@@ -204,12 +204,12 @@ Follow the instructions under this exercise heading. Read the content above the 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-- 🔁 We want our code to be somewhere on the "reusablility" spectrum
+- 🔁 We want our code to be somewhere on the "reusability" spectrum
 - 📝 Documentation is an important part of our code being reusable
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-- We want our code to be somewhere on the "reusablility" spectrum
+- We want our code to be somewhere on the "reusability" spectrum
   - but where exactly? this will depend on the maturity of your code and how widely it will be used (similar to testing)
   - at a minimum, we want to aim for reproducibility if we are publishing: someone else should be able to take our code and data and run it themselves and get the same result
   - however, for big library packages, we probably want to bump that up to reusable, where our code is easy to use, understand, and modify
@@ -217,7 +217,7 @@ Follow the instructions under this exercise heading. Read the content above the 
   - Even if you write incredibly expressive code, it will not be enough for someone new to start using and modifying your code base
   - How do they install it? Are there any development tools they need? What is the scientific context and limitations of the code?
   - We need to answer all of these questions and more if we want our code to be approachable and reusable
-  
+
 TODO would be nice to modify the image from <https://the-turing-way.netlify.app/_images/reproducible-definition-grid.svg> so that it better reflects the ACM definition of reproducibility/replicability
 <!-- #endregion -->
 
