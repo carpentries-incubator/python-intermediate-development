@@ -131,7 +131,7 @@ first_scaled_by:
   date_of_birth: 1858-03-22
   nationality: German
 - name: Ludwig Purtscheller
-  date_of_birth: 1858-03-22
+  date_of_birth: 1849-10-06
   nationality: Austrian
 ```
 
