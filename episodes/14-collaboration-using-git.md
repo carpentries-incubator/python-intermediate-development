@@ -624,11 +624,9 @@ which is often the source branch for website projects hosted on GitHub
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::  testimonial
+:::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Keeping Main Branch Stable
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Good software development practice is to keep the `main` branch stable
 while you and the team develop and test new functionalities on feature branches
@@ -639,7 +637,7 @@ work well with the rest of the code (and not just in isolation).
 We talk more about different types of code testing in one of the following episodes.
 
 
-
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
