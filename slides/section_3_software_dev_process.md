@@ -856,6 +856,20 @@ Time: 10min
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} editable=true -->
+### Merge the Feature In
+
+Hopefully you have now refactored the feature to conform to our MVC structure, and ran our regression tests to check that the outputs rermain the same.
+
+We can commit this to our branch, and then switch to the `develop` branch and merge it in.
+
+```bash
+$ git switch develop
+$ git merge full-data-analysis
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} editable=true -->
 ### Controller Structure
 
 The structure of our controller is as follows:
