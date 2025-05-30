@@ -134,26 +134,28 @@ Version [0.1.0]: 1.0.0
 Description []:  Analyse patient inflammation data
 Author [None, n to skip]: James Graham <J.Graham@software.ac.uk>
 License []:  MIT
-Compatible Python versions [^3.11]: ^3.11
+Compatible Python versions [>=3.13]:  >=3.10
 
 Would you like to define your main dependencies interactively? (yes/no) [yes] no
 Would you like to define your development dependencies interactively? (yes/no) [yes] no
 Generated file
 
-[tool.poetry]
+[project]
 name = "inflammation"
 version = "1.0.0"
 description = "Analyse patient inflammation data"
-authors = ["James Graham <J.Graham@software.ac.uk>"]
-license = "MIT"
+authors = [
+    {name = "James Graham",email = "J.Graham@software.ac.uk"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-
-[tool.poetry.dev-dependencies]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 
