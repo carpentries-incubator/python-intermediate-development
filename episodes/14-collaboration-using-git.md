@@ -109,12 +109,13 @@ with different parts of the Git infrastructure, including:
 Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
 
 sequenceDiagram
-    Working working tree->>+Staging Area: git add
-    Staging Area->>+Local Repository Branch: git commit
-    Local Repository Branch->>+Remote Repository Branch: git push
-    Remote Repository Branch->>+Local Repository Branch: git fetch
-    Local Repository Branch->>+Working working tree:git merge
-    Remote Repository Branch->>+Working working tree: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
+    Working Tree->>+Staging Area: git add
+    Staging Area->>+Local Repository: git commit
+    Local Repository->>+Remote Repository: git push
+    Remote Repository->>+Local Repository: git fetch
+    Local Repository->>+Working Tree:git checkout
+    Local Repository->>+Working Tree:git merge
+    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
 -->
 
 <!--
