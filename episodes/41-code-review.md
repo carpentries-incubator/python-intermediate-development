@@ -235,7 +235,7 @@ on your repository (acting as a code author).
 2. Navigate to the pull requests tab.
 3. Create a new pull request by clicking the green `New pull request` button.
   ![](fig/github-pull-request-tab.png){alt='GitHub pull requests tab' .image-with-shadow width="900px"}
-4. Select the base and the compare branch - `main` and `feature-std-dev`, respectively.
+4. Select the base and the compare branch: `develop` and `feature-std-dev`, respectively.
   Recall that the base branch is where you want your changes to be merged
   and the compare branch contains the changes.
 5. Click `Create pull request` button to open the request.
