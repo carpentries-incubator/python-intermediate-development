@@ -1258,7 +1258,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1393,7 +1393,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -2140,7 +2140,7 @@ package:</p>
   This command fails for me
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>If your <code>pip</code> installation is older than version 21.3,
 then this command will probably fail for you. This is because these
@@ -2577,7 +2577,7 @@ packages directly in a subdirectory of our virtual environment directory
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>From the previous episode, you may remember that we can get the list
 of packages in the current virtual environment using
@@ -2750,7 +2750,7 @@ Adding a New Dependency</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Let us verify first that the newly installed library
 <code>pytest</code> is appearing in our virtual environment but not in
@@ -3060,7 +3060,7 @@ line using <code>venv</code> and <code>pip</code>.</li>
 </div>
 </section></section><section id="aio-14-collaboration-using-git"><p>Content from <a href="14-collaboration-using-git.html">1.4 Software Development Using Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2025-05-30 |
+<p>Last updated on 2025-06-19 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
@@ -3148,28 +3148,28 @@ Git (in our case starting from making changes in a local branch that
 with different parts of the Git infrastructure, including:</p>
 <ul>
 <li>
-<strong>working directory</strong> - a local directory (including
-any subdirectories) where your project files live and where you are
-currently working. It is also known as the “untracked” area of Git. Any
-changes to files will be marked by Git in the working directory. If you
-make changes to the working directory and do not explicitly tell Git to
-save them - you will likely lose those changes. Using
-<code>git add filename</code> command, you tell Git to start tracking
-changes to file <code>filename</code> within your working
-directory.</li>
+<strong>working tree</strong> - a local directory (including any
+subdirectories) where your project files live and where you are
+currently working. It is also known as the “untracked” area of Git or
+“working directory”. Any changes to files will be marked by Git in the
+working tree. If you make changes to the working tree and do not
+explicitly tell Git to save them - you will likely lose those changes.
+Using <code>git add filename</code> command, you tell Git to start
+tracking changes to file <code>filename</code> within your working
+tree.</li>
 <li>
 <strong>staging area (index)</strong> - once you tell Git to start
 tracking changes to files (with <code>git add filename</code> command),
 Git saves those changes in the staging area on your local machine. Each
 subsequent change to the same file needs to be followed by another
 <code>git add filename</code> command to tell Git to update it in the
-staging area. To see what is in your working directory and staging area
-at any moment (i.e. what changes is Git tracking), run the command
+staging area. To see what is in your working tree and staging area at
+any moment (i.e. what changes is Git tracking), run the command
 <code>git status</code>.</li>
 <li>
 <strong>local repository</strong> - stored within the
-<code>.git</code> directory of your project locally, this is where Git
-wraps together all your changes from the staging area and puts them
+<code>.git</code> working tree of your project locally, this is where
+Git wraps together all your changes from the staging area and puts them
 using the <code>git commit</code> command. Each commit is a new,
 permanent snapshot (checkpoint, record) of your project in time, which
 you can share or revert to.</li>
@@ -3191,14 +3191,16 @@ when collaborating with others on a shared repository is to always do a
 any latest changes before you push your own.</li>
 </ul>
 <!--
-Created with https://mermaid.live/edit#pako:eNqVkjFrwzAQhf-KuKmlKd01BAoZ2yUZumi5SmdbRPI58oliQv57JbuloSaFajqd3sd7x-kMlh2BhpFOmXpLO49twmh6Vc4bp6PvW7Xziaxwmh6324eDYFubz4lQq9aLQucW_fVTlb6wxaD2NPDoK77ILcfoZSF-Kyq1p8hCK2zIY7dAK8Ftr4bEdretVgPqOWBH9shZ_stFSi39EXFNfQ0WgrobO05ic4nM6Sd6uYXAH-TU-6Susz3NZvewgVJE9K7s8Fy9DUhHkQzoUjpqMAcxYPpLkWIWPky9BS0p0wby4FC-Vw66wTCWLrma-HX5F_P3uHwCS-vA3Q
+Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
+
 sequenceDiagram
-    Working Directory->>+Staging Area: git add
-    Staging Area->>+Local Repository Branch: git commit
-    Local Repository Branch->>+Remote Repository Branch: git push
-    Remote Repository Branch->>+Local Repository Branch: git fetch
-    Local Repository Branch->>+Working Directory:git merge
-    Remote Repository Branch->>+Working Directory: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
+    Working Tree->>+Staging Area: git add
+    Staging Area->>+Local Repository: git commit
+    Local Repository->>+Remote Repository: git push
+    Remote Repository->>+Local Repository: git fetch
+    Local Repository->>+Working Tree:git checkout
+    Local Repository->>+Working Tree:git merge
+    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
 --><!--
 SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
@@ -4277,7 +4279,7 @@ branch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Modify <code>inflammation-analysis.py</code> from PyCharm, which is
 helpfully marking inconsistencies with coding guidelines by underlying
@@ -4510,7 +4512,7 @@ for functions <code>daily_mean</code> , <code>daily_min</code>,
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For example, the improved docstrings for the above functions would
 contain explanations for parameters and return values.</p>
@@ -5086,7 +5088,7 @@ or its configuration file).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="by-passing-an-argument-to-pylint-in-the-command-line">By passing an argument to <code>pylint</code> in the command
@@ -5799,7 +5801,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6044,7 +6046,7 @@ for each of them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8189,7 +8191,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8242,7 +8244,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8373,7 +8375,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -8447,7 +8449,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9855,7 +9857,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -9870,7 +9872,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul>
@@ -9985,7 +9987,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -10069,7 +10071,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -13777,7 +13779,7 @@ pathways and in which order you need to learn them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One way to think about these concepts is to make a list and try to
 organise them along two axes - ‘perceived usefulness of a concept’
@@ -13891,8 +13893,8 @@ research software development in teams.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/aio.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/aio.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-06-17",
-  "datePublished": "2025-06-17"
+  "dateModified": "2025-06-19",
+  "datePublished": "2025-06-19"
 }
 
   </script><script>

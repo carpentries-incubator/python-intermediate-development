@@ -545,7 +545,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.4 Software Development Using Git and GitHub</h1>
-        <p>Last updated on 2025-05-30 |
+        <p>Last updated on 2025-06-19 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -629,28 +629,28 @@ Git (in our case starting from making changes in a local branch that
 “tracks” a remote branch) and the commonly used commands to interact
 with different parts of the Git infrastructure, including:</p>
 <ul><li>
-<strong>working directory</strong> - a local directory (including
-any subdirectories) where your project files live and where you are
-currently working. It is also known as the “untracked” area of Git. Any
-changes to files will be marked by Git in the working directory. If you
-make changes to the working directory and do not explicitly tell Git to
-save them - you will likely lose those changes. Using
-<code>git add filename</code> command, you tell Git to start tracking
-changes to file <code>filename</code> within your working
-directory.</li>
+<strong>working tree</strong> - a local directory (including any
+subdirectories) where your project files live and where you are
+currently working. It is also known as the “untracked” area of Git or
+“working directory”. Any changes to files will be marked by Git in the
+working tree. If you make changes to the working tree and do not
+explicitly tell Git to save them - you will likely lose those changes.
+Using <code>git add filename</code> command, you tell Git to start
+tracking changes to file <code>filename</code> within your working
+tree.</li>
 <li>
 <strong>staging area (index)</strong> - once you tell Git to start
 tracking changes to files (with <code>git add filename</code> command),
 Git saves those changes in the staging area on your local machine. Each
 subsequent change to the same file needs to be followed by another
 <code>git add filename</code> command to tell Git to update it in the
-staging area. To see what is in your working directory and staging area
-at any moment (i.e. what changes is Git tracking), run the command
+staging area. To see what is in your working tree and staging area at
+any moment (i.e. what changes is Git tracking), run the command
 <code>git status</code>.</li>
 <li>
 <strong>local repository</strong> - stored within the
-<code>.git</code> directory of your project locally, this is where Git
-wraps together all your changes from the staging area and puts them
+<code>.git</code> working tree of your project locally, this is where
+Git wraps together all your changes from the staging area and puts them
 using the <code>git commit</code> command. Each commit is a new,
 permanent snapshot (checkpoint, record) of your project in time, which
 you can share or revert to.</li>
@@ -671,14 +671,16 @@ when collaborating with others on a shared repository is to always do a
 <code>git pull</code> before a <code>git push</code>, to ensure you have
 any latest changes before you push your own.</li>
 </ul><!--
-Created with https://mermaid.live/edit#pako:eNqVkjFrwzAQhf-KuKmlKd01BAoZ2yUZumi5SmdbRPI58oliQv57JbuloSaFajqd3sd7x-kMlh2BhpFOmXpLO49twmh6Vc4bp6PvW7Xziaxwmh6324eDYFubz4lQq9aLQucW_fVTlb6wxaD2NPDoK77ILcfoZSF-Kyq1p8hCK2zIY7dAK8Ftr4bEdretVgPqOWBH9shZ_stFSi39EXFNfQ0WgrobO05ic4nM6Sd6uYXAH-TU-6Susz3NZvewgVJE9K7s8Fy9DUhHkQzoUjpqMAcxYPpLkWIWPky9BS0p0wby4FC-Vw66wTCWLrma-HX5F_P3uHwCS-vA3Q
+Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
+
 sequenceDiagram
-    Working Directory->>+Staging Area: git add
-    Staging Area->>+Local Repository Branch: git commit
-    Local Repository Branch->>+Remote Repository Branch: git push
-    Remote Repository Branch->>+Local Repository Branch: git fetch
-    Local Repository Branch->>+Working Directory:git merge
-    Remote Repository Branch->>+Working Directory: git pull (shortcut for git fetch followed by git merge for a 'tracking branch')
+    Working Tree->>+Staging Area: git add
+    Staging Area->>+Local Repository: git commit
+    Local Repository->>+Remote Repository: git push
+    Remote Repository->>+Local Repository: git fetch
+    Local Repository->>+Working Tree:git checkout
+    Local Repository->>+Working Tree:git merge
+    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
 --><!--
 SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
@@ -1285,8 +1287,8 @@ features without affecting the stable <code>main</code> code.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/14-collaboration-using-git.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/14-collaboration-using-git.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-05-30",
-  "datePublished": "2025-06-17"
+  "dateModified": "2025-06-19",
+  "datePublished": "2025-06-19"
 }
 
   </script><script>
