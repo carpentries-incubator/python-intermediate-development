@@ -71,18 +71,18 @@ with different parts of the Git infrastructure, including:
   a local directory (including any subdirectories) where your project files live
   and where you are currently working.
   It is also known as the "untracked" area of Git or "working directory".
-  Any changes to files will be marked by Git in the working working tree.
-  If you make changes to the working working tree and do not explicitly tell Git to save them -
+  Any changes to files will be marked by Git in the working tree.
+  If you make changes to the working tree and do not explicitly tell Git to save them -
   you will likely lose those changes.
   Using `git add filename` command,
-  you tell Git to start tracking changes to file `filename` within your working working tree.
+  you tell Git to start tracking changes to file `filename` within your working tree.
 - **staging area (index)** -
   once you tell Git to start tracking changes to files
   (with `git add filename` command),
   Git saves those changes in the staging area on your local machine.
   Each subsequent change to the same file needs to be followed by another `git add filename` command
   to tell Git to update it in the staging area.
-  To see what is in your working working tree and staging area at any moment
+  To see what is in your working tree and staging area at any moment
   (i.e. what changes is Git tracking),
   run the command `git status`.
 - **local repository** -
