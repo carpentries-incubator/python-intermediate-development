@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/6532056.svg)](10.5281/zenodo.6532056)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14038719.svg)](https://doi.org/10.5281/zenodo.6532056)
 
 ## Intermediate Research Software Development Skills (Python)
 
