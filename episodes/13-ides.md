@@ -70,42 +70,29 @@ Most good code editors can also execute code and control a debugger,
 and some can also interact with a version control system.
 Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
 but often less feature-rich.
-You will have to decide which one is the best for you -
-in this course we will learn how to use [PyCharm](https://www.jetbrains.com/pycharm/),
-a free, open source Python IDE.
-Some popular alternatives include
-free and open source IDE [Spyder](https://www.spyder-ide.org/)
-and Microsoft's free [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+You will have to decide which one is the best for you in your daily work. In this course you have 
+the choice of using two free and open source IDEs - 
+[PyCharm Community Edition from JetBrains](https://www.jetbrains.com/pycharm/) or [Microsoft's Visual Studio Code (VS Code)](https://code.visualstudio.com/).
+A popular alternative to consider is free and open source [Spyder IDE](https://www.spyder-ide.org/) -  
+we are not covering it here but it should be possible to switch.
 
-## Using VS Code for This Course
+### Starting With a Software Project
 
-If you want to use VS Code as your IDE for this course, there is a separate [extras episode](../learners/vscode.md)
-to help you set up. The instructions for PyCharm in the course will not apply to you verbatim but there
-is an equivalent functionality in VS Code for each of the actions we ask you to do in PyCharm.
+::::::::::::::::::::::::::::::::: group-tab 
 
+### PyCharm
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Using the PyCharm IDE
-
-Let us open our project in PyCharm now and familiarise ourselves with some commonly used features.
-
-### Opening a Software Project
-
-If you do not have PyCharm running yet, start it up now.
-You can skip the initial configuration steps which just go through
-selecting a theme and other aspects.
-You should be presented with a dialog box that asks you what you want to do,
+When you start PyCharm - you may be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
+If that is the case - select `Open` and find the software project directory
+`python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the 
+`File -> Open...` top menu.
 
-Select `Open` and find the software project directory
-`python-intermediate-inflammation` you cloned earlier.
 This directory is now the current working directory for PyCharm,
 so when we run scripts from PyCharm, this is the directory they will run from.
 
-PyCharm will show you a *'Tip of the Day'* window which you can safely ignore and close for now.
+PyCharm may also show you a *'Tip of the Day'* window which you can safely ignore and close for now.
 You may also get a warning *'No Python interpreter configured for the project'* -
 we [will deal with this](#configuring-a-virtual-environment-in-pycharm)
 shortly after we familiarise ourselves with the PyCharm environment.
@@ -119,6 +106,7 @@ terminal (the command line within PyCharm) and a TODO list.
 
 Select the `inflammation-analysis.py` file in the project navigator on the left
 so that its contents are displayed in the editor window.
+
 You may notice a warning about the missing Python interpreter
 at the top of the editor panel showing `inflammation-analysis.py` file -
 this is one of the first things you will have to configure for your project
@@ -127,21 +115,73 @@ before you can do any work.
 ![](fig/pycharm-missing-python-interpreter.png){alt='Missing Python Interpreter Warning in PyCharm' .image-with-shadow width="800px" }
 
 You may take the shortcut and click on one of the offered options above
-but we want to take you through the whole process of setting up your environment in PyCharm
-as this is important conceptually.
+but we want to take you through the whole process of setting up your environment in PyCharm shortly
+as this is important conceptually. If you do not see this warning - do not worry, it just means 
+you may have configured this already on previous usages of PyCharm.
 
-### Configuring a Virtual Environment in PyCharm
+### VS Code
 
-Before you can run the code from PyCharm,
-you need to explicitly specify the path to the Python interpreter on your system.
-The same goes for any dependencies your code may have -
-you need to tell PyCharm where to find them -
+When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly 
+used actions - e.g. `New File...`, `Open...`, or `Clone Git repository...`, etc.
+If that is the case - select `Open...` and find the software project directory
+`python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the
+`File -> Open...` top menu.
+
+![](fig/vscode-open-project.png){alt='View of an opened project in VSCode' .image-with-shadow width="1000px" }
+
+VS Code is a lightweight, general-purpose code editor designed to support a wide range of programming 
+languages and development tasks. 
+Its core "light" functionality is extended through a rich marketplace of 
+extensions, allowing users to add language support, debugging tools, linters, formatters, and more. 
+With extensions, VS Code can seamlessly handle languages (like Python, JavaScript, C++, Java, R, etc.), 
+data formats (like JSON, YAML, CSV, etc.), and so on, making it a flexible choice for developers working across 
+multiple technologies.
+
+This means that VS Code will not support Python our of the box - it needs to be extended for Python development 
+by installing extensions. You would need the following for this course:
+
+- the official [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides essential features 
+such as syntax highlighting, IntelliSense (code completion), linting, debugging, and unit testing support. 
+- [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), now integrated in Python extension by Microsoft,
+enhances performance and offers advanced type checking and code navigation. 
+- [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) for Python docstring generation.
+
+Developers can also integrate other extensions such as ,
+[Black](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) or [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) 
+for automatic code formatting, and many more. 
+These extensions transform VS Code into a versatile and efficient Python development environment that 
+suits everything from quick scripts to complex software projects.
+
+We will install and make use of the **Python by Microsoft** and the **autoDocstring** extensions. 
+You can do that from the Extensions tab (one of the vertical tabs to the left) by searching the 
+extensions marketplace and installing the ones you need.
+
+![](fig/vscode-extensions.png){alt='VS Code Extensions marketplace for searching and installing extensions' .image-with-shadow width="1000px" }
+
+You should now be set up to run and develop Python code in VS Code.
+:::::::::::::::::::::::::::::::::
+
+### Configuring a Virtual Environment
+
+Before you can run the code from an IDE,
+you need to explicitly tell the IDE the path to the Python interpreter on your system.
+The same goes for any dependencies your code may have (that form part of the virtual environment together with the Python interpreter) -
+you need to tell the IDE where to find them -
 much like we did from the command line in the previous episode.
-Luckily for us, we have already set up a virtual environment for our project
-from the command line
-and PyCharm is clever enough to understand it.
 
-#### Adding a Python Interpreter
+Luckily for us, we have already set up a virtual environment for our project
+from the command line already and some IDEs are clever enough to understand it.
+
+### Adding a Python Interpreter
+
+::::::::::::::::::::::::::::::::: group-tab
+
+While PyCharm will recognise the virtual environment you already have, and the Python interpreter contained 
+in it, it is a good practice to tell your IDE which Python interpreter you want to use for which project. 
+This is because you may have multiple Python versions installed on your system and also because you may not have
+set a virtual environment from command line so you should do if from the IDE instead.
+
+### PyCharm
 
 1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the window that appears,
@@ -185,9 +225,11 @@ this is one and the same virtual environment
 and changes done to it in PyCharm will propagate to the command line and vice versa.
 Let us see this in action through the following exercise.
 
+:::::::::::::::::::::::::::::::::
+
 ::: challenge
 
-## Compare External Libraries in the Command Line and PyCharm
+### Compare External Dependencies in Command Line and IDE
 
 Can you recall two places where information about our project's dependencies
 can be found from the command line?
@@ -248,7 +290,7 @@ python-dateutil==2.8.2
 six==1.16.0
 ```
 
-We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze` 
+We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze`
 as we did not install it using `pip`.
 Remember that we use `python3 -m pip freeze --exclude-editable` to update our `requirements.txt` file,
 to keep a list of the packages our virtual environment includes.
@@ -310,14 +352,19 @@ you will see that they all contain equivalent information.
 
 :::
 
-#### Adding an External Library
+
+#### Adding an External Dependency from IDE
 
 We have already added packages `numpy` and `matplotlib` to our virtual environment
 from the command line in the previous episode,
 so we are up-to-date with all external libraries we require at the moment.
 However, we will need library `pytest` soon to implement tests for our code.
-We will use this opportunity to install it from PyCharm in order to see
+We will use this opportunity to install it from the IDE in order to see
 an alternative way of doing this and how it propagates to the command line.
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
 
 1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the preferences window that appears,
@@ -338,8 +385,12 @@ Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
 Let us do this as an exercise.
 
+:::::::::::::::::::::::::::::::::
+
+
 ::: challenge
-## Update `requirements.txt` After Adding a New Dependency
+
+### Update Requirements File After Adding a New Dependency
 
 Export the newly updated virtual environment into `requirements.txt` file.
 
@@ -425,7 +476,13 @@ six==1.16.0
 
 :::
 
+
+
 #### Adding a Run Configuration for Our Project
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
 
 Having configured a virtual environment, we now need to tell PyCharm to use it for our project.
 This is done by creating and adding a **Run Configuration** to a project.
@@ -451,10 +508,6 @@ and use on top of virtual environments.
   we do not need this at the moment.
 7. Select `Apply` to confirm these settings.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Virtual Environments And Run Configurations in PyCharm
-
 We configured the Python interpreter to use for our project by pointing PyCharm
 to the virtual environment we created from the command line
 (which encapsulates a Python interpreter and external libraries our code needs to run).
@@ -470,12 +523,12 @@ Run Configurations provided by PyCharm are one extra layer on top of virtual env
 you can vary a run configuration each time your code is executed and
 you can have separate configurations for running, debugging and testing your code.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::
 
 Now you know how to configure and manipulate your environment in both tools
-(command line and PyCharm),
+(command line and IDE),
 which is a useful parallel to be aware of.
-Let us have a look at some other features afforded to us by PyCharm.
+Let us have a look at some other features afforded to us by IDEs.
 
 ### Syntax Highlighting
 
@@ -486,35 +539,40 @@ It also makes syntax errors visually distinct.
 Highlighting does not affect the meaning of the code itself -
 it is intended only for humans to make reading code and finding errors easier.
 
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
+
 ![](fig/pycharm-syntax-highlighting.png){alt='Syntax Highlighting Functionality in PyCharm' .image-with-shadow width="1000px" }
+
+:::::::::::::::::::::::::::::::::
 
 ### Code Completion
 
-As you start typing code,
-PyCharm will offer to complete some of the code for you in the form of an auto completion popup.
-This is a context-aware code completion feature
-that speeds up the process of coding
-(e.g. reducing typos and other common mistakes)
-by offering available variable names,
-functions from available packages,
-parameters of functions,
-hints related to syntax errors,
-etc.
+As you start typing code, the IDE will offer to complete some of the code for you in the form of an auto completion popup.
+This is a context-aware code completion feature that speeds up the process of coding (e.g. reducing typos and other common mistakes)
+by offering available variable names, functions from available packages, parameters of functions, hints related to syntax errors, etc.
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
 
 ![](fig/pycharm-code-completion.png){alt='Code Completion Functionality in PyCharm' .image-with-shadow width="600px" }
 
+:::::::::::::::::::::::::::::::::
+
 ### Code Definition \& Documentation References
 
-You will often need code reference information to help you code.
-PyCharm shows this useful information,
-such as definitions of symbols
-(e.g. functions, parameters, classes, fields, and methods)
+You will often need code reference information to help you code. The IDE shows this useful information,
+such as definitions of symbols (e.g. functions, parameters, classes, fields, and methods)
 and documentation references by means of quick popups and inline tooltips.
 
-For a selected piece of code,
-you can access various code reference information from the `View` menu
-(or via various keyboard shortcuts),
-including:
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
+
+For a selected piece of code, you can access various code reference information from the `View` menu
+(or via various keyboard shortcuts), including:
 
 - Quick Definition -
   where and how symbols (functions, parameters, classes, fields, and methods) are defined
@@ -531,12 +589,18 @@ including:
 
 ![](fig/pycharm-code-reference.png){alt='Code References Functionality in PyCharm' .image-with-shadow width="1000px" }
 
-### Code Search
+:::::::::::::::::::::::::::::::::
 
-You can search for a text string within a project,
-use different scopes to narrow your search process,
-use regular expressions for complex searches,
-include/exclude certain files from your search, find usages and occurrences.
+
+#### Code Search
+
+You can search for a text string within a project, use different scopes to narrow your search process,
+use regular expressions for complex searches, include/exclude certain files from your search, find usages and occurrences.
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
+
 To find a search string in the whole project:
 
 1. From the main menu,
@@ -563,22 +627,25 @@ To find a search string in the whole project:
   
    ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
 
+:::::::::::::::::::::::::::::::::
+
+
 ### Version Control
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
 
 PyCharm supports a directory-based versioning model,
 which means that each project directory can be associated with a different version control system.
 Our project was already under Git version control and PyCharm recognised it.
 It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-During this course,
-we will do all our version control commands from the command line
+During this course, we will do all our version control commands from the command line
 but it is worth noting that PyCharm supports a comprehensive subset of Git commands
 (i.e. it is possible to perform a set of common Git commands from PyCharm but not all).
-A very useful version control feature in PyCharm is
-graphically comparing changes you made locally to a file
-with the version of the file in a repository,
-a different commit version
-or a version in a different branch -
+A very useful version control feature in PyCharm is graphically comparing changes you made locally to a file
+with the version of the file in a repository, a different commit version or a version in a different branch -
 this is something that cannot be done equally well from the text-based command line.
 
 You can get a full
@@ -587,7 +654,14 @@ online.
 
 ![](fig/pycharm-version-control.png){alt='Version Control Functionality in PyCharm' .image-with-shadow width="1000px" }
 
-### Running Scripts in PyCharm
+:::::::::::::::::::::::::::::::::
+
+
+### Running Code from IDE
+
+::::::::::::::::::::::::::::::::: group-tab
+
+### PyCharm
 
 We have configured our environment and explored some of the most commonly used PyCharm features
 and are now ready to run our script from PyCharm!
@@ -614,6 +688,9 @@ both from the command line and PyCharm and are getting the same outputs.
 Before we move on to fixing errors and writing more code,
 Let us have a look at the last set of tools for collaborative code development
 which we will be using in this course - Git and GitHub.
+
+:::::::::::::::::::::::::::::::::
+
 
 ## Optional exercises
 
