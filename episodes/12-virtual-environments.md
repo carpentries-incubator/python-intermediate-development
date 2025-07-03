@@ -646,8 +646,13 @@ In the above command, we tell the command line two things:
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`.
 It looks like the script expects a list of input files to process,
-so this is expected behaviour since we do not supply any.
-We will fix this error in a moment.
+so this is expected behaviour since we do not supply any. 
+
+We should run our code as follows, passing one (or more) data file(s) as input:
+
+```bash
+(venv) $ python3 inflammation-analysis.py data/inflammation-01.csv
+```
 
 ## Optional Exercises
 
