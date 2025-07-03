@@ -94,7 +94,7 @@ so when we run scripts from PyCharm, this is the directory they will run from.
 
 PyCharm may also show you a *'Tip of the Day'* window which you can safely ignore and close for now.
 You may also get a warning *'No Python interpreter configured for the project'* -
-we [will deal with this](#configuring-a-virtual-environment-in-pycharm)
+we [will deal with this](#configuring-a-virtual-environment)
 shortly after we familiarise ourselves with the PyCharm environment.
 You will notice the IDE shows you a project/file navigator window on the left hand side,
 to traverse and select the files (and any subdirectories) within the working directory,
@@ -123,12 +123,26 @@ you may have configured this already on previous usages of PyCharm.
 
 When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly 
 used actions - e.g. `New File...`, `Open...`, or `Clone Git repository...`, etc.
+
+![](fig/vscode-welcome.png){alt='Welcome screen in VS Code' .image-with-shadow width="1000px" }
+
 If that is the case - select `Open...` and find the software project directory
 `python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the
 `File -> Open...` top menu.
 
-![](fig/vscode-open-project.png){alt='View of an opened project in VSCode' .image-with-shadow width="1000px" }
+![](fig/vscode-open-project.png){alt='View of an opened project in VS Code' .image-with-shadow width="1000px" }
 
+You’ll see some icons on the left side, which give you access to key feature of VS Code. 
+Hovering your mouse over each one will show a tooltip that names that feature:
+
+- Explorer - file navigator to view existing folders containing project files.
+- Search - search capability enabling you to search for things in your project (and replace them with other text).
+- Source control - this gives you access to source code control for your project, which includes Git version control functionality. 
+This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
+- Run and Debug - to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we’ll look into later.
+- Extensions - which we’ll look into right now, to install extensions to VSCode to extend its functionality in some way.
+- Testing - testing features for test discovery, test coverage, and running and debugging tests your code.
+ 
 VS Code is a lightweight, general-purpose code editor designed to support a wide range of programming 
 languages and development tasks. 
 Its core "light" functionality is extended through a rich marketplace of 
@@ -159,6 +173,7 @@ extensions marketplace and installing the ones you need.
 ![](fig/vscode-extensions.png){alt='VS Code Extensions marketplace for searching and installing extensions' .image-with-shadow width="1000px" }
 
 You should now be set up to run and develop Python code in VS Code.
+
 :::::::::::::::::::::::::::::::::
 
 ### Configuring a Virtual Environment
@@ -166,8 +181,7 @@ You should now be set up to run and develop Python code in VS Code.
 Before you can run the code from an IDE,
 you need to explicitly tell the IDE the path to the Python interpreter on your system.
 The same goes for any dependencies your code may have (that form part of the virtual environment together with the Python interpreter) -
-you need to tell the IDE where to find them -
-much like we did from the command line in the previous episode.
+you need to tell the IDE where to find them, much like we did from the command line in the previous episode.
 
 Luckily for us, we have already set up a virtual environment for our project
 from the command line already and some IDEs are clever enough to understand it.
@@ -176,12 +190,12 @@ from the command line already and some IDEs are clever enough to understand it.
 
 ::::::::::::::::::::::::::::::::: group-tab
 
-While PyCharm will recognise the virtual environment you already have, and the Python interpreter contained 
-in it, it is a good practice to tell your IDE which Python interpreter you want to use for which project. 
+### PyCharm
+
+While PyCharm will recognise the virtual environment you already have, and the Python interpreter contained
+in it, it is a good practice to tell your IDE which Python interpreter you want to use for which project.
 This is because you may have multiple Python versions installed on your system and also because you may not have
 set a virtual environment from command line so you should do if from the IDE instead.
-
-### PyCharm
 
 1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
 2. In the window that appears,
@@ -223,134 +237,41 @@ and has added these libraries effectively replicating our virtual environment in
 Also note that, although the names are not the same -
 this is one and the same virtual environment
 and changes done to it in PyCharm will propagate to the command line and vice versa.
-Let us see this in action through the following exercise.
+
+
+### VS Code
+
+As in the episode on virtual environments for software development, we want to create a virtual 
+environment for our project to work in. From the top menu, select `Terminal > New Terminal` to open a 
+new command line terminal for your project, and run the following command to activate your existing 
+virtual environment in this terminal:
+
+```bash
+source ./venv/bin/activate
+```
+
+Technically, this should set the Python interpreter to be the one contained in your virtual environment. 
+Still, it is a good idea to check and set the Python interpreter manually in VS Code to make sure things 
+are configured correctly for your project. 
+
+You can do than as follows:
+
+- Navigate to the location of the Python binary within the virtual environment using the file browser. The Python binary will be located in <virtual environment directory>/bin/python3 within the project directory.
+
+![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
+
+- Right-click on the binary and select Copy Path.
+- Use the keyboard shortcut CTRL-SHIFT-P to bring up the VS Code Command Palette, then search for `Python: Select Interpreter`.
+- Click `Enter interpreter path...`, paste the path you copied followed by Enter.
+
+![](fig/vscode-interpreter-path.png){alt='Set interpreter path in VS Code' .image-with-shadow width="800px"}
+
+If everything is setup correctly, when you select a Python file in the file explorer you should see the interpreter and virtual environment stated in the information bar at the bottom of VS Code.
+Any new terminal you open now will start with the activated virtual environment.
+
+![](fig/vscode-interpreter-venv.png){alt='Showing interpreter status in VS Code status bar' .image-with-shadow width="800px"}
 
 :::::::::::::::::::::::::::::::::
-
-::: challenge
-
-### Compare External Dependencies in Command Line and IDE
-
-Can you recall two places where information about our project's dependencies
-can be found from the command line?
-Compare that information with the equivalent configuration in PyCharm.
-
-Hint: We can use an argument to `pip`,
-or find the packages directly in a subdirectory of our virtual environment directory "venv".
-
-:::: solution
-
-From the previous episode,
-you may remember that we can get the list of packages in the current virtual environment
-using `pip`:
-
-```bash
-(venv) $ python3 -m pip list --exclude-editable
-```
-
-```output
-Package         Version
-
-***
-
-contourpy       1.2.0
-cycler          0.12.1
-fonttools       4.45.0
-kiwisolver      1.4.5
-matplotlib      3.8.2
-numpy           1.26.2
-packaging       23.2
-Pillow          10.1.0
-pip             23.0.1
-pyparsing       3.1.1
-python-dateutil 2.8.2
-setuptools      67.6.1
-six             1.16.0
-```
-
-However, `python3 -m pip list` shows all the packages in the virtual environment -
-if we want to see only the list of packages that we installed,
-we can use the `python3 -m pip freeze` command instead:
-
-```bash
-(venv) $ python3 -m pip freeze --exclude-editable
-```
-
-```output
-contourpy==1.2.0
-cycler==0.12.1
-fonttools==4.45.0
-kiwisolver==1.4.5
-matplotlib==3.8.2
-numpy==1.26.2
-packaging==23.2
-Pillow==10.1.0
-pyparsing==3.1.1
-python-dateutil==2.8.2
-six==1.16.0
-```
-
-We see the `pip` package in `python3 -m pip list` but not in `python3 -m pip freeze`
-as we did not install it using `pip`.
-Remember that we use `python3 -m pip freeze --exclude-editable` to update our `requirements.txt` file,
-to keep a list of the packages our virtual environment includes.
-Python will not do this automatically;
-we have to manually update the file when our requirements change using:
-
-```bash
-python3 -m pip freeze --exclude-editable > requirements.txt
-```
-
-If we want, we can also see the list of packages directly in the following subdirectory of `venv`:
-
-```bash
-(venv) $ ls -l venv/lib/python3.11/site-packages
-```
-
-```output
-total 88
-drwxr-xr-x  105 alex  staff   3360 20 Nov 15:34 PIL
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 Pillow-10.1.0.dist-info
-drwxr-xr-x    4 alex  staff    128 20 Nov 15:34 **pycache**
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:32 \_distutils\_hack
-drwxr-xr-x   16 alex  staff    512 20 Nov 15:34 contourpy
-drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 contourpy-1.2.0.dist-info
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 cycler
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 cycler-0.12.1.dist-info
-drwxr-xr-x   14 alex  staff    448 20 Nov 15:34 dateutil
-\-rw-r--r--    1 alex  staff    151 20 Nov 15:32 distutils-precedence.pth
-drwxr-xr-x   33 alex  staff   1056 20 Nov 15:34 fontTools
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 fonttools-4.45.0.dist-info
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver-1.4.5.dist-info
-drwxr-xr-x  150 alex  staff   4800 20 Nov 15:34 matplotlib
-drwxr-xr-x   20 alex  staff    640 20 Nov 15:34 matplotlib-3.8.2.dist-info
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 mpl\_toolkits
-drwxr-xr-x   43 alex  staff   1376 20 Nov 15:34 numpy
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 numpy-1.26.2.dist-info
-drwxr-xr-x   18 alex  staff    576 20 Nov 15:34 packaging
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 packaging-23.2.dist-info
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:32 pip
-drwxr-xr-x   10 alex  staff    320 20 Nov 15:33 pip-23.0.1.dist-info
-drwxr-xr-x    6 alex  staff    192 20 Nov 15:32 pkg\_resources
-\-rw-r--r--    1 alex  staff     90 20 Nov 15:34 pylab.py
-drwxr-xr-x   15 alex  staff    480 20 Nov 15:34 pyparsing
-drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 pyparsing-3.1.1.dist-info
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 python\_dateutil-2.8.2.dist-info
-drwxr-xr-x   49 alex  staff   1568 20 Nov 15:32 setuptools
-drwxr-xr-x   10 alex  staff    320 20 Nov 15:32 setuptools-67.6.1.dist-info
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
-\-rw-r--r--    1 alex  staff  34549 20 Nov 15:34 six.py
-```
-
-Finally, if you look at both the contents of
-`venv/lib/python3.11/site-packages` and `requirements.txt`
-and compare that with the packages shown in PyCharm's Python Interpreter Configuration -
-you will see that they all contain equivalent information.
-
-::::
-
-:::
 
 
 #### Adding an External Dependency from IDE
@@ -384,6 +305,17 @@ listing the `venv/lib/python3.11/site-packages` subdirectory.
 Note, however, that `requirements.txt` is not updated -
 as we mentioned earlier this is something you have to do manually.
 Let us do this as an exercise.
+
+### VS Code
+
+In VS Code, there is no special graphical user interface to add external dependencies for a project - 
+this is done from the terminal window as we did before (within the active virtual environment):
+
+```bash
+python3 -m pip install pytest
+```
+
+![](fig/vscode-add-library.png){alt='Installing a package in VS Code' .image-with-shadow width="800px" }
 
 :::::::::::::::::::::::::::::::::
 
@@ -522,6 +454,9 @@ based on the same Python 3.11 to work with scientific libraries.
 Run Configurations provided by PyCharm are one extra layer on top of virtual environments -
 you can vary a run configuration each time your code is executed and
 you can have separate configurations for running, debugging and testing your code.
+
+### VS Code
+
 
 :::::::::::::::::::::::::::::::::
 
