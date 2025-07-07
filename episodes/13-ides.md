@@ -531,6 +531,8 @@ it is intended only for humans to make reading code and finding errors easier.
 
 ### VS Code
 
+![](fig/vscode-syntax-highlighting.png){alt='Syntax Highlighting Functionality in VS Code' .image-with-shadow width="1000px" }
+
 :::::::::::::::::::::::::::::::::
 
 ### Code Completion
@@ -543,9 +545,11 @@ by offering available variable names, functions from available packages, paramet
 
 ### PyCharm
 
-![](fig/pycharm-code-completion.png){alt='Code Completion Functionality in PyCharm' .image-with-shadow width="600px" }
+![](fig/pycharm-code-completion.png){alt='Code Completion Functionality in PyCharm' .image-with-shadow width="800px" }
 
 ### VS Code
+
+![](fig/vscode-code-completion.png){alt='Code Completion Functionality in VS Code' .image-with-shadow width="800px" }
 
 
 :::::::::::::::::::::::::::::::::
@@ -560,25 +564,32 @@ and documentation references by means of quick popups and inline tooltips.
 
 ### PyCharm
 
-For a selected piece of code, you can access various code reference information from the `View` menu
-(or via various keyboard shortcuts), including:
+For a selected piece of code, you can access various code reference information from the `Go` menu
+(or via various keyboard shortcuts or sometimes simply by hovering over a symbol), including:
 
-- Quick Definition -
-  where and how symbols (functions, parameters, classes, fields, and methods) are defined
-- Quick Type Definition -
-  type definition of variables, fields or any other symbols
-- Quick Documentation -
-  inline documentation ([*docstrings*](15-coding-conventions.md)
+- Quick Definition - where and how symbols (functions, parameters, classes, fields, and methods) are defined
+- Quick Type Definition - type definition of variables, fields or any other symbols
+- Quick Documentation - inline documentation ([*docstrings*](15-coding-conventions.md)
   for any symbol created in accordance with [PEP-257](https://peps.python.org/pep-0257/))
-- Parameter Info -
-  the names and expected types of parameters in method and function calls.
+- Parameter Info - the names and expected types of parameters in method and function calls.
   Use this when cursor is on the argument of a function call.
-- Type Info -
-  type of an expression
+- Type Info - type of an expression
 
 ![](fig/pycharm-code-reference.png){alt='Code References Functionality in PyCharm' .image-with-shadow width="1000px" }
 
 ### VS Code
+
+For a selected piece of code, you can access various code reference information from the `View` menu
+(or via various keyboard shortcuts or sometimes simply by hovering over a symbol), including:
+
+- Go to Symbol - to navigate and find symbols inside a file or a workspace
+- Go to Definition -  this will take you to the definition of a symbol
+- Go to Declaration - some (statically-typed) languages support separate declarations and definitions of symbols so this will take you to the declaration (for Python, which is dynamically typed, there is not much difference between definition and declaration)
+- Go to Type Definition - this will take you to the definition of the type of a symbol
+- Go to Implementations - this shows all the implementors of the interface and for abstract methods, this shows all concrete implementations of that method
+- Go to References - this shows all references of the symbol in the code.
+
+![](fig/vscode-code-reference.png){alt='Code References Functionality in PyCharm' .image-with-shadow width="1000px" }
 
 :::::::::::::::::::::::::::::::::
 
