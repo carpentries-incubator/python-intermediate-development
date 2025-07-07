@@ -121,6 +121,8 @@ you may have configured this already on previous usages of PyCharm.
 
 ### VS Code
 
+We will take you through the various steps of using VC Code now - also check out the [VS Code Python Quick Start guide](https://code.visualstudio.com/docs/python/python-quick-start) and [Getting Started with Python in VS Code Tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+
 When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly 
 used actions - e.g. `New File...`, `Open...`, or `Clone Git repository...`, etc.
 
@@ -132,8 +134,8 @@ If that is the case - select `Open...` and find the software project directory
 
 ![](fig/vscode-open-project.png){alt='View of an opened project in VS Code' .image-with-shadow width="1000px" }
 
-You’ll see some icons on the left side, which give you access to key feature of VS Code. 
-Hovering your mouse over each one will show a tooltip that names that feature:
+You’ll see some icons on the left side, which give you access to key views of VS Code. 
+Hovering your mouse over each one will show a tooltip that names that view:
 
 - Explorer - file navigator to view existing folders containing project files.
 - Search - search capability enabling you to search for things in your project (and replace them with other text).
@@ -261,7 +263,7 @@ You can do than as follows:
 ![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
 
 - Right-click on the binary and select Copy Path.
-- Use the keyboard shortcut CTRL-SHIFT-P to bring up the VS Code Command Palette, then search for `Python: Select Interpreter`.
+- Use the keyboard shortcut CTRL-SHIFT-P (Windows) or CMD-SHIFT-P (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
 - Click `Enter interpreter path...`, paste the path you copied followed by Enter.
 
 ![](fig/vscode-interpreter-path.png){alt='Set interpreter path in VS Code' .image-with-shadow width="800px"}
@@ -457,12 +459,59 @@ you can have separate configurations for running, debugging and testing your cod
 
 ### VS Code
 
+You can configure Visual Studio Code through a number of [settings](https://code.visualstudio.com/docs/configure/settings). 
+Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+
+VS Code provides different scopes for settings:
+
+- User settings - settings that apply globally to any instance of VS Code you open.
+- Workspace settings - settings stored inside your workspace (current project) and only apply when that workspace is opened.
+
+VS Code stores setting values in settings JSON file.
+Depending on your platform, the user settings file is located in:
+
+- `%APPDATA%\Code\User\settings.json` on Windows
+- `$HOME/Library/Application\ Support/Code/User/settings.json` on macOS
+- `$HOME/.config/Code/User/settings.json` on Linux
+
+The workspace settings file `settings.json` is located under the `.vscode` folder in your project's root folder, and overrides the user settings. 
+
+You can access and change user/workspace settings values in a few ways:
+
+- Select the `Preferences: Open User Settings` or `Preferences: Open User Settings (JSON)` in the **Command Palette** (via keyboard shortcut CTRL-SHIFT-P/CMD-SHIFT-P) - for user settings
+- Select the `Preferences: Open Workspace Settings` or `Preferences: Open Workspace Settings (JSON)` in the **Command Palette** (via keyboard shortcut CTRL-SHIFT-P/CMD-SHIFT-P) - for workspace settings
+- Select the User or Workspace tab in the **Settings editor** (via `File -> Settings` or keyboard shortcut CTRL-,/CMD-,)
+
+![](fig/vscode-settings.png){alt='Settings editor in VS Code' .image-with-shadow width="1000px" }
+
+We have already configured Python interpreter via the **Command Palette**. 
+Other Python commands available through the Python extensions can be accessed through the **Command Palette** in a similar way - 
+bring up the **Command Palette** and enter "Python: " to find them.
+
+For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations.
+However, for some more complex run or debugging scenarios you need to create a [**launch configuration**](https://code.visualstudio.com/docs/debugtest/debugging-configuration) - to specify the application entry point or set environment variables. 
+Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
+
+VS Code stores such configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), 
+or in your user settings or workspace settings.
+VS Code also supports compound launch configurations for starting multiple configurations at the same time - e.g. for more complex testing and debugging scenarios.
+
+To create an initial `launch.json` file - you can go to the Run and Debug view, then click `Create a launch.json file` and follow the instructions.
+
+![](fig/vscode-run-debug-configuration.png){alt='Run and Debug View in VS Code showing the option to create a new launch (run and debug) configuration' .image-with-shadow width="1000px" }
+
+For the time being, we do not have anything to put in the launch configuration (so you do not need to go through the steps above), 
+but it is good to know where such information is configured.
 
 :::::::::::::::::::::::::::::::::
 
 Now you know how to configure and manipulate your environment in both tools
-(command line and IDE),
-which is a useful parallel to be aware of.
+(command line and IDE), which is a useful parallel to be aware of. 
+As you may have noticed, using the command line terminal facility integrated into an IDE allows you 
+to run commands (e.g. to manipulate files, interact with version control, etc.) and execute code 
+without leaving the development environment, making it easier and faster to work by having all 
+essential tools in one window. 
+
 Let us have a look at some other features afforded to us by IDEs.
 
 ### Syntax Highlighting
@@ -480,6 +529,8 @@ it is intended only for humans to make reading code and finding errors easier.
 
 ![](fig/pycharm-syntax-highlighting.png){alt='Syntax Highlighting Functionality in PyCharm' .image-with-shadow width="1000px" }
 
+### VS Code
+
 :::::::::::::::::::::::::::::::::
 
 ### Code Completion
@@ -493,6 +544,9 @@ by offering available variable names, functions from available packages, paramet
 ### PyCharm
 
 ![](fig/pycharm-code-completion.png){alt='Code Completion Functionality in PyCharm' .image-with-shadow width="600px" }
+
+### VS Code
+
 
 :::::::::::::::::::::::::::::::::
 
@@ -523,6 +577,8 @@ For a selected piece of code, you can access various code reference information 
   type of an expression
 
 ![](fig/pycharm-code-reference.png){alt='Code References Functionality in PyCharm' .image-with-shadow width="1000px" }
+
+### VS Code
 
 :::::::::::::::::::::::::::::::::
 
@@ -562,6 +618,8 @@ To find a search string in the whole project:
   
    ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
 
+### VS Code
+
 :::::::::::::::::::::::::::::::::
 
 
@@ -594,13 +652,26 @@ online.
 
 ### Running Code from IDE
 
+We have configured our environment and explored some of the most commonly used IDE features
+and are now ready to run our Python script from the IDE.
+
+Running code using the graphical interface of an IDE provides a simple, user-friendly way to execute
+programs with just a click, reducing the need type commands manually in the command line terminal.
+On the other hand, running code from a terminal window in an IDE offers the flexibility and control 
+of the command line — both approaches complement each other by supporting different user preferences 
+and tasks within the same unified environment. 
+
+In this lesson, we prioritise using the command line and typing commands whenever possible, 
+as these skills are easily transferable across different IDEs (with a note that you should feel free to use other equivalent 
+ways for doing things that suit you more). However, for tasks like debugging - 
+where the graphical interface offers significant advantages — we will make use of the IDE’s built-in 
+visual tools.
+
 ::::::::::::::::::::::::::::::::: group-tab
 
 ### PyCharm
 
-We have configured our environment and explored some of the most commonly used PyCharm features
-and are now ready to run our script from PyCharm!
-To do so, right-click the `inflammation-analysis.py` file
+To run our script using the PyCharm's graphical interface, right-click the `inflammation-analysis.py` file
 in the PyCharm project/file navigator on the left,
 and select `Run 'inflammation analysis'` (i.e. the Run Configuration we created earlier).
 
