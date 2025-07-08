@@ -263,7 +263,7 @@ You can do than as follows:
 ![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
 
 - Right-click on the binary and select Copy Path.
-- Use the keyboard shortcut CTRL-SHIFT-P (Windows) or CMD-SHIFT-P (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
+- Use the keyboard shortcut `CTRL-SHIFT-P` (Windows) or `CMD-SHIFT-P` (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
 - Click `Enter interpreter path...`, paste the path you copied followed by Enter.
 
 ![](fig/vscode-interpreter-path.png){alt='Set interpreter path in VS Code' .image-with-shadow width="800px"}
@@ -478,9 +478,9 @@ The workspace settings file `settings.json` is located under the `.vscode` folde
 
 You can access and change user/workspace settings values in a few ways:
 
-- Select the `Preferences: Open User Settings` or `Preferences: Open User Settings (JSON)` in the **Command Palette** (via keyboard shortcut CTRL-SHIFT-P/CMD-SHIFT-P) - for user settings
-- Select the `Preferences: Open Workspace Settings` or `Preferences: Open Workspace Settings (JSON)` in the **Command Palette** (via keyboard shortcut CTRL-SHIFT-P/CMD-SHIFT-P) - for workspace settings
-- Select the User or Workspace tab in the **Settings editor** (via `File -> Settings` or keyboard shortcut CTRL-,/CMD-,)
+- Select the `Preferences: Open User Settings` or `Preferences: Open User Settings (JSON)` in the **Command Palette** (via keyboard shortcut `CTRL-SHIFT-P`/`CMD-SHIFT-P`) - for user settings
+- Select the `Preferences: Open Workspace Settings` or `Preferences: Open Workspace Settings (JSON)` in the **Command Palette** (via keyboard shortcut `CTRL-SHIFT-P`/`CMD-SHIFT-P`) - for workspace settings
+- Select the User or Workspace tab in the **Settings editor** (via `File -> Settings` or keyboard shortcut `CTRL-,`/`CMD-,`)
 
 ![](fig/vscode-settings.png){alt='Settings editor in VS Code' .image-with-shadow width="1000px" }
 
@@ -596,40 +596,52 @@ For a selected piece of code, you can access various code reference information 
 
 #### Code Search
 
-You can search for a text string within a project, use different scopes to narrow your search process,
-use regular expressions for complex searches, include/exclude certain files from your search, find usages and occurrences.
+You can search for (and replace) a text string within a project, use different scopes to narrow your search process,
+use regular expressions for complex searches, include/exclude certain files from your search, 
+find usages/references and occurrences.
 
 ::::::::::::::::::::::::::::::::: group-tab
 
 ### PyCharm
 
-To find a search string in the whole project:
+To find a search string in the whole project - from the main menu, select `Edit | Find | Find in Path ...` (or `Edit | Find | Find in Files...` depending on your version of PyCharm). 
 
-1. From the main menu,
-   select `Edit | Find | Find in Path ...`
-   (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
-2. Type your search string in the search field of the popup.
-   Alternatively, in the editor, highlight the string you want to find
-   and press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows).
-   PyCharm places the highlighted string into the search field of the popup.
+Type your search string in the search field of the popup. 
+Alternatively, in the editor, highlight the string you want to find and press `CMD-SHIFT-F` (Mac) or `CTRL-SHIFT-F` (Windows). PyCharm places the highlighted string into the search field of the popup.
   
-   ![](fig/pycharm-code-search.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="800px" }
+![](fig/pycharm-code-search.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="800px" }
 
-   If you need, specify the additional options in the popup.
-   PyCharm will list the search strings and all the files that contain them.
-3. Check the results in the preview area of the dialog where you can replace the search string
-   or select another string,
-   or press `Command-Shift-F` (on Mac) or `Control-Shift-F` (on Windows) again
-   to start a new search.
-4. To see the list of occurrences in a separate panel,
-   click the `Open in Find Window` button in the bottom right corner.
-   The find panel will appear at the bottom of the main window;
-   use this panel and its options to group the results, preview them,
-   and work with them further.
+If you need, specify the additional options in the popup. 
+PyCharm will list the search strings and all the files that contain them.
+
+Check the results in the preview area of the dialog where you can replace the search string or select another string, or press `CMD-SHIFT-F` (Mac) or `CTRL-SHIFT-F` (Windows) again to start a new search.
+
+To see the list of occurrences in a separate panel, click the `Open in Find Window` button in the bottom right corner.
+The find panel will appear at the bottom of the main window; use this panel and its options to group the results, preview them, and work with them further.
   
-   ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
+![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
 
 ### VS Code
+
+To find a search string in the whole project - from the main menu, select `Edit | Find in Files`.
+An alternative menu option `Edit | Find` will just look for the search string in the current file.
+
+![](fig/vscode-search-menu.png){alt='Search menu in VS Code' .image-with-shadow width="1000px" }
+
+In the search window that pops up - type in your search string in the search field/box.
+
+![](fig/vscode-search-window.png){alt='Search for a string functionality in VS Code' .image-with-shadow width="800px" }
+
+The results will show in the search window - you can further filter the results by matching case, 
+matching the whole word or use regular expressions for more advanced filtering.
+
+![](fig/vscode-search-results.png){alt='Search results window in VS Code with further filtering functionalities' .image-with-shadow width="1000px" }
+
+You can also search from the code directly - by selecting the word to search for, right clicking and selecting the search option (`Find All References` or `Find All Implementations`) from the menu that pops up.
+
+![](fig/vscode-code-search-menu.png){alt='Code search option in VS Code' .image-with-shadow width="1000px" }
+
+You will get a search window with results as before, where you can further filter things out.
 
 :::::::::::::::::::::::::::::::::
 
