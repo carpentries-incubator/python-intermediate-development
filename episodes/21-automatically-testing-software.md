@@ -472,7 +472,7 @@ then do:
 $ python3 -m pip install pytest
 ```
 
-Whether we do this via PyCharm or the command line,
+Whether we do this via the IDE or the command line,
 the results are exactly the same:
 our virtual environment will now have the `pytest` package installed for use.
 

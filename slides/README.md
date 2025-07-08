@@ -81,7 +81,7 @@ To do this for all slides, use the bash script `slides/slides_to_html.bash`.
   then `t` to get presenter view window which should be put on screen 2
     - tab with course content page
     - tab with GitHub repo of example project
-  - PyCharm with example project open
+  - An IDE (PyCharm or VS Code) with example project open
   - Terminal with current directory in example project
 - Screen 2
   - smaller, not shared

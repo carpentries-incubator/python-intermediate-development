@@ -7,8 +7,8 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Set up a (virtual) development environment in PyCharm
-- Use PyCharm to run a Python script
+- Set up a (virtual) development environment in an IDE
+- Use the IDE to run a Python script
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -74,7 +74,7 @@ but often less feature-rich.
 You will have to decide which one is the best for you in your daily work. In this course you have 
 the choice of using two free and open source IDEs - 
 [PyCharm Community Edition from JetBrains](https://www.jetbrains.com/pycharm/) or [Microsoft's Visual Studio Code (VS Code)](https://code.visualstudio.com/).
-A popular alternative to consider is free and open source [Spyder IDE](https://www.spyder-ide.org/) -  
+A popular alternative to consider is free and open source [Spyder IDE](https://www.spyder-ide.org/) - 
 we are not covering it here but it should be possible to switch.
 
 ### Starting With a Software Project
