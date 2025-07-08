@@ -139,7 +139,7 @@ Hovering your mouse over each one will show a tooltip that names that view:
 
 - Explorer - file navigator to view existing folders containing project files.
 - Search - search capability enabling you to search for things in your project (and replace them with other text).
-- Source control - this gives you access to source code control for your project, which includes Git version control functionality. 
+- Source Control - this gives you access to source code control for your project, which includes Git version control functionality. 
 This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
 - Run and Debug - to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we’ll look into later.
 - Extensions - which we’ll look into right now, to install extensions to VSCode to extend its functionality in some way.
@@ -657,18 +657,38 @@ which means that each project directory can be associated with a different versi
 Our project was already under Git version control and PyCharm recognised it.
 It is also possible to add an unversioned project directory to version control directly from PyCharm.
 
-During this course, we will do all our version control commands from the command line
+During this course, we will do all our version control commands from the command line terminal
 but it is worth noting that PyCharm supports a comprehensive subset of Git commands
 (i.e. it is possible to perform a set of common Git commands from PyCharm but not all).
 A very useful version control feature in PyCharm is graphically comparing changes you made locally to a file
 with the version of the file in a repository, a different commit version or a version in a different branch -
 this is something that cannot be done equally well from the text-based command line.
 
-You can get a full
-[documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html)
-online.
+You can get a full [documentation on PyCharm's built-in version control support](https://www.jetbrains.com/help/pycharm/version-control-integration.html) online.
 
 ![](fig/pycharm-version-control.png){alt='Version Control Functionality in PyCharm' .image-with-shadow width="1000px" }
+
+### VS Code
+
+VS Code has integrated source control management (SCM) and includes Git support out-of-the-box. 
+Many other source control tools are available through [extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
+
+Our project was already under Git version control and VS Code recognised it.
+It is also possible to add an unversioned project directory to version control directly from VS Code.
+
+During this course, we will do all our version control commands from the command line terminal
+but it is worth noting that VS Code supports a comprehensive subset of Git commands
+(i.e. it is possible to perform a set of common Git commands from PyCharm but not all).
+A very useful version control feature in VS Code is graphically comparing changes you made locally to a file
+with the version of the file in a repository, a different commit version or a version in a different branch -
+this is something that cannot be done equally well from the text-based command line.
+
+You can get a full [documentation on VS Code's built-in version control support](https://code.visualstudio.com/docs/sourcecontrol/overview) online.
+
+This functionality in VS Code is available from the Source Control view (from the left-hand side menu).
+
+![](fig/vscode-version-control.png){alt='Version Control Functionality in VS Code' .image-with-shadow width="1000px" }
+
 
 :::::::::::::::::::::::::::::::::
 
