@@ -348,8 +348,7 @@ as we have seen already it contains several files with patients' daily inflammat
 We will revisit the software architecture and MVC topics once again in later episodes
 when we talk in more detail about [software architecture and design](32-software-architecture-design.md).
 We now proceed to set up our virtual development environment
-and start working with the code using a more convenient graphical tool -
-[IDE PyCharm](https://www.jetbrains.com/pycharm/).
+and start working with the code using a more convenient graphical tool - an Integrated Development Environment (IDE).
 
 
 

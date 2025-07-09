@@ -8,7 +8,7 @@ You will need the following software and accounts setup to be able to follow the
 - [Git version control program](#git-version-control-tool)
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)
-- [PyCharm](#pycharm-ide) integrated development environment (IDE)
+- [PyCharm](#pycharm) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE)
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -28,7 +28,7 @@ You will need a command line tool (shell/console) in order to run Python scripts
   [Git For Windows package](https://gitforwindows.org/) - see the Git installation section below). The use of
   Windows command line tool `cmd` is not suitable for the course. We also advise against using
   [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/) for this course as we do not
-  provide instructions for troubleshooting any potential issues between WSL and PyCharm.
+  provide instructions for troubleshooting any potential issues between WSL and an IDE.
 - On macOS and Linux, you will already have a command line tool available on your system. You can use a command line tool such as [**Bash**](https://www.gnu.org/software/bash/),
   or any other [command line tool that has similar syntax to Bash](https://en.wikipedia.org/wiki/Comparison_of_command_shells),
   since none of the content of this course is specific to Bash. Note that starting with macOS Catalina,
@@ -306,12 +306,14 @@ If you are using a Python 3 distribution from [Python.org](https://www.python.or
 `venv` and `pip` will be automatically installed for you. If not, please make sure you have these
 two tools (that correspond to your Python distribution) installed on your machine.
 
-## PyCharm IDE
+## IDE
 
-We use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course.
-PyCharm can be downloaded from [the JetBrains website](https://www.jetbrains.com/pycharm/download).
+### PyCharm
+
+You can use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course.
 The Community edition is fine, though if you are developing software for the purpose of academic research you may be eligible for a free license for the Professional edition which contains extra features.
 
+### VS Code
 
-
+Alternatively, you can use Microsoft's [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 

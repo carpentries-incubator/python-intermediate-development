@@ -178,18 +178,22 @@ tests/test_models.py:53: AssertionError
 
 Let us use a debugger at this point to see what is going on and why the function failed.
 
-## Debugging in PyCharm
+## Debugging in an IDE
 
 Think of debugging like performing exploratory surgery - on code!
 Debuggers allow us to peer at the internal workings of a program,
 such as variables and other state,
 as it performs its functions.
 
-### Running Tests Within PyCharm
+### Running Tests in IDE
 
-Firstly, to make it easier to track what's going on,
-we can set up PyCharm to run and debug our tests
+Firstly, to make it easier to track what's going on, we can set up our IDE to run and debug our tests
 instead of running them from the command line.
+
+::: group-tab 
+
+### PyCharm
+
 If you have not done so already,
 you will first need to enable the Pytest framework in PyCharm.
 You can do this by:
@@ -234,6 +238,10 @@ We do not need any others,
 so select any others you see and click the `-` button at the top to remove them.
 This will avoid any confusion when running our tests separately.
 Click `OK` when done.
+
+### VS Code
+
+::: 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
