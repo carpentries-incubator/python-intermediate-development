@@ -75,10 +75,10 @@ Look at other examples and decide what looks best. And do not hesitate to ask!
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 As we have already covered in the
-[episode on PyCharm IDE](13-ides.md),
-PyCharm highlights the language constructs (reserved words)
+[episode on IDEs](13-ides.md),
+they highlight the language constructs (reserved words)
 and syntax errors to help us with coding.
-PyCharm also gives us recommendations for formatting the code -
+IDEs also give us recommendations for formatting the code -
 these recommendations are mostly taken from the PEP 8 style guide.
 
 A full list of style guidelines for this style is available from the
@@ -454,7 +454,7 @@ $ git switch develop
 $ git switch -c style-fixes
 ```
 
-Next look at the `inflammation-analysis.py` file in PyCharm
+Next look at the `inflammation-analysis.py` file in the IDE
 and identify where the above guidelines have not been followed.
 Fix the discovered inconsistencies and commit them to the feature branch.
 

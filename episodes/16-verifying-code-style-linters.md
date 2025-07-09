@@ -19,7 +19,7 @@ exercises: 5
 
 ## Verifying Code Style Using Linters
 
-We have seen how we can use PyCharm to help us format our Python code in a consistent style.
+We have seen how we can use an IDE to help us format our Python code in a consistent style.
 This aids reusability,
 since consistent-looking code is easier to modify
 since it is easier to read and understand.
@@ -50,8 +50,7 @@ $ python3 -m pip freeze --exclude-editable > requirements.txt
 Pylint is a command-line tool that can help our code in many ways:
 
 - **Check PEP 8 compliance:**
-  whilst in-IDE context-sensitive highlighting such as that provided via PyCharm
-  helps us stay consistent with PEP 8 as we write code, this tool provides a full report
+  whilst in-IDE context-sensitive highlighting helps us stay consistent with PEP 8 as we write code, this tool provides a full report
 - **Perform basic error detection:** Pylint can look for certain Python type errors
 - **Check variable naming conventions**:
   Pylint often goes beyond PEP 8 to include other common conventions,
