@@ -695,20 +695,13 @@ This functionality in VS Code is available from the Source Control view (from th
 
 ### Running Code from IDE
 
-We have configured our environment and explored some of the most commonly used IDE features
-and are now ready to run our Python script from the IDE.
+We have configured our environment and explored some of the most commonly used IDE features and are now ready to run our Python script from the IDE.
 
-Running code using the graphical interface of an IDE provides a simple, user-friendly way to execute
-programs with just a click, reducing the need type commands manually in the command line terminal.
-On the other hand, running code from a terminal window in an IDE offers the flexibility and control 
-of the command line — both approaches complement each other by supporting different user preferences 
-and tasks within the same unified environment. 
+Running code using the graphical interface of an IDE provides a simple, user-friendly way to execute programs with just a click, reducing the need type commands manually in the command line terminal.
+On the other hand, running code from a terminal window in an IDE offers the flexibility and control of the command line — both approaches complement each other by supporting different user preferences and tasks within the same unified environment. 
 
-In this lesson, we prioritise using the command line and typing commands whenever possible, 
-as these skills are easily transferable across different IDEs (with a note that you should feel free to use other equivalent 
-ways for doing things that suit you more). However, for tasks like debugging - 
-where the graphical interface offers significant advantages — we will make use of the IDE’s built-in 
-visual tools.
+In this lesson, we prioritise using the command line and typing commands whenever possible, as these skills are easily transferable across different IDEs (with a note that you should feel free to use other equivalent ways for doing things that suit you more). 
+However, for tasks like debugging - where the graphical interface offers significant advantages — we will make use of the IDE’s built-in visual tools.
 
 ::::::::::::::::::::::::::::::::: group-tab
 
@@ -720,7 +713,18 @@ and select `Run 'inflammation analysis'` (i.e. the Run Configuration we created 
 
 ![](fig/pycharm-run-script.png){alt='Running a script from PyCharm' .image-with-shadow width="800px" }
 
-The script will run in a terminal window at the bottom of the IDE window and display something like:
+
+### VS Code
+
+To run our script using the VS Code's graphical interface, make sure the `inflammation-analysis.py` file
+is selected in the project/file view on the left, then click the ">" (play) button in the top right corner.
+
+![](fig/vscode-run-script.png){alt='Running a script from PyCharm' .image-with-shadow width="800px" }
+
+:::::::::::::::::::::::::::::::::
+
+The new terminal window will open at the bottom of the IDE window (or could be on the side - depending on how panes are split in your IDE),
+the script will be run inside it and the result will be displayed as:
 
 ```output
 /Users/alex/work/python-intermediate-inflammation/venv/bin/python /Users/alex/work/python-intermediate-inflammation/inflammation-analysis.py
@@ -730,26 +734,22 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 Process finished with exit code 2
 ```
 
-This is the same error we got when running the script from the command line.
-We will get back to this error shortly -
-for now, the good thing is that we managed to set up our project for development
-both from the command line and PyCharm and are getting the same outputs.
-Before we move on to fixing errors and writing more code,
-Let us have a look at the last set of tools for collaborative code development
-which we will be using in this course - Git and GitHub.
+This is the same error we got when running the script from the command line! Essentially what happened was the IDE opened a command line terminal within its interface 
+and executed the Python command to run the script for us (`python3 inflammation-analysis.py`) - saving us some typing. 
+You can carry on to run the Python script in whatever way you find more convenient - some developers prefer to type the commands in a terminal manually as that gives 
+the feel of having more control over what is happening and what commands are being executed.
 
-:::::::::::::::::::::::::::::::::
-
+We will get back to the above error shortly - for now, the good thing is that we managed to set up our project for development both from the command line and IDE and are getting the same outputs.
+Before we move on to fixing errors and writing more code, let us have a look at the last set of tools for collaborative code development which we will be using in this course - Git and GitHub.
 
 ## Optional exercises
 
-Checkout [this optional exercise](17-section1-optional-exercises.md)
-to try out different IDEs and code editors.
+Checkout [this optional exercise](17-section1-optional-exercises.md) to try out different IDEs and code editors.
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - An IDE is an application that provides a comprehensive set of facilities for software development, including syntax highlighting, code search and completion, version control, testing and debugging.
-- PyCharm recognises virtual environments configured from the command line using `venv` and `pip`.
+- IDEs like PyCharm and VS Code recognise virtual environments configured from the command line using `venv` and `pip`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
