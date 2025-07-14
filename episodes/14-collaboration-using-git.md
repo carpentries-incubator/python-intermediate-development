@@ -271,9 +271,9 @@ In the above command,
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::::  caution
 
-## GitHub Authentication/Authorisation Error
+### GitHub Authentication/Authorisation Error
 
 If, at this point (i.e. the first time you try to write to a remote repository on GitHub),
 you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
@@ -291,7 +291,7 @@ $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-interme
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Git Remotes
+### Git Remotes
 
 Note that systems like Git allow us to synchronise work between
 any two or more copies of the same repository -

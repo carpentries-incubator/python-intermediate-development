@@ -203,7 +203,7 @@ using `venv` and manage packages using `pip`.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
-## Making Sure You Can Invoke Python
+### Making Sure You Can Invoke Python
 
 You can test your Python installation from the command line with:
 
@@ -496,11 +496,9 @@ python3 -m pip install --editable .
 
 :::::::::::::::::::::::::::::::::::::::::  spoiler
 
-### This command fails for me
-
-If your `pip` installation is older than version 21.3, then this command will probably fail for you.
-This is because these older versions of `pip` do not support `pyproject.toml` as the package metadata.
-Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can:
+If the above command fails for you - your `pip` installation is older than version 21.3.
+Such older versions of `pip` do not support `pyproject.toml` as the package metadata.
+Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can with:
 
 ```bash
 python3 -m pip install --upgrade pip

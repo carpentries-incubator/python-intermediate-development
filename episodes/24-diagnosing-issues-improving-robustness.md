@@ -185,36 +185,54 @@ Debuggers allow us to peer at the internal workings of a program,
 such as variables and other state,
 as it performs its functions.
 
-### Running Tests in IDE
+Firstly, to make it easier to track what's going on, we can set up our IDE to run and debug our tests instead of running them from the command line.
 
-Firstly, to make it easier to track what's going on, we can set up our IDE to run and debug our tests
-instead of running them from the command line.
+### Configuring the Test Framework
 
 ::: group-tab 
 
 ### PyCharm
 
-If you have not done so already,
-you will first need to enable the Pytest framework in PyCharm.
+If you have not done so already, you will first need to enable the Pytest framework in PyCharm.
 You can do this by:
 
-1. Select either `PyCharm` > `Preferences` (Mac) or `File` > `Settings` (Linux, Windows).
-2. Then, in the preferences window that appears,
-  select `Tools` -> `Python integrated tools` > from the left.
+1. Select either `PyCharm` > `Preferences` (Mac) or `File -> Settings` (Linux, Windows).
+2. Then, in the preferences window that appears, select `Tools -> Python integrated tools` from the left.
 3. Under `Testing`, for `Default test runner` select `pytest`.
 4. Select `OK`.
 
 ![](fig/pycharm-test-framework.png){alt='Setting up test framework in PyCharm' .image-with-shadow width="1000px"}
 
-We can now run `pytest` over our tests in PyCharm,
-similarly to how we ran our `inflammation-analysis.py` script before.
-Right-click the `test_models.py` file
-under the `tests` directory in the file navigation window on the left,
-and select `Run 'pytest in test_model...'`.
+
+### VS Code
+
+If you have not done so already, you will first need to confugure the Pytest framework in VS Code.
+Open the Test Explorer view (click on the test beaker icon on the VS Code Activity Bar on the left hand side). 
+
+You should see a `Configure Python Tests` button if a test framework is not enabled. 
+Clicking on it prompts you to select a test framework and a folder containing your tests.
+
+![](fig/vscode-test-framework.png){alt='Setting up test framework in VS Code' .image-with-shadow width="1000px"}
+
+![](fig/vscode-configure-pytest.png){alt='Setting up test framework in VS Code' .image-with-shadow width="1000px"}
+
+Tests can be configured anytime by using the `Python: Configure Tests` command from the Command Palette 
+or by setting `python.testing.pytestEnabled` in the Settings editor or `settings.json` file (described in the VS Code Settings in the [episode on IDEs](/13-ides.md)). 
+Each testing framework also has further specific configuration settings as described in the [Test configuration settings of the VS Code documentation for Python](https://code.visualstudio.com/docs/python/testing#_test-configuration-settings).
+
+::: 
+
+### Running the Tests
+
+We can now run `pytest` over our tests in the IDE, similarly to how we ran our `inflammation-analysis.py` script before.
+
+::: group-tab
+
+### PyCharm
+
+Right-click the `test_models.py` file under the `tests` directory in the file navigation window on the left, and select `Run 'pytest in test_model...'`.
 You'll see the results of the tests appear in PyCharm in a bottom panel.
-If you scroll down in that panel you should see
-the failed `test_patient_normalise()` test result
-looking something like the following:
+If you scroll down in that panel you should see the failed `test_patient_normalise()` test result looking something like the following:
 
 ![](fig/pytest-pycharm-run-tests.png){alt='Running pytest in PyCharm' .image-with-shadow width="1000px"}
 
@@ -239,45 +257,41 @@ so select any others you see and click the `-` button at the top to remove them.
 This will avoid any confusion when running our tests separately.
 Click `OK` when done.
 
-### VS Code
+Note that, whenever a Python program prints text to the terminal or to a file, it first stores this text in an **output buffer**.
+When the buffer becomes full or is **flushed**, the contents of the buffer are written to the terminal / file in one go and the buffer is cleared.
+This is usually done to increase performance by effectively converting multiple output operations into just one.
+Printing text to the terminal is a relatively slow operation, so in some cases this can make quite a big difference to the total execution time of a program.
 
-::: 
+However, using buffered output can make debugging more difficult, as we can no longer be quite sure when a log message will be displayed.
+In order to make debugging simpler, PyCharm automatically adds the environment variable `PYTHONUNBUFFERED` we see in the screenshot above, which disables output buffering.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Buffered Output
-
-Whenever a Python program prints text to the terminal or to a file,
-it first stores this text in an **output buffer**.
-When the buffer becomes full or is **flushed**,
-the contents of the buffer are written to
-the terminal / file in one go and the buffer is cleared.
-This is usually done to increase performance
-by effectively converting multiple output operations into just one.
-Printing text to the terminal is a relatively slow operation,
-so in some cases this can make quite a big difference
-to the total execution time of a program.
-
-However, using buffered output can make debugging more difficult,
-as we can no longer be quite sure when a log message will be displayed.
-In order to make debugging simpler,
-PyCharm automatically adds the environment variable `PYTHONUNBUFFERED`
-we see in the screenshot above,
-which disables output buffering.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Now, if you select the green arrow next to a test function
-in our `test_models.py` script in PyCharm,
-and select `Run 'pytest in test_model...'`,
-we can run just that test:
+Now, if you select the green arrow next to a test function in our `test_models.py` script in PyCharm, and select `Run 'pytest in test_model...'`, we can run just that test:
 
 ![](fig/pytest-pycharm-run-single-test.png){alt='Running a single test in PyCharm' .image-with-shadow width="800px"}
 
-Click on the "run" button next to `test_patient_normalise`,
-and you will be able to see that PyCharm runs just that test function,
-and we see the same `AssertionError` that we saw before.
+Click on the "run" button next to `test_patient_normalise`, and you will be able to see that PyCharm runs just that test function, and we see the same `AssertionError` that we saw before.
+
+### VS Code
+
+In VS Code - one you have configured the test framework to use - you can run tests either from the Project Explorer or Test Explorer in the VS Code Activity Bar.
+
+From the Project Explorer, right-click on the test folder and select "Run Tests".
+
+![](fig/vscode-run-tests-project-explorer.png){alt='Running pytest in VS Code from the Project Explorer' .image-with-shadow width="1000px"}
+
+Alternatively, from the Test Explorer view in VS Code (click on the test beaker icon on the VS Code Activity Bar on the left hand side) - locate `python-intermediate-inflammation` and hover over it.
+You will see a few "run" buttons next to it - click either the play button (`Run Test`) or the play button with the little check (`Run Test with Coverage`).
+
+![](fig/vscode-run-tests-test-explorer.png){alt='Running pytest in VS Code from the Test Explorer' .image-with-shadow width="1000px"}
+
+In either case, you should get the test results on the test results pane at the bottom of the window and you should see the same `AssertionError` that we saw before from the command line.
+
+Once we have run all our tests - you can run an individual (single) test from the test result pane or from the Test Explorer view (e.g. just the failing test) without rerunning all.
+
+![](fig/vscode-run-individual-test.png){alt='Running individual test Test Explorer in VS Code' .image-with-shadow width="1000px"}
+
+:::
+
 
 ### Running the Debugger
 
@@ -286,39 +300,27 @@ what is happening inside the `patient_normalise` function.
 To do this we will add a *breakpoint* in the code.
 A breakpoint will pause execution at that point allowing us to explore the state of the program.
 
-To set a breakpoint, navigate to the `models.py` file
-and move your mouse to the `return` statement of the `patient_normalise` function.
-Click to just to the right of the line number for that line
-and a small red dot will appear,
-indicating that you have placed a breakpoint on that line.
+To set a breakpoint, navigate to the `models.py` file and move your mouse to the `return` statement of the `patient_normalise` function.
+Click to just to the right of the line number for that line and a small red dot will appear, indicating that you have placed a breakpoint on that line.
+
+::: group-tab
+
+### PyCharm
 
 ![](fig/pytest-pycharm-set-breakpoint.png){alt='Setting a breakpoint in PyCharm' .image-with-shadow width="600px"}
 
-Now if you select the green arrow next to the `test_patient_normalise` function
-and instead select `Debug 'pytest in test_model...'`,
-you will notice that execution will be paused
-at the `return` statement of `patient_normalise`.
-In the debug panel that appears below,
-we can now investigate the exact state of the program
-prior to it executing this line of code.
+Now if you select the green arrow next to the `test_patient_normalise` function and instead select `Debug 'pytest in test_model...'`,
+you will notice that execution will be paused at the `return` statement of `patient_normalise`.
+In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
 
-In the debug panel below,
-in the `Debugger` tab you will be able to see
-two sections that looks something like the following:
+In the debug panel below, in the `Debugger` tab you will be able to see two sections that looks something like the following:
 
 ![](fig/pytest-pycharm-debug.png){alt='Debugging in PyCharm' .image-with-shadow width="1000px"}
 
-- The `Frames` section on the left,
-  which shows the **call stack**
-  (the chain of functions that have been executed to lead to this point).
-  We can traverse this chain of functions if we wish,
-  to observe the state of each function.
-- The `Variables` section on the right,
-  which displays the local and global variables currently in memory.
-  You will be able to see the `data` array
-  that is input to the `patient_normalise` function,
-  as well as the `max` local array
-  that was created to hold the maximum inflammation values for each patient.
+- The `Frames` section on the left, which shows the **call stack** (the chain of functions that have been executed to lead to this point).
+  We can traverse this chain of functions if we wish, to observe the state of each function.
+- The `Variables` section on the right, which displays the local and global variables currently in memory.
+  You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
 
 We also have the ability run any Python code we wish at this point
 to explore the state of the program even further!
@@ -332,9 +334,22 @@ in the return line of the function.
 
 ![](fig/pytest-pycharm-console.png){alt='Debugging in PyCharm' .image-with-shadow width="1000px"}
 
-Now, looking at the `max` variable,
-we can see that something looks wrong,
-as the maximum values for each patient do not correspond to the `data` array.
+### VS Code
+
+![](fig/vscode-set-breakpoint.png){alt='Setting a breakpoint in VS Code' .image-with-shadow width="600px"}
+
+Now if you select the `test_patient_normalise` function in the Test Explorer and instead select `Debug Test` option,
+you will notice that execution will be paused at the `return` statement of `patient_normalise`.
+In the debug panel that appears below, we can now investigate the exact state of the program prior to it executing this line of code.
+
+![](fig/vscode-debug-window.png){alt='Debugging in VS Code - Variable values' .image-with-shadow width="1000px"}
+
+The `Variables` section on the left displays the local and global variables currently in memory.
+You will be able to see the `data` array that is input to the `patient_normalise` function, as well as the `max` local array that was created to hold the maximum inflammation values for each patient.
+
+:::
+
+Now, looking at the `max` variable, we can see that something looks wrong, as the maximum values for each patient do not correspond to the `data` array.
 Recall that the input `data` array we are using for the function is
 
 ```python
@@ -343,25 +358,37 @@ Recall that the input `data` array we are using for the function is
    [7, 8, 9]]
 ```
 
-So the maximum inflammation for each patient should be `[3, 6, 9]`,
-whereas the debugger shows `[7, 8, 9]`.
-You can see that the latter corresponds exactly to the last column of `data`,
-and we can immediately conclude that
-we took the maximum along the wrong axis of `data`.
-Now we have our answer,
-stop the debugging process by selecting
-the red square at the top right of the main PyCharm window.
+So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`.
+You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`.
+Now we have our answer, stop the debugging process. 
 
-So to fix the `patient_normalise` function in `models.py`,
-change `axis=0` in the first line of the function to `axis=1`.
-With this fix in place,
-running all the tests again should result in all tests passing.
-Navigate back to `test_models.py` in PyCharm,
-right click `test_models.py`
-and select `Run 'pytest in test_model...'`.
-You should be rewarded with:
+::: group-tab
+
+### PyCharm
+
+In PyCharm you can stop debugging by selecting the red square at the top right of the main PyCharm window.
+
+### VS Code
+
+In VS Code you can stop debugging by selecting `Run -> Stop Debugging` from the top menu.
+
+:::
+
+So to fix the `patient_normalise` function in `models.py`, change `axis=0` in the first line of the function to `axis=1`.
+With this fix in place, running all the tests again should result in all tests passing.
+
+::: group-tab
+
+### PyCharm
 
 ![](fig/pytest-pycharm-all-tests-pass.png){alt='All tests in PyCharm are successful' .image-with-shadow width="1000px"}
+
+
+### VS Code
+
+![](fig/vscode-all-tests-pass.png){alt='All tests in VS Code are successful' .image-with-shadow width="1000px"}
+
+:::
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -785,6 +812,12 @@ since this wouldn't work in the test case that uses a string.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 If you do the challenge, again, be sure to commit your changes and push them to GitHub.
+
+```bash
+$ git add inflammation/models.py tests/test_models.py
+$ git commit -m "Add test cases"
+$ git push origin test-suite
+```
 
 You should not take it too far by trying to code preconditions for every conceivable eventuality.
 You should aim to strike a balance between
