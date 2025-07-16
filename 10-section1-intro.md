@@ -98,8 +98,7 @@ as this knowledge can be ported to other programming languages
 and command line tools you may use in the future
 (but is applicable to the integrated versions too).
 
-We will use [PyCharm](https://www.jetbrains.com/pycharm/) in this course -
-a free, open source IDE.
+You have a choice of using [PyCharm](https://www.jetbrains.com/pycharm/) or [Visual Studio Code (VS Code)](https://code.visualstudio.com/) in this course.
 
 ### Git \& GitHub
 

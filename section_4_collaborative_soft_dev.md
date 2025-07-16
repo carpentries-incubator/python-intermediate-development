@@ -303,10 +303,10 @@ poetry --version  # check we have access to the poetry executable
 - The current way of sharing our package is:
   ```bash
   git clone <our_repo>
-  python -m venv venv
+  python3 -m venv venv
   . venv/bin/activate
   pip install -r requirements.txt --editable .
-  python inflammation-analysis.py
+  python3 inflammation-analysis.py
   ...
   ```
   - and then there are a bunch of hoops to jump through to make sure import statements work when testing
