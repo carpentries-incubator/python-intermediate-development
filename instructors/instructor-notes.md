@@ -93,14 +93,6 @@ to make sure everyone is in sync as much as possible and are working on similar 
 This synchronisation becomes particularly important for later workshop stages
 when students start with group exercises.
 
-Although not explicitly endorsed,
-it is quite possible for learners to do the course using VS Code instead of PyCharm.
-There is a section for setting up VS Code in the [this adjacent extras page](../learners/vscode.md).
-However, when progressing through the section [Integrated Software Development Environments](../episodes/13-ides.md),
-it can be a bit difficult for learners to pay attention to both pages.
-Therefore, some instructors have found it helpful to perform a demonstration on their own machines of how to use VS Code to achieve the same functionality as PyCharm.
-It is worthwhile preparing this in advance of the session.
-
 ### Helpers Roles and Responsibilities
 
 At the workshop, when using the "self-learning with helpers" delivery mode, everyone in the training team is a helper and
