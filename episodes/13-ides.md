@@ -719,7 +719,7 @@ and select `Run 'inflammation analysis'` (i.e. the Run Configuration we created 
 To run our script using the VS Code's graphical interface, make sure the `inflammation-analysis.py` file
 is selected in the project/file view on the left, then click the ">" (play) button in the top right corner.
 
-![](fig/vscode-run-script.png){alt='Running a script from PyCharm' .image-with-shadow width="800px" }
+![](fig/vscode-run-script.png){alt='Running a script from VS Code' .image-with-shadow width="1000px" }
 
 :::::::::::::::::::::::::::::::::
 
