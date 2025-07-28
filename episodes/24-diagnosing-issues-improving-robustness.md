@@ -370,7 +370,7 @@ In PyCharm you can stop debugging by selecting the red square at the top right o
 
 ### VS Code
 
-In VS Code you can stop debugging by selecting `Run -> Stop Debugging` from the top menu.
+In VS Code you can stop debugging by selecting `Run -> Stop Debugging` from the top menu, or by selecting the red cross at the top of the code editing pane.
 
 :::
 
