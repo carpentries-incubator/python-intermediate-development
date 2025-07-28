@@ -258,7 +258,7 @@ are configured correctly for your project.
 
 You can do than as follows:
 
-- Navigate to the location of the Python binary within the virtual environment using the file browser. The Python binary will be located in <virtual environment directory>/bin/python3 within the project directory.
+- Navigate to the location of the Python binary within the virtual environment using the file browser. The Python binary will be located in, e.g. `venv/bin/python3` within the project directory.
 
 ![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
 
