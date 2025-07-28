@@ -128,7 +128,7 @@ used actions - e.g. `New File...`, `Open...`, or `Clone Git repository...`, etc.
 
 ![](fig/vscode-welcome.png){alt='Welcome screen in VS Code' .image-with-shadow width="1000px" }
 
-If that is the case - select `Open...` and find the software project directory
+If that is the case - select `Open Folder...` and find the software project directory
 `python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the
 `File -> Open...` top menu.
 
