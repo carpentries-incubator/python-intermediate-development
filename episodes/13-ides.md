@@ -236,17 +236,14 @@ and has added these libraries effectively replicating our virtual environment in
 
 ![](fig/pycharm-installed-packages.png){alt='Packages Currently Installed in a Virtual Environment in PyCharm' .image-with-shadow width="800px"}
 
-Also note that, although the names are not the same -
-this is one and the same virtual environment
-and changes done to it in PyCharm will propagate to the command line and vice versa.
+Also note that, although the names are not the same - this is one and the same virtual environment and changes done to it in PyCharm will propagate to the command line and vice versa.
 
 
 ### VS Code
 
-As in the episode on virtual environments for software development, we want to create a virtual 
-environment for our project to work in. From the top menu, select `Terminal > New Terminal` to open a 
-new command line terminal for your project, and run the following command to activate your existing 
-virtual environment in this terminal:
+As covered in the episode on virtual environments for software development, we want to create a new or activate an existing virtual environment for our project to work in.
+Since we have already created a virtual environment, we just need to activate it within a terminal environment in VS Code.
+To do so, from the top menu select `Terminal > New Terminal` to open a new command line terminal for your project, and run the following command to activate your existing virtual environment in this terminal:
 
 ```bash
 source ./venv/bin/activate
