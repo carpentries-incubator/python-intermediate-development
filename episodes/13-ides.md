@@ -489,16 +489,14 @@ For simple applications or debugging scenarios, you can run and debug a program 
 However, for some more complex run or debugging scenarios you need to create a [**launch configuration**](https://code.visualstudio.com/docs/debugtest/debugging-configuration) - to specify the application entry point or set environment variables. 
 Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
-VS Code stores such configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), 
-or in your user settings or workspace settings.
+VS Code stores such configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your user settings or workspace settings.
 VS Code also supports compound launch configurations for starting multiple configurations at the same time - e.g. for more complex testing and debugging scenarios.
 
+We do not have anything to put in the launch configuration for the time being, so you do not need to create and configure `launch.json` file. 
+However, it may be useful to know where such information is configured, should you need to do so in the future.
 To create an initial `launch.json` file - you can go to the Run and Debug view, then click `Create a launch.json file` and follow the instructions.
 
 ![](fig/vscode-run-debug-configuration.png){alt='Run and Debug View in VS Code showing the option to create a new launch (run and debug) configuration' .image-with-shadow width="1000px" }
-
-For the time being, we do not have anything to put in the launch configuration (so you do not need to go through the steps above), 
-but it is good to know where such information is configured.
 
 :::::::::::::::::::::::::::::::::
 
