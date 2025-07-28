@@ -206,7 +206,7 @@ You can do this by:
 
 ### VS Code
 
-If you have not done so already, you will first need to confugure the Pytest framework in VS Code.
+If you have not done so already, you will first need to configure the Pytest framework in VS Code.
 Open the Test Explorer view (click on the test beaker icon on the VS Code Activity Bar on the left hand side). 
 
 You should see a `Configure Python Tests` button if a test framework is not enabled. 
