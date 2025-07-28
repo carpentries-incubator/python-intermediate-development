@@ -210,7 +210,7 @@ If you have not done so already, you will first need to configure the Pytest fra
 Open the Test Explorer view (click on the test beaker icon on the VS Code Activity Bar on the left hand side). 
 
 You should see a `Configure Python Tests` button if a test framework is not enabled. 
-Clicking on it prompts you to select a test framework and a folder containing your tests.
+Clicking on it prompts you to select a test framework and a folder containing your tests (which in this project, is the `tests` subfolder).
 
 ![](fig/vscode-test-framework.png){alt='Setting up test framework in VS Code' .image-with-shadow width="1000px"}
 
