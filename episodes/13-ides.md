@@ -124,7 +124,7 @@ you may have configured this already on previous usages of PyCharm.
 We will take you through the various steps of using VC Code now - also check out the [VS Code Python Quick Start guide](https://code.visualstudio.com/docs/python/python-quick-start) and [Getting Started with Python in VS Code Tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
 When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly 
-used actions - e.g. `New File...`, `Open...`, or `Clone Git repository...`, etc.
+used actions - e.g. `Open File...' and 'Open Folder...` (on Windows and Linux; with similarly named `New File...` and `Open...` actions on Mac OS), `Clone Git repository...`, etc.
 
 ![](fig/vscode-welcome.png){alt='Welcome screen in VS Code' .image-with-shadow width="1000px" }
 
