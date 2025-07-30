@@ -132,7 +132,6 @@
 <li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li>
 <li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li>
 <li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li>
-<li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li>
 <li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul>
 </li>
@@ -645,7 +644,6 @@
 <li><a href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li>
 <li><a href="persistence.html">Extra Content: Persistence</a></li>
 <li><a href="databases.html">Extra Content: Databases</a></li>
-<li><a href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li>
 <li><a href="reference.html">Reference</a></li>
                     </ul>
 </div>
@@ -717,6 +715,15 @@ Attribution-NonCommercial 2.5 License)</div>
 <p aria-hidden="true">Image 1 of 1: ‘Missing Python Interpreter Warning in PyCharm’</p>
 <figure><img src="fig/pycharm-missing-python-interpreter.png" class="image-with-shadow figure mx-auto d-block" alt="Missing Python Interpreter Warning in PyCharm" width="800"></figure><hr>
 <h3 id="13-ides-figure-3">Figure 3</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Welcome screen in VS Code’</p>
+<figure><img src="fig/vscode-welcome.png" class="image-with-shadow figure mx-auto d-block" alt="Welcome screen in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-4">Figure 4</h3>
+<p aria-hidden="true">Image 1 of 1: ‘View of an opened project in VS Code’</p>
+<figure><img src="fig/vscode-open-project.png" class="image-with-shadow figure mx-auto d-block" alt="View of an opened project in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-5">Figure 5</h3>
+<p aria-hidden="true">Image 1 of 1: ‘VS Code Extensions marketplace for searching and installing extensions’</p>
+<figure><img src="fig/vscode-extensions.png" class="image-with-shadow figure mx-auto d-block" alt="VS Code Extensions marketplace for searching and installing extensions" width="1000"></figure><hr>
+<h3 id="13-ides-figure-6">Figure 6</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Configuring Python Interpreter in PyCharm’</p>
 <li>Select <code>Virtualenv Environment</code> from the list on the left
 and ensure that <code>Existing environment</code> checkbox is selected
@@ -729,10 +736,19 @@ environment, but we are not using that option as we want to reuse the
 one we created from the command line in the previous episode. <img src="fig/pycharm-configuring-interpreter.png" class="image-with-shadow figure" alt="Configuring Python Interpreter in PyCharm" width="800">
 </li>
 <hr>
-<h3 id="13-ides-figure-4">Figure 4</h3>
+<h3 id="13-ides-figure-7">Figure 7</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Packages Currently Installed in a Virtual Environment in PyCharm’</p>
 <figure><img src="fig/pycharm-installed-packages.png" class="image-with-shadow figure mx-auto d-block" alt="Packages Currently Installed in a Virtual Environment in PyCharm" width="800"></figure><hr>
-<h3 id="13-ides-figure-5">Figure 5</h3>
+<h3 id="13-ides-figure-8">Figure 8</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Select python interpreter in VS Code’</p>
+<figure><img src="fig/vscode-select-interpreter.png" class="image-with-shadow figure mx-auto d-block" alt="Select python interpreter in VS Code" width="800"></figure><hr>
+<h3 id="13-ides-figure-9">Figure 9</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Set interpreter path in VS Code’</p>
+<figure><img src="fig/vscode-interpreter-path.png" class="image-with-shadow figure mx-auto d-block" alt="Set interpreter path in VS Code" width="800"></figure><hr>
+<h3 id="13-ides-figure-10">Figure 10</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Showing interpreter status in VS Code status bar’</p>
+<figure><img src="fig/vscode-interpreter-venv.png" class="image-with-shadow figure mx-auto d-block" alt="Showing interpreter status in VS Code status bar" width="800"></figure><hr>
+<h3 id="13-ides-figure-11">Figure 11</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Installing a package in PyCharm’</p>
 <li>Select the <code>+</code> icon at the top of the window. In the
 window that appears, search for the name of the library
@@ -741,13 +757,16 @@ window that appears, search for the name of the library
 that window. <img src="fig/pycharm-add-library.png" class="image-with-shadow figure" alt="Installing a package in PyCharm" width="800">
 </li>
 <hr>
-<h3 id="13-ides-figure-6">Figure 6</h3>
+<h3 id="13-ides-figure-12">Figure 12</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Installing a package in VS Code’</p>
+<figure><img src="fig/vscode-add-library.png" class="image-with-shadow figure mx-auto d-block" alt="Installing a package in VS Code" width="800"></figure><hr>
+<h3 id="13-ides-figure-13">Figure 13</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Adding a Run Configuration in PyCharm’</p>
 <li>Select <code>Add new run configuration...</code> then
 <code>Python</code>. <img src="fig/pycharm-add-run-configuration.png" class="image-with-shadow figure" alt="Adding a Run Configuration in PyCharm" width="800">
 </li>
 <hr>
-<h3 id="13-ides-figure-7">Figure 7</h3>
+<h3 id="13-ides-figure-14">Figure 14</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Run Configuration Popup in PyCharm’</p>
 <li>In the new popup window, in the <code>Script path</code> field
 select the folder button and find and select
@@ -755,27 +774,60 @@ select the folder button and find and select
 to run (i.e. what the main entry point to our application is). <img src="fig/pycharm-run-configuration-popup.png" class="image-with-shadow figure" alt="Run Configuration Popup in PyCharm" width="800">
 </li>
 <hr>
-<h3 id="13-ides-figure-8">Figure 8</h3>
+<h3 id="13-ides-figure-15">Figure 15</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Settings editor in VS Code’</p>
+<figure><img src="fig/vscode-settings.png" class="image-with-shadow figure mx-auto d-block" alt="Settings editor in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-16">Figure 16</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Run and Debug View in VS Code showing the option to create a new launch (run and debug) configuration’</p>
+<figure><img src="fig/vscode-run-debug-configuration.png" class="image-with-shadow figure mx-auto d-block" alt="Run and Debug View in VS Code showing the option to create a new launch (run and debug) configuration" width="1000"></figure><hr>
+<h3 id="13-ides-figure-17">Figure 17</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Syntax Highlighting Functionality in PyCharm’</p>
 <figure><img src="fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure><hr>
-<h3 id="13-ides-figure-9">Figure 9</h3>
+<h3 id="13-ides-figure-18">Figure 18</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Syntax Highlighting Functionality in VS Code’</p>
+<figure><img src="fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-19">Figure 19</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Code Completion Functionality in PyCharm’</p>
-<figure><img src="fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="600"></figure><hr>
-<h3 id="13-ides-figure-10">Figure 10</h3>
+<figure><img src="fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure><hr>
+<h3 id="13-ides-figure-20">Figure 20</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Code Completion Functionality in VS Code’</p>
+<figure><img src="fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure><hr>
+<h3 id="13-ides-figure-21">Figure 21</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Code References Functionality in PyCharm’</p>
 <figure><img src="fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure><hr>
-<h3 id="13-ides-figure-11">Figure 11</h3>
+<h3 id="13-ides-figure-22">Figure 22</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Code References Functionality in PyCharm’</p>
+<figure><img src="fig/vscode-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure><hr>
+<h3 id="13-ides-figure-23">Figure 23</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Code Search Functionality in PyCharm’</p>
 <figure><img src="fig/pycharm-code-search.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="800"></figure><hr>
-<h3 id="13-ides-figure-12">Figure 12</h3>
+<h3 id="13-ides-figure-24">Figure 24</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Code Search Functionality in PyCharm’</p>
 <figure><img src="fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure><hr>
-<h3 id="13-ides-figure-13">Figure 13</h3>
+<h3 id="13-ides-figure-25">Figure 25</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Search menu in VS Code’</p>
+<figure><img src="fig/vscode-search-menu.png" class="image-with-shadow figure mx-auto d-block" alt="Search menu in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-26">Figure 26</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Search for a string functionality in VS Code’</p>
+<figure><img src="fig/vscode-search-window.png" class="image-with-shadow figure mx-auto d-block" alt="Search for a string functionality in VS Code" width="800"></figure><hr>
+<h3 id="13-ides-figure-27">Figure 27</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Search results window in VS Code with further filtering functionalities’</p>
+<figure><img src="fig/vscode-search-results.png" class="image-with-shadow figure mx-auto d-block" alt="Search results window in VS Code with further filtering functionalities" width="1000"></figure><hr>
+<h3 id="13-ides-figure-28">Figure 28</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Code search option in VS Code’</p>
+<figure><img src="fig/vscode-code-search-menu.png" class="image-with-shadow figure mx-auto d-block" alt="Code search option in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-29">Figure 29</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Version Control Functionality in PyCharm’</p>
 <figure><img src="fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure><hr>
-<h3 id="13-ides-figure-14">Figure 14</h3>
+<h3 id="13-ides-figure-30">Figure 30</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Version Control Functionality in VS Code’</p>
+<figure><img src="fig/vscode-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in VS Code" width="1000"></figure><hr>
+<h3 id="13-ides-figure-31">Figure 31</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Running a script from PyCharm’</p>
-<figure><img src="fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure><hr></section><section id="14-collaboration-using-git"><h2 class="section-heading"><a href="14-collaboration-using-git.html">1.4 Software Development Using Git and GitHub</a></h2>
+<figure><img src="fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure><hr>
+<h3 id="13-ides-figure-32">Figure 32</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Running a script from VS Code’</p>
+<figure><img src="fig/vscode-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from VS Code" width="1000"></figure><hr></section><section id="14-collaboration-using-git"><h2 class="section-heading"><a href="14-collaboration-using-git.html">1.4 Software Development Using Git and GitHub</a></h2>
 <hr class="half-width">
 <h3 id="14-collaboration-using-git-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull’</p>
@@ -796,10 +848,13 @@ to run (i.e. what the main entry point to our application is). <img src="fig/py
 <hr class="half-width">
 <h3 id="15-coding-conventions-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Python code indentation settings in PyCharm’</p>
-<figure><img src="fig/pycharm-indentation.png" class="image-with-shadow figure mx-auto d-block" alt="Python code indentation settings in PyCharm" width="800"></figure><hr>
+<figure><img src="fig/pycharm-indentation.png" class="image-with-shadow figure mx-auto d-block" alt="Python code indentation settings in PyCharm" width="1000"></figure><hr>
 <h3 id="15-coding-conventions-figure-2">Figure 2</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Python code whitespace settings in PyCharm’</p>
-<figure><img src="fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure><hr></section><section id="16-verifying-code-style-linters"><h2 class="section-heading"><a href="16-verifying-code-style-linters.html">1.6 Verifying Code Style Using Linters</a></h2>
+<figure><img src="fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure><hr>
+<h3 id="15-coding-conventions-figure-3">Figure 3</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Python code whitespace settings in VC Code’</p>
+<figure><img src="fig/vscode-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in VC Code" width="1000"></figure><hr></section><section id="16-verifying-code-style-linters"><h2 class="section-heading"><a href="16-verifying-code-style-linters.html">1.6 Verifying Code Style Using Linters</a></h2>
 <hr class="half-width"></section><section id="17-section1-optional-exercises"><h2 class="section-heading"><a href="17-section1-optional-exercises.html">1.7 Optional Exercises</a></h2>
 <hr class="half-width"></section><section id="20-section2-intro"><h2 class="section-heading"><a href="20-section2-intro.html">Section 2: Ensuring Correctness of Software at Scale</a></h2>
 <hr class="half-width">
@@ -836,26 +891,50 @@ to run (i.e. what the main entry point to our application is). <img src="fig/py
 <p aria-hidden="true">Image 1 of 1: ‘Setting up test framework in PyCharm’</p>
 <figure><img src="fig/pycharm-test-framework.png" class="image-with-shadow figure mx-auto d-block" alt="Setting up test framework in PyCharm" width="1000"></figure><hr>
 <h3 id="24-diagnosing-issues-improving-robustness-figure-5">Figure 5</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Setting up test framework in VS Code’</p>
+<figure><img src="fig/vscode-test-framework.png" class="image-with-shadow figure mx-auto d-block" alt="Setting up test framework in VS Code" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-6">Figure 6</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Setting up test framework in VS Code’</p>
+<figure><img src="fig/vscode-configure-pytest.png" class="image-with-shadow figure mx-auto d-block" alt="Setting up test framework in VS Code" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-7">Figure 7</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Running pytest in PyCharm’</p>
 <figure><img src="fig/pytest-pycharm-run-tests.png" class="image-with-shadow figure mx-auto d-block" alt="Running pytest in PyCharm" width="1000"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-6">Figure 6</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-8">Figure 8</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Ensuring testing configurations in PyCharm are correct’</p>
 <figure><img src="fig/pytest-pycharm-check-config.png" class="image-with-shadow figure mx-auto d-block" alt="Ensuring testing configurations in PyCharm are correct" width="800"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-7">Figure 7</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-9">Figure 9</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Running a single test in PyCharm’</p>
 <figure><img src="fig/pytest-pycharm-run-single-test.png" class="image-with-shadow figure mx-auto d-block" alt="Running a single test in PyCharm" width="800"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-8">Figure 8</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-10">Figure 10</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Running pytest in VS Code from the Project Explorer’</p>
+<figure><img src="fig/vscode-run-tests-project-explorer.png" class="image-with-shadow figure mx-auto d-block" alt="Running pytest in VS Code from the Project Explorer" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-11">Figure 11</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Running pytest in VS Code from the Test Explorer’</p>
+<figure><img src="fig/vscode-run-tests-test-explorer.png" class="image-with-shadow figure mx-auto d-block" alt="Running pytest in VS Code from the Test Explorer" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-12">Figure 12</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Running individual test Test Explorer in VS Code’</p>
+<figure><img src="fig/vscode-run-individual-test.png" class="image-with-shadow figure mx-auto d-block" alt="Running individual test Test Explorer in VS Code" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-13">Figure 13</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Setting a breakpoint in PyCharm’</p>
 <figure><img src="fig/pytest-pycharm-set-breakpoint.png" class="image-with-shadow figure mx-auto d-block" alt="Setting a breakpoint in PyCharm" width="600"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-9">Figure 9</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-14">Figure 14</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Debugging in PyCharm’</p>
 <figure><img src="fig/pytest-pycharm-debug.png" class="image-with-shadow figure mx-auto d-block" alt="Debugging in PyCharm" width="1000"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-10">Figure 10</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-15">Figure 15</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Debugging in PyCharm’</p>
 <figure><img src="fig/pytest-pycharm-console.png" class="image-with-shadow figure mx-auto d-block" alt="Debugging in PyCharm" width="1000"></figure><hr>
-<h3 id="24-diagnosing-issues-improving-robustness-figure-11">Figure 11</h3>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-16">Figure 16</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Setting a breakpoint in VS Code’</p>
+<figure><img src="fig/vscode-set-breakpoint.png" class="image-with-shadow figure mx-auto d-block" alt="Setting a breakpoint in VS Code" width="600"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-17">Figure 17</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Debugging in VS Code - Variable values’</p>
+<figure><img src="fig/vscode-debug-window.png" class="image-with-shadow figure mx-auto d-block" alt="Debugging in VS Code - Variable values" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-18">Figure 18</h3>
 <p aria-hidden="true">Image 1 of 1: ‘All tests in PyCharm are successful’</p>
-<figure><img src="fig/pytest-pycharm-all-tests-pass.png" class="image-with-shadow figure mx-auto d-block" alt="All tests in PyCharm are successful" width="1000"></figure><hr></section><section id="25-section2-optional-exercises"><h2 class="section-heading"><a href="25-section2-optional-exercises.html">2.5 Optional Exercises for Section 2</a></h2>
+<figure><img src="fig/pytest-pycharm-all-tests-pass.png" class="image-with-shadow figure mx-auto d-block" alt="All tests in PyCharm are successful" width="1000"></figure><hr>
+<h3 id="24-diagnosing-issues-improving-robustness-figure-19">Figure 19</h3>
+<p aria-hidden="true">Image 1 of 1: ‘All tests in VS Code are successful’</p>
+<figure><img src="fig/vscode-all-tests-pass.png" class="image-with-shadow figure mx-auto d-block" alt="All tests in VS Code are successful" width="1000"></figure><hr></section><section id="25-section2-optional-exercises"><h2 class="section-heading"><a href="25-section2-optional-exercises.html">2.5 Optional Exercises for Section 2</a></h2>
 <hr class="half-width"></section><section id="30-section3-intro"><h2 class="section-heading"><a href="30-section3-intro.html">Section 3: Software Development as a Process</a></h2>
 <hr class="half-width">
 <h3 id="30-section3-intro-figure-1">Figure 1</h3>
@@ -1084,8 +1163,8 @@ menu. <img src="fig/github-project-add-view.png" class="image-with-shadow figure
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/images.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/images.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-07-29",
-  "datePublished": "2025-07-29"
+  "dateModified": "2025-07-30",
+  "datePublished": "2025-07-30"
 }
 
   </script><script>

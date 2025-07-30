@@ -99,7 +99,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -507,7 +507,7 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      <hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
+                      <hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -543,7 +543,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.5 Python Code Style Conventions</h1>
-        <p>Last updated on 2025-04-01 |
+        <p>Last updated on 2025-07-30 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/15-coding-conventions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -636,10 +636,10 @@ examples and decide what looks best. And do not hesitate to ask!</p>
 </div>
 </div>
 <p>As we have already covered in the <a href="13-ides.html">episode on
-PyCharm IDE</a>, PyCharm highlights the language constructs (reserved
-words) and syntax errors to help us with coding. PyCharm also gives us
-recommendations for formatting the code - these recommendations are
-mostly taken from the PEP 8 style guide.</p>
+IDEs</a>, they highlight the language constructs (reserved words) and
+syntax errors to help us with coding. IDEs also give us recommendations
+for formatting the code - these recommendations are mostly taken from
+the PEP 8 style guide.</p>
 <p>A full list of style guidelines for this style is available from the
 <a href="https://www.python.org/dev/peps/pep-0008/" class="external-link">PEP 8 website</a>;
 here we highlight a few.</p>
@@ -668,58 +668,95 @@ Whichever you choose, be consistent throughout the project.</p>
 </div>
 </div>
 </div>
-<p>PyCharm has built-in support for converting tab indentation to spaces
-“under the hood” for Python code in order to conform to PEP 8. So, you
-can type a tab character and PyCharm will automatically convert it to 4
-spaces. You can control the amount of spaces that PyCharm uses to
-replace one tab character or you can decide to keep the tab character
-altogether and prevent automatic conversion. You can modify these
-settings in PyCharm’s
-<code>Settings</code>&gt;<code>Editor</code>&gt;<code>Code Style</code>&gt;<code>Python</code>.</p>
-<figure><img src="../fig/pycharm-indentation.png" class="image-with-shadow figure mx-auto d-block" alt="Python code indentation settings in PyCharm" width="800"></figure><p>You can also tell the editor to show non-printable characters if you
+<p>IDEs typically let you control text indentation and whether you would
+like to use spaces or tab stops. Such IDEs have built-in support for
+converting tab indentation to spaces “under the hood” for Python code in
+order to conform to PEP 8. So, you can type a tab character and your IDE
+will automatically convert it to 4 spaces. You can also control the
+amount of spaces that the IDE uses to replace one tab character or you
+can decide to keep the tab character altogether and prevent automatic
+conversion.</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-1-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-1-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
+<p>By default, PyCharm inserts spaces and uses 4 spaces per tab key. You
+can modify these settings in PyCharm’s
+<code>Settings -&gt; Editor -&gt; Code Style -&gt; Python</code>.</p>
+<figure><img src="../fig/pycharm-indentation.png" class="image-with-shadow figure mx-auto d-block" alt="Python code indentation settings in PyCharm" width="1000"></figure><p>You can also tell the editor to show non-printable characters if you
 are ever unsure what character exactly is being used by selecting
-<code>Settings</code> &gt; <code>Editor</code> &gt; <code>General</code>
-&gt; <code>Appearance</code> then checking “Show whitespaces”
-option.</p>
-<figure><img src="../fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure><p>There are more complex rules on indenting single units of code that
+<code>Settings -&gt; Editor -&gt; General -&gt; Appearance</code> then
+checking “Show whitespaces” option.</p>
+<figure><img src="../fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure></div>
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
+<p>By default, VS Code inserts spaces and uses 4 spaces per tab key. You
+can modify these settings in VS Code’s user or workspace settings
+(<code>File -&gt; Preferences -&gt; Settings</code> on Windows and Linux
+or <code>Code -&gt; Settings -&gt; Settings</code> on Mac OS, then
+search for <code>tabSize</code> and enter the value you want). You also
+need to make sure <code>Editor: Detect Indentation</code> field is
+checked.</p>
+<figure><img src="../fig/vscode-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in VC Code" width="1000"></figure><p>If you are editing <code>settings.json</code> file manually - these
+are the 2 properties you need to set:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="at">  </span><span class="fu">"editor.insertSpaces"</span><span class="kw">:</span><span class="at"> true,</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">  </span><span class="fu">"editor.tabSize"</span><span class="kw">:</span><span class="at"> 4,</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>There are more complex rules on indenting single units of code that
 continue over several lines, e.g. function, list or dictionary
 definitions can all take more than one line. The preferred way of
 wrapping such long lines is by using Python’s implied line continuation
 inside delimiters such as parentheses (<code>()</code>), brackets
 (<code>[]</code>) and braces (<code>{}</code>), or a hanging indent.</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest of the code that follows</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="kw">def</span> long_function_name(</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>        var_one, var_two, var_three,</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>        var_four):</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    <span class="bu">print</span>(var_one)</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># Aligned with opening delimiter</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(var_one, var_two,</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>                         var_three, var_four)</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co"># Use hanging indents to add an indentation level like paragraphs of text where all the lines in a paragraph are</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co"># indented except the first one</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(</span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    var_one, var_two,</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>    var_three, var_four)</span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the first non-blank character of the previous line</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>a_long_list <span class="op">=</span> [</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]], [[<span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="dv">1</span>], [<span class="fl">0.66</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.77</span>, <span class="fl">0.88</span>, <span class="dv">1</span>]]</span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>    ]</span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the start of the multiline contruct</span></span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>a_long_list2 <span class="op">=</span> [</span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>    <span class="dv">1</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    <span class="dv">2</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>    <span class="dv">3</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>    <span class="co"># ...</span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>    <span class="dv">79</span></span>
-<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest of the code that follows</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="kw">def</span> long_function_name(</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        var_one, var_two, var_three,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        var_four):</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="bu">print</span>(var_one)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co"># Aligned with opening delimiter</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(var_one, var_two,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>                         var_three, var_four)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co"># Use hanging indents to add an indentation level like paragraphs of text where all the lines in a paragraph are</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co"># indented except the first one</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>foo <span class="op">=</span> long_function_name(</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>    var_one, var_two,</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    var_three, var_four)</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the first non-blank character of the previous line</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>a_long_list <span class="op">=</span> [</span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]], [[<span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="dv">1</span>], [<span class="fl">0.66</span>, <span class="fl">0.83</span>, <span class="dv">1</span>], [<span class="fl">0.77</span>, <span class="fl">0.88</span>, <span class="dv">1</span>]]</span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>    ]</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co"># Using hanging indent again, but closing bracket aligned with the start of the multiline contruct</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a>a_long_list2 <span class="op">=</span> [</span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a>    <span class="dv">1</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>    <span class="dv">2</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>    <span class="dv">3</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>    <span class="dv">79</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a>]</span></code></pre>
 </div>
 <p>More details on good and bad practices for continuation lines can be
 found in <a href="https://www.python.org/dev/peps/pep-0008/#indentation" class="external-link">PEP 8
@@ -736,16 +773,16 @@ prefer a longer line length, and seemed to have settled on the length of
 expressions in delimiters, as mentioned above (preferred method), or
 using a backslash (<code>\</code>) at the end of the line to indicate
 line continuation (slightly less preferred method).</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Using delimiters ( ) to wrap a multi-line expression</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>):</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Using a backslash (\) for line continuation</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="cf">if</span> a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span> <span class="op">\</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>:</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Using delimiters ( ) to wrap a multi-line expression</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># Using a backslash (\) for line continuation</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="cf">if</span> a <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span> <span class="op">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    b <span class="op">==</span> <span class="va">False</span>:</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -754,15 +791,15 @@ line continuation (slightly less preferred method).</p>
 not get scattered across different columns on the screen. In the example
 below, the eye does not have to do the extra work to tell which items
 are added and which are subtracted:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># PEP 8 compliant - easy to match operators with operands</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>income <span class="op">=</span> (gross_wages</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>          <span class="op">+</span> taxable_interest</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>          <span class="op">+</span> (dividends <span class="op">-</span> qualified_dividends)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>          <span class="op">-</span> ira_deduction</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>          <span class="op">-</span> student_loan_interest)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># PEP 8 compliant - easy to match operators with operands</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>income <span class="op">=</span> (gross_wages</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>          <span class="op">+</span> taxable_interest</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>          <span class="op">+</span> (dividends <span class="op">-</span> qualified_dividends)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>          <span class="op">-</span> ira_deduction</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>          <span class="op">-</span> student_loan_interest)</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -777,73 +814,73 @@ to indicate logical sections.</p>
 <p>Avoid extraneous whitespace in the following situations:</p>
 <ul><li>
 <p>immediately inside parentheses, brackets or braces</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>my_function(colour[<span class="dv">1</span>], {<span class="bu">id</span>: <span class="dv">2</span>})</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>my_function( colour[ <span class="dv">1</span> ], { <span class="bu">id</span>: <span class="dv">2</span> } )</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>my_function(colour[<span class="dv">1</span>], {<span class="bu">id</span>: <span class="dv">2</span>})</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>my_function( colour[ <span class="dv">1</span> ], { <span class="bu">id</span>: <span class="dv">2</span> } )</span></code></pre>
 </div>
 </li>
 <li>
 <p>Immediately before a comma, semicolon, or colon (unless doing
 slicing where the colon acts like a binary operator in which case it
 should should have equal amounts of whitespace on either side)</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">4</span>: <span class="bu">print</span>(x, y)<span class="op">;</span> x, y <span class="op">=</span> y, x</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">4</span> : <span class="bu">print</span>(x , y)<span class="op">;</span> x , y <span class="op">=</span> y, x</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">4</span>: <span class="bu">print</span>(x, y)<span class="op">;</span> x, y <span class="op">=</span> y, x</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">4</span> : <span class="bu">print</span>(x , y)<span class="op">;</span> x , y <span class="op">=</span> y, x</span></code></pre>
 </div>
 </li>
 <li>
 <p>Immediately before the open parenthesis that starts the argument
 list of a function call</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>my_function(<span class="dv">1</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>my_function (<span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>my_function(<span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>my_function (<span class="dv">1</span>)</span></code></pre>
 </div>
 </li>
 <li>
 <p>Immediately before the open parenthesis that starts an indexing
 or slicing</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>my_dct[<span class="st">'key'</span>] <span class="op">=</span> my_lst[<span class="bu">id</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>first_char <span class="op">=</span> my_str[:, <span class="dv">1</span>]</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>my_dct [<span class="st">'key'</span>] <span class="op">=</span> my_lst [<span class="bu">id</span>]</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>first_char <span class="op">=</span> my_str [:, <span class="dv">1</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>my_dct[<span class="st">'key'</span>] <span class="op">=</span> my_lst[<span class="bu">id</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>first_char <span class="op">=</span> my_str[:, <span class="dv">1</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>my_dct [<span class="st">'key'</span>] <span class="op">=</span> my_lst [<span class="bu">id</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>first_char <span class="op">=</span> my_str [:, <span class="dv">1</span>]</span></code></pre>
 </div>
 </li>
 <li>
 <p>More than one space around an assignment (or other) operator to
 align it with another</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>student_loan_interest <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>x                     <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>y                     <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>student_loan_interest <span class="op">=</span> <span class="dv">3</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># PEP 8 compliant:</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>student_loan_interest <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co"># Not PEP 8 compliant:</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>x                     <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>y                     <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>student_loan_interest <span class="op">=</span> <span class="dv">3</span></span></code></pre>
 </div>
 </li>
 <li><p>Avoid trailing whitespace anywhere - it is not necessary and can
@@ -858,23 +895,23 @@ booleans (and, or, not).</p></li>
 <p>Do not use spaces around the = sign when used to indicate a
 keyword argument assignment or to indicate a default value for an
 unannotated function parameter</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># PEP 8 compliant use of spaces around = for variable assignment</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>axis <span class="op">=</span> <span class="st">'x'</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>angle <span class="op">=</span> <span class="dv">90</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>size <span class="op">=</span> <span class="dv">450</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'my_graph'</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co"># PEP 8 compliant use of no spaces around = for keyword argument assignment in a function call</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>my_function(</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>   <span class="dv">1</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>   <span class="dv">2</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>   axis<span class="op">=</span>axis,</span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>   angle<span class="op">=</span>angle,</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>   size<span class="op">=</span>size,</span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>   name<span class="op">=</span>name)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># PEP 8 compliant use of spaces around = for variable assignment</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>axis <span class="op">=</span> <span class="st">'x'</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>angle <span class="op">=</span> <span class="dv">90</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>size <span class="op">=</span> <span class="dv">450</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'my_graph'</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co"># PEP 8 compliant use of no spaces around = for keyword argument assignment in a function call</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>my_function(</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>   <span class="dv">1</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>   <span class="dv">2</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>   axis<span class="op">=</span>axis,</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>   angle<span class="op">=</span>angle,</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>   size<span class="op">=</span>size,</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>   name<span class="op">=</span>name)</span></code></pre>
 </div>
 </li>
 </ul></div>
@@ -970,24 +1007,24 @@ itself.</p>
 them, and are indented to the same level as that code. Each line of a
 block comment starts with a <code>#</code> and a single space (unless it
 is indented text inside the comment).</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">def</span> fahr_to_cels(fahr):</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>    <span class="co"># Block comment example: convert temperature in Fahrenheit to Celsius</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    cels <span class="op">=</span> (fahr <span class="op">+</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span> <span class="op">/</span> <span class="dv">9</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    <span class="cf">return</span> cels</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">def</span> fahr_to_cels(fahr):</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>    <span class="co"># Block comment example: convert temperature in Fahrenheit to Celsius</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    cels <span class="op">=</span> (fahr <span class="op">+</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span> <span class="op">/</span> <span class="dv">9</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    <span class="cf">return</span> cels</span></code></pre>
 </div>
 <p>An inline comment is a comment on the same line as a statement.
 Inline comments should be separated by at least two spaces from the
 statement. They should start with a <code>#</code> and a single space
 and should be used sparingly.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">def</span> fahr_to_cels(fahr):</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>    cels <span class="op">=</span> (fahr <span class="op">+</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span> <span class="op">/</span> <span class="dv">9</span>)  <span class="co"># Inline comment example: convert temperature in Fahrenheit to Celsius</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    <span class="cf">return</span> cels</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">def</span> fahr_to_cels(fahr):</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>    cels <span class="op">=</span> (fahr <span class="op">+</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span> <span class="op">/</span> <span class="dv">9</span>)  <span class="co"># Inline comment example: convert temperature in Fahrenheit to Celsius</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    <span class="cf">return</span> cels</span></code></pre>
 </div>
 <p>Python does not have any multi-line comments, like you may have seen
 in other languages like C++ or Java. However, there are ways to do it
@@ -1021,15 +1058,15 @@ we are branching off - in real collaborative software development
 environments, you’d likely be expected to branch off
 <code>develop</code> as it would contain the latest code developed by
 your team.)</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> style-fixes</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> style-fixes</span></code></pre>
 </div>
-<p>Next look at the <code>inflammation-analysis.py</code> file in
-PyCharm and identify where the above guidelines have not been followed.
-Fix the discovered inconsistencies and commit them to the feature
+<p>Next look at the <code>inflammation-analysis.py</code> file in the
+IDE and identify where the above guidelines have not been followed. Fix
+the discovered inconsistencies and commit them to the feature
 branch.</p>
 </div>
 </div>
@@ -1039,9 +1076,9 @@ branch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<p>Modify <code>inflammation-analysis.py</code> from PyCharm, which is
+<p>Modify <code>inflammation-analysis.py</code> from your IDE, which is
 helpfully marking inconsistencies with coding guidelines by underlying
 them. There are a few things to fix in
 <code>inflammation-analysis.py</code>, for example:</p>
@@ -1052,34 +1089,34 @@ non-whitespace character of the last line of list or the first character
 of the line that starts the multiline construct or simply moved to the
 end of the previous line. All three acceptable modifications are shown
 below.</li>
-</ol><div class="codewrapper sourceCode" id="cb13">
+</ol><div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># Using hanging indent, with the closing '}' aligned with the first non-blank character of the previous line</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>view_data <span class="op">=</span> {</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    <span class="st">'average'</span>: models.daily_mean(inflammation_data),</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    <span class="st">'max'</span>: models.daily_max(inflammation_data),</span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>    <span class="st">'min'</span>: models.daily_min(inflammation_data)</span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>    }</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Using hanging indent with the, closing '}' aligned with the start of the multiline contruct</span></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Using hanging indent, with the closing '}' aligned with the first non-blank character of the previous line</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>view_data <span class="op">=</span> {</span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    <span class="st">'average'</span>: models.daily_mean(inflammation_data),</span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    <span class="st">'max'</span>: models.daily_max(inflammation_data),</span>
 <span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="st">'min'</span>: models.daily_min(inflammation_data)</span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>}</span></code></pre>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>    }</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Using hanging indent where all the lines of the multiline contruct are indented except the first one</span></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Using hanging indent with the, closing '}' aligned with the start of the multiline contruct</span></span>
 <span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>view_data <span class="op">=</span> {</span>
 <span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>    <span class="st">'average'</span>: models.daily_mean(inflammation_data),</span>
 <span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>    <span class="st">'max'</span>: models.daily_max(inflammation_data),</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>    <span class="st">'min'</span>: models.daily_min(inflammation_data)}</span></code></pre>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>    <span class="st">'min'</span>: models.daily_min(inflammation_data)</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>}</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co"># Using hanging indent where all the lines of the multiline contruct are indented except the first one</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>view_data <span class="op">=</span> {</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    <span class="st">'average'</span>: models.daily_mean(inflammation_data),</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>    <span class="st">'max'</span>: models.daily_max(inflammation_data),</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>    <span class="st">'min'</span>: models.daily_min(inflammation_data)}</span></code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal"><li><p>Variable ‘InFiles’ in <code>inflammation-analysis.py</code> uses
 CapitalisedWords naming convention which is recommended for class names
@@ -1099,10 +1136,10 @@ two blank lines). Note how PyCharm is warning us by underlining the
 whole line below.</p></li>
 </ol><p>Finally, let us add and commit our changes to the feature branch. We
 will check the status of our working directory first.</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1119,11 +1156,11 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 have unstaged and uncommited changes to
 <code>inflammation-analysis.py</code>. let us commit them to the local
 repository.</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation-analysis.py</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Code style fixes."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation-analysis.py</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Code style fixes."</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1148,26 +1185,26 @@ to PEP 8 coding style.</p>
 a variable, that string is attached to the function as its
 documentation. Consider the following code implementing function for
 calculating the nth Fibonacci number:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">def</span> fibonacci(n):</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>    <span class="co">"""Calculate the nth Fibonacci number.</span></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co">    A recursive implementation of Fibonacci array elements.</span></span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="co">    :param n: integer</span></span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="co">    :raises ValueError: raised if n is less than zero</span></span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="co">    :returns: Fibonacci number</span></span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">'Fibonacci is not defined for N &lt; 0'</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a></span>
-<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a>    <span class="cf">return</span> fibonacci(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fibonacci(n <span class="op">-</span> <span class="dv">2</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">def</span> fibonacci(n):</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>    <span class="co">"""Calculate the nth Fibonacci number.</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="co">    A recursive implementation of Fibonacci array elements.</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="co">    :param n: integer</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="co">    :raises ValueError: raised if n is less than zero</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="co">    :returns: Fibonacci number</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">'Fibonacci is not defined for N &lt; 0'</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>    <span class="cf">return</span> fibonacci(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fibonacci(n <span class="op">-</span> <span class="dv">2</span>)</span></code></pre>
 </div>
 <p>Note here we are explicitly documenting our input variables, what is
 returned by the function, and also when the <code>ValueError</code>
@@ -1224,29 +1261,30 @@ implicitly executed when a package was imported.</p>
 explaining the nature of a module. For example, if
 <code>fibonacci()</code> was included in a module with other functions,
 our module could have at the start of it:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co">"""A module for generating numerical sequences of numbers that occur in nature.</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co">Functions:</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">  fibonacci - returns the Fibonacci number for a given integer</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">  golden_ratio - returns the golden ratio number to a given Fibonacci iteration</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">  ...</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>...</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co">"""A module for generating numerical sequences of numbers that occur in nature.</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co">Functions:</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">  fibonacci - returns the Fibonacci number for a given integer</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="co">  golden_ratio - returns the golden ratio number to a given Fibonacci iteration</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">  ...</span></span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>...</span></code></pre>
 </div>
 <p>The docstring for a function or a module is returned when calling the
 <code>help</code> function and passing its name - for example from the
 interactive Python console/terminal available from the command line or
 when rendering code documentation online (e.g. see <a href="https://docs.python.org/3.11/library/index.html" class="external-link">Python
-documentation</a>). PyCharm also displays the docstring for a
-function/module in a little help popup window when using
-tab-completion.</p>
-<div class="codewrapper sourceCode" id="cb22">
+documentation</a>).</p>
+<p>Your IDE will also display the docstring for a function/module in a
+little help popup window when using tab-completion or when hovering your
+mouse over the function/module name.</p>
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">help</span>(fibonacci)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="bu">help</span>(fibonacci)</span></code></pre>
 </div>
 <div id="exercise-fix-the-docstrings" class="callout challenge">
 <div class="callout-square">
@@ -1267,49 +1305,49 @@ for functions <code>daily_mean</code> , <code>daily_min</code>,
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For example, the improved docstrings for the above functions would
 contain explanations for parameters and return values.</p>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">def</span> daily_mean(data):</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily mean of a 2D inflammation data array for each day.</span></span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">   :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="co">   :returns: An array of mean values of measurements for each day.</span></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">   """</span></span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>   <span class="cf">return</span> np.mean(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
-</div>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> daily_max(data):</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily maximum of a 2D inflammation data array for each day.</span></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> daily_mean(data):</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily mean of a 2D inflammation data array for each day.</span></span>
 <span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co">   :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">   :returns: An array of max values of measurements for each day.</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">   :returns: An array of mean values of measurements for each day.</span></span>
 <span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">   """</span></span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>   <span class="cf">return</span> np.<span class="bu">max</span>(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>   <span class="cf">return</span> np.mean(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">def</span> daily_min(data):</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily minimum of a 2D inflammation data array for each day.</span></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">def</span> daily_max(data):</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily maximum of a 2D inflammation data array for each day.</span></span>
 <span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co">   :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">   :returns: An array of minimum values of measurements for each day.</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">   :returns: An array of max values of measurements for each day.</span></span>
 <span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="co">   """</span></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>   <span class="cf">return</span> np.<span class="bu">min</span>(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>   <span class="cf">return</span> np.<span class="bu">max</span>(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="kw">def</span> daily_min(data):</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>   <span class="co">"""Calculate the daily minimum of a 2D inflammation data array for each day.</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a><span class="co">   :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).</span></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a><span class="co">   :returns: An array of minimum values of measurements for each day.</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a><span class="co">   """</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>   <span class="cf">return</span> np.<span class="bu">min</span>(data, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
 <p>Once we are happy with modifications, as usual before staging and
 commit our changes, we check the status of our working directory:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1326,11 +1364,11 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 and that we have unstaged and uncommited changes to
 <code>inflammation/models.py</code>. Let us commit them to the local
 repository.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Docstring improvements."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Docstring improvements."</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1351,16 +1389,16 @@ to date with the latest developments)</li>
 </ul><p>Here is a set commands that will achieve the above set of actions
 (remember to use <code>git status</code> often in between other Git
 commands to double check which branch you are on and its status):</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin style-fixes</span>
-<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
-<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a><span class="ex">$</span> git merge style-fixes</span>
-<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span>
-<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a><span class="ex">$</span> git switch main</span>
-<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a><span class="ex">$</span> git merge develop</span>
-<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin style-fixes</span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="ex">$</span> git switch develop</span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a><span class="ex">$</span> git merge style-fixes</span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a><span class="ex">$</span> git switch main</span>
+<span id="cb30-6"><a href="#cb30-6" tabindex="-1"></a><span class="ex">$</span> git merge develop</span>
+<span id="cb30-7"><a href="#cb30-7" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <div id="typical-code-development-cycle" class="callout testimonial">
 <div class="callout-square">
@@ -1463,8 +1501,8 @@ choose.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/15-coding-conventions.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/15-coding-conventions.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-04-01",
-  "datePublished": "2025-07-29"
+  "dateModified": "2025-07-30",
+  "datePublished": "2025-07-30"
 }
 
   </script><script>

@@ -99,7 +99,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -254,7 +254,6 @@
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#integrated-development-environments">Integrated Development Environments</a></li>
-<li><a href="#using-the-pycharm-ide">Using the PyCharm IDE</a></li>
 <li><a href="#optional-exercises">Optional exercises</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -509,7 +508,7 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      <hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
+                      <hr><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -545,7 +544,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.3 Integrated Software Development Environments</h1>
-        <p>Last updated on 2025-03-07 |
+        <p>Last updated on 2025-07-30 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/13-ides.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -575,8 +574,8 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Set up a (virtual) development environment in PyCharm</li>
-<li>Use PyCharm to run a Python script</li>
+<ul><li>Set up a (virtual) development environment in an IDE</li>
+<li>Use the IDE to run a Python script</li>
 </ul></div>
 </div>
 </div>
@@ -627,82 +626,180 @@ text editor with syntax highlighting and code formatting capabilities
 (e.g., GNU EMACS, Vi/Vim). Most good code editors can also execute code
 and control a debugger, and some can also interact with a version
 control system. Compared to an IDE, a good dedicated code editor is
-usually smaller and quicker, but often less feature-rich. You will have
-to decide which one is the best for you - in this course we will learn
-how to use <a href="https://www.jetbrains.com/pycharm/" class="external-link">PyCharm</a>, a
-free, open source Python IDE. Some popular alternatives include free and
-open source IDE <a href="https://www.spyder-ide.org/" class="external-link">Spyder</a> and
-Microsoft’s free <a href="https://code.visualstudio.com/" class="external-link">Visual Studio
-Code (VS Code)</a>.</p>
-<div id="using-vs-code-for-this-course" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="using-vs-code-for-this-course" class="callout-inner">
-<h3 class="callout-title">Using VS Code for This Course</h3>
-<div class="callout-content">
-<p>If you want to use VS Code as your IDE for this course, there is a
-separate <a href="vscode.html">extras episode</a> to help you set up.
-The instructions for PyCharm in the course will not apply to you
-verbatim but there is an equivalent functionality in VS Code for each of
-the actions we ask you to do in PyCharm.</p>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="using-the-pycharm-ide">Using the PyCharm IDE<a class="anchor" aria-label="anchor" href="#using-the-pycharm-ide"></a></h2>
-<hr class="half-width"><p>Let us open our project in PyCharm now and familiarise ourselves with
-some commonly used features.</p>
+usually smaller and quicker, but often less feature-rich.</p>
+<p>You will have to decide which one is the best for you in your daily
+work. In this course you have the choice of using two free and open
+source IDEs - <a href="https://www.jetbrains.com/pycharm/" class="external-link">PyCharm
+Community Edition from JetBrains</a> or <a href="https://code.visualstudio.com/" class="external-link">Microsoft’s Visual Studio Code (VS
+Code)</a>. A popular alternative to consider is free and open source <a href="https://www.spyder-ide.org/" class="external-link">Spyder IDE</a> - we are not covering
+it here but it should be possible to switch.</p>
 <div class="section level3">
-<h3 id="opening-a-software-project">Opening a Software Project<a class="anchor" aria-label="anchor" href="#opening-a-software-project"></a></h3>
-<p>If you do not have PyCharm running yet, start it up now. You can skip
-the initial configuration steps which just go through selecting a theme
-and other aspects. You should be presented with a dialog box that asks
-you what you want to do, e.g. <code>Create New Project</code>,
-<code>Open</code>, or <code>Check out from Version Control</code>.</p>
-<p>Select <code>Open</code> and find the software project directory
-<code>python-intermediate-inflammation</code> you cloned earlier. This
-directory is now the current working directory for PyCharm, so when we
-run scripts from PyCharm, this is the directory they will run from.</p>
-<p>PyCharm will show you a <em>‘Tip of the Day’</em> window which you
-can safely ignore and close for now. You may also get a warning <em>‘No
-Python interpreter configured for the project’</em> - we <a href="#configuring-a-virtual-environment-in-pycharm">will deal with
-this</a> shortly after we familiarise ourselves with the PyCharm
-environment. You will notice the IDE shows you a project/file navigator
-window on the left hand side, to traverse and select the files (and any
+<h3 id="starting-with-a-software-project">Starting With a Software Project<a class="anchor" aria-label="anchor" href="#starting-with-a-software-project"></a></h3>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-1-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-1-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
+<p>When you start PyCharm - you may be presented with a dialog box that
+asks you what you want to do, e.g. <code>Create New Project</code>,
+<code>Open</code>, or <code>Check out from Version Control</code>. If
+that is the case - select <code>Open</code> and find the software
+project directory <code>python-intermediate-inflammation</code> you
+cloned earlier. Alternatively, do the same from the
+<code>File -&gt; Open...</code> top menu.</p>
+<p>This directory is now the current working directory for PyCharm, so
+when we run scripts from PyCharm, this is the directory they will run
+from.</p>
+<p>PyCharm may also show you a <em>‘Tip of the Day’</em> window which
+you can safely ignore and close for now. You may also get a warning
+<em>‘No Python interpreter configured for the project’</em> - we <a href="#configuring-a-virtual-environment">will deal with this</a>
+shortly after we familiarise ourselves with the PyCharm environment. You
+will notice the IDE shows you a project/file navigator window on the
+left hand side, to traverse and select the files (and any
 subdirectories) within the working directory, and an editor window on
 the right. At the bottom, you would typically have a panel for version
 control, terminal (the command line within PyCharm) and a TODO list.</p>
 <figure><img src="../fig/pycharm-open-project.png" class="image-with-shadow figure mx-auto d-block" alt="View of an opened project in PyCharm" width="1000"></figure><p>Select the <code>inflammation-analysis.py</code> file in the project
 navigator on the left so that its contents are displayed in the editor
-window. You may notice a warning about the missing Python interpreter at
-the top of the editor panel showing
-<code>inflammation-analysis.py</code> file - this is one of the first
-things you will have to configure for your project before you can do any
-work.</p>
+window.</p>
+<p>You may notice a warning about the missing Python interpreter at the
+top of the editor panel showing <code>inflammation-analysis.py</code>
+file - this is one of the first things you will have to configure for
+your project before you can do any work.</p>
 <figure><img src="../fig/pycharm-missing-python-interpreter.png" class="image-with-shadow figure mx-auto d-block" alt="Missing Python Interpreter Warning in PyCharm" width="800"></figure><p>You may take the shortcut and click on one of the offered options
 above but we want to take you through the whole process of setting up
-your environment in PyCharm as this is important conceptually.</p>
+your environment in PyCharm shortly as this is important conceptually.
+If you do not see this warning - do not worry, it just means you may
+have configured this already on previous usages of PyCharm.</p>
+</div>
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
+<p>We will take you through the various steps of using VC Code now -
+also check out the <a href="https://code.visualstudio.com/docs/python/python-quick-start" class="external-link">VS
+Code Python Quick Start guide</a> and <a href="https://code.visualstudio.com/docs/python/python-tutorial" class="external-link">Getting
+Started with Python in VS Code Tutorial</a>.</p>
+<p>When you start VS Code, you may be presented with a “Welcome” page
+giving you shortcuts to commonly used actions -
+e.g. <code>Open File...' and 'Open Folder...</code> (on Windows and
+Linux; with similarly named <code>New File...</code> and
+<code>Open...</code> actions on Mac OS),
+<code>Clone Git repository...</code>, etc.</p>
+<figure><img src="../fig/vscode-welcome.png" class="image-with-shadow figure mx-auto d-block" alt="Welcome screen in VS Code" width="1000"></figure><p>If that is the case - select <code>Open Folder...</code> and find the
+software project directory <code>python-intermediate-inflammation</code>
+you cloned earlier. Alternatively, do the same from the
+<code>File -&gt; Open Folder...</code> top menu.</p>
+<figure><img src="../fig/vscode-open-project.png" class="image-with-shadow figure mx-auto d-block" alt="View of an opened project in VS Code" width="1000"></figure><p>You’ll see some icons on the left side, which give you access to key
+views of VS Code. Hovering your mouse over each one will show a tooltip
+that names that view:</p>
+<ul><li>Explorer - file navigator to view existing folders containing
+project files.</li>
+<li>Search - search capability enabling you to search for things in your
+project (and replace them with other text).</li>
+<li>Source Control - this gives you access to source code control for
+your project, which includes Git version control functionality. This
+feature means you can do things like clone Git repositories (for
+example, from GitHub), add and commit files to a repository, things like
+that.</li>
+<li>Run and Debug - to run programs you write in a special way with a
+debugger, which allows you to check the state of your program as it is
+running, which is very useful and we’ll look into later.</li>
+<li>Extensions - which we’ll look into right now, to install extensions
+to VSCode to extend its functionality in some way.</li>
+<li>Testing - testing features for test discovery, test coverage, and
+running and debugging tests your code.</li>
+</ul><p>VS Code is a lightweight, general-purpose code editor designed to
+support a wide range of programming languages and development tasks. Its
+core “light” functionality is extended through a rich marketplace of
+extensions, allowing users to add language support, debugging tools,
+linters, formatters, and more. With extensions, VS Code can seamlessly
+handle languages (like Python, JavaScript, C++, Java, R, etc.), data
+formats (like JSON, YAML, CSV, etc.), and so on, making it a flexible
+choice for developers working across multiple technologies.</p>
+<p>This means that VS Code will not support Python our of the box - it
+needs to be extended for Python development by installing extensions.
+You would need the following for this course:</p>
+<ul><li>the official <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" class="external-link">Python
+extension by Microsoft</a> provides essential features such as syntax
+highlighting, IntelliSense (code completion), linting, debugging, and
+unit testing support.</li>
+<li>
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance" class="external-link">Pylance
+extension</a>, now integrated in Python extension by Microsoft, enhances
+performance and offers advanced type checking and code navigation.</li>
+<li>
+<a href="https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring" class="external-link">autoDocstring</a>
+for Python docstring generation.</li>
+</ul><p>Developers can also integrate other extensions such as , <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter" class="external-link">Black</a>
+or <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8" class="external-link">autopep8</a>
+for automatic code formatting, and many more. These extensions transform
+VS Code into a versatile and efficient Python development environment
+that suits everything from quick scripts to complex software
+projects.</p>
+<p>We will install and make use of the <strong>Python by
+Microsoft</strong> and the <strong>autoDocstring</strong> extensions.
+You can do that from the Extensions tab (one of the vertical tabs to the
+left) by searching the extensions marketplace and installing the ones
+you need.</p>
+<figure><img src="../fig/vscode-extensions.png" class="image-with-shadow figure mx-auto d-block" alt="VS Code Extensions marketplace for searching and installing extensions" width="1000"></figure><p>You should now be set up to run and develop Python code in VS
+Code.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
-<h3 id="configuring-a-virtual-environment-in-pycharm">Configuring a Virtual Environment in PyCharm<a class="anchor" aria-label="anchor" href="#configuring-a-virtual-environment-in-pycharm"></a></h3>
-<p>Before you can run the code from PyCharm, you need to explicitly
-specify the path to the Python interpreter on your system. The same goes
-for any dependencies your code may have - you need to tell PyCharm where
-to find them - much like we did from the command line in the previous
-episode. Luckily for us, we have already set up a virtual environment
-for our project from the command line and PyCharm is clever enough to
+<h3 id="configuring-a-virtual-environment">Configuring a Virtual Environment<a class="anchor" aria-label="anchor" href="#configuring-a-virtual-environment"></a></h3>
+<p>Before you can run the code from an IDE, you need to explicitly tell
+the IDE the path to the Python interpreter on your system. The same goes
+for any dependencies your code may have (that form part of the virtual
+environment together with the Python interpreter) - you need to tell the
+IDE where to find them, much like we did from the command line in the
+previous episode.</p>
+<p>Luckily for us, we have already set up a virtual environment for our
+project from the command line already and some IDEs are clever enough to
 understand it.</p>
-<div class="section level4">
-<h4 id="adding-a-python-interpreter">Adding a Python Interpreter<a class="anchor" aria-label="anchor" href="#adding-a-python-interpreter"></a></h4>
-<ol style="list-style-type: decimal"><li>Select either <code>PyCharm</code> &gt; <code>Settings</code> (Mac)
-or <code>File</code> &gt; <code>Settings</code> (Linux, Windows).</li>
+</div>
+<div class="section level3">
+<h3 id="adding-a-python-interpreter">Adding a Python Interpreter<a class="anchor" aria-label="anchor" href="#adding-a-python-interpreter"></a></h3>
+<div class="tabs">
+<nav><div id="nav-tab-2" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-2-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-2-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-2-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-2-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-2" class="tab-content">
+<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-PyCharm">
+<p>While PyCharm will recognise the virtual environment you already
+have, and the Python interpreter contained in it, it is a good practice
+to tell your IDE which Python interpreter you want to use for which
+project. This is because you may have multiple Python versions installed
+on your system and also because you may not have set a virtual
+environment from command line so you should do if from the IDE
+instead.</p>
+<ol style="list-style-type: decimal"><li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
+<code>File -&gt; Settings</code> (Linux, Windows).</li>
 <li>In the window that appears, select
-<code>Project: python-intermediate-inflammation</code> &gt;
-<code>Python Interpreter</code> from the left. You’ll see a number of
-Python packages displayed as a list, and importantly above that, the
-current Python interpreter that is being used. These may be blank or set
-to <code>&lt;No interpreter&gt;</code>, or possibly the default version
-of Python installed on your system,
+<code>Project: python-intermediate-inflammation -&gt; Python Interpreter</code>
+from the left. You’ll see a number of Python packages displayed as a
+list, and importantly above that, the current Python interpreter that is
+being used. These may be blank or set to
+<code>&lt;No interpreter&gt;</code>, or possibly the default version of
+Python installed on your system,
 e.g. <code>Python 2.7 /usr/bin/python2.7</code>, which we do not want to
 use in this instance.</li>
 <li>Select the cog-like button in the top right, then
@@ -734,166 +831,75 @@ replicating our virtual environment in PyCharm (referred to as “Python
 3.11 (python-intermediate-inflammation)”).</p>
 <figure><img src="../fig/pycharm-installed-packages.png" class="image-with-shadow figure mx-auto d-block" alt="Packages Currently Installed in a Virtual Environment in PyCharm" width="800"></figure><p>Also note that, although the names are not the same - this is one and
 the same virtual environment and changes done to it in PyCharm will
-propagate to the command line and vice versa. Let us see this in action
-through the following exercise.</p>
-<div id="compare-external-libraries-in-the-command-line-and-pycharm" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+propagate to the command line and vice versa.</p>
 </div>
-<div id="compare-external-libraries-in-the-command-line-and-pycharm" class="callout-inner">
-<h3 class="callout-title">Compare External Libraries in the Command Line and PyCharm</h3>
-<div class="callout-content">
-<p>Can you recall two places where information about our project’s
-dependencies can be found from the command line? Compare that
-information with the equivalent configuration in PyCharm.</p>
-<p>Hint: We can use an argument to <code>pip</code>, or find the
-packages directly in a subdirectory of our virtual environment directory
-“venv”.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>From the previous episode, you may remember that we can get the list
-of packages in the current virtual environment using
-<code>pip</code>:</p>
+<div id="nav-tabpanel-2-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-VSCode">
+<p>As covered in the episode on virtual environments for software
+development, we want to create a new or activate an existing virtual
+environment for our project to work in. Since we have already created a
+virtual environment, we just need to activate it within a terminal
+environment in VS Code. To do so, from the top menu select
+<code>Terminal &gt; New Terminal</code> to open a new command line
+terminal for your project, and run the following command to activate
+your existing virtual environment in this terminal:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip list <span class="at">--exclude-editable</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">source</span> ./venv/bin/activate</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Package         Version
-
-***
-
-contourpy       1.2.0
-cycler          0.12.1
-fonttools       4.45.0
-kiwisolver      1.4.5
-matplotlib      3.8.2
-numpy           1.26.2
-packaging       23.2
-Pillow          10.1.0
-pip             23.0.1
-pyparsing       3.1.1
-python-dateutil 2.8.2
-setuptools      67.6.1
-six             1.16.0</code></pre>
-</div>
-<p>However, <code>python3 -m pip list</code> shows all the packages in
-the virtual environment - if we want to see only the list of packages
-that we installed, we can use the <code>python3 -m pip freeze</code>
-command instead:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="at">--exclude-editable</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>contourpy==1.2.0
-cycler==0.12.1
-fonttools==4.45.0
-kiwisolver==1.4.5
-matplotlib==3.8.2
-numpy==1.26.2
-packaging==23.2
-Pillow==10.1.0
-pyparsing==3.1.1
-python-dateutil==2.8.2
-six==1.16.0</code></pre>
-</div>
-<p>We see the <code>pip</code> package in
-<code>python3 -m pip list</code> but not in
-<code>python3 -m pip freeze</code> as we did not install it using
-<code>pip</code>. Remember that we use
-<code>python3 -m pip freeze --exclude-editable</code> to update our
-<code>requirements.txt</code> file, to keep a list of the packages our
-virtual environment includes. Python will not do this automatically; we
-have to manually update the file when our requirements change using:</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip freeze <span class="at">--exclude-editable</span> <span class="op">&gt;</span> requirements.txt</span></code></pre>
-</div>
-<p>If we want, we can also see the list of packages directly in the
-following subdirectory of <code>venv</code>:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> ls <span class="at">-l</span> venv/lib/python3.11/site-packages</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>total 88
-drwxr-xr-x  105 alex  staff   3360 20 Nov 15:34 PIL
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 Pillow-10.1.0.dist-info
-drwxr-xr-x    4 alex  staff    128 20 Nov 15:34 **pycache**
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:32 \_distutils\_hack
-drwxr-xr-x   16 alex  staff    512 20 Nov 15:34 contourpy
-drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 contourpy-1.2.0.dist-info
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 cycler
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 cycler-0.12.1.dist-info
-drwxr-xr-x   14 alex  staff    448 20 Nov 15:34 dateutil
-\-rw-r--r--    1 alex  staff    151 20 Nov 15:32 distutils-precedence.pth
-drwxr-xr-x   33 alex  staff   1056 20 Nov 15:34 fontTools
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 fonttools-4.45.0.dist-info
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 kiwisolver-1.4.5.dist-info
-drwxr-xr-x  150 alex  staff   4800 20 Nov 15:34 matplotlib
-drwxr-xr-x   20 alex  staff    640 20 Nov 15:34 matplotlib-3.8.2.dist-info
-drwxr-xr-x    5 alex  staff    160 20 Nov 15:34 mpl\_toolkits
-drwxr-xr-x   43 alex  staff   1376 20 Nov 15:34 numpy
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 numpy-1.26.2.dist-info
-drwxr-xr-x   18 alex  staff    576 20 Nov 15:34 packaging
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 packaging-23.2.dist-info
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:32 pip
-drwxr-xr-x   10 alex  staff    320 20 Nov 15:33 pip-23.0.1.dist-info
-drwxr-xr-x    6 alex  staff    192 20 Nov 15:32 pkg\_resources
-\-rw-r--r--    1 alex  staff     90 20 Nov 15:34 pylab.py
-drwxr-xr-x   15 alex  staff    480 20 Nov 15:34 pyparsing
-drwxr-xr-x    7 alex  staff    224 20 Nov 15:34 pyparsing-3.1.1.dist-info
-drwxr-xr-x    9 alex  staff    288 20 Nov 15:34 python\_dateutil-2.8.2.dist-info
-drwxr-xr-x   49 alex  staff   1568 20 Nov 15:32 setuptools
-drwxr-xr-x   10 alex  staff    320 20 Nov 15:32 setuptools-67.6.1.dist-info
-drwxr-xr-x    8 alex  staff    256 20 Nov 15:34 six-1.16.0.dist-info
-\-rw-r--r--    1 alex  staff  34549 20 Nov 15:34 six.py</code></pre>
-</div>
-<p>Finally, if you look at both the contents of
-<code>venv/lib/python3.11/site-packages</code> and
-<code>requirements.txt</code> and compare that with the packages shown
-in PyCharm’s Python Interpreter Configuration - you will see that they
-all contain equivalent information.</p>
-</div>
-</div>
-</div>
+<p>Technically, this should set the Python interpreter to be the one
+contained in your virtual environment. Still, it is a good idea to check
+and set the Python interpreter manually in VS Code to make sure things
+are configured correctly for your project.</p>
+<p>You can do that as follows:</p>
+<ul><li>Navigate to the location of the Python binary within the virtual
+environment using the file browser. The Python binary will be located
+in, e.g. <code>venv/bin/python3</code> within the project
+directory.</li>
+</ul><figure><img src="../fig/vscode-select-interpreter.png" class="image-with-shadow figure mx-auto d-block" alt="Select python interpreter in VS Code" width="800"></figure><ul><li>Right-click on the binary and select Copy Path.</li>
+<li>Use the keyboard shortcut <code>CTRL-SHIFT-P</code> (Windows, Linux)
+or <code>CMD-SHIFT-P</code> (macOS) or to bring up the VS Code
+<strong>Command Palette</strong>, then search for
+<code>Python: Select Interpreter</code>.</li>
+<li>Click <code>Enter interpreter path...</code>, and paste the path you
+copied followed by Enter.</li>
+</ul><figure><img src="../fig/vscode-interpreter-path.png" class="image-with-shadow figure mx-auto d-block" alt="Set interpreter path in VS Code" width="800"></figure><p>If everything is setup correctly, when you select a Python file in
+the file explorer you should see the interpreter and virtual environment
+stated in the information bar at the bottom of VS Code. Any new terminal
+you open now will start with the activated virtual environment.</p>
+<figure><img src="../fig/vscode-interpreter-venv.png" class="image-with-shadow figure mx-auto d-block" alt="Showing interpreter status in VS Code status bar" width="800"></figure></div>
 </div>
 </div>
 <div class="section level4">
-<h4 id="adding-an-external-library">Adding an External Library<a class="anchor" aria-label="anchor" href="#adding-an-external-library"></a></h4>
+<h4 id="adding-an-external-dependency-from-ide">Adding an External Dependency from IDE<a class="anchor" aria-label="anchor" href="#adding-an-external-dependency-from-ide"></a></h4>
 <p>We have already added packages <code>numpy</code> and
 <code>matplotlib</code> to our virtual environment from the command line
 in the previous episode, so we are up-to-date with all external
 libraries we require at the moment. However, we will need library
 <code>pytest</code> soon to implement tests for our code. We will use
-this opportunity to install it from PyCharm in order to see an
+this opportunity to install it from the IDE in order to see an
 alternative way of doing this and how it propagates to the command
 line.</p>
-<ol style="list-style-type: decimal"><li>Select either <code>PyCharm</code> &gt; <code>Settings</code> (Mac)
-or <code>File</code> &gt; <code>Settings</code> (Linux, Windows).</li>
+<div class="tabs">
+<nav><div id="nav-tab-3" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-3-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-3-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-3-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-3-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-3-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-3-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-3" class="tab-content">
+<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-PyCharm">
+<ol style="list-style-type: decimal"><li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
+<code>File -&gt; Settings</code> (Linux, Windows).</li>
 <li>In the preferences window that appears, select
-<code>Project: python-intermediate-inflammation</code> &gt;
-<code>Project Interpreter</code> from the left.</li>
+<code>Project: python-intermediate-inflammation -&gt; Project Interpreter</code>
+from the left.</li>
 <li>Select the <code>+</code> icon at the top of the window. In the
 window that appears, search for the name of the library
 (<code>pytest</code>), select it from the list, then select
@@ -908,34 +914,46 @@ the <code>venv/lib/python3.11/site-packages</code> subdirectory. Note,
 however, that <code>requirements.txt</code> is not updated - as we
 mentioned earlier this is something you have to do manually. Let us do
 this as an exercise.</p>
-<div id="update-requirements.txt-after-adding-a-new-dependency" class="callout challenge">
+</div>
+<div id="nav-tabpanel-3-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-VSCode">
+<p>In VS Code, there is no special graphical user interface to add
+external dependencies for a project - this is done from the terminal
+window as we did before (within the active virtual environment):</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install pytest</span></code></pre>
+</div>
+<figure><img src="../fig/vscode-add-library.png" class="image-with-shadow figure mx-auto d-block" alt="Installing a package in VS Code" width="800"></figure></div>
+</div>
+</div>
+<div id="update-requirements-file-after-adding-a-new-dependency" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="update-requirements.txt-after-adding-a-new-dependency" class="callout-inner">
-<h3 class="callout-title">Update <code>requirements.txt</code> After
-Adding a New Dependency</h3>
+<div id="update-requirements-file-after-adding-a-new-dependency" class="callout-inner">
+<h3 class="callout-title">Update Requirements File After Adding a New Dependency</h3>
 <div class="callout-content">
 <p>Export the newly updated virtual environment into
 <code>requirements.txt</code> file.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Let us verify first that the newly installed library
 <code>pytest</code> is appearing in our virtual environment but not in
 <code>requirements.txt</code>. First, let us check the list of installed
 packages:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip list</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip list</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -963,10 +981,10 @@ six             1.16.0</code></pre>
 </div>
 <p>We can see the <code>pytest</code> library appearing in the listing
 above. However, if we do:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> cat requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> cat requirements.txt</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -985,10 +1003,10 @@ six==1.16.0</code></pre>
 </div>
 <p><code>pytest</code> is missing from <code>requirements.txt</code>. To
 add it, we need to update the file by repeating the command:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="at">--exclude-editable</span> <span class="op">&gt;</span> requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="at">--exclude-editable</span> <span class="op">&gt;</span> requirements.txt</span></code></pre>
 </div>
 <p><code>pytest</code> is now present in
 <code>requirements.txt</code>:</p>
@@ -1017,6 +1035,21 @@ six==1.16.0</code></pre>
 </div>
 <div class="section level4">
 <h4 id="adding-a-run-configuration-for-our-project">Adding a Run Configuration for Our Project<a class="anchor" aria-label="anchor" href="#adding-a-run-configuration-for-our-project"></a></h4>
+<div class="tabs">
+<nav><div id="nav-tab-4" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-4-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-4-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-4-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-4-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-4-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-4-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-4-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-4-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-4" class="tab-content">
+<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-PyCharm">
 <p>Having configured a virtual environment, we now need to tell PyCharm
 to use it for our project. This is done by creating and adding a
 <strong>Run Configuration</strong> to a project. Run Configurations in
@@ -1025,8 +1058,7 @@ Python script to execute and what (optional) runtime
 parameters/environment variables (i.e. additional configuration options)
 to pass and use on top of virtual environments.</p>
 <ol style="list-style-type: decimal"><li>To add a new Run Configuration for a project - select
-<code>Run</code> &gt; <code>Edit Configurations...</code> from the top
-menu.</li>
+<code>Run -&gt; Edit Configurations...</code> from the top menu.</li>
 <li>Select <code>Add new run configuration...</code> then
 <code>Python</code>. <img src="../fig/pycharm-add-run-configuration.png" class="image-with-shadow figure" alt="Adding a Run Configuration in PyCharm" width="800"></li>
 <li>In the new popup window, in the <code>Script path</code> field
@@ -1043,14 +1075,7 @@ if you like - e.g. let us name it
 <li>You can optionally configure run parameters and environment
 variables in the same window - we do not need this at the moment.</li>
 <li>Select <code>Apply</code> to confirm these settings.</li>
-</ol><div id="virtual-environments-and-run-configurations-in-pycharm" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="virtual-environments-and-run-configurations-in-pycharm" class="callout-inner">
-<h3 class="callout-title">Virtual Environments And Run Configurations in PyCharm</h3>
-<div class="callout-content">
-<p>We configured the Python interpreter to use for our project by
+</ol><p>We configured the Python interpreter to use for our project by
 pointing PyCharm to the virtual environment we created from the command
 line (which encapsulates a Python interpreter and external libraries our
 code needs to run). Recall that you can create several virtual
@@ -1065,12 +1090,80 @@ virtual environments - you can vary a run configuration each time your
 code is executed and you can have separate configurations for running,
 debugging and testing your code.</p>
 </div>
+<div id="nav-tabpanel-4-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-VSCode">
+<p>You can configure Visual Studio Code through a number of <a href="https://code.visualstudio.com/docs/configure/settings" class="external-link">settings</a>.
+Nearly every part of VS Code’s editor, user interface, and functional
+behavior has options you can modify.</p>
+<p>VS Code provides different scopes for settings:</p>
+<ul><li>User settings - settings that apply globally to any instance of VS
+Code you open.</li>
+<li>Workspace settings - settings stored inside your workspace (current
+project) and only apply when that workspace is opened.</li>
+</ul><p>VS Code stores setting values in settings JSON file. Depending on
+your platform, the user settings file is located in:</p>
+<ul><li>
+<code>%APPDATA%\Code\User\settings.json</code> on Windows</li>
+<li>
+<code>$HOME/Library/Application\ Support/Code/User/settings.json</code>
+on macOS</li>
+<li>
+<code>$HOME/.config/Code/User/settings.json</code> on Linux</li>
+</ul><p>The workspace settings file <code>settings.json</code> is located
+under the <code>.vscode</code> folder in your project’s root folder, and
+overrides the user settings.</p>
+<p>You can access and change user/workspace settings values in a few
+ways:</p>
+<ul><li>Select the <code>Preferences: Open User Settings</code> or
+<code>Preferences: Open User Settings (JSON)</code> in the
+<strong>Command Palette</strong> (via keyboard shortcut
+<code>CTRL-SHIFT-P</code>/<code>CMD-SHIFT-P</code>) - for user
+settings</li>
+<li>Select the <code>Preferences: Open Workspace Settings</code> or
+<code>Preferences: Open Workspace Settings (JSON)</code> in the
+<strong>Command Palette</strong> (via keyboard shortcut
+<code>CTRL-SHIFT-P</code>/<code>CMD-SHIFT-P</code>) - for workspace
+settings</li>
+<li>Select the User or Workspace tab in the <strong>Settings
+editor</strong> (via <code>File -&gt; Preferences -&gt; Settings</code>
+on Windows and Linux or <code>Code -&gt; Settings -&gt; Settings</code>
+on Mac OS, or keyboard shortcut
+<code>CTRL-,</code>/<code>CMD-,</code>)</li>
+</ul><figure><img src="../fig/vscode-settings.png" class="image-with-shadow figure mx-auto d-block" alt="Settings editor in VS Code" width="1000"></figure><p>We have already configured Python interpreter via the <strong>Command
+Palette</strong>. Other Python commands available through the Python
+extensions can be accessed through the <strong>Command Palette</strong>
+in a similar way - bring up the <strong>Command Palette</strong> and
+enter “Python:” to find them.</p>
+<p>For simple applications or debugging scenarios, you can run and debug
+a program without specific debugging configurations. However, for some
+more complex run or debugging scenarios you need to create a <a href="https://code.visualstudio.com/docs/debugtest/debugging-configuration" class="external-link"><strong>launch
+configuration</strong></a> - to specify the application entry point or
+set environment variables. Creating a launch configuration file is also
+beneficial because it allows you to configure and save debugging setup
+details with your project.</p>
+<p>VS Code stores such configuration information in a
+<code>launch.json</code> file located in the <code>.vscode</code> folder
+in your workspace (project root folder), or in your user settings or
+workspace settings. VS Code also supports compound launch configurations
+for starting multiple configurations at the same time - e.g. for more
+complex testing and debugging scenarios.</p>
+<p>We do not have anything to put in the launch configuration for the
+time being, so you do not need to create and configure
+<code>launch.json</code> file. However, it may be useful to know where
+such information is configured, should you need to do so in the future.
+To create an initial <code>launch.json</code> file - you can go to the
+Run and Debug view, then click <code>Create a launch.json file</code>
+and follow the instructions.</p>
+<figure><img src="../fig/vscode-run-debug-configuration.png" class="image-with-shadow figure mx-auto d-block" alt="Run and Debug View in VS Code showing the option to create a new launch (run and debug) configuration" width="1000"></figure></div>
 </div>
 </div>
 <p>Now you know how to configure and manipulate your environment in both
-tools (command line and PyCharm), which is a useful parallel to be aware
-of. Let us have a look at some other features afforded to us by
-PyCharm.</p>
+tools (command line and IDE), which is a useful parallel to be aware of.
+As you may have noticed, using the command line terminal facility
+integrated into an IDE allows you to run commands (e.g. to manipulate
+files, interact with version control, etc.) and execute code without
+leaving the development environment, making it easier and faster to work
+by having all essential tools in one window.</p>
+<p>Let us have a look at some other features afforded to us by IDEs.</p>
 </div>
 </div>
 <div class="section level3">
@@ -1082,26 +1175,81 @@ category the highlighted term belongs to. It also makes syntax errors
 visually distinct. Highlighting does not affect the meaning of the code
 itself - it is intended only for humans to make reading code and finding
 errors easier.</p>
+<div class="tabs">
+<nav><div id="nav-tab-5" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-5-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-5-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-5-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-5-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-5-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-5-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-5-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-5-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-5" class="tab-content">
+<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-PyCharm">
 <figure><img src="../fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure></div>
+<div id="nav-tabpanel-5-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-VSCode">
+<figure><img src="../fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure></div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="code-completion">Code Completion<a class="anchor" aria-label="anchor" href="#code-completion"></a></h3>
-<p>As you start typing code, PyCharm will offer to complete some of the
+<p>As you start typing code, the IDE will offer to complete some of the
 code for you in the form of an auto completion popup. This is a
 context-aware code completion feature that speeds up the process of
 coding (e.g. reducing typos and other common mistakes) by offering
 available variable names, functions from available packages, parameters
 of functions, hints related to syntax errors, etc.</p>
-<figure><img src="../fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="600"></figure></div>
+<div class="tabs">
+<nav><div id="nav-tab-6" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-6-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-6-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-6-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-6-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-6-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-6-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-6-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-6-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-6" class="tab-content">
+<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-6-PyCharm">
+<figure><img src="../fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure></div>
+<div id="nav-tabpanel-6-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-6-VSCode">
+<figure><img src="../fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure></div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="code-definition-documentation-references">Code Definition &amp; Documentation References<a class="anchor" aria-label="anchor" href="#code-definition-documentation-references"></a></h3>
-<p>You will often need code reference information to help you code.
-PyCharm shows this useful information, such as definitions of symbols
+<p>You will often need code reference information to help you code. The
+IDE shows this useful information, such as definitions of symbols
 (e.g. functions, parameters, classes, fields, and methods) and
 documentation references by means of quick popups and inline
 tooltips.</p>
+<div class="tabs">
+<nav><div id="nav-tab-7" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-7-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-7-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-7-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-7-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-7-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-7-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-7-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-7-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-7" class="tab-content">
+<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-7-PyCharm">
 <p>For a selected piece of code, you can access various code reference
-information from the <code>View</code> menu (or via various keyboard
-shortcuts), including:</p>
+information from the <code>Go</code> menu (or via various keyboard
+shortcuts or sometimes simply by hovering over a symbol), including:</p>
 <ul><li>Quick Definition - where and how symbols (functions, parameters,
 classes, fields, and methods) are defined</li>
 <li>Quick Type Definition - type definition of variables, fields or any
@@ -1113,48 +1261,115 @@ method and function calls. Use this when cursor is on the argument of a
 function call.</li>
 <li>Type Info - type of an expression</li>
 </ul><figure><img src="../fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure></div>
-<div class="section level3">
-<h3 id="code-search">Code Search<a class="anchor" aria-label="anchor" href="#code-search"></a></h3>
-<p>You can search for a text string within a project, use different
-scopes to narrow your search process, use regular expressions for
-complex searches, include/exclude certain files from your search, find
-usages and occurrences. To find a search string in the whole
-project:</p>
-<ol style="list-style-type: decimal"><li><p>From the main menu, select
-<code>Edit | Find | Find in Path ...</code> (or
+<div id="nav-tabpanel-7-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-7-VSCode">
+<p>For a selected piece of code, you can access various code reference
+information from the <code>View</code> menu (or via various keyboard
+shortcuts or sometimes simply by hovering over a symbol), including:</p>
+<ul><li>Go to Symbol - to navigate and find symbols inside a file or a
+workspace</li>
+<li>Go to Definition - this will take you to the definition of a
+symbol</li>
+<li>Go to Declaration - some (statically-typed) languages support
+separate declarations and definitions of symbols so this will take you
+to the declaration (for Python, which is dynamically typed, there is not
+much difference between definition and declaration)</li>
+<li>Go to Type Definition - this will take you to the definition of the
+type of a symbol</li>
+<li>Go to Implementations - this shows all the implementors of the
+interface and for abstract methods, this shows all concrete
+implementations of that method</li>
+<li>Go to References - this shows all references of the symbol in the
+code.</li>
+</ul><figure><img src="../fig/vscode-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure></div>
+</div>
+</div>
+<div class="section level4">
+<h4 id="code-search">Code Search<a class="anchor" aria-label="anchor" href="#code-search"></a></h4>
+<p>You can search for (and replace) a text string within a project, use
+different scopes to narrow your search process, use regular expressions
+for complex searches, include/exclude certain files from your search,
+find usages/references and occurrences.</p>
+<div class="tabs">
+<nav><div id="nav-tab-8" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-8-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-8-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-8-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-8-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-8-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-8-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-8-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-8-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-8" class="tab-content">
+<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-8-PyCharm">
+<p>To find a search string in the whole project - from the main menu,
+select <code>Edit | Find | Find in Path ...</code> (or
 <code>Edit | Find | Find in Files...</code> depending on your version of
-PyCharm).</p></li>
-<li>
+PyCharm).</p>
 <p>Type your search string in the search field of the popup.
 Alternatively, in the editor, highlight the string you want to find and
-press <code>Command-Shift-F</code> (on Mac) or
-<code>Control-Shift-F</code> (on Windows). PyCharm places the
-highlighted string into the search field of the popup.</p>
+press <code>CMD-SHIFT-F</code> (Mac) or <code>CTRL-SHIFT-F</code>
+(Windows). PyCharm places the highlighted string into the search field
+of the popup.</p>
 <figure><img src="../fig/pycharm-code-search.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="800"></figure><p>If you need, specify the additional options in the popup. PyCharm
-will list the search strings and all the files that contain
-them.</p>
-</li>
-<li><p>Check the results in the preview area of the dialog where you can
+will list the search strings and all the files that contain them.</p>
+<p>Check the results in the preview area of the dialog where you can
 replace the search string or select another string, or press
-<code>Command-Shift-F</code> (on Mac) or <code>Control-Shift-F</code>
-(on Windows) again to start a new search.</p></li>
-<li>
+<code>CMD-SHIFT-F</code> (Mac) or <code>CTRL-SHIFT-F</code> (Windows)
+again to start a new search.</p>
 <p>To see the list of occurrences in a separate panel, click the
 <code>Open in Find Window</code> button in the bottom right corner. The
 find panel will appear at the bottom of the main window; use this panel
 and its options to group the results, preview them, and work with them
 further.</p>
-<figure><img src="../fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure></li>
-</ol></div>
+<figure><img src="../fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure></div>
+<div id="nav-tabpanel-8-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-8-VSCode">
+<p>To find a search string in the whole project - from the main menu,
+select <code>Edit | Find in Files</code>. An alternative menu option
+<code>Edit | Find</code> will just look for the search string in the
+current file.</p>
+<figure><img src="../fig/vscode-search-menu.png" class="image-with-shadow figure mx-auto d-block" alt="Search menu in VS Code" width="1000"></figure><p>In the search window that pops up - type in your search string in the
+search field/box.</p>
+<figure><img src="../fig/vscode-search-window.png" class="image-with-shadow figure mx-auto d-block" alt="Search for a string functionality in VS Code" width="800"></figure><p>The results will show in the search window - you can further filter
+the results by matching case, matching the whole word or use regular
+expressions for more advanced filtering.</p>
+<figure><img src="../fig/vscode-search-results.png" class="image-with-shadow figure mx-auto d-block" alt="Search results window in VS Code with further filtering functionalities" width="1000"></figure><p>You can also search from the code directly - by selecting the word to
+search for, right clicking and selecting the search option
+(<code>Find All References</code> or
+<code>Find All Implementations</code>) from the menu that pops up.</p>
+<figure><img src="../fig/vscode-code-search-menu.png" class="image-with-shadow figure mx-auto d-block" alt="Code search option in VS Code" width="1000"></figure><p>You will get a search window with results as before, where you can
+further filter things out.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="version-control">Version Control<a class="anchor" aria-label="anchor" href="#version-control"></a></h3>
+<div class="tabs">
+<nav><div id="nav-tab-9" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-9-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-9-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-9-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-9-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-9-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-9-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-9-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-9-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-9" class="tab-content">
+<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-9-PyCharm">
 <p>PyCharm supports a directory-based versioning model, which means that
 each project directory can be associated with a different version
 control system. Our project was already under Git version control and
 PyCharm recognised it. It is also possible to add an unversioned project
 directory to version control directly from PyCharm.</p>
 <p>During this course, we will do all our version control commands from
-the command line but it is worth noting that PyCharm supports a
+the command line terminal but it is worth noting that PyCharm supports a
 comprehensive subset of Git commands (i.e. it is possible to perform a
 set of common Git commands from PyCharm but not all). A very useful
 version control feature in PyCharm is graphically comparing changes you
@@ -1165,16 +1380,81 @@ line.</p>
 <p>You can get a full <a href="https://www.jetbrains.com/help/pycharm/version-control-integration.html" class="external-link">documentation
 on PyCharm’s built-in version control support</a> online.</p>
 <figure><img src="../fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure></div>
+<div id="nav-tabpanel-9-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-9-VSCode">
+<p>VS Code has integrated source control management (SCM) and includes
+Git support out-of-the-box. Many other source control tools are
+available through <a href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=SCM%20Providers&amp;sortBy=Installs" class="external-link">extensions</a>.</p>
+<p>Our project was already under Git version control and VS Code
+recognised it. It is also possible to add an unversioned project
+directory to version control directly from VS Code.</p>
+<p>During this course, we will do all our version control commands from
+the command line terminal but it is worth noting that VS Code supports a
+comprehensive subset of Git commands (i.e. it is possible to perform a
+set of common Git commands from PyCharm but not all). A very useful
+version control feature in VS Code is graphically comparing changes you
+made locally to a file with the version of the file in a repository, a
+different commit version or a version in a different branch - this is
+something that cannot be done equally well from the text-based command
+line.</p>
+<p>You can get a full <a href="https://code.visualstudio.com/docs/sourcecontrol/overview" class="external-link">documentation
+on VS Code’s built-in version control support</a> online.</p>
+<p>This functionality in VS Code is available from the Source Control
+view (from the left-hand side menu).</p>
+<figure><img src="../fig/vscode-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in VS Code" width="1000"></figure></div>
+</div>
+</div>
+</div>
 <div class="section level3">
-<h3 id="running-scripts-in-pycharm">Running Scripts in PyCharm<a class="anchor" aria-label="anchor" href="#running-scripts-in-pycharm"></a></h3>
+<h3 id="running-code-from-ide">Running Code from IDE<a class="anchor" aria-label="anchor" href="#running-code-from-ide"></a></h3>
 <p>We have configured our environment and explored some of the most
-commonly used PyCharm features and are now ready to run our script from
-PyCharm! To do so, right-click the <code>inflammation-analysis.py</code>
-file in the PyCharm project/file navigator on the left, and select
+commonly used IDE features and are now ready to run our Python script
+from the IDE.</p>
+<p>Running code using the graphical interface of an IDE provides a
+simple, user-friendly way to execute programs with just a click,
+reducing the need type commands manually in the command line terminal.
+On the other hand, running code from a terminal window in an IDE offers
+the flexibility and control of the command line — both approaches
+complement each other by supporting different user preferences and tasks
+within the same unified environment.</p>
+<p>In this lesson, we prioritise using the command line and typing
+commands whenever possible, as these skills are easily transferable
+across different IDEs (with a note that you should feel free to use
+other equivalent ways for doing things that suit you more). However, for
+tasks like debugging - where the graphical interface offers significant
+advantages — we will make use of the IDE’s built-in visual tools.</p>
+<div class="tabs">
+<nav><div id="nav-tab-10" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-10-PyCharm" name="PyCharm" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-10-PyCharm" type="button" role="tab" aria-controls="nav-tabpanel-10-PyCharm" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-10-PyCharm">
+  PyCharm
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-10-VSCode" name="VSCode" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-10-VSCode" type="button" role="tab" aria-controls="nav-tabpanel-10-VSCode" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-10-VSCode">
+  VS Code
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-10" class="tab-content">
+<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-10-PyCharm">
+<p>To run our script using the PyCharm’s graphical interface,
+right-click the <code>inflammation-analysis.py</code> file in the
+PyCharm project/file navigator on the left, and select
 <code>Run 'inflammation analysis'</code> (i.e. the Run Configuration we
 created earlier).</p>
-<figure><img src="../fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure><p>The script will run in a terminal window at the bottom of the IDE
-window and display something like:</p>
+<figure><img src="../fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure></div>
+<div id="nav-tabpanel-10-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-10-VSCode">
+<p>To run our script using the VS Code’s graphical interface, make sure
+the <code>inflammation-analysis.py</code> file is selected in the
+project/file view on the left, then click the “&gt;” (play) button in
+the top right corner.</p>
+<figure><img src="../fig/vscode-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from VS Code" width="1000"></figure></div>
+</div>
+</div>
+<p>The new terminal window will open at the bottom of the IDE window (or
+could be on the side - depending on how panes are split in your IDE),
+the script will be run inside it and the result will be displayed
+as:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1185,12 +1465,20 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 Process finished with exit code 2</code></pre>
 </div>
 <p>This is the same error we got when running the script from the
-command line. We will get back to this error shortly - for now, the good
-thing is that we managed to set up our project for development both from
-the command line and PyCharm and are getting the same outputs. Before we
-move on to fixing errors and writing more code, Let us have a look at
-the last set of tools for collaborative code development which we will
-be using in this course - Git and GitHub.</p>
+command line! Essentially what happened was the IDE opened a command
+line terminal within its interface and executed the Python command to
+run the script for us (<code>python3 inflammation-analysis.py</code>) -
+saving us some typing. You can carry on to run the Python script in
+whatever way you find more convenient - some developers prefer to type
+the commands in a terminal manually as that gives the feel of having
+more control over what is happening and what commands are being
+executed.</p>
+<p>We will get back to the above error shortly - for now, the good thing
+is that we managed to set up our project for development both from the
+command line and IDE and are getting the same outputs. Before we move on
+to fixing errors and writing more code, let us have a look at the last
+set of tools for collaborative code development which we will be using
+in this course - Git and GitHub.</p>
 </div>
 </section><section><h2 class="section-heading" id="optional-exercises">Optional exercises<a class="anchor" aria-label="anchor" href="#optional-exercises"></a></h2>
 <hr class="half-width"><p>Checkout <a href="17-section1-optional-exercises.html">this optional
@@ -1205,8 +1493,9 @@ exercise</a> to try out different IDEs and code editors.</p>
 <ul><li>An IDE is an application that provides a comprehensive set of
 facilities for software development, including syntax highlighting, code
 search and completion, version control, testing and debugging.</li>
-<li>PyCharm recognises virtual environments configured from the command
-line using <code>venv</code> and <code>pip</code>.</li>
+<li>IDEs like PyCharm and VS Code recognise virtual environments
+configured from the command line using <code>venv</code> and
+<code>pip</code>.</li>
 </ul></div>
 </div>
 </div>
@@ -1268,8 +1557,8 @@ line using <code>venv</code> and <code>pip</code>.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/13-ides.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/13-ides.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-03-07",
-  "datePublished": "2025-07-29"
+  "dateModified": "2025-07-30",
+  "datePublished": "2025-07-30"
 }
 
   </script><script>

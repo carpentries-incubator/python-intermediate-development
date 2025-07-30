@@ -99,7 +99,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="quiz.html">Quiz</a></li><li><a class="dropdown-item" href="installation-instructions.html">Installation Instructions</a></li><li><a class="dropdown-item" href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a class="dropdown-item" href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a class="dropdown-item" href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a class="dropdown-item" href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a class="dropdown-item" href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a class="dropdown-item" href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a class="dropdown-item" href="persistence.html">Extra Content: Persistence</a></li><li><a class="dropdown-item" href="databases.html">Extra Content: Databases</a></li><li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -509,7 +509,7 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="quiz.html">Quiz</a></li><li><a href="installation-instructions.html">Installation Instructions</a></li><li><a href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a href="persistence.html">Extra Content: Persistence</a></li><li><a href="databases.html">Extra Content: Databases</a></li><li><a href="vscode.html">Extra Content: Using Microsoft Visual Studio Code</a></li><li><a href="reference.html">Reference</a></li>
+                      <li><a href="quiz.html">Quiz</a></li><li><a href="installation-instructions.html">Installation Instructions</a></li><li><a href="common-issues.html">Common Issues, Fixes &amp; Tips</a></li><li><a href="software-architecture-extra.html">Extra Content: Software Architecture</a></li><li><a href="programming-paradigms.html">Extra Content: Programming Paradigms</a></li><li><a href="procedural-programming.html">Extra Content: Procedural Programming</a></li><li><a href="functional-programming.html">Extra Content: Functional Programming</a></li><li><a href="object-oriented-programming.html">Extra Content: Object Oriented Programming</a></li><li><a href="persistence.html">Extra Content: Persistence</a></li><li><a href="databases.html">Extra Content: Databases</a></li><li><a href="reference.html">Reference</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -545,7 +545,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.4 Software Development Using Git and GitHub</h1>
-        <p>Last updated on 2025-06-19 |
+        <p>Last updated on 2025-07-30 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -589,9 +589,9 @@ a team on a software project</li>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
 <hr class="half-width"><p>So far we have checked out our software project from GitHub and used
 command line tools to configure a virtual environment for our project
-and run our code. We have also familiarised ourselves with PyCharm - a
-graphical tool we will use for code development, testing and debugging.
-We are now going to start using another set of tools from the
+and run our code. We have also familiarised ourselves with our IDE of
+choice - a graphical tool we will use for code development, testing and
+debugging. We are now going to start using another set of tools from the
 collaborative code development toolbox - namely, the version control
 system Git and code sharing platform GitHub. These two will enable us to
 track changes to our code and share it with others.</p>
@@ -723,11 +723,11 @@ project already has <code>.gitignore</code>, but in cases where you do
 not have it - you can simply create it yourself. In our case, we want to
 tell Git to ignore the “venv” directory (and “.venv” as another naming
 convention for directories containing virtual environments) and stop
-notifying us about it. Edit your <code>.gitignore</code> file in PyCharm
-and add a line containing “venv/” and another one containing “.venv/”.
-It does not matter much in this case where within the file you add these
-lines, so let us do it at the end. Your <code>.gitignore</code> should
-look something like this:</p>
+notifying us about it. Edit your <code>.gitignore</code> file in your
+IDE and add a line containing “venv/” and another one containing
+“.venv/”. It does not matter much in this case where within the file you
+add these lines, so let us do it at the end. Your
+<code>.gitignore</code> should look something like this:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -827,9 +827,9 @@ by convention and set up automatically by Git when you run
 <code>git clone remote_url</code> command to replicate a remote
 repository locally); <code>main</code> is the name of our main (and
 currently only) development branch.</p>
-<div id="github-authenticationauthorisation-error" class="callout">
+<div id="github-authenticationauthorisation-error" class="callout caution">
 <div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
 <div id="github-authenticationauthorisation-error" class="callout-inner">
 <h3 class="callout-title">GitHub Authentication/Authorisation Error</h3>
@@ -1008,7 +1008,7 @@ version of the code in <code>main</code>. We add and commit things to
 <code>develop</code> branch in the same way as we do to
 <code>main</code>.</p>
 <p>Let us make a small modification to
-<code>inflammation/models.py</code> in PyCharm, and, say, change the
+<code>inflammation/models.py</code> in the IDE, and, say, change the
 spelling of “2d” to “2D” in docstrings for functions
 <code>daily_mean()</code>, <code>daily_max()</code> and
 <code>daily_min()</code> to see updating branches in action.</p>
@@ -1285,8 +1285,8 @@ features without affecting the stable <code>main</code> code.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-06-19",
-  "datePublished": "2025-07-29"
+  "dateModified": "2025-07-30",
+  "datePublished": "2025-07-30"
 }
 
   </script><script>
