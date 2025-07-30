@@ -260,7 +260,7 @@ You can do that as follows:
 ![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
 
 - Right-click on the binary and select Copy Path.
-- Use the keyboard shortcut `CTRL-SHIFT-P` (Windows) or `CMD-SHIFT-P` (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
+- Use the keyboard shortcut `CTRL-SHIFT-P` (Windows, Linux) or `CMD-SHIFT-P` (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
 - Click `Enter interpreter path...`, paste the path you copied followed by Enter.
 
 ![](fig/vscode-interpreter-path.png){alt='Set interpreter path in VS Code' .image-with-shadow width="800px"}
