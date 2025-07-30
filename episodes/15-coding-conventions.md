@@ -121,20 +121,20 @@ You can also control the amount of spaces that the IDE uses to replace one tab c
 ### PyCharm
 
 By default, PyCharm inserts spaces and uses 4 spaces per tab key.
-You can modify these settings in PyCharm's `Settings`\>`Editor`\>`Code Style`\>`Python`.
+You can modify these settings in PyCharm's `Settings -> Editor -> Code Style -> Python`.
 
 ![](fig/pycharm-indentation.png){alt='Python code indentation settings in PyCharm' .image-with-shadow width="1000px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
+by selecting `Settings -> Editor -> General -> Appearance` then checking "Show whitespaces" option.
 
 ![](fig/pycharm-whitespace.png){alt='Python code whitespace settings in PyCharm' .image-with-shadow width="800px"}
 
 ### VS Code
 
 By default, VS Code inserts spaces and uses 4 spaces per tab key. 
-You can modify these settings in VS Code's user or workspace settings (`File -> Settings` then search for `tabSize` and enter the value you want).
+You can modify these settings in VS Code's user or workspace settings (`File -> Preferences -> Settings` on Windows and Linux or `Code -> Settings -> Settings` on Mac OS, then search for `tabSize` and enter the value you want).
 You also need to make sure `Editor: Detect Indentation` field is checked.
 
 ![](fig/vscode-whitespace.png){alt='Python code whitespace settings in VC Code' .image-with-shadow width="1000px"}

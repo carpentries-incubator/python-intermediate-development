@@ -199,9 +199,9 @@ in it, it is a good practice to tell your IDE which Python interpreter you want 
 This is because you may have multiple Python versions installed on your system and also because you may not have
 set a virtual environment from command line so you should do if from the IDE instead.
 
-1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
+1. Select either `PyCharm -> Settings` (Mac) or `File -> Settings` (Linux, Windows).
 2. In the window that appears,
-  select `Project: python-intermediate-inflammation` > `Python Interpreter` from the left.
+  select `Project: python-intermediate-inflammation -> Python Interpreter` from the left.
   You'll see a number of Python packages displayed as a list, and importantly above that,
   the current Python interpreter that is being used.
   These may be blank or set to `<No interpreter>`,
@@ -286,9 +286,9 @@ an alternative way of doing this and how it propagates to the command line.
 
 ### PyCharm
 
-1. Select either `PyCharm` > `Settings` (Mac) or `File` > `Settings` (Linux, Windows).
+1. Select either `PyCharm -> Settings` (Mac) or `File -> Settings` (Linux, Windows).
 2. In the preferences window that appears,
-  select `Project: python-intermediate-inflammation` > `Project Interpreter` from the left.
+  select `Project: python-intermediate-inflammation -> Project Interpreter` from the left.
 3. Select the `+` icon at the top of the window.
   In the window that appears, search for the name of the library (`pytest`),
   select it from the list,
@@ -423,7 +423,7 @@ runtime parameters/environment variables (i.e. additional configuration options)
 and use on top of virtual environments.
 
 1. To add a new Run Configuration for a project -
-  select `Run` > `Edit Configurations...` from the top menu.
+  select `Run -> Edit Configurations...` from the top menu.
 2. Select `Add new run configuration...` then `Python`.
   ![](fig/pycharm-add-run-configuration.png){alt='Adding a Run Configuration in PyCharm' .image-with-shadow width="800px" }
 3. In the new popup window, in the `Script path` field select the folder button
@@ -477,7 +477,7 @@ You can access and change user/workspace settings values in a few ways:
 
 - Select the `Preferences: Open User Settings` or `Preferences: Open User Settings (JSON)` in the **Command Palette** (via keyboard shortcut `CTRL-SHIFT-P`/`CMD-SHIFT-P`) - for user settings
 - Select the `Preferences: Open Workspace Settings` or `Preferences: Open Workspace Settings (JSON)` in the **Command Palette** (via keyboard shortcut `CTRL-SHIFT-P`/`CMD-SHIFT-P`) - for workspace settings
-- Select the User or Workspace tab in the **Settings editor** (via `File -> Settings` or keyboard shortcut `CTRL-,`/`CMD-,`)
+- Select the User or Workspace tab in the **Settings editor** (via `File -> Preferences -> Settings` on Windows and Linux or `Code -> Settings -> Settings` on Mac OS, or keyboard shortcut `CTRL-,`/`CMD-,`)
 
 ![](fig/vscode-settings.png){alt='Settings editor in VS Code' .image-with-shadow width="1000px" }
 
