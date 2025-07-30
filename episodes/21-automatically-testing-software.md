@@ -454,25 +454,13 @@ for a particular project or team, so you may want to revisit it at a later date.
 
 If you have already installed `pytest` package in your virtual environment,
 you can skip this step.
-Otherwise, as we have seen, we have a couple of options for installing external libraries:
-
-1. via PyCharm
-  (see ["Adding an External Library"](13-ides.md) section
-  in ["Integrated Software Development Environments"](13-ides.md) episode),
-  or
-2. via the command line
-  (see ["Installing External Libraries in an Environment With `pip`"](12-virtual-environments.md) section
-  in ["Virtual Environments For Software Development"](12-virtual-environments.md) episode).
-
-To do it via the command line -
-exit the Python console first (either with `Ctrl-D` or by typing `exit()`),
-then do:
+Otherwise, make sure you do it - e.g. via the command line terminal:
 
 ```bash
 $ python3 -m pip install pytest
 ```
 
-Whether we do this via PyCharm or the command line,
+Whether we do this via the IDE or the command line,
 the results are exactly the same:
 our virtual environment will now have the `pytest` package installed for use.
 

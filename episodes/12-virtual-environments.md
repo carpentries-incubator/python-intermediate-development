@@ -26,8 +26,8 @@ We now want to run our code to see what it does -
 let us do that from the command line.
 For the most part of the course we will run our code
 and interact with Git from the command line.
-While we will develop and debug our code using the PyCharm IDE
-and it is possible to use Git from PyCharm too,
+While we will develop and debug our code using an IDE
+and it is possible to use Git from the IDE too,
 typing commands in the command line allows you to familiarise yourself and learn it well.
 A bonus is that this knowledge is transferable to running code in other programming languages
 and is independent from any IDE you may use in the future.
@@ -142,7 +142,7 @@ and it may be a matter of personal preference which one you go for.
 In this course, we will use `venv` to create and manage our virtual environment
 (which is the preferred way for Python 3.3+).
 The upside is that `venv` virtual environments created from the command line are
-also recognised and picked up automatically by PyCharm IDE,
+also recognised and picked up automatically by the IDEs we will use in this course,
 as we will see in the next episode.
 
 ### Managing External Packages
@@ -203,7 +203,7 @@ using `venv` and manage packages using `pip`.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
-## Making Sure You Can Invoke Python
+### Making Sure You Can Invoke Python
 
 You can test your Python installation from the command line with:
 
@@ -494,19 +494,13 @@ Once again, we can use `pip` to install our local package:
 python3 -m pip install --editable .
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  spoiler
-
-### This command fails for me
-
-If your `pip` installation is older than version 21.3, then this command will probably fail for you.
-This is because these older versions of `pip` do not support `pyproject.toml` as the package metadata.
-Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can:
+If the above command fails for you - your `pip` installation is older than version 21.3.
+Such older versions of `pip` do not support `pyproject.toml` as the package metadata.
+Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can with:
 
 ```bash
 python3 -m pip install --upgrade pip
 ```
-
-:::::::::::::::::::::::::::::::::::::::::
 
 This is similar syntax to above, with two important differences:
 
@@ -515,7 +509,6 @@ This is similar syntax to above, with two important differences:
    This is very convenient when we are developing the package because we can instantly see changes when we call the code from within our virtual environment, rather than having to install the local package again to get the updates.
 2. The argument `'.'` indicates that the package we want to install is located in the current directory.
    The `pyproject.toml` file located in this directory then handles the rest.
-
 
 
 If we reissue the `pip list` command we should now see our local package with the name `python-intermediate-inflammation` in the output:
@@ -646,8 +639,13 @@ In the above command, we tell the command line two things:
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`.
 It looks like the script expects a list of input files to process,
-so this is expected behaviour since we do not supply any.
-We will fix this error in a moment.
+so this is expected behaviour since we do not supply any. 
+
+We should run our code as follows, passing one (or more) data file(s) as input:
+
+```bash
+(venv) $ python3 inflammation-analysis.py data/inflammation-01.csv
+```
 
 ## Optional Exercises
 

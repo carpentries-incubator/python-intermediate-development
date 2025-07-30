@@ -24,7 +24,7 @@ exercises: 0
 
 So far we have checked out our software project from GitHub
 and used command line tools to configure a virtual environment for our project and run our code.
-We have also familiarised ourselves with PyCharm -
+We have also familiarised ourselves with our IDE of choice -
 a graphical tool we will use for code development, testing and debugging.
 We are now going to start using another set of tools
 from the collaborative code development toolbox -
@@ -167,7 +167,7 @@ you can simply create it yourself.
 In our case, we want to tell Git to ignore the "venv" directory
 (and ".venv" as another naming convention for directories containing virtual environments)
 and stop notifying us about it.
-Edit your `.gitignore` file in PyCharm
+Edit your `.gitignore` file in your IDE
 and add a line containing "venv/" and another one containing ".venv/".
 It does not matter much in this case where within the file you add these lines,
 so let us do it at the end.
@@ -271,9 +271,9 @@ In the above command,
 when you run `git clone remote_url` command to replicate a remote repository locally);
 `main` is the name of our main (and currently only) development branch.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::::  caution
 
-## GitHub Authentication/Authorisation Error
+### GitHub Authentication/Authorisation Error
 
 If, at this point (i.e. the first time you try to write to a remote repository on GitHub),
 you get a warning/error that HTTPS access is deprecated, or a personal access token is required,
@@ -291,7 +291,7 @@ $ git remote set-url origin git@github.com:<YOUR_GITHUB_USERNAME>/python-interme
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Git Remotes
+### Git Remotes
 
 Note that systems like Git allow us to synchronise work between
 any two or more copies of the same repository -
@@ -444,7 +444,7 @@ the commits will happen on the `develop` branch
 and will not affect the version of the code in `main`.
 We add and commit things to `develop` branch in the same way as we do to `main`.
 
-Let us make a small modification to `inflammation/models.py` in PyCharm,
+Let us make a small modification to `inflammation/models.py` in the IDE,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
 `daily_mean()`,
 `daily_max()` and

@@ -75,10 +75,10 @@ Look at other examples and decide what looks best. And do not hesitate to ask!
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 As we have already covered in the
-[episode on PyCharm IDE](13-ides.md),
-PyCharm highlights the language constructs (reserved words)
+[episode on IDEs](13-ides.md),
+they highlight the language constructs (reserved words)
 and syntax errors to help us with coding.
-PyCharm also gives us recommendations for formatting the code -
+IDEs also give us recommendations for formatting the code -
 these recommendations are mostly taken from the PEP 8 style guide.
 
 A full list of style guidelines for this style is available from the
@@ -111,29 +111,45 @@ Whichever you choose, be consistent throughout the project.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-PyCharm has built-in support for converting tab indentation to spaces
-"under the hood" for Python code in order to conform to PEP 8.
-So, you can type a tab character and PyCharm will automatically convert it to 4 spaces.
-You can control the amount of spaces that PyCharm uses to replace one tab character
-or you can decide to keep the tab character altogether and prevent automatic conversion.
-You can modify these settings in PyCharm's `Settings`\>`Editor`\>`Code Style`\>`Python`.
+IDEs typically let you control text indentation and whether you would like to use spaces or tab stops.
+Such IDEs have built-in support for converting tab indentation to spaces "under the hood" for Python code in order to conform to PEP 8.
+So, you can type a tab character and your IDE will automatically convert it to 4 spaces.
+You can also control the amount of spaces that the IDE uses to replace one tab character or you can decide to keep the tab character altogether and prevent automatic conversion.
 
-![](fig/pycharm-indentation.png){alt='Python code indentation settings in PyCharm' .image-with-shadow width="800px"}
+::: group-tab
+
+### PyCharm
+
+By default, PyCharm inserts spaces and uses 4 spaces per tab key.
+You can modify these settings in PyCharm's `Settings -> Editor -> Code Style -> Python`.
+
+![](fig/pycharm-indentation.png){alt='Python code indentation settings in PyCharm' .image-with-shadow width="1000px"}
 
 You can also tell the editor to show non-printable characters
 if you are ever unsure what character exactly is being used
-by selecting `Settings` > `Editor` > `General` > `Appearance` then checking "Show whitespaces" option.
+by selecting `Settings -> Editor -> General -> Appearance` then checking "Show whitespaces" option.
 
 ![](fig/pycharm-whitespace.png){alt='Python code whitespace settings in PyCharm' .image-with-shadow width="800px"}
 
-There are more complex rules on indenting single units of code that continue over several lines,
-e.g. function, list or dictionary definitions can all take more than one line.
-The preferred way of wrapping such long lines is
-by using Python's implied line continuation inside delimiters such as
-parentheses (`()`),
-brackets (`[]`)
-and braces (`{}`),
-or a hanging indent.
+### VS Code
+
+By default, VS Code inserts spaces and uses 4 spaces per tab key. 
+You can modify these settings in VS Code's user or workspace settings (`File -> Preferences -> Settings` on Windows and Linux or `Code -> Settings -> Settings` on Mac OS, then search for `tabSize` and enter the value you want).
+You also need to make sure `Editor: Detect Indentation` field is checked.
+
+![](fig/vscode-whitespace.png){alt='Python code whitespace settings in VC Code' .image-with-shadow width="1000px"}
+
+If you are editing `settings.json` file manually - these are the 2 properties you need to set:
+
+```yaml
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+```
+
+:::
+
+There are more complex rules on indenting single units of code that continue over several lines, e.g. function, list or dictionary definitions can all take more than one line.
+The preferred way of wrapping such long lines is by using Python's implied line continuation inside delimiters such as parentheses (`()`), brackets (`[]`) and braces (`{}`), or a hanging indent.
 
 ```python
 # Add an extra level of indentation (extra 4 spaces) to distinguish arguments from the rest of the code that follows
@@ -168,8 +184,7 @@ a_long_list2 = [
 ]
 ```
 
-More details on good and bad practices for continuation lines can be found in
-[PEP 8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
+More details on good and bad practices for continuation lines can be found in [PEP 8 guideline on indentation](https://www.python.org/dev/peps/pep-0008/#indentation).
 
 ### Maximum Line Length
 
@@ -454,7 +469,7 @@ $ git switch develop
 $ git switch -c style-fixes
 ```
 
-Next look at the `inflammation-analysis.py` file in PyCharm
+Next look at the `inflammation-analysis.py` file in the IDE
 and identify where the above guidelines have not been followed.
 Fix the discovered inconsistencies and commit them to the feature branch.
 
@@ -462,8 +477,7 @@ Fix the discovered inconsistencies and commit them to the feature branch.
 
 ## Solution
 
-Modify `inflammation-analysis.py` from PyCharm,
-which is helpfully marking inconsistencies with coding guidelines by underlying them.
+Modify `inflammation-analysis.py` from your IDE, which is helpfully marking inconsistencies with coding guidelines by underlying them.
 There are a few things to fix in `inflammation-analysis.py`, for example:
 
 1. Line 30 in `inflammation-analysis.py` is too long and not very readable.
@@ -657,13 +671,10 @@ Functions:
 ...
 ```
 
-The docstring for a function or a module
-is returned when calling the `help` function and passing its name -
-for example from the interactive Python console/terminal available from the command line
-or when rendering code documentation online
-(e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
-PyCharm also displays the docstring for a function/module
-in a little help popup window when using tab-completion.
+The docstring for a function or a module is returned when calling the `help` function and passing its name - 
+for example from the interactive Python console/terminal available from the command line or when rendering code documentation online (e.g. see [Python documentation](https://docs.python.org/3.11/library/index.html)).
+
+Your IDE will also display the docstring for a function/module in a little help popup window when using tab-completion or when hovering your mouse over the function/module name.
 
 ```python
 help(fibonacci)
