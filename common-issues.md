@@ -177,7 +177,7 @@ such as Intel (x86\_64, x86\_32, etc.)
 or Apple's M1 (arm64e).
 In this instance, `pip` is obtaining a version of `numpy` with the incorrect compiled binaries,
 instead of the ones needed for Apple's M1 Mac.
-One way that was found to work was to install numpy via PyCharm into your environment instead,
+One way that was found to work was to install Numpy via the IDE into your environment instead,
 which seems able to determine the correct packages to download and install.
 
 ### Python 3 Installed but not Found When Using `python3` Command

@@ -44,14 +44,12 @@ Which one do you like the most and why?
 
 Some suggestions to try:
 
-- [Visual Studio Code](https://code.visualstudio.com/), with setup instructions [in the Extras of this course](../learners/vscode.md)
 - [Atom](https://atom-editor.cc/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [RStudio](https://posit.co/download/rstudio-desktop/)
 
-When compared to PyCharm, the IDEs listed above are advanced source code editors capable of functioning as IDEs.
-To function as an IDE, you have to manually install plugins for these tools to obtain more advanced features -
-such as support for a specific programming language or unit testing.
+The IDEs listed above are advanced source code editors capable of functioning as IDEs by manually installing plugins 
+and add-ons for these tools to obtain more advanced features - such as support for a specific programming language or unit testing.
 
 What do you prefer, a lot of tooling out of the box or a lightweight editor with optional extensions?
 
