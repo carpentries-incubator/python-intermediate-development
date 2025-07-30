@@ -253,7 +253,7 @@ Technically, this should set the Python interpreter to be the one contained in y
 Still, it is a good idea to check and set the Python interpreter manually in VS Code to make sure things 
 are configured correctly for your project. 
 
-You can do than as follows:
+You can do that as follows:
 
 - Navigate to the location of the Python binary within the virtual environment using the file browser. The Python binary will be located in, e.g. `venv/bin/python3` within the project directory.
 
