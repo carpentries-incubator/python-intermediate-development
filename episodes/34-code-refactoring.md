@@ -282,7 +282,7 @@ i.e. their tests are:
 ::: challenge
 ## Exercise: Testing a Pure Function
 
-Add tests for `compute_standard_deviation_by_data()` that check for situations
+Add tests for `compute_standard_deviation_by_day()` that check for situations
 when there is only one file with multiple rows,
 multiple files with one row, and any other cases you can think of that should be tested.
 
@@ -299,9 +299,9 @@ with more inputs and expected outputs:
 ],
 ids=['Two patients in same file', 'Two patients in different files', 'Two identical patients in two different files'])
 def test_compute_standard_deviation_by_day(data, expected_output):
-    from inflammation.compute_data import compute_standard_deviation_by_data
+    from inflammation.compute_data import compute_standard_deviation_by_day
 
-    result = compute_standard_deviation_by_data(data)
+    result = compute_standard_deviation_by_day(data)
     npt.assert_array_almost_equal(result, expected_output)
 ```
 
