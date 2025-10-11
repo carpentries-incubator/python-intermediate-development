@@ -8,7 +8,7 @@ You will need the following software and accounts setup to be able to follow the
 - [Git version control program](#git-version-control-tool)
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)
-- [PyCharm](#pycharm), [VSCodium](#vs-codium) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE)
+- [PyCharm](#pycharm), [VSCodium](#vscodium) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE)
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -315,7 +315,7 @@ The Community edition is fine, though if you are developing software for the pur
 
 ### VSCodium
 
-[VS Codium](https://vscodium.com/), a fully libre IDE that does not track what you do.
+[VSCodium](https://vscodium.com/), a fully libre IDE that does not track what you do.
 
 ### VS Code
 
