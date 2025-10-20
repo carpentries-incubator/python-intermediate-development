@@ -71,22 +71,22 @@ and some can also interact with a version control system.
 Compared to an IDE, a good dedicated code editor is usually smaller and quicker,
 but often less feature-rich.
 
-You will have to decide which one is the best for you in your daily work. In this course you have 
-the choice of using two free and open source IDEs - 
+You will have to decide which one is the best for you in your daily work. In this course you have
+the choice of using two free and open source IDEs -
 [PyCharm Community Edition from JetBrains](https://www.jetbrains.com/pycharm/) or [Microsoft's Visual Studio Code (VS Code)](https://code.visualstudio.com/).
-A popular alternative to consider is free and open source [Spyder IDE](https://www.spyder-ide.org/) - 
+A popular alternative to consider is free and open source [Spyder IDE](https://www.spyder-ide.org/) -
 we are not covering it here but it should be possible to switch.
 
 ### Starting With a Software Project
 
-::::::::::::::::::::::::::::::::: group-tab 
+::::::::::::::::::::::::::::::::: group-tab
 
 ### PyCharm
 
 When you start PyCharm - you may be presented with a dialog box that asks you what you want to do,
 e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
 If that is the case - select `Open` and find the software project directory
-`python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the 
+`python-intermediate-inflammation` you cloned earlier. Alternatively, do the same from the
 `File -> Open...` top menu.
 
 This directory is now the current working directory for PyCharm,
@@ -116,14 +116,14 @@ before you can do any work.
 
 You may take the shortcut and click on one of the offered options above
 but we want to take you through the whole process of setting up your environment in PyCharm shortly
-as this is important conceptually. If you do not see this warning - do not worry, it just means 
+as this is important conceptually. If you do not see this warning - do not worry, it just means
 you may have configured this already on previous usages of PyCharm.
 
 ### VS Code
 
 We will take you through the various steps of using VC Code now - also check out the [VS Code Python Quick Start guide](https://code.visualstudio.com/docs/python/python-quick-start) and [Getting Started with Python in VS Code Tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
-When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly 
+When you start VS Code, you may be presented with a "Welcome" page giving you shortcuts to commonly
 used actions - e.g. `Open File...' and 'Open Folder...` (on Windows and Linux; with similarly named `New File...` and `Open...` actions on Mac OS), `Clone Git repository...`, etc.
 
 ![](fig/vscode-welcome.png){alt='Welcome screen in VS Code' .image-with-shadow width="1000px" }
@@ -134,42 +134,42 @@ If that is the case - select `Open Folder...` and find the software project dire
 
 ![](fig/vscode-open-project.png){alt='View of an opened project in VS Code' .image-with-shadow width="1000px" }
 
-You’ll see some icons on the left side, which give you access to key views of VS Code. 
+You’ll see some icons on the left side, which give you access to key views of VS Code.
 Hovering your mouse over each one will show a tooltip that names that view:
 
 - Explorer - file navigator to view existing folders containing project files.
 - Search - search capability enabling you to search for things in your project (and replace them with other text).
-- Source Control - this gives you access to source code control for your project, which includes Git version control functionality. 
+- Source Control - this gives you access to source code control for your project, which includes Git version control functionality.
 This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
 - Run and Debug - to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we’ll look into later.
 - Extensions - which we’ll look into right now, to install extensions to VSCode to extend its functionality in some way.
 - Testing - testing features for test discovery, test coverage, and running and debugging tests your code.
- 
-VS Code is a lightweight, general-purpose code editor designed to support a wide range of programming 
-languages and development tasks. 
-Its core "light" functionality is extended through a rich marketplace of 
-extensions, allowing users to add language support, debugging tools, linters, formatters, and more. 
-With extensions, VS Code can seamlessly handle languages (like Python, JavaScript, C++, Java, R, etc.), 
-data formats (like JSON, YAML, CSV, etc.), and so on, making it a flexible choice for developers working across 
+
+VS Code is a lightweight, general-purpose code editor designed to support a wide range of programming
+languages and development tasks.
+Its core "light" functionality is extended through a rich marketplace of
+extensions, allowing users to add language support, debugging tools, linters, formatters, and more.
+With extensions, VS Code can seamlessly handle languages (like Python, JavaScript, C++, Java, R, etc.),
+data formats (like JSON, YAML, CSV, etc.), and so on, making it a flexible choice for developers working across
 multiple technologies.
 
-This means that VS Code will not support Python our of the box - it needs to be extended for Python development 
+This means that VS Code will not support Python our of the box - it needs to be extended for Python development
 by installing extensions. You would need the following for this course:
 
-- the official [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides essential features 
-such as syntax highlighting, IntelliSense (code completion), linting, debugging, and unit testing support. 
+- the official [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides essential features
+such as syntax highlighting, IntelliSense (code completion), linting, debugging, and unit testing support.
 - [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), now integrated in Python extension by Microsoft,
-enhances performance and offers advanced type checking and code navigation. 
+enhances performance and offers advanced type checking and code navigation.
 - [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) for Python docstring generation.
 
 Developers can also integrate other extensions such as ,
-[Black](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) or [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) 
-for automatic code formatting, and many more. 
-These extensions transform VS Code into a versatile and efficient Python development environment that 
+[Black](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) or [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8)
+for automatic code formatting, and many more.
+These extensions transform VS Code into a versatile and efficient Python development environment that
 suits everything from quick scripts to complex software projects.
 
-We will install and make use of the **Python by Microsoft** and the **autoDocstring** extensions. 
-You can do that from the Extensions tab (one of the vertical tabs to the left) by searching the 
+We will install and make use of the **Python by Microsoft** and the **autoDocstring** extensions.
+You can do that from the Extensions tab (one of the vertical tabs to the left) by searching the
 extensions marketplace and installing the ones you need.
 
 ![](fig/vscode-extensions.png){alt='VS Code Extensions marketplace for searching and installing extensions' .image-with-shadow width="1000px" }
@@ -194,26 +194,29 @@ from the command line already and some IDEs are clever enough to understand it.
 
 ### PyCharm
 
-While PyCharm will recognise the virtual environment you already have, and the Python interpreter contained
+While PyCharm may recognise the virtual environment you already have, and the Python interpreter contained
 in it, it is a good practice to tell your IDE which Python interpreter you want to use for which project.
 This is because you may have multiple Python versions installed on your system and also because you may not have
 set a virtual environment from command line so you should do if from the IDE instead.
 
 1. Select either `PyCharm -> Settings` (Mac) or `File -> Settings` (Linux, Windows).
-2. In the window that appears,
-  select `Project: python-intermediate-inflammation -> Python Interpreter` from the left.
+2. In the window that appears, select `Python -> Interpreter`
+  (or `Project: python-intermediate-inflammation -> Python Interpreter` in some PyCharm versions)
+  from the left.
   You'll see a number of Python packages displayed as a list, and importantly above that,
   the current Python interpreter that is being used.
   These may be blank or set to `<No interpreter>`,
   or possibly the default version of Python installed on your system,
   e.g. `Python 2.7 /usr/bin/python2.7`,
   which we do not want to use in this instance.
-3. Select the cog-like button in the top right, then `Add...`
-  (or `Add Local...` depending on your PyCharm version).
+3. Select `Add interpreter` in the top right, then `Add local interpreter ...`
+  (depending on your PyCharm version, you might find instead a cog-like button,
+   with the `Add...` or `Add Local...` sub-options).
   An `Add Python Interpreter` window will appear.
-4. Select `Virtualenv Environment` from the list on the left
-  and ensure that `Existing environment` checkbox is selected within the popup window.
-  In the `Interpreter` field point to the Python 3 executable inside
+4. In some versions of PyCharm, you will have to select `Virtualenv Environment` from the list
+  on the left. Ensure that the `Select Existing` (or `Existing environment`) checkbox is selected
+  within the popup window. If you have a `Type` menu, select `Python`.
+  In the `Interpreter` (or `Python path`) field point to the Python 3 executable inside
   your virtual environment's `bin` directory
   (make sure you navigate to it and select it from the file browser rather than
   just accept the default offered by PyCharm).
@@ -221,7 +224,7 @@ set a virtual environment from command line so you should do if from the IDE ins
   but we are not using that option as we want to reuse the one we created
   from the command line in the previous episode.
   ![](fig/pycharm-configuring-interpreter.png){alt='Configuring Python Interpreter in PyCharm' .image-with-shadow width="800px"}
-5. Select `Make available to all projects` checkbox
+5. If present, select the `Make available to all projects` checkbox
   so we can also use this environment for other projects if we wish.
 6. Select `OK` in the `Add Python Interpreter` window.
   Back in the `Preferences` window, you should select "Python 3.11 (python-intermediate-inflammation)"
@@ -249,9 +252,9 @@ To do so, from the top menu select `Terminal > New Terminal` to open a new comma
 source ./venv/bin/activate
 ```
 
-Technically, this should set the Python interpreter to be the one contained in your virtual environment. 
-Still, it is a good idea to check and set the Python interpreter manually in VS Code to make sure things 
-are configured correctly for your project. 
+Technically, this should set the Python interpreter to be the one contained in your virtual environment.
+Still, it is a good idea to check and set the Python interpreter manually in VS Code to make sure things
+are configured correctly for your project.
 
 You can do that as follows:
 
@@ -287,8 +290,9 @@ an alternative way of doing this and how it propagates to the command line.
 ### PyCharm
 
 1. Select either `PyCharm -> Settings` (Mac) or `File -> Settings` (Linux, Windows).
-2. In the preferences window that appears,
-  select `Project: python-intermediate-inflammation -> Project Interpreter` from the left.
+2. In the preferences window that appears, select `Python -> Interpreter`
+  (or `Project: python-intermediate-inflammation`, depending on the version of PyCharm),
+  from the left.
 3. Select the `+` icon at the top of the window.
   In the window that appears, search for the name of the library (`pytest`),
   select it from the list,
@@ -307,7 +311,7 @@ Let us do this as an exercise.
 
 ### VS Code
 
-In VS Code, there is no special graphical user interface to add external dependencies for a project - 
+In VS Code, there is no special graphical user interface to add external dependencies for a project -
 this is done from the terminal window as we did before (within the active virtual environment):
 
 ```bash
@@ -456,7 +460,7 @@ you can have separate configurations for running, debugging and testing your cod
 
 ### VS Code
 
-You can configure Visual Studio Code through a number of [settings](https://code.visualstudio.com/docs/configure/settings). 
+You can configure Visual Studio Code through a number of [settings](https://code.visualstudio.com/docs/configure/settings).
 Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
 VS Code provides different scopes for settings:
@@ -471,7 +475,7 @@ Depending on your platform, the user settings file is located in:
 - `$HOME/Library/Application\ Support/Code/User/settings.json` on macOS
 - `$HOME/.config/Code/User/settings.json` on Linux
 
-The workspace settings file `settings.json` is located under the `.vscode` folder in your project's root folder, and overrides the user settings. 
+The workspace settings file `settings.json` is located under the `.vscode` folder in your project's root folder, and overrides the user settings.
 
 You can access and change user/workspace settings values in a few ways:
 
@@ -481,18 +485,18 @@ You can access and change user/workspace settings values in a few ways:
 
 ![](fig/vscode-settings.png){alt='Settings editor in VS Code' .image-with-shadow width="1000px" }
 
-We have already configured Python interpreter via the **Command Palette**. 
-Other Python commands available through the Python extensions can be accessed through the **Command Palette** in a similar way - 
+We have already configured Python interpreter via the **Command Palette**.
+Other Python commands available through the Python extensions can be accessed through the **Command Palette** in a similar way -
 bring up the **Command Palette** and enter "Python: " to find them.
 
 For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations.
-However, for some more complex run or debugging scenarios you need to create a [**launch configuration**](https://code.visualstudio.com/docs/debugtest/debugging-configuration) - to specify the application entry point or set environment variables. 
+However, for some more complex run or debugging scenarios you need to create a [**launch configuration**](https://code.visualstudio.com/docs/debugtest/debugging-configuration) - to specify the application entry point or set environment variables.
 Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
 VS Code stores such configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your user settings or workspace settings.
 VS Code also supports compound launch configurations for starting multiple configurations at the same time - e.g. for more complex testing and debugging scenarios.
 
-We do not have anything to put in the launch configuration for the time being, so you do not need to create and configure `launch.json` file. 
+We do not have anything to put in the launch configuration for the time being, so you do not need to create and configure `launch.json` file.
 However, it may be useful to know where such information is configured, should you need to do so in the future.
 To create an initial `launch.json` file - you can go to the Run and Debug view, then click `Create a launch.json file` and follow the instructions.
 
@@ -501,11 +505,11 @@ To create an initial `launch.json` file - you can go to the Run and Debug view, 
 :::::::::::::::::::::::::::::::::
 
 Now you know how to configure and manipulate your environment in both tools
-(command line and IDE), which is a useful parallel to be aware of. 
-As you may have noticed, using the command line terminal facility integrated into an IDE allows you 
-to run commands (e.g. to manipulate files, interact with version control, etc.) and execute code 
-without leaving the development environment, making it easier and faster to work by having all 
-essential tools in one window. 
+(command line and IDE), which is a useful parallel to be aware of.
+As you may have noticed, using the command line terminal facility integrated into an IDE allows you
+to run commands (e.g. to manipulate files, interact with version control, etc.) and execute code
+without leaving the development environment, making it easier and faster to work by having all
+essential tools in one window.
 
 Let us have a look at some other features afforded to us by IDEs.
 
@@ -592,28 +596,28 @@ For a selected piece of code, you can access various code reference information 
 #### Code Search
 
 You can search for (and replace) a text string within a project, use different scopes to narrow your search process,
-use regular expressions for complex searches, include/exclude certain files from your search, 
+use regular expressions for complex searches, include/exclude certain files from your search,
 find usages/references and occurrences.
 
 ::::::::::::::::::::::::::::::::: group-tab
 
 ### PyCharm
 
-To find a search string in the whole project - from the main menu, select `Edit | Find | Find in Path ...` (or `Edit | Find | Find in Files...` depending on your version of PyCharm). 
+To find a search string in the whole project - from the main menu, select `Edit | Find | Find in Path ...` (or `Edit | Find | Find in Files...` depending on your version of PyCharm).
 
-Type your search string in the search field of the popup. 
+Type your search string in the search field of the popup.
 Alternatively, in the editor, highlight the string you want to find and press `CMD-SHIFT-F` (Mac) or `CTRL-SHIFT-F` (Windows). PyCharm places the highlighted string into the search field of the popup.
-  
+
 ![](fig/pycharm-code-search.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="800px" }
 
-If you need, specify the additional options in the popup. 
+If you need, specify the additional options in the popup.
 PyCharm will list the search strings and all the files that contain them.
 
 Check the results in the preview area of the dialog where you can replace the search string or select another string, or press `CMD-SHIFT-F` (Mac) or `CTRL-SHIFT-F` (Windows) again to start a new search.
 
 To see the list of occurrences in a separate panel, click the `Open in Find Window` button in the bottom right corner.
 The find panel will appear at the bottom of the main window; use this panel and its options to group the results, preview them, and work with them further.
-  
+
 ![](fig/pycharm-find-panel.png){alt='Code Search Functionality in PyCharm' .image-with-shadow width="1000px" }
 
 ### VS Code
@@ -627,7 +631,7 @@ In the search window that pops up - type in your search string in the search fie
 
 ![](fig/vscode-search-window.png){alt='Search for a string functionality in VS Code' .image-with-shadow width="800px" }
 
-The results will show in the search window - you can further filter the results by matching case, 
+The results will show in the search window - you can further filter the results by matching case,
 matching the whole word or use regular expressions for more advanced filtering.
 
 ![](fig/vscode-search-results.png){alt='Search results window in VS Code with further filtering functionalities' .image-with-shadow width="1000px" }
@@ -665,7 +669,7 @@ You can get a full [documentation on PyCharm's built-in version control support]
 
 ### VS Code
 
-VS Code has integrated source control management (SCM) and includes Git support out-of-the-box. 
+VS Code has integrated source control management (SCM) and includes Git support out-of-the-box.
 Many other source control tools are available through [extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
 
 Our project was already under Git version control and VS Code recognised it.
@@ -693,9 +697,9 @@ This functionality in VS Code is available from the Source Control view (from th
 We have configured our environment and explored some of the most commonly used IDE features and are now ready to run our Python script from the IDE.
 
 Running code using the graphical interface of an IDE provides a simple, user-friendly way to execute programs with just a click, reducing the need type commands manually in the command line terminal.
-On the other hand, running code from a terminal window in an IDE offers the flexibility and control of the command line — both approaches complement each other by supporting different user preferences and tasks within the same unified environment. 
+On the other hand, running code from a terminal window in an IDE offers the flexibility and control of the command line — both approaches complement each other by supporting different user preferences and tasks within the same unified environment.
 
-In this lesson, we prioritise using the command line and typing commands whenever possible, as these skills are easily transferable across different IDEs (with a note that you should feel free to use other equivalent ways for doing things that suit you more). 
+In this lesson, we prioritise using the command line and typing commands whenever possible, as these skills are easily transferable across different IDEs (with a note that you should feel free to use other equivalent ways for doing things that suit you more).
 However, for tasks like debugging - where the graphical interface offers significant advantages — we will make use of the IDE’s built-in visual tools.
 
 ::::::::::::::::::::::::::::::::: group-tab
@@ -729,9 +733,9 @@ inflammation-analysis.py: error: the following arguments are required: infiles
 Process finished with exit code 2
 ```
 
-This is the same error we got when running the script from the command line! Essentially what happened was the IDE opened a command line terminal within its interface 
-and executed the Python command to run the script for us (`python3 inflammation-analysis.py`) - saving us some typing. 
-You can carry on to run the Python script in whatever way you find more convenient - some developers prefer to type the commands in a terminal manually as that gives 
+This is the same error we got when running the script from the command line! Essentially what happened was the IDE opened a command line terminal within its interface
+and executed the Python command to run the script for us (`python3 inflammation-analysis.py`) - saving us some typing.
+You can carry on to run the Python script in whatever way you find more convenient - some developers prefer to type the commands in a terminal manually as that gives
 the feel of having more control over what is happening and what commands are being executed.
 
 We will get back to the above error shortly - for now, the good thing is that we managed to set up our project for development both from the command line and IDE and are getting the same outputs.
