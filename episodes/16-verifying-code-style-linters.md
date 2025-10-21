@@ -230,7 +230,7 @@ Add the following section to the `pyproject.toml`:
 
 ```toml
 [tool.ruff.lint]
-select = ["E", "W", "F", "UP", "A", "B", "SIM"]
+select = ["E", "W", "F", "UP", "A", "B", "SIM", "I"]
 ```
 
 Running `ruff check inflammation` should indeed show problems with some of
