@@ -187,7 +187,7 @@ Development dependencies are dependencies which
 are an essential part of your development process for a project,
 but are not required to run it.
 Common examples of developments dependencies are linters and test frameworks,
-like `pylint` or `pytest`.
+like `ruff` or `pytest`.
 
 When we add a dependency using Poetry,
 Poetry will add it to the list of dependencies in the `pyproject.toml` file,
@@ -202,7 +202,7 @@ allowing us to distinguish between runtime and development dependencies.
 
 ```bash
 $ poetry add matplotlib numpy
-$ poetry add --group dev pylint
+$ poetry add --group dev ruff
 $ poetry install
 ```
 
