@@ -48,7 +48,7 @@ Some suggestions to try:
 - [Sublime Text](https://www.sublimetext.com/)
 - [RStudio](https://posit.co/download/rstudio-desktop/)
 
-The IDEs listed above are advanced source code editors capable of functioning as IDEs by manually installing plugins 
+The IDEs listed above are advanced source code editors capable of functioning as IDEs by manually installing plugins
 and add-ons for these tools to obtain more advanced features - such as support for a specific programming language or unit testing.
 
 What do you prefer, a lot of tooling out of the box or a lightweight editor with optional extensions?
@@ -91,27 +91,38 @@ An open-source alternative is [mini-forge](https://github.com/conda-forge/minifo
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Customise `pylint`
+## Exercise: Customise `ruff`
 
-Tell `pylint` to accept the maximum line length of 100 characters instead of the default 80.
+Tell Ruff to accept the maximum line length of 100 characters instead of the default 79.
 
-Hint: find out different ways in which you can configure `pylint` (e.g. via `pylint` command line interface or its configuration file).
+Find out different ways in which you can configure `ruff` (e.g. via `ruff` command line interface or the project configuration file (`pyproject.toml`)).
+
+Hint: Note that the maximum line lenght will only be enforced if a rule on long-line violations (such as `E501`) is enabled.
 
 :::::::::::::::  solution
 
 ## Solution
 
-### By passing an argument to `pylint` in the command line
+### By passing an argument to Ruff in the command line
 
-Specify the max line length as an argument: `pylint --max-line-length=100`
+Specify the max line length as an argument, including all `E` rules: `ruff check --select E --line-length=100`
 
 ### Using a configuration file
 
-You can create a file `.pylintrc` in the root of your project folder to overwrite `pylint` settings:
+You can add a section to the `pyproject.toml` in the root of your project folder to overwrite Ruff settings:
 
 ```
-[FORMAT]
-max-line-length=100
+...
+[tool.ruff.lint]
+select = [
+    ...
+    "E",
+    ...
+]
+
+[tool.ruff]
+line-length = 100
+...
 ```
 
 :::::::::::::::::::::::::
