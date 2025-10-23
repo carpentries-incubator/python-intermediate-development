@@ -143,7 +143,7 @@ popular tools, such as [pycodestyle](https://pypi.org/project/pycodestyle/)
 (`E` and `W` rules) and [isort](https://pypi.org/project/isort/) (`I` rules):
 
 ```bash
-$ ruff check --select E,W,F,UP,A,B,SIM,I inflammation
+$ ruff check --select E,F,I inflammation
 ```
 
 Ruff will identify more problems in the codebase:
