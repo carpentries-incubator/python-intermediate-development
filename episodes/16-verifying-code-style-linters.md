@@ -140,7 +140,7 @@ only a subset that is considered a reasonable choice to identify common errors.
 You can enable a specific set of rules using the `--select` option. For instance,
 try to include the following set of rules, which are derived from some of the most
 popular tools, such as [pycodestyle](https://pypi.org/project/pycodestyle/)
-(`E` and `W` rules) and [isort](https://pypi.org/project/isort/) (`I` rules):
+(`E` rules) and [isort](https://pypi.org/project/isort/) (`I` rules):
 
 ```bash
 $ ruff check --select E,F,I inflammation
@@ -149,38 +149,6 @@ $ ruff check --select E,F,I inflammation
 Ruff will identify more problems in the codebase:
 
 ```output
-W291 Trailing whitespace
- --> inflammation/models.py:5:83
-  |
-3 | The Model layer is responsible for the 'business logic' part of the software.
-4 |
-5 | Patients' data is held in an inflammation table (2D array) where each row contains
-  |                                                                                   ^
-6 | inflammation data for a single patient taken over a number of days
-7 | and each column represents a single day across all patients.
-  |
-help: Remove trailing whitespace
-
-W291 Trailing whitespace
- --> inflammation/models.py:6:67
-  |
-5 | Patients' data is held in an inflammation table (2D array) where each row contains
-6 | inflammation data for a single patient taken over a number of days
-  |                                                                   ^
-7 | and each column represents a single day across all patients.
-8 | """
-  |
-help: Remove trailing whitespace
-
-W291 [*] Trailing whitespace
-  --> inflammation/models.py:13:24
-   |
-13 | def load_csv(filename):
-   |                        ^^
-14 |     """Load a Numpy array from a CSV
-   |
-help: Remove trailing whitespace
-
 I001 [*] Import block is un-sorted or un-formatted
  --> inflammation/views.py:3:1
   |
@@ -201,8 +169,8 @@ F401 [*] `numpy` imported but unused
   |
 help: Remove unused import: `numpy`
 
-Found 5 errors.
-[*] 3 fixable with the `--fix` option (2 hidden fixes can be enabled with the `--unsafe-fixes` option).
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.
 ```
 
 It is important to note that while tools such as Ruff are great at giving you
