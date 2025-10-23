@@ -911,7 +911,7 @@ We specified `--exit-zero` so that the builds will not fail even if some of
 the linting rules are not followed.
 If we decide as a team on a set of rules to be followed for our codebase,
 we can remove this option.
-By specifying specific style rules that shouldn't be broken in the `pyproject.toml` file,
+With the agreed upon style rules that shouldn't be broken specified in the `pyproject.toml` file,
 which will cause Ruff to fail, we can use the action to mandate a consistent style.
 
 We can also specify overrides to Ruff's rules in the `pyproject.toml` file.
