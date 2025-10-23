@@ -265,7 +265,7 @@ with GitHub Actions - we will come back to automated linting in the episode on
 ["Diagnosing Issues and Improving Robustness"](24-diagnosing-issues-improving-robustness.md).
 
 ```bash
-$ git add requirements.txt
+$ git add requirements.txt pyproject.toml
 $ git commit -m "Added Ruff library"
 $ git push origin style-fixes
 $ git switch develop
