@@ -220,7 +220,7 @@ After making any changes, run Ruff again to verify you have resolved these issue
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Make sure you commit and push `requirements.txt`
+Make sure you commit and push `requirements.txt`, `pyproject.toml`,
 and any file with further code style improvements you did on to `style-fixes` branch and then
 merge all these changes into your development branch.
 
