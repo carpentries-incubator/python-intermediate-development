@@ -907,7 +907,7 @@ Then once complete, under the build(s) reports you should see
 an entry with the output from Ruff as before,
 but with a more concise format.
 
-So we specified `--exit-zero` so that the builds will not fail even if some of
+We specified `--exit-zero` so that the builds will not fail even if some of
 the linting rules are not followed.
 If we decide as a team on a set of rules to be followed for our codebase,
 we can remove this option.
