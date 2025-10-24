@@ -189,7 +189,7 @@ Firstly, to make it easier to track what's going on, we can set up our IDE to ru
 
 ### Configuring the Test Framework
 
-::: group-tab 
+::: group-tab
 
 ### PyCharm
 
@@ -207,20 +207,20 @@ You can do this by:
 ### VS Code
 
 If you have not done so already, you will first need to configure the Pytest framework in VS Code.
-Open the Test Explorer view (click on the test beaker icon on the VS Code Activity Bar on the left hand side). 
+Open the Test Explorer view (click on the test beaker icon on the VS Code Activity Bar on the left hand side).
 
-You should see a `Configure Python Tests` button if a test framework is not enabled. 
+You should see a `Configure Python Tests` button if a test framework is not enabled.
 Clicking on it prompts you to select a test framework and a folder containing your tests (which in this project, is the `tests` subfolder).
 
 ![](fig/vscode-test-framework.png){alt='Setting up test framework in VS Code' .image-with-shadow width="1000px"}
 
 ![](fig/vscode-configure-pytest.png){alt='Setting up test framework in VS Code' .image-with-shadow width="1000px"}
 
-Tests can be configured anytime by using the `Python: Configure Tests` command from the Command Palette 
-or by setting `python.testing.pytestEnabled` in the Settings editor or `settings.json` file (described in the VS Code Settings in the [episode on IDEs](/13-ides.md)). 
+Tests can be configured anytime by using the `Python: Configure Tests` command from the Command Palette
+or by setting `python.testing.pytestEnabled` in the Settings editor or `settings.json` file (described in the VS Code Settings in the [episode on IDEs](/13-ides.md)).
 Each testing framework also has further specific configuration settings as described in the [Test configuration settings of the VS Code documentation for Python](https://code.visualstudio.com/docs/python/testing#_test-configuration-settings).
 
-::: 
+:::
 
 ### Running the Tests
 
@@ -360,7 +360,7 @@ Recall that the input `data` array we are using for the function is
 
 So the maximum inflammation for each patient should be `[3, 6, 9]`, whereas the debugger shows `[7, 8, 9]`.
 You can see that the latter corresponds exactly to the last column of `data`, and we can immediately conclude that we took the maximum along the wrong axis of `data`.
-Now we have our answer, stop the debugging process. 
+Now we have our answer, stop the debugging process.
 
 ::: group-tab
 
@@ -642,7 +642,7 @@ from inflammation.models import patient_normalise
     ])
 def test_patient_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers."""
-        
+
     if expect_raises is not None:
         with pytest.raises(expect_raises):
             patient_normalise(np.array(test))
@@ -835,20 +835,28 @@ This approach is useful when explicitly checking the precondition is too costly.
 
 ## Improving Robustness with Automated Code Style Checks
 
-Let us re-run Pylint over our project after having added some more code to it.
+Let us re-run Ruff over our project after having added some more code to it.
 From the project root do:
 
 ```bash
-$ pylint inflammation
+$ ruff check inflammation
 ```
 
-You may see something like the following in Pylint's output:
+You may see something like the following in Ruff's output:
 
 ```bash
-************* Module inflammation.models
-...
-inflammation/models.py:60:4: W0622: Redefining built-in 'max' (redefined-builtin)
-...
+A001 Variable `max` is shadowing a Python builtin
+  --> inflammation/models.py:60:5
+   |
+58 |     if np.any(data < 0):
+59 |         raise ValueError('inflammation values should be non-negative')
+60 |     max = np.nanmax(data, axis=1)
+   |     ^^^
+61 |     with np.errstate(invalid='ignore', divide='ignore'):
+62 |         normalised = data / max[:, np.newaxis]
+   |
+
+Found 1 error.
 ```
 
 The above output indicates that by using the local variable called `max`
@@ -869,78 +877,61 @@ push them to GitHub using our usual feature branch workflow.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 It may be hard to remember to run linter tools every now and then.
-Luckily, we can now add this Pylint execution to our continuous integration builds
+Luckily, we can now add this Ruff execution to our continuous integration builds
 as one of the extra tasks.
-To add Pylint to our CI workflow,
+To add Ruff to our CI workflow,
 we can add the following step to our `steps` in `.github/workflows/main.yml`:
 
 ```bash
 ...
-    - name: Check style with Pylint
+    - name: Check style with Ruff
       run: |
-        python3 -m pylint --fail-under=0 --reports=y inflammation
+        python3 -m ruff check --exit-zero --output-format=github inflammation
 ...
 ```
 
-Note we need to add `--fail-under=0` otherwise
-the builds will fail if we do not get a 'perfect' score of 10!
-This seems unlikely, so let us be more pessimistic.
-We have also added `--reports=y` which will give us a more detailed report of the code analysis.
+Note we need to add `--exit-zero` otherwise
+the builds will fail if our codebase breaks any of the rule!
+We have also added `--output-format=github` to format the output so that it can
+more easily be visualized as part of the GitHub action logs.
 
 Then we can just add this to our repo and trigger a build:
 
 ```bash
 $ git add .github/workflows/main.yml
-$ git commit -m "Add Pylint run to build"
+$ git commit -m "Add Ruff run to build"
 $ git push origin test-suite
 ```
 
 Then once complete, under the build(s) reports you should see
-an entry with the output from Pylint as before,
-but with an extended breakdown of the infractions by category
-as well as other metrics for the code,
-such as the number and line percentages of code, docstrings, comments, and empty lines.
+an entry with the output from Ruff as before,
+but with a more concise format.
 
-So we specified a score of 0 as a minimum which is very low.
-If we decide as a team on a suitable minimum score for our codebase,
-we can specify this instead.
-There are also ways to specify specific style rules that shouldn't be broken
-which will cause Pylint to fail,
-which could be even more useful if we want to mandate a consistent style.
+We specified `--exit-zero` so that the builds will not fail even if some of
+the linting rules are not followed.
+If we decide as a team on a set of rules to be followed for our codebase,
+we can remove this option.
+With the agreed upon style rules that shouldn't be broken specified in the `pyproject.toml` file,
+which will cause Ruff to fail, we can use the action to mandate a consistent style.
 
-We can specify overrides to Pylint's rules in a file called `.pylintrc`
-which Pylint can helpfully generate for us.
-In our repository root directory:
-
-```bash
-$ pylint --generate-rcfile > .pylintrc
-```
-
-Looking at this file, you'll see it is already pre-populated.
-No behaviour is currently changed from the default by generating this file,
-but we can amend it to suit our team's coding style.
+We can also specify overrides to Ruff's rules in the `pyproject.toml` file.
+For instance, we can ignore particular rules to suit our team's coding style.
 For example, a typical rule to customise - favoured by many projects -
 is the one involving line length.
-You'll see it is set to 100, so let us set that to a more reasonable 120.
-While we are at it, let us also set our `fail-under` in this file:
+The default maximum line length as indicated by the
+[Python PEP-8 coding conventions](https://peps.python.org/pep-0008/#maximum-line-length)
+is 79 characters, so let us set that to a more reasonable 120:
 
 ```bash
 ...
-# Specify a score threshold to be exceeded before program exits with error.
-fail-under=0
-...
-# Maximum number of characters on a single line.
-max-line-length=120
+[tool.ruff]
+line-length = 120
 ...
 ```
 
-do not forget to remove the `--fail-under` argument to Pytest
-in our GitHub Actions configuration file too,
-since we do not need it anymore.
-
-Now when we run Pylint we will not be penalised for having a reasonable line length.
-For some further hints and tips on how to approach using Pylint for a project,
-see [this article](https://pythonspeed.com/articles/pylint/).
+Now when we run Ruff we will not be penalised for having a reasonable line length.
+For some further customization of Ruff for your project, see the
+[Ruff Linter documentation](https://docs.astral.sh/ruff/linter/).
 
 ## Merging to `develop` Branch
 
