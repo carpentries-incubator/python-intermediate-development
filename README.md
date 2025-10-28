@@ -97,7 +97,7 @@ under the [MIT licence][mit-license]. For more information, see [LICENSE.md](LIC
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION).
+To cite this lesson, please consult [CITATION.cff](CITATION.cff).
 
 ## Contact
 
