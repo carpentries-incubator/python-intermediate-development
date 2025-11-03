@@ -5,5 +5,6 @@ requires-python = ">=3.13"
 dependencies = [
     "mypy>=1.16.1",
     "pyrefly>=0.20.2",
+    "pyright>=1.1.402",
     "ty>=0.0.1a11",
 ]

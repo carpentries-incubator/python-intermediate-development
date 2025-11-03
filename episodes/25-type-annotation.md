@@ -142,19 +142,56 @@ def binary_search(lst: list, value) -> int | None:
   return None
 ```
 
+We don't always care about the precise type of an object. For instance, if we just want to write a for loop over an iterable, and sometimes we want to express that `Any` object will do:
+
+```python
+from typing import Any
+from collections.abc import Iterable
+
+def print_numbered_list(items: Iterable[Any]):
+    for i, v in enumerate(items):
+        print(i, v)
+```
+
 ## Data classes
 
+::: info
+### Data before classes
+In many languages structures or records are considered more primitive than classes, not so in Python. We will learn more about classes and their place in software design in part 3. In this section we'll only consider data classes as a means of grouping data.
+:::
+
+Type annotations go really well together with data classes, a means of combining elements into a larger data structure.
 
 ```python
 from dataclasses import dataclass
 
 @dataclass
-class Position:
-    x: int
-    y: int
+class Address:
+    street: str
+    number: int
+    suffix: str | None = None
+
+address = Address("Science Park", 402, "Matrix THREE")
+
+print(f"{address.street} {address.number}")
 ```
 
-## Generics and protocols
+::: challenge
+### Autocompletion
+
+Write a function that prints an address. How is your IDE behaving with and without type annotation?
+
+```python
+def print_address(a: Address):
+    ...
+```
+
+:::: solution
+When you use type-annotation, you'll have better auto-completion.
+::::
+:::
+
+## Optional: Generics and protocols
 
 How would we type a function that returns the first element in a list? Suppose that we know that the list contains integers. Then:
 
@@ -210,17 +247,16 @@ We haven't taught the type checker that our type should be able to handle compar
 There is no built-in type constraint for ordered types, we'll have to define our own.
 
 ```python
+from typing import Protocol, Self
+
+class Ord(Protocol):
+  def __lt__(self: Self, other: Self) -> bool:
+    ...
 ```
 
 The full type definition of `binary_search`:
 
 ```python
-from typing import Protocol, Self
-
-class Ord(Protocol):
-    def __lt__(self: Self, other: Self) -> bool:
-        ...
-
 def binary_search[T: Ord](lst: list[T], value: T) -> int | None:
   low: int = 0
   high: int = len(lst)-1
@@ -244,3 +280,32 @@ It is surprisingly hard to find a type in Python that doesn't support the `<` op
 Even when all the types are satisfied, there's no way that the type system can check that our input list is actually sorted. We'd have to subtype `list` and ensure that on each mutation the list remains sorted; not impossible, but at this point most of us should agree that we're taking this silly example a bit too far.
 ::::
 :::
+
+## For the curious: Algebraic data types
+
+Now that we know about type unions and type products (tuples, named tuples, or data classes), we have all the ingredients to write [algebraic data types](https://en.wikipedia.org/wiki/Algebraic_data_type). For instance, we can define a linked list:
+
+```python
+type List[T] = tuple[T, List[T]] | None
+
+def make_list[T](*args: T) -> List[T]:
+    match args:
+        case (first, *rest):
+            return (first, make_list(*rest))
+        case _:
+            return None
+
+def list_to_str[T](lst: List[T]):
+    match lst:
+        case None:
+            return "None"
+        case (a, rest):
+            return str(a) + " : " + list_to_str(rest)
+
+l: List[int] = make_list(1, 2, 3)
+print(l)
+print(list_to_str(l))
+```
+
+The linked list may seem a bit silly, but we can also define tree structures and use `match/case` to traverse a tree. Data structures can become highly complex, but the type system helps us writing correct code here.
+
