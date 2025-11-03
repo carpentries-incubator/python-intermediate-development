@@ -354,7 +354,7 @@ and allows others to verify against correct behaviour.
 ## Optional exercises
 
 Checkout
-[these optional exercises](25-section2-optional-exercises.md)
+[these optional exercises](26-section2-optional-exercises.md)
 to learn more about code coverage.
 
 

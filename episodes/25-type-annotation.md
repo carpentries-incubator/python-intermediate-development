@@ -10,9 +10,7 @@ exercises: 45
 - List the most important type checkers
 - Apply type annotations to simple functions
 - Read parametric types like `list[int]` or `set[str]`
-- Use type unions to introduce flexibility
-- Design data classes using type annotations
-- Understand the complexities of going all-out on types
+- Understand the use of type annotations in libraries like `pydantic`, `cattrs` or `msgspec`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -29,6 +27,7 @@ exercises: 45
 - Force you to handle edge cases.
 - Have documentation that is always correct.
 - Better autocompletion.
+- Automatic serialization.
 
 ## Tools
 
@@ -65,82 +64,17 @@ What does the error message say went wrong? Do you think this is a good message?
 The error says we can't multiply sequences with a non-int of type float and points to the sub-expression `r * x`. However, the mistake is made at the call point by entering a `str` argument in the first place.
 ::::
 
-How about the following code?
-
-```python
-def binary_search(lst, value):
-    low = 0
-    high = len(lst)-1
-    while low <= high: 
-        mid = (low+high) / 2
-        if lst[mid] > value:
-          high = mid-1
-        elif lst[mid] < value:
-          low = mid+1
-        else:
-          return mid
-    return -1
-
-binary_search([3.4, 7.8, 9.1], 5.2)
-```
-
-Run a type-checker on the binary search example. What does it say?
-
-:::: solution
-We can't index `lst` with a floating point value. The mistake is at the division by 2, we should have used the `//` operator.
-::::
-
-Add type annotation to these codes:
+Change the function signature to:
 
 ```python
 def logistic_map(r: float, x: float) -> float:
   return r * x * (1 - x)
 ```
 
-Do we get nicer messages now? How about our binary search? We're not restricted to typing function arguments (although that's the most common use). By explicitly typing intermediate values, we may catch errors early.
-
-```python
-def binary_search(lst: list, value) -> int:
-  low: int = 0
-  high: int = len(lst)-1
-  while low <= high: 
-    mid: int = (low+high) / 2
-    if lst[mid] > value:
-      high = mid-1
-    elif lst[mid] < value:
-      low = mid+1
-    else:
-      return mid
-  return -1
-```
-
-Is the problem now identified with `mypy`? Note that we haven't typed `value` yet: we'll get to that later.
-
-:::: solution
-In the `logistic_map` example we find that type hinting the arguments helps us identify that the caller made a mistake.
-Only by specifying that we expect `mid` to be an integer, is the true culprit revealed.
-::::
-
+Do you see any effect in on the erronous call in your editor?
 :::
 
-## Union types
-
-Sometimes we don't know the exact type of a value, or we'd lik to specify that a function can handle multiple different types. This is where type unions come in. For example, in the binary search, it is nicer to return `None` when we don't find an item. We can use the `|` operator to create a **type union**.
-
-```python
-def binary_search(lst: list, value) -> int | None:
-  low: int = 0
-  high: int = len(lst)-1
-  while low <= high: 
-    mid: int = (low+high) // 2
-    if lst[mid] > value:
-      high = mid-1
-    elif lst[mid] < value:
-      low = mid+1
-    else:
-      return mid
-  return None
-```
+### Abstract types
 
 We don't always care about the precise type of an object. For instance, if we just want to write a for loop over an iterable, and sometimes we want to express that `Any` object will do:
 
@@ -153,6 +87,19 @@ def print_numbered_list(items: Iterable[Any]):
         print(i, v)
 ```
 
+There are many abstract types available in `collections.abc`.
+
+### Completion
+
+Write a function that changes all commas to semi-colons. Start by entering the following:
+
+```python
+def semicolonize(s: str) -> str:
+  return s
+```
+
+Type a `.` after the `s`. Can you see the completion?
+
 ## Data classes
 
 ::: info
@@ -160,7 +107,7 @@ def print_numbered_list(items: Iterable[Any]):
 In many languages structures or records are considered more primitive than classes, not so in Python. We will learn more about classes and their place in software design in part 3. In this section we'll only consider data classes as a means of grouping data.
 :::
 
-Type annotations go really well together with data classes, a means of combining elements into a larger data structure.
+Type annotations go really well together with data classes, a means of combining elements into a larger data structure. Python supports creating classes using type annotation like so:
 
 ```python
 from dataclasses import dataclass
@@ -176,6 +123,8 @@ address = Address("Science Park", 402, "Matrix THREE")
 print(f"{address.street} {address.number}")
 ```
 
+Now you don't need to define an `__init__` method. There are nice packages that use this technique to allow automatic serialisation and deserialisation. Check out the [`msgspec` package](https://jcristharif.com/msgspec/index.html).
+
 ::: challenge
 ### Autocompletion
 
@@ -188,6 +137,19 @@ def print_address(a: Address):
 
 :::: solution
 When you use type-annotation, you'll have better auto-completion.
+::::
+:::
+
+::: challenge
+### Serialization
+
+Install `msgspec` and try writing and reading back an `Address` object to JSON. Can you think of the advantages of using this approach over Python native `json.dump`?
+
+:::: solution
+- less code
+- automatic validation
+- user friendly error reporting
+- high performance
 ::::
 :::
 
