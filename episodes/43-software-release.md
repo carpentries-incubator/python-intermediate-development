@@ -134,7 +134,7 @@ Version [0.1.0]: 1.0.0
 Description []:  Analyse patient inflammation data
 Author [None, n to skip]: James Graham <J.Graham@software.ac.uk>
 License []:  MIT
-Compatible Python versions [>=3.13]:  >=3.10
+Compatible Python versions [>=3.13]:  >=3.11
 
 Would you like to define your main dependencies interactively? (yes/no) [yes] no
 Would you like to define your development dependencies interactively? (yes/no) [yes] no
@@ -149,7 +149,7 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
 ]
 
