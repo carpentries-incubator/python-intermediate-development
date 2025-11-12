@@ -274,22 +274,28 @@ See [Matias Singer's curated list of awesome READMEs](https://github.com/matiass
 
 [MKDocs](https://www.mkdocs.org/) generate project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
 
-We can install MKDocs as a Python package using pip:
+We can install MKDocs package using `pip`. Here we also install a plugin `mkdocstrings`, which will be used later.
+We advice you to do this within a virtual environment you created before:
 
 ```bash
 pip install mkdocs mkdocstrings[python]
 ```
 
+After installation, you can intialize a new MKDocs project in our Python project:
+
 ```bash
 mkdocs new .
 ```
 
+This will create the two files in your project: `mkdocs.yml` and `docs/index.md`. The first file `mkdocs.yml` is the configuration file for your documentation site. It serves as the central configuration hub for your MKDocs documentation. It tells MKDocs how to structure your documentation site, which plugins and themes to use,
+how to organize navigation, etc.
+
+`docs/index.md` is the main page of your documentation. It is usually the landing page of your documentation site.
+
+Let's first look at the `mkdocs.yml` file. It is almost empty now. We can edit it with the following basic configurations:
+
 ```yaml
 site_name: Inflam
-
-theme:
-  name: "mkdocs"
-  font: false
 
 nav:
   - Overview: index.md
@@ -299,17 +305,50 @@ plugins:
   - mkdocstrings
 ```
 
+Here we give a name to our documentation site, `Inflam`. We set up the navigation menu with one item `Overview` that links to `index.md`. We also enable two plugins, `search` to provide search functionality in the documentation site, and `mkdocstrings` to automatically generate API reference documentation from Python docstrings, which we will see later.
 
-Update `docs/index.md` with relevant content
+We can try to render the documentation site locally and see how it looks like:
 
+```bash
+mkdocs serve
+```
 
-Create `docs/user_guide.md` and add an example function usage guide.
+This will start to build a local static documentation site and serve it at a local web server. 
+By default, it will be available at `http://127.0.0.1:8000/`, which will also show in the terminal output.
+You can open this URL in your web browser to view the documentation site.
 
+The documentation site now consists some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project.
 
-Create `docs/API.md` with the following content:
+Update `docs/index.md` with some relevant content.
+For simplicity, we can borrow the content from our `README.md` file.
 
+::::::::::::::::::::::::::::::::: challenge
 
-Update the doctring of `load_csv`,  use `numpy` style docstring as below:
+Modify `docs/index.md` with the same content as your `README.md` file.
+Render the documentation site locally again with `mkdocs serve`.
+Check how it looks like in your web browser.
+
+:::::::::::::::::::::::::::::::::
+
+You can also add more pages to your documentation site by creating more Markdown files in the `docs/` directory, and update the `nav` section in `mkdocs.yml` to include these new pages. For example, we can create a new page for API (Application Programming Interface) reference documentation.
+
+An API reference documents the functions, classes, and methods provided by your software, along with their parameters, return values, and usage examples. This is particularly useful for understanding how to interact with your code programmatically. With `mkdocs` and `mkdocstrings` plugin, we can automatically generate API reference documentation from the docstrings in our Python code.
+
+Let's first create `docs/API.md` with the following content:
+
+```markdown
+# API Reference
+
+:::inflammation.models
+```
+
+Apart from the title, there is only one line `:::inflammation.models` in this file. This is a special syntax provided by the `mkdocstrings` plugin to indicate that we want to generate API documentation for the `inflammation.models` module. The plugin will parse the docstrings in this module and generate the corresponding documentation.
+
+Now we can call `mkdocs serve` again to render the documentation site locally and check how the API reference page looks like.
+
+Now we can see all the functions defined in the `inflammation.models` module are automatically documented with their docstrings.
+
+One can make the rendered API documentation more informative by improving the docstrings in the code. For example, we can improve the docstring of the `load_csv` function by following the `numpy` style docstring format. Let's update the doctring of `load_csv` as below:
 
 ```python
 def load_csv(filename: str) -> np.ndarray:
@@ -327,21 +366,41 @@ def load_csv(filename: str) -> np.ndarray:
 """
 ```
 
-Add and commit the changes to git:
+And also configure `mkdocs.yml` to use `numpy` style docstring format for `mkdocstrings` plugin:
+
+```yaml
+site_name: Inflam
+
+nav:
+  - Overview: index.md
+  - API Reference: api.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+```
+
+Then we can render the documentation site locally again with `mkdocs serve`, the input parameters and return values of the `load_csv` function are now nicely formatted in a table.
+
+
+Once you are happy with the documentation site, you can deploy it to GitHub Pages so that others can access it online. First, let's commit the changes we made to the repository:
 
 ```bash
 git add inflammation/models.py mkdocs.yml docs/
 ```
 
-Deploy the documentation to GitHub Pages:
-
+To deploy the documentation to GitHub Pages, you can use the following command:
 ```bash
 mkdocs gh-deploy
 ```
 
-Now go check your repository's GitHub Pages "Settings -> Pages", you should see your the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`
+This command assumes you have access to the GitHub repository of the current project. It will automatically create a new branch called `gh-pages` in your repository, which will contain the static files of your documentation site, and push this branch to GitHub. 
 
-You can add this link to your GitHub repository landing page description.
+Now go check your repository's GitHub Pages "Settings -> Pages", you should see the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`. You can add this link to your GitHub repository landing page description.
 
 ### Other Documentation
 
