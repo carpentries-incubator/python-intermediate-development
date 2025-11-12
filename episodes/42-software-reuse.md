@@ -414,6 +414,50 @@ There is a Software Sustainability Institute
 that helpfully covers the kinds of documentation to consider
 and other effective ways to convey the same information.
 
+
+## Configure Your Code with `pyproject.toml`
+
+[`pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) is a standardized configuration file, written in TOML format, used in Python projects to declare build system requirements, metadata, and tool configuration. It serves as a central place to manage various aspects of a Python project, making it easier to build, package, and distribute the project.
+
+We can take a look at the current state of the `pyproject.toml` file in our project:
+
+```toml
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-intermediate-inflammation"
+version = "0.0.0"
+requires-python = ">=3.9"
+
+[tool.setuptools]
+packages = ["inflammation"]
+```
+
+It defines three main sections of a Python project as three tables: 
+
+- The [build-system] table, It allows you to declare which build backend you use and which other dependencies are needed to build your project.
+
+- The [project] table, which specifies your project’s basic metadata, such as the project name, author name(s), dependencies, and more.
+
+-The [tool] table has tool-specific subtables, e.g., [tool.setuptools], which contents are defined by each tool, allowing you to configure various aspects of the tool's behavior.
+
+We can improve the `pyproject.toml` file by adding some metadata about the dependencies of our project. Let's update the `[project]` table as below:
+
+```toml
+[project]
+name = "python-intermediate-inflammation"
+version = "0.0.0"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "matplotlib",
+]
+```
+
+This is an alternative way to specify the dependencies than the `requirements.txt` file we created before. The advantage of specifying dependencies in `pyproject.toml`, is that it centralizes this information in one place, and better integrates with modern Python packaging tools like [`uv`](https://docs.astral.sh/uv/), which we will see in the next section about releasing our Python project.
+
 ## Choosing an Open Source Licence
 
 Software licensing is a whole topic in itself, so we'll just summarise here.
