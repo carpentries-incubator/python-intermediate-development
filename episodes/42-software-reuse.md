@@ -402,9 +402,9 @@ This command assumes you have access to the GitHub repository of the current pro
 
 Now go check your repository's GitHub Pages "Settings -> Pages", you should see the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`. You can add this link to your GitHub repository landing page description.
 
-### Other Documentation
+### Thinking about the audience for your documentation
 
-There are many different types of other documentation you should also consider
+Besides the API documentation we added by MKDocs, there are many different types of documentation you should consider
 writing and making available that's beyond the scope of this course.
 The key is to consider which audiences you need to write for,
 e.g. end users, developers, maintainers, etc.,
@@ -413,17 +413,6 @@ There is a Software Sustainability Institute
 [blog post on best practices for research software documentation](https://www.software.ac.uk/blog/2019-06-21-what-are-best-practices-research-software-documentation)
 that helpfully covers the kinds of documentation to consider
 and other effective ways to convey the same information.
-
-One that you should always consider is **technical documentation**.
-This typically aims to help other developers understand your code
-sufficiently well to make their own changes to it,
-including external developers, other members in your team and a future version of yourself too.
-This may include documentation that covers the software's architecture,
-including its different components and how they fit together,
-API (Application Programming Interface) documentation
-that describes the interface points designed into your software for other developers to use,
-e.g. for a software library,
-or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
 
 ## Choosing an Open Source Licence
 
