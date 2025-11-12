@@ -78,9 +78,10 @@ In this episode we will work on improving the reusability of our code.
 It would be a good idea to create a new branch for this work,
 and merge it back into `main` once we are done.
 
-For example, you could create a branch called `improve-reusability`:
+For example, you could create a branch called `improve-reusability` from the `develop` branch:
 
 ```bash
+$ git switch develop
 $ git switch -c improve-reusability
 ```
 
@@ -324,6 +325,8 @@ For simplicity, we can borrow the content from our `README.md` file.
 
 ::::::::::::::::::::::::::::::::: challenge
 
+### Exercise: Update Documentation Content
+
 Modify `docs/index.md` with the same content as your `README.md` file.
 Render the documentation site locally again with `mkdocs serve`.
 Check how it looks like in your web browser.
@@ -391,6 +394,7 @@ Once you are happy with the documentation site, you can deploy it to GitHub Page
 
 ```bash
 git add inflammation/models.py mkdocs.yml docs/
+git commit -m "Add documentation with MKDocs"
 ```
 
 To deploy the documentation to GitHub Pages, you can use the following command:
@@ -458,6 +462,47 @@ dependencies = [
 
 This is an alternative way to specify the dependencies than the `requirements.txt` file we created before. The advantage of specifying dependencies in `pyproject.toml`, is that it centralizes this information in one place, and better integrates with modern Python packaging tools like [`uv`](https://docs.astral.sh/uv/), which we will see in the next section about releasing our Python project.
 
+Do not forget to commit the changes we made to `pyproject.toml` file.
+
+```bash
+git add pyproject.toml
+git commit -m "Update pyproject.toml with dependencies"
+```
+
+## Make Your Code Citable by adding a CITATION File
+
+It is easy to correctly cite a paper: all the necessary information (metadata) can be found on the title page or the article website. 
+
+Software and datasets have no title page, the relevant information is often less obvious. To get credit for your work, you should provide citation information for your software. 
+
+A good way to add citation information is by including a [CITATION.cff](https://citation-file-format.github.io/) file (Citation File Format) in the root of your repository. This plain text file, written in YAML format, contains all the necessary citation details in a structured manner. 
+
+Platforms like GitHub, Zenodo, and Zotero reuse the citation metadata you provide. GitHub, for example, automatically renders the file on the repository landing page and provides a BibTeX snippet which users can simply copy! 
+
+#### Minimal example for a CITATION.cff file
+
+```yaml
+authors:
+  - family-names: Doe
+    given-names: John
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Inflam"
+```
+We can also include other important information of software such as version, release date, DOI, license, keywords.
+
+#### How to create a CITATION.cff file?
+
+You can use the [cffinit](https://citation-file-format.github.io/cff-initializer-javascript/) tool to create a citation file. 
+
+:::challenge
+### Exercise: Create a CITATION.cff using cffinit
+1. Follow [these steps to create a CITATION file with cffinit](https://book.the-turing-way.org/communication/citable/citable-cffinit).
+1. Rename the created file to `CITATION.cff` and add it to the root folder of your repository.
+1. Push your changes to feature branch and check your repository in GitHub. What has happened?
+:::
+
+
 ## Choosing an Open Source Licence
 
 Software licensing is a whole topic in itself, so we'll just summarise here.
@@ -512,27 +557,18 @@ If you want more information, or help choosing a licence,
 the [Choose An Open-Source Licence](https://choosealicense.com/)
 or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Preparing for Release
-
-In a (hopefully) highly unlikely and thoroughly unrecommended scenario,
-your project leader has informed you of the need to release your software
-within the next half hour,
-so it can be assessed for use by another team.
-You'll need to consider finishing the README,
-choosing a licence,
-and fixing any remaining problems you are aware of in your codebase.
-Ensure you prioritise and work on the most pressing issues first!
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::challenge
+Select a licence for your code using the tool above, save it as a file called `LICENSE` in the root of your repository.
+Push your changes to your feature branch and check your repository in GitHub. What has happened?
+:::
 
 
 ## Conforming to Data Policy and Regulation
 
 We may also wish to make data available to either
 be used with the software or as generated results.
-This may be via GitHub or some other means.
+This may be via some other means other than GitHub, such as Zenodo, Figshare, or an institutional repository.
 An important aspect to remember with sharing data on such systems is that
 they may reside in other countries,
 and we must be careful depending on the nature of the data.
@@ -546,11 +582,19 @@ and even international policies and laws.
 Within Europe, for example, there is the need to conform to things like [GDPR][gdpr].
 it is a very good idea to make yourself aware of these aspects.
 
+## Merge Your Changes to the Main Branch
 
+After completing all the changes to improve the reusability of your code, you can first merge your feature branch to the `devlop` branch. Then merge the `develop` branch to the `main` branch.
+
+In the next Section, we will look at how to release your Python project from the `main` branch
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end.
+- Add README file for general documentation about your software
+- Use MKDocs to generate and deploy documentation site
+- Use `pyproject.toml` to centralize configuration of your Python project
+- Add `CITATION.cff` file to make your code citable
+- Choose an `LICENSE` file to specify the open source licence of your code
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
