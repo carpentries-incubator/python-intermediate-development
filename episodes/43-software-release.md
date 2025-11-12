@@ -19,6 +19,137 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Tagging a Release in GitHub
+
+There are many ways in which Git and GitHub can help us make a software release from our code.
+One of these is via **tagging**,
+where we attach a human-readable label to a specific commit.
+Let us see what tags we currently have in our repository:
+
+```bash
+$ git tag
+```
+
+Since we have not tagged any commits yet, there is unsurprisingly no output.
+We can create a new tag on the last commit in our `main` branch by doing:
+
+```bash
+$ git tag -a v1.0.0 -m "Version 1.0.0"
+```
+
+So we can now do:
+
+```bash
+$ git tag
+```
+
+```output
+v.1.0.0
+```
+
+And also, for more information:
+
+```bash
+$ git show v1.0.0
+```
+
+You should see something like this:
+
+```output
+tag v1.0.0
+Tagger: <Name> <email>
+Date:   Fri Dec 10 10:22:36 2021 +0000
+
+Version 1.0.0
+
+commit 2df4bfcbfc1429c12f92cecba751fb2d7c1a4e28 (HEAD -> main, tag: v1.0.0, origin/main, origin/develop, origin/HEAD, develop)
+Author: <Name> <email>
+Date:   Fri Dec 10 10:21:24 2021 +0000
+
+	Finalising README.
+
+diff --git a/README.md b/README.md
+index 4818abb..5b8e7fd 100644
+--- a/README.md
++++ b/README.md
+@@ -22,4 +22,33 @@ Flimflam requires the following Python packages:
+ The following optional packages are required to run Flimflam's unit tests:
+
+ - [pytest](https://docs.pytest.org/en/stable/) - Flimflam's unit tests are written using pytest
+-- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
+\ No newline at end of file
++- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
++
++## Installation
++- Clone the repo ``git clone repo``
++- Check everything runs by running ``python -m pytest`` in the root directory
++- Hurray 
++
++## Contributing
++- Create an issue [here](https://github.com/Onoddil/python-intermediate-inflammation/issues)
++  - What works, what does not? You tell me
++- Randomly edit some code and see if it improves things, then submit a [pull request](https://github.com/Onoddil/python-intermediate-inflammation/pulls)
++- Just yell at me while I edit the code, pair programmer style!
++
++## Getting Help
++- Nice try
++
++## Credits
++- Directed by Michael Bay
++
++## Citation
++Please cite [J. F. W. Herschel, 1829, MmRAS, 3, 177](https://ui.adsabs.harvard.edu/abs/1829MmRAS...3..177H/abstract) if you used this work in your day-to-day life.
++Please cite [C. Herschel, 1787, RSPT, 77, 1](https://ui.adsabs.harvard.edu/abs/1787RSPT...77....1H/abstract) if you actually use this for scientific work.
++
++## License
++This source code is protected under international copyright law.  All rights
++reserved and protected by the copyright holders.
++This file is confidential and only available to authorized individuals with the
++permission of the copyright holders.  If you encounter this file and do not have
++permission, please contact the copyright holders and delete this file.
+\ No newline at end of file
+```
+
+So now we have added a tag, we need this reflected in our Github repository.
+You can push this tag to your remote by doing:
+
+```bash
+$ git push origin v1.0.0
+```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What is a Version Number Anyway?
+
+Software version numbers are everywhere,
+and there are many different ways to do it.
+A popular one to consider is [**Semantic Versioning**](https://semver.org/),
+where a given version number uses the format MAJOR.MINOR.PATCH.
+You increment the:
+
+- MAJOR version when you make incompatible API changes
+- MINOR version when you add functionality in a backwards compatible manner
+- PATCH version when you make backwards compatible bug fixes
+
+You can also add a hyphen followed by characters to denote a pre-release version,
+e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (fourth beta release)
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+We can now use the more memorable tag to refer to this specific commit.
+Plus, once we have pushed this back up to GitHub,
+it appears as a specific release within our code repository
+which can be downloaded in compressed `.zip` or `.tar.gz` formats.
+Note that these downloads just contain the state of the repository at that commit,
+and not its entire history.
+
+Using features like tagging allows us to highlight commits that are particularly important,
+which is very useful for *reproducibility* purposes.
+We can (and should) refer to specific commits for software in
+academic papers that make use of results from software,
+but tagging with a specific version number makes that just a little bit easier for humans.
+
 ## Why Package our Software?
 
 We have now got our software ready to release -
