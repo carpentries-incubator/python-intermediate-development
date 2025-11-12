@@ -344,30 +344,6 @@ Ensure you prioritise and work on the most pressing issues first!
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Merging into `main`
-
-Once you have done these updates,
-commit your changes,
-and if you are doing this work on a feature branch also ensure you merge it into `develop`,
-e.g.:
-
-```bash
-$ git switch develop
-$ git merge my-feature-branch
-```
-
-Finally, once we have fully tested our software
-and are confident it works as expected on `develop`,
-we can merge our `develop` branch into `main`:
-
-```bash
-$ git switch main
-$ git merge develop
-$ git push origin main
-```
-
-The software on your `main` branch is now ready for release.
-
 ## Tagging a Release in GitHub
 
 There are many ways in which Git and GitHub can help us make a software release from our code.
