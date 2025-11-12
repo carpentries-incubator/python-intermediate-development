@@ -14,14 +14,16 @@ exercises: 15
 - Understand other documentation components and where they are useful
 - Describe the basic types of open source software licence
 - Explain the importance of conforming to data policy and regulation
-- Prioritise and work on improvements for release as a team
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - What can we do to make our programs reusable by others?
-- How should we document and license our code?
+- How should we document our code?
+- How to make our code citable?
+- How to centralize the configuration of our Python project?
+- How to add a proper licence to our code? 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -67,6 +69,22 @@ and ideally *modified* by others.
 If others are unable to verify that a piece of software follows published algorithms,
 how can they be certain it is producing correct results?
 Where 'others', of course, can include a future version of ourselves.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+**Work on a branch**
+
+In this episode we will work on improving the reusability of our code.
+It would be a good idea to create a new branch for this work,
+and merge it back into `main` once we are done.
+
+For example, you could create a branch called `improve-reusability`:
+
+```bash
+$ git switch -c improve-reusability
+```
+
+:::::::::::::::::::::::::::::::::::::::::
 
 ## Documenting Code to Improve Reusability
 
@@ -251,6 +269,79 @@ which may be held within other Markdown files within the repository or elsewhere
 
 We will finish these off later.
 See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
+
+### Generate and Deploy Documentation using MKDocs
+
+[MKDocs](https://www.mkdocs.org/) generate project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
+
+We can install MKDocs as a Python package using pip:
+
+```bash
+pip install mkdocs mkdocstrings[python]
+```
+
+```bash
+mkdocs new .
+```
+
+```yaml
+site_name: Inflam
+
+theme:
+  name: "mkdocs"
+  font: false
+
+nav:
+  - Overview: index.md
+
+plugins:
+  - search
+  - mkdocstrings
+```
+
+
+Update `docs/index.md` with relevant content
+
+
+Create `docs/user_guide.md` and add an example function usage guide.
+
+
+Create `docs/API.md` with the following content:
+
+
+Update the doctring of `load_csv`,  use `numpy` style docstring as below:
+
+```python
+def load_csv(filename: str) -> np.ndarray:
+"""Load a Numpy array from csv
+
+    Parameters
+    ----------
+    filename : str
+        path to the csv file
+
+    Returns
+    -------
+    np.ndarray
+        2D array of inflammation data
+"""
+```
+
+Add and commit the changes to git:
+
+```bash
+git add inflammation/models.py mkdocs.yml docs/
+```
+
+Deploy the documentation to GitHub Pages:
+
+```bash
+mkdocs gh-deploy
+```
+
+Now go check your repository's GitHub Pages "Settings -> Pages", you should see your the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`
+
+You can add this link to your GitHub repository landing page description.
 
 ### Other Documentation
 
