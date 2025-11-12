@@ -1,5 +1,5 @@
 ---
-title: 4.2 Preparing Software for Reuse and Release
+title: 4.2 Preparing Software for Reuse
 start: no
 teaching: 35
 exercises: 15
