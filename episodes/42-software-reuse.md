@@ -83,7 +83,7 @@ $ git switch develop
 $ git switch -c improve-reusability
 ```
 
-At the end of this episode, we will merge this branch back into `develop`,
+At the end of this episode, we will merge this branch back into `develop`.
 
 :::::::::::::::::::::::::::::::::::::::::
 
@@ -281,6 +281,8 @@ We advice you to do this within a virtual environment you created before:
 ```bash
 pip install mkdocs mkdocstrings[python]
 ```
+
+By default, `mkdocstrings` does not provide support for a specific language. Therefore, we specify `[python]` to install extra dependencies of `mkdocstrings` for Python language support.
 
 After installation, you can intialize a new MKDocs project in our Python project:
 
