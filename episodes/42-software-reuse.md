@@ -74,16 +74,16 @@ Where 'others', of course, can include a future version of ourselves.
 
 **Work on a branch**
 
-In this episode we will work on improving the reusability of our code.
-It would be a good idea to create a new branch for this work,
-and merge it back into `main` once we are done.
-
-For example, you could create a branch called `improve-reusability` from the `develop` branch:
+In the previous episode, we updated the `develop` branch with a new feature.
+In this episode we will continuew work on improving the reusability of our code.
+To do this, we will create a branch called `improve-reusability` from the `develop` branch:
 
 ```bash
 $ git switch develop
 $ git switch -c improve-reusability
 ```
+
+At the end of this episode, we will merge this branch back into `develop`,
 
 :::::::::::::::::::::::::::::::::::::::::
 
