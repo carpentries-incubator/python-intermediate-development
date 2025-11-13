@@ -320,10 +320,7 @@ This will start to build a local static documentation site and serve it at a loc
 By default, it will be available at `http://127.0.0.1:8000/`, which will also show in the terminal output.
 You can open this URL in your web browser to view the documentation site.
 
-The documentation site now consists some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project.
-
-Update `docs/index.md` with some relevant content.
-For simplicity, we can borrow the content from our `README.md` file.
+The documentation site now consists some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project. For simplicity, we can borrow the content from our `README.md` file.
 
 ::::::::::::::::::::::::::::::::: challenge
 
@@ -405,6 +402,8 @@ mkdocs gh-deploy
 ```
 
 This command assumes you have access to the GitHub repository of the current project. It will automatically create a new branch called `gh-pages` in your repository, which will contain the static files of your documentation site, and push this branch to GitHub. 
+
+![](./fig/github-gh-page-settings.png){alt='GitHub Pages settings details' .image-with-shadow width="800px"}
 
 Now go check your repository's GitHub Pages "Settings -> Pages", you should see the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`. You can add this link to your GitHub repository landing page description.
 
