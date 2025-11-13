@@ -561,7 +561,9 @@ or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
 
 :::challenge
-Select a licence for your code using the tool above, save it as a file called `LICENSE` in the root of your repository.
+### Exercise: Add a Licence to Your Code
+Select a licence for your code using the tool above. 
+Replace the contents of the `LICENSE.md` file in your repository with the text of the licence you have chosen.
 Push your changes to your feature branch and check your repository in GitHub. What has happened?
 :::
 
