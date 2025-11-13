@@ -1,5 +1,5 @@
 ---
-title: 4.3 Software Release and Packaging
+title: 4.3 Software Packaging and Release
 teaching: 0
 exercises: 20
 ---
@@ -90,7 +90,7 @@ Since we have not tagged any commits yet, there is unsurprisingly no output.
 We can create a new tag on the last commit in our `main` branch by doing:
 
 ```bash
-$ git tag -a 1.0.0 -m "Version 1.0.0"
+$ git tag -a 0.1.0 -m "Version 0.1.0"
 ```
 
 So we can check the tags again:
@@ -102,20 +102,20 @@ $ git tag
 A tag should now be listed:
 
 ```output
-1.0.0
+0.1.0
 ```
 
 And also, for more information:
 
 ```bash
-$ git show 1.0.0
+$ git show 0.1.0
 ```
 
 So now we have added a tag, we need this reflected in our Github repository.
 You can push this tag to your remote by doing:
 
 ```bash
-$ git push origin 1.0.0
+$ git push origin 0.1.0
 ```
 
 We can now use the more memorable tag to refer to this specific commit.
