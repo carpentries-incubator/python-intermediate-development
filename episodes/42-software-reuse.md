@@ -479,9 +479,12 @@ Software and datasets have no title page, the relevant information is often less
 
 A good way to add citation information is by including a [CITATION.cff](https://citation-file-format.github.io/) file (Citation File Format) in the root of your repository. This plain text file, written in YAML format, contains all the necessary citation details in a structured manner. 
 
+
+![](./fig/github-citation-file-rendered.png){alt='CITATION.cff rendered on GitHub' .image-with-shadow width="600px"}
+
 Platforms like GitHub, Zenodo, and Zotero reuse the citation metadata you provide. GitHub, for example, automatically renders the file on the repository landing page and provides a BibTeX snippet which users can simply copy! 
 
-#### Minimal example for a CITATION.cff file
+### Minimal example for a CITATION.cff file
 
 ```yaml
 authors:
