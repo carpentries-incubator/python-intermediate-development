@@ -276,7 +276,7 @@ See [Matias Singer's curated list of awesome READMEs](https://github.com/matiass
 [MKDocs](https://www.mkdocs.org/) generate project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
 
 We can install MKDocs package using `pip`. Here we also install a plugin `mkdocstrings`, which will be used later.
-We advice you to do this within a virtual environment you created before:
+We advise you to do this within a virtual environment you created before:
 
 ```bash
 pip install mkdocs mkdocstrings[python]
