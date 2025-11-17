@@ -290,7 +290,7 @@ After installation, you can intialize a new MKDocs project in our Python project
 python3 -m mkdocs new .
 ```
 
-This will create the two files in your project: `mkdocs.yml` and `docs/index.md`. The first file `mkdocs.yml` is the configuration file for your documentation site. It serves as the central configuration hub for your MKDocs documentation. It tells MKDocs how to structure your documentation site, which plugins and themes to use,
+This will create two files in your project: `mkdocs.yml` and `docs/index.md`. The first file `mkdocs.yml` is the configuration file for your documentation site. It serves as the central configuration hub for your MKDocs documentation. It tells MKDocs how to structure your documentation site, which plugins and themes to use,
 how to organize navigation, etc.
 
 `docs/index.md` is the main page of your documentation. It is usually the landing page of your documentation site.
