@@ -144,6 +144,18 @@ e.g. a list of dependencies.
 By distributing our code as a package,
 we reduce the complexity of fetching, installing and integrating it for the end-users.
 
+::::::::::::::::::::::::::::::::::::::::::  callout
+
+## Further reading: Python Packaging User Guide
+
+You can refer to the [Python Packaging User Guide](https://packaging.python.org/)
+provides documentation on best practices and tools for packaging Python projects.
+
+At the end of this episode, there is an optional exercise
+where you can enhance your package metadata by referring to this documentation.
+
+::::::::::::::::::::::::::::::::::::::::::
+
 For packaging our code, we will introduce `uv`,
 an extremely fast Python package and project manager, written in Rust. 
 
