@@ -149,10 +149,10 @@ we reduce the complexity of fetching, installing and integrating it for the end-
 ## Further reading: Python Packaging User Guide
 
 You can refer to the [Python Packaging User Guide](https://packaging.python.org/)
-provides documentation on best practices and tools for packaging Python projects.
+for documentation on best practices and tools for packaging Python projects.
 
 At the end of this episode, there is an optional exercise
-where you can enhance your package metadata by referring to this documentation.
+where you can try more good practices for packaging your Python project
 
 ::::::::::::::::::::::::::::::::::::::::::
 
