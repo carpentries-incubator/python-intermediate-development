@@ -448,20 +448,18 @@ It defines three main sections of a Python project as three tables:
 
 - The `[tool]` table has tool-specific subtables, e.g., `[tool.setuptools]`, the content of which is defined by each tool, allowing you to configure various aspects of the tool's behavior.
 
-We can improve the `pyproject.toml` file by adding some metadata about the dependencies of our project. Let's update the `[project]` table as below:
+We can improve the `pyproject.toml` file by adding some metadata to our project. Let's update the `[project]` table as below:
 
 ```toml
 [project]
 name = "python-intermediate-inflammation"
 version = "0.0.0"
 requires-python = ">=3.9"
-dependencies = [
-    "numpy",
-    "matplotlib",
-]
+description = "A Python data management system that manages trial data used in clinical inflammation studies."
+readme = "README.md"
 ```
 
-This is an alternative way to specify the dependencies than the `requirements.txt` file we created before. The advantage of specifying dependencies in `pyproject.toml`, is that it centralizes this information in one place, and better integrates with modern Python packaging tools like [`uv`](https://docs.astral.sh/uv/), which we will see in the next section about releasing our Python project.
+Here we added a short description of our project and specified the README file. In practice, `pyproject.toml` can contain many other metadata fields as well as configuration for various tools. The [pyproject.toml documentation](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) provides more details. One advantage of using `pyproject.toml` is that it integrates with modern Python packaging tools like [`uv`](https://docs.astral.sh/uv/), which we will see in the next section about releasing our Python project.
 
 Do not forget to commit the changes we made to `pyproject.toml` file.
 

@@ -251,13 +251,13 @@ When we add a dependency using `uv`,
 and automatically install the package into our virtual environment, even if the 
 virtual environment is not currently activated.
 
-For example, one can add `pandas` as a runtime dependency by doing:
+For example, one can add `numpy matplotlib` as a runtime dependency by doing:
 
 ```bash
-$ uv add pandas
+$ uv add numpy matplotlib
 ```
 
-This will add `pandas` to the list of runtime dependencies in `pyproject.toml`:
+This will add `numpy` and `matplotlib` to the list of runtime dependencies in `pyproject.toml`:
 
 ```toml
 [project]
@@ -265,11 +265,14 @@ name = "python-intermediate-inflammation"
 version = "0.2.0"
 requires-python = ">=3.9"
 dependencies = [
-    "numpy",
-    "matplotlib",
-    "pandas>=2.3.3",
+    "matplotlib>=3.9.4",
+    "numpy>=2.0.2",
 ]
 ```
+
+This is an alternative way to specify the dependencies than the `requirements.txt` file we created before.
+The advantage of specifying dependencies in `pyproject.toml`, is that it centralizes this information in one place,
+and we can also make a distinction between runtime and development dependencies.
 
 To add `mkdocs` as a development dependency, the `--group` option can be used:
 
@@ -287,7 +290,7 @@ dev = [
 ```
 
 By default, when someone installs our package using `pip`,
-only the runtime dependencies will be installed.
+only the runtime dependencies will be installed, as development dependencies are not needed to run the code.
 
 To install the development dependencies, one need to clone our repository
 from GitHub and then specify the `dev` extra when installing:
