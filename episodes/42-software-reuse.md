@@ -75,7 +75,7 @@ Where 'others', of course, can include a future version of ourselves.
 **Work on a branch**
 
 In the previous episode, we updated the `develop` branch with a new feature.
-In this episode we will continuew work on improving the reusability of our code.
+In this episode we will continue working on the reusability of our code.
 To do this, we will create a branch called `improve-reusability` from the `develop` branch:
 
 ```bash
@@ -271,15 +271,15 @@ which may be held within other Markdown files within the repository or elsewhere
 We will finish these off later.
 See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
-### Generate and Deploy Documentation using MKDocs
+### Generating and deploying documentation using MKDocs
 
-[MKDocs](https://www.mkdocs.org/) generate project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
+[MKDocs](https://www.mkdocs.org/) generates project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
 
 We can install MKDocs package using `pip`. Here we also install a plugin `mkdocstrings`, which will be used later.
 We advise you to do this within a virtual environment you created before:
 
 ```bash
-pip install mkdocs mkdocstrings[python]
+python3 -m pip install mkdocs mkdocstrings[python]
 ```
 
 By default, `mkdocstrings` does not provide support for a specific language. Therefore, we specify `[python]` to install extra dependencies of `mkdocstrings` for Python language support.
@@ -287,7 +287,7 @@ By default, `mkdocstrings` does not provide support for a specific language. The
 After installation, you can intialize a new MKDocs project in our Python project:
 
 ```bash
-mkdocs new .
+python3 -m mkdocs new .
 ```
 
 This will create the two files in your project: `mkdocs.yml` and `docs/index.md`. The first file `mkdocs.yml` is the configuration file for your documentation site. It serves as the central configuration hub for your MKDocs documentation. It tells MKDocs how to structure your documentation site, which plugins and themes to use,
@@ -313,14 +313,14 @@ Here we give a name to our documentation site, `Inflam`. We set up the navigatio
 We can try to render the documentation site locally and see how it looks like:
 
 ```bash
-mkdocs serve
+python3 -m mkdocs serve
 ```
 
 This will start to build a local static documentation site and serve it at a local web server. 
 By default, it will be available at `http://127.0.0.1:8000/`, which will also show in the terminal output.
 You can open this URL in your web browser to view the documentation site.
 
-The documentation site now consists some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project. For simplicity, we can borrow the content from our `README.md` file.
+The documentation site now consists of some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project. For simplicity, we can borrow the content from our `README.md` file.
 
 ::::::::::::::::::::::::::::::::: challenge
 
@@ -348,7 +348,7 @@ Apart from the title, there is only one line `:::inflammation.models` in this fi
 
 Now we can call `mkdocs serve` again to render the documentation site locally and check how the API reference page looks like.
 
-Now we can see all the functions defined in the `inflammation.models` module are automatically documented with their docstrings.
+Now we can see that all the functions defined in the `inflammation.models` module are automatically documented with their docstrings.
 
 One can make the rendered API documentation more informative by improving the docstrings in the code. For example, we can improve the docstring of the `load_csv` function by following the `numpy` style docstring format. Let's update the doctring of `load_csv` as below:
 
@@ -420,7 +420,7 @@ that helpfully covers the kinds of documentation to consider
 and other effective ways to convey the same information.
 
 
-## Configure Your Code with `pyproject.toml`
+## Configuring your code with `pyproject.toml`
 
 [`pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) is a standardized configuration file, written in TOML format, used in Python projects to declare build system requirements, metadata, and tool configuration. It serves as a central place to manage various aspects of a Python project, making it easier to build, package, and distribute the project.
 
@@ -442,11 +442,11 @@ packages = ["inflammation"]
 
 It defines three main sections of a Python project as three tables: 
 
-- The [build-system] table, It allows you to declare which build backend you use and which other dependencies are needed to build your project.
+- The `[build-system]` table allows you to declare which build backend you use and which other dependencies are needed to build your project.
 
-- The [project] table, which specifies your project’s basic metadata, such as the project name, author name(s), dependencies, and more.
+- The `[project]` table, which specifies your project’s basic metadata, such as the project name, author name(s), dependencies, and more.
 
--The [tool] table has tool-specific subtables, e.g., [tool.setuptools], which contents are defined by each tool, allowing you to configure various aspects of the tool's behavior.
+- The `[tool]` table has tool-specific subtables, e.g., `[tool.setuptools]`, the content of which is defined by each tool, allowing you to configure various aspects of the tool's behavior.
 
 We can improve the `pyproject.toml` file by adding some metadata about the dependencies of our project. Let's update the `[project]` table as below:
 
@@ -470,7 +470,7 @@ git add pyproject.toml
 git commit -m "Update pyproject.toml with dependencies"
 ```
 
-## Make Your Code Citable by adding a CITATION File
+## Make your code citable by adding a CITATION File
 
 It is easy to correctly cite a paper: all the necessary information (metadata) can be found on the title page or the article website. 
 
@@ -574,7 +574,7 @@ Push your changes to your feature branch and check your repository in GitHub. Wh
 
 We may also wish to make data available to either
 be used with the software or as generated results.
-This may be via some other means other than GitHub, such as Zenodo, Figshare, or an institutional repository.
+This may be via some means other than GitHub, such as Zenodo, Figshare, or an institutional repository.
 An important aspect to remember with sharing data on such systems is that
 they may reside in other countries,
 and we must be careful depending on the nature of the data.
@@ -588,7 +588,7 @@ and even international policies and laws.
 Within Europe, for example, there is the need to conform to things like [GDPR][gdpr].
 it is a very good idea to make yourself aware of these aspects.
 
-## Merge Your Changes to the Main Branch
+## Merge your changes to the `main` branch
 
 After completing all the changes to improve the reusability of your code, you can first merge your feature branch to the `devlop` branch. Then merge the `develop` branch to the `main` branch.
 
