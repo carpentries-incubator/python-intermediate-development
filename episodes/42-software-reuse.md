@@ -407,6 +407,42 @@ This command assumes you have access to the GitHub repository of the current pro
 
 Now go check your repository's GitHub Pages "Settings -> Pages", you should see the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`. You can add this link to your GitHub repository landing page description.
 
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+**Deploy documentation with GitHub actions**
+
+It is also possible to automate the deployment of documentation site using GitHub Actions. 
+
+Below is an example of GitHub Actions workflow file to deploy the documentation site whenever there is a push to any branch in the repository. Note that a better practice is to only deploy the documentation when there is a update to the `main` branch, or when there is a new release.
+
+```yaml
+name: Deploy docs
+
+on: [push]
+
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Install dependencies
+        run: |
+          python -m pip install .[docs] 
+      - name: Deploy docs
+        run: mkdocs gh-deploy --force
+```
+
+:::::::::::::::::::::::::::::::::::::::::
+
 ### Thinking about the audience for your documentation
 
 Besides the API documentation we added by MKDocs, there are many different types of documentation you should consider
