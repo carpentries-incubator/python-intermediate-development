@@ -10,6 +10,7 @@ type: dataset
 authors:
   - given-names: Aleksandra
     family-names: Nenadic
+    orcid: 'https://orcid.org/0000-0002-2269-3894'
   - given-names: Steve
     family-names: Crouch
     orcid: 'https://orcid.org/0000-0001-8985-6814'
