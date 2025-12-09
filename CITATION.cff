@@ -12,6 +12,7 @@ authors:
     family-names: Nenadic
   - given-names: Steve
     family-names: Crouch
+    orcid: 'https://orcid.org/0000-0001-8985-6814'
   - given-names: Thomas
     family-names: Kiley
   - given-names: Raniere
@@ -26,6 +27,7 @@ authors:
     family-names: Wilson
   - given-names: Matthew
     family-names: Bluteau
+    orcid: 'https://orcid.org/0000-0001-9498-8475'
   - given-names: Toby
     family-names: Hodges
   - given-names: Zhian
@@ -47,6 +49,7 @@ authors:
     family-names: Rodrigues
   - given-names: Douglas
     family-names: Lowe
+    orcid: 'https://orcid.org/0000-0002-1248-3594'
   - given-names: Aman
     family-names: Goel
   - given-names: Matt
