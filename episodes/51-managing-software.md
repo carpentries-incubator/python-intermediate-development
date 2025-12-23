@@ -68,12 +68,12 @@ currently there should be none.
 If you do not see the `Issues` tab, you must first enable it in the settings of your repository:
 go to the `Settings` tab, scroll down to the `Features` section and activate the checkmark on `Issues`.
 
-![](fig/github-issue-list.png){alt='List of project issues in GitHub' .image-with-shadow width="1000px"}
+![](fig/github-issue-list.png){alt='Screenshot showing issue list tab in GitHub web interface for a repository named python-intermediate-inflammation. There are currently no issues listed and the new issue button in interface is highlighted.' .image-with-shadow width="1000px"}
 
 Let us go through the process of creating a new issue.
 Start by clicking the `New issue` button.
 
-![](fig/github-new-issue.png){alt='Creating a new issue in GitHub' .image-with-shadow width="1000px"}
+![](fig/github-new-issue.png){alt='Screenshot showing new issue form in GitHub web interface. The form currently has no details entered in title or comment fields with cursor currently in title field.' .image-with-shadow width="1000px"}
 
 When you create an issue, you can add a range of details to them.
 They can be *assigned to a specific developer* for example -
@@ -266,7 +266,7 @@ you can reference a commit by pasting its long, unique identifier
 and GitHub will render it nicely using the identifier's short form
 and link to the commit in question.
 
-![](fig/github-reference-comments-commits.png){alt='Referencing comments and commits in GitHub' .image-with-shadow width="700px"}
+![](fig/github-reference-comments-commits.png){alt='Screenshot of comment thread in a GitHub issue showing dropdown menu expanded for a particular comment to allow copying link to comment to reference elsewhere. Also shown and highlighted is a autolink to a particular commit hash.' .image-with-shadow width="700px"}
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -368,7 +368,7 @@ this course but it is good to be aware of how to make use of them when suitable.
 1. From your GitHub account's home page (not your repository's home page!),
   select the "Projects" tab, then click the `New project` button on the right.
   
-  ![](fig/github-new-project.png){alt='Adding a new project board in GitHub' .image-with-shadow width="800px"}
+  ![](fig/github-new-project.png){alt='Screenshot of projects tab for a GitHub user profile with new project button highlighted.' .image-with-shadow width="800px"}
 
 2. In the "Create project" pop-up window, you can either start from one of the featured existing
   project templates or create your project from scratch using one of the three standard project
@@ -378,7 +378,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   - Board - a "cards on a board" view of the project, with issues and pull requests being
     spread across customizable columns as cards on kanban board
   - Roadmap - suitable for a high-level visualisation of your project over time.
-    ![](fig/github-project-template.png){alt='Selecting a project board template in GitHub' .image-with-shadow width="800px"}
+    ![](fig/github-project-template.png){alt='Screenshot of create project pop-up window showing a grid with four featured project templates - Team planning (caption "Manage your team's work items, plan upcoming cycles, and understand team capacity"), Future release (caption "Manage your team's prioritized work items when planning for a feature release"), Kanban (caption "Visualize the status of your project") and Bug tracker ("Track and triage your bugs"). In the the sidebar additional options are available to start a project from scratch using a table, board or roadmap format.' .image-with-shadow width="800px"}
     Regardless of which project type/view you select, you can easily switch to a different
     project layout later on.
 
@@ -387,8 +387,8 @@ this course but it is good to be aware of how to make use of them when suitable.
 
 4. After it is created, you should also populate the description of the project from the project's Settings,
   which can be found by clicking the `...` button in the top right corner of the project.
-  ![](fig/github-project-settings.png){alt='Project board setting in GitHub' .image-with-shadow width="800px"}
-  ![](fig/github-project-description.png){alt='Adding project description and metadata in GitHub' .image-with-shadow width="800px"}
+  ![](fig/github-project-settings.png){alt='Screenshot showing how to access project board settings in GitHub, A dropdown menu has been expanded from ... button with Settings option within this menu highlighted.' .image-with-shadow width="800px"}
+  ![](fig/github-project-description.png){alt='Screenshot showing project settings page in GitHub. Short description field on page has had text "Tasks for the v0.1 release of the inflammation project" entered.' .image-with-shadow width="800px"}
   After adding a description, select `Save`.
 
 5. GitHub's default card board template contains
@@ -398,7 +398,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   - `In Progress`
   - `Done`
   
-  ![](fig/github-project-view-add-remove-items.png){alt='Default card board in GitHub' .image-with-shadow width="800px"}
+  ![](fig/github-project-view-add-remove-items.png){alt='Screenshot showing default card board in GitHub. Three columns are shown headed Todo, In Progress and Done. A button to add a new task to a column is highlighted at bottom of Todo column. On the right of interface a ... button which expands a menu from which a column can be removed and a + button which can be used to add a new column are highlighted.' .image-with-shadow width="800px"}
   
   You can add or remove columns from your project board to suit your use case.
   One commonly seen extra column is `On hold` or `Waiting` -
@@ -424,7 +424,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   and selecting the repository
   and an issue or pull request from that repository that you want to add.
   
-  ![](fig/github-project-new-items.png){alt='Adding issues and notes to a project board in GitHub' .image-with-shadow width="800px"}
+  ![](fig/github-project-new-items.png){alt='Screenshot showing adding issues and notes to a project board in GitHub. The board shows three columns Todo, In Progress and Done, with three draft tasks entered into the Todo column: Finish off documenting the software; Select licence; Prepare the release notes.' .image-with-shadow width="800px"}
   
   Notes contain task descriptions and can have detailed content like checklists.
   In some cases, e.g. if a note becomes too complex,
@@ -433,7 +433,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   or write more detailed comments
   (for that, use the `Convert to issue` option from the `...` menu on the card itself).
   
-  ![](fig/github-convert-task-to-issue.png){alt='Converting a task to issue' .image-with-shadow width="800px"}
+  ![](fig/github-convert-task-to-issue.png){alt='Screenshot showing converting a task to issue in GitHub project interface. A draft task "Finish off documenting the software is selected and a context menu shown with multiple options, with the first "Convert to issue" highlighted.' .image-with-shadow width="800px"}
 
 7. In addition to creating new tasks as notes and converting them to issues -
   you can add an existing issue or pull request (from any repository visible to you)
@@ -449,7 +449,7 @@ this course but it is good to be aware of how to make use of them when suitable.
 9. Finally, you can change the way you view your project by adding another view.
   For example, we can add a Table view to our Board view by clicking the `New button`
   and selecting it from the drop down menu.
-  ![](fig/github-project-add-view.png){alt='Add another project view' .image-with-shadow width="800px"}
+  ![](fig/github-project-add-view.png){alt='Screenshot showing how to add another project view in GitHub Project interface. A second table view of the project is shown, with two view tabs, View 1 and View 2 now present and View 2 active. The "New view" button to right of view tabs is highlighted.' .image-with-shadow width="800px"}
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
