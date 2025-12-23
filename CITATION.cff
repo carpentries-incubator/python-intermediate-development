@@ -53,10 +53,12 @@ authors:
     orcid: 'https://orcid.org/0000-0002-1248-3594'
   - given-names: Aman
     family-names: Goel
-  - given-names: Matt
+  - given-names: Matthew M.
     family-names: Graham
-  - given-names: Deveraj
+    orcid: 'https://orcid.org/0000-0001-9104-7960'
+  - given-names: Devaraj
     family-names: Gopinathan
+    orcid: 'https://orcid.org/0000-0002-0490-3229'
   - given-names: Jaro
     family-names: Camphuijsen
     orcid: 'https://orcid.org/0000-0002-8928-7831'
