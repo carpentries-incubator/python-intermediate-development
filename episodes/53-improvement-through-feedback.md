@@ -202,20 +202,20 @@ We can create a new one by selecting `Issues` on our repository,
 then `Milestones` to display any existing milestones,
 then clicking the "New milestone" button to the right.
 
-![](fig/github-milestones.png){alt='Milestones in GitHub' .image-with-shadow width="1000px"}
+![](fig/github-milestones.png){alt='Screenshot showing how to access Milestones interface in GitHub. The Issues tab for a repository is shown with Milestones button to left of New Issue button highlighted.' .image-with-shadow width="1000px"}
 
-![](fig/github-create-milestone.png){alt='Create a milestone in GitHub' .image-with-shadow width="1000px"}
+![](fig/github-create-milestone.png){alt='Screenshot showing how to create a milestone in GitHub. The Milestones view within Issues tab is shown with a message indicating no milestones have been created so far. Two buttons for creating a new milestone are highlighted.' .image-with-shadow width="1000px"}
 
 We add in a title,
 a completion date (i.e. the end of this timebox),
 and any description for the milestone.
 
-![](fig/github-new-milestone-description.png){alt='Create a milestone in GitHub' .image-with-shadow width="800px"}
+![](fig/github-new-milestone-description.png){alt='SCreenshot showing how to create a milestone in GitHub. A new milestone form is shown with three entry fields, a short text field for entering title, a date picker field for selecting due date (optional) and a long text field for entering description.' .image-with-shadow width="800px"}
 
 Once created, we can view our issues
 and assign them to our milestone from the `Issues` page or from an individual issue page.
 
-![](fig/github-assign-milestone.png){alt='Milestones in GitHub' .image-with-shadow width="1000px"}
+![](fig/github-assign-milestone.png){alt='Screenshot showing how to assign an issue to a milestone. The issue list tab of a repository is shown with a single issue "Add README" selected and the Milestone dropdown on issue filter controls expanded with a list of available milestones that can be assigned to the issue shown, currently showing one milestone "Tidy up documentation".' .image-with-shadow width="1000px"}
 
 Let us now use Milestones to plan and prioritise our team's next sprint.
 
