@@ -113,9 +113,9 @@ sequenceDiagram
     Staging Area->>+Local Repository: git commit
     Local Repository->>+Remote Repository: git push
     Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Tree:git checkout
+    Local Repository->>+Working Tree:git restore
     Local Repository->>+Working Tree:git merge
-    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
+    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git merge)
 -->
 
 <!--

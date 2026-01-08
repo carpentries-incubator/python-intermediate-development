@@ -1,5 +1,5 @@
 ---
-title: 4.2 Preparing Software for Reuse and Release
+title: 4.2 Preparing Software for Reuse
 start: no
 teaching: 35
 exercises: 15
@@ -14,14 +14,16 @@ exercises: 15
 - Understand other documentation components and where they are useful
 - Describe the basic types of open source software licence
 - Explain the importance of conforming to data policy and regulation
-- Prioritise and work on improvements for release as a team
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - What can we do to make our programs reusable by others?
-- How should we document and license our code?
+- How should we document our code?
+- How to make our code citable?
+- How to centralize the configuration of our Python project?
+- How to add a proper licence to our code? 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -67,6 +69,23 @@ and ideally *modified* by others.
 If others are unable to verify that a piece of software follows published algorithms,
 how can they be certain it is producing correct results?
 Where 'others', of course, can include a future version of ourselves.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+**Work on a branch**
+
+In the previous episode, we updated the `develop` branch with a new feature.
+In this episode we will continue working on the reusability of our code.
+To do this, we will create a branch called `improve-reusability` from the `develop` branch:
+
+```bash
+$ git switch develop
+$ git switch -c improve-reusability
+```
+
+At the end of this episode, we will merge this branch back into `develop`.
+
+:::::::::::::::::::::::::::::::::::::::::
 
 ## Documenting Code to Improve Reusability
 
@@ -252,9 +271,181 @@ which may be held within other Markdown files within the repository or elsewhere
 We will finish these off later.
 See [Matias Singer's curated list of awesome READMEs](https://github.com/matiassingers/awesome-readme) for inspiration.
 
-### Other Documentation
+### Generating and deploying documentation using MKDocs
 
-There are many different types of other documentation you should also consider
+[MKDocs](https://www.mkdocs.org/) generates project documentation as a static website from Markdown files. The website can then be hosted on GitHub Pages or other static site hosting services, providing a user-friendly interface for accessing the documentation.
+
+We can install MKDocs package using `pip`. Here we also install a plugin `mkdocstrings`, which will be used later.
+We advise you to do this within a virtual environment you created before:
+
+```bash
+python3 -m pip install mkdocs mkdocstrings[python]
+```
+
+By default, `mkdocstrings` does not provide support for a specific language. Therefore, we specify `[python]` to install extra dependencies of `mkdocstrings` for Python language support.
+
+After installation, you can intialize a new MKDocs project in our Python project:
+
+```bash
+python3 -m mkdocs new .
+```
+
+This will create two files in your project: `mkdocs.yml` and `docs/index.md`. The first file `mkdocs.yml` is the configuration file for your documentation site. It serves as the central configuration hub for your MKDocs documentation. It tells MKDocs how to structure your documentation site, which plugins and themes to use,
+how to organize navigation, etc.
+
+`docs/index.md` is the main page of your documentation. It is usually the landing page of your documentation site.
+
+Let's first look at the `mkdocs.yml` file. It is almost empty now. We can edit it with the following basic configurations:
+
+```yaml
+site_name: Inflam
+
+nav:
+  - Overview: index.md
+
+plugins:
+  - search
+  - mkdocstrings
+```
+
+Here we give a name to our documentation site, `Inflam`. We set up the navigation menu with one item `Overview` that links to `index.md`. We also enable two plugins, `search` to provide search functionality in the documentation site, and `mkdocstrings` to automatically generate API reference documentation from Python docstrings, which we will see later.
+
+We can try to render the documentation site locally and see how it looks like:
+
+```bash
+python3 -m mkdocs serve
+```
+
+This will start to build a local static documentation site and serve it at a local web server. 
+By default, it will be available at `http://127.0.0.1:8000/`, which will also show in the terminal output.
+You can open this URL in your web browser to view the documentation site.
+
+The documentation site now consists of some default content about MKDocs. It is rendered from the `docs/index.md` file. Let's edit this file to add some relevant content about our project. For simplicity, we can borrow the content from our `README.md` file.
+
+::::::::::::::::::::::::::::::::: challenge
+
+### Exercise: Update Documentation Content
+
+Modify `docs/index.md` with the same content as your `README.md` file.
+Render the documentation site locally again with `mkdocs serve`.
+Check how it looks like in your web browser.
+
+:::::::::::::::::::::::::::::::::
+
+You can also add more pages to your documentation site by creating more Markdown files in the `docs/` directory, and update the `nav` section in `mkdocs.yml` to include these new pages. For example, we can create a new page for API (Application Programming Interface) reference documentation.
+
+An API reference documents the functions, classes, and methods provided by your software, along with their parameters, return values, and usage examples. This is particularly useful for understanding how to interact with your code programmatically. With `mkdocs` and `mkdocstrings` plugin, we can automatically generate API reference documentation from the docstrings in our Python code.
+
+Let's first create `docs/API.md` with the following content:
+
+```markdown
+# API Reference
+
+:::inflammation.models
+```
+
+Apart from the title, there is only one line `:::inflammation.models` in this file. This is a special syntax provided by the `mkdocstrings` plugin to indicate that we want to generate API documentation for the `inflammation.models` module. The plugin will parse the docstrings in this module and generate the corresponding documentation.
+
+Now we can call `mkdocs serve` again to render the documentation site locally and check how the API reference page looks like.
+
+Now we can see that all the functions defined in the `inflammation.models` module are automatically documented with their docstrings.
+
+One can make the rendered API documentation more informative by improving the docstrings in the code. For example, we can improve the docstring of the `load_csv` function by following the `numpy` style docstring format. Let's update the doctring of `load_csv` as below:
+
+```python
+def load_csv(filename: str) -> np.ndarray:
+"""Load a Numpy array from csv
+
+    Parameters
+    ----------
+    filename : str
+        path to the csv file
+
+    Returns
+    -------
+    np.ndarray
+        2D array of inflammation data
+"""
+```
+
+And also configure `mkdocs.yml` to use `numpy` style docstring format for `mkdocstrings` plugin:
+
+```yaml
+site_name: Inflam
+
+nav:
+  - Overview: index.md
+  - API Reference: api.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+```
+
+Then we can render the documentation site locally again with `mkdocs serve`, the input parameters and return values of the `load_csv` function are now nicely formatted in a table.
+
+
+Once you are happy with the documentation site, you can deploy it to GitHub Pages so that others can access it online. First, let's commit the changes we made to the repository:
+
+```bash
+git add inflammation/models.py mkdocs.yml docs/
+git commit -m "Add documentation with MKDocs"
+```
+
+To deploy the documentation to GitHub Pages, you can use the following command:
+```bash
+mkdocs gh-deploy
+```
+
+This command assumes you have access to the GitHub repository of the current project. It will automatically create a new branch called `gh-pages` in your repository, which will contain the static files of your documentation site, and push this branch to GitHub. 
+
+![](./fig/github-gh-page-settings.png){alt='GitHub Pages settings details' .image-with-shadow width="800px"}
+
+Now go check your repository's GitHub Pages "Settings -> Pages", you should see the link to your documentation site, which should be like: `https://<github_user_id>.github.io/python-intermediate-inflammation/`. You can add this link to your GitHub repository landing page description.
+
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+**Deploy documentation with GitHub actions**
+
+It is also possible to automate the deployment of documentation site using GitHub Actions. 
+
+Below is an example of GitHub Actions workflow file to deploy the documentation site whenever there is a push to any branch in the repository. Note that a better practice is to only deploy the documentation when there is a update to the `main` branch, or when there is a new release.
+
+```yaml
+name: Deploy docs
+
+on: [push]
+
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Install dependencies
+        run: |
+          python -m pip install .[docs] 
+      - name: Deploy docs
+        run: mkdocs gh-deploy --force
+```
+
+:::::::::::::::::::::::::::::::::::::::::
+
+### Thinking about the audience for your documentation
+
+Besides the API documentation we added by MKDocs, there are many different types of documentation you should consider
 writing and making available that's beyond the scope of this course.
 The key is to consider which audiences you need to write for,
 e.g. end users, developers, maintainers, etc.,
@@ -264,16 +455,91 @@ There is a Software Sustainability Institute
 that helpfully covers the kinds of documentation to consider
 and other effective ways to convey the same information.
 
-One that you should always consider is **technical documentation**.
-This typically aims to help other developers understand your code
-sufficiently well to make their own changes to it,
-including external developers, other members in your team and a future version of yourself too.
-This may include documentation that covers the software's architecture,
-including its different components and how they fit together,
-API (Application Programming Interface) documentation
-that describes the interface points designed into your software for other developers to use,
-e.g. for a software library,
-or technical tutorials/'HOW TOs' to accomplish developer-oriented tasks.
+
+## Configuring your code with `pyproject.toml`
+
+[`pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) is a standardized configuration file, written in TOML format, used in Python projects to declare build system requirements, metadata, and tool configuration. It serves as a central place to manage various aspects of a Python project, making it easier to build, package, and distribute the project.
+
+We can take a look at the current state of the `pyproject.toml` file in our project:
+
+```toml
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-intermediate-inflammation"
+version = "0.0.0"
+requires-python = ">=3.9"
+
+[tool.setuptools]
+packages = ["inflammation"]
+```
+
+It defines three main sections of a Python project as three tables: 
+
+- The `[build-system]` table allows you to declare which build backend you use and which other dependencies are needed to build your project.
+
+- The `[project]` table, which specifies your project’s basic metadata, such as the project name, author name(s), dependencies, and more.
+
+- The `[tool]` table has tool-specific subtables, e.g., `[tool.setuptools]`, the content of which is defined by each tool, allowing you to configure various aspects of the tool's behavior.
+
+We can improve the `pyproject.toml` file by adding some metadata to our project. Let's update the `[project]` table as below:
+
+```toml
+[project]
+name = "python-intermediate-inflammation"
+version = "0.0.0"
+requires-python = ">=3.9"
+description = "A Python data management system that manages trial data used in clinical inflammation studies."
+readme = "README.md"
+```
+
+Here we added a short description of our project and specified the README file. In practice, `pyproject.toml` can contain many other metadata fields as well as configuration for various tools. The [pyproject.toml documentation](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) provides more details. One advantage of using `pyproject.toml` is that it integrates with modern Python packaging tools like [`uv`](https://docs.astral.sh/uv/), which we will see in the next section about releasing our Python project.
+
+Do not forget to commit the changes we made to `pyproject.toml` file.
+
+```bash
+git add pyproject.toml
+git commit -m "Update pyproject.toml with dependencies"
+```
+
+## Make your code citable by adding a CITATION File
+
+It is easy to correctly cite a paper: all the necessary information (metadata) can be found on the title page or the article website. 
+
+Software and datasets have no title page, the relevant information is often less obvious. To get credit for your work, you should provide citation information for your software. 
+
+A good way to add citation information is by including a [CITATION.cff](https://citation-file-format.github.io/) file (Citation File Format) in the root of your repository. This plain text file, written in YAML format, contains all the necessary citation details in a structured manner. 
+
+
+![](./fig/github-citation-file-rendered.png){alt='CITATION.cff rendered on GitHub' .image-with-shadow width="600px"}
+
+Platforms like GitHub, Zenodo, and Zotero reuse the citation metadata you provide. GitHub, for example, automatically renders the file on the repository landing page and provides a BibTeX snippet which users can simply copy! 
+
+### Minimal example for a CITATION.cff file
+
+```yaml
+authors:
+  - family-names: Doe
+    given-names: John
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Inflam"
+```
+We can also include other important information of software such as version, release date, DOI, license, keywords.
+
+#### How to create a CITATION.cff file?
+
+You can use the [cffinit](https://citation-file-format.github.io/cff-initializer-javascript/) tool to create a citation file. 
+
+:::challenge
+### Exercise: Create a CITATION.cff using cffinit
+1. Follow [these steps to create a CITATION file with cffinit](https://book.the-turing-way.org/communication/citable/citable-cffinit).
+1. Rename the created file to `CITATION.cff` and add it to the root folder of your repository.
+1. Push your changes to feature branch and check your repository in GitHub. What has happened?
+:::
+
 
 ## Choosing an Open Source Licence
 
@@ -329,181 +595,20 @@ If you want more information, or help choosing a licence,
 the [Choose An Open-Source Licence](https://choosealicense.com/)
 or [tl;dr Legal](https://tldrlegal.com/) sites can help.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Preparing for Release
+:::challenge
+### Exercise: Add a Licence to Your Code
+Select a licence for your code using the tool above. 
+Replace the contents of the `LICENSE.md` file in your repository with the text of the licence you have chosen.
+Push your changes to your feature branch and check your repository in GitHub. What has happened?
+:::
 
-In a (hopefully) highly unlikely and thoroughly unrecommended scenario,
-your project leader has informed you of the need to release your software
-within the next half hour,
-so it can be assessed for use by another team.
-You'll need to consider finishing the README,
-choosing a licence,
-and fixing any remaining problems you are aware of in your codebase.
-Ensure you prioritise and work on the most pressing issues first!
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Merging into `main`
-
-Once you have done these updates,
-commit your changes,
-and if you are doing this work on a feature branch also ensure you merge it into `develop`,
-e.g.:
-
-```bash
-$ git switch develop
-$ git merge my-feature-branch
-```
-
-Finally, once we have fully tested our software
-and are confident it works as expected on `develop`,
-we can merge our `develop` branch into `main`:
-
-```bash
-$ git switch main
-$ git merge develop
-$ git push origin main
-```
-
-The software on your `main` branch is now ready for release.
-
-## Tagging a Release in GitHub
-
-There are many ways in which Git and GitHub can help us make a software release from our code.
-One of these is via **tagging**,
-where we attach a human-readable label to a specific commit.
-Let us see what tags we currently have in our repository:
-
-```bash
-$ git tag
-```
-
-Since we have not tagged any commits yet, there is unsurprisingly no output.
-We can create a new tag on the last commit in our `main` branch by doing:
-
-```bash
-$ git tag -a v1.0.0 -m "Version 1.0.0"
-```
-
-So we can now do:
-
-```bash
-$ git tag
-```
-
-```output
-v.1.0.0
-```
-
-And also, for more information:
-
-```bash
-$ git show v1.0.0
-```
-
-You should see something like this:
-
-```output
-tag v1.0.0
-Tagger: <Name> <email>
-Date:   Fri Dec 10 10:22:36 2021 +0000
-
-Version 1.0.0
-
-commit 2df4bfcbfc1429c12f92cecba751fb2d7c1a4e28 (HEAD -> main, tag: v1.0.0, origin/main, origin/develop, origin/HEAD, develop)
-Author: <Name> <email>
-Date:   Fri Dec 10 10:21:24 2021 +0000
-
-	Finalising README.
-
-diff --git a/README.md b/README.md
-index 4818abb..5b8e7fd 100644
---- a/README.md
-+++ b/README.md
-@@ -22,4 +22,33 @@ Flimflam requires the following Python packages:
- The following optional packages are required to run Flimflam's unit tests:
-
- - [pytest](https://docs.pytest.org/en/stable/) - Flimflam's unit tests are written using pytest
--- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
-\ No newline at end of file
-+- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
-+
-+## Installation
-+- Clone the repo ``git clone repo``
-+- Check everything runs by running ``python -m pytest`` in the root directory
-+- Hurray 
-+
-+## Contributing
-+- Create an issue [here](https://github.com/Onoddil/python-intermediate-inflammation/issues)
-+  - What works, what does not? You tell me
-+- Randomly edit some code and see if it improves things, then submit a [pull request](https://github.com/Onoddil/python-intermediate-inflammation/pulls)
-+- Just yell at me while I edit the code, pair programmer style!
-+
-+## Getting Help
-+- Nice try
-+
-+## Credits
-+- Directed by Michael Bay
-+
-+## Citation
-+Please cite [J. F. W. Herschel, 1829, MmRAS, 3, 177](https://ui.adsabs.harvard.edu/abs/1829MmRAS...3..177H/abstract) if you used this work in your day-to-day life.
-+Please cite [C. Herschel, 1787, RSPT, 77, 1](https://ui.adsabs.harvard.edu/abs/1787RSPT...77....1H/abstract) if you actually use this for scientific work.
-+
-+## License
-+This source code is protected under international copyright law.  All rights
-+reserved and protected by the copyright holders.
-+This file is confidential and only available to authorized individuals with the
-+permission of the copyright holders.  If you encounter this file and do not have
-+permission, please contact the copyright holders and delete this file.
-\ No newline at end of file
-```
-
-So now we have added a tag, we need this reflected in our Github repository.
-You can push this tag to your remote by doing:
-
-```bash
-$ git push origin v1.0.0
-```
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## What is a Version Number Anyway?
-
-Software version numbers are everywhere,
-and there are many different ways to do it.
-A popular one to consider is [**Semantic Versioning**](https://semver.org/),
-where a given version number uses the format MAJOR.MINOR.PATCH.
-You increment the:
-
-- MAJOR version when you make incompatible API changes
-- MINOR version when you add functionality in a backwards compatible manner
-- PATCH version when you make backwards compatible bug fixes
-
-You can also add a hyphen followed by characters to denote a pre-release version,
-e.g. 1.0.0-alpha1 (first alpha release) or 1.2.3-beta4 (fourth beta release)
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-We can now use the more memorable tag to refer to this specific commit.
-Plus, once we have pushed this back up to GitHub,
-it appears as a specific release within our code repository
-which can be downloaded in compressed `.zip` or `.tar.gz` formats.
-Note that these downloads just contain the state of the repository at that commit,
-and not its entire history.
-
-Using features like tagging allows us to highlight commits that are particularly important,
-which is very useful for *reproducibility* purposes.
-We can (and should) refer to specific commits for software in
-academic papers that make use of results from software,
-but tagging with a specific version number makes that just a little bit easier for humans.
 
 ## Conforming to Data Policy and Regulation
 
 We may also wish to make data available to either
 be used with the software or as generated results.
-This may be via GitHub or some other means.
+This may be via some means other than GitHub, such as Zenodo, Figshare, or an institutional repository.
 An important aspect to remember with sharing data on such systems is that
 they may reside in other countries,
 and we must be careful depending on the nature of the data.
@@ -517,11 +622,19 @@ and even international policies and laws.
 Within Europe, for example, there is the need to conform to things like [GDPR][gdpr].
 it is a very good idea to make yourself aware of these aspects.
 
+## Merge your changes to the `main` branch
 
+After completing all the changes to improve the reusability of your code, you can first merge your feature branch to the `devlop` branch. Then merge the `develop` branch to the `main` branch.
+
+In the next Section, we will look at how to release your Python project from the `main` branch
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- The reuse battle is won before it is fought. Select and use good practices consistently throughout development and not just at the end.
+- Add README file for general documentation about your software
+- Use MKDocs to generate and deploy documentation site
+- Use `pyproject.toml` to centralize configuration of your Python project
+- Add `CITATION.cff` file to make your code citable
+- Choose an `LICENSE` file to specify the open source licence of your code
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

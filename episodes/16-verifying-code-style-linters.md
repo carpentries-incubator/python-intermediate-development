@@ -27,7 +27,7 @@ We can also use tools,
 called [**code linters**](https://en.wikipedia.org/wiki/Lint_%28software%29),
 to identify consistency issues in a report-style.
 Linters analyse source code to identify and report on stylistic and even programming errors.
-Let us look at a very well used one of these called `pylint`.
+Let us look at a very well used one of these called `ruff`.
 
 First, let us ensure we are on the `style-fixes` branch once again.
 
@@ -35,10 +35,11 @@ First, let us ensure we are on the `style-fixes` branch once again.
 $ git switch style-fixes
 ```
 
-Pylint is just a Python package so we can install it in our virtual environment using:
+Ruff is written in Rust, which makes it very fast as compared to other Python linters.
+It can be installed in our virtual environment using `pip`:
 
 ```bash
-$ python3 -m pip install pylint
+$ python3 -m pip install ruff
 ```
 
 We should also update our `requirements.txt` with this new addition:
@@ -47,18 +48,20 @@ We should also update our `requirements.txt` with this new addition:
 $ python3 -m pip freeze --exclude-editable > requirements.txt
 ```
 
-Pylint is a command-line tool that can help our code in many ways:
+Ruff is a command-line tool that can help our code in many ways:
 
 - **Check PEP 8 compliance:**
   whilst in-IDE context-sensitive highlighting helps us stay consistent with PEP 8 as we write code, this tool provides a full report
-- **Perform basic error detection:** Pylint can look for certain Python type errors
+- **Perform basic error detection:** Ruff can look for certain Python type errors
 - **Check variable naming conventions**:
-  Pylint often goes beyond PEP 8 to include other common conventions,
+  Ruff can go beyond PEP 8 to include other common conventions,
   such as naming variables outside of functions in upper case
 - **Customisation**:
   you can specify which errors and conventions you wish to check for, and those you wish to ignore
+- **Automatic fixes**:
+  Ruff supports automatic fixes for some lint errors.
 
-Pylint can also identify **code smells**.
+Ruff can also identify **code smells**.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -82,82 +85,126 @@ by Kent Beck and Martin Fowler in
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Pylint recommendations are given as warnings or errors,
-and Pylint also scores the code with an overall mark.
+In addition, Ruff includes the functionality of a formatter: it can be used
+to apply a stardardized format to Python files, so that the resulting layout
+makes the code more consistent and readable. We will not cover Ruff's use as
+a formatter here, but you can learn more about this topic from the
+[Ruff documentation](https://docs.astral.sh/ruff/formatter/).
+
+Ruff recommendations are given as warnings or errors.
 We can look at a specific file (e.g. `inflammation-analysis.py`),
 or a package (e.g. `inflammation`).
 Let us look at our `inflammation` package and code inside it (namely `models.py` and `views.py`).
 From the project root do:
 
 ```bash
-$ pylint inflammation
+$ ruff check inflammation
 ```
 
 You should see an output similar to the following:
 
 ```output
-************* Module inflammation.models
-inflammation/models.py:13:23: C0303: Trailing whitespace (trailing-whitespace)
-inflammation/models.py:34:0: C0305: Trailing newlines (trailing-newlines)
-************* Module inflammation.views
-inflammation/views.py:4:0: W0611: Unused numpy imported as np (unused-import)
+F401 [*] `numpy` imported but unused
+ --> inflammation/views.py:4:17
+  |
+3 | from matplotlib import pyplot as plt
+4 | import numpy as np
+  |                 ^^
+  |
+help: Remove unused import: `numpy`
 
-------------------------------------------------------------------
-Your code has been rated at 8.50/10 (previous run: 8.50/10, +0.00)
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
 ```
 
 Your own outputs of the above commands may vary depending on
 how you have implemented and fixed the code in previous exercises
 and the coding style you have used.
 
-The five digit codes, such as `C0303`, are unique identifiers for warnings,
-with the first character indicating the type of warning.
-There are five different types of warnings that Pylint looks for,
-and you can get a summary of them by doing:
+The alphanumeric codes, such as `F401`, are unique identifiers for lint rules.
+Ruff implements rules as derived by other tools and conventions - the starting
+letter of the code refers to the tool or convention the rule is derived from.
+To learn more about a lint rule, e.g. `F401`, you can run:
 
 ```bash
-$ pylint --long-help
+$ ruff rule F401
+```
+Ruff will tell you that `F401`, as all other `F`-rules, are derived from the
+[Pyflakes](https://pypi.org/project/pyflakes/) Python linter, and give you
+examples, explanations and some reasoning on why the rule exists.
+The full list of rules that Ruff supports is available
+[as part of the Ruff documentation](https://docs.astral.sh/ruff/rules/).
+
+Note that by default Ruff does not check for all rules, but it enables
+only a subset that is considered a reasonable choice to identify common errors.
+You can enable a specific set of rules using the `--select` option. For instance,
+try to include the following set of rules, which are derived from some of the most
+popular tools, such as [pycodestyle](https://pypi.org/project/pycodestyle/)
+(`E` rules) and [isort](https://pypi.org/project/isort/) (`I` rules):
+
+```bash
+$ ruff check --select E,F,I inflammation
 ```
 
-Near the end you'll see:
+Ruff will identify more problems in the codebase:
 
 ```output
-  Output:
-    Using the default text output, the message format is :
-    MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE
-    There are 5 kind of message types :
-    * (C) convention, for programming standard violation
-    * (R) refactor, for bad code smell
-    * (W) warning, for python specific problems
-    * (E) error, for probable bugs in the code
-    * (F) fatal, if an error occurred which prevented pylint from doing
-    further processing.
+I001 [*] Import block is un-sorted or un-formatted
+ --> inflammation/views.py:3:1
+  |
+1 |   """Module containing code for plotting inflammation data."""
+2 |
+3 | / from matplotlib import pyplot as plt
+4 | | import numpy as np
+  | |__________________^
+  |
+help: Organize imports
+
+F401 [*] `numpy` imported but unused
+ --> inflammation/views.py:4:17
+  |
+3 | from matplotlib import pyplot as plt
+4 | import numpy as np
+  |                 ^^
+  |
+help: Remove unused import: `numpy`
+
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.
 ```
 
-So for an example of a Pylint Python-specific `warning`,
-see the "W0611: Unused numpy imported as np (unused-import)" warning.
-
-It is important to note that while tools such as Pylint are great at giving you
+It is important to note that while tools such as Ruff are great at giving you
 a starting point to consider how to improve your code,
 they will not find everything that may be wrong with it.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-## How Does Pylint Calculate the Score?
+## Exercise: Add Ruff configurations to the `pyproject.toml` file
 
-The Python formula used is
-(with the variables representing numbers of each type of infraction
-and `statement` indicating the total number of statements):
+You can define the Ruff configuration for a project by adding a section to the
+`pyproject.toml` file. For instance, you can define the set of rules to be checked
+for your codebase. Following [the Ruff documentation](https://docs.astral.sh/ruff/linter/),
+add a section to the `pyproject.toml` to enable the `E`, `W`, `F`, `UP`, `A`, `B`, `SIM`,
+and `I` rules for the project. Verify that the configuration is respected when running
+`ruff` (without the `--select` option):
 
 ```bash
-10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+$ ruff check inflammation
 ```
 
-For example, with a total of 31 statements of models.py and views.py,
-with a count of the errors shown above, we get a score of 8.00.
-Note whilst there is a maximum score of 10, given the formula,
-there is no minimum score - it is quite possible to get a negative score!
+::::::::::::::::::::::::::::::::  solution
 
+Add the following section to the `pyproject.toml`:
+
+```toml
+[tool.ruff.lint]
+select = ["E", "W", "F", "UP", "A", "B", "SIM", "I"]
+```
+
+Running `ruff check inflammation` should indeed show problems with some of
+the `W` and `I` rules, which are not enabled with the default Ruff settings.
+
+::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -165,13 +212,15 @@ there is no minimum score - it is quite possible to get a negative score!
 
 ## Exercise: Further Improve Code Style of Our Project
 
-Select and fix a few of the issues with our code that Pylint detected.
-Make sure you do not break the rest of the code in the process and that the code still runs.
-After making any changes, run Pylint again to verify you have resolved these issues.
+Select and fix a few of the issues with our code that Ruff detected.
+You can try using the Ruff's `--fix` command-line option to automatically fix
+(some of) the issues. If you manually edit the code, make sure you do not break
+the rest of the code in the process and that the code still runs.
+After making any changes, run Ruff again to verify you have resolved these issues.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Make sure you commit and push `requirements.txt`
+Make sure you commit and push `requirements.txt`, `pyproject.toml`,
 and any file with further code style improvements you did on to `style-fixes` branch and then
 merge all these changes into your development branch.
 
@@ -184,8 +233,8 @@ with GitHub Actions - we will come back to automated linting in the episode on
 ["Diagnosing Issues and Improving Robustness"](24-diagnosing-issues-improving-robustness.md).
 
 ```bash
-$ git add requirements.txt
-$ git commit -m "Added Pylint library"
+$ git add requirements.txt pyproject.toml
+$ git commit -m "Added Ruff library"
 $ git push origin style-fixes
 $ git switch develop
 $ git merge style-fixes
@@ -197,17 +246,16 @@ $ git push origin develop
 ## Optional Exercise: Improve Code Style of Your Other Python Projects
 
 If you have a Python project you are working on or you worked on in the past,
-run it past Pylint to see what issues with your code are detected, if any.
-
+run it past Ruff to see what issues with your code are detected, if any.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::: challenge
 
-## Optional Exercise: More on Pylint
+## Optional Exercise: More on Ruff
 
 Checkout [this optional exercise](17-section1-optional-exercises.md)
-to learn more about `pylint`.
+to learn more about `ruff`.
 
 :::
 

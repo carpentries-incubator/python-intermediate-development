@@ -135,15 +135,16 @@ There are several commonly used command line tools for managing Python virtual e
 - `conda`, package and environment management system
   (also included as part of the Anaconda Python distribution often used by the scientific community)
 - `poetry`, a modern Python packaging tool which handles virtual environments automatically
+- `uv`, a recent and fast package, environment, and project manager.
 
 While there are pros and cons for using each of the above,
 all will do the job of managing Python virtual environments for you
 and it may be a matter of personal preference which one you go for.
-In this course, we will use `venv` to create and manage our virtual environment
-(which is the preferred way for Python 3.3+).
-The upside is that `venv` virtual environments created from the command line are
-also recognised and picked up automatically by the IDEs we will use in this course,
-as we will see in the next episode.
+In this course, we will use `venv` to create and manage our virtual environment, which
+is the tool that is part of the standard Python installation and the recommended manager
+for Python 3.5+. If you want to experiment with a fast alternative that can work
+as a drop-in replacement for `venv`, have a look at `uv` (see also the
+[callout below](#uv-callout)).
 
 ### Managing External Packages
 
@@ -169,6 +170,22 @@ from remote package repositories and install them on your system, and
 (2) it is also a virtual environment manager.
 So, you can use `conda` for both tasks instead of using `venv` and `pip`.
 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+<a id="uv-callout"></a>
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## A recent addition: `uv`
+
+[`uv`](https://docs.astral.sh/uv/) is becoming increasingly popular in the world of
+Python package and project managers. Similarly to `conda`, it combines the functionality
+of a package manager (finding and installing Python packages) and a virtual environment
+manager (isolating project dependecies), but it can also be used to create and manage
+Python projects, update dependencies, publishing packages, and much more. Its sub-commands
+`uv venv` and `uv pip` can be used as a drop-in replacement for `venv` and `pip`,
+respectively, which the additional advantage of being much faster!
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -209,7 +226,7 @@ You can test your Python installation from the command line with:
 
 ```bash
 $ python3 --version # on Mac/Linux
-$ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
+$ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file
 ```
 
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may
@@ -312,7 +329,7 @@ Here are some references for each of the naming conventions:
 - [The Python Documentation](https://docs.python.org/3/library/venv.html)
   indicates that ".venv" is common
 - ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -449,7 +466,7 @@ Version: 1.26.2
 Summary: Fundamental package for array computing in Python
 Home-page: https://numpy.org
 Author: Travis E. Oliphant et al.
-Author-email: 
+Author-email:
 License: Copyright (c) 2005-2023, NumPy Developers.
 All rights reserved.
 ...
@@ -639,7 +656,7 @@ In the above command, we tell the command line two things:
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`.
 It looks like the script expects a list of input files to process,
-so this is expected behaviour since we do not supply any. 
+so this is expected behaviour since we do not supply any.
 
 We should run our code as follows, passing one (or more) data file(s) as input:
 

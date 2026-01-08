@@ -567,6 +567,27 @@ This tells the author you are happy for them to merge the pull request.
   ![](fig/github-merge-pull-request.png){alt='Merging a pull request in GitHub' .image-with-shadow width="800px"}
 2. Delete the merged branch to reduce the clutter in the repository.
 
+::: callout
+
+### Merge via command line
+
+The `git merge` command provides a way to directly merge branches on your local. In general, when adding changes to the major branches like `develop` or `main`, this is not a good practice since it bypasses the code review process. It is a common practice for an open-source project to protect its most important branches, meaning pushing directly to one of these branches will fail. Therefore, even if you can merge to `develop` or `main` locally, you will not be able to push the changes to the remote repository.
+
+On the other hand, the `git merge` command can be very useful for keeping your feature branch up to date with the major branches. For example, if you are working on a branch `my-feature` and the `develop` branch has received new commits (e.g. someone else has merged their pull request), you can do the following to include changes from `develop` into your feature branch:
+
+```bash
+# First update your local develop branch
+$ git checkout develop
+$ git pull develop
+# Then switch back to your feature branch and merge the latest develop into it
+$ git checkout my-feature
+$ git merge develop
+```
+
+In this way, you can keep your feature branch up to date. You may need to resolve conflicts that arise during this process.
+
+:::
+
 ## Writing Easy-To-Review Code
 
 There are a few things you can do to make it
