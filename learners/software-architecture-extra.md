@@ -110,7 +110,7 @@ For example, the diagram below depicts the use of MVC architecture for the
 [DNA Guide Graphical User Interface application](https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach).
 
 ![](fig/mvc-DNA-guide-GUI.png){alt='MVC example of a DNA Guide Graphical User Interface application' .image-with-shadow width="400px" }
-{% comment %}Image from <https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach{%> endcomment %}
+{% comment %}Image from <https://www.software.ac.uk/developing-scientific-applications-using-model-view-controller-approach>{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

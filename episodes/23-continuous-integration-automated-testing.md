@@ -389,7 +389,7 @@ jobs:
         python3 -m pytest --cov=inflammation.models tests/test_models.py
 ```
 
-The `{{ }}` are used
+The double-brackets `{` are used
 as a means to reference configuration values from the matrix.
 This way, every possible permutation of Python versions 3.10 through 3.12
 with the latest versions of Ubuntu, Mac OS and Windows operating systems
