@@ -1266,7 +1266,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1402,7 +1402,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -4250,7 +4250,7 @@ conversion.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
 <p>By default, PyCharm inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in PyCharm’s
 <code>Settings -&gt; Editor -&gt; Code Style -&gt; Python</code>.</p>
@@ -4260,7 +4260,7 @@ are ever unsure what character exactly is being used by selecting
 checking “Show whitespaces” option.</p>
 <figure><img src="../fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
 <p>By default, VS Code inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in VS Code’s user or workspace settings
 (<code>File -&gt; Preferences -&gt; Settings</code> on Windows and Linux
@@ -6189,7 +6189,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7078,7 +7078,7 @@ levels are available too.</p>
 called <strong>build matrices</strong> which really shows the value of
 using CI to test at scale.</p>
 <p>Suppose the intended users of our software use either Ubuntu, Mac OS,
-or Windows, and have Python versions 3.10 through 3.12 installed, and we
+or Windows, and have Python versions 3.11 through 3.13 installed, and we
 want to support all of these. Assuming we have a suitable test suite, it
 would take a considerable amount of time to set up testing platforms to
 run our tests across all these platform combinations. Fortunately, CI
@@ -7108,7 +7108,7 @@ the following:</p>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="at">        </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"ubuntu-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"macos-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"windows-latest"</span><span class="kw">]</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.10"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.11"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.12"</span><span class="kw">]</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.11"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.12"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.13"</span><span class="kw">]</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">    # Here we add the reference to the os matrix values</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ${{ matrix.os }}</span></span>
@@ -7135,7 +7135,7 @@ the following:</p>
 </div>
 <p>The <code>{{ }}</code> are used as a means to reference configuration
 values from the matrix. This way, every possible permutation of Python
-versions 3.10 through 3.12 with the latest versions of Ubuntu, Mac OS
+versions 3.11 through 3.13 with the latest versions of Ubuntu, Mac OS
 and Windows operating systems will be tested, and we can expect 9 build
 jobs in total. We can also use this in the <code>name</code> key of the
 step to accurately reflect what it is doing (e.g. which Python version
@@ -8750,7 +8750,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8804,7 +8804,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8937,7 +8937,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -9012,7 +9012,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9353,7 +9353,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -9443,7 +9443,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure>
 </div>
@@ -9734,7 +9734,7 @@ instead.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The new function <code>load_inflammation_data()</code> that reads all
 the inflammation data into the format needed for the analysis could look
@@ -9920,7 +9920,7 @@ function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For example, we can declare class <code>CSVDataSource</code> like
 this:</p>
@@ -10013,7 +10013,7 @@ duty, what parameters they need and what they return.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The interface is the <code>load_inflammation_data()</code> method,
 which takes no parameters and returns a list where each entry is a 2D
@@ -10124,7 +10124,7 @@ based on the file extension.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The class that reads inflammation data from JSON files could look
 something like:</p>
@@ -10239,7 +10239,7 @@ deviation calculations are correct.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -11759,7 +11759,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -11886,7 +11886,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal">
@@ -12109,7 +12109,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul>
@@ -12761,7 +12761,7 @@ end.</li>
 </div>
 </section></section><section id="aio-43-software-release"><p>Content from <a href="43-software-release.html">4.3 Packaging Code for Release and Distribution</a></p>
 <hr>
-<p>Last updated on 2025-05-30 |
+<p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/43-software-release.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -12921,7 +12921,7 @@ Version [0.1.0]: 1.0.0
 Description []:  Analyse patient inflammation data
 Author [None, n to skip]: James Graham &lt;J.Graham@software.ac.uk&gt;
 License []:  MIT
-Compatible Python versions [&gt;=3.13]:  &gt;=3.10
+Compatible Python versions [&gt;=3.13]:  &gt;=3.11
 
 Would you like to define your main dependencies interactively? (yes/no) [yes] no
 Would you like to define your development dependencies interactively? (yes/no) [yes] no
@@ -12936,7 +12936,7 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = "&gt;=3.10"
+requires-python = "&gt;=3.11"
 dependencies = [
 ]
 
@@ -13449,7 +13449,7 @@ appropriate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>For example, “Add a licence file” could be a good first issue, with a
 label <code>documentation</code>.</p>
@@ -14406,7 +14406,7 @@ pathways and in which order you need to learn them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One way to think about these concepts is to make a list and try to
 organise them along two axes - ‘perceived usefulness of a concept’
