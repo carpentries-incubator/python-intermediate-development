@@ -123,7 +123,10 @@ SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
 -->
 
-![Software development lifecycle with Git](fig/git-lifecycle.svg){alt='Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull' .image-with-shadow width="600px"}
+![Software development lifecycle with Git](fig/git-lifecycle.svg){
+  alt='Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree.' 
+  .image-with-shadow width="600px"
+}
 
 ## Checking-in Changes to Our Project
 
@@ -306,7 +309,7 @@ Collaborating with others involves
 managing these remote repositories and pushing and pulling information
 to and from them when you need to share work.
 
-![](fig/git-distributed.png){alt='git-distributed' .image-with-shadow width="400px"}
+![](fig/git-distributed.png){alt='Representation of Git\'s distributed version control system showing interactions between a central repository and two local repositories on developer machines, with arrows showing pushing from central repository to developer repositories, pulling from developer repositories to central repository. A self-connecting arrow on developer repository shows creating commits in local repository.' .image-with-shadow width="400px"}
 
 <p style="text-align: center;">Git - distributed version control system<br> From <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank">W3Docs</a> (freely available)</p>
 
@@ -364,7 +367,7 @@ So, working on a separate branch for each feature you are adding is good for sev
 
 Branches are commonly used as part of a feature-branch workflow, shown in the diagram below.
 
-![](fig/git-feature-branch.svg){alt='Git feature branch workflow diagram' .image-with-shadow width="800px"}
+![](fig/git-feature-branch.svg){alt='Git commit tree showing four branches - Main, Develop, FeatureX and FeatureY. The Main branch shows three commits corresponding to release tags v0.1, v0.2 and v0.3. The Develop branch branches off from Main branch with intermediate commits between release tags which are then merged into Main branch. Short-lived feature branches FeatureX and FeatureY branch off from Develop branch, have a small number of additional commits and are then merged back in to Develop branch.' .image-with-shadow width="800px"}
 
 <p style="text-align: center;">Git feature branches<br>
 Adapted from <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank">Git Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International License)</p>
@@ -496,7 +499,7 @@ However, as we have just created this branch locally,
 it still does not exist in our remote repository.
 You can check that in GitHub by listing all branches.
 
-![](fig/github-main-branch.png){alt="Software project's main branch" .image-with-shadow width="600px"}
+![Software project's main branch](fig/github-main-branch.png){alt="Code tab of GitHub web interface showing main branch of software project. Branch selector dropdown is shown with main (default) branch showing as currently selected and one other branch feature-std-dev showing as present." .image-with-shadow width="600px"}
 
 To push a new local branch remotely for the first time,
 you could use the `-u` flag and the name of the branch you are creating and pushing to:
@@ -526,7 +529,7 @@ From the `Code` tab in your repository in GitHub,
 click the branch dropdown menu (currently showing the default branch `main`).
 You should see your `develop` branch in the list too.
 
-![](fig/github-develop-branch.png){alt="Software project's develop branch" .image-with-shadow width="600px"}
+![Software project's develop branch](fig/github-develop-branch.png){alt="Code tab of GitHub web interface showing notification indicating develop branch had recent pushes. Branch selector dropdown is shown with main (default) branch showing as currently selected and two other branches develop and feature-std-dev showing as present, with develop highlighted." .image-with-shadow width="600px"}
 
 You may also have noticed GitHub's notification about the latest push to your `develop` branch just
 on top of the repository files and branches drop-down menu.
