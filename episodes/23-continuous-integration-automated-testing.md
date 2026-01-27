@@ -332,7 +332,7 @@ we can use a feature called **build matrices**
 which really shows the value of using CI to test at scale.
 
 Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows,
-and have Python versions 3.10 through 3.12 installed,
+and have Python versions 3.11 through 3.13 installed,
 and we want to support all of these.
 Assuming we have a suitable test suite,
 it would take a considerable amount of time to set up testing platforms
@@ -363,7 +363,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.11", "3.12", "3.13"]
 
     # Here we add the reference to the os matrix values
     runs-on: ${{ matrix.os }}
@@ -391,7 +391,7 @@ jobs:
 
 The `{{ }}` are used
 as a means to reference configuration values from the matrix.
-This way, every possible permutation of Python versions 3.10 through 3.12
+This way, every possible permutation of Python versions 3.11 through 3.13
 with the latest versions of Ubuntu, Mac OS and Windows operating systems
 will be tested, and we can expect 9 build jobs in total.
 We can also use this in the `name` key of the step to accurately reflect what it is doing
