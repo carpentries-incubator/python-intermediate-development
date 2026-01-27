@@ -56,24 +56,18 @@ and sustain in the future by yourself and others.
 Skills and tools taught here, while Python-specific,
 are transferable to other similar tools and programming languages.
 
-The course is organised into the following sections:
-
-![Course overview diagram](fig/course-overview.svg){alt="Course overview diagram. Arrows connect the following boxed text in order: 1) Setting up software environment 2) Verifying software correctness 3) Software development as a process 4) Collaborative development for reuse 5) Managing software over its lifetime."}
-
-<!---
-Source of the above image can be rendered in the Mermaid live editor:
-<https://mermaid.live/edit#pako:eNpdkE1rwzAMhv-K8CmFNrCvSw6D9eO2XlbYYeSiJXJqcKwgKyml9L_PaZox5pOQn8ey3oupuCZTGOv5VB1RFN4_ygDpvGUPORxI1YUG-m5qRrZ6QiGgMDjh0FLQBZRhtXqFdfaYwyeJs-ek_OMrFqFKA8U485vsKQ2YgZoG8tyND8LkYgSETrganUnZZs85bNh7_GZBdQPd2b-2ZQGhPtJd2mUvOewxYDNu8vujSeSBBJxG8M6SupYWZmlakhZdnWK5jFRp9EgtlaZIZU0We6-lKcM1odgrH86hMoVKT0vTdzUqbR02gq0pLPqYulQ7ZdlPUd8Sn8nd7Wa2OwxfzLN3_QE4H4oo>
-
-The mermaid source is (with one less dash in arrows than needed):
-
-```mermaid
-flowchart LR
-  A(1. Setting up software environment) -> B(2. Verifying software correctness)
-  B -> C(3. Software development as a process)
-  C -> D(4. Collaborative development for reuse)
-  D -> E(5. Managing software over its lifetime)
-```
+The course is organised into the following sections.
+<!-- 
+alt-tex="Course overview diagram. Arrows connect the following boxed text in order: 1) Setting up software environment 2) Verifying software correctness 3) Software development as a process 4) Collaborative development for reuse 5) Managing software over its lifetime."
 -->
+```mermaid
+    flowchart LR
+        accDescr {Overview of sections in the lesson: setting up development environment, verifying software correctness, the process of software development & engineering, collaborative software development, managing & maintaining software}
+        A(1. Setting up software environment) --> B(2. Verifying software correctness)
+        B --> C(3. Software development as a process)
+        C --> D(4. Collaborative development for reuse)
+        D --> E(5. Managing software over its lifetime)
+```
 
 ### [Section 1: Setting up Software Environment](10-section1-intro.md)
 

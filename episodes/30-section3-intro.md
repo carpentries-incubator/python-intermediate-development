@@ -21,29 +21,26 @@ exercises: 0
 In this section, we will take a step back from coding development practices and tools
 and look at the bigger picture of software as a *process* of development.
 
+<!--
+alt="Topics on software engineering process covered in the current section: gathering requirements, software architecture & design, programming paradigms"
+-->
+
+```mermaid
+    flowchart LR
+        accDescr {Topics on software engineering process covered in the current section: gathering requirements, software architecture & design, programming paradigms}
+        A(1. Setting up software environment)
+        A --> B(2. Verifying software correctness)
+        B --> C(3. Software development as a process
+            - Software requirements
+            - Software architecture & design
+            - Programming paradigms)
+        C --> D(4. Collaborative development for reuse)
+        D --> E(5. Managing software over its lifetime)
+```
+
 > *"If you fail to plan, you are planning to fail."* 
 > 
 > --- Benjamin Franklin
-
-![](fig/section3-overview.svg){alt='Software design and architecture overview flowchart'}
-
-<!---
-Source of the above image can be rendered in the Mermaid live editor:
-
-<https://mermaid.live/edit#pako:eNplkU1rwzAMhv-K8WGk0Ab2dclhsLW9rTBW2GH4oiVKakikTJZTSul_n9M122A-2dKj95Wsoy25QlvYuuV9uQNR8_zq6DG7zs0WVT01JvaOAte6B0GDNHhh6pB05mixeDBP2U1u3lB8fUj0H7RkESyVMIQLusxuk-yUr3DAlvtRyhEEA6YXLhPtyJFJZ_HLCn5GLziy4V8SpNx5TVYxPa6SbvDNj8SLcCPQdeMkPQhUvukuEpeuVtldbpbctvDBAuoHdPSnN1OzJP8Y8MKvs_vcbICgGTWncR3xgGK8BtP6GtV3OLNz26F04Kv0w8fR1FndpSmcLdK1whpiq846OiUUovL2QKUtVCLObewrUFx5GPu3RQ1tSFGsvLJsvrd2Xt5Ers-ZqboHemee6k5flmapmQ>
-
-The mermaid source (with one less dash in arrows than needed):
-
-flowchart LR
-  A(1. Setting up software environment)
-  A -> B(2. Verifying software correctness)
-  B -> C(3. Software development as a process
-  - Software requirements
-  - Software architecture & design
-  - Programming paradigms)
-  C -> D(4. Collaborative development for reuse)
-  D -> E(5. Managing software over its lifetime)
--->
 
 ## Writing Code vs Engineering Software
 

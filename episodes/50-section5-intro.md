@@ -30,33 +30,22 @@ how the outside world interacts with and makes use of our software,
 how others can interact with ourselves to report issues,
 and the ways we can successfully manage software improvement in response to feedback.
 
-![](fig/section5-overview.svg){alt='Managing software' .image-with-shadow width="1000px" }
-
-<!-- 
-Source of the above image can be rendered in the Mermaid live editor:
-
-https://mermaid.live/edit#pako:eNpNkMtqw0AMRX9FzMqBxNDXxotCm2TXbBroosxGtTXJgC0ZjewQQv69k4dpF0JCOvci7snV0pCrXGjlUO9RDT4-Pb8VDyVsySzyDobec5JgB1QC4jGqcEdsM8-LxSu8F48lfJHGcMz0P7QWVaqNKaU7uiyesu10b2ikVvqLlWdMgNCr1H_0qnguYSltiz-iaHEkz_80EERBaUh059fFSwkbZNxdvp7e8CwjKURL0MZAFru8ygLIdWszN3cdaYexyUGcPAN4Z3vKoKvy2FDAoTXvPJ8zioPJ9si1q0wHmruhb9BoFXGn2LkqYJvylppooptbuNeMJ3J9vUzqHvlbZNKdfwFSLYtB
-
-The mermaid source (with one less dash in arrows than needed):
-
-flowchart LR
-A(1. Setting up
-software environment)
--> B(2. Verifying
-software correctness)
--> C(3. Software development
-as a process)
--> D(4. Collaborative
-development for reuse)
--> E(5. Managing software
-over its lifetime
-
-    - Issue reporting & prioritisation
-    - Agile development in sprints
-    - software project management
-)
-
+<!--
+alt="Topics on collaborative software development covered in the current section: issue management, project management, agile development"
 -->
+```mermaid
+    flowchart LR
+        accDescr {Topics on collaborative software development covered in the current section: issue management, project management, agile development}
+        A(1. Setting up software environment)
+        A --> B(2. Verifying software correctness)
+        B --> C(3. Software development as a process)
+        C --> D(4. Collaborative development for reuse)
+        D --> E(5. Managing software over its lifetime
+        
+            - Issue reporting & prioritisation
+            - Agile development in sprints
+            - Software project management)
+```
 
 In this section we will:
 

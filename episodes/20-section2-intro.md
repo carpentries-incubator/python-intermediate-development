@@ -33,27 +33,21 @@ so we should try and employ such practices early on.
 We will also make use of techniques and infrastructure that allow us to do this
 in a scalable, automated and more performant way as our codebase grows.
 
-![Section 2 Overview](fig/section2-overview.svg){alt='Tools for scaled software testing'}
-
-<!---
-Source of the above image can be rendered in the Mermaid live editor:
-
-<https://mermaid.live/edit#pako:eNpNUctqwzAQ_JVFJweSQF8XHwppEtpCc2lKD0WXjbx2RO1dI60dQsi_V07jUp3E7MwyM3syTgoyuSlrObg9BoW3d8uL7GYOW1L1XEHXWo5S6gEDAXHvg3BDrBPLs9kjPGW3c_ik4MtjYv-jOgmBnDLFaNkypDeDD4oKZcCGDhK-4wgvOpUGlQC5gOiwJtDETAtzWL5e0GevL90OFk698J9wRbuugiHE1c4yu0vWRw8F9VRLO9i1jBEQ2iAuObqyV9n9HJZS17iTgOp7svxPA6UECNTFcfs6e5jDBhmroZkxqmXpKYDXCLUvSX1DEzM1DYUGfZHaPQ12rdE9NWRNnr4FldjVao3lc6Jiyr89sjO5ho6mpmuL1MbKY5WqMnmJdUwoFV4lbH4vdjncyFxfJqO6Rf4SGXXnH1UppyA>
-
-The mermaid source (with one less dash in arrows than needed):
-
-flowchart LR
-  A(1. Setting up software environment)
-  A -> B(2. Verifying software correctness
-
-  - Test frameworks
-  - Automate and scale testing: CI and GitHub Actions
-  - Debug code)
-
-  B -> C(3. Software development as a process)
-  C -> D(4. Collaborative development for reuse)
-  D -> E(5. Managing software over its lifetime)
+<--
+alt="Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging"
 -->
+```mermaid
+    flowchart LR
+        accDescr {Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging}
+        A(1. Setting up software environment)
+        A --> B(2. Verifying software correctness:
+                - Testing frameworks
+                - Automating & scaling testing: CI and GitHub Actions
+                - Debugging code)
+        B --> C(3. Software development as a process)
+        C --> D(4. Collaborative development for reuse)
+        D --> E(5. Managing software over its lifetime)
+```
 
 In this section we will:
 
