@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.3 Continuous Integration for Automated Testing</h1>
-        <p>Last updated on 2025-05-30 |
+        <p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/23-continuous-integration-automated-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -752,10 +752,10 @@ file called <code>main.yml</code> (note its extension is
 <span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a><span class="co">    # Next we need to checkout out repository, and set up Python</span></span>
 <span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a><span class="co">    # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything</span></span>
 <span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
-<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v5</span></span>
 <span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a></span>
 <span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python 3.11</span></span>
-<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v6</span></span>
 <span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
 <span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.11"</span></span>
 <span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a></span>
@@ -927,10 +927,10 @@ the following:</p>
 <span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
 <span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a></span>
 <span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v5</span></span>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a></span>
 <span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v6</span></span>
 <span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
 <span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">        # Here we add the reference to the python-version matrix values</span></span>
 <span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span>
@@ -1080,7 +1080,7 @@ builds simultaneously.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/23-continuous-integration-automated-testing.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-05-30",
+  "dateModified": "2026-01-27",
   "datePublished": "2026-01-27"
 }
 
