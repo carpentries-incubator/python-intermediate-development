@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.4 Software Development Using Git and GitHub</h1>
-        <p>Last updated on 2025-07-30 |
+        <p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -685,7 +685,7 @@ sequenceDiagram
 --><!--
 SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
---><figure><img src="../fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull"><div class="figcaption">Software development lifecycle with Git</div>
+--><figure><img src="../fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree."><div class="figcaption">Software development lifecycle with Git</div>
 </figure></section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a></h2>
 <hr class="half-width"><p>Let us check-in the changes we have done to our project so far. The
 first thing to do upon navigating into our software project’s directory
@@ -872,7 +872,7 @@ for your local repository, each of which generally is either read-only
 or read/write for you. Collaborating with others involves managing these
 remote repositories and pushing and pulling information to and from them
 when you need to share work.</p>
-<figure><img src="../fig/git-distributed.png" class="image-with-shadow figure mx-auto d-block" alt="git-distributed" width="400"></figure><p style="text-align: center;">
+<figure><img src="../fig/git-distributed.png" class="image-with-shadow figure mx-auto d-block" alt="Representation of Git's distributed version control system showing interactions between a central repository and two local repositories on developer machines, with arrows showing pushing from central repository to developer repositories, pulling from developer repositories to central repository. A self-connecting arrow on developer repository shows creating commits in local repository." width="400"></figure><p style="text-align: center;">
 Git - distributed version control system<br> From
 <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank" class="external-link">W3Docs</a>
 (freely available)
@@ -928,7 +928,7 @@ time independently from one another, and</li>
 rest of the code.</li>
 </ul><p>Branches are commonly used as part of a feature-branch workflow,
 shown in the diagram below.</p>
-<figure><img src="../fig/git-feature-branch.svg" class="image-with-shadow figure mx-auto d-block" alt="Git feature branch workflow diagram" width="800"></figure><p style="text-align: center;">
+<figure><img src="../fig/git-feature-branch.svg" class="image-with-shadow figure mx-auto d-block" alt="Git commit tree showing four branches - Main, Develop, FeatureX and FeatureY. The Main branch shows three commits corresponding to release tags v0.1, v0.2 and v0.3. The Develop branch branches off from Main branch with intermediate commits between release tags which are then merged into Main branch. Short-lived feature branches FeatureX and FeatureY branch off from Develop branch, have a small number of additional commits and are then merged back in to Develop branch." width="800"></figure><p style="text-align: center;">
 Git feature branches<br> Adapted from
 <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank" class="external-link">Git
 Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International
@@ -1070,7 +1070,8 @@ the same way as we pushed the <code>main</code> branch. However, as we
 have just created this branch locally, it still does not exist in our
 remote repository. You can check that in GitHub by listing all
 branches.</p>
-<figure><img src="../fig/github-main-branch.png" class="image-with-shadow figure mx-auto d-block" alt="Software project's main branch" width="600"></figure><p>To push a new local branch remotely for the first time, you could use
+<figure><img src="../fig/github-main-branch.png" class="image-with-shadow figure mx-auto d-block" width="600" alt="Code tab of GitHub web interface showing main branch of software project. Branch selector dropdown is shown with main (default) branch showing as currently selected and one other branch feature-std-dev showing as present."><div class="figcaption">Software project’s main branch</div>
+</figure><p>To push a new local branch remotely for the first time, you could use
 the <code>-u</code> flag and the name of the branch you are creating and
 pushing to:</p>
 <div class="codewrapper sourceCode" id="cb22">
@@ -1102,7 +1103,8 @@ remotely on GitHub too. From the <code>Code</code> tab in your
 repository in GitHub, click the branch dropdown menu (currently showing
 the default branch <code>main</code>). You should see your
 <code>develop</code> branch in the list too.</p>
-<figure><img src="../fig/github-develop-branch.png" class="image-with-shadow figure mx-auto d-block" alt="Software project's develop branch" width="600"></figure><p>You may also have noticed GitHub’s notification about the latest push
+<figure><img src="../fig/github-develop-branch.png" class="image-with-shadow figure mx-auto d-block" width="600" alt="Code tab of GitHub web interface showing notification indicating develop branch had recent pushes. Branch selector dropdown is shown with main (default) branch showing as currently selected and two other branches develop and feature-std-dev showing as present, with develop highlighted."><div class="figcaption">Software project’s develop branch</div>
+</figure><p>You may also have noticed GitHub’s notification about the latest push
 to your <code>develop</code> branch just on top of the repository files
 and branches drop-down menu.</p>
 <p>Now the others can check out the <code>develop</code> branch too and
@@ -1299,7 +1301,7 @@ features without affecting the stable <code>main</code> code.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/14-collaboration-using-git.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/14-collaboration-using-git.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-07-30",
+  "dateModified": "2026-01-27",
   "datePublished": "2026-01-27"
 }
 

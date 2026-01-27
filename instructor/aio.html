@@ -1266,7 +1266,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1402,7 +1402,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -2474,7 +2474,7 @@ it here but it should be possible to switch.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
 <p>When you start PyCharm - you may be presented with a dialog box that
 asks you what you want to do, e.g. <code>Create New Project</code>,
 <code>Open</code>, or <code>Check out from Version Control</code>. If
@@ -2507,7 +2507,7 @@ your environment in PyCharm shortly as this is important conceptually.
 If you do not see this warning - do not worry, it just means you may
 have configured this already on previous usages of PyCharm.</p>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
 <p>We will take you through the various steps of using VC Code now -
 also check out the <a href="https://code.visualstudio.com/docs/python/python-quick-start" class="external-link">VS
 Code Python Quick Start guide</a> and <a href="https://code.visualstudio.com/docs/python/python-tutorial" class="external-link">Getting
@@ -2614,7 +2614,7 @@ understand it.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-PyCharm">
+<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-2-PyCharm" role="tabpanel">
 <p>While PyCharm will recognise the virtual environment you already
 have, and the Python interpreter contained in it, it is a good practice
 to tell your IDE which Python interpreter you want to use for which
@@ -2667,7 +2667,7 @@ replicating our virtual environment in PyCharm (referred to as “Python
 the same virtual environment and changes done to it in PyCharm will
 propagate to the command line and vice versa.</p>
 </div>
-<div id="nav-tabpanel-2-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-VSCode">
+<div id="nav-tabpanel-2-VSCode" class="tab-pane" aria-labelledby="nav-tab-2-VSCode" role="tabpanel">
 <p>As covered in the episode on virtual environments for software
 development, we want to create a new or activate an existing virtual
 environment for our project to work in. Since we have already created a
@@ -2734,7 +2734,7 @@ line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-PyCharm">
+<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-3-PyCharm" role="tabpanel">
 <ol style="list-style-type: decimal">
 <li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
 <code>File -&gt; Settings</code> (Linux, Windows).</li>
@@ -2758,7 +2758,7 @@ however, that <code>requirements.txt</code> is not updated - as we
 mentioned earlier this is something you have to do manually. Let us do
 this as an exercise.</p>
 </div>
-<div id="nav-tabpanel-3-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-VSCode">
+<div id="nav-tabpanel-3-VSCode" class="tab-pane" aria-labelledby="nav-tab-3-VSCode" role="tabpanel">
 <p>In VS Code, there is no special graphical user interface to add
 external dependencies for a project - this is done from the terminal
 window as we did before (within the active virtual environment):</p>
@@ -2790,7 +2790,7 @@ Dependency</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Let us verify first that the newly installed library
 <code>pytest</code> is appearing in our virtual environment but not in
@@ -2896,7 +2896,7 @@ six==1.16.0</code></pre>
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-PyCharm">
+<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-4-PyCharm" role="tabpanel">
 <p>Having configured a virtual environment, we now need to tell PyCharm
 to use it for our project. This is done by creating and adding a
 <strong>Run Configuration</strong> to a project. Run Configurations in
@@ -2941,7 +2941,7 @@ virtual environments - you can vary a run configuration each time your
 code is executed and you can have separate configurations for running,
 debugging and testing your code.</p>
 </div>
-<div id="nav-tabpanel-4-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-VSCode">
+<div id="nav-tabpanel-4-VSCode" class="tab-pane" aria-labelledby="nav-tab-4-VSCode" role="tabpanel">
 <p>You can configure Visual Studio Code through a number of <a href="https://code.visualstudio.com/docs/configure/settings" class="external-link">settings</a>.
 Nearly every part of VS Code’s editor, user interface, and functional
 behavior has options you can modify.</p>
@@ -3048,10 +3048,10 @@ errors easier.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-PyCharm">
+<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-5-PyCharm" role="tabpanel">
 <figure><img src="../fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-5-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-VSCode">
+<div id="nav-tabpanel-5-VSCode" class="tab-pane" aria-labelledby="nav-tab-5-VSCode" role="tabpanel">
 <figure><img src="../fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure>
 </div>
 </div>
@@ -3080,10 +3080,10 @@ of functions, hints related to syntax errors, etc.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-6" class="tab-content">
-<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-6-PyCharm">
+<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-6-PyCharm" role="tabpanel">
 <figure><img src="../fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-6-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-6-VSCode">
+<div id="nav-tabpanel-6-VSCode" class="tab-pane" aria-labelledby="nav-tab-6-VSCode" role="tabpanel">
 <figure><img src="../fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure>
 </div>
 </div>
@@ -3111,7 +3111,7 @@ tooltips.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-7" class="tab-content">
-<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-7-PyCharm">
+<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-7-PyCharm" role="tabpanel">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>Go</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3129,7 +3129,7 @@ function call.</li>
 </ul>
 <figure><img src="../fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-7-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-7-VSCode">
+<div id="nav-tabpanel-7-VSCode" class="tab-pane" aria-labelledby="nav-tab-7-VSCode" role="tabpanel">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>View</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3175,7 +3175,7 @@ find usages/references and occurrences.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-8" class="tab-content">
-<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-8-PyCharm">
+<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-8-PyCharm" role="tabpanel">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find | Find in Path ...</code> (or
 <code>Edit | Find | Find in Files...</code> depending on your version of
@@ -3198,7 +3198,7 @@ and its options to group the results, preview them, and work with them
 further.</p>
 <figure><img src="../fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-8-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-8-VSCode">
+<div id="nav-tabpanel-8-VSCode" class="tab-pane" aria-labelledby="nav-tab-8-VSCode" role="tabpanel">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find in Files</code>. An alternative menu option
 <code>Edit | Find</code> will just look for the search string in the
@@ -3236,7 +3236,7 @@ further filter things out.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-9" class="tab-content">
-<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-9-PyCharm">
+<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-9-PyCharm" role="tabpanel">
 <p>PyCharm supports a directory-based versioning model, which means that
 each project directory can be associated with a different version
 control system. Our project was already under Git version control and
@@ -3255,7 +3255,7 @@ line.</p>
 on PyCharm’s built-in version control support</a> online.</p>
 <figure><img src="../fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-9-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-9-VSCode">
+<div id="nav-tabpanel-9-VSCode" class="tab-pane" aria-labelledby="nav-tab-9-VSCode" role="tabpanel">
 <p>VS Code has integrated source control management (SCM) and includes
 Git support out-of-the-box. Many other source control tools are
 available through <a href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=SCM%20Providers&amp;sortBy=Installs" class="external-link">extensions</a>.</p>
@@ -3313,7 +3313,7 @@ advantages — we will make use of the IDE’s built-in visual tools.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-10" class="tab-content">
-<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-10-PyCharm">
+<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-10-PyCharm" role="tabpanel">
 <p>To run our script using the PyCharm’s graphical interface,
 right-click the <code>inflammation-analysis.py</code> file in the
 PyCharm project/file navigator on the left, and select
@@ -3321,7 +3321,7 @@ PyCharm project/file navigator on the left, and select
 created earlier).</p>
 <figure><img src="../fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-10-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-10-VSCode">
+<div id="nav-tabpanel-10-VSCode" class="tab-pane" aria-labelledby="nav-tab-10-VSCode" role="tabpanel">
 <p>To run our script using the VS Code’s graphical interface, make sure
 the <code>inflammation-analysis.py</code> file is selected in the
 project/file view on the left, then click the “&gt;” (play) button in
@@ -3384,7 +3384,7 @@ configured from the command line using <code>venv</code> and
 </div>
 </section></section><section id="aio-14-collaboration-using-git"><p>Content from <a href="14-collaboration-using-git.html">1.4 Software Development Using Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2025-07-30 |
+<p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
@@ -3528,7 +3528,7 @@ sequenceDiagram
 --><!--
 SVG of the diagram can be downloaded from:
 https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
---><figure><img src="../fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git, containing Git commands add, commit, push, fetch, restore, merge and pull"><div class="figcaption">Software development lifecycle with Git</div>
+--><figure><img src="../fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree."><div class="figcaption">Software development lifecycle with Git</div>
 </figure></section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a>
 </h2>
 <hr class="half-width">
@@ -3717,7 +3717,7 @@ for your local repository, each of which generally is either read-only
 or read/write for you. Collaborating with others involves managing these
 remote repositories and pushing and pulling information to and from them
 when you need to share work.</p>
-<figure><img src="../fig/git-distributed.png" class="image-with-shadow figure mx-auto d-block" alt="git-distributed" width="400"></figure><p style="text-align: center;">
+<figure><img src="../fig/git-distributed.png" class="image-with-shadow figure mx-auto d-block" alt="Representation of Git's distributed version control system showing interactions between a central repository and two local repositories on developer machines, with arrows showing pushing from central repository to developer repositories, pulling from developer repositories to central repository. A self-connecting arrow on developer repository shows creating commits in local repository." width="400"></figure><p style="text-align: center;">
 Git - distributed version control system<br> From
 <a href="https://www.w3docs.com/learn-git/git-repository.html" target="_blank" class="external-link">W3Docs</a>
 (freely available)
@@ -3778,7 +3778,7 @@ rest of the code.</li>
 </ul>
 <p>Branches are commonly used as part of a feature-branch workflow,
 shown in the diagram below.</p>
-<figure><img src="../fig/git-feature-branch.svg" class="image-with-shadow figure mx-auto d-block" alt="Git feature branch workflow diagram" width="800"></figure><p style="text-align: center;">
+<figure><img src="../fig/git-feature-branch.svg" class="image-with-shadow figure mx-auto d-block" alt="Git commit tree showing four branches - Main, Develop, FeatureX and FeatureY. The Main branch shows three commits corresponding to release tags v0.1, v0.2 and v0.3. The Develop branch branches off from Main branch with intermediate commits between release tags which are then merged into Main branch. Short-lived feature branches FeatureX and FeatureY branch off from Develop branch, have a small number of additional commits and are then merged back in to Develop branch." width="800"></figure><p style="text-align: center;">
 Git feature branches<br> Adapted from
 <a href="https://sillevl.gitbooks.io/git/content/collaboration/workflows/gitflow/" target="_blank" class="external-link">Git
 Tutorial by sillevl</a> (Creative Commons Attribution 4.0 International
@@ -3923,7 +3923,8 @@ the same way as we pushed the <code>main</code> branch. However, as we
 have just created this branch locally, it still does not exist in our
 remote repository. You can check that in GitHub by listing all
 branches.</p>
-<figure><img src="../fig/github-main-branch.png" class="image-with-shadow figure mx-auto d-block" alt="Software project's main branch" width="600"></figure><p>To push a new local branch remotely for the first time, you could use
+<figure><img src="../fig/github-main-branch.png" class="image-with-shadow figure mx-auto d-block" width="600" alt="Code tab of GitHub web interface showing main branch of software project. Branch selector dropdown is shown with main (default) branch showing as currently selected and one other branch feature-std-dev showing as present."><div class="figcaption">Software project’s main branch</div>
+</figure><p>To push a new local branch remotely for the first time, you could use
 the <code>-u</code> flag and the name of the branch you are creating and
 pushing to:</p>
 <div class="codewrapper sourceCode" id="cb22">
@@ -3955,7 +3956,8 @@ remotely on GitHub too. From the <code>Code</code> tab in your
 repository in GitHub, click the branch dropdown menu (currently showing
 the default branch <code>main</code>). You should see your
 <code>develop</code> branch in the list too.</p>
-<figure><img src="../fig/github-develop-branch.png" class="image-with-shadow figure mx-auto d-block" alt="Software project's develop branch" width="600"></figure><p>You may also have noticed GitHub’s notification about the latest push
+<figure><img src="../fig/github-develop-branch.png" class="image-with-shadow figure mx-auto d-block" width="600" alt="Code tab of GitHub web interface showing notification indicating develop branch had recent pushes. Branch selector dropdown is shown with main (default) branch showing as currently selected and two other branches develop and feature-std-dev showing as present, with develop highlighted."><div class="figcaption">Software project’s develop branch</div>
+</figure><p>You may also have noticed GitHub’s notification about the latest push
 to your <code>develop</code> branch just on top of the repository files
 and branches drop-down menu.</p>
 <p>Now the others can check out the <code>develop</code> branch too and
@@ -4248,7 +4250,7 @@ conversion.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
 <p>By default, PyCharm inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in PyCharm’s
 <code>Settings -&gt; Editor -&gt; Code Style -&gt; Python</code>.</p>
@@ -4258,7 +4260,7 @@ are ever unsure what character exactly is being used by selecting
 checking “Show whitespaces” option.</p>
 <figure><img src="../fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
 <p>By default, VS Code inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in VS Code’s user or workspace settings
 (<code>File -&gt; Preferences -&gt; Settings</code> on Windows and Linux
@@ -5478,7 +5480,7 @@ or its configuration file).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="by-passing-an-argument-to-pylint-in-the-command-line">By passing an argument to <code>pylint</code> in the command
@@ -6187,7 +6189,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7841,7 +7843,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8009,7 +8011,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -8748,7 +8750,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8802,7 +8804,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8935,7 +8937,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -9010,7 +9012,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9351,7 +9353,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -9441,7 +9443,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure>
 </div>
@@ -9732,7 +9734,7 @@ instead.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The new function <code>load_inflammation_data()</code> that reads all
 the inflammation data into the format needed for the analysis could look
@@ -9918,7 +9920,7 @@ function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For example, we can declare class <code>CSVDataSource</code> like
 this:</p>
@@ -10011,7 +10013,7 @@ duty, what parameters they need and what they return.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The interface is the <code>load_inflammation_data()</code> method,
 which takes no parameters and returns a list where each entry is a 2D
@@ -10122,7 +10124,7 @@ based on the file extension.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The class that reads inflammation data from JSON files could look
 something like:</p>
@@ -10237,7 +10239,7 @@ deviation calculations are correct.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10856,7 +10858,7 @@ could be considered Model, View and Controller code?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Computing the standard deviation belongs to Model.</li>
@@ -10894,7 +10896,7 @@ appropriate modules.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The idea here is for the <code>analyse_data()</code> function not to
 have any “view” considerations. That is, it should just compute and
@@ -11757,7 +11759,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -11884,7 +11886,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal">
@@ -12107,7 +12109,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul>
@@ -13447,7 +13449,7 @@ appropriate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For example, “Add a licence file” could be a good first issue, with a
 label <code>documentation</code>.</p>
