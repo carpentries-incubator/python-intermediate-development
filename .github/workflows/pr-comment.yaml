@@ -127,8 +127,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: 'Checkout md outputs'
-        uses: actions/checkout@v5
+      - name: "Checkout md outputs"
+        uses: actions/checkout@v4
         with:
           ref: md-outputs
           path: built
