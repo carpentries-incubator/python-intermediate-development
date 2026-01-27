@@ -547,7 +547,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>3.4 Code Refactoring</h1>
-        <p>Last updated on 2025-05-27 |
+        <p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/34-code-refactoring.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -877,7 +877,7 @@ updated</li>
 <div id="exercise-testing-a-pure-function" class="callout-inner">
 <h3 class="callout-title">Exercise: Testing a Pure Function</h3>
 <div class="callout-content">
-<p>Add tests for <code>compute_standard_deviation_by_data()</code> that
+<p>Add tests for <code>compute_standard_deviation_by_day()</code> that
 check for situations when there is only one file with multiple rows,
 multiple files with one row, and any other cases you can think of that
 should be tested.</p>
@@ -903,9 +903,9 @@ test by parametrizing with more inputs and expected outputs:</p>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>],</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>ids<span class="op">=</span>[<span class="st">'Two patients in same file'</span>, <span class="st">'Two patients in different files'</span>, <span class="st">'Two identical patients in two different files'</span>])</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="kw">def</span> test_compute_standard_deviation_by_day(data, expected_output):</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="im">from</span> inflammation.compute_data <span class="im">import</span> compute_standard_deviation_by_data</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="im">from</span> inflammation.compute_data <span class="im">import</span> compute_standard_deviation_by_day</span>
 <span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    result <span class="op">=</span> compute_standard_deviation_by_data(data)</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    result <span class="op">=</span> compute_standard_deviation_by_day(data)</span>
 <span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    npt.assert_array_almost_equal(result, expected_output)</span></code></pre>
 </div>
 </div>
@@ -1069,7 +1069,7 @@ possible makes the code easier to understand, test and maintain.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/34-code-refactoring.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/34-code-refactoring.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-05-27",
+  "dateModified": "2026-01-27",
   "datePublished": "2026-01-27"
 }
 
