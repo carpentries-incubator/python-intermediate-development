@@ -31,21 +31,19 @@ As you get more comfortable with different tools and their alternatives,
 you will select the one that is right for you based on your personal preferences
 or based on what your collaborators are using.
 
-<!--
-alt = "Topics on effective collaborating on code development covered in the current section: virtual development environments, version control & sharing code, writing readable code & code standards"
-"
--->
 ```mermaid
     flowchart LR
-        accDescr {Topics on effective collaborating on code development covered in the current section: virtual development environments, version control & sharing code, writing readable code & code standards}
-          A(1. Setting up software environment
-            - Isolating & running code: command line, virtual environment & IDE
-            - Version control and sharing code: Git & GitHub
-            - Well-written & readable code: PEP8)
-        A --> B(2. Verifying software correctness)
-        B --> C(3. Software development as a process)
-        C --> D(4. Collaborative development for reuse)
-        D --> E(5. Managing software over its lifetime)
+      accDescr {Topics on effective collaborating on code development covered in
+        the current section: virtual development environments, version control &
+        sharing code, writing readable code & code standards}
+      A("`1. Setting up software environment
+        - Isolating & running code: command line, virtual environment & IDE
+        - Version control and sharing code: Git & GitHub
+        - Well-written & readable code: PEP8`")
+      A --> B(2. Verifying software correctness)
+      B --> C(3. Software development as a process)
+      C --> D(4. Collaborative development for reuse)
+      D --> E(5. Managing software over its lifetime)
 ```
 
 Here is an overview of the tools we will be using.

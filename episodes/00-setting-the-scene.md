@@ -57,12 +57,14 @@ Skills and tools taught here, while Python-specific,
 are transferable to other similar tools and programming languages.
 
 The course is organised into the following sections.
-<!-- 
-alt-tex="Course overview diagram. Arrows connect the following boxed text in order: 1) Setting up software environment 2) Verifying software correctness 3) Software development as a process 4) Collaborative development for reuse 5) Managing software over its lifetime."
--->
+
 ```mermaid
     flowchart LR
-        accDescr {Overview of sections in the lesson: setting up development environment, verifying software correctness, the process of software development & engineering, collaborative software development, managing & maintaining software}
+        accTitle: Overview of sections in the lesson
+        accDescr {Course overview diagram. Arrows connect the following boxed
+          text in order: 1) Setting up software environment 2) Verifying software
+          correctness 3) Software development as a process 4) Collaborative
+          development for reuse 5) Managing software over its lifetime.}
         A(1. Setting up software environment) --> B(2. Verifying software correctness)
         B --> C(3. Software development as a process)
         C --> D(4. Collaborative development for reuse)
