@@ -387,7 +387,7 @@ this course but it is good to be aware of how to make use of them when suitable.
 
 4. After it is created, you should also populate the description of the project from the project's Settings,
   which can be found by clicking the `...` button in the top right corner of the project.
-  ![](fig/github-project-settings.png){alt='Screenshot showing how to access project board settings in GitHub, A dropdown menu has been expanded from ... button with Settings option within this menu highlighted.' .image-with-shadow width="800px"}
+  ![](fig/github-project-settings.png){alt='Screenshot showing how to access project board settings in GitHub. A dropdown menu has been expanded from the "Show Options" button with Settings option within this menu highlighted.' .image-with-shadow width="800px"}
   ![](fig/github-project-description.png){alt='Screenshot showing project settings page in GitHub. Short description field on page has had text "Tasks for the v0.1 release of the inflammation project" entered.' .image-with-shadow width="800px"}
   After adding a description, select `Save`.
 
@@ -433,7 +433,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   or write more detailed comments
   (for that, use the `Convert to issue` option from the `...` menu on the card itself).
   
-  ![](fig/github-convert-task-to-issue.png){alt='Screenshot showing converting a task to issue in GitHub project interface. A draft task "Finish off documenting the software is selected and a context menu shown with multiple options, with the first "Convert to issue" highlighted.' .image-with-shadow width="800px"}
+  ![](fig/github-convert-task-to-issue.png){alt='Screenshot showing converting a task to issue in GitHub project interface. A draft task "Finish off documenting the software" is selected and a context menu shown with multiple options, with the first "Convert to issue" highlighted.' .image-with-shadow width="800px"}
 
 7. In addition to creating new tasks as notes and converting them to issues -
   you can add an existing issue or pull request (from any repository visible to you)

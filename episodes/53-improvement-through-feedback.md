@@ -210,7 +210,7 @@ We add in a title,
 a completion date (i.e. the end of this timebox),
 and any description for the milestone.
 
-![](fig/github-new-milestone-description.png){alt='SCreenshot showing how to create a milestone in GitHub. A new milestone form is shown with three entry fields, a short text field for entering title, a date picker field for selecting due date (optional) and a long text field for entering description.' .image-with-shadow width="800px"}
+![](fig/github-new-milestone-description.png){alt='Screenshot showing how to create a milestone in GitHub. A new milestone form is shown with three entry fields, a short text field for entering title, a date picker field for selecting due date (optional) and a long text field for entering description.' .image-with-shadow width="800px"}
 
 Once created, we can view our issues
 and assign them to our milestone from the `Issues` page or from an individual issue page.
