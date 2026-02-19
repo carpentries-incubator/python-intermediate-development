@@ -398,7 +398,7 @@ this course but it is good to be aware of how to make use of them when suitable.
   - `In Progress`
   - `Done`
   
-  ![](fig/github-project-view-add-remove-items.png){alt='Screenshot showing default card board in GitHub. Three columns are shown headed Todo, In Progress and Done. A button to add a new task to a column is highlighted at bottom of Todo column. On the right of interface the "Show Options" button which expands a menu from which a column can be removed and the "Add a new column to the board" (+) button which can be used to add a new column are highlighted.' .image-with-shadow width="800px"}
+  ![](fig/github-project-view-add-remove-items.png){alt='Screenshot showing default card board in GitHub. Three columns are shown headed Todo, In Progress and Done. A button to add a new task to a column is highlighted at bottom of Todo column. On the right of interface the "Actions for column" button which expands a menu from which a column can be removed and the "Add a new column to the board" (+) button which can be used to add a new column are highlighted.' .image-with-shadow width="800px"}
   
   You can add or remove columns from your project board to suit your use case.
   One commonly seen extra column is `On hold` or `Waiting` -
