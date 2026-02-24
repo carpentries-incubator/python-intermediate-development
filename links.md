@@ -55,3 +55,4 @@
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [ssi-fair-lesson]: https://github.com/carpentries-incubator/fair-research-software
+[vscodium]: https://vscodium.com/
