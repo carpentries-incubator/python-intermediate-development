@@ -52,11 +52,11 @@ to illustrate these principles.
         A(1. Setting up software environment)
         A --> B(2. Verifying software correctness)
         B --> C(3. Software development as a process)
-        C --> D(4. Collaborative development for reuse
-        - Code review
-        - Software documentation
-        - Software packaging & release
-        )
+       D("`4. Collaborative development for reuse
+       - Code review
+       - Software documentation
+       - Software packaging & release`") 
+       C --> D
         D --> E(5. Managing software over its lifetime)
 ```
 
