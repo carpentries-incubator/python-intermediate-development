@@ -547,7 +547,7 @@ Communicate</a></li>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>5.1 Managing a Collaborative Software Project</h1>
-        <p>Last updated on 2025-02-25 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/51-managing-software.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -642,9 +642,9 @@ do not see the <code>Issues</code> tab, you must first enable it in the
 settings of your repository: go to the <code>Settings</code> tab, scroll
 down to the <code>Features</code> section and activate the checkmark on
 <code>Issues</code>.</p>
-<figure><img src="fig/github-issue-list.png" class="image-with-shadow figure mx-auto d-block" alt="List of project issues in GitHub" width="1000"></figure><p>Let us go through the process of creating a new issue. Start by
+<figure><img src="fig/github-issue-list.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing issue list tab in GitHub web interface for a repository named python-intermediate-inflammation. There are currently no issues listed and the new issue button in interface is highlighted." width="1000"></figure><p>Let us go through the process of creating a new issue. Start by
 clicking the <code>New issue</code> button.</p>
-<figure><img src="fig/github-new-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Creating a new issue in GitHub" width="1000"></figure><p>When you create an issue, you can add a range of details to them.
+<figure><img src="fig/github-new-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing new issue form in GitHub web interface. The form currently has no details entered in title or comment fields with cursor currently in title field." width="1000"></figure><p>When you create an issue, you can add a range of details to them.
 They can be <em>assigned to a specific developer</em> for example - this
 can be a helpful way to know who, if anyone, is currently working to fix
 the issue, or a way to assign responsibility to someone to deal with
@@ -848,7 +848,7 @@ comments, issue and pull request descriptions, you can reference a
 commit by pasting its long, unique identifier (or its first few digits
 which uniquely identify it) and GitHub will render it nicely using the
 identifier’s short form and link to the commit in question.</p>
-<figure><img src="fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Referencing comments and commits in GitHub" width="700"></figure><div id="exercise-our-first-mentionreference" class="callout discussion">
+<figure><img src="fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of comment thread in a GitHub issue showing dropdown menu expanded for a particular comment to allow copying link to comment to reference elsewhere. Also shown and highlighted is a autolink to a particular commit hash." width="700"></figure><div id="exercise-our-first-mentionreference" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
@@ -962,7 +962,7 @@ to make use of them when suitable.</p>
 <ol style="list-style-type: decimal"><li>From your GitHub account’s home page (not your repository’s home
 page!), select the “Projects” tab, then click the
 <code>New project</code> button on the right.</li>
-</ol><figure><img src="fig/github-new-project.png" class="image-with-shadow figure mx-auto d-block" alt="Adding a new project board in GitHub" width="800"></figure><ol start="2" style="list-style-type: decimal"><li>In the “Create project” pop-up window, you can either start from one
+</ol><figure><img src="fig/github-new-project.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of projects tab for a GitHub user profile with new project button highlighted." width="800"></figure><ol start="2" style="list-style-type: decimal"><li>In the “Create project” pop-up window, you can either start from one
 of the featured existing project templates or create your project from
 scratch using one of the three standard project types/views that you
 customise yourself:</li>
@@ -972,22 +972,30 @@ issues and pull requests.</li>
 pull requests being spread across customizable columns as cards on
 kanban board</li>
 <li>Roadmap - suitable for a high-level visualisation of your project
-over time. <img src="fig/github-project-template.png" class="image-with-shadow figure" alt="Selecting a project board template in GitHub" width="800">
-Regardless of which project type/view you select, you can easily switch
-to a different project layout later on.</li>
+over time. <img src="fig/github-project-template.png" class="figure">{alt=‘Screenshot
+of create project pop-up window showing a grid with four featured
+project templates - Team planning (caption “Manage your team’s work
+items, plan upcoming cycles, and understand team capacity”), Future
+release (caption “Manage your team’s prioritized work items when
+planning for a feature release”), Kanban (caption “Visualize the status
+of your project”) and Bug tracker (“Track and triage your bugs”). In the
+the sidebar additional options are available to start a project from
+scratch using a table, board or roadmap format.’ .image-with-shadow
+width=“800px”} Regardless of which project type/view you select, you can
+easily switch to a different project layout later on.</li>
 </ul><ol start="3" style="list-style-type: decimal"><li><p>For example, select the “Board” type for the project, fill in the
 name of your project (e.g. “Inflammation project - release v0.1”), and
 select <code>Create project</code>.</p></li>
 <li><p>After it is created, you should also populate the description of
 the project from the project’s Settings, which can be found by clicking
-the <code>...</code> button in the top right corner of the project. <img src="fig/github-project-settings.png" class="image-with-shadow figure" alt="Project board setting in GitHub" width="800"><img src="fig/github-project-description.png" class="image-with-shadow figure" alt="Adding project description and metadata in GitHub" width="800">
-After adding a description, select <code>Save</code>.</p></li>
+the <code>...</code> button in the top right corner of the project. <img src="fig/github-project-settings.png" class="image-with-shadow figure" alt='Screenshot showing how to access project board settings in GitHub. A dropdown menu has been expanded from the "Show Options" button with Settings option within this menu highlighted.' width="800"><img src="fig/github-project-description.png" class="image-with-shadow figure" alt='Screenshot showing project settings page in GitHub. Short description field on page has had text "Tasks for the v0.1 release of the inflammation project" entered.' width="800"> After adding a description, select
+<code>Save</code>.</p></li>
 <li><p>GitHub’s default card board template contains the following three
 columns with pretty self-explanatory names:</p></li>
 </ol><ul><li><code>To Do</code></li>
 <li><code>In Progress</code></li>
 <li><code>Done</code></li>
-</ul><figure><img src="fig/github-project-view-add-remove-items.png" class="image-with-shadow figure mx-auto d-block" alt="Default card board in GitHub" width="800"></figure><p>You can add or remove columns from your project board to suit your
+</ul><figure><img src="fig/github-project-view-add-remove-items.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing default card board in GitHub. Three columns are shown headed Todo, In Progress and Done. A button to add a new task to a column is highlighted at bottom of Todo column. On the right of interface the "Actions for column" button which expands a menu from which a column can be removed and the "Add a new column to the board" (+) button which can be used to add a new column are highlighted.' width="800"></figure><p>You can add or remove columns from your project board to suit your
 use case. One commonly seen extra column is <code>On hold</code> or
 <code>Waiting</code> - if you have tasks that get held up by waiting on
 other people (e.g. to respond to your questions) then moving them to a
@@ -1008,13 +1016,13 @@ issues and pull requests, which can be filtered out from the text box by
 pressing <code>#</code> (to activate GitHub’s referencing mechanism) and
 selecting the repository and an issue or pull request from that
 repository that you want to add.</li>
-</ol><figure><img src="fig/github-project-new-items.png" class="image-with-shadow figure mx-auto d-block" alt="Adding issues and notes to a project board in GitHub" width="800"></figure><p>Notes contain task descriptions and can have detailed content like
+</ol><figure><img src="fig/github-project-new-items.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing adding issues and notes to a project board in GitHub. The board shows three columns Todo, In Progress and Done, with three draft tasks entered into the Todo column: Finish off documenting the software; Select licence; Prepare the release notes." width="800"></figure><p>Notes contain task descriptions and can have detailed content like
 checklists. In some cases, e.g. if a note becomes too complex, you may
 want to convert it into an issue so you can add labels, assign them to
 team members or write more detailed comments (for that, use the
 <code>Convert to issue</code> option from the <code>...</code> menu on
 the card itself).</p>
-<figure><img src="fig/github-convert-task-to-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Converting a task to issue" width="800"></figure><ol start="7" style="list-style-type: decimal"><li><p>In addition to creating new tasks as notes and converting them to
+<figure><img src="fig/github-convert-task-to-issue.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing converting a task to issue in GitHub project interface. A draft task "Finish off documenting the software" is selected and a context menu shown with multiple options, with the first "Convert to issue" highlighted.' width="800"></figure><ol start="7" style="list-style-type: decimal"><li><p>In addition to creating new tasks as notes and converting them to
 issues - you can add an existing issue or pull request (from any
 repository visible to you) as a task on a column by pasting its URL into
 the <code>Add item</code> field and pressing the <code>Enter</code>
@@ -1029,7 +1037,7 @@ project management time.</p></li>
 <li><p>Finally, you can change the way you view your project by adding
 another view. For example, we can add a Table view to our Board view by
 clicking the <code>New button</code> and selecting it from the drop down
-menu. <img src="fig/github-project-add-view.png" class="image-with-shadow figure" alt="Add another project view" width="800"></p></li>
+menu. <img src="fig/github-project-add-view.png" class="image-with-shadow figure" alt='Screenshot showing how to add another project view in GitHub Project interface. A second table view of the project is shown, with two view tabs, View 1 and View 2 now present and View 2 active. The "New view" button to right of view tabs is highlighted.' width="800"></p></li>
 </ol><div id="exercise-working-with-projects" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1171,7 +1179,7 @@ responsibilities.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/51-managing-software.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/51-managing-software.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-02-25",
+  "dateModified": "2026-02-24",
   "datePublished": "2026-02-24"
 }
 

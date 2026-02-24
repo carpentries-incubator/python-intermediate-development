@@ -1266,7 +1266,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1402,7 +1402,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -2474,7 +2474,7 @@ it here but it should be possible to switch.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
 <p>When you start PyCharm - you may be presented with a dialog box that
 asks you what you want to do, e.g. <code>Create New Project</code>,
 <code>Open</code>, or <code>Check out from Version Control</code>. If
@@ -2507,7 +2507,7 @@ your environment in PyCharm shortly as this is important conceptually.
 If you do not see this warning - do not worry, it just means you may
 have configured this already on previous usages of PyCharm.</p>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
 <p>We will take you through the various steps of using VC Code now -
 also check out the <a href="https://code.visualstudio.com/docs/python/python-quick-start" class="external-link">VS
 Code Python Quick Start guide</a> and <a href="https://code.visualstudio.com/docs/python/python-tutorial" class="external-link">Getting
@@ -2614,7 +2614,7 @@ understand it.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-2-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-PyCharm">
 <p>While PyCharm will recognise the virtual environment you already
 have, and the Python interpreter contained in it, it is a good practice
 to tell your IDE which Python interpreter you want to use for which
@@ -2667,7 +2667,7 @@ replicating our virtual environment in PyCharm (referred to as “Python
 the same virtual environment and changes done to it in PyCharm will
 propagate to the command line and vice versa.</p>
 </div>
-<div id="nav-tabpanel-2-VSCode" class="tab-pane" aria-labelledby="nav-tab-2-VSCode" role="tabpanel">
+<div id="nav-tabpanel-2-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-VSCode">
 <p>As covered in the episode on virtual environments for software
 development, we want to create a new or activate an existing virtual
 environment for our project to work in. Since we have already created a
@@ -2734,7 +2734,7 @@ line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-3-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-PyCharm">
 <ol style="list-style-type: decimal">
 <li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
 <code>File -&gt; Settings</code> (Linux, Windows).</li>
@@ -2758,7 +2758,7 @@ however, that <code>requirements.txt</code> is not updated - as we
 mentioned earlier this is something you have to do manually. Let us do
 this as an exercise.</p>
 </div>
-<div id="nav-tabpanel-3-VSCode" class="tab-pane" aria-labelledby="nav-tab-3-VSCode" role="tabpanel">
+<div id="nav-tabpanel-3-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-VSCode">
 <p>In VS Code, there is no special graphical user interface to add
 external dependencies for a project - this is done from the terminal
 window as we did before (within the active virtual environment):</p>
@@ -2896,7 +2896,7 @@ six==1.16.0</code></pre>
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-4-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-PyCharm">
 <p>Having configured a virtual environment, we now need to tell PyCharm
 to use it for our project. This is done by creating and adding a
 <strong>Run Configuration</strong> to a project. Run Configurations in
@@ -2941,7 +2941,7 @@ virtual environments - you can vary a run configuration each time your
 code is executed and you can have separate configurations for running,
 debugging and testing your code.</p>
 </div>
-<div id="nav-tabpanel-4-VSCode" class="tab-pane" aria-labelledby="nav-tab-4-VSCode" role="tabpanel">
+<div id="nav-tabpanel-4-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-VSCode">
 <p>You can configure Visual Studio Code through a number of <a href="https://code.visualstudio.com/docs/configure/settings" class="external-link">settings</a>.
 Nearly every part of VS Code’s editor, user interface, and functional
 behavior has options you can modify.</p>
@@ -3048,10 +3048,10 @@ errors easier.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-5-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-PyCharm">
 <figure><img src="../fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-5-VSCode" class="tab-pane" aria-labelledby="nav-tab-5-VSCode" role="tabpanel">
+<div id="nav-tabpanel-5-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-VSCode">
 <figure><img src="../fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure>
 </div>
 </div>
@@ -3080,10 +3080,10 @@ of functions, hints related to syntax errors, etc.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-6" class="tab-content">
-<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-6-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-6-PyCharm">
 <figure><img src="../fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-6-VSCode" class="tab-pane" aria-labelledby="nav-tab-6-VSCode" role="tabpanel">
+<div id="nav-tabpanel-6-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-6-VSCode">
 <figure><img src="../fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure>
 </div>
 </div>
@@ -3111,7 +3111,7 @@ tooltips.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-7" class="tab-content">
-<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-7-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-7-PyCharm">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>Go</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3129,7 +3129,7 @@ function call.</li>
 </ul>
 <figure><img src="../fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-7-VSCode" class="tab-pane" aria-labelledby="nav-tab-7-VSCode" role="tabpanel">
+<div id="nav-tabpanel-7-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-7-VSCode">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>View</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3175,7 +3175,7 @@ find usages/references and occurrences.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-8" class="tab-content">
-<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-8-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-8-PyCharm">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find | Find in Path ...</code> (or
 <code>Edit | Find | Find in Files...</code> depending on your version of
@@ -3198,7 +3198,7 @@ and its options to group the results, preview them, and work with them
 further.</p>
 <figure><img src="../fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-8-VSCode" class="tab-pane" aria-labelledby="nav-tab-8-VSCode" role="tabpanel">
+<div id="nav-tabpanel-8-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-8-VSCode">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find in Files</code>. An alternative menu option
 <code>Edit | Find</code> will just look for the search string in the
@@ -3236,7 +3236,7 @@ further filter things out.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-9" class="tab-content">
-<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-9-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-9-PyCharm">
 <p>PyCharm supports a directory-based versioning model, which means that
 each project directory can be associated with a different version
 control system. Our project was already under Git version control and
@@ -3255,7 +3255,7 @@ line.</p>
 on PyCharm’s built-in version control support</a> online.</p>
 <figure><img src="../fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-9-VSCode" class="tab-pane" aria-labelledby="nav-tab-9-VSCode" role="tabpanel">
+<div id="nav-tabpanel-9-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-9-VSCode">
 <p>VS Code has integrated source control management (SCM) and includes
 Git support out-of-the-box. Many other source control tools are
 available through <a href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=SCM%20Providers&amp;sortBy=Installs" class="external-link">extensions</a>.</p>
@@ -3313,7 +3313,7 @@ advantages — we will make use of the IDE’s built-in visual tools.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-10" class="tab-content">
-<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-10-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-10-PyCharm">
 <p>To run our script using the PyCharm’s graphical interface,
 right-click the <code>inflammation-analysis.py</code> file in the
 PyCharm project/file navigator on the left, and select
@@ -3321,7 +3321,7 @@ PyCharm project/file navigator on the left, and select
 created earlier).</p>
 <figure><img src="../fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-10-VSCode" class="tab-pane" aria-labelledby="nav-tab-10-VSCode" role="tabpanel">
+<div id="nav-tabpanel-10-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-10-VSCode">
 <p>To run our script using the VS Code’s graphical interface, make sure
 the <code>inflammation-analysis.py</code> file is selected in the
 project/file view on the left, then click the “&gt;” (play) button in
@@ -5480,7 +5480,7 @@ or its configuration file).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="by-passing-an-argument-to-pylint-in-the-command-line">By passing an argument to <code>pylint</code> in the command
@@ -7843,7 +7843,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8011,7 +8011,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -8750,7 +8750,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8804,7 +8804,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8937,7 +8937,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -9012,7 +9012,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9353,7 +9353,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -9443,7 +9443,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure>
 </div>
@@ -10437,7 +10437,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -10452,7 +10452,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul>
@@ -10569,7 +10569,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -10654,7 +10654,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -10858,7 +10858,7 @@ could be considered Model, View and Controller code?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>Computing the standard deviation belongs to Model.</li>
@@ -10896,7 +10896,7 @@ appropriate modules.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The idea here is for the <code>analyse_data()</code> function not to
 have any “view” considerations. That is, it should just compute and
@@ -11759,7 +11759,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -11886,7 +11886,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal">
@@ -12109,7 +12109,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul>
@@ -13125,7 +13125,7 @@ to start using it.</li>
 </div>
 </section></section><section id="aio-50-section5-intro"><p>Content from <a href="50-section5-intro.html">Section 5: Managing and Improving Software Over Its Lifetime</a></p>
 <hr>
-<p>Last updated on 2024-12-06 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/50-section5-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 5 minutes</p>
@@ -13177,7 +13177,8 @@ well as how the outside world interacts with and makes use of our
 software, how others can interact with ourselves to report issues, and
 the ways we can successfully manage software improvement in response to
 feedback.</p>
-<figure><img src="../fig/section5-overview.svg" class="image-with-shadow figure mx-auto d-block" alt="Managing software" width="1000"></figure><p>In this section we will:</p>
+<figure><img src="../fig/section5-overview.svg" class="image-with-shadow figure mx-auto d-block" width="1000" alt="Flow chart showing five stages in software management lifecycle: 1. Setting up software environment; 2. Verifying software correctness; 3. Software development as a process; 4. Collaborative development for reuse; 5. Managing software over its lifetime - issue reporting &amp; prioritisation, Agile development in sprints, software project management."><div class="figcaption">Managing software</div>
+</figure><p>In this section we will:</p>
 <ul>
 <li>Use GitHub to <strong>track issues with our software</strong>
 registered by ourselves and external users.</li>
@@ -13216,7 +13217,7 @@ for prioritising that work.</li>
 </div>
 </div></section><section id="aio-51-managing-software"><p>Content from <a href="51-managing-software.html">5.1 Managing a Collaborative Software Project</a></p>
 <hr>
-<p>Last updated on 2025-02-25 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/51-managing-software.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
@@ -13314,9 +13315,9 @@ do not see the <code>Issues</code> tab, you must first enable it in the
 settings of your repository: go to the <code>Settings</code> tab, scroll
 down to the <code>Features</code> section and activate the checkmark on
 <code>Issues</code>.</p>
-<figure><img src="../fig/github-issue-list.png" class="image-with-shadow figure mx-auto d-block" alt="List of project issues in GitHub" width="1000"></figure><p>Let us go through the process of creating a new issue. Start by
+<figure><img src="../fig/github-issue-list.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing issue list tab in GitHub web interface for a repository named python-intermediate-inflammation. There are currently no issues listed and the new issue button in interface is highlighted." width="1000"></figure><p>Let us go through the process of creating a new issue. Start by
 clicking the <code>New issue</code> button.</p>
-<figure><img src="../fig/github-new-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Creating a new issue in GitHub" width="1000"></figure><p>When you create an issue, you can add a range of details to them.
+<figure><img src="../fig/github-new-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing new issue form in GitHub web interface. The form currently has no details entered in title or comment fields with cursor currently in title field." width="1000"></figure><p>When you create an issue, you can add a range of details to them.
 They can be <em>assigned to a specific developer</em> for example - this
 can be a helpful way to know who, if anyone, is currently working to fix
 the issue, or a way to assign responsibility to someone to deal with
@@ -13527,7 +13528,7 @@ comments, issue and pull request descriptions, you can reference a
 commit by pasting its long, unique identifier (or its first few digits
 which uniquely identify it) and GitHub will render it nicely using the
 identifier’s short form and link to the commit in question.</p>
-<figure><img src="../fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Referencing comments and commits in GitHub" width="700"></figure><div id="exercise-our-first-mentionreference" class="callout discussion">
+<figure><img src="../fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of comment thread in a GitHub issue showing dropdown menu expanded for a particular comment to allow copying link to comment to reference elsewhere. Also shown and highlighted is a autolink to a particular commit hash." width="700"></figure><div id="exercise-our-first-mentionreference" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
@@ -13646,7 +13647,7 @@ to make use of them when suitable.</p>
 page!), select the “Projects” tab, then click the
 <code>New project</code> button on the right.</li>
 </ol>
-<figure><img src="../fig/github-new-project.png" class="image-with-shadow figure mx-auto d-block" alt="Adding a new project board in GitHub" width="800"></figure><ol start="2" style="list-style-type: decimal">
+<figure><img src="../fig/github-new-project.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of projects tab for a GitHub user profile with new project button highlighted." width="800"></figure><ol start="2" style="list-style-type: decimal">
 <li>In the “Create project” pop-up window, you can either start from one
 of the featured existing project templates or create your project from
 scratch using one of the three standard project types/views that you
@@ -13659,9 +13660,17 @@ issues and pull requests.</li>
 pull requests being spread across customizable columns as cards on
 kanban board</li>
 <li>Roadmap - suitable for a high-level visualisation of your project
-over time. <img src="../fig/github-project-template.png" class="image-with-shadow figure" alt="Selecting a project board template in GitHub" width="800">
-Regardless of which project type/view you select, you can easily switch
-to a different project layout later on.</li>
+over time. <img src="../fig/github-project-template.png" class="figure">{alt=‘Screenshot
+of create project pop-up window showing a grid with four featured
+project templates - Team planning (caption “Manage your team’s work
+items, plan upcoming cycles, and understand team capacity”), Future
+release (caption “Manage your team’s prioritized work items when
+planning for a feature release”), Kanban (caption “Visualize the status
+of your project”) and Bug tracker (“Track and triage your bugs”). In the
+the sidebar additional options are available to start a project from
+scratch using a table, board or roadmap format.’ .image-with-shadow
+width=“800px”} Regardless of which project type/view you select, you can
+easily switch to a different project layout later on.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li><p>For example, select the “Board” type for the project, fill in the
@@ -13669,8 +13678,8 @@ name of your project (e.g. “Inflammation project - release v0.1”), and
 select <code>Create project</code>.</p></li>
 <li><p>After it is created, you should also populate the description of
 the project from the project’s Settings, which can be found by clicking
-the <code>...</code> button in the top right corner of the project. <img src="../fig/github-project-settings.png" class="image-with-shadow figure" alt="Project board setting in GitHub" width="800"><img src="../fig/github-project-description.png" class="image-with-shadow figure" alt="Adding project description and metadata in GitHub" width="800">
-After adding a description, select <code>Save</code>.</p></li>
+the <code>...</code> button in the top right corner of the project. <img src="../fig/github-project-settings.png" class="image-with-shadow figure" alt='Screenshot showing how to access project board settings in GitHub. A dropdown menu has been expanded from the "Show Options" button with Settings option within this menu highlighted.' width="800"><img src="../fig/github-project-description.png" class="image-with-shadow figure" alt='Screenshot showing project settings page in GitHub. Short description field on page has had text "Tasks for the v0.1 release of the inflammation project" entered.' width="800"> After adding a description, select
+<code>Save</code>.</p></li>
 <li><p>GitHub’s default card board template contains the following three
 columns with pretty self-explanatory names:</p></li>
 </ol>
@@ -13679,7 +13688,7 @@ columns with pretty self-explanatory names:</p></li>
 <li><code>In Progress</code></li>
 <li><code>Done</code></li>
 </ul>
-<figure><img src="../fig/github-project-view-add-remove-items.png" class="image-with-shadow figure mx-auto d-block" alt="Default card board in GitHub" width="800"></figure><p>You can add or remove columns from your project board to suit your
+<figure><img src="../fig/github-project-view-add-remove-items.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing default card board in GitHub. Three columns are shown headed Todo, In Progress and Done. A button to add a new task to a column is highlighted at bottom of Todo column. On the right of interface the "Actions for column" button which expands a menu from which a column can be removed and the "Add a new column to the board" (+) button which can be used to add a new column are highlighted.' width="800"></figure><p>You can add or remove columns from your project board to suit your
 use case. One commonly seen extra column is <code>On hold</code> or
 <code>Waiting</code> - if you have tasks that get held up by waiting on
 other people (e.g. to respond to your questions) then moving them to a
@@ -13702,13 +13711,13 @@ pressing <code>#</code> (to activate GitHub’s referencing mechanism) and
 selecting the repository and an issue or pull request from that
 repository that you want to add.</li>
 </ol>
-<figure><img src="../fig/github-project-new-items.png" class="image-with-shadow figure mx-auto d-block" alt="Adding issues and notes to a project board in GitHub" width="800"></figure><p>Notes contain task descriptions and can have detailed content like
+<figure><img src="../fig/github-project-new-items.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing adding issues and notes to a project board in GitHub. The board shows three columns Todo, In Progress and Done, with three draft tasks entered into the Todo column: Finish off documenting the software; Select licence; Prepare the release notes." width="800"></figure><p>Notes contain task descriptions and can have detailed content like
 checklists. In some cases, e.g. if a note becomes too complex, you may
 want to convert it into an issue so you can add labels, assign them to
 team members or write more detailed comments (for that, use the
 <code>Convert to issue</code> option from the <code>...</code> menu on
 the card itself).</p>
-<figure><img src="../fig/github-convert-task-to-issue.png" class="image-with-shadow figure mx-auto d-block" alt="Converting a task to issue" width="800"></figure><ol start="7" style="list-style-type: decimal">
+<figure><img src="../fig/github-convert-task-to-issue.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing converting a task to issue in GitHub project interface. A draft task "Finish off documenting the software" is selected and a context menu shown with multiple options, with the first "Convert to issue" highlighted.' width="800"></figure><ol start="7" style="list-style-type: decimal">
 <li><p>In addition to creating new tasks as notes and converting them to
 issues - you can add an existing issue or pull request (from any
 repository visible to you) as a task on a column by pasting its URL into
@@ -13724,7 +13733,7 @@ project management time.</p></li>
 <li><p>Finally, you can change the way you view your project by adding
 another view. For example, we can add a Table view to our Board view by
 clicking the <code>New button</code> and selecting it from the drop down
-menu. <img src="../fig/github-project-add-view.png" class="image-with-shadow figure" alt="Add another project view" width="800"></p></li>
+menu. <img src="../fig/github-project-add-view.png" class="image-with-shadow figure" alt='Screenshot showing how to add another project view in GitHub Project interface. A second table view of the project is shown, with two view tabs, View 1 and View 2 now present and View 2 active. The "New view" button to right of view tabs is highlighted.' width="800"></p></li>
 </ol>
 <div id="exercise-working-with-projects" class="callout discussion">
 <div class="callout-square">
@@ -13978,7 +13987,7 @@ you make available to others.</li>
 </div>
 </section></section><section id="aio-53-improvement-through-feedback"><p>Content from <a href="53-improvement-through-feedback.html">5.3 Software Improvement Through Feedback</a></p>
 <hr>
-<p>Last updated on 2024-12-06 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/53-improvement-through-feedback.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 70 minutes</p>
@@ -14197,11 +14206,11 @@ collection of issues to be worked on in a given period (or timebox). We
 can create a new one by selecting <code>Issues</code> on our repository,
 then <code>Milestones</code> to display any existing milestones, then
 clicking the “New milestone” button to the right.</p>
-<figure><img src="../fig/github-milestones.png" class="image-with-shadow figure mx-auto d-block" alt="Milestones in GitHub" width="1000"></figure><figure><img src="../fig/github-create-milestone.png" class="image-with-shadow figure mx-auto d-block" alt="Create a milestone in GitHub" width="1000"></figure><p>We add in a title, a completion date (i.e. the end of this timebox),
+<figure><img src="../fig/github-milestones.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing how to access Milestones interface in GitHub. The Issues tab for a repository is shown with Milestones button to left of New Issue button highlighted." width="1000"></figure><figure><img src="../fig/github-create-milestone.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing how to create a milestone in GitHub. The Milestones view within Issues tab is shown with a message indicating no milestones have been created so far. Two buttons for creating a new milestone are highlighted." width="1000"></figure><p>We add in a title, a completion date (i.e. the end of this timebox),
 and any description for the milestone.</p>
-<figure><img src="../fig/github-new-milestone-description.png" class="image-with-shadow figure mx-auto d-block" alt="Create a milestone in GitHub" width="800"></figure><p>Once created, we can view our issues and assign them to our milestone
+<figure><img src="../fig/github-new-milestone-description.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot showing how to create a milestone in GitHub. A new milestone form is shown with three entry fields, a short text field for entering title, a date picker field for selecting due date (optional) and a long text field for entering description." width="800"></figure><p>Once created, we can view our issues and assign them to our milestone
 from the <code>Issues</code> page or from an individual issue page.</p>
-<figure><img src="../fig/github-assign-milestone.png" class="image-with-shadow figure mx-auto d-block" alt="Milestones in GitHub" width="1000"></figure><p>Let us now use Milestones to plan and prioritise our team’s next
+<figure><img src="../fig/github-assign-milestone.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing how to assign an issue to a milestone. The issue list tab of a repository is shown with a single issue "Add README" selected and the Milestone dropdown on issue filter controls expanded with a list of available milestones that can be assigned to the issue shown, currently showing one milestone "Tidy up documentation".' width="1000"></figure><p>Let us now use Milestones to plan and prioritise our team’s next
 sprint.</p>
 <div id="exercise-prioritise" class="callout discussion">
 <div class="callout-square">
@@ -14406,7 +14415,7 @@ pathways and in which order you need to learn them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One way to think about these concepts is to make a list and try to
 organise them along two axes - ‘perceived usefulness of a concept’
