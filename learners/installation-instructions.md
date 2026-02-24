@@ -9,7 +9,7 @@ You will need the following software and accounts setup to be able to follow the
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)
 - [PyCharm](#pycharm) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE).
-You may try to use another IDE of your choice but note that it may not have been tested with the material of this lesson and some features we are showcasing may not be available in that IDE.
+You can use another IDE of your choice but note that it may not have been tested with the material of this lesson and some features we are showcasing may not be available in that IDE.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
