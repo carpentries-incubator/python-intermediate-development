@@ -30,10 +30,11 @@ alt="Topics on software engineering process covered in the current section: gath
         accDescr {Topics on software engineering process covered in the current section: gathering requirements, software architecture & design, programming paradigms}
         A(1. Setting up software environment)
         A --> B(2. Verifying software correctness)
-        B --> C(3. Software development as a process
-            - Software requirements
-            - Software architecture & design
-            - Programming paradigms)
+        C("`3. Software development as a process
+        - Software requirements
+        - Software architecture & design
+        - Programming paradigms`")
+        B --> C
         C --> D(4. Collaborative development for reuse)
         D --> E(5. Managing software over its lifetime)
 ```
