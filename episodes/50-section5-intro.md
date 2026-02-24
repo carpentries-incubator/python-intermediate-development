@@ -30,7 +30,10 @@ how the outside world interacts with and makes use of our software,
 how others can interact with ourselves to report issues,
 and the ways we can successfully manage software improvement in response to feedback.
 
-![](fig/section5-overview.svg){alt='Managing software' .image-with-shadow width="1000px" }
+![Managing software](fig/section5-overview.svg){
+  alt='Flow chart showing five stages in software management lifecycle: 1. Setting up software environment; 2. Verifying software correctness; 3. Software development as a process; 4. Collaborative development for reuse; 5. Managing software over its lifetime - issue reporting & prioritisation, Agile development in sprints, software project management.' 
+  .image-with-shadow width="1000px" 
+}
 
 <!-- 
 Source of the above image can be rendered in the Mermaid live editor:
