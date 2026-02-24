@@ -106,27 +106,20 @@ with different parts of the Git infrastructure, including:
   is to always do a `git pull` before a `git push`, to ensure you have any latest changes before you push your own.
 
 <!--
-Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
+  alt='Development lifecycle with Git. The diagram shows four parts of the Git infrastructure: the working tree, staging area, local repository, and remote repository, alongside the Git commands that move files between them. git add moves files from the working tree to the staging area. git commit moves files from the staging area to the local repository. git push moves files from the local repository to the remote repository, while git fetch moves updates from the remote repository to the local repository. git checkout and git merge move files from the local repository to the working tree. git pull, a shortcut for git fetch followed by git checkout or git merge, moves files directly from the remote repository to the working tree.'
+-->
 
+```mermaid
 sequenceDiagram
-    Working Tree->>+Staging Area: git add
-    Staging Area->>+Local Repository: git commit
-    Local Repository->>+Remote Repository: git push
-    Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Tree:git checkout
-    Local Repository->>+Working Tree:git merge
-    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
--->
-
-<!--
-SVG of the diagram can be downloaded from:
-https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
--->
-
-![Software development lifecycle with Git](fig/git-lifecycle.svg){
-  alt='Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree.' 
-  .image-with-shadow width="600px"
-}
+    accDescr {Basic development lifecycle with Git and commands for moving files between the Git infrastructure: working tree, staging area, local repository, and remote repository.}
+    Working Tree-->>+Staging Area: git add
+    Staging Area-->>+Local Repository: git commit
+    Local Repository-->>+Remote Repository: git push
+    Remote Repository-->>+Local Repository: git fetch
+    Local Repository-->>+Working Tree:git checkout
+    Local Repository-->>+Working Tree:git merge
+    Remote Repository-->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
+```
 
 ## Checking-in Changes to Our Project
 
