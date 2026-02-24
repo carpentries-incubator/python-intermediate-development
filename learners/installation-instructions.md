@@ -310,7 +310,7 @@ two tools (that correspond to your Python distribution) installed on your machin
 ## IDE
 
 The material has been tested with PyCharm and VS Code IDEs.
-You may use another IDE of your choice but note that some features we are showcasing in the lesson may not be available in that IDE (but the material could still be followed with modifications).
+You can use another IDE of your choice but note that some features we are showcasing in the lesson may not be available in that IDE (but the material could still be followed with modifications).
 For example, [VSCodium][vscodium] is fairly similar to VS Code (VSCodium entirely removes all telemetry, usage data collection, and tracking functionality present in the default Microsoft VS Code) and might work well.
 
 ### PyCharm
