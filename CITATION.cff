@@ -72,6 +72,39 @@ authors:
     orcid: 'https://orcid.org/0000-0002-0823-0121'
   - given-names: William
     family-names: Close
+  - given-names: Frank
+    family-names: Löffler
+  - given-names: Sander
+    family-names: Rijn
+    name-particle: van
+  - given-names: Harry
+    family-names: Saunders
+  - given-names: Matthew
+    family-names: Field
+  - given-names: Sanket
+    family-names: Gadgil
+  - given-names: Kristian
+    family-names: Zarębski
+  - given-names: Kingsley
+    family-names: Collie
+  - given-names: Tom
+    family-names: Neep
+  - given-names: Renato
+    family-names: Alves
+  - given-names: Daniel
+    family-names: Katz
+  - given-names: Jen
+    family-names: Reeve
+  - given-names: G.K.
+    family-names: Murphy
+  - given-names: Yuriy
+    family-names: Sverchkov
+  - given-names: S.
+    family-names: Hartley
+  - given-names: Olexandr
+    family-names: Konovalov
+  - given-names: Jonathan
+    family-names: Guyer
 identifiers:
   - type: doi
     value: 10.5281/zenodo.6532056
@@ -92,6 +125,5 @@ keywords:
   - Software Development
   - Carpentries
 license: CC-BY-4.0
-commit: 9c4db4c870d9b9cdf85f84f032b7341cbd8cb387
 version: beta-July2025
 date-released: '2025-07-30'
