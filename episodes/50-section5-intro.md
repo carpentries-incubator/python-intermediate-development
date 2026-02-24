@@ -40,11 +40,11 @@ alt="Topics on collaborative software development covered in the current section
         A --> B(2. Verifying software correctness)
         B --> C(3. Software development as a process)
         C --> D(4. Collaborative development for reuse)
-        D --> E(5. Managing software over its lifetime
-        
-            - Issue reporting & prioritisation
-            - Agile development in sprints
-            - Software project management)
+        E("`5. Managing software over its lifetime
+        - Issue reporting & prioritisation
+        - Agile development in sprints
+        - Software project management`")
+        D --> E
 ```
 
 In this section we will:
