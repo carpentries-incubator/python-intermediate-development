@@ -39,11 +39,11 @@ alt="Topics on verifying software correctness covered in the current section: te
 ```mermaid
     flowchart LR
         accDescr {Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging}
-        A(1. Setting up software environment)
-        A --> B(2. Verifying software correctness:
-                - Testing frameworks
-                - Automating & scaling testing: CI and GitHub Actions
-                - Debugging code)
+        B("`2. Verifying software correctness:
+        - Testing frameworks
+        - Automating & scaling testing: CI and GitHub Actions
+        - Debugging code`")
+        A(1. Setting up software environment) --> B
         B --> C(3. Software development as a process)
         C --> D(4. Collaborative development for reuse)
         D --> E(5. Managing software over its lifetime)
