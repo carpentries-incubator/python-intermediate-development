@@ -1,5 +1,4 @@
 "file" "checksum" "built" "date"
-"CITATION.md" "547a6cd065ca31719e8830f35890c2c7" "site/built/CITATION.md" "2025-07-31"
 "CODE_OF_CONDUCT.md" "c93c83c630db2fe2462240bf72552548" "site/built/CODE_OF_CONDUCT.md" "2024-12-06"
 "GOVERNANCE.md" "60fee43ad99002ea28cf82fc4f426c01" "site/built/GOVERNANCE.md" "2024-12-06"
 "LICENSE.md" "b24ebbb41b14ca25cf6b8216dda83e5f" "site/built/LICENSE.md" "2024-12-06"
