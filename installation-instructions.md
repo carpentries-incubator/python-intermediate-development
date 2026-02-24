@@ -8,7 +8,8 @@ You will need the following software and accounts setup to be able to follow the
 - [Git version control program](#git-version-control-tool)
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)
-- [PyCharm](#pycharm) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE)
+- [PyCharm](#pycharm) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE).
+You can use another IDE of your choice but note that it may not have been tested with the material of this lesson and some features we are showcasing may not be available in that IDE.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -307,6 +308,10 @@ If you are using a Python 3 distribution from [Python.org](https://www.python.or
 two tools (that correspond to your Python distribution) installed on your machine.
 
 ## IDE
+
+The material has been tested with PyCharm and VS Code IDEs.
+You can use another IDE of your choice but note that some features we are showcasing in the lesson may not be available in that IDE (but the material could still be followed with modifications).
+For example, [VSCodium][vscodium] is fairly similar to VS Code (VSCodium entirely removes all telemetry, usage data collection, and tracking functionality present in the default Microsoft VS Code) and might work well but has not been tested by the developers of this lesson.
 
 ### PyCharm
 
