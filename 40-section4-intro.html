@@ -536,7 +536,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Section 4: Collaborative Software Development for Reuse</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/40-section4-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -602,38 +602,26 @@ also look at how we can package software for release and distribution,
 using <strong>Poetry</strong> to manage our Python dependencies and
 produce a code package we can use with a Python package indexing service
 to illustrate these principles.</p>
-<figure><img src="fig/section4-overview.svg" class="image-with-shadow figure mx-auto d-block" alt="Software design and architecture" width="1000"></figure><!--
-Source of the above image can be rendered in the Mermaid live editor:
-
-https://mermaid.live/edit#pako:eNpVkE9rwzAMxb-K8CmFNrB_lxwGW9vbellhh-GLlsitIZGCrKSU0u8-t2vYpouF9HsP-Z1cLQ25yoVWDvUe1eDt3fNLcVfClswi72DoPScJdkAlIB6jCnfENvO8WDzDa3FfwgdpDMdM_0FrUaXamFK6ocviIdtO-4ZGaqW_WHnGBAi9Sv1Lr4rHEpbStvglihZH8vxHA0EUlIaUx54h1wL-vzefdfFUwgYZd5ffTOd5lpEUoiVoYyCLHc3c3HWkHcYmJ3K6mHhne-rIuyq3DQUcWvPO8zmjOJhsj1y7ynSguRv6Bo1WEXeKnasCtilPqYkmuvlJ-Rr2RK6vm0ndI3-KTLrzNzfGi8o
-
-The mermaid source (with one less dash in arrows than needed):
-
-flowchart LR
-A(1. Setting up
-software environment)
--> B(2. Verifying
-software correctness)
--> C(3. Software development
-as a process)
--> D(4. Collaborative
-development for reuse
-
-    - Code review
-    - Software documentation
-    - Software packaging & release
-    )
--> E(5. Managing software
-over its lifetime)
-
---><!--
+<pre class="mermaid"><code>    flowchart LR
+        accDescr {Topics on collaborative software development covered in the current section: code review, writing software documentation, packaging &amp; releasing software}
+        A(1. Setting up software environment)
+        A --&gt; B(2. Verifying software correctness)
+        B --&gt; C(3. Software development as a process)
+       D("`4. Collaborative development for reuse
+       - Code review
+       - Software documentation
+       - Software packaging &amp; release`")
+       C --&gt; D
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
+<!--
 Designing and Developing "Good" Software in Teams
 
 - **Software paradigms and design architectures** for solving different problems based on clear requirements
 - **Writing "good" software** that is understandable, modular, extensible and tested
 - **Publishing and releasing software** for reuse by others
 - **Collaborative code development and review** to improve software sustainability and avoid the accumulation of 'technical debt'.
---><div id="keypoints1" class="callout keypoints">
+-->
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -709,7 +697,7 @@ extensibility, testability, reusability and overall sustainability.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/40-section4-intro.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/40-section4-intro.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2026-02-24",
   "datePublished": "2026-02-24"
 }
 

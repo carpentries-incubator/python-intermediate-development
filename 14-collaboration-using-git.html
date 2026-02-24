@@ -546,7 +546,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>1.4 Software Development Using Git and GitHub</h1>
-        <p>Last updated on 2026-01-27 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -670,29 +670,25 @@ when collaborating with others on a shared repository is to always do a
 <code>git pull</code> before a <code>git push</code>, to ensure you have
 any latest changes before you push your own.</li>
 </ul><!--
-Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
-
-sequenceDiagram
-    Working Tree->>+Staging Area: git add
-    Staging Area->>+Local Repository: git commit
-    Local Repository->>+Remote Repository: git push
-    Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Tree:git checkout
-    Local Repository->>+Working Tree:git merge
-    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
---><!--
-SVG of the diagram can be downloaded from:
-https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
---><figure><img src="fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree."><div class="figcaption">Software development lifecycle with Git</div>
-</figure></section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a></h2>
+  alt='Development lifecycle with Git. The diagram shows four parts of the Git infrastructure: the working tree, staging area, local repository, and remote repository, alongside the Git commands that move files between them. git add moves files from the working tree to the staging area. git commit moves files from the staging area to the local repository. git push moves files from the local repository to the remote repository, while git fetch moves updates from the remote repository to the local repository. git checkout and git merge move files from the local repository to the working tree. git pull, a shortcut for git fetch followed by git checkout or git merge, moves files directly from the remote repository to the working tree.'
+--><pre class="mermaid"><code>sequenceDiagram
+    accDescr {Basic development lifecycle with Git and commands for moving files between the Git infrastructure: working tree, staging area, local repository, and remote repository.}
+    Working Tree--&gt;&gt;+Staging Area: git add
+    Staging Area--&gt;&gt;+Local Repository: git commit
+    Local Repository--&gt;&gt;+Remote Repository: git push
+    Remote Repository--&gt;&gt;+Local Repository: git fetch
+    Local Repository--&gt;&gt;+Working Tree:git checkout
+    Local Repository--&gt;&gt;+Working Tree:git merge
+    Remote Repository--&gt;&gt;+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)</code></pre>
+</section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a></h2>
 <hr class="half-width"><p>Let us check-in the changes we have done to our project so far. The
 first thing to do upon navigating into our software project’s directory
 root is to check the current status of our local working directory and
 repository.</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -761,10 +757,10 @@ that Git has cleverly understood that you want to ignore changes to the
 “venv” directory so it is not warning us about it any more. However, it
 has now detected a change to <code>.gitignore</code> file that needs to
 be committed.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -787,16 +783,16 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 <code>requirements.txt</code> to the local repository, we first have to
 add these files to staging area to prepare them for committing. We can
 do that at the same time as:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> git add .gitignore requirements.txt</span></code></pre>
-</div>
-<p>Now we can commit them to the local repository with:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt. Ignoring virtual env. folder."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> git add .gitignore requirements.txt</span></code></pre>
+</div>
+<p>Now we can commit them to the local repository with:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt. Ignoring virtual env. folder."</span></span></code></pre>
 </div>
 <p>Remember to use meaningful messages for your commits.</p>
 <p>So far we have been working in isolation - all the changes we have
@@ -810,17 +806,17 @@ by two collaborators making different changes to the same lines in a
 file. By pulling first, we are made aware of any changes made by others,
 in particular if there are any conflicts between their changes and
 ours.</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> git pull</span></code></pre>
-</div>
-<p>Now we have ensured our repository is synchronised with the remote
-one, we can now push our changes:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git pull</span></code></pre>
+</div>
+<p>Now we have ensured our repository is synchronised with the remote
+one, we can now push our changes:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <p>In the above command, <code>origin</code> is an alias for the remote
 repository you used when cloning the project locally (it is called that
@@ -843,10 +839,10 @@ the repository using HTTPS and not SSH. You should revisit the <a href="index.ht
 on setting up your GitHub for SSH and key pair authentication</a> and
 can fix this from the command line by changing the remote repository’s
 HTTPS URL to its SSH equivalent:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git remote set-url origin git@github.com:<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>/python-intermediate-inflammation.git</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git remote set-url origin git@github.com:<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>/python-intermediate-inflammation.git</span></code></pre>
 </div>
 </div>
 </div>
@@ -886,10 +882,10 @@ contain its own set of commits. We can create a new branch, make changes
 to the code which we then commit to the branch, and, once we are happy
 with those changes, merge them back to the main branch. To see what
 other branches are available, do:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -953,19 +949,19 @@ nothing that is broken should be in <code>main</code>.</p>
 <div class="section level3">
 <h3 id="creating-branches">Creating Branches<a class="anchor" aria-label="anchor" href="#creating-branches"></a></h3>
 <p>Let us create a <code>develop</code> branch to work on:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> git branch develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> git branch develop</span></code></pre>
 </div>
 <p>This command does not give any output, but if we run
 <code>git branch</code> again, without giving it a new branch name, we
 can see the list of branches we have - including the new one we have
 just made.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -976,10 +972,10 @@ just made.</p>
 <p>The <code>*</code> indicates the currently active branch. So how do
 we switch to our new branch? We use the <code>git switch</code> command
 with the name of the branch:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -995,10 +991,10 @@ with the name of the branch:</p>
 <h3 class="callout-title">Create and Switch to Branch Shortcut</h3>
 <div class="callout-content">
 <p>A shortcut to create a new branch and immediately switch to it:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> develop</span></code></pre>
 </div>
 </div>
 </div>
@@ -1017,10 +1013,10 @@ spelling of “2d” to “2D” in docstrings for functions
 <code>daily_mean()</code>, <code>daily_max()</code> and
 <code>daily_min()</code> to see updating branches in action.</p>
 <p>If we do:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1038,11 +1034,11 @@ spelling of “2d” to “2D” in docstrings for functions
 which tracked files have been modified in our working directory.</p>
 <p>We can now <code>add</code> and <code>commit</code> the changes in
 the usual way.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Spelling fix"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Spelling fix"</span></span></code></pre>
 </div>
 <div id="currently-active-branch" class="callout">
 <div class="callout-square">
@@ -1072,10 +1068,10 @@ branches.</p>
 </figure><p>To push a new local branch remotely for the first time, you could use
 the <code>-u</code> flag and the name of the branch you are creating and
 pushing to:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin develop</span></code></pre>
 </div>
 <div id="git-push-with--u-flag" class="callout">
 <div class="callout-square">
@@ -1109,10 +1105,10 @@ and branches drop-down menu.</p>
 continue to develop code on it.</p>
 <p>After the initial push of the new branch, each next time we push to
 it in the usual manner (i.e. without the <code>-u</code> switch):</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
 </div>
 <div id="what-is-the-relationship-between-originating-and-new-branches" class="callout">
 <div class="callout-square">
@@ -1149,10 +1145,10 @@ time… although it may not make sense to do so!</p>
 you will want to merge them onto the <code>main</code> branch. To do so,
 make sure you have committed all your changes on the
 <code>develop</code> branch and then switch to <code>main</code>:</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> git switch main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> git switch main</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1162,10 +1158,10 @@ Your branch is up to date with 'origin/main'.</code></pre>
 </div>
 <p>To merge the <code>develop</code> branch on top of <code>main</code>
 do:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> git merge develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> git merge develop</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1184,10 +1180,10 @@ files with conflicts will be marked and you will need to resolve those
 conflicts and commit the changes before attempting to merge again. Since
 we have no conflicts, we can now push the <code>main</code> branch to
 the remote repository:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <div id="all-branches-are-equal" class="callout">
 <div class="callout-square">
@@ -1299,7 +1295,7 @@ features without affecting the stable <code>main</code> code.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/14-collaboration-using-git.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2026-01-27",
+  "dateModified": "2026-02-24",
   "datePublished": "2026-02-24"
 }
 

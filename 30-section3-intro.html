@@ -544,7 +544,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Section 3: Software Development as a Process</h1>
-        <p>Last updated on 2024-12-06 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/30-section3-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -586,27 +586,22 @@ development.</li>
 <p>In this section, we will take a step back from coding development
 practices and tools and look at the bigger picture of software as a
 <em>process</em> of development.</p>
+<pre class="mermaid"><code>    flowchart LR
+        accDescr {Topics on software engineering process covered in the current section: gathering requirements, software architecture &amp; design, programming paradigms}
+        A(1. Setting up software environment)
+        A --&gt; B(2. Verifying software correctness)
+        C("`3. Software development as a process
+        - Software requirements
+        - Software architecture &amp; design
+        - Programming paradigms`")
+        B --&gt; C
+        C --&gt; D(4. Collaborative development for reuse)
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
 <blockquote>
 <p><em>“If you fail to plan, you are planning to fail.”</em></p>
 <p>— Benjamin Franklin</p>
 </blockquote>
-<figure><img src="fig/section3-overview.svg" alt="Software design and architecture overview flowchart" class="figure mx-auto d-block"></figure><!---
-Source of the above image can be rendered in the Mermaid live editor:
-
-<https://mermaid.live/edit#pako:eNplkU1rwzAMhv-K8WGk0Ab2dclhsLW9rTBW2GH4oiVKakikTJZTSul_n9M122A-2dKj95Wsoy25QlvYuuV9uQNR8_zq6DG7zs0WVT01JvaOAte6B0GDNHhh6pB05mixeDBP2U1u3lB8fUj0H7RkESyVMIQLusxuk-yUr3DAlvtRyhEEA6YXLhPtyJFJZ_HLCn5GLziy4V8SpNx5TVYxPa6SbvDNj8SLcCPQdeMkPQhUvukuEpeuVtldbpbctvDBAuoHdPSnN1OzJP8Y8MKvs_vcbICgGTWncR3xgGK8BtP6GtV3OLNz26F04Kv0w8fR1FndpSmcLdK1whpiq846OiUUovL2QKUtVCLObewrUFx5GPu3RQ1tSFGsvLJsvrd2Xt5Ers-ZqboHemee6k5flmapmQ>
-
-The mermaid source (with one less dash in arrows than needed):
-
-flowchart LR
-  A(1. Setting up software environment)
-  A -> B(2. Verifying software correctness)
-  B -> C(3. Software development as a process
-  - Software requirements
-  - Software architecture & design
-  - Programming paradigms)
-  C -> D(4. Collaborative development for reuse)
-  D -> E(5. Managing software over its lifetime)
---><section><h2 class="section-heading" id="writing-code-vs-engineering-software">Writing Code vs Engineering Software<a class="anchor" aria-label="anchor" href="#writing-code-vs-engineering-software"></a></h2>
+<section><h2 class="section-heading" id="writing-code-vs-engineering-software">Writing Code vs Engineering Software<a class="anchor" aria-label="anchor" href="#writing-code-vs-engineering-software"></a></h2>
 <hr class="half-width"><p>Traditionally in academia, software - and the process of writing it -
 is often seen as a necessary but throwaway artefact in research. For
 example, there may be research questions for a given research project,
@@ -805,7 +800,7 @@ easy to adapt when your requirements change.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/30-section3-intro.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/30-section3-intro.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2024-12-06",
+  "dateModified": "2026-02-24",
   "datePublished": "2026-02-24"
 }
 

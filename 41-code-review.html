@@ -550,7 +550,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>4.1 Developing Software In a Team: Code Review</h1>
-        <p>Last updated on 2025-06-19 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/41-code-review.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -761,28 +761,23 @@ in general - looking at your own code in a review window will allow you
 to spot mistakes you have not seen before.</p>
 <p>Here is an outline of the process of a tool assisted code review.</p>
 <!--
-
-```mermaid
-%% Must disable useMaxWidth to have the diagram centre
-%%{init: { 'sequence': {'useMaxWidth':false} } }%%
-sequenceDiagram
+alt='Sequence diagram illustrating the code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged.'
+-->
+<pre class="mermaid"><code>sequenceDiagram
+    accDescr {Code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged}
     participant A as Author
     participant R as Reviewer
-    A->>A: Write some code
-    A->>R: Raise a pull request
-    R->>R: Add comments to a review
-    R->>A: Submit a review
+    A-&gt;&gt;A: Write some code
+    A-&gt;&gt;R: Raise a pull request
+    R-&gt;&gt;R: Add comments to a review
+    R-&gt;&gt;A: Submit a review
     loop Until approved
-        A->>R: Address or respond to review comments
-        R->>A: Clarify or resolve comments
+        A-&gt;&gt;R: Address or respond to review comments
+        R-&gt;&gt;A: Clarify or resolve comments
     end
-    R->>A: Approve pull request
-    A->>A: Merge pull request
-```
-
-Generated with Mermaid tool, diagram available at: <https://mermaid.live/edit#pako:eNptUrtuwzAM_BVCgOEl_QEPAYx29eKgyOKFsZhYgF6VKLeBkX-vXDvNo5UWSXfHI0VOoneSRCWKApoUGaSKeNAEKVKDX3sleQB2MOBIwANlHE8BDfRkOVBni2JSVnEFE5SRPhLZnsp8K-8ClNURdaQL5F0Unb3y3pZYnYW8PAZWvfJoGWrACHXiwYW_YDuDLY2KPmmF65fttq5gHxQTRGcI5qpuWFtBiyoSIPikNYQ5gcgLoV0ItZRZZUyuK84VY2bNHjdSdtilg1H8hGnnPLxbVhrQ--BGkgtwZ5-jB4oRXMjS6J2Vs8cS5df2plrtXjUGdTyvKqdHeuKSlQ_51Yv_P1WuX9RQOD3CYiMMBYNK5imYZnIncqMNdaLKR0lHTJo70dlLpmJitzvbXlQcEm1E8hL52sjrI0nFLjTLYP3M1-Ub_pDLrQ>
--->
-<figure><img src="fig/code-review-sequence-diagram.svg" class="image-with-shadow figure mx-auto d-block" alt="Code review process sequence" width="600"></figure><p>Recall <a href="31-software-requirements.html">solution requirement
+    R-&gt;&gt;A: Approve pull request
+    A-&gt;&gt;A: Merge pull request</code></pre>
+<p>Recall <a href="31-software-requirements.html">solution requirement
 SR1.1.1</a> from an earlier episode. A fictional colleague has
 implemented it according to the specification and pushed it to a branch
 <code>feature-std-dev</code> of our software repository. You will turn
@@ -971,7 +966,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -1075,7 +1070,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal"><li>Standard deviation for one patient with multiple observations.</li>
@@ -1275,7 +1270,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul><li>improving internal code readability, understandability, quality and
@@ -1390,7 +1385,7 @@ maintainable code for many years.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/41-code-review.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/41-code-review.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-06-19",
+  "dateModified": "2026-02-24",
   "datePublished": "2026-02-24"
 }
 

@@ -679,7 +679,7 @@
         
 <section id="aio-00-setting-the-scene"><p>Content from <a href="00-setting-the-scene.html">Setting the Scene</a></p>
 <hr>
-<p>Last updated on 2025-07-30 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/00-setting-the-scene.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 15 minutes</p>
@@ -747,22 +747,18 @@ working on software development in a team and producing high quality
 software that is easier to develop and sustain in the future by yourself
 and others. Skills and tools taught here, while Python-specific, are
 transferable to other similar tools and programming languages.</p>
-<p>The course is organised into the following sections:</p>
-<figure><img src="../fig/course-overview.svg" alt="Course overview diagram. Arrows connect the following boxed text in order: 1) Setting up software environment 2) Verifying software correctness 3) Software development as a process 4) Collaborative development for reuse 5) Managing software over its lifetime." class="figure mx-auto d-block"><div class="figcaption">Course overview diagram</div>
-</figure><!---
-Source of the above image can be rendered in the Mermaid live editor:
-<https://mermaid.live/edit#pako:eNpdkE1rwzAMhv-K8CmFNrCvSw6D9eO2XlbYYeSiJXJqcKwgKyml9L_PaZox5pOQn8ey3oupuCZTGOv5VB1RFN4_ygDpvGUPORxI1YUG-m5qRrZ6QiGgMDjh0FLQBZRhtXqFdfaYwyeJs-ek_OMrFqFKA8U485vsKQ2YgZoG8tyND8LkYgSETrganUnZZs85bNh7_GZBdQPd2b-2ZQGhPtJd2mUvOewxYDNu8vujSeSBBJxG8M6SupYWZmlakhZdnWK5jFRp9EgtlaZIZU0We6-lKcM1odgrH86hMoVKT0vTdzUqbR02gq0pLPqYulQ7ZdlPUd8Sn8nd7Wa2OwxfzLN3_QE4H4oo>
-
-The mermaid source is (with one less dash in arrows than needed):
-
-```mermaid
-flowchart LR
-  A(1. Setting up software environment) -> B(2. Verifying software correctness)
-  B -> C(3. Software development as a process)
-  C -> D(4. Collaborative development for reuse)
-  D -> E(5. Managing software over its lifetime)
-```
---><div class="section level3">
+<p>The course is organised into the following sections.</p>
+<pre class="mermaid"><code>    flowchart LR
+        accTitle: Overview of sections in the lesson
+        accDescr {Course overview diagram. Arrows connect the following boxed
+          text in order: 1) Setting up software environment 2) Verifying software
+          correctness 3) Software development as a process 4) Collaborative
+          development for reuse 5) Managing software over its lifetime.}
+        A(1. Setting up software environment) --&gt; B(2. Verifying software correctness)
+        B --&gt; C(3. Software development as a process)
+        C --&gt; D(4. Collaborative development for reuse)
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
+<div class="section level3">
 <h3 id="section-1-setting-up-software-environment">
 <a href="10-section1-intro.html">Section 1: Setting up Software
 Environment</a><a class="anchor" aria-label="anchor" href="#section-1-setting-up-software-environment"></a>
@@ -968,7 +964,7 @@ while to write code to help with your work.</li>
 </div>
 </section></section><section id="aio-10-section1-intro"><p>Content from <a href="10-section1-intro.html">Section 1: Setting Up Environment For Collaborative Code Development</a></p>
 <hr>
-<p>Last updated on 2025-07-30 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/10-section1-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
@@ -1016,8 +1012,19 @@ one to use but mention alternatives too. As you get more comfortable
 with different tools and their alternatives, you will select the one
 that is right for you based on your personal preferences or based on
 what your collaborators are using.</p>
-<figure><img src="../fig/section1-overview.svg" alt="Tools needed to collaborate on code development effectively" class="figure mx-auto d-block"><div class="figcaption">Section 1 Overview</div>
-</figure><p>Here is an overview of the tools we will be using.</p>
+<pre class="mermaid"><code>    flowchart LR
+      accDescr {Topics on effective collaborating on code development covered in
+        the current section: virtual development environments, version control &amp;
+        sharing code, writing readable code &amp; code standards}
+      A("`1. Setting up software environment
+        - Isolating &amp; running code: command line, virtual environment &amp; IDE
+        - Version control and sharing code: Git &amp; GitHub
+        - Well-written &amp; readable code: PEP8`")
+      A --&gt; B(2. Verifying software correctness)
+      B --&gt; C(3. Software development as a process)
+      C --&gt; D(4. Collaborative development for reuse)
+      D --&gt; E(5. Managing software over its lifetime)</code></pre>
+<p>Here is an overview of the tools we will be using.</p>
 <div id="setup-common-issues-fixes" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1266,7 +1273,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1402,7 +1409,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -2474,7 +2481,7 @@ it here but it should be possible to switch.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
 <p>When you start PyCharm - you may be presented with a dialog box that
 asks you what you want to do, e.g. <code>Create New Project</code>,
 <code>Open</code>, or <code>Check out from Version Control</code>. If
@@ -2507,7 +2514,7 @@ your environment in PyCharm shortly as this is important conceptually.
 If you do not see this warning - do not worry, it just means you may
 have configured this already on previous usages of PyCharm.</p>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
 <p>We will take you through the various steps of using VC Code now -
 also check out the <a href="https://code.visualstudio.com/docs/python/python-quick-start" class="external-link">VS
 Code Python Quick Start guide</a> and <a href="https://code.visualstudio.com/docs/python/python-tutorial" class="external-link">Getting
@@ -2614,7 +2621,7 @@ understand it.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-PyCharm">
+<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-2-PyCharm" role="tabpanel">
 <p>While PyCharm will recognise the virtual environment you already
 have, and the Python interpreter contained in it, it is a good practice
 to tell your IDE which Python interpreter you want to use for which
@@ -2667,7 +2674,7 @@ replicating our virtual environment in PyCharm (referred to as “Python
 the same virtual environment and changes done to it in PyCharm will
 propagate to the command line and vice versa.</p>
 </div>
-<div id="nav-tabpanel-2-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-VSCode">
+<div id="nav-tabpanel-2-VSCode" class="tab-pane" aria-labelledby="nav-tab-2-VSCode" role="tabpanel">
 <p>As covered in the episode on virtual environments for software
 development, we want to create a new or activate an existing virtual
 environment for our project to work in. Since we have already created a
@@ -2734,7 +2741,7 @@ line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-PyCharm">
+<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-3-PyCharm" role="tabpanel">
 <ol style="list-style-type: decimal">
 <li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
 <code>File -&gt; Settings</code> (Linux, Windows).</li>
@@ -2758,7 +2765,7 @@ however, that <code>requirements.txt</code> is not updated - as we
 mentioned earlier this is something you have to do manually. Let us do
 this as an exercise.</p>
 </div>
-<div id="nav-tabpanel-3-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-VSCode">
+<div id="nav-tabpanel-3-VSCode" class="tab-pane" aria-labelledby="nav-tab-3-VSCode" role="tabpanel">
 <p>In VS Code, there is no special graphical user interface to add
 external dependencies for a project - this is done from the terminal
 window as we did before (within the active virtual environment):</p>
@@ -2790,7 +2797,7 @@ Dependency</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Let us verify first that the newly installed library
 <code>pytest</code> is appearing in our virtual environment but not in
@@ -2896,7 +2903,7 @@ six==1.16.0</code></pre>
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-PyCharm">
+<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-4-PyCharm" role="tabpanel">
 <p>Having configured a virtual environment, we now need to tell PyCharm
 to use it for our project. This is done by creating and adding a
 <strong>Run Configuration</strong> to a project. Run Configurations in
@@ -2941,7 +2948,7 @@ virtual environments - you can vary a run configuration each time your
 code is executed and you can have separate configurations for running,
 debugging and testing your code.</p>
 </div>
-<div id="nav-tabpanel-4-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-VSCode">
+<div id="nav-tabpanel-4-VSCode" class="tab-pane" aria-labelledby="nav-tab-4-VSCode" role="tabpanel">
 <p>You can configure Visual Studio Code through a number of <a href="https://code.visualstudio.com/docs/configure/settings" class="external-link">settings</a>.
 Nearly every part of VS Code’s editor, user interface, and functional
 behavior has options you can modify.</p>
@@ -3048,10 +3055,10 @@ errors easier.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-PyCharm">
+<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-5-PyCharm" role="tabpanel">
 <figure><img src="../fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-5-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-VSCode">
+<div id="nav-tabpanel-5-VSCode" class="tab-pane" aria-labelledby="nav-tab-5-VSCode" role="tabpanel">
 <figure><img src="../fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure>
 </div>
 </div>
@@ -3080,10 +3087,10 @@ of functions, hints related to syntax errors, etc.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-6" class="tab-content">
-<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-6-PyCharm">
+<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-6-PyCharm" role="tabpanel">
 <figure><img src="../fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-6-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-6-VSCode">
+<div id="nav-tabpanel-6-VSCode" class="tab-pane" aria-labelledby="nav-tab-6-VSCode" role="tabpanel">
 <figure><img src="../fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure>
 </div>
 </div>
@@ -3111,7 +3118,7 @@ tooltips.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-7" class="tab-content">
-<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-7-PyCharm">
+<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-7-PyCharm" role="tabpanel">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>Go</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3129,7 +3136,7 @@ function call.</li>
 </ul>
 <figure><img src="../fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-7-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-7-VSCode">
+<div id="nav-tabpanel-7-VSCode" class="tab-pane" aria-labelledby="nav-tab-7-VSCode" role="tabpanel">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>View</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3175,7 +3182,7 @@ find usages/references and occurrences.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-8" class="tab-content">
-<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-8-PyCharm">
+<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-8-PyCharm" role="tabpanel">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find | Find in Path ...</code> (or
 <code>Edit | Find | Find in Files...</code> depending on your version of
@@ -3198,7 +3205,7 @@ and its options to group the results, preview them, and work with them
 further.</p>
 <figure><img src="../fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-8-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-8-VSCode">
+<div id="nav-tabpanel-8-VSCode" class="tab-pane" aria-labelledby="nav-tab-8-VSCode" role="tabpanel">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find in Files</code>. An alternative menu option
 <code>Edit | Find</code> will just look for the search string in the
@@ -3236,7 +3243,7 @@ further filter things out.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-9" class="tab-content">
-<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-9-PyCharm">
+<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-9-PyCharm" role="tabpanel">
 <p>PyCharm supports a directory-based versioning model, which means that
 each project directory can be associated with a different version
 control system. Our project was already under Git version control and
@@ -3255,7 +3262,7 @@ line.</p>
 on PyCharm’s built-in version control support</a> online.</p>
 <figure><img src="../fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-9-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-9-VSCode">
+<div id="nav-tabpanel-9-VSCode" class="tab-pane" aria-labelledby="nav-tab-9-VSCode" role="tabpanel">
 <p>VS Code has integrated source control management (SCM) and includes
 Git support out-of-the-box. Many other source control tools are
 available through <a href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=SCM%20Providers&amp;sortBy=Installs" class="external-link">extensions</a>.</p>
@@ -3313,7 +3320,7 @@ advantages — we will make use of the IDE’s built-in visual tools.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-10" class="tab-content">
-<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-10-PyCharm">
+<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-10-PyCharm" role="tabpanel">
 <p>To run our script using the PyCharm’s graphical interface,
 right-click the <code>inflammation-analysis.py</code> file in the
 PyCharm project/file navigator on the left, and select
@@ -3321,7 +3328,7 @@ PyCharm project/file navigator on the left, and select
 created earlier).</p>
 <figure><img src="../fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-10-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-10-VSCode">
+<div id="nav-tabpanel-10-VSCode" class="tab-pane" aria-labelledby="nav-tab-10-VSCode" role="tabpanel">
 <p>To run our script using the VS Code’s graphical interface, make sure
 the <code>inflammation-analysis.py</code> file is selected in the
 project/file view on the left, then click the “&gt;” (play) button in
@@ -3384,7 +3391,7 @@ configured from the command line using <code>venv</code> and
 </div>
 </section></section><section id="aio-14-collaboration-using-git"><p>Content from <a href="14-collaboration-using-git.html">1.4 Software Development Using Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2026-01-27 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/14-collaboration-using-git.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
@@ -3515,31 +3522,27 @@ when collaborating with others on a shared repository is to always do a
 any latest changes before you push your own.</li>
 </ul>
 <!--
-Created with https://mermaid.live/edit#pako:eNqVUsFOwzAM_ZXIJxBldK3aZjlMQsANLhsSEuolNF5brU1KmgjKtH8nbRlsTEPCJ9t5L-9Z9gYyJRAYtPhqUWZ4W_Jc8zqVxMWT0utS5uRRI17O5xdLw_O-vtbIGclLQ7gQI3T_qYfeq4xXZIGNakujdDfCM1XXpRkZvxE9a4G1MnhEa2xbjKQjwGmtFZqsOC21PxsbvBWYrZU1_6DUqHP8w9gB4WuSqiJnbaG0yazzqPSPV1dVlXpDQV46su_oatA5Bw9cUvNSuH1tetkUTIE1psBcKnDFbWVSSOXWQbk1atnJDJjRFj2wjeBmt15gK161rouiN_sw3sBwCh5oZfPiG9Fw-axUffjN3UDb9XLdWxpzjVKgvlFWGmDxdOAD28A7sIhGkygJ_Wjm08APp4EHHbAknszCJAoCSumUhvHWg49Bz5_QJPJdRGEYz5IkpttPWWLlPg
-
-sequenceDiagram
-    Working Tree->>+Staging Area: git add
-    Staging Area->>+Local Repository: git commit
-    Local Repository->>+Remote Repository: git push
-    Remote Repository->>+Local Repository: git fetch
-    Local Repository->>+Working Tree:git checkout
-    Local Repository->>+Working Tree:git merge
-    Remote Repository->>+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)
---><!--
-SVG of the diagram can be downloaded from:
-https://mermaid.ink/svg/pako:eNqFksFuwyAMhl8FcemmdS_AodKm7rZe2sOkKRcXnAQNcEaMpqjquw-SZZtUReEE9vfbP5iL1GRQKtnjZ8KgcW-hieCrIPJ6o_hhQyP2NqJmisPjbvdwYmhK8CkiKNFYFmDMxP9PFfSVNDhxxI56W-TiOULQ7aTS5L3lSbgAlhpH9MS4VKRLfTuVWOJWfdTIul21cfMUqmg9xgbX-9-Kf8w7J-76liLrlI1Q_DOUT87RFxpxHsRvq5EBseEIeqx4Hnts7uVWZsCDNXmWl-Koktyix0qqvDVYQ3JcySpcMwqJ6TQELRXHhFuZOgM8j16qGlyfo2jKPQ7T_xi_yUy-jJlZ3UF4J5p112_HVM9r
---><figure><img src="../fig/git-lifecycle.svg" class="image-with-shadow figure mx-auto d-block" width="600" alt="Development lifecycle with Git. Four parts of Git infrastructure are represented: working tree, staging area, local repository and remote repository, and alongside this various git commands. git add is shown moving files from working tree to staging area. git commit is shown moving files from staging area to local repository. git push is shown moving files from local repository to remote repository and git fetch from remote repository to local repository. git checkout and git merge are both shown as moving files from local repository to working tree. git pull, a shortcut for git fetch followed by git checkout / merge, is shown moving files from remote repository to working tree."><div class="figcaption">Software development lifecycle with Git</div>
-</figure></section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a>
+  alt='Development lifecycle with Git. The diagram shows four parts of the Git infrastructure: the working tree, staging area, local repository, and remote repository, alongside the Git commands that move files between them. git add moves files from the working tree to the staging area. git commit moves files from the staging area to the local repository. git push moves files from the local repository to the remote repository, while git fetch moves updates from the remote repository to the local repository. git checkout and git merge move files from the local repository to the working tree. git pull, a shortcut for git fetch followed by git checkout or git merge, moves files directly from the remote repository to the working tree.'
+--><pre class="mermaid"><code>sequenceDiagram
+    accDescr {Basic development lifecycle with Git and commands for moving files between the Git infrastructure: working tree, staging area, local repository, and remote repository.}
+    Working Tree--&gt;&gt;+Staging Area: git add
+    Staging Area--&gt;&gt;+Local Repository: git commit
+    Local Repository--&gt;&gt;+Remote Repository: git push
+    Remote Repository--&gt;&gt;+Local Repository: git fetch
+    Local Repository--&gt;&gt;+Working Tree:git checkout
+    Local Repository--&gt;&gt;+Working Tree:git merge
+    Remote Repository--&gt;&gt;+Working Tree: git pull (shortcut for git fetch followed by git checkout/merge)</code></pre>
+</section><section><h2 class="section-heading" id="checking-in-changes-to-our-project">Checking-in Changes to Our Project<a class="anchor" aria-label="anchor" href="#checking-in-changes-to-our-project"></a>
 </h2>
 <hr class="half-width">
 <p>Let us check-in the changes we have done to our project so far. The
 first thing to do upon navigating into our software project’s directory
 root is to check the current status of our local working directory and
 repository.</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3608,10 +3611,10 @@ that Git has cleverly understood that you want to ignore changes to the
 “venv” directory so it is not warning us about it any more. However, it
 has now detected a change to <code>.gitignore</code> file that needs to
 be committed.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3634,16 +3637,16 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 <code>requirements.txt</code> to the local repository, we first have to
 add these files to staging area to prepare them for committing. We can
 do that at the same time as:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> git add .gitignore requirements.txt</span></code></pre>
-</div>
-<p>Now we can commit them to the local repository with:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt. Ignoring virtual env. folder."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> git add .gitignore requirements.txt</span></code></pre>
+</div>
+<p>Now we can commit them to the local repository with:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt. Ignoring virtual env. folder."</span></span></code></pre>
 </div>
 <p>Remember to use meaningful messages for your commits.</p>
 <p>So far we have been working in isolation - all the changes we have
@@ -3657,17 +3660,17 @@ by two collaborators making different changes to the same lines in a
 file. By pulling first, we are made aware of any changes made by others,
 in particular if there are any conflicts between their changes and
 ours.</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> git pull</span></code></pre>
-</div>
-<p>Now we have ensured our repository is synchronised with the remote
-one, we can now push our changes:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git pull</span></code></pre>
+</div>
+<p>Now we have ensured our repository is synchronised with the remote
+one, we can now push our changes:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <p>In the above command, <code>origin</code> is an alias for the remote
 repository you used when cloning the project locally (it is called that
@@ -3690,10 +3693,10 @@ the repository using HTTPS and not SSH. You should revisit the <a href="index.ht
 on setting up your GitHub for SSH and key pair authentication</a> and
 can fix this from the command line by changing the remote repository’s
 HTTPS URL to its SSH equivalent:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git remote set-url origin git@github.com:<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>/python-intermediate-inflammation.git</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git remote set-url origin git@github.com:<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>/python-intermediate-inflammation.git</span></code></pre>
 </div>
 </div>
 </div>
@@ -3735,10 +3738,10 @@ contain its own set of commits. We can create a new branch, make changes
 to the code which we then commit to the branch, and, once we are happy
 with those changes, merge them back to the main branch. To see what
 other branches are available, do:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3806,19 +3809,19 @@ nothing that is broken should be in <code>main</code>.</p>
 <h3 id="creating-branches">Creating Branches<a class="anchor" aria-label="anchor" href="#creating-branches"></a>
 </h3>
 <p>Let us create a <code>develop</code> branch to work on:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> git branch develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> git branch develop</span></code></pre>
 </div>
 <p>This command does not give any output, but if we run
 <code>git branch</code> again, without giving it a new branch name, we
 can see the list of branches we have - including the new one we have
 just made.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3829,10 +3832,10 @@ just made.</p>
 <p>The <code>*</code> indicates the currently active branch. So how do
 we switch to our new branch? We use the <code>git switch</code> command
 with the name of the branch:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> git switch develop</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3848,10 +3851,10 @@ with the name of the branch:</p>
 <h3 class="callout-title">Create and Switch to Branch Shortcut</h3>
 <div class="callout-content">
 <p>A shortcut to create a new branch and immediately switch to it:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> develop</span></code></pre>
 </div>
 </div>
 </div>
@@ -3871,10 +3874,10 @@ spelling of “2d” to “2D” in docstrings for functions
 <code>daily_mean()</code>, <code>daily_max()</code> and
 <code>daily_min()</code> to see updating branches in action.</p>
 <p>If we do:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3892,11 +3895,11 @@ spelling of “2d” to “2D” in docstrings for functions
 which tracked files have been modified in our working directory.</p>
 <p>We can now <code>add</code> and <code>commit</code> the changes in
 the usual way.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Spelling fix"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> git add inflammation/models.py</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Spelling fix"</span></span></code></pre>
 </div>
 <div id="currently-active-branch" class="callout">
 <div class="callout-square">
@@ -3927,10 +3930,10 @@ branches.</p>
 </figure><p>To push a new local branch remotely for the first time, you could use
 the <code>-u</code> flag and the name of the branch you are creating and
 pushing to:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin develop</span></code></pre>
 </div>
 <div id="git-push-with--u-flag" class="callout">
 <div class="callout-square">
@@ -3964,10 +3967,10 @@ and branches drop-down menu.</p>
 continue to develop code on it.</p>
 <p>After the initial push of the new branch, each next time we push to
 it in the usual manner (i.e. without the <code>-u</code> switch):</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> git push origin develop</span></code></pre>
 </div>
 <div id="what-is-the-relationship-between-originating-and-new-branches" class="callout">
 <div class="callout-square">
@@ -4005,10 +4008,10 @@ time… although it may not make sense to do so!</p>
 you will want to merge them onto the <code>main</code> branch. To do so,
 make sure you have committed all your changes on the
 <code>develop</code> branch and then switch to <code>main</code>:</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> git switch main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> git switch main</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4018,10 +4021,10 @@ Your branch is up to date with 'origin/main'.</code></pre>
 </div>
 <p>To merge the <code>develop</code> branch on top of <code>main</code>
 do:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> git merge develop</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> git merge develop</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4040,10 +4043,10 @@ files with conflicts will be marked and you will need to resolve those
 conflicts and commit the changes before attempting to merge again. Since
 we have no conflicts, we can now push the <code>main</code> branch to
 the remote repository:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <div id="all-branches-are-equal" class="callout">
 <div class="callout-square">
@@ -4250,7 +4253,7 @@ conversion.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
 <p>By default, PyCharm inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in PyCharm’s
 <code>Settings -&gt; Editor -&gt; Code Style -&gt; Python</code>.</p>
@@ -4260,7 +4263,7 @@ are ever unsure what character exactly is being used by selecting
 checking “Show whitespaces” option.</p>
 <figure><img src="../fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
 <p>By default, VS Code inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in VS Code’s user or workspace settings
 (<code>File -&gt; Preferences -&gt; Settings</code> on Windows and Linux
@@ -5480,7 +5483,7 @@ or its configuration file).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="by-passing-an-argument-to-pylint-in-the-command-line">By passing an argument to <code>pylint</code> in the command
@@ -5502,7 +5505,7 @@ max-line-length=100</code></pre>
 </div>
 </div></section><section id="aio-20-section2-intro"><p>Content from <a href="20-section2-intro.html">Section 2: Ensuring Correctness of Software at Scale</a></p>
 <hr>
-<p>Last updated on 2025-07-30 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/20-section2-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 5 minutes</p>
@@ -5549,8 +5552,17 @@ greater confidence in the correctness of our code - so we should try and
 employ such practices early on. We will also make use of techniques and
 infrastructure that allow us to do this in a scalable, automated and
 more performant way as our codebase grows.</p>
-<figure><img src="../fig/section2-overview.svg" alt="Tools for scaled software testing" class="figure mx-auto d-block"><div class="figcaption">Section 2 Overview</div>
-</figure><p>In this section we will:</p>
+<pre class="mermaid"><code>    flowchart LR
+        accDescr {Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging}
+        B("`2. Verifying software correctness:
+        - Testing frameworks
+        - Automating &amp; scaling testing: CI and GitHub Actions
+        - Debugging code`")
+        A(1. Setting up software environment) --&gt; B
+        B --&gt; C(3. Software development as a process)
+        C --&gt; D(4. Collaborative development for reuse)
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
+<p>In this section we will:</p>
 <ul>
 <li>Make use of a <strong>test framework</strong> called Pytest, a free
 and open source Python library to help us structure and run automated
@@ -6189,7 +6201,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6436,7 +6448,7 @@ for each of them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7843,7 +7855,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8011,7 +8023,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -8439,7 +8451,7 @@ badge</a> to the inflammation project.</p>
 </div>
 </div></section><section id="aio-30-section3-intro"><p>Content from <a href="30-section3-intro.html">Section 3: Software Development as a Process</a></p>
 <hr>
-<p>Last updated on 2024-12-06 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/30-section3-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
@@ -8480,11 +8492,22 @@ development.</li>
 <p>In this section, we will take a step back from coding development
 practices and tools and look at the bigger picture of software as a
 <em>process</em> of development.</p>
+<pre class="mermaid"><code>    flowchart LR
+        accDescr {Topics on software engineering process covered in the current section: gathering requirements, software architecture &amp; design, programming paradigms}
+        A(1. Setting up software environment)
+        A --&gt; B(2. Verifying software correctness)
+        C("`3. Software development as a process
+        - Software requirements
+        - Software architecture &amp; design
+        - Programming paradigms`")
+        B --&gt; C
+        C --&gt; D(4. Collaborative development for reuse)
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
 <blockquote>
 <p><em>“If you fail to plan, you are planning to fail.”</em></p>
 <p>— Benjamin Franklin</p>
 </blockquote>
-<figure><img src="../fig/section3-overview.svg" alt="Software design and architecture overview flowchart" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="writing-code-vs-engineering-software">Writing Code vs Engineering Software<a class="anchor" aria-label="anchor" href="#writing-code-vs-engineering-software"></a>
+<section><h2 class="section-heading" id="writing-code-vs-engineering-software">Writing Code vs Engineering Software<a class="anchor" aria-label="anchor" href="#writing-code-vs-engineering-software"></a>
 </h2>
 <hr class="half-width">
 <p>Traditionally in academia, software - and the process of writing it -
@@ -8750,7 +8773,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8804,7 +8827,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8937,7 +8960,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -9012,7 +9035,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9353,7 +9376,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -9443,7 +9466,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure>
 </div>
@@ -10437,7 +10460,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -10452,7 +10475,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul>
@@ -10569,7 +10592,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -10654,7 +10677,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -10858,7 +10881,7 @@ could be considered Model, View and Controller code?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Computing the standard deviation belongs to Model.</li>
@@ -10896,7 +10919,7 @@ appropriate modules.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The idea here is for the <code>analyse_data()</code> function not to
 have any “view” considerations. That is, it should just compute and
@@ -11212,7 +11235,7 @@ within an existing codebase.</li>
 </div>
 </section></section><section id="aio-40-section4-intro"><p>Content from <a href="40-section4-intro.html">Section 4: Collaborative Software Development for Reuse</a></p>
 <hr>
-<p>Last updated on 2024-12-06 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/40-section4-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 5 minutes</p>
@@ -11277,7 +11300,18 @@ also look at how we can package software for release and distribution,
 using <strong>Poetry</strong> to manage our Python dependencies and
 produce a code package we can use with a Python package indexing service
 to illustrate these principles.</p>
-<figure><img src="../fig/section4-overview.svg" class="image-with-shadow figure mx-auto d-block" alt="Software design and architecture" width="1000"></figure><div id="keypoints1" class="callout keypoints">
+<pre class="mermaid"><code>    flowchart LR
+        accDescr {Topics on collaborative software development covered in the current section: code review, writing software documentation, packaging &amp; releasing software}
+        A(1. Setting up software environment)
+        A --&gt; B(2. Verifying software correctness)
+        B --&gt; C(3. Software development as a process)
+       D("`4. Collaborative development for reuse
+       - Code review
+       - Software documentation
+       - Software packaging &amp; release`")
+       C --&gt; D
+        D --&gt; E(5. Managing software over its lifetime)</code></pre>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -11293,7 +11327,7 @@ extensibility, testability, reusability and overall sustainability.</li>
 </div>
 </div></section><section id="aio-41-code-review"><p>Content from <a href="41-code-review.html">4.1 Developing Software In a Team: Code Review</a></p>
 <hr>
-<p>Last updated on 2025-06-19 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/41-code-review.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
@@ -11517,28 +11551,23 @@ in general - looking at your own code in a review window will allow you
 to spot mistakes you have not seen before.</p>
 <p>Here is an outline of the process of a tool assisted code review.</p>
 <!--
-
-```mermaid
-%% Must disable useMaxWidth to have the diagram centre
-%%{init: { 'sequence': {'useMaxWidth':false} } }%%
-sequenceDiagram
+alt='Sequence diagram illustrating the code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged.'
+-->
+<pre class="mermaid"><code>sequenceDiagram
+    accDescr {Code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged}
     participant A as Author
     participant R as Reviewer
-    A->>A: Write some code
-    A->>R: Raise a pull request
-    R->>R: Add comments to a review
-    R->>A: Submit a review
+    A-&gt;&gt;A: Write some code
+    A-&gt;&gt;R: Raise a pull request
+    R-&gt;&gt;R: Add comments to a review
+    R-&gt;&gt;A: Submit a review
     loop Until approved
-        A->>R: Address or respond to review comments
-        R->>A: Clarify or resolve comments
+        A-&gt;&gt;R: Address or respond to review comments
+        R-&gt;&gt;A: Clarify or resolve comments
     end
-    R->>A: Approve pull request
-    A->>A: Merge pull request
-```
-
-Generated with Mermaid tool, diagram available at: <https://mermaid.live/edit#pako:eNptUrtuwzAM_BVCgOEl_QEPAYx29eKgyOKFsZhYgF6VKLeBkX-vXDvNo5UWSXfHI0VOoneSRCWKApoUGaSKeNAEKVKDX3sleQB2MOBIwANlHE8BDfRkOVBni2JSVnEFE5SRPhLZnsp8K-8ClNURdaQL5F0Unb3y3pZYnYW8PAZWvfJoGWrACHXiwYW_YDuDLY2KPmmF65fttq5gHxQTRGcI5qpuWFtBiyoSIPikNYQ5gcgLoV0ItZRZZUyuK84VY2bNHjdSdtilg1H8hGnnPLxbVhrQ--BGkgtwZ5-jB4oRXMjS6J2Vs8cS5df2plrtXjUGdTyvKqdHeuKSlQ_51Yv_P1WuX9RQOD3CYiMMBYNK5imYZnIncqMNdaLKR0lHTJo70dlLpmJitzvbXlQcEm1E8hL52sjrI0nFLjTLYP3M1-Ub_pDLrQ>
--->
-<figure><img src="../fig/code-review-sequence-diagram.svg" class="image-with-shadow figure mx-auto d-block" alt="Code review process sequence" width="600"></figure><p>Recall <a href="31-software-requirements.html">solution requirement
+    R-&gt;&gt;A: Approve pull request
+    A-&gt;&gt;A: Merge pull request</code></pre>
+<p>Recall <a href="31-software-requirements.html">solution requirement
 SR1.1.1</a> from an earlier episode. A fictional colleague has
 implemented it according to the specification and pushed it to a branch
 <code>feature-std-dev</code> of our software repository. You will turn
@@ -11759,7 +11788,7 @@ yet.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here are some of the things you might have found were wrong with the
 code.</p>
@@ -11886,7 +11915,7 @@ your comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Your list might include the following:</p>
 <ol style="list-style-type: decimal">
@@ -12109,7 +12138,7 @@ environment.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The purposes of code review include:</p>
 <ul>
@@ -13177,8 +13206,19 @@ well as how the outside world interacts with and makes use of our
 software, how others can interact with ourselves to report issues, and
 the ways we can successfully manage software improvement in response to
 feedback.</p>
-<figure><img src="../fig/section5-overview.svg" class="image-with-shadow figure mx-auto d-block" width="1000" alt="Flow chart showing five stages in software management lifecycle: 1. Setting up software environment; 2. Verifying software correctness; 3. Software development as a process; 4. Collaborative development for reuse; 5. Managing software over its lifetime - issue reporting &amp; prioritisation, Agile development in sprints, software project management."><div class="figcaption">Managing software</div>
-</figure><p>In this section we will:</p>
+<pre class="mermaid"><code>flowchart LR
+  accTitle: Topics on collaborative software development covered in the current section: issue management, project management, and agile development
+  accDescr {Flow chart showing five stages in software management lifecycle: 1. Setting up software environment; 2. Verifying software correctness; 3. Software development as a process; 4. Collaborative development for reuse; 5. Managing software over its lifetime - issue reporting &amp; prioritisation, Agile development in sprints, software project management.}
+  A(1. Setting up software environment)
+  A --&gt; B(2. Verifying software correctness)
+  B --&gt; C(3. Software development as a process)
+  C --&gt; D(4. Collaborative development for reuse)
+  E("`5. Managing software over its lifetime
+  - Issue reporting &amp; prioritisation
+  - Agile development in sprints
+  - Software project management`")
+  D --&gt; E</code></pre>
+<p>In this section we will:</p>
 <ul>
 <li>Use GitHub to <strong>track issues with our software</strong>
 registered by ourselves and external users.</li>
@@ -13450,7 +13490,7 @@ appropriate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For example, “Add a licence file” could be a good first issue, with a
 label <code>documentation</code>.</p>
@@ -14415,7 +14455,7 @@ pathways and in which order you need to learn them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One way to think about these concepts is to make a list and try to
 organise them along two axes - ‘perceived usefulness of a concept’
