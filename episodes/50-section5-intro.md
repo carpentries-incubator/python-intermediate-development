@@ -32,7 +32,8 @@ and the ways we can successfully manage software improvement in response to feed
 
 ```mermaid
     flowchart LR
-        accDescr {Topics on collaborative software development covered in the current section: issue management, project management, agile development}
+        accTitle Topics on collaborative software development covered in the current section: issue management, project management, agile development
+        accDescr {Flow chart showing five stages in software management lifecycle: 1. Setting up software environment; 2. Verifying software correctness; 3. Software development as a process; 4. Collaborative development for reuse; 5. Managing software over its lifetime - issue reporting & prioritisation, Agile development in sprints, software project management.}
         A(1. Setting up software environment)
         A --> B(2. Verifying software correctness)
         B --> C(3. Software development as a process)
