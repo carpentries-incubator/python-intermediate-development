@@ -72,7 +72,7 @@ This course is not for you if:
   and those of individual episodes
 - The software you write is fully documented and well architected
 
-## Learning Objectives for the Workshop
+## Course Learning Objectives
 
 After going through this course, participants will be able to:
 
