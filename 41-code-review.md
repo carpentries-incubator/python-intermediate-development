@@ -195,11 +195,12 @@ have not seen before.
 Here is an outline of the process of a tool assisted code review.
 
 <!--
+alt='Sequence diagram illustrating the code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged.'
+-->
 
 ```mermaid
-%% Must disable useMaxWidth to have the diagram centre
-%%{init: { 'sequence': {'useMaxWidth':false} } }%%
 sequenceDiagram
+    accDescr {Code review process: a developer submits code, reviewer provides feedback and requests changes, revisions are made, and the code is approved and merged}
     participant A as Author
     participant R as Reviewer
     A->>A: Write some code
@@ -213,11 +214,6 @@ sequenceDiagram
     R->>A: Approve pull request
     A->>A: Merge pull request
 ```
-
-Generated with Mermaid tool, diagram available at: <https://mermaid.live/edit#pako:eNptUrtuwzAM_BVCgOEl_QEPAYx29eKgyOKFsZhYgF6VKLeBkX-vXDvNo5UWSXfHI0VOoneSRCWKApoUGaSKeNAEKVKDX3sleQB2MOBIwANlHE8BDfRkOVBni2JSVnEFE5SRPhLZnsp8K-8ClNURdaQL5F0Unb3y3pZYnYW8PAZWvfJoGWrACHXiwYW_YDuDLY2KPmmF65fttq5gHxQTRGcI5qpuWFtBiyoSIPikNYQ5gcgLoV0ItZRZZUyuK84VY2bNHjdSdtilg1H8hGnnPLxbVhrQ--BGkgtwZ5-jB4oRXMjS6J2Vs8cS5df2plrtXjUGdTyvKqdHeuKSlQ_51Yv_P1WuX9RQOD3CYiMMBYNK5imYZnIncqMNdaLKR0lHTJo70dlLpmJitzvbXlQcEm1E8hL52sjrI0nFLjTLYP3M1-Ub_pDLrQ>
--->
-
-![](fig/code-review-sequence-diagram.svg){alt='Code review process sequence' .image-with-shadow width="600px"}
 
 Recall [solution requirement SR1.1.1](31-software-requirements.md)
 from an earlier episode.
