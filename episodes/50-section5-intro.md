@@ -30,9 +30,6 @@ how the outside world interacts with and makes use of our software,
 how others can interact with ourselves to report issues,
 and the ways we can successfully manage software improvement in response to feedback.
 
-<!--
-alt="Topics on collaborative software development covered in the current section: issue management, project management, agile development"
--->
 ```mermaid
     flowchart LR
         accDescr {Topics on collaborative software development covered in the current section: issue management, project management, agile development}

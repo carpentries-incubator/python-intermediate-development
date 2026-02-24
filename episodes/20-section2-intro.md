@@ -33,9 +33,6 @@ so we should try and employ such practices early on.
 We will also make use of techniques and infrastructure that allow us to do this
 in a scalable, automated and more performant way as our codebase grows.
 
-<--
-alt="Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging"
--->
 ```mermaid
     flowchart LR
         accDescr {Topics on verifying software correctness covered in the current section: testing frameworks, automating and scaling up testing, and code debugging}

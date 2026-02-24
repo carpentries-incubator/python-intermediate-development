@@ -21,10 +21,6 @@ exercises: 0
 In this section, we will take a step back from coding development practices and tools
 and look at the bigger picture of software as a *process* of development.
 
-<!--
-alt="Topics on software engineering process covered in the current section: gathering requirements, software architecture & design, programming paradigms"
--->
-
 ```mermaid
     flowchart LR
         accDescr {Topics on software engineering process covered in the current section: gathering requirements, software architecture & design, programming paradigms}
