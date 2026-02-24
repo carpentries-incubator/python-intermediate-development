@@ -8,7 +8,8 @@ You will need the following software and accounts setup to be able to follow the
 - [Git version control program](#git-version-control-tool)
 - [GitHub account](#github-account)
 - [Python 3 distribution](#python-3-distribution)
-- [PyCharm](#pycharm), [VSCodium](#vscodium) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE)
+- [PyCharm](#pycharm) or [Visual Studio Code (VS Code)](#vs-code) integrated development environment (IDE).
+You can try to use another IDE of your choice but note that it may not have been tested with the material of this lesson and some features we are showcasing may not be available in that IDE.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -312,10 +313,6 @@ two tools (that correspond to your Python distribution) installed on your machin
 
 You can use JetBrains's [PyCharm Python Integrated Development Environment](https://www.jetbrains.com/pycharm) for the course.
 The Community edition is fine, though if you are developing software for the purpose of academic research you may be eligible for a free license for the Professional edition which contains extra features.
-
-### VSCodium
-
-[VSCodium](https://vscodium.com/), a fully libre IDE that does not track what you do.
 
 ### VS Code
 
