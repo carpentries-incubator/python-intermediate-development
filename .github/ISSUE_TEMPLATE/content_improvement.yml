@@ -1,0 +1,19 @@
+name: Suggest a curriculum-wide or specific episode improvement
+description: Tell us about how the content of the curriculum as a whole could be improved
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: How could the content be improved?
+      description: Please provide details of the improvement you are suggesting, to make it easier for the maintainers and other community members to address the issue.
+    validations:
+      required: true
+  - type: input
+    id: location-details
+    attributes:
+      label: Which part of the content or episode does your suggestion apply to (unless it is curriculum-wide improvement)?
+      description: Please provide a URL, the title of the relevant section or page, a filename, etc.
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for taking time to suggest an improvement to this lesson!
