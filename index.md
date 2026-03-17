@@ -72,9 +72,7 @@ This course is not for you if:
   and those of individual episodes
 - The software you write is fully documented and well architected
 
-:::::::::::::::::::::::::::::::::::::  objectives
-
-## Learning Objectives
+## Course Learning Objectives
 
 After going through this course, participants will be able to:
 
@@ -87,8 +85,6 @@ After going through this course, participants will be able to:
 - Understand the code review process and employ it to improve the quality of code
 - Prepare and release software for reuse by others
 - Manage software improvement from feedback through agile techniques
-  
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
@@ -119,5 +115,5 @@ Before joining this training, participants should meet the following criteria.
 - **You have experience using a command line interface, such as Bash,
   to navigate a UNIX-style file system and run commands with arguments**
 - Optionally, you have experience redirecting inputs and outputs from a command
-  
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
