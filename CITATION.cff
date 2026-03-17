@@ -1,0 +1,129 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Intermediate Research Software Development Skills (Python)
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Aleksandra
+    family-names: Nenadic
+    orcid: 'https://orcid.org/0000-0002-2269-3894'
+  - given-names: Steve
+    family-names: Crouch
+    orcid: 'https://orcid.org/0000-0001-8985-6814'
+  - given-names: Thomas
+    family-names: Kiley
+  - given-names: Raniere
+    family-names: Silva
+  - given-names: François
+    family-names: Michonneau
+  - given-names: Maxim
+    family-names: Belkin
+  - given-names: James
+    family-names: Graham
+  - given-names: Greg
+    family-names: Wilson
+  - given-names: Matthew
+    family-names: Bluteau
+    orcid: 'https://orcid.org/0000-0001-9498-8475'
+  - given-names: Toby
+    family-names: Hodges
+  - given-names: Zhian
+    family-names: Kamvar
+  - given-names: Sven
+    family-names: Burg
+    name-particle: van der
+    orcid: 'https://orcid.org/0000-0003-1250-6968'
+  - given-names: Abby
+    family-names: Cabunoc Mayes
+  - given-names: Martin
+    family-names: Robinson
+  - given-names: Sam
+    family-names: Mangham
+  - given-names: Jacalyn
+    family-names: Laird
+  - given-names: Sarah
+    family-names: Stevens
+  - given-names: Katrin
+    family-names: Leinweber
+  - given-names: Erin
+    family-names: Becker
+  - given-names: João
+    family-names: Rodrigues
+  - given-names: Douglas
+    family-names: Lowe
+    orcid: 'https://orcid.org/0000-0002-1248-3594'
+  - given-names: Aman
+    family-names: Goel
+  - given-names: Matthew M.
+    family-names: Graham
+    orcid: 'https://orcid.org/0000-0001-9104-7960'
+  - given-names: Devaraj
+    family-names: Gopinathan
+    orcid: 'https://orcid.org/0000-0002-0490-3229'
+  - given-names: Jaro
+    family-names: Camphuijsen
+    orcid: 'https://orcid.org/0000-0002-8928-7831'
+  - given-names: Giulia
+    family-names: Crocioni
+    orcid: 'https://orcid.org/0000-0002-0823-0121'
+  - given-names: William
+    family-names: Close
+  - given-names: Frank
+    family-names: Löffler
+  - given-names: Sander
+    family-names: Rijn
+    name-particle: van
+  - given-names: Harry
+    family-names: Saunders
+  - given-names: Matthew
+    family-names: Field
+  - given-names: Sanket
+    family-names: Gadgil
+  - given-names: Kristian
+    family-names: Zarębski
+  - given-names: Kingsley
+    family-names: Collie
+  - given-names: Tom
+    family-names: Neep
+  - given-names: Renato
+    family-names: Alves
+  - given-names: Daniel
+    family-names: Katz
+  - given-names: Jen
+    family-names: Reeve
+  - given-names: G.K.
+    family-names: Murphy
+  - given-names: Yuriy
+    family-names: Sverchkov
+  - given-names: S.
+    family-names: Hartley
+  - given-names: Olexandr
+    family-names: Konovalov
+  - given-names: Jonathan
+    family-names: Guyer
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.6532056
+    description: Zenodo
+repository-code: >-
+  https://github.com/carpentries-incubator/python-intermediate-development
+url: >-
+  https://carpentries-incubator.github.io/python-intermediate-development/
+abstract: >-
+  This is an intermediate-level course in collaborative
+  research software engineering and development skills,
+  using Python as an example language. It teaches these
+  skills in a way that mimics a typical software development
+  process working as a part of a team, starting from an
+  existing piece of software.
+keywords:
+  - Python
+  - Software Development
+  - Carpentries
+license: CC-BY-4.0
+version: beta-July2025
+date-released: '2025-07-30'
