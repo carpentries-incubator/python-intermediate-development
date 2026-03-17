@@ -47,7 +47,7 @@ Anyone who opens or comments on an issue or pull request, or who provides feedba
 
 Maintainers are responsible for ensuring that all such contributions are credited, e.g. on the curriculum site and/or when (and if) a release of the curriculum is made to Zenodo.
 
-Contributors of more significant changes to the lesson may be invited by the Maintainers to add themselves to the Authors list and CITATION.cff.
+Contributors of more significant changes to the lesson may be invited by the Maintainers to add themselves as Authors in [CITATION.cff](./CITATION.cff).
 
 ## Maintainer Meetings
 The Maintainer team meets frequently, at minimum for at least 30 minutes four times per year.
