@@ -125,8 +125,7 @@ Which command(s) would you use to get a detailed list of contents of the directo
   Also make sure you select the **SSH** tab and not the **HTTPS** one.
   For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
   If you have only authenticated through HTTPS in the past,
-  please follow the guidance [at the top of this section](#downloading-our-software-project)
-  to add an SSH key to your GitHub account.
+  please follow the [guidance to add an SSH key to your GitHub account](./installation-instructions.html#secure-access-to-github-using-git-from-command-line).
 
 ![](fig/clone-repository.png){alt='URL to clone the repository in GitHub' .image-with-shadow width="800px" }
 
