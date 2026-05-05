@@ -111,7 +111,7 @@ and then obtain a local copy of that project (from your GitHub) on your machine.
 
 ## Exercise: Obtain the Software Project Locally
 
-Using the command line, clone the copied repository
+Using the command line, clone the forked repository
 from your GitHub account into the home directory on your computer using SSH.
 Which command(s) would you use to get a detailed list of contents of the directory you have just cloned?
 
