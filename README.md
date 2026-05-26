@@ -77,6 +77,7 @@ Current maintainers of this lesson (in alphabetical order) are:
 - [Matthew Bluteau][matthew-bluteau]
 - [Steve Crouch][steve-crouch]
 - [Aman Goel][aman-goel]
+- [Jaro Camphuijsen][jaro-camphuijsen]
 
 The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Tuesday each month. 
 The meetings alternate between operations meetings and co-working sprints.
@@ -126,6 +127,7 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [devaraj-gopinathan]: https://github.com/Devaraj-G
 [svenvanderburg]: https://github.com/svenvanderburg
 [aman-goel]: https://github.com/amangoel185
+[jaro-camphuijsen]: https://github.com/JaroCamphuijsen
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/MIT
