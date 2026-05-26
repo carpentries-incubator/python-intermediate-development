@@ -74,9 +74,9 @@ Current maintainers of this lesson (in alphabetical order) are:
 - [Doug Lowe][doug-lowe] - Lead Maintainer for the period 1 November 2025 - 30 April 2026
 - [Matt Graham][matt-graham]
 - [Devaraj Gopinathan][devaraj-gopinathan]
-- [Aleksandra Nenadic][aleksandra-nenadic]
 - [Matthew Bluteau][matthew-bluteau]
 - [Steve Crouch][steve-crouch]
+- [Aman Goel][aman-goel]
 
 The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Tuesday each month. 
 The meetings alternate between operations meetings and co-working sprints.
@@ -84,6 +84,7 @@ Meeting notes are kept in the [Google doc](https://docs.google.com/document/d/1-
 
 Past maintainers:
 
+- [Aleksandra Nenadic][aleksandra-nenadic]
 - [Sven van der Burg][svenvanderburg]
 - [Kamilla Kopec-Harding][kamilla-kopec-harding]
 - [Sam Mangham][sam-mangham]
@@ -124,6 +125,7 @@ Original lesson authors Aleksandra Nenadic, James Graham, and Steve Crouch were 
 [matt-graham]: https://github.com/matt-graham
 [devaraj-gopinathan]: https://github.com/Devaraj-G
 [svenvanderburg]: https://github.com/svenvanderburg
+[aman-goel]: https://github.com/amangoel185
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/MIT
