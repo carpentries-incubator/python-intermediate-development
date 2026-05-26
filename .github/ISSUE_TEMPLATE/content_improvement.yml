@@ -1,4 +1,4 @@
-name: Suggest a curriculum-wide or specific episode improvement
+name: Suggest a curriculum-wide or episode-specific improvement
 description: Tell us about how the content of the curriculum as a whole could be improved
 body:
   - type: textarea
