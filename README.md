@@ -72,7 +72,7 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 Current maintainers of this lesson (in alphabetical order) are:
 
 - [Doug Lowe][doug-lowe] - Lead Maintainer for the period 1 November 2025 - 30 April 2026
-- [Matt Gragam][matt-graham]
+- [Matt Graham][matt-graham]
 - [Devaraj Gopinathan][devaraj-gopinathan]
 - [Aleksandra Nenadic][aleksandra-nenadic]
 - [Matthew Bluteau][matthew-bluteau]
