@@ -6,6 +6,10 @@ body:
   - type: markdown
     attributes:
       value: |
+        ## General feedback
+  - type: markdown
+    attributes:
+      value: |
         Thank you for planning to teach or teaching this lesson and agreeing to share feedback!
         Please answer the questions below,
         and note that feedback submitted with this form will be publicly visible.
