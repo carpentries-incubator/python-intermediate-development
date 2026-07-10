@@ -71,13 +71,13 @@ This indicates that the maintainers will welcome pull requests fixing such issue
 
 Current maintainers of this lesson (in alphabetical order) are:
 
-- [Doug Lowe][doug-lowe] - Lead Maintainer for the period 1 November 2025 - 30 April 2026
-- [Matt Graham][matt-graham]
-- [Devaraj Gopinathan][devaraj-gopinathan]
-- [Matthew Bluteau][matthew-bluteau]
-- [Steve Crouch][steve-crouch]
 - [Aman Goel][aman-goel]
+- [Devaraj Gopinathan][devaraj-gopinathan]
+- [Doug Lowe][doug-lowe] 
 - [Jaro Camphuijsen][jaro-camphuijsen]
+- [Matt Graham][matt-graham]
+- [Matthew Bluteau][matthew-bluteau] - Lead Maintainer for the period 1 July 2026 - 31 December 2026
+- [Steve Crouch][steve-crouch]
 
 The maintainer team aims to meet at 11:00 UK time (BST or GMT) on the fourth Tuesday each month. 
 The meetings alternate between operations meetings and co-working sprints.
