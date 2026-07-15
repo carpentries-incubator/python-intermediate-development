@@ -50,7 +50,6 @@ to represent the data, where:
 - each column represents a successive day in the trial
 - each cell represents an inflammation reading on a given day for a patient
   
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The project is not finished and contains some errors.
@@ -64,48 +63,48 @@ from GitHub within your own GitHub account
 and then obtain a local copy of that project (from your GitHub) on your machine.
 
 1. Make sure you have a GitHub account
-  and that you have [set up SSH key pair for authentication with GitHub](../learners/setup.md#secure-access-to-github-using-git-from-command-line).
-  
-  ***Note:** while it is possible to use HTTPS with a personal access token for authentication
-  with GitHub, the recommended and supported authentication method to use for this course
-  is SSH with key pairs.*
+   and that you have [set up SSH key pair for authentication with GitHub](../learners/setup.md#secure-access-to-github-using-git-from-command-line).
+
+   ***Note:** while it is possible to use HTTPS with a personal access token for authentication
+   with GitHub, the recommended and supported authentication method to use for this course
+   is SSH with key pairs.*
 
 2. Log into your GitHub account.
 
 3. Go to the [software project repository](https://github.com/carpentries-incubator/python-intermediate-inflammation)
-  in GitHub.
+   in GitHub.
   
-  ![](fig/github-fork-repository.png){alt='Software project fork repository in GitHub' .image-with-shadow width="900px" }
+   ![](fig/github-fork-repository.png){alt='Software project fork repository in GitHub' .image-with-shadow width="900px" }
 
 4. Click the `Fork` button
-  towards the top right of the repository's GitHub page to **create a fork** of the repository
-  under your GitHub account.
-  Remember, you will need to be signed into GitHub for the `Fork` button to work.
+   towards the top right of the repository's GitHub page to **create a fork** of the repository
+   under your GitHub account.
+   Remember, you will need to be signed into GitHub for the `Fork` button to work.
   
-  ***Note:** each participant is creating their own fork of the project to work on.*
+   ***Note:** each participant is creating their own fork of the project to work on.*
   
-  ***Note 2:** we are creating a fork of the software project repository (instead of copying it
-  from its template) because we want to preserve the history of all commits (with template copying
-  you only get a snapshot of a repository at a given point in time).*
+   ***Note 2:** we are creating a fork of the software project repository (instead of copying it
+   from its template) because we want to preserve the history of all commits (with template copying
+   you only get a snapshot of a repository at a given point in time).*
 
 5. Make sure to select your personal account
-  and set the name of the project to `python-intermediate-inflammation`
-  (you can call it anything you like,
-  but it may be easier for future group exercises if everyone uses the same name).
-  Ensure that you **uncheck** the `Copy the main branch only` option.
-  This guarantees you get all the branches from this repository needed for later exercises.
+   and set the name of the project to `python-intermediate-inflammation`
+   (you can call it anything you like,
+   but it may be easier for future group exercises if everyone uses the same name).
+   Ensure that you **uncheck** the `Copy the main branch only` option.
+   This guarantees you get all the branches from this repository needed for later exercises.
   
-  ![](fig/github-fork-repository-confirm.png){alt='Making a fork of the software project repository in GitHub' .image-with-shadow width="600px" }
+   ![](fig/github-fork-repository-confirm.png){alt='Making a fork of the software project repository in GitHub' .image-with-shadow width="600px" }
 
 6. Click the `Create fork` button
-  and wait for GitHub to create the forked copy of the repository under your account.
+   and wait for GitHub to create the forked copy of the repository under your account.
 
 7. Locate the forked repository under your own GitHub account.
-  GitHub should redirect you there automatically after creating the fork.
-  If this does not happen, click your user icon in the top right corner and select
-  `Your Repositories` from the drop-down menu, then locate your newly created fork.
+   GitHub should redirect you there automatically after creating the fork.
+   If this does not happen, click your user icon in the top right corner and select
+   `Your Repositories` from the drop-down menu, then locate your newly created fork.
   
-  ![](fig/github-forked-repository-own.png){alt='View of your own fork of the software repository in GitHub' .image-with-shadow width="900px" }
+   ![](fig/github-forked-repository-own.png){alt='View of your own fork of the software repository in GitHub' .image-with-shadow width="900px" }
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -120,28 +119,28 @@ Which command(s) would you use to get a detailed list of contents of the directo
 ## Solution
 
 1. Find the SSH URL of the software project repository to clone from your GitHub account.
-  Make sure you do not clone the original repository but rather your own fork,
-  as you should be able to push commits to it later on.
-  Also make sure you select the **SSH** tab and not the **HTTPS** one.
-  For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
-  If you have only authenticated through HTTPS in the past,
-  please follow the [guidance to add an SSH key to your GitHub account](./installation-instructions.html#secure-access-to-github-using-git-from-command-line).
+   Make sure you do not clone the original repository but rather your own fork,
+   as you should be able to push commits to it later on.
+   Also make sure you select the **SSH** tab and not the **HTTPS** one.
+   For this course, SSH is the preferred way of authenticating when sending your changes back to GitHub.
+   If you have only authenticated through HTTPS in the past,
+   please follow the [guidance to add an SSH key to your GitHub account](./installation-instructions.html#secure-access-to-github-using-git-from-command-line).
 
-![](fig/clone-repository.png){alt='URL to clone the repository in GitHub' .image-with-shadow width="800px" }
+   ![](fig/clone-repository.png){alt='URL to clone the repository in GitHub' .image-with-shadow width="800px" }
 
 2. Make sure you are located in your home directory in the command line with:
   
-  ```bash
-  $ cd ~
-  ```
+   ```bash
+   $ cd ~
+   ```
 
 3. From your home directory in the command line, do:
   
-  ```bash
-  $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
-  ```
+   ```bash
+   $ git clone git@github.com:<YOUR_GITHUB_USERNAME>/python-intermediate-inflammation.git
+   ```
   
-  Make sure you are cloning your fork of the software project and not the original repository.
+   Make sure you are cloning your fork of the software project and not the original repository.
 
 4. Navigate into the cloned repository folder in your command line with:
   
@@ -349,8 +348,6 @@ when we talk in more detail about [software architecture and design](32-software
 We now proceed to set up our virtual development environment
 and start working with the code using a more convenient graphical tool - an Integrated Development Environment (IDE).
 
-
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Programming interfaces define how individual modules within a software application interact among themselves or how the application itself interacts with its users.
@@ -358,5 +355,3 @@ and start working with the code using a more convenient graphical tool - an Inte
 - The software project we use throughout this course is an example of an MVC application that manipulates patients’ inflammation data and performs basic statistical analysis using Python.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
