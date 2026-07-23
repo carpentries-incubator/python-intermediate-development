@@ -72,15 +72,9 @@ and manage our external dependencies.
 
 So what exactly are virtual environments, and why use them?
 
-A Python virtual environment helps us create an **isolated working copy** of a software project
-that uses a specific version of Python interpreter
-together with specific versions of a number of external libraries
-installed into that virtual environment.
-Python virtual environments are implemented as
-directories with a particular structure within software projects,
-containing links to specified dependencies
-allowing isolation from other software projects on your machine that may require
-different versions of Python or external libraries.
+A Python virtual environment helps us create an **isolated workspace** for our software project.
+This workspace comes with a Python interpreter together with the versions of any external libraries that your project needs (e.g. NumPy or SciPy).
+Python virtual environments are implemented as directories with a particular structure, containing links to specified dependencies allowing isolation from other software projects on your machine that may require different versions of Python or external libraries.
 
 As more external libraries are added to your Python project over time,
 you can add them to its specific virtual environment
@@ -127,7 +121,7 @@ from different virtual environments.
 
 ### Managing Python Virtual Environments
 
-There are several commonly used command line tools for managing Python virtual environments:
+There are many commonly used command line tools for managing Python virtual environments:
 
 - `venv`, available by default from the standard `Python` distribution from `Python 3.3+`
 - `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`versions
@@ -135,15 +129,13 @@ There are several commonly used command line tools for managing Python virtual e
 - `conda`, package and environment management system
   (also included as part of the Anaconda Python distribution often used by the scientific community)
 - `poetry`, a modern Python packaging tool which handles virtual environments automatically
+- `uv`, an extremely fast Python package and project manager, written in Rust, and owned by OpenAI
+- `pdm`, a modern Python package and dependency manager supporting the latest PEP standards.
 
 While there are pros and cons for using each of the above,
 all will do the job of managing Python virtual environments for you
 and it may be a matter of personal preference which one you go for.
-In this course, we will use `venv` to create and manage our virtual environment
-(which is the preferred way for Python 3.3+).
-The upside is that `venv` virtual environments created from the command line are
-also recognised and picked up automatically by the IDEs we will use in this course,
-as we will see in the next episode.
+In this course, we will use `pdm` to create and manage our virtual environment.
 
 ### Managing External Packages
 
