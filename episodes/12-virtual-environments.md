@@ -7,7 +7,8 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Set up a Python virtual environment for our software project using `venv` and `pip`.
+- Set up a Python virtual environment for our software project using `pdm`.
+- Declare, install and update our project's external dependencies using `pdm`.
 - Run our software from the command line.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -87,14 +88,14 @@ that they make sharing your code with others much easier
 Here are some typical scenarios where
 the use of virtual environments is highly recommended (almost unavoidable):
 
-- You have an older project that only works under Python 2.
-  You do not have the time to migrate the project to Python 3
+- You have an older project that is pinned to an older version of Python.
+  You do not have the time to migrate the project to a newer version,
   or it may not even be possible as some of the third party dependencies
-  are not available under Python 3.
-  You have to start another project under Python 3.
+  have not been updated.
+  You have to start another project that requires a recent version of Python.
   The best way to do this on a single machine is
   to set up two separate Python virtual environments.
-- One of your Python 3 projects is locked to use
+- One of your projects is locked to use
   a particular older version of a third party dependency.
   You cannot use the latest version of the dependency as it breaks things in your project.
   In a separate branch of your project,
@@ -124,84 +125,77 @@ from different virtual environments.
 There are many commonly used command line tools for managing Python virtual environments:
 
 - `venv`, available by default from the standard `Python` distribution from `Python 3.3+`
-- `virtualenv`, needs to be installed separately but supports both `Python 2.7+` and `Python 3.3+`versions
-- `pipenv`, created to fix certain shortcomings of `virtualenv`
+- `virtualenv`, needs to be installed separately but offers more features and supports more Python versions
 - `conda`, package and environment management system
   (also included as part of the Anaconda Python distribution often used by the scientific community)
+- `pipenv`, created to fix certain shortcomings of `virtualenv`
 - `poetry`, a modern Python packaging tool which handles virtual environments automatically
-- `uv`, an extremely fast Python package and project manager, written in Rust, and owned by OpenAI
+- `uv`, an extremely fast Python package and project manager, written in Rust, and owned by Astral
 - `pdm`, a modern Python package and dependency manager supporting the latest PEP standards.
 
+The first few of these tools manage *environments* only.
+The later ones (`pipenv`, `poetry`, `uv`, `pdm`) are **project managers**: they look after the virtual environment, the packages installed into it, and the metadata describing your project, all through a single command line tool.
 While there are pros and cons for using each of the above,
 all will do the job of managing Python virtual environments for you
 and it may be a matter of personal preference which one you go for.
-In this course, we will use `pdm` to create and manage our virtual environment.
+In this course, we will use `pdm` to create and manage our virtual environment because is that it removes a whole class of common mistakes:
+you don't have to remember which environment is active,
+which `pip` belongs to which Python installation,
+or which packages you installed by hand three months ago.
 
-### Managing External Packages
+As this comic points out, managing Python and its environments used to be quite complex without these tools.
 
-Part of managing your (virtual) working environment involves
-installing, updating and removing external packages on your system.
-The Python package manager tool `pip` is most commonly used for this -
-it interacts and obtains the packages from the central repository called
-[Python Package Index (PyPI)](https://pypi.org/).
-`pip` can now be used with all Python distributions (including Anaconda).
+![Python Environment Hell from [XKCD](https://xkcd.com/1987/) (Creative Commons Attribution-NonCommercial 2.5 License)](fig/python-environment-hell.png){alt='Python environment hell XKCD comic'}
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## A Note on Anaconda and `conda`
 
-Anaconda is an open source Python distribution commonly used for scientific programming -
-it conveniently installs Python, package and environment management `conda`,
-and a  number of commonly used scientific computing packages
-so you do not have to obtain them separately.
-`conda` is an independent command line tool
-(available separately from the Anaconda distribution too) with dual functionality:
-(1) it is a package manager that helps you find Python packages
-from remote package repositories and install them on your system, and
-(2) it is also a virtual environment manager.
-So, you can use `conda` for both tasks instead of using `venv` and `pip`.
+Anaconda is an open source Python distribution commonly used for scientific programming - it conveniently installs Python, package and environment management through `conda`, and a  number of commonly used scientific computing packages so you do not have to obtain them separately.
+However, recent [licence changes](https://www.datacamp.com/blog/navigating-anaconda-licensing) have made Anaconda less appealing.
+There are truly open alternatives like [conda-forge](https://conda-forge.org/).
 
+`conda` is an independent command line tool
+(available separately from the Anaconda distribution) with dual functionality:
+
+1. It is a package manager that helps you find Python and non-Python packages from remote package repositories and install them on your system, and
+2. It is also a virtual environment manager.
+   So, you can use `conda` for both tasks instead of using `venv` and `pip`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Many Tools for the Job
-
-Installing and managing Python distributions,
-external libraries and virtual environments is, well, complex.
-There is an abundance of tools for each task,
-each with its advantages and disadvantages,
-and there are different ways to achieve the same effect
-(and even different ways to install the same tool!).
-Note that each Python distribution comes with its own version of `pip` -
-and if you have several Python versions installed you have to be extra careful to
-use the correct `pip` to manage external packages for that Python version.
-
-`venv` and `pip` are considered the *de facto* standards for virtual environment
-and package management for Python 3.
-However, the advantages of using Anaconda and `conda` are that
-you get (most of the) packages needed for scientific code development included with the distribution.
-If you are only collaborating with others who are also using Anaconda,
-you may find that `conda` satisfies all your needs.
-It is good, however, to be aware of all these tools, and use them accordingly.
-As you become more familiar with them you will realise that
-equivalent tools work in a similar way even though the command syntax may be different
-(and that there are equivalent tools for other programming languages too
-to which your knowledge can be ported).
-
-![Python Environment Hell from [XKCD](https://xkcd.com/1987/) (Creative Commons Attribution-NonCommercial 2.5 License)](fig/python-environment-hell.png){alt='Python environment hell XKCD comic'}
-
-Let us have a look at how we can create and manage virtual environments from the command line
-using `venv` and manage packages using `pip`.
+Let us have a look at how we can create and manage a virtual environment
+and its packages from the command line using `pdm`.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
-### Making Sure You Can Invoke Python
+### Making Sure You Can Invoke PDM and Python
 
-You can test your Python installation from the command line with:
+Install PDM according to its [website instructions](https://pdm-project.org/en/latest/#recommended-installation-method), which at the time of writing is a `curl` command:
 
 ```bash
-$ python3 --version # on Mac/Linux
-$ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
+curl -sSL https://pdm-project.org/install.sh | bash
+```
+
+You can inspect the Bash script at the URL `curl` is grabbing from if you want to make sure it isn't doing anything sketchy.
+
+Then, test that PDM is available on your `PATH` by executing:
+
+```bash
+pdm --version
+```
+
+```output
+PDM, version 2.28.2
+```
+
+If this fails, revisit the [setup instructions](../learners/setup.md) for this course.
+
+PDM can manage Python interpreters for you,
+but it is good to check that you also have a system Python available:
+
+```bash
+python --version
 ```
 
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may
@@ -210,72 +204,82 @@ need to create an alias for the python executable `python.exe`, as explained in 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Creating Virtual Environments Using `venv`
+### Creating a Virtual Environment Using `pdm`
 
-Creating a virtual environment with `venv` is done by executing the following command:
+Our project already contains a `pyproject.toml` file, the standard file that describes a Python project, its metadata and its dependencies.
+Because of this, we do not need to create the project from scratch; we can ask PDM to set everything up for us with a single command.
 
-```bash
-$ python3 -m venv /path/to/new/virtual/environment
-```
-
-where `/path/to/new/virtual/environment` is a path to a directory where you want to place it -
-conventionally within your software project so they are co-located.
-This will create the target directory for the virtual environment
-(and any parent directories that don't exist already).
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## What is `-m` Flag in `python3` Command?
-
-The Python `-m` flag means "module" and tells the Python interpreter to treat what follows `-m`
-as the name of a module and not as a single, executable program with the same name.
-Some modules (such as `venv` or `pip`) have main entry points
-and the `-m` flag can be used to invoke them on the command line via the `python` command.
-The main difference between running such modules as standalone programs
-(e.g. executing "venv" by running the `venv` command directly)
-versus using `python3 -m` command seems to be that
-with latter you are in full control of which Python module will be invoked
-(the one that came with your environment's Python interpreter vs.
-some other version you may have on your system).
-This makes it a more reliable way to set things up correctly
-and avoid issues that could prove difficult to trace and debug.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-For our project let us create a virtual environment called "venv".
 First, ensure you are within the project root directory, then:
 
 ```bash
-$ python3 -m venv venv
-```
-
-If you list the contents of the newly created directory "venv", on a Mac or Linux system
-(slightly different on Windows as explained below) you should see something like:
-
-```bash
-$ ls -l venv
+pdm install
 ```
 
 ```output
-total 8
-drwxr-xr-x  12 alex  staff  384  5 Oct 11:47 bin
-drwxr-xr-x   2 alex  staff   64  5 Oct 11:47 include
-drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
--rw-r--r--   1 alex  staff   90  5 Oct 11:47 pyvenv.cfg
+WARNING: Lockfile does not exist
+Updating the lock file...
+WARNING: Project requires a python version of >=3.10, The virtualenv is being created for you as it cannot be matched to the right version.
+INFO: python.use_venv is on, creating a virtualenv for this project...
+Virtualenv is created successfully at 
+/home/user/python-intermediate-inflammation/.venv
+Changes are written to pdm.lock.
+  0:00:00 🔒 Lock successful.  
+All packages are synced to date, nothing to do.
+  ✔ Install python-intermediate-inflammation 0.0.0 successful
+
+  0:00:00 🎉 All complete! 0/0
 ```
 
-So, running the `python3 -m venv venv` command created the target directory called "venv"
-containing:
+Your output will look a little different depending on the Python version and paths on your machine.
+That one command did several things for us:
 
-- `pyvenv.cfg` configuration file
-  with a home key pointing to the Python installation from which the command was run,
-- `bin` subdirectory (called `Scripts` on Windows)
-  containing a symlink of the Python interpreter binary used to create the environment
-  and the standard Python library,
-- `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows)
-  to contain its own independent set of installed Python packages isolated from other projects, and
+1. it created a virtual environment for the project in the `.venv` directory,
+2. it created a **lock file** called `pdm.lock`, which records the exact version of every package the environment should contain, and
+3. it installed our own project into that environment (more on this below).
+
+Our project does not declare any external dependencies yet, so there was not much for PDM to install... yet.
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Choosing a Python Interpreter
+
+By default PDM will pick a suitable Python interpreter from the ones installed on your machine and remember the choice in a file called `.pdm-python`.
+You can inspect what it selected with `pdm info`, change it with `pdm use`, and even have PDM download and install a Python version for you with, for example, `pdm python install 3.14`.
+This is handy when a project needs a Python version that is not available through your operating system.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### What PDM Actually Created
+
+The virtual environment PDM built for us is an ordinary Python virtual environment of the kind that `venv` produces; there is nothing magic about it.
+If you list the contents of the `.venv` directory, on a Mac or Linux system
+(slightly different on Windows as explained below) you should see something like:
+
+```bash
+$ ls -l .venv
+```
+
+```output
+total 20
+drwxrwxr-x 2 user user 4096 Aug 19 18:08 bin/
+-rw-rw-r-- 1 user user  194 Aug 19 18:08 CACHEDIR.TAG
+drwxrwxr-x 2 user user 4096 Aug 19 18:08 include/
+drwxrwxr-x 3 user user 4096 Aug 19 18:08 lib/
+-rw-rw-r-- 1 user user  750 Aug 19 18:08 pyvenv.cfg
+```
+
+So, a virtual environment is a directory containing:
+
+- `pyvenv.cfg` configuration file with a home key pointing to the Python installation it was created from,
+- `bin` subdirectory (called `Scripts` on Windows) containing a symlink of the Python interpreter binary used to create the environment and the standard Python library,
+- `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows) to contain its own independent set of installed Python packages isolated from other projects, and
 - various other configuration and supporting files and subdirectories.
+
+Had we not been using PDM, we could have created exactly this ourselves with `python -m venv .venv` and then installed packages into it by using `pip`.
+It is worth knowing this is all a virtual environment is, so that the environment does not feel like a black box.
+But from here on, we will let PDM do the work of managing this environment.
+
+TODO current position
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
