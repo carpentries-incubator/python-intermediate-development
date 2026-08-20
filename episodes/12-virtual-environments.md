@@ -279,110 +279,82 @@ Had we not been using PDM, we could have created exactly this ourselves with `py
 It is worth knowing this is all a virtual environment is, so that the environment does not feel like a black box.
 But from here on, we will let PDM do the work of managing this environment.
 
-TODO current position
+Note that since our software project is being tracked by Git, the newly created `.venv` directory will show up in version control.
+We will see how to tell Git to ignore it in one of the subsequent episodes.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Naming Virtual Environments
+## Naming and Locating Virtual Environments
 
-What is a good name to use for a virtual environment?
-Using "venv" or ".venv" as the name for an environment
-and storing it within the project's directory seems to be the recommended way -
-this way when you come across such a subdirectory within a software project,
-by convention you know it contains its virtual environment details.
-A slight downside is that all different virtual environments on your machine
-then use the same name
-and the current one is determined by the context of the path you are currently located in.
-A (non-conventional) alternative is
-to use your project name for the name of the virtual environment,
-with the downside that there is nothing to indicate that such a directory contains a virtual environment.
-In our case, we have settled to use the name "venv" instead of ".venv"
-since it is not a hidden directory and we want it to be displayed by the command line
-when listing directory contents
-(the "." in its name that would, by convention, make it hidden).
-In the future, you will decide what naming convention works best for you.
-Here are some references for each of the naming conventions:
+Storing the environment inside the project directory and calling it "venv" or ".venv" is the usual convention.
+This way when you come across such a subdirectory within a software project, you know it contains its virtual environment details.
+PDM uses `.venv` in the project root by default.
+You can ask PDM to create additional, named environments elsewhere (e.g. `pdm venv create --name py312 3.12`) and list them with `pdm venv list`, which is useful when you want to test your code against several Python versions.
+Here are some references for the naming conventions:
 
 - [The Hitchhiker's Guide to Python](https://docs.python-guide.org/dev/virtualenvs/)
   notes that "venv" is the general convention used globally
 - [The Python Documentation](https://docs.python.org/3/library/venv.html)
   indicates that ".venv" is common
 - ["venv" vs ".venv" discussion](https://discuss.python.org/t/trying-to-come-up-with-a-default-directory-name-for-virtual-environments/3750)
-  
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Once you've created a virtual environment, you will need to activate it.
+### Running Commands In Your Environment
 
-On Mac or Linux, it is done as:
-
-```bash
-$ source venv/bin/activate
-(venv) $
-```
-
-On Windows, recall that we have `Scripts` directory instead of `bin`
-and activating a virtual environment is done as:
+With PDM you do not normally activate the virtual environment at all.
+Instead, you prefix commands with `pdm run` and PDM makes sure they are executed using the project's environment:
 
 ```bash
-$ source venv/Scripts/activate
-(venv) $
-```
-
-Activating the virtual environment will change your command line's prompt
-to show what virtual environment you are currently using
-(indicated by its name in round brackets at the start of the prompt),
-and modify the environment so that running Python will get you
-the particular version of Python configured in your virtual environment.
-
-You can verify you are using your virtual environment's version of Python
-by checking the path using the command `which`:
-
-```bash
-(venv) $ which python3
+pdm run python --version
 ```
 
 ```output
-/home/alex/python-intermediate-inflammation/venv/bin/python3
+Python 3.14.2  # your version will differ depending on your system
+```
+
+This works from anywhere inside the project, and it works the same way for you and for your collaborators, regardless of what is or is not activated in their shell.
+
+If you would still like an activated shell---for example because you are running many commands in a row---PDM will print the activation command for you to evaluate:
+
+```bash
+echo $(pdm venv activate)
+```
+
+```output
+# The output will vary depending on your OS and current shell, which is precisely why this command is useful
+source /home/user/python-intermediate-inflammation/.venv/bin/activate
+```
+
+Activating the virtual environment will change your command line's prompt to show what virtual environment you are currently using (indicated by its name in round brackets at the start of the prompt):
+
+```bash
+eval $(pdm venv activate)
+```
+
+```output
+# Your prompt should look something like this:
+(python-intermediate-inflammation-3.14) $
+```
+
+Materially, this modifies the environment so that running `python` will get you the particular version of Python configured in your virtual environment.
+You can verify this by checking the path with the command `which`:
+
+```bash
+which python
+```
+
+```output
+/home/user/python-intermediate-inflammation/.venv/bin/python
 ```
 
 When you're done working on your project, you can exit the environment with:
 
 ```bash
-(venv) $ deactivate
+deactivate
 ```
 
-If you have just done the `deactivate`,
-ensure you reactivate the environment ready for the next part:
-
-```bash
-$ source venv/bin/activate
-(venv) $
-```
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Python Within A Virtual Environment
-
-Within an active virtual environment,
-commands `python3` and `python` should both refer to the version of Python 3
-you created the environment with (note you may have multiple Python 3 versions installed).
-
-However, on some machines with Python 2 installed,
-`python` command may still be hardwired to the copy of Python 2
-installed outside of the virtual environment - this can cause errors and confusion.
-
-You can always check which version of Python you are using in your virtual environment
-with the command `which python` to be absolutely sure.
-We continue using `python3` in this material to avoid mistakes,
-but the command `python` may work for you as expected.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Note that, since our software project is being tracked by Git,
-the newly created virtual environment will show up in version control -
-we will see how to handle it using Git in one of the subsequent episodes.
+For the rest of this course we will write commands using `pdm run`, so you do not need to keep an environment activated.
 
 ### Installing External Packages Using `pip`
 
