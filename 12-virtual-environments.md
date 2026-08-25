@@ -184,7 +184,7 @@ Note that each Python distribution comes with its own version of `pip` -
 and if you have several Python versions installed you have to be extra careful to
 use the correct `pip` to manage external packages for that Python version.
 
-`venv` and `pip` are considered the *de facto* standards for virtual environment
+`venv` and `pip` are considered the effective standards for virtual environment
 and package management for Python 3.
 However, the advantages of using Anaconda and `conda` are that
 you get (most of the) packages needed for scientific code development included with the distribution.
