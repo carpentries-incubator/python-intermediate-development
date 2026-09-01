@@ -1260,7 +1260,7 @@ directory you have just cloned?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Find the SSH URL of the software project repository to clone from
@@ -1395,7 +1395,7 @@ lines of <code>data/inflammation-01.csv</code> file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>To list the entire content of a file from the project root do:
@@ -2465,7 +2465,7 @@ it here but it should be possible to switch.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
 <p>When you start PyCharm - you may be presented with a dialog box that
 asks you what you want to do, e.g. <code>Create New Project</code>,
 <code>Open</code>, or <code>Check out from Version Control</code>. If
@@ -2498,7 +2498,7 @@ your environment in PyCharm shortly as this is important conceptually.
 If you do not see this warning - do not worry, it just means you may
 have configured this already on previous usages of PyCharm.</p>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
 <p>We will take you through the various steps of using VC Code now -
 also check out the <a href="https://code.visualstudio.com/docs/python/python-quick-start" class="external-link">VS
 Code Python Quick Start guide</a> and <a href="https://code.visualstudio.com/docs/python/python-tutorial" class="external-link">Getting
@@ -2605,7 +2605,7 @@ understand it.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-2-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-2-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-PyCharm">
 <p>While PyCharm will recognise the virtual environment you already
 have, and the Python interpreter contained in it, it is a good practice
 to tell your IDE which Python interpreter you want to use for which
@@ -2658,7 +2658,7 @@ replicating our virtual environment in PyCharm (referred to as “Python
 the same virtual environment and changes done to it in PyCharm will
 propagate to the command line and vice versa.</p>
 </div>
-<div id="nav-tabpanel-2-VSCode" class="tab-pane" aria-labelledby="nav-tab-2-VSCode" role="tabpanel">
+<div id="nav-tabpanel-2-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-VSCode">
 <p>As covered in the episode on virtual environments for software
 development, we want to create a new or activate an existing virtual
 environment for our project to work in. Since we have already created a
@@ -2725,7 +2725,7 @@ line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-3-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-3-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-PyCharm">
 <ol style="list-style-type: decimal">
 <li>Select either <code>PyCharm -&gt; Settings</code> (Mac) or
 <code>File -&gt; Settings</code> (Linux, Windows).</li>
@@ -2749,7 +2749,7 @@ however, that <code>requirements.txt</code> is not updated - as we
 mentioned earlier this is something you have to do manually. Let us do
 this as an exercise.</p>
 </div>
-<div id="nav-tabpanel-3-VSCode" class="tab-pane" aria-labelledby="nav-tab-3-VSCode" role="tabpanel">
+<div id="nav-tabpanel-3-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-VSCode">
 <p>In VS Code, there is no special graphical user interface to add
 external dependencies for a project - this is done from the terminal
 window as we did before (within the active virtual environment):</p>
@@ -2887,7 +2887,7 @@ six==1.16.0</code></pre>
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-4-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-4-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-PyCharm">
 <p>Having configured a virtual environment, we now need to tell PyCharm
 to use it for our project. This is done by creating and adding a
 <strong>Run Configuration</strong> to a project. Run Configurations in
@@ -2932,7 +2932,7 @@ virtual environments - you can vary a run configuration each time your
 code is executed and you can have separate configurations for running,
 debugging and testing your code.</p>
 </div>
-<div id="nav-tabpanel-4-VSCode" class="tab-pane" aria-labelledby="nav-tab-4-VSCode" role="tabpanel">
+<div id="nav-tabpanel-4-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-VSCode">
 <p>You can configure Visual Studio Code through a number of <a href="https://code.visualstudio.com/docs/configure/settings" class="external-link">settings</a>.
 Nearly every part of VS Code’s editor, user interface, and functional
 behavior has options you can modify.</p>
@@ -3039,10 +3039,10 @@ errors easier.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-5-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-5-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-PyCharm">
 <figure><img src="fig/pycharm-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-5-VSCode" class="tab-pane" aria-labelledby="nav-tab-5-VSCode" role="tabpanel">
+<div id="nav-tabpanel-5-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-VSCode">
 <figure><img src="fig/vscode-syntax-highlighting.png" class="image-with-shadow figure mx-auto d-block" alt="Syntax Highlighting Functionality in VS Code" width="1000"></figure>
 </div>
 </div>
@@ -3071,10 +3071,10 @@ of functions, hints related to syntax errors, etc.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-6" class="tab-content">
-<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-6-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-6-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-6-PyCharm">
 <figure><img src="fig/pycharm-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-6-VSCode" class="tab-pane" aria-labelledby="nav-tab-6-VSCode" role="tabpanel">
+<div id="nav-tabpanel-6-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-6-VSCode">
 <figure><img src="fig/vscode-code-completion.png" class="image-with-shadow figure mx-auto d-block" alt="Code Completion Functionality in VS Code" width="800"></figure>
 </div>
 </div>
@@ -3102,7 +3102,7 @@ tooltips.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-7" class="tab-content">
-<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-7-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-7-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-7-PyCharm">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>Go</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3120,7 +3120,7 @@ function call.</li>
 </ul>
 <figure><img src="fig/pycharm-code-reference.png" class="image-with-shadow figure mx-auto d-block" alt="Code References Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-7-VSCode" class="tab-pane" aria-labelledby="nav-tab-7-VSCode" role="tabpanel">
+<div id="nav-tabpanel-7-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-7-VSCode">
 <p>For a selected piece of code, you can access various code reference
 information from the <code>View</code> menu (or via various keyboard
 shortcuts or sometimes simply by hovering over a symbol), including:</p>
@@ -3166,7 +3166,7 @@ find usages/references and occurrences.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-8" class="tab-content">
-<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-8-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-8-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-8-PyCharm">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find | Find in Path ...</code> (or
 <code>Edit | Find | Find in Files...</code> depending on your version of
@@ -3189,7 +3189,7 @@ and its options to group the results, preview them, and work with them
 further.</p>
 <figure><img src="fig/pycharm-find-panel.png" class="image-with-shadow figure mx-auto d-block" alt="Code Search Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-8-VSCode" class="tab-pane" aria-labelledby="nav-tab-8-VSCode" role="tabpanel">
+<div id="nav-tabpanel-8-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-8-VSCode">
 <p>To find a search string in the whole project - from the main menu,
 select <code>Edit | Find in Files</code>. An alternative menu option
 <code>Edit | Find</code> will just look for the search string in the
@@ -3227,7 +3227,7 @@ further filter things out.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-9" class="tab-content">
-<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-9-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-9-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-9-PyCharm">
 <p>PyCharm supports a directory-based versioning model, which means that
 each project directory can be associated with a different version
 control system. Our project was already under Git version control and
@@ -3246,7 +3246,7 @@ line.</p>
 on PyCharm’s built-in version control support</a> online.</p>
 <figure><img src="fig/pycharm-version-control.png" class="image-with-shadow figure mx-auto d-block" alt="Version Control Functionality in PyCharm" width="1000"></figure>
 </div>
-<div id="nav-tabpanel-9-VSCode" class="tab-pane" aria-labelledby="nav-tab-9-VSCode" role="tabpanel">
+<div id="nav-tabpanel-9-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-9-VSCode">
 <p>VS Code has integrated source control management (SCM) and includes
 Git support out-of-the-box. Many other source control tools are
 available through <a href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=SCM%20Providers&amp;sortBy=Installs" class="external-link">extensions</a>.</p>
@@ -3304,7 +3304,7 @@ advantages — we will make use of the IDE’s built-in visual tools.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-10" class="tab-content">
-<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-10-PyCharm" role="tabpanel">
+<div id="nav-tabpanel-10-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-10-PyCharm">
 <p>To run our script using the PyCharm’s graphical interface,
 right-click the <code>inflammation-analysis.py</code> file in the
 PyCharm project/file navigator on the left, and select
@@ -3312,7 +3312,7 @@ PyCharm project/file navigator on the left, and select
 created earlier).</p>
 <figure><img src="fig/pycharm-run-script.png" class="image-with-shadow figure mx-auto d-block" alt="Running a script from PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-10-VSCode" class="tab-pane" aria-labelledby="nav-tab-10-VSCode" role="tabpanel">
+<div id="nav-tabpanel-10-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-10-VSCode">
 <p>To run our script using the VS Code’s graphical interface, make sure
 the <code>inflammation-analysis.py</code> file is selected in the
 project/file view on the left, then click the “&gt;” (play) button in
@@ -4235,7 +4235,7 @@ conversion.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-PyCharm">
+<div id="nav-tabpanel-1-PyCharm" class="tab-pane show active" aria-labelledby="nav-tab-1-PyCharm" role="tabpanel">
 <p>By default, PyCharm inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in PyCharm’s
 <code>Settings -&gt; Editor -&gt; Code Style -&gt; Python</code>.</p>
@@ -4245,7 +4245,7 @@ are ever unsure what character exactly is being used by selecting
 checking “Show whitespaces” option.</p>
 <figure><img src="fig/pycharm-whitespace.png" class="image-with-shadow figure mx-auto d-block" alt="Python code whitespace settings in PyCharm" width="800"></figure>
 </div>
-<div id="nav-tabpanel-1-VSCode" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-VSCode">
+<div id="nav-tabpanel-1-VSCode" class="tab-pane" aria-labelledby="nav-tab-1-VSCode" role="tabpanel">
 <p>By default, VS Code inserts spaces and uses 4 spaces per tab key. You
 can modify these settings in VS Code’s user or workspace settings
 (<code>File -&gt; Preferences -&gt; Settings</code> on Windows and Linux
@@ -4738,11 +4738,11 @@ repository.</p>
 </div>
 </div>
 </div>
-<div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout discussion">
+<div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout-inner">
 <h3 class="callout-title">Optional Exercise: Improve Code Style of Your
 Other Python Projects</h3>
@@ -5217,11 +5217,11 @@ minimum score - it is quite possible to get a negative score!</p>
 </div>
 </div>
 </div>
-<div id="exercise-further-improve-code-style-of-our-project" class="callout discussion">
+<div id="exercise-further-improve-code-style-of-our-project" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-further-improve-code-style-of-our-project" class="callout-inner">
 <h3 class="callout-title">Exercise: Further Improve Code Style of Our
 Project</h3>
@@ -5255,11 +5255,11 @@ Issues and Improving Robustness”</a>.</p>
 <span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a><span class="ex">$</span> git merge style-fixes</span>
 <span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a><span class="ex">$</span> git push origin develop</span></code></pre>
 </div>
-<div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout discussion">
+<div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="optional-exercise-improve-code-style-of-your-other-python-projects" class="callout-inner">
 <h3 class="callout-title">Optional Exercise: Improve Code Style of Your
 Other Python Projects</h3>
@@ -5270,11 +5270,11 @@ detected, if any.</p>
 </div>
 </div>
 </div>
-<div id="optional-exercise-more-on-pylint" class="callout discussion">
+<div id="optional-exercise-more-on-pylint" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="optional-exercise-more-on-pylint" class="callout-inner">
 <h3 class="callout-title">Optional Exercise: More on Pylint</h3>
 <div class="callout-content">
@@ -5354,11 +5354,11 @@ things or different perspectives.</p>
 </div>
 </div>
 </div>
-<div id="exercise-try-out-different-integrated-development-environments" class="callout discussion">
+<div id="exercise-try-out-different-integrated-development-environments" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-try-out-different-integrated-development-environments" class="callout-inner">
 <h3 class="callout-title">Exercise: Try out different Integrated
 Development Environments</h3>
@@ -5386,11 +5386,11 @@ configurable source code editors:</p>
 </div>
 </div>
 </div>
-<div id="exercise-customise-the-command-line-tool" class="callout discussion">
+<div id="exercise-customise-the-command-line-tool" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-customise-the-command-line-tool" class="callout-inner">
 <h3 class="callout-title">Exercise: Customise the command line tool</h3>
 <div class="callout-content">
@@ -5417,11 +5417,11 @@ command line shell.</li>
 </div>
 </div>
 </div>
-<div id="exercise-try-out-different-virtual-environment-managers" class="callout discussion">
+<div id="exercise-try-out-different-virtual-environment-managers" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-try-out-different-virtual-environment-managers" class="callout-inner">
 <h3 class="callout-title">Exercise: Try out different virtual
 environment managers</h3>
@@ -6179,7 +6179,7 @@ see your new tests pass.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7830,7 +7830,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7998,7 +7998,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -8179,11 +8179,11 @@ redefined a built-in Python function called <code>max</code>. This is
 not a good idea and may have some undesired effects (e.g. if you
 redefine a built-in name in a global scope you may cause yourself some
 trouble which may be difficult to trace).</p>
-<div id="exercise-fix-code-style-errors" class="callout discussion">
+<div id="exercise-fix-code-style-errors" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-fix-code-style-errors" class="callout-inner">
 <h3 class="callout-title">Exercise: Fix Code Style Errors</h3>
 <div class="callout-content">
@@ -8362,11 +8362,11 @@ either complement or are alternatives to those already introduced. Even
 if you find something that you really like, we still recommend sticking
 with the tools that were introduced prior to this episode when you move
 onto other sections of the course.</p>
-<div id="exercise-apply-to-your-own-projects" class="callout discussion">
+<div id="exercise-apply-to-your-own-projects" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-apply-to-your-own-projects" class="callout-inner">
 <h3 class="callout-title">Exercise: Apply to your own project(s)</h3>
 <div class="callout-content">
@@ -8377,11 +8377,11 @@ questions to your instructors or helpers.</p>
 </div>
 </div>
 </div>
-<div id="exercise-branch-coverage-versus-line-coverage" class="callout discussion">
+<div id="exercise-branch-coverage-versus-line-coverage" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-branch-coverage-versus-line-coverage" class="callout-inner">
 <h3 class="callout-title">Exercise: Branch coverage versus line
 coverage</h3>
@@ -8392,11 +8392,11 @@ why?</p>
 </div>
 </div>
 </div>
-<div id="exercise-desirable-test-coverage" class="callout discussion">
+<div id="exercise-desirable-test-coverage" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-desirable-test-coverage" class="callout-inner">
 <h3 class="callout-title">Exercise: Desirable test coverage</h3>
 <div class="callout-content">
@@ -8411,11 +8411,11 @@ not?</p>
 </div>
 </div>
 </div>
-<div id="exercise-coverage-badges" class="callout discussion">
+<div id="exercise-coverage-badges" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-coverage-badges" class="callout-inner">
 <h3 class="callout-title">Exercise: Coverage badges</h3>
 <div class="callout-content">
@@ -8745,7 +8745,7 @@ high-level of the business itself.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One hypothetical new business requirement (BR3) could be extending
 our clinical trial system to keep track of doctors who are being
@@ -8799,7 +8799,7 @@ detail of implementation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For our business requirement BR3 from the previous exercise, the new
 user/stakeholder requirements may be the ability to see all the patients
@@ -8932,7 +8932,7 @@ control of resources</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Some More Examples </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ul>
 <li>Desktop Application
@@ -9007,7 +9007,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>For our new hypothetical business requirement BR3, new functional
 solution requirements could be extending the clinical trial system to
@@ -9023,11 +9023,11 @@ in the trial</li>
 </div>
 </div>
 </div>
-<div id="optional-exercise-requirements-for-your-software-project" class="callout discussion">
+<div id="optional-exercise-requirements-for-your-software-project" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="optional-exercise-requirements-for-your-software-project" class="callout-inner">
 <h3 class="callout-title">Optional Exercise: Requirements for Your
 Software Project</h3>
@@ -9347,7 +9347,7 @@ it, and what would make those changes challenging.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>You may have found others, but here are some of the things that make
 the code hard to read, test and maintain.</p>
@@ -9437,7 +9437,7 @@ online drawing tool such as <a href="https://excalidraw.com/" class="external-li
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <figure><img src="fig/example-architecture-diagram.svg" alt="Diagram showing proposed architecture of the problem" width="600" class="figure mx-auto d-block"></figure>
 </div>
@@ -9727,7 +9727,7 @@ instead.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The new function <code>load_inflammation_data()</code> that reads all
 the inflammation data into the format needed for the analysis could look
@@ -9913,7 +9913,7 @@ function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For example, we can declare class <code>CSVDataSource</code> like
 this:</p>
@@ -10006,7 +10006,7 @@ duty, what parameters they need and what they return.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The interface is the <code>load_inflammation_data()</code> method,
 which takes no parameters and returns a list where each entry is a 2D
@@ -10117,7 +10117,7 @@ based on the file extension.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The class that reads inflammation data from JSON files could look
 something like:</p>
@@ -10232,7 +10232,7 @@ deviation calculations are correct.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10429,7 +10429,7 @@ numbers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Hint </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>When determining the correct return data result to use in tests, it
 may be helpful to assert the result equals some random made-up data,
@@ -10444,7 +10444,7 @@ result into the test.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>One approach we can take is to:</p>
 <ul>
@@ -10561,7 +10561,7 @@ should take in the data, and return the analysis result, as follows:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The analysis code will be refactored into a separate function that
 may look something like:</p>
@@ -10646,7 +10646,7 @@ should be tested.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>You might have thought of more tests, but we can easily extend the
 test by parametrizing with more inputs and expected outputs:</p>
@@ -11938,11 +11938,11 @@ to talk to them in person. Discussions that happen on code reviews can
 often feel quite adversarial - discussing what the best solution is in
 person can help defuse this.</li>
 </ol>
-<div id="exercise-responding-to-comments" class="callout discussion">
+<div id="exercise-responding-to-comments" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-responding-to-comments" class="callout-inner">
 <h3 class="callout-title">Exercise: Responding to Comments</h3>
 <div class="callout-content">
@@ -12543,11 +12543,11 @@ develop code with. If you want more information, or help choosing a
 licence, the <a href="https://choosealicense.com/" class="external-link">Choose An Open-Source
 Licence</a> or <a href="https://tldrlegal.com/" class="external-link">tl;dr Legal</a> sites
 can help.</p>
-<div id="exercise-preparing-for-release" class="callout discussion">
+<div id="exercise-preparing-for-release" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-preparing-for-release" class="callout-inner">
 <h3 class="callout-title">Exercise: Preparing for Release</h3>
 <div class="callout-content">
@@ -13077,11 +13077,11 @@ packaging you can see the <a href="https://packaging.python.org/en/latest/" clas
 packaging</a>, which contains a helpful guide to the overall <a href="https://packaging.python.org/en/latest/flow/" class="external-link">packaging process,
 or ‘flow’</a>, using the <a href="https://pypi.org/project/twine/" class="external-link">Twine</a> tool to upload created
 packages to PyPI for distribution as an alternative.</p>
-<div id="optional-exercise-enhancing-our-package-metadata" class="callout discussion">
+<div id="optional-exercise-enhancing-our-package-metadata" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="optional-exercise-enhancing-our-package-metadata" class="callout-inner">
 <h3 class="callout-title">Optional Exercise: Enhancing our Package
 Metadata</h3>
@@ -13452,7 +13452,7 @@ appropriate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For example, “Add a licence file” could be a good first issue, with a
 label <code>documentation</code>.</p>
@@ -13530,11 +13530,11 @@ comments, issue and pull request descriptions, you can reference a
 commit by pasting its long, unique identifier (or its first few digits
 which uniquely identify it) and GitHub will render it nicely using the
 identifier’s short form and link to the commit in question.</p>
-<figure><img src="fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of comment thread in a GitHub issue showing dropdown menu expanded for a particular comment to allow copying link to comment to reference elsewhere. Also shown and highlighted is a autolink to a particular commit hash." width="700"></figure><div id="exercise-our-first-mentionreference" class="callout discussion">
+<figure><img src="fig/github-reference-comments-commits.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of comment thread in a GitHub issue showing dropdown menu expanded for a particular comment to allow copying link to comment to reference elsewhere. Also shown and highlighted is a autolink to a particular commit hash." width="700"></figure><div id="exercise-our-first-mentionreference" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-our-first-mentionreference" class="callout-inner">
 <h3 class="callout-title">Exercise: Our First Mention/Reference!</h3>
 <div class="callout-content">
@@ -13737,11 +13737,11 @@ another view. For example, we can add a Table view to our Board view by
 clicking the <code>New button</code> and selecting it from the drop down
 menu. <img src="fig/github-project-add-view.png" class="image-with-shadow figure" alt='Screenshot showing how to add another project view in GitHub Project interface. A second table view of the project is shown, with two view tabs, View 1 and View 2 now present and View 2 active. The "New view" button to right of view tabs is highlighted.' width="800"></p></li>
 </ol>
-<div id="exercise-working-with-projects" class="callout discussion">
+<div id="exercise-working-with-projects" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-working-with-projects" class="callout-inner">
 <h3 class="callout-title">Exercise: Working With Projects</h3>
 <div class="callout-content">
@@ -13883,11 +13883,11 @@ future improvements.</p>
 </section><section><h2 class="section-heading" id="assessing-software-for-suitability">Assessing Software for Suitability<a class="anchor" aria-label="anchor" href="#assessing-software-for-suitability"></a>
 </h2>
 <hr class="half-width">
-<div id="exercise-decide-on-your-groups-repository" class="callout discussion">
+<div id="exercise-decide-on-your-groups-repository" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-decide-on-your-groups-repository" class="callout-inner">
 <h3 class="callout-title">Exercise: Decide on Your Group’s
 Repository!</h3>
@@ -13909,11 +13909,11 @@ name.</li>
 </div>
 </div>
 </div>
-<div id="exercise-conduct-assessment-on-third-party-software" class="callout discussion">
+<div id="exercise-conduct-assessment-on-third-party-software" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-conduct-assessment-on-third-party-software" class="callout-inner">
 <h3 class="callout-title">Exercise: Conduct Assessment on Third-Party
 Software</h3>
@@ -14128,11 +14128,11 @@ interface).</p>
 </div>
 </div>
 </div>
-<div id="exercise-estimate" class="callout discussion">
+<div id="exercise-estimate" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-estimate" class="callout-inner">
 <h3 class="callout-title">Exercise: Estimate!</h3>
 <div class="callout-content">
@@ -14212,11 +14212,11 @@ and any description for the milestone.</p>
 from the <code>Issues</code> page or from an individual issue page.</p>
 <figure><img src="fig/github-assign-milestone.png" class="image-with-shadow figure mx-auto d-block" alt='Screenshot showing how to assign an issue to a milestone. The issue list tab of a repository is shown with a single issue "Add README" selected and the Milestone dropdown on issue filter controls expanded with a list of available milestones that can be assigned to the issue shown, currently showing one milestone "Tidy up documentation".' width="1000"></figure><p>Let us now use Milestones to plan and prioritise our team’s next
 sprint.</p>
-<div id="exercise-prioritise" class="callout discussion">
+<div id="exercise-prioritise" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-prioritise" class="callout-inner">
 <h3 class="callout-title">Exercise: Prioritise!</h3>
 <div class="callout-content">
@@ -14251,11 +14251,11 @@ undertaken on the agreed prioritised work for the period. In a typical
 sprint, there are daily meetings called <strong>scrum meetings</strong>
 which check on how work is progressing, and serves to highlight any
 blockers and challenges to meeting the sprint goal.</p>
-<div id="exercise-conduct-a-mini-mini-sprint" class="callout discussion">
+<div id="exercise-conduct-a-mini-mini-sprint" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="exercise-conduct-a-mini-mini-sprint" class="callout-inner">
 <h3 class="callout-title">Exercise: Conduct a Mini Mini-Sprint</h3>
 <div class="callout-content">
@@ -14414,7 +14414,7 @@ pathways and in which order you need to learn them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One way to think about these concepts is to make a list and try to
 organise them along two axes - ‘perceived usefulness of a concept’
@@ -14507,7 +14507,7 @@ research software development in teams.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.2)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -14530,8 +14530,8 @@ research software development in teams.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/aio.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/aio.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2026-08-25",
-  "datePublished": "2026-08-25"
+  "dateModified": "2026-09-01",
+  "datePublished": "2026-09-01"
 }
 
   </script><script>
