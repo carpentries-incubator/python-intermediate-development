@@ -52,7 +52,7 @@ In this section we will:
   a free and open source Python library to help us structure and run automated tests.
 - Design, write and run **unit tests** using Pytest
   to verify the correct behaviour of code and identify faults,
-  making use of test **parameterisation**
+  making use of test **parametrization**
   to increase the number of different test cases we can run.
 - Automatically run a set of unit tests using **GitHub Actions** -
   a **Continuous Integration** infrastructure that allows us to
@@ -65,7 +65,7 @@ In this section we will:
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Using testing requires us to change our practice of code development, but saves time in the long run by allowing us to more comprehensively and rapidly find faults in code, as well as giving us greater confidence in the correctness of our code.
-- The use of test techniques and infrastructures such as **parameterisation** and **Continuous Integration** can help scale and further automate our testing process.
+- The use of test techniques and infrastructures such as **parametrization** and **Continuous Integration** can help scale and further automate our testing process.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
