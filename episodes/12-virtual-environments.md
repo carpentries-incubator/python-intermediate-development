@@ -164,8 +164,9 @@ There are truly open alternatives like [conda-forge](https://conda-forge.org/).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Let us have a look at how we can create and manage a virtual environment
-and its packages from the command line using `pdm`.
+### Creating a Virtual Environment Using `pdm`
+
+Let us have a look at how we can create and manage a virtual environment and its packages from the command line using `pdm`.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
@@ -203,8 +204,6 @@ need to create an alias for the python executable `python.exe`, as explained in 
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-### Creating a Virtual Environment Using `pdm`
 
 Our project already contains a `pyproject.toml` file, the standard file that describes a Python project, its metadata and its dependencies.
 Because of this, we do not need to create the project from scratch; we can ask PDM to set everything up for us with a single command.
@@ -371,14 +370,14 @@ With PDM, installing a dependency and declaring that your project requires it ar
 You *add* it to the project:
 
 ```bash
-$ pdm add numpy
-$ pdm add matplotlib
+pdm add numpy
+pdm add matplotlib
 ```
 
 or doing both at once:
 
 ```bash
-$ pdm add numpy matplotlib
+pdm add numpy matplotlib
 ```
 
 These commands might take a little while to run if there are not binary builds available for your machine.
@@ -414,8 +413,8 @@ A win for reproducibility!
 To ask for a particular version or set your own constraint on a dependency version, give the constraint on the command line (quoting it so that your shell does not interpret the `>` character), e.g.:
 
 ```bash
-$ pdm add "numpy==2.2.3"
-$ pdm add "numpy>=2.2"
+pdm add "numpy==2.2.3"
+pdm add "numpy>=2.2"
 ```
 
 Respectively, these will:
@@ -426,7 +425,7 @@ Respectively, these will:
 To see what is installed in your current environment, use the command
 
 ```bash
-$ pdm list
+pdm list
 ```
 
 ```output
@@ -448,16 +447,6 @@ $ pdm list
 ╰──────────────────────────────────┴─────────────┴──────────────────────────────────────────────────╯
 ```
 
-Some other commands you will find useful:
-
-- `pdm list --tree` shows which package pulled in which, as a dependency tree.
-- `pdm show numpy` displays information about a particular package.
-- `pdm remove numpy` removes a dependency from `pyproject.toml`,
-  the lock file and the environment - all in one step.
-- `pdm outdated` lists packages for which a newer version is available.
-- `pdm update` updates your dependencies (within the constraints in `pyproject.toml`)
-  and writes the new versions to `pdm.lock`.
-
 
 ::: callout
 
@@ -471,143 +460,74 @@ If you mistype or are unlucky enough to download before this is discovered, you 
 
 :::
 
-Often when working on a Python project, the project itself will be a Python package (like `numpy` or `matplotlib` above) or at the very least it might be useful to treat it like a package.
+### Our Own Project is Installed Too
+
+Often when working on a Python project, the project itself will be a Python package (like `numpy` or `matplotlib` above) or someone else would like a package.
 Said another way, it is usually the case we want a convenient way to call the Python code we are writing from another location, and making this code accessible as a package is the best way to do this.
-We will save the details of Python packaging for [a future episode](43-software-release.md), and for the meantime we can use the minimal package setup that our project already comes with, which is contained in the `pyproject.toml` file.
-Once again, we can use `pip` to install our local package:
+We will save the details of Python packaging for [a future episode](43-software-release.md),
+and for the meantime the minimal package setup in our `pyproject.toml` is enough.
+
+This is the third thing `pdm install` did for us back near [the beginning of the episode](#creating-a-virtual-environment-using-pdm): it installed our own project into the environment in **editable** mode.
+An **editable** install is one that allows the package in our environment to change dynamically based on source code locally.
+This is very convenient when we are developing the package because we can instantly see changes when we call the code from within our virtual environment, rather than having to install the local package again to get the updates.
+That is why `python-intermediate-inflammation` appears in the `pdm list` output above, and it is indicated as "editable" with the `-e` prefix for its location.
+(If you ever want to skip this step and not have your project installed in your environment, `pdm install --no-self` will do so.)
+
+### Sharing Your Environment With Collaborators
+
+You are collaborating on a project with a team so, naturally, you will want to share your environment with your collaborators so they can easily "clone" your software project with all of its dependencies and everyone can replicate equivalent virtual environments on their machines.
+With PDM there is nothing extra to do to achieve this.
+The `pdm.lock` generated automatically contains the exact versions of every package (including sub-dependencies) that were resolved when creating the virtual environment for our project.
+This file should be committed to version control, and we will get around to doing this using Git in one of the following episodes.
+A collaborator then only has to run:
 
 ```bash
-python3 -m pip install --editable .
+pdm install
 ```
 
-If the above command fails for you - your `pip` installation is older than version 21.3.
-Such older versions of `pip` do not support `pyproject.toml` as the package metadata.
-Given these versions of `pip` are now over 4 years old, we strongly recommend that you update `pip` if you can with:
+and they will get an environment containing exactly the same package versions as yours.
+This reproducibility is the main reason lock files exist.
+If your collaborator already has a PDM-created virtual environment, then they would instead run `pdm sync` to get any of your updates contained in `pdm.lock`.
+
+As your project grows you will need to update your environment for a variety of reasons.
+For example, one of your project's dependencies has just released a new version, you need an additional package for data analysis, or you have found a better package and no longer need the older one.
+Each of these is a single `pdm add`, `pdm remove` or `pdm update` command, and each of them updates `pyproject.toml` and `pdm.lock` for you.
+You then just commit those changes and propagate them to your collaborators via your code sharing platform (e.g. GitHub).
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What About `requirements.txt`?
+
+You will still meet projects (and tools, and deployment systems) that expect a `requirements.txt` file listing pinned versions.
+PDM can generate one from the lock file when you need it:
 
 ```bash
-python3 -m pip install --upgrade pip
+pdm export -f requirements --without-hashes -o requirements.txt
 ```
 
-This is similar syntax to above, with two important differences:
+Treat any such file as a generated artefact; `pyproject.toml` and `pdm.lock` are a better source of truth for your project.
 
-1. The `--editable` or `-e` flag indicates that the package we are specifying should be an "editable" install.
-   An "editable" install is one that allows the package in our environment to change dynamically based on source code locally.
-   This is very convenient when we are developing the package because we can instantly see changes when we call the code from within our virtual environment, rather than having to install the local package again to get the updates.
-2. The argument `'.'` indicates that the package we want to install is located in the current directory.
-   The `pyproject.toml` file located in this directory then handles the rest.
-
-
-If we reissue the `pip list` command we should now see our local package with the name `python-intermediate-inflammation` in the output:
-
-```output
-Package                          Version     Editable project location
--------------------------------- ----------- ----------------------------------------------------------------------------------------------
-contourpy                        1.3.1
-cycler                           0.12.1
-exceptiongroup                   1.2.2
-fonttools                        4.56.0
-iniconfig                        2.0.0
-kiwisolver                       1.4.8
-matplotlib                       3.10.0
-numpy                            2.2.3
-packaging                        24.2
-pillow                           11.1.0
-pip                              22.0.2
-pluggy                           1.5.0
-pyparsing                        3.2.1
-pytest                           8.3.4
-python-dateutil                  2.9.0.post0
-python-intermediate-inflammation 0.0.0       /path/to/your/project/directory/python-intermediate-inflammation
-setuptools                       59.6.0
-six                              1.17.0
-tomli                            2.2.1
-```
-
-### Exporting/Importing Virtual Environments Using `pip`
-
-You are collaborating on a project with a team so, naturally,
-you will want to share your environment with your collaborators
-so they can easily 'clone' your software project with all of its dependencies
-and everyone can replicate equivalent virtual environments on their machines.
-`pip` has a handy way of exporting, saving and sharing virtual environments.
-
-To export your active environment use the `python3 -m pip freeze --exclude-editable` command to produce a list of packages installed in the virtual environment.
-A common convention is to put this list in a `requirements.txt` file:
-
-```bash
-(venv) $ python3 -m pip freeze --exclude-editable > requirements.txt
-(venv) $ cat requirements.txt
-```
-
-```output
-contourpy==1.2.0
-cycler==0.12.1
-fonttools==4.45.0
-kiwisolver==1.4.5
-matplotlib==3.8.2
-numpy==1.26.2
-packaging==23.2
-Pillow==10.1.0
-pyparsing==3.1.1
-python-dateutil==2.8.2
-six==1.16.0
-```
-
-The first of the above commands will create a `requirements.txt` file in your current directory.
-Yours may look a little different,
-depending on the version of the packages you have installed,
-as well as any differences in the packages that they themselves use.
-Also, we need to use the `--exclude-editable` command so that our local package is not included in the output, otherwise pip will try to pull from a specific commit at the time we made the editable install, which is not what we want.
-
-The `requirements.txt` file can then be committed to a version control system
-(we will see how to do this using Git in one of the following episodes)
-and get shipped as part of your software and shared with collaborators and/or users.
-They can then replicate your environment
-and install all the necessary packages from the project root as follows:
-
-```bash
-(venv) $ python3 -m pip install -r requirements.txt --editable .
-```
-
-As your project grows you may need to update your environment for a variety of reasons.
-For example, one of your project's dependencies has just released a new version
-(dependency version number update),
-you need an additional package for data analysis (adding a new dependency)
-or you have found a better package and no longer need the older package
-(adding a new and removing an old dependency).
-What you need to do in this case
-(apart from installing the new and removing the packages that are no longer needed
-from your virtual environment)
-is update the contents of the `requirements.txt` file accordingly
-by re-issuing `pip freeze` command
-and propagate the updated `requirements.txt` file to your collaborators
-via your code sharing platform (e.g. GitHub).
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::  testimonial
 
 ## Official Documentation
 
-For a full list of options and commands,
-consult the [official `venv` documentation](https://docs.python.org/3/library/venv.html)
-and the [Installing Python Modules with `pip` guide](https://docs.python.org/3/installing/index.html#installing-index).
-Also check out the guide
-["Installing packages using `pip` and virtual environments"](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments).
-
+For a full list of options and commands, consult the [official PDM documentation](https://pdm-project.org/), in particular the pages on [managing dependencies](https://pdm-project.org/latest/usage/dependency/) and [working with virtual environments](https://pdm-project.org/latest/usage/venv/).
+If you want to dig into what is happening underneath, the [`venv` documentation](https://docs.python.org/3/library/venv.html) is a good place to start.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Running Python Scripts From Command Line
 
 Congratulations!
-Your environment is now activated and set up
-to run our `inflammation-analysis.py` script from the command line.
+Your environment is now set up to run our `inflammation-analysis.py` script from the command line.
 
-You should already be located in the root of the `python-intermediate-inflammation` directory
-(if not, please navigate to it from the command line now).
+You should already be located in the root of the `python-intermediate-inflammation` directory (if not, please navigate to it from the command line now).
 To run the script, type the following command:
 
 ```bash
-(venv) $ python3 inflammation-analysis.py
+pdm run python inflammation-analysis.py
 ```
 
 ```output
@@ -615,23 +535,27 @@ usage: inflammation-analysis.py [-h] infiles [infiles ...]
 inflammation-analysis.py: error: the following arguments are required: infiles
 ```
 
-In the above command, we tell the command line two things:
-
-1. to find a Python interpreter
-  (in this case, the one that was configured via the virtual environment), and
-2. to use it to run our script `inflammation-analysis.py`,
-  which resides in the current directory.
-
 As we can see, the Python interpreter ran our script, which threw an error -
 `inflammation-analysis.py: error: the following arguments are required: infiles`.
-It looks like the script expects a list of input files to process,
-so this is expected behaviour since we do not supply any. 
+It looks like the script expects a list of input files to process, so this is expected behaviour since we do not supply any.
 
 We should run our code as follows, passing one (or more) data file(s) as input:
 
 ```bash
-(venv) $ python3 inflammation-analysis.py data/inflammation-01.csv
+pdm run python inflammation-analysis.py data/inflammation-01.csv
 ```
+
+::: callout
+
+Some other `pdm` commands you will find useful:
+
+- `pdm list --tree` shows which package pulled in which, as a dependency tree.
+- `pdm show numpy` displays information about a particular package.
+- `pdm remove numpy` removes a dependency from `pyproject.toml`, the lock file and the environment - all in one step.
+- `pdm outdated` lists packages for which a newer version is available.
+- `pdm update` updates your dependencies (within the constraints in `pyproject.toml`) and writes the new versions to `pdm.lock`.
+
+:::
 
 ## Optional Exercises
 
@@ -641,13 +565,11 @@ Have a look at [some optional exercises](17-section1-optional-exercises.md).
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Virtual environments keep Python versions and dependencies required by different projects separate.
-- A virtual environment is itself a directory structure.
-- Use `venv` to create and manage Python virtual environments.
-- Use `pip` to install and manage Python external (third-party) libraries.
-- `pip` allows you to declare all dependencies for a project in a separate file (by convention called `requirements.txt`) which can be shared with collaborators/users and used to replicate a virtual environment.
-- Use `python3 -m pip freeze --exclude-editable > requirements.txt` to take snapshot of your project's dependencies.
-- Use `python3 -m pip install -r requirements.txt` to replicate someone else's virtual environment on your machine from the `requirements.txt` file.
+- A virtual environment is itself a directory structure, of the kind `venv` creates.
+- `pdm` creates and manages that virtual environment for you, by convention in `.venv` in the project root.
+- Use `pdm install` to set up (or reproduce) a project's environment from `pyproject.toml` and `pdm.lock`.
+- Use `pdm add` and `pdm remove` to manage external (third-party) libraries; they are recorded in `pyproject.toml`.
+- `pdm.lock` records the exact resolved versions of every dependency - commit it alongside `pyproject.toml` so collaborators get an identical environment.
+- Use `pdm run` to run a command inside the project's environment without having to activate it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
