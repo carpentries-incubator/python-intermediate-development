@@ -99,7 +99,7 @@ designing, building, releasing, and maintaining software.
 After going through this course, participants will be able to:
 
 * Set up and use a suitable development environment together with popular source code management infrastructure to develop software collaboratively
-* Use a test framework to automate the verification of correct behaviour of code, and employ parameterisation and continuous integration to scale and further automate code testing
+* Use a test framework to automate the verification of correct behaviour of code, and employ parametrization and continuous integration to scale and further automate code testing
 * Design robust, extensible software through the application of suitable programming paradigms and design techniques
 * Understand the code review process and employ it to improve the quality of code
 * Prepare and release software for reuse by others
