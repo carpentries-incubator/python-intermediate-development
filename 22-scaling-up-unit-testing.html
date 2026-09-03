@@ -309,7 +309,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
-<li><a href="#parameterising-our-unit-tests">Parameterising Our Unit Tests</a></li>
+<li><a href="#parametrizing-our-unit-tests">Parametrizing Our Unit Tests</a></li>
 <li><a href="#code-coverage---how-much-of-our-code-is-tested">Code Coverage - How Much of Our Code is Tested?</a></li>
 <li><a href="#test-driven-development">Test Driven Development</a></li>
 <li><a href="#limits-to-testing">Limits to Testing</a></li>
@@ -540,7 +540,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.2 Scaling Up Unit Testing</h1>
-        <p>Last updated on 2025-03-07 |
+        <p>Last updated on 2026-09-03 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/22-scaling-up-unit-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -568,7 +568,7 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Use parameterisation to automatically run tests over a set of
+<ul><li>Use parametrization to automatically run tests over a set of
 inputs</li>
 <li>Use code coverage to understand how much of our code is being tested
 using unit tests</li>
@@ -585,14 +585,14 @@ well as our development progresses. How can we make our job of writing
 tests more efficient? And importantly, as the number of tests increases,
 how can we determine how much of our code base is actually being
 tested?</p>
-</section><section><h2 class="section-heading" id="parameterising-our-unit-tests">Parameterising Our Unit Tests<a class="anchor" aria-label="anchor" href="#parameterising-our-unit-tests"></a></h2>
+</section><section><h2 class="section-heading" id="parametrizing-our-unit-tests">Parametrizing Our Unit Tests<a class="anchor" aria-label="anchor" href="#parametrizing-our-unit-tests"></a></h2>
 <hr class="half-width"><p>So far, we have been writing a single function for every new test we
 need. But when we simply want to use the same test code but with
 different data for another test, it would be great to be able to specify
 multiple sets of data to use with the same test code. Test
-<strong>parameterisation</strong> gives us this.</p>
+<strong>parametrization</strong> gives us this.</p>
 <p>So instead of writing a separate function for each different test, we
-can <strong>parameterise</strong> the tests with multiple test inputs.
+can <strong>parametrize</strong> the tests with multiple test inputs.
 For example, in <code>tests/test_models.py</code> let us rewrite the
 <code>test_daily_mean_zeros()</code> and
 <code>test_daily_mean_integers()</code> into a single test function:</p>
@@ -613,14 +613,13 @@ For example, in <code>tests/test_models.py</code> let us rewrite the
 </div>
 <p>Here, we use Pytest’s <strong>mark</strong> capability to add
 metadata to this specific test - in this case, marking that it is a
-parameterised test. <code>parameterize()</code> function is actually a
-<a href="https://www.programiz.com/python-programming/decorator" class="external-link">Python
+parametrized test. <code>parametrize()</code> function is actually a <a href="https://www.programiz.com/python-programming/decorator" class="external-link">Python
 <strong>decorator</strong></a>. A decorator, when applied to a function,
 adds some functionality to it when it is called, and here, what we want
 to do is specify multiple input and expected output test cases so the
 function is called over each of these inputs automatically when this
 test is called.</p>
-<p>We specify these as arguments to the <code>parameterize()</code>
+<p>We specify these as arguments to the <code>parametrize()</code>
 decorator, firstly indicating the names of these arguments that will be
 passed to the function (<code>test</code>, <code>expected</code>), and
 secondly the actual arguments themselves that correspond to each of
@@ -638,16 +637,16 @@ and check it produces <code>[3, 4]</code>.</p>
 for each of the tests - our test code can remain compact and readable as
 we write more tests and adding more tests scales better as our code
 becomes more complex.</p>
-<div id="exercise-write-parameterised-unit-tests" class="callout challenge">
+<div id="exercise-write-parametrized-unit-tests" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="exercise-write-parameterised-unit-tests" class="callout-inner">
-<h3 class="callout-title">Exercise: Write Parameterised Unit Tests</h3>
+<div id="exercise-write-parametrized-unit-tests" class="callout-inner">
+<h3 class="callout-title">Exercise: Write Parametrized Unit Tests</h3>
 <div class="callout-content">
 <p>Rewrite your test functions for <code>daily_max()</code> and
-<code>daily_min()</code> to be parameterised, adding in new test cases
+<code>daily_min()</code> to be parametrized, adding in new test cases
 for each of them.</p>
 </div>
 </div>
@@ -700,7 +699,7 @@ remote repository just yet!):</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">$</span> git add tests/test_models.py</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add parameterisation mean, min, max test cases"</span></span></code></pre>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add parametrization mean, min, max test cases"</span></span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="code-coverage---how-much-of-our-code-is-tested">Code Coverage - How Much of Our Code is Tested?<a class="anchor" aria-label="anchor" href="#code-coverage---how-much-of-our-code-is-tested"></a></h2>
 <hr class="half-width"><p>Pytest cannot think of test cases for us. We still have to decide
@@ -922,7 +921,7 @@ exercises</a> to learn more about code coverage.</p>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>We can assign multiple inputs to tests using parametrisation.</li>
+<ul><li>We can assign multiple inputs to tests using parametrization.</li>
 <li>it is important to understand the <strong>coverage</strong> of our
 tests across our code.</li>
 <li>Writing unit tests takes time, so apply them where it makes the most
@@ -990,7 +989,7 @@ sense.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/22-scaling-up-unit-testing.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/22-scaling-up-unit-testing.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-03-07",
+  "dateModified": "2026-09-03",
   "datePublished": "2026-09-03"
 }
 

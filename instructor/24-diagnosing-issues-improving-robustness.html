@@ -541,7 +541,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>2.4 Diagnosing Issues and Improving Robustness</h1>
-        <p>Last updated on 2025-07-30 |
+        <p>Last updated on 2026-09-03 |
 
         <a href="https://github.com/carpentries-incubator/python-intermediate-development/edit/main/episodes/24-diagnosing-issues-improving-robustness.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1048,9 +1048,9 @@ documentation for pdb</a>.</p>
 </div>
 </section><section><h2 class="section-heading" id="corner-or-edge-cases">Corner or Edge Cases<a class="anchor" aria-label="anchor" href="#corner-or-edge-cases"></a></h2>
 <hr class="half-width"><p>The test case that we have currently written for
-<code>patient_normalise</code> is parameterised with a fairly standard
+<code>patient_normalise</code> is parametrized with a fairly standard
 data array. However, when writing your test cases, it is important to
-consider parameterising them by unusual or extreme values, in order to
+consider parametrizing them by unusual or extreme values, in order to
 test all the edge or corner cases that your code could be exposed to in
 practice. Generally speaking, it is at these extreme cases that you will
 find your code failing, so it is beneficial to test them beforehand.</p>
@@ -1075,7 +1075,7 @@ can see that there is a division by the maximum inflammation value for
 each patient, so this will clearly break if we are dividing by zero
 here, resulting in <code>NaN</code> values in the normalised array.</p>
 <p>With all this in mind, let us add a few edge cases to our
-parametrisation of <code>test_patient_normalise</code>. We will add two
+parametrization of <code>test_patient_normalise</code>. We will add two
 extra tests, corresponding to an input array of all 0, and an input
 array of all 1.</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -1141,7 +1141,7 @@ is 0. We can also silence the run-time warning using <a href="https://numpy.org/
 <div class="callout-content">
 <p>Think of some more suitable edge cases to test our
 <code>patient_normalise()</code> function and add them to the
-parametrised tests. After you have finished remember to commit your
+parametrized tests. After you have finished remember to commit your
 changes.</p>
 </div>
 </div>
@@ -1151,7 +1151,7 @@ changes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Possible Solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1315,7 +1315,7 @@ your remote repository on GitHub.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In <code>inflammation/models.py</code>:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -1693,7 +1693,7 @@ robustness.</li>
   "url": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/24-diagnosing-issues-improving-robustness.html",
   "identifier": "https://carpentries-incubator.github.io/python-intermediate-development/instructor/24-diagnosing-issues-improving-robustness.html",
   "dateCreated": "2020-04-23",
-  "dateModified": "2025-07-30",
+  "dateModified": "2026-09-03",
   "datePublished": "2026-09-03"
 }
 
