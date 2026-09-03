@@ -356,102 +356,120 @@ deactivate
 
 For the rest of this course we will write commands using `pdm run`, so you do not need to keep an environment activated.
 
-### Installing External Packages Using `pip`
+### Adding External Packages Using `pdm add`
 
-We noticed earlier that our code depends on two *external packages/libraries* -
-`numpy` and `matplotlib`.
-In order for the code to run on your machine,
-you need to install these two dependencies into your virtual environment.
-
-To install the latest version of a package with `pip`
-you use pip's `install` command and specify the package's name, e.g.:
+We noticed earlier that our code depends on two *external packages*:  `numpy` and `matplotlib`.
+In order for the code to run on your machine, you need to install these two dependencies into your virtual environment.
+If you tried to run our script right now, Python would stop with a `ModuleNotFoundError` complaining it cannot find `numpy`.
+Go ahead and try it yourself!
 
 ```bash
-(venv) $ python3 -m pip install numpy
-(venv) $ python3 -m pip install matplotlib
+pdm run inflammation-analysis.py data/inflammation-01.csv
 ```
 
-or like this to install multiple packages at once for short:
+With PDM, installing a dependency and declaring that your project requires it are the same action.
+You *add* it to the project:
 
 ```bash
-(venv) $ python3 -m pip install numpy matplotlib
+$ pdm add numpy
+$ pdm add matplotlib
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## How About `pip3 install <package-name>` Command?
-
-You may have seen or used the `pip3 install <package-name>` command in the past, which is shorter
-and perhaps more intuitive than `python3 -m pip install`. However, the
-[official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip) recommends
-`python3 -m pip install` and core Python developer Brett Cannon offers a
-[more detailed explanation](https://snarky.ca/why-you-should-use-python-m-pip/)
-of edge cases when the two commands may produce different results and why `python3 -m pip install`
-is recommended. In this material, we will use `python3 -m` whenever we have to invoke a Python
-module from command line.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-If you run the `python3 -m pip install` command on a package that is already installed,
-`pip` will notice this and do nothing.
-
-To install a specific version of a Python package
-give the package name followed by `==` and the version number,
-e.g. `python3 -m pip install numpy==1.21.1`.
-
-To specify a minimum version of a Python package,
-you can do `python3 -m pip install numpy>=1.20`.
-
-To upgrade a package to the latest version, e.g. `python3 -m pip install --upgrade numpy`.
-
-To display information about a particular installed package do:
+or doing both at once:
 
 ```bash
-(venv) $ python3 -m pip show numpy
+$ pdm add numpy matplotlib
+```
+
+These commands might take a little while to run if there are not binary builds available for your machine.
+
+Behind that one short command, PDM does three things for each package:
+
+1. records the dependency in the `[project]` table of `pyproject.toml`,
+2. re-resolves the specific concrete dependencies and updates `pdm.lock`, and
+3. installs the package into the project's virtual environment.
+
+The `pyproject.toml` file will now contain something like:
+
+```toml
+[project]
+dependencies = [
+    "numpy>=2.2.3",
+    "matplotlib>=3.10.0",
+]
+```
+
+You can quickly see this by running `git diff pyproject.toml`.
+
+Note that PDM saved a *minimum* version specifier rather than pinning an exact version.
+The exact versions actually being used live in `pdm.lock`.
+This separation is deliberate:
+`pyproject.toml` says what your project is *compatible with*, and `pdm.lock` says what you are *currently using*.
+These reflect two different use cases.
+If you are providing a *library* that other researchers or developers will use in their code, then the looser constraints in `pyproject.toml` are necessary because they will have other dependencies that also have their own requirements, and a mutually compatible set of dependencies needs to be found.
+Stating that your package is only compatible with exact versions of its dependencies makes this dependency resolution very difficult and sometimes impossible.
+On the other hand, if someone is directly running your code as an application, then having the strict `pdm.lock` will mean they have a better chance of getting a working version of the code on their system.
+A win for reproducibility!
+
+To ask for a particular version or set your own constraint on a dependency version, give the constraint on the command line (quoting it so that your shell does not interpret the `>` character), e.g.:
+
+```bash
+$ pdm add "numpy==2.2.3"
+$ pdm add "numpy>=2.2"
+```
+
+Respectively, these will:
+
+- put the dependency requirement `numpy==2.2.3` in `pyproject.toml`, meaning anyone who installs your package will also have this exact version of `numpy` installed
+- put the dependency requirement `numpy>=2.2` in `pyproject.toml`, meaning anyone who installs your package will need to have a `numpy` version of *at least* `2.2.0` and above.
+
+To see what is installed in your current environment, use the command
+
+```bash
+$ pdm list
 ```
 
 ```output
-Name: numpy
-Version: 1.26.2
-Summary: Fundamental package for array computing in Python
-Home-page: https://numpy.org
-Author: Travis E. Oliphant et al.
-Author-email: 
-License: Copyright (c) 2005-2023, NumPy Developers.
-All rights reserved.
-...
-Required-by: contourpy, matplotlib
+╭──────────────────────────────────┬─────────────┬──────────────────────────────────────────────────╮
+│ name                             │ version     │ location                                         │
+├──────────────────────────────────┼─────────────┼──────────────────────────────────────────────────┤
+│ contourpy                        │ 1.3.2       │                                                  │
+│ cycler                           │ 0.12.1      │                                                  │
+│ fonttools                        │ 4.63.0      │                                                  │
+│ kiwisolver                       │ 1.5.0       │                                                  │
+│ matplotlib                       │ 3.10.9      │                                                  │
+│ numpy                            │ 2.2.6       │                                                  │
+│ packaging                        │ 26.3        │                                                  │
+│ pillow                           │ 12.3.0      │                                                  │
+│ pyparsing                        │ 3.3.2       │                                                  │
+│ python-dateutil                  │ 2.9.0.post0 │                                                  │
+│ python-intermediate-inflammation │ 0.0.0       │ -e /home/user/python-intermediate-inflammation   │
+│ six                              │ 1.17.0      │                                                  │
+╰──────────────────────────────────┴─────────────┴──────────────────────────────────────────────────╯
 ```
 
-To list all packages installed with `pip` (in your current virtual environment):
+Some other commands you will find useful:
 
-```bash
-(venv) $ python3 -m pip list
-```
+- `pdm list --tree` shows which package pulled in which, as a dependency tree.
+- `pdm show numpy` displays information about a particular package.
+- `pdm remove numpy` removes a dependency from `pyproject.toml`,
+  the lock file and the environment - all in one step.
+- `pdm outdated` lists packages for which a newer version is available.
+- `pdm update` updates your dependencies (within the constraints in `pyproject.toml`)
+  and writes the new versions to `pdm.lock`.
 
-```output
-Package         Version
---------------- -------
-contourpy       1.2.0
-cycler          0.12.1
-fonttools       4.45.0
-kiwisolver      1.4.5
-matplotlib      3.8.2
-numpy           1.26.2
-packaging       23.2
-Pillow          10.1.0
-pip             23.0.1
-pyparsing       3.1.1
-python-dateutil 2.8.2
-setuptools      67.6.1
-six             1.16.0
-```
 
-To uninstall a package installed in the virtual environment do: `python3 -m pip uninstall <package-name>`.
-You can also supply a list of packages to uninstall at the same time.
+::: callout
 
-### Installing Our Local Project as a Package Using `pip`
+## Where Do the Dependencies Come From?
+
+By default, `pdm` obtains packages from the central repository called the [Python Package Index (PyPI)](https://pypi.org/).
+This is where most third-party Python packages live, but it is possible to configure `pdm` to get your packages from other repositories.
+PyPI does its best to try and ensure the security and trustworthiness of the packages it hosts, but there are always bad actors that slip through.
+You should be aware of "name squatting" where a malicious package will use a very similar name or gain ownership of the actual name of a semi-popular package.
+If you mistype or are unlucky enough to download before this is discovered, you will inadvertantly download malicious code onto your device.
+
+:::
 
 Often when working on a Python project, the project itself will be a Python package (like `numpy` or `matplotlib` above) or at the very least it might be useful to treat it like a package.
 Said another way, it is usually the case we want a convenient way to call the Python code we are writing from another location, and making this code accessible as a package is the best way to do this.
