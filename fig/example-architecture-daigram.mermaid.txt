@@ -1,0 +1,18 @@
+graph TD
+    A[(GDrive Folder)]
+    B[(Database)]
+    C[GDrive Monitor]
+    C -- Checks periodically--> A
+    D[Download inflammation data]
+    C -- Trigger update --> D
+    E[Parse inflammation data]
+    D --> E
+    F[Perform analysis]
+    E --> F
+    G[Upload analysis]
+    F --> G
+    G --> B
+    H[Notify users]
+    I[Monitor database]
+    I -- Check periodically --> B
+    I --> H
