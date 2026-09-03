@@ -129,7 +129,7 @@ and use it to assign effort estimates
 As a team
 go through the issues that your partner team has registered with your software repository,
 and quickly estimate how long each issue will take to resolve in minutes.
-Do this by blind consensus first,
+Do this by blind agreement first,
 each anonymously submitting an estimate,
 and then briefly discuss your rationale and decide on a final estimate.
 Make sure these are honest estimates,

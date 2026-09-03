@@ -106,7 +106,7 @@ In addition to enabling general reproducibility by others, documentation...
   such that the software's functionality can be *replicated* and re-implemented elsewhere
 - Provides a descriptive link back to the science that underlies it.
   As a reference, it makes it far easier to know how to
-  update the software as the scientific theory changes (and potentially vice versa)
+  update the software as the scientific theory changes (and potentially the other way round)
 - Importantly, it can enable others to understand the software sufficiently to
   *modify and reuse* it to do different things
 
