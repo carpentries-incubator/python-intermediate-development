@@ -719,7 +719,7 @@ For example, you may want to define the success criteria for a trial if, say,
 
 Finally, we will look at one last aspect of Python where functional programming is coming handy.
 As we have seen in the
-[episode on parametrizing our unit tests](../episodes/22-scaling-up-unit-testing.md#parametrizing-our-unit-tests),
+[episode on parametrising our unit tests](../episodes/22-scaling-up-unit-testing.md#parameterising-our-unit-tests),
 a decorator can take a function, modify/decorate it, then return the resulting function.
 This is possible because Python treats functions as first-class objects
 that can be passed around as normal data.

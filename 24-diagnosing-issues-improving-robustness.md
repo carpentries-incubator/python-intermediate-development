@@ -423,9 +423,9 @@ The debugger has its own commands that you can read about in
 ## Corner or Edge Cases
 
 The test case that we have currently written for `patient_normalise`
-is parametrized with a fairly standard data array.
+is parameterised with a fairly standard data array.
 However, when writing your test cases,
-it is important to consider parametrizing them by unusual or extreme values,
+it is important to consider parameterising them by unusual or extreme values,
 in order to test all the edge or corner cases that your code could be exposed to in practice.
 Generally speaking, it is at these extreme cases that you will find your code failing,
 so it is beneficial to test them beforehand.
@@ -454,7 +454,7 @@ so this will clearly break if we are dividing by zero here,
 resulting in `NaN` values in the normalised array.
 
 With all this in mind,
-let us add a few edge cases to our parametrization of `test_patient_normalise`.
+let us add a few edge cases to our parametrisation of `test_patient_normalise`.
 We will add two extra tests,
 corresponding to an input array of all 0,
 and an input array of all 1.
@@ -519,7 +519,7 @@ def patient_normalise(data):
 ## Exercise: Exploring Tests for Edge Cases
 
 Think of some more suitable edge cases to test our `patient_normalise()` function
-and add them to the parametrized tests.
+and add them to the parametrised tests.
 After you have finished remember to commit your changes.
 
 :::::::::::::::  solution

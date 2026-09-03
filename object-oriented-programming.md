@@ -504,7 +504,7 @@ print(obs)
 ```
 
 You may recognise the `@` syntax from episodes on
-parametrizing unit tests and functional programming -
+parameterising unit tests and functional programming -
 `property` is another example of a **decorator**.
 In this case the `property` decorator is taking the `last_observation` function
 and modifying its behaviour,

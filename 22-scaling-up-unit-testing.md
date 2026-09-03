@@ -6,7 +6,7 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Use parametrization to automatically run tests over a set of inputs
+- Use parameterisation to automatically run tests over a set of inputs
 - Use code coverage to understand how much of our code is being tested using unit tests
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -28,15 +28,15 @@ How can we make our job of writing tests more efficient?
 And importantly, as the number of tests increases,
 how can we determine how much of our code base is actually being tested?
 
-## Parametrizing Our Unit Tests
+## Parameterising Our Unit Tests
 
 So far, we have been writing a single function for every new test we need.
 But when we simply want to use the same test code but with different data for another test,
 it would be great to be able to specify multiple sets of data to use with the same test code.
-Test **parametrization** gives us this.
+Test **parameterisation** gives us this.
 
 So instead of writing a separate function for each different test,
-we can **parametrize** the tests with multiple test inputs.
+we can **parameterise** the tests with multiple test inputs.
 For example, in `tests/test_models.py` let us rewrite
 the `test_daily_mean_zeros()` and `test_daily_mean_integers()`
 into a single test function:
@@ -56,15 +56,15 @@ def test_daily_mean(test, expected):
 ```
 
 Here, we use Pytest's **mark** capability to add metadata to this specific test -
-in this case, marking that it is a parametrized test.
-`parametrize()` function is actually a
+in this case, marking that it is a parameterised test.
+`parameterize()` function is actually a
 [Python **decorator**](https://www.programiz.com/python-programming/decorator).
 A decorator, when applied to a function,
 adds some functionality to it when it is called, and here,
 what we want to do is specify multiple input and expected output test cases
 so the function is called over each of these inputs automatically when this test is called.
 
-We specify these as arguments to the `parametrize()` decorator,
+We specify these as arguments to the `parameterize()` decorator,
 firstly indicating the names of these arguments that will be
 passed to the function (`test`, `expected`),
 and secondly the actual arguments themselves that correspond to each of these names -
@@ -83,9 +83,9 @@ and adding more tests scales better as our code becomes more complex.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Write Parametrized Unit Tests
+## Exercise: Write Parameterised Unit Tests
 
-Rewrite your test functions for `daily_max()` and `daily_min()` to be parametrized,
+Rewrite your test functions for `daily_max()` and `daily_min()` to be parameterised,
 adding in new test cases for each of them.
 
 :::::::::::::::  solution
@@ -131,7 +131,7 @@ Let us commit our revised `test_models.py` file and test cases to our `test-suit
 
 ```bash
 $ git add tests/test_models.py
-$ git commit -m "Add parametrization mean, min, max test cases"
+$ git commit -m "Add parameterisation mean, min, max test cases"
 ```
 
 ## Code Coverage - How Much of Our Code is Tested?
@@ -361,7 +361,7 @@ to learn more about code coverage.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- We can assign multiple inputs to tests using parametrization.
+- We can assign multiple inputs to tests using parametrisation.
 - it is important to understand the **coverage** of our tests across our code.
 - Writing unit tests takes time, so apply them where it makes the most sense.
 

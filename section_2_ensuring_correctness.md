@@ -97,21 +97,21 @@ Start from this section heading and go to the end of the page.
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Scaling Up Unit Testing
 
-1. Parametrize our tests to reduce repetition
+1. Parameterise our tests to reduce repetition
 2. Check the test coverage of our code
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-1. Parametrize our tests
+1. Parameterise our tests
   - from the previous example, you may have noticed that if you want to run a test with the same logic but different input data, you will need to create a new test function that is mostly the same
-  - there is a convenient way to avoid this in pytest called _parametrization_, allowing a single test function to run through a variety of test input cases
+  - there is a convenient way to avoid this in pytest called _parameterisation_, allowing a single test function to run through a variety of test input cases
   - very powerful to improve the coverage of the parameter space that you code might be dealing with
 2. Check the test coverage
   - on a related note, it is important to see how much of our code is "covered" (i.e. verified) by our tests so that we can get at least a relative idea of how the quality of our code is faring overtime, and where we should focus testing efforts
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Breakout Exercise: 🖉 Parametrizing Our Unit Tests
+### Breakout Exercise: 🖉 Parameterising Our Unit Tests
 
 Go through this page to the end, starting from this section heading. In the last 5-7 minutes, please think about the question:
 
