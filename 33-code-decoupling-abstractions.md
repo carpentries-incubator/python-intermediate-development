@@ -103,7 +103,7 @@ def analyse_data(data_dir):
 ```
 
 The code is now easier to follow since we do not need to understand the data loading part
-to understand the statistical analysis part, and vice versa.
+to understand the statistical analysis part, and the other way round.
 In most cases, functions work best when they are short!
 
 

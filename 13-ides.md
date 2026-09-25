@@ -236,7 +236,7 @@ and has added these libraries effectively replicating our virtual environment in
 
 ![](fig/pycharm-installed-packages.png){alt='Packages Currently Installed in a Virtual Environment in PyCharm' .image-with-shadow width="800px"}
 
-Also note that, although the names are not the same - this is one and the same virtual environment and changes done to it in PyCharm will propagate to the command line and vice versa.
+Also note that, although the names are not the same - this is one and the same virtual environment and changes done to it in PyCharm will propagate to the command line and the other way round.
 
 
 ### VS Code
