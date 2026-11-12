@@ -279,8 +279,7 @@ So, a virtual environment is a directory containing:
 - various other configuration and supporting files and subdirectories.
 
 Had we not been using PDM, we could have created exactly this ourselves with `python -m venv .venv` and then installed packages into it by using `pip`.
-Had we not been using PDM, we could have created exactly this ourselves with `python -m venv .venv` and then installed packages into it by using `pip`.
-We would also manually activate the virtual environment from that directory when we want to use it.
+We would also need to manually activate the virtual environment from that directory when we want to use it.
 However, now PDM does all this work of managing this environment, which makes for a smoother user experience but can also make the virtual environment feel like a bit of a black box.
 Below we will explain both how to use the standard PDM workflow, and also how to get the commands you need to use these virtual environments in a more traditional manner, if you so wish.
 
