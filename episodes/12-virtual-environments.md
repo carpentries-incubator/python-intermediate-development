@@ -153,7 +153,7 @@ As this comic points out, managing Python and its environments used to be quite 
 
 Anaconda is an open source Python distribution commonly used for scientific programming - it conveniently installs Python, package and environment management through `conda`, and a  number of commonly used scientific computing packages so you do not have to obtain them separately.
 However, recent [licence changes](https://www.datacamp.com/blog/navigating-anaconda-licensing) have made Anaconda less appealing.
-There are truly open alternatives like [conda-forge](https://conda-forge.org/).
+There are truly open alternatives like [conda-forge and miniforge](https://conda-forge.org/) that mimic `conda`'s functionality closely, or there is the more recent tool [pixi](https://pixi.prefix.dev/latest/) that has an interface more like `uv` and `pdm` but can also install from `conda` sources.
 
 `conda` is an independent command line tool
 (available separately from the Anaconda distribution) with dual functionality:
