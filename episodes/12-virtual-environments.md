@@ -75,7 +75,7 @@ So what exactly are virtual environments, and why use them?
 
 A Python virtual environment helps us create an **isolated workspace** for our software project.
 This workspace comes with a Python interpreter together with the versions of any external libraries that your project needs (e.g. NumPy or SciPy).
-Python virtual environments are implemented as directories with a particular structure, containing links to specified dependencies allowing isolation from other software projects on your machine that may require different versions of Python or external libraries.
+Python virtual environments are implemented as directories with a particular structure, containing links to specified dependencies enabling isolation from other software projects on your machine that may require different versions of Python or external libraries.
 
 As more external libraries are added to your Python project over time,
 you can add them to its specific virtual environment
@@ -88,7 +88,7 @@ that they make sharing your code with others much easier
 Here are some typical scenarios where
 the use of virtual environments is highly recommended (almost unavoidable):
 
-- You have an older project that is pinned to an older version of Python.
+- You have a project that is pinned to an older version of Python.
   You do not have the time to migrate the project to a newer version,
   or it may not even be possible as some of the third party dependencies
   have not been updated.
@@ -145,7 +145,7 @@ or which packages you installed by hand three months ago.
 
 As this comic points out, managing Python and its environments used to be quite complex without these tools.
 
-![Python Environment Hell from [XKCD](https://xkcd.com/1987/) (Creative Commons Attribution-NonCommercial 2.5 License)](fig/python-environment-hell.png){alt='Python environment hell XKCD comic'}
+![Python Environment Hell from [XKCD](https://xkcd.com/1987/) (Creative Commons Attribution-NonCommercial 2.5 License)](fig/python-environment-hell.png){alt='Python environment hell XKCD comic. It links PATH environment variables through a tangled web of interdependent environments to a range of library file locations, ranging from mundane to unusual and weird'}
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -178,7 +178,7 @@ Install PDM according to its [website instructions](https://pdm-project.org/en/l
 curl -sSL https://pdm-project.org/install.sh | bash
 ```
 
-You can inspect the Bash script at the URL `curl` is grabbing from if you want to make sure it isn't doing anything sketchy.
+You can inspect the Bash script at the URL `curl` is grabbing from if you want to make sure it isn't doing anything sketchy. To do this replace `bash` with `less` or `cat` in the command above. This will display the script rather than run it.
 
 Then, test that PDM is available on your `PATH` by executing:
 
@@ -196,7 +196,8 @@ PDM can manage Python interpreters for you,
 but it is good to check that you also have a system Python available:
 
 ```bash
-python --version
+$ python3 --version # on Mac/Linux
+$ python --version # on Windows — Windows installation comes with a python.exe file rather than a python3.exe file 
 ```
 
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message or output, you may
@@ -243,7 +244,10 @@ Our project does not declare any external dependencies yet, so there was not muc
 ## Choosing a Python Interpreter
 
 By default PDM will pick a suitable Python interpreter from the ones installed on your machine and remember the choice in a file called `.pdm-python`.
-You can inspect what it selected with `pdm info`, change it with `pdm use`, and even have PDM download and install a Python version for you with, for example, `pdm python install 3.14`.
+You can inspect which python interpreter is selected in your virtual environment with `pdm info`.
+You can have PDM download and install a specific version of Python using, for example, `pdm python install 3.14`.
+To see the python interpreters available use `pdm python list`.
+To change the python interpreter selected in your virtual environment use, for example, `pdm use 3.14`.
 This is handy when a project needs a Python version that is not available through your operating system.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -275,11 +279,13 @@ So, a virtual environment is a directory containing:
 - various other configuration and supporting files and subdirectories.
 
 Had we not been using PDM, we could have created exactly this ourselves with `python -m venv .venv` and then installed packages into it by using `pip`.
-It is worth knowing this is all a virtual environment is, so that the environment does not feel like a black box.
-But from here on, we will let PDM do the work of managing this environment.
+Had we not been using PDM, we could have created exactly this ourselves with `python -m venv .venv` and then installed packages into it by using `pip`.
+We would also manually activate the virtual environment from that directory when we want to use it.
+However, now PDM does all this work of managing this environment, which makes for a smoother user experience but can also make the virtual environment feel like a bit of a black box.
+Below we will explain both how to use the standard PDM workflow, and also how to get the commands you need to use these virtual environments in a more traditional manner, if you so wish.
 
 Note that since our software project is being tracked by Git, the newly created `.venv` directory will show up in version control.
-We will see how to tell Git to ignore it in one of the subsequent episodes.
+We will explain how to tell Git to ignore it in a subsequent episode.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -312,7 +318,7 @@ pdm run python --version
 Python 3.14.2  # your version will differ depending on your system
 ```
 
-This works from anywhere inside the project, and it works the same way for you and for your collaborators, regardless of what is or is not activated in their shell.
+This works from anywhere inside the project directory, and it works the same way for you and for your collaborators, regardless of what is or is not activated in their shell.
 
 If you would still like an activated shell---for example because you are running many commands in a row---PDM will print the activation command for you to evaluate:
 
@@ -401,11 +407,11 @@ dependencies = [
 You can quickly see this by running `git diff pyproject.toml`.
 
 Note that PDM saved a *minimum* version specifier rather than pinning an exact version.
-The exact versions actually being used live in `pdm.lock`.
+The exact versions being used are recorded in `pdm.lock`.
 This separation is deliberate:
 `pyproject.toml` says what your project is *compatible with*, and `pdm.lock` says what you are *currently using*.
 These reflect two different use cases.
-If you are providing a *library* that other researchers or developers will use in their code, then the looser constraints in `pyproject.toml` are necessary because they will have other dependencies that also have their own requirements, and a mutually compatible set of dependencies needs to be found.
+If you are providing a *library* that other researchers or developers will use in their code, then the looser constraints in `pyproject.toml` are necessary because they may add other libraries that will also have their own requirements, and a mutually compatible set of dependencies needs to be found.
 Stating that your package is only compatible with exact versions of its dependencies makes this dependency resolution very difficult and sometimes impossible.
 On the other hand, if someone is directly running your code as an application, then having the strict `pdm.lock` will mean they have a better chance of getting a working version of the code on their system.
 A win for reproducibility!
@@ -476,9 +482,9 @@ That is why `python-intermediate-inflammation` appears in the `pdm list` output 
 ### Sharing Your Environment With Collaborators
 
 You are collaborating on a project with a team so, naturally, you will want to share your environment with your collaborators so they can easily "clone" your software project with all of its dependencies and everyone can replicate equivalent virtual environments on their machines.
-With PDM there is nothing extra to do to achieve this.
+With PDM there is nothing extra you need to do to achieve this.
 The `pdm.lock` generated automatically contains the exact versions of every package (including sub-dependencies) that were resolved when creating the virtual environment for our project.
-This file should be committed to version control, and we will get around to doing this using Git in one of the following episodes.
+This file should be committed to version control, and we will do this using Git in a subsequent episode.
 A collaborator then only has to run:
 
 ```bash
