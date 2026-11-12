@@ -442,9 +442,8 @@ We add and commit things to `develop` branch in the same way as we do to `main`.
 
 Let us make a small modification to `inflammation/models.py` in the IDE,
 and, say, change the spelling of "2d" to "2D" in docstrings for functions
-`daily_mean()`,
-`daily_max()` and
-`daily_min()` to see updating branches in action.
+`daily_mean()` and
+`daily_max()` to see updating branches in action.
 
 If we do:
 
@@ -607,6 +606,73 @@ Since we have no conflicts, we can now push the `main` branch to the remote repo
 ```bash
 $ git push origin main
 ```
+
+### Merging using GitHub Pull Requests
+
+GitHub provides a way of merging code directly on the website, called Pull Requests.
+These can be used for collaboration with other developers, as we will discuss in a future lesson, but for now we will use it simply for merging our own code changes. 
+
+Before we do this, let us make a small modification to `inflammation/models.py` in the IDE as before.
+
+Switch to the develop branch again:
+
+```bash
+git switch develop
+```
+
+Then apply the same change in spelling of "2d" to "2D" in the docstring for function
+`daily_min()` that we previously made for the other functions.
+
+Check that this has been applied using:
+
+```bash
+$ git status
+```
+
+```output
+   On branch develop
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+
+   	modified:   inflammation/models.py
+
+   no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Git is telling us that we are on branch `develop`
+and which tracked files have been modified in our working directory.
+
+We can now `add` and `commit` the changes in the usual way.
+
+```bash
+$ git add inflammation/models.py
+$ git commit -m "Spelling fix for daily_min"
+```
+
+And finally push your changes to GitHub:
+```bash
+git push origin develop
+```
+
+Once this change is on GitHub we can then create a Pull Request:
+1. Head over to your software repository in GitHub.
+2. Navigate to the pull requests tab.
+3. Create a new pull request by clicking the green `New pull request` button.
+  ![](fig/github-pull-request-tab.png){alt='GitHub pull requests tab' .image-with-shadow width="900px"}
+4. Select the base and the compare branch: `main` and `develop`, respectively.
+  The base branch is where you want your changes to be merged
+  and the compare branch contains the changes.
+5. Click `Create pull request` button to open the request.
+  ![](fig/github-create-pull-request.png){alt='Creating a new pull request.' .image-with-shadow width="900px"}
+6. Add a title and comment describing the nature of the changes.
+  These can be short for now, as we are not carrying out a full review process.
+  Then submit the pull request by clicking the `Create pull request` button (in the new window).
+  ![](fig/github-submit-pull-request.png){alt='Submitting a pull request.' .image-with-shadow width="900px"}
+7. Click `Merge pull request` button to merge the request.
+  ![](fig/github-merge-pull-request.png){alt='Merging a pull request' .image-with-shadow width="900px"}
+
+
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
